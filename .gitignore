@@ -32,3 +32,9 @@ node_modules/
 
 # Korean font vendored for preview rendering (6MB, OFL) — refetch from Google Fonts
 projects/*/NotoSansKR-Bold.ttf
+
+# malgap-ep1 deliverables: the render itself and the TTS narration it needs.
+# Narration costs Gemini quota to regenerate, so it is kept rather than rebuilt.
+!projects/*/*.mp4
+!projects/*/vo/*.wav
+projects/*/mix.wav

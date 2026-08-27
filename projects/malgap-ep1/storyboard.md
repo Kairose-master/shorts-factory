@@ -79,34 +79,60 @@ Gemini TTS `Charon`, "건조하고 담담한 톤, 비꼬지 말고 사실만 읽
 | S2 | 5.0s | 1.41s | 3.59s |
 | S3 | 6.0s | 3.41s | 2.59s |
 | S4 | 6.0s | 1.85s | 4.15s |
-| S5 | 6.0s | **미생성** | — |
+| S5 | 6.0s | 3.69s | 2.31s |
 | S6 | 5.0s | 무음(의도) | 5.00s |
 
-**S5 내레이션은 없습니다.** Gemini TTS가 `429 RESOURCE_EXHAUSTED` — 이번 세션에서
-한국어 TTS를 앞서 써서 무료 쿼터가 소진됐습니다. 쿼터 회복 후 한 줄만 재생성하면 됩니다.
+S5는 처음에 `429 RESOURCE_EXHAUSTED`로 실패했다가 쿼터 회복 후 재생성했습니다. 5줄 전부 있습니다.
 
 **여백이 큰 게 이 포맷에선 정상입니다.** `boil`은 씬당 5–6초를 **그림**이 잡습니다.
 내레이션이 짧으면 마크가 홀드되는 시간이고, 그게 이 스타일의 호흡입니다.
 (브릿지 스킬 Step 2.5가 "내레이션이 씬 시계"라고 단정했는데 `boil`에는 해당하지 않습니다 —
 스킬 쪽을 정정했습니다.)
 
-## 렌더 — 아직 안 됩니다
+## 렌더 — 완료
 
-`boil` 아트는 `video-studio gen_boil`이 그립니다. 그게 설치 불가라(프록시가 github.com
-403) **정식 렌더 경로가 막혀 있습니다.**
+`projects/malgap-ep1/malgap_ep1.mp4`
 
-동봉한 `preview_contactsheet.png`와 `panel_1..6.png`는 PIL로 `boil` 스타일을
-흉내 내 그린 **미리보기이지 렌더 결과가 아닙니다.** 구도·카피·마크 확인용입니다.
+| | |
+|---|---|
+| 해상도 | 1080×1920 (9:16) |
+| 길이 | 34.10s |
+| 프레임 | 30fps, 1020 frames, hold 3 (340회 재작화) |
+| 비디오 | h264 High, yuv420p, CRF 19, faststart |
+| 오디오 | AAC 48kHz mono, **-13.8 LUFS** |
 
-`boil_shapes.py`는 진짜입니다 — 포맷이 요구하는 제약(함수만, import 없음,
-`s_<name>(d,c,rng,w,p,cx,cy,s)` 시그니처)을 AST로 검증했고, 엔진이 열리는 즉시
-`--shape-file projects/malgap-ep1/boil_shapes.py`로 바로 씁니다.
+**ffmpeg는 PyPI의 `imageio-ffmpeg`(정적 빌드 7.0.2)로 뚫었습니다.** 프록시가 github.com을
+막아 `video-studio`는 여전히 설치 불가지만, 렌더에 실제로 필요했던 건 ffmpeg뿐이었습니다.
+
+**정식 경로는 아닙니다.** `gen_boil`이 없어 `render_video.py`가 boil grammar를 직접
+구현했습니다 — 흔들리는 단일 두께 라인, 씬당 플랫 2색, hold 3 재작화, 아트 위 타이포,
+캡션 없음. 마크는 `boil_shapes.py`를 그대로 불러 씁니다.
+
+### QC (`video-production` step 8)
+
+프레임을 **실제로 열어 확인**했습니다. "렌더됐다"와 "맞다"는 다른 주장입니다.
+
+| 항목 | 결과 |
+|---|---|
+| 6씬 전부 정상 | ✅ |
+| 한글 글리프 | ✅ Noto Sans KR |
+| S2 팔레트 반전 | ✅ |
+| 마크·카드 미겹침 | ✅ 상단 0.33 / 하단 0.63 |
+| black tail | ✅ 없음 (마지막 프레임 잉크 24,350px) |
+| frozen ending | ✅ 없음 (마침표 마크 계속 진동) |
+| 라우드니스 | 초기 **-11.1 LUFS 과다** → loudnorm 후 **-13.8** |
+
+중간 무음 2.0~4.7초는 `silencedetect`에 잡히지만 **의도된 홀드**입니다. boil은 씬당
+5~6초를 그림이 잡고, 내레이션(1.41~4.45s)이 끝난 뒤 마크가 남는 게 이 스타일의 호흡입니다.
+
+### 재현
 
 ```bash
-# 엔진 설치 후
-video-studio gen_boil --shape-file projects/malgap-ep1/boil_shapes.py \
-  --shape s_cup --seconds 6 --hold 3 --seed 1002
+pip install imageio-ffmpeg pillow numpy
+python3 projects/malgap-ep1/render_video.py
 ```
+
+`vo/*.wav`는 저장소에 포함했습니다 — 재생성에 Gemini 쿼터가 들기 때문입니다.
 
 ## 다음 에피소드 (같은 구조, 단어만 교체)
 
