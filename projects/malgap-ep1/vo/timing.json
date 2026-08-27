@@ -1,0 +1,37 @@
+[
+  {
+    "scene": "s1",
+    "measured_s": 4.45,
+    "planned_s": 6,
+    "delta": -1.55,
+    "text": "단어 하나가 얼마짜리인지, 재본 적 있으세요?"
+  },
+  {
+    "scene": "s2",
+    "measured_s": 1.41,
+    "planned_s": 5,
+    "delta": -3.59,
+    "text": "시그니처."
+  },
+  {
+    "scene": "s3",
+    "measured_s": 3.41,
+    "planned_s": 6,
+    "delta": -2.59,
+    "text": "이건 요거트에 토핑 세 개입니다."
+  },
+  {
+    "scene": "s4",
+    "measured_s": 1.85,
+    "planned_s": 6,
+    "delta": -4.15,
+    "text": "삼만 원이 넘습니다."
+  },
+  {
+    "scene": "s6",
+    "measured_s": 5.0,
+    "planned_s": 5,
+    "delta": 0,
+    "text": "(무음 — 판단 유보)"
+  }
+]

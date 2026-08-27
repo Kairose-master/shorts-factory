@@ -90,11 +90,17 @@ inferred format as a measured one.
 
 ## Step 2.5: synthesise narration before you time anything
 
-Narration duration **is** the scene clock. A storyboard timed by eye is an
-estimate; the voice decides. Synthesise first, then fit the visuals — never the
-reverse. Measured on this repo's own Script B: total came in 1.45s under the
+Narration duration is the scene clock **for narration-led formats**. A storyboard
+timed by eye is an estimate; the voice decides. Synthesise first, then fit the
+visuals. Measured on this repo's own Script B: total came in 1.45s under the
 estimate, but the hook ran **5.17s against a 4.0s slot**, 29% over. The total
 looked fine and the one scene that mattered did not.
+
+**`boil` is the exception, and it matters.** That format fixes 5–6s per scene
+because the *drawing* holds the beat, not the voice. Measured on `projects/malgap-ep1`:
+narration came in at 1.41–4.45s against 5–6s slots — every scene short, by design.
+Do not compress a boil scene to its narration; the silence is the format. Check
+the chosen format's grammar before treating the voice as the clock.
 
 **Voice routing, measured — not assumed:**
 

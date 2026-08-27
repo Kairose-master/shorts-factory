@@ -29,3 +29,6 @@ node_modules/
 
 # OS
 .DS_Store
+
+# Korean font vendored for preview rendering (6MB, OFL) — refetch from Google Fonts
+projects/*/NotoSansKR-Bold.ttf
