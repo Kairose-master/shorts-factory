@@ -24,7 +24,7 @@ def ease_out_back(p, s=1.4):
     return 1 + p * p * ((s + 1) * p + s)
 
 # ---------- 상단 타이틀 밴드 ----------
-def title_band(im, line_w, line_y, t, y0=88):
+def title_band(im, line_w, line_y, t, y0=88, tag="「자유중국」 EP1"):
     """흰 줄 + 노랑 줄, 스태거 0.13s. 입장: 슬라이드다운+페이드+스케일."""
     def line_layer(txt, font, fill, ent):
         e = ease_out_cubic(ent / 0.42)
@@ -48,7 +48,7 @@ def title_band(im, line_w, line_y, t, y0=88):
     if t > 0.18:
         lay, (lx, dy) = line_layer(line_y, FT(104), YELLOW, t - 0.18)
         im.paste(lay, (lx, y0 + 150 + dy), lay)
-    d.text((W - 40, y0 + band_h - 150), "「자유중국」 EP1", font=FT(34),
+    d.text((W - 40, y0 + band_h - 150), tag, font=FT(34),
            fill=(200, 200, 200, 230), anchor="ra")
     return im
 
@@ -93,6 +93,16 @@ def chunks_for(text, dur, max_chars=15):
         else:
             cur = (cur + " " + w).strip()
     if cur: out.append(cur)
+    # 쉼표 없는 과장 청크는 중앙 근처 공백에서 한 번 더 쪼갠다(폰트 축소 방지)
+    fixed = []
+    for c in out:
+        while len(c) > max_chars + 8 and " " in c:
+            mid = len(c) // 2
+            cands = [i for i, ch in enumerate(c) if ch == " "]
+            cut = min(cands, key=lambda i: abs(i - mid))
+            fixed.append(c[:cut].strip()); c = c[cut:].strip()
+        fixed.append(c)
+    out = [c for c in fixed if c]
     total = sum(len(c) for c in out) or 1
     sched, t = [], 0.0
     for c in out:
