@@ -1,0 +1,70 @@
+{
+  "_doc": "MASTER-PROMPT §12 발행 큐 + §14 예측 로그의 상태 저장소. analytics.py가 published 항목을 스냅샷한다.",
+  "channel": {"handle": "@Cost_Of_말", "channelId": "UCYMDabVr7-GVuMUcXurOrtg"},
+  "items": [
+    {
+      "id": "jayu-ep1-v2", "series": "자유중국", "ep": 1,
+      "title_current": "자유중국-EP1",
+      "title_suggested": "중국이 공산화되지 않았다면?",
+      "hook": "1946년, 만주의 트럭 3만 대가 방향을 바꿨습니다.",
+      "hookType": "연도 시작형",
+      "status": "PUBLISHED",
+      "videoId": "-bxFAQbEiEE",
+      "publishDate": "2026-08-27",
+      "notes": "구 순서(1946→전개→결론) — 제작 원칙 v1.0 §1 위반, 재제작 대상. 제목도 §12 위반(EP 번호 제목).",
+      "prediction": {"aiHookScore": 55, "basis": "원칙 v1.0이 명시적으로 약한 훅으로 규정한 연도 시작형"}
+    },
+    {
+      "id": "malgap-3", "series": "말값", "ep": 3,
+      "title_current": "말값3",
+      "title_suggested": "(말값 3화 훅 문장으로 교체 필요)",
+      "hookType": "미기록",
+      "status": "PUBLISHED",
+      "videoId": "qaf7JYQlE1k",
+      "publishDate": "2026-08-27",
+      "prediction": null
+    },
+    {
+      "id": "malgap-a", "series": "말값",
+      "title_current": "2026년 8월 27일",
+      "title_suggested": "(훅 문장으로 교체 필요 — 기본 날짜 제목)",
+      "hookType": "미기록",
+      "status": "PUBLISHED",
+      "videoId": "aOen_yxfkxM",
+      "publishDate": "2026-08-27",
+      "prediction": null
+    },
+    {
+      "id": "malgap-b", "series": "말값",
+      "title_current": "2026년 8월 27일",
+      "title_suggested": "(훅 문장으로 교체 필요 — 기본 날짜 제목)",
+      "hookType": "미기록",
+      "status": "PUBLISHED",
+      "videoId": "U8GNot04Jwc",
+      "publishDate": "2026-08-27",
+      "prediction": null
+    },
+    {
+      "id": "jayu-ep2-v2", "series": "자유중국", "ep": 2,
+      "title_suggested": "이 세계의 보수는 복지를 지킵니다",
+      "hook": "이 세계의 보수는 복지를 지킵니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep2-short/jayu_ep2_v2_final.mp4",
+      "durationSec": 65.0,
+      "qScore": {"H": 88, "C": 90, "V": 78, "R": 92, "P": 90, "N": 80, "Q": 87.0, "verdict": "RELEASE"},
+      "nextContradiction": "이 세계의 한국 보수는, 친중입니다. (EP4)"
+    },
+    {
+      "id": "jayu-ep3", "series": "자유중국", "ep": 3,
+      "title_suggested": "이 세계의 진보는 민영화를 주장합니다",
+      "hook": "이 세계의 진보는 민영화를 주장합니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep3-short/jayu_ep3_final.mp4",
+      "durationSec": 67.0,
+      "qScore": {"H": 90, "C": 86, "V": 82, "R": 90, "P": 88, "N": 84, "Q": 87.1, "verdict": "RELEASE"},
+      "nextContradiction": "이 세계의 한국은, 보수가 친중이고 진보가 반중입니다. (EP4)"
+    }
+  ]
+}

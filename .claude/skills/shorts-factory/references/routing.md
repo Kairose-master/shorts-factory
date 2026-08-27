@@ -66,6 +66,7 @@ a credential; everything unmarked runs free and offline.
 | "fix the pacing / cut rhythm / transitions" | `beat-sync-editing` |
 | "animated background behind content" | `motion-background` |
 | "animate a timeline / map / diagram (3B1B style)" | `manim` |
+| "run the factory loop / 발행 큐 / 성과 분석 / 다음 에피소드" | `content-factory` (SSOT: `factory/MASTER-PROMPT-v1.md`) |
 
 ## Meta
 
