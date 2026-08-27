@@ -3,7 +3,7 @@
 A short-form video research and scripting workspace, and the home of the
 **Handsel Short-Form Growth Office** (`office/`).
 
-51 Agent Skills are installed under `.claude/skills/`:
+52 Agent Skills are installed under `.claude/skills/`:
 
 - **43 upstream skills** pulled from five repositories and left **byte-identical
   to upstream** so `npx skills update` keeps working. These are the ones tracked
@@ -12,6 +12,13 @@ A short-form video research and scripting workspace, and the home of the
   `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
   `aicron`, `zapier-mcp` — plus `shorts-factory` itself. `npx skills update`
   will not touch them.
+- **1 vendored upstream skill**, `last30days` (MIT,
+  [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)),
+  copied byte-identical but not in the lock file. **It needs Python 3.12+**,
+  which this container does not ship — `LAST30DAYS_PYTHON` in
+  `.claude/settings.json` points at a `uv`-managed 3.12. `verify_skills.py`
+  reports its 3.12-only syntax as a warning naming that requirement, not an
+  error.
 
 Run `python3 scripts/verify_skills.py` after any change to the skills tree.
 
@@ -92,6 +99,9 @@ Pick the **narrowest** skill that matches the ask.
 - "is this trend worth riding" → `trend-radar`
 - "write me hooks" → `viral-hooks`; "critique this hook" → `hook-anatomy`
 - "write the script" → `viral-short-form` for shape, the platform skill for tuning
+- "what are people actually saying about X this month" → `last30days`
+  (Reddit · Hacker News · Polymarket keyless and free; X/TikTok/YouTube/
+  Instagram need keys. Run it before generating a backlog — see lesson L-07.)
 - Raw endpoint lookup → `scrapecreators-api` (the data layer the others call)
 
 Two skills that look duplicated are kept on purpose:

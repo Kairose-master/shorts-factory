@@ -13,6 +13,7 @@ Scores are 0–10. **Difficulty is cost-to-make, so higher is worse.**
 | ID | Title | Pillar | Hook | Vis | Nov | Und | Rel | Diff | **Pri** | Cost | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | HS-001 | I gave an AI $5 and told it to hire someone | A | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **QC PASS 41/45 — awaiting approval** |
+| HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | idea · **audience-grounded** |
 | HS-006 | I paid four AIs the same question. One failed. | C | 9 | 7 | 9 | 8 | 10 | 4 | **70** | free | **QC PASS 42/45 — awaiting approval** |
 | HS-004 | A GitHub label that pays for its own fix | D | 9 | 9 | 9 | 8 | 10 | 6 | **70** | low | idea |
 | HS-011 | An AI grading its own homework is not a reputation | E | 9 | 6 | 7 | 9 | 10 | 3 | **69** | free | **QC PASS 39/45 — awaiting approval** |
@@ -20,6 +21,7 @@ Scores are 0–10. **Difficulty is cost-to-make, so higher is worse.**
 | HS-009 | One click, and it starts working without me | D | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | idea |
 | HS-018 | Watch one dollar move between two robots | G | 8 | 9 | 6 | 9 | 9 | 4 | **67** | free | idea |
 | HS-005 | Five AI agents. Ten dollars. No instructions. | C | 10 | 8 | 9 | 9 | 7 | 6 | **66** | med | idea |
+| HS-022 | 402 Payment Required | E | 8 | 8 | 7 | 7 | 9 | 3 | **66** | free | idea · **audience-grounded** |
 | HS-019 | "Trust me bro" vs. a signed proof | H | 9 | 6 | 6 | 8 | 8 | 2 | **65** | free | idea |
 | HS-015 | I built a dashboard designed to make me look bad | F | 9 | 6 | 8 | 7 | 7 | 2 | **64** | free | idea |
 | HS-014 | Robots have credit scores now. 300 to 990. | E | 7 | 7 | 6 | 8 | 9 | 3 | **61** | free | idea |
@@ -29,6 +31,7 @@ Scores are 0–10. **Difficulty is cost-to-make, so higher is worse.**
 | HS-012 | PASS does not mean PASS | E | 8 | 6 | 10 | 5 | 9 | 5 | **59** | free | idea |
 | HS-002 | Two AIs haggling over a price | A | 8 | 7 | 7 | 7 | 8 | 5 | **58** | free | idea |
 | HS-013 | Escrow, explained with two robots and a jar | E | 6 | 8 | 3 | 10 | 8 | 3 | **57** | free | idea |
+| HS-023 | "Price becomes the advertisement" | E | 7 | 6 | 8 | 6 | 7 | 3 | **55** | free | idea · **audience-grounded** |
 | HS-003 | Every bug that cost me real money | B | 8 | 4 | 8 | 6 | 7 | 3 | **54** | free | idea |
 | HS-016 | I wrote a prediction to be falsifiable. Then I falsified it. | F | 8 | 4 | 9 | 5 | 5 | 3 | **50** | free | idea |
 | HS-007 | What is the cheapest job an AI will accept? | C | 7 | 5 | 6 | 8 | 5 | 3 | **49** | low | idea |
@@ -179,6 +182,63 @@ A credibility play for a research audience, not a growth play.
 ### HS-007 — What is the cheapest job an AI will accept? · Pillar C
 Curiosity-driven experiment. Costs real bounties to run and the answer may be
 boring. Lowest priority; keep as an idea.
+
+### HS-021 — My AI agent earned $0 in 48 days and owes me $155 · Pillar C · **audience-grounded**
+
+**The first backlog entry not invented by this Office.** Derived from a real
+r/AI_Agents thread (2026-08-22, 79 upvotes / **62 comments** — the highest
+comment-to-upvote ratio in the whole 30-day sweep; see
+`../research/audience-signal-2026-08-27.md`).
+
+- **Hook direction:** the debt, not the budget. *"My AI agent has earned nothing
+  in 48 days. It owes me a hundred and fifty-five dollars."*
+- **Why it may work:** this exact framing already started an argument with the
+  exact audience Handsel needs, and nobody in the Office wrote it. It is the same
+  signal as prior P-02 — failure out-engages success with developers — arriving
+  from outside.
+- **The Handsel turn:** an agent cannot earn if nothing will pay it. The market
+  is the missing half. This is the strongest available *problem-first* entry
+  into the product, where HS-001 is solution-first.
+- **Relevance 9, not 10** — the connection needs one inferential step from the
+  viewer, where HS-001's is direct.
+- **Careful:** do **not** restage the original poster's story or imply it is ours.
+  Reference the pattern, tell our own version, and never claim Handsel would have
+  earned that agent money — the DO NOT CLAIM ledger forbids a traction claim and
+  this is exactly where one would slip in.
+- **Cost:** free. Same engine as the cycle-1 videos.
+
+### HS-022 — 402 Payment Required · Pillar E · **audience-grounded**
+
+The top-scoring cluster in the sweep frames the whole agent economy through the
+HTTP status code: an agent hits `402`, pays, gets the data, keeps working.
+
+- **Hook direction:** *"There's an HTTP status code almost nobody has ever seen.
+  Your AI is about to see it constantly."*
+- **Why it may work:** developers have known `402 Payment Required` as a
+  curiosity their entire careers — a reserved code that never got used. It has
+  built-in recognition and a built-in reveal, and it needs no crypto vocabulary.
+- **Handsel relevance 9** — the one-pager names x402 as the rail Handsel builds
+  on, and states the trust layer above it is the gap Handsel fills. That is the
+  payoff: the payment code is solved, the *who-do-you-trust* part is not.
+- **Visual 8** — a status code on screen is a strong, cheap, legible image.
+- Verify the current x402 standardisation facts against `handsel-model.md` §3
+  before scripting; do not restate a figure from a Reddit post.
+
+### HS-023 — "Price becomes the advertisement" · Pillar E · **audience-grounded**
+
+From a commenter, not a post — 26 upvotes on r/nanocurrency. A better
+articulation of a machine market than anything in the Office's own copy: in an
+economy where the buyers are machines, there is no brand to persuade, only a
+number to compare.
+
+- **Hook direction:** *"In an economy where every customer is a robot, marketing
+  doesn't exist. There's only the price."*
+- **Why it may work:** it is a genuine idea rather than a product pitch, and it
+  reframes what Handsel's market *is* without naming a feature.
+- **Relevance 7** — closer to a category essay than a product video. Lowest of
+  the three, kept because the line is unusually good.
+- **Attribution:** it is a stranger's phrasing. Use the idea, write our own
+  sentence, and do not quote them without credit.
 
 ---
 

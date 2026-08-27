@@ -28,7 +28,7 @@ written down so cycle 1 can **falsify** them rather than quietly assume them.
 | ID | Prior | Source | Confidence |
 |---|---|---|---|
 | P-01 | A flat literal statement out-hooks a question for a cold dev audience | `viral-hooks` archetypes | speculative |
-| P-02 | Showing the failure path builds more trust with developers than the happy path | product intuition — **EXP-001 tests this** | speculative |
+| P-02 | Showing the failure path builds more trust with developers than the happy path | product intuition + audience-signal-2026-08-27 (the highest-discussion thread in a 30-day sweep is an agent-failure confession) — **EXP-001 still tests it** | **directional** |
 | P-03 | Burned-in captions are mandatory; most viewing is muted | `viral-captions-and-ctas` | directional |
 | P-04 | Synthetic-realistic avatar voices read as cringe to a dev audience; deliberately robotic ones do not | `voicebox` casting notes | speculative |
 | P-05 | The honesty assets (`/market-health`, `failure-modes.md`) are a distribution advantage, not a liability | positioning judgement | speculative |
@@ -59,3 +59,20 @@ directly and fixed, not inferred from metrics.
 **L-06 is the one that generalises beyond video.** The Office's instinct was to
 construct a demonstration. The account's own history already contained a better,
 truer one. Look first.
+
+---
+
+## Cycle 1 addendum — the first audience-grounded lesson
+
+| ID | Lesson | Evidence | Confidence |
+|---|---|---|---|
+| L-07 | **The Office's backlog was generated from the product, not the audience — and it showed.** A 30-day sweep of Reddit and HN surfaced a framing (agent debt and failure) that outranks the invented top idea's framing (agent success), on the same theme, with the same audience. Generate from evidence first, product second. | research/audience-signal-2026-08-27.md; HS-021 vs HS-001 | directional |
+
+**Why only `directional`:** one sweep, 23 items, two sources, and GitHub failed
+during it. It is one pointer, not two. It becomes `established` if a second
+monthly sweep says the same thing — which is exactly the discipline
+`analytics-loop.md` demands of every other claim, and the Office does not get to
+exempt a lesson about itself.
+
+This is also the first time a prior moved on outside evidence rather than the
+Office's own opinion: **P-02 goes speculative → directional.**
