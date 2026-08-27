@@ -187,6 +187,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "1950 친미 보수와 2050 친미 진보가 동시에 존재 (EP8)"
+    },
+    {
+      "id": "jayu-ep8",
+      "series": "자유중국",
+      "ep": 8,
+      "title_suggested": "1950년의 친미는 보수, 2050년의 친미는 진보입니다",
+      "hook": "1950년의 친미는 보수였고, 2050년의 친미는 진보입니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep8-short/jayu_ep8_final.mp4",
+      "durationSec": 67.1,
+      "qScore": {
+        "H": 89,
+        "C": 85,
+        "V": 82,
+        "R": 91,
+        "P": 90,
+        "N": 84,
+        "Q": 87.2,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "이 세계 대만 선거의 최대 쟁점은 독립이 아니다 (EP9)"
     }
   ]
 }
