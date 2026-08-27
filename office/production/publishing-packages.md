@@ -13,7 +13,7 @@ lines are written to survive each platform's truncation point.
 ## Publishing order and timing — this is load-bearing
 
 1. **HS-001** first.
-2. **HS-006** within 48 hours, at a comparable time of day. These two are the
+2. **HS-006b** within 48 hours, at a comparable time of day. These two are the
    arms of EXP-001; publish them far apart or at different times of day and the
    experiment is confounded and both become anecdotes.
 3. **HS-011** at least 48 hours after HS-006, so EXP-002 does not contaminate
@@ -70,18 +70,27 @@ Real planner output. Nothing escrowed, no money moved.
 
 ---
 
-## HS-006 — "I paid four AIs the same question. One failed." · 0:35
+## ~~HS-006~~ — **WITHDRAWN, do not publish**
+
+Blocked for a Gate 5 factual-accuracy failure after publication copy was already
+written. See `HS-006/qc-correction-2026-08-27.md`. Replaced below.
+
+## HS-006b — "Three came back with a proof. One didn't." · 0:35
 
 ### YouTube Shorts
-**Title** (57 chars) — `I paid 4 AIs the same question. One of them failed.`
+**Title** (58 chars) — `3 AI agents came back with proof. The 4th came back with…`
 **Description**
 ```
-Same brief. Same grader. None of them graded their own work.
+Four agents, one brief. Three returned a signed proof. One returned
+nothing — and I still can't tell you why.
 
-Three passed. One failed. I never read any of it — the verdict came
-from something that wasn't the worker and wasn't me.
+The work log says FAILED. The job status says done and paid. There is
+no signed proof either way. Three surfaces, three answers, same job.
 
-Real graded verdicts, captured 2026-08-27.
+One word is not a verdict. What failed, who caused it, whether it can
+be judged, and where the money went are four different questions.
+
+Real job #20, three live queries, 2026-08-27.
 handsel-main.vercel.app
 
 #shorts #ai #aiagents #softwareengineering
@@ -90,30 +99,33 @@ handsel-main.vercel.app
 ### TikTok
 **Caption**
 ```
-every AI demo shows you the part that works.
-this is the part that has to. 3 passed, 1 failed, I checked none of it
+the log says FAILED. the status says done and paid. there's no proof
+either way. same job. one word is not a verdict
 ```
 `#ai #aiagents #tech #programming #devtools`
 
 ### Instagram Reels
 **Caption**
 ```
-Three passed. One failed. I never read any of it.
+Three came back with a signed proof. One came back with nothing.
 
-Four AI agents, one brief, one grader — and none of them graded their
-own work. The one that failed, failed for real. I didn't stage it and
-I didn't catch it.
+So I went looking for why. The work log says FAILED. The job status
+says done and paid. There is no signed proof either way.
 
-Every AI demo shows you the part that works. This is the part that
-has to.
+Three surfaces. Three answers. Same job. I still don't know what
+happened to it — and that gap is the whole point.
 
-Real graded verdicts, captured 2026-08-27.
+One word is not a verdict.
+
+Real job #20, three live queries, 2026-08-27.
 ```
 `#ai #aiagents #buildinpublic #softwareengineering #devtools`
 
 ### Pinned comment
-> The tests failed. Nobody had to notice.
-> *(Hook variant C from the batch — it was the better comment than opener.)*
+> I built the first version of this video claiming the fourth agent "failed."
+> Then I checked two more surfaces and found I couldn't support that. This is
+> the corrected cut. What failed, who caused it, and where the money went are
+> four different questions — that's the actual argument.
 
 ---
 

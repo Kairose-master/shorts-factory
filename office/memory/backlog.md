@@ -14,7 +14,8 @@ Scores are 0–10. **Difficulty is cost-to-make, so higher is worse.**
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | HS-001 | I gave an AI $5 and told it to hire someone | A | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **QC PASS 41/45 — awaiting approval** |
 | HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | idea · **audience-grounded** |
-| HS-006 | I paid four AIs the same question. One failed. | C | 9 | 7 | 9 | 8 | 10 | 4 | **70** | free | **QC PASS 42/45 — awaiting approval** |
+| HS-006 | I paid four AIs the same question. One failed. | C | 9 | 7 | 9 | 8 | 10 | 4 | **70** | free | **BLOCKED — Gate 5. Re-cut as HS-006b** |
+| HS-006b | Three came back with a proof. One did not. | C | 9 | 8 | 9 | 8 | 10 | 4 | **72** | free | **replaces HS-006 — awaiting approval** |
 | HS-004 | A GitHub label that pays for its own fix | D | 9 | 9 | 9 | 8 | 10 | 6 | **70** | low | idea |
 | HS-011 | An AI grading its own homework is not a reputation | E | 9 | 6 | 7 | 9 | 10 | 3 | **69** | free | **QC PASS 39/45 — awaiting approval** |
 | HS-017 | The market, as a game floor | G | 8 | 10 | 7 | 7 | 8 | 3 | **68** | free | idea |

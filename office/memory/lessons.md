@@ -76,3 +76,25 @@ exempt a lesson about itself.
 
 This is also the first time a prior moved on outside evidence rather than the
 Office's own opinion: **P-02 goes speculative → directional.**
+
+---
+
+## Cycle 1, second addendum — the Lawbook correction
+
+| ID | Lesson | Evidence | Confidence |
+|---|---|---|---|
+| L-08 | **Tracing a claim to a source is not verifying it.** HS-006 scored 42/45 on QC because its central claim traced cleanly to a surface I had already read — and that surface did not mean what I assumed. Where a claim rests on a system's own status string, query a second and third surface before publishing. | production/HS-006/qc-correction-2026-08-27.md | **established** |
+| L-09 | **Never publish an untyped verdict.** One word that collapses outcome, cause, attribution and settlement is not a verdict, it is a guess wearing a verdict's clothes. This is the Lawbook's whole thesis and the Office broke it in a video *about verification*. | research/verification-lawbook.md; the same correction | **established** |
+| L-10 | **A missing glyph ships silently.** Pillow does not raise, and `font.getmask(ch).getbbox()` is truthy even for tofu, because the tofu box is itself drawn — so my first check was worthless. Only the font's cmap is authoritative. `✓` and `↳` are absent from every font in the kit. The render engine now refuses to start when any element's text would draw tofu. | _engine/render.py `check_glyphs`; HS-006b's first cut | **established** |
+
+**L-08 and L-09 are `established` on one observation each**, which the Office's
+own bar normally forbids. The exception is deliberate and narrow: these are not
+claims about how audiences behave, where one observation really is a coincidence.
+They are a demonstrated defect in a process, reproduced and fixed. A process bug
+you have seen once and understood is not a sample of size one.
+
+**The uncomfortable part.** The document that caught this arrived from outside the
+Office. Nothing in the Office's own QC would have found it — the gate was passed,
+the claim was sourced, the video was scored highest of the three. What found it
+was someone handing over a framework built specifically to name this failure mode.
+That is worth remembering the next time the Office reports a clean QC pass.

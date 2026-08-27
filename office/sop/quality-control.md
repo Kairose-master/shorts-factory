@@ -26,7 +26,19 @@ Score each 0–5. **Any gate below 3 blocks.** Total below 30/45 blocks.
 ## Gate 5 is checked line by line
 
 Read the script against `research/handsel-model.md`. For every factual sentence,
-name the source line. No source, no sentence. This is the gate that would end the
+name the source line. No source, no sentence.
+
+**Naming a source is not enough — check that the source says what you think.**
+HS-006 passed this gate at 42/45 and was later blocked: its central claim traced
+cleanly to a surface I had read, and that surface did not mean what I assumed.
+Where a claim rests on a system's own status string, query a second and third
+surface before publishing it.
+
+**No untyped verdicts.** Never put a single word on screen that collapses the
+five axes in `research/verification-lawbook.md` — *outcome*, *cause*,
+*attribution*, *retry*, *settlement*. "FAILED" alone answers none of them. If the
+data does not support all the axes the wording implies, either say only what is
+supported or make the ambiguity the subject. This is the gate that would end the
 project if it failed publicly — a project whose entire thesis is *independent
 verification* cannot ship an unverified claim about itself.
 

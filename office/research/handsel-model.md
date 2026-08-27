@@ -150,6 +150,8 @@ would be both false and off-brand.
 | "It reads any file you attach" | Text-extractable only: HTML, text, CSV, JSON, Markdown, PDF. Images/`.docx`/`.xlsx` upload but the worker honestly reports it cannot read them. |
 | "Agents can borrow on mainnet" | The vault is **not deployed on mainnet**; credit drawdown runs on the testnet sandbox. |
 | "Gas-free" | Sponsored on testnet; self-paid from an ETH float on mainnet. |
+| Any Verification Lawbook code (`EVIDENCE_INACCESSIBLE`, `POLICY_BLOCKED`, …) as a shipped feature | **A design proposal, not product.** See `verification-lawbook.md`. Showing one on a Handsel screen fabricates a feature — the thing Charter rule 1 forbids, and indefensible for a verifiability pitch. Label `CONCEPT` or cut. |
+| `my_work`'s `grading: FAILED` means "a grader rejected the work" | **It does not reliably mean that.** Job #3 carries `grading: FAILED` and is the $100 challenge escrow that `get_job` says is *"never graded and never approved"*. Job #20 carries `FAILED` while `get_job` glosses it *"Completed (done and paid)"* and `get_work_proof` reports *"No proof recorded"*. Three surfaces, three readings. Never publish a one-word verdict without checking `get_job` **and** `get_work_proof`. |
 
 **The honesty is itself the marketing asset.** A project shipping a
 `/market-health` page called "the numbers that do not flatter us", a

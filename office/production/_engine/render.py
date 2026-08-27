@@ -320,9 +320,63 @@ class Grain(El):
     def draw(self, d, t, img=None):
         d.rectangle([0, 0, W, 6], fill=BG)
 
+
+# ---------- glyph safety ----------
+# A missing glyph renders as tofu (an empty box) and ships silently: Pillow does
+# not raise, and `font.getmask(ch).getbbox()` is truthy even for tofu because the
+# box itself is drawn. The only reliable check is the font's cmap.
+_CMAP_CACHE: dict = {}
+
+
+def _cmap(name: str) -> set:
+    if name not in _CMAP_CACHE:
+        try:
+            from fontTools.ttLib import TTFont
+            t = TTFont(str(FONTS / f"{name}.ttf"))
+            cps = set()
+            for tb in t["cmap"].tables:
+                cps |= set(tb.cmap.keys())
+            _CMAP_CACHE[name] = cps
+        except Exception:
+            _CMAP_CACHE[name] = None      # cannot check; do not block the render
+    return _CMAP_CACHE[name]
+
+
+def check_glyphs(elements) -> list:
+    """Every character any element will draw, checked against every font used.
+
+    Returns a list of (char, font) that would render as tofu. Cheap, and it runs
+    before a render rather than after 1,050 frames.
+    """
+    text = ""
+    for el in elements:
+        for attr in ("text", "label", "left", "right", "prefix"):
+            v = getattr(el, attr, None)
+            if isinstance(v, str):
+                text += v
+    bad = []
+    for name in (DISPLAY, BODY, MONO, MONOB):
+        cps = _cmap(name)
+        if cps is None:
+            continue
+        for ch in sorted(set(text)):
+            if ch in "\n\t" or ord(ch) < 32:
+                continue
+            if ord(ch) not in cps:
+                bad.append((ch, name))
+    return bad
+
+
 # ---------- driver ----------
 def render(name: str, duration: float, elements: list, outdir: Path,
            audio: Path = None, fps: int = FPS):
+    bad = check_glyphs(elements)
+    if bad:
+        for ch, fn in bad:
+            print(f"  ! TOFU RISK: {ch!r} (U+{ord(ch):04X}) is missing from {fn}")
+        raise SystemExit(
+            "refusing to render: a missing glyph draws as an empty box and would "
+            "ship silently. Replace the character or pick a font that has it.")
     frames = outdir / "frames"
     frames.mkdir(parents=True, exist_ok=True)
     for old in frames.glob("*.png"): old.unlink()
