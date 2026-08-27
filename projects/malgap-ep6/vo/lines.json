@@ -1,0 +1,50 @@
+[
+  {
+    "id": "l1",
+    "dur": 2.88,
+    "text": "이거 지난달에도 있지 않았어요?",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  {
+    "id": "l2",
+    "dur": 2.59,
+    "text": "시즌 한정입니다.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "l3",
+    "dur": 2.02,
+    "text": "무슨 시즌인데요?",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  {
+    "id": "l4",
+    "dur": 2.35,
+    "text": "이번 시즌이요.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "l5",
+    "dur": 1.85,
+    "text": "지난달은요?",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  {
+    "id": "l6",
+    "dur": 2.74,
+    "text": "지난 시즌 한정이었죠.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "l7",
+    "dur": 2.16,
+    "text": "그럼 다음 달엔요?",
+    "voice": "ko-KR-SunHiNeural"
+  },
+  {
+    "id": "l8",
+    "dur": 3.12,
+    "text": "다음 시즌 한정이 나옵니다.",
+    "voice": "ko-KR-InJoonNeural"
+  }
+]

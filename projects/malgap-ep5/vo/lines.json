@@ -1,0 +1,38 @@
+[
+  {
+    "id": "s1",
+    "dur": 5.52,
+    "text": "메뉴판에 없는 규칙이 있습니다. 1인 1메뉴.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s2",
+    "dur": 1.94,
+    "text": "국룰.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s3",
+    "dur": 6.24,
+    "text": "누가 정했는지 아무도 모릅니다. 그런데 다들 지킵니다.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s4",
+    "dur": 6.55,
+    "text": "규칙이 있으면 눈치 계산이 사라집니다. 조정이라고 부릅니다.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s5",
+    "dur": 6.0,
+    "text": "대신 어기는 순간 값을 냅니다. 눈치라는 값을.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s6",
+    "dur": 3.82,
+    "text": "당신의 국룰은, 무엇입니까.",
+    "voice": "ko-KR-InJoonNeural"
+  }
+]

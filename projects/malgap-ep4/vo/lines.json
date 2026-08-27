@@ -1,0 +1,38 @@
+[
+  {
+    "id": "s1",
+    "dur": 5.02,
+    "text": "요거트 토핑의 경우의 수는 10의 57제곱이 넘습니다.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s2",
+    "dur": 1.94,
+    "text": "큐레이션.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s3",
+    "dur": 4.03,
+    "text": "그래서 대신 골라주는 사람이 생겼습니다.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s4",
+    "dur": 6.26,
+    "text": "고르는 수고에는 진짜 값이 있습니다. 탐색 비용입니다.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s5",
+    "dur": 4.78,
+    "text": "문제는 하나, 그 값을 아무도 적지 않는다는 것.",
+    "voice": "ko-KR-InJoonNeural"
+  },
+  {
+    "id": "s6",
+    "dur": 3.7,
+    "text": "골라준 값은, 얼마입니까.",
+    "voice": "ko-KR-InJoonNeural"
+  }
+]
