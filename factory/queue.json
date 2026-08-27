@@ -165,6 +165,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "이 세계의 일본에선 좌파가 재무장을 외칩니다 (EP7)"
+    },
+    {
+      "id": "jayu-ep7",
+      "series": "자유중국",
+      "ep": 7,
+      "title_suggested": "이 세계의 일본에선 좌파가 재무장을 외칩니다",
+      "hook": "미군기지를 줄이자. 일본군을 키우자. 같은 사람의 말입니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep7-short/jayu_ep7_final.mp4",
+      "durationSec": 69.7,
+      "qScore": {
+        "H": 90,
+        "C": 86,
+        "V": 81,
+        "R": 90,
+        "P": 89,
+        "N": 83,
+        "Q": 87.0,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "1950 친미 보수와 2050 친미 진보가 동시에 존재 (EP8)"
     }
   ]
 }
