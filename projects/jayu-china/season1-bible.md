@@ -1,5 +1,10 @@
 # 「자유중국」 SEASON 1 — 자유중국의 좌파와 우파
-## Continuity Bible v1 (MASTER PROMPT v3 준거)
+## Continuity Bible v1.1 (MASTER PROMPT v3 준거 + 사용자 정본 v1.0 통합)
+
+> **v1.1 변경**: `canon/` 의 사용자 정본 2종이 우선한다. §18의 채권 소송 브릿지와
+> PERSON A 스팅은 **폐기** — 정본 §13에 따라 EP12는 2080 총선 결과 + "왜 한 줄에
+> 세우려 했을까요?" 질문으로 끝나고, 시즌 2는 「자유중국의 철학」(20부작)이다.
+> 변경 대조표: `canon/RECONCILIATION.md`
 
 생성 규율: History → Cleavages → Position Bundles → Coalitions → Parties → Labels.
 현실 좌우의 복사 금지(Appendix B-1). 모든 정당 조합은 이 세계의 사건에서 인과 파생(B-2).
