@@ -1,0 +1,31 @@
+# Credentials — never commit.
+.env
+.env.local
+
+# Timestamped research runs. Raw scrape output can be large and is
+# reproducible from the source APIs, so it stays out of git.
+youtube-research/*/
+tiktok-research/*/
+instagram-research/*/
+x-research/*/
+content-plans/*/
+!**/.gitkeep
+
+# Downloaded media used for transcript/hook analysis.
+*.mp4
+*.mov
+*.mp3
+*.wav
+*.m4a
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Node (only if you later add the Remotion composer)
+node_modules/
+
+# OS
+.DS_Store
