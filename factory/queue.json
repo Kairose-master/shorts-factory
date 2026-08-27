@@ -209,6 +209,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "이 세계 대만 선거의 최대 쟁점은 독립이 아니다 (EP9)"
+    },
+    {
+      "id": "jayu-ep9",
+      "series": "자유중국",
+      "ep": 9,
+      "title_suggested": "이 세계 대만 선거의 최대 쟁점은 독립이 아닙니다",
+      "hook": "이 세계 대만 선거의 최대 쟁점은, 독립이 아닙니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep9-short/jayu_ep9_final.mp4",
+      "durationSec": 64.5,
+      "qScore": {
+        "H": 88,
+        "C": 87,
+        "V": 83,
+        "R": 88,
+        "P": 89,
+        "N": 86,
+        "Q": 87.0,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "2080년 대학생에게 보수는 시장이 아니다 (EP10)"
     }
   ]
 }
