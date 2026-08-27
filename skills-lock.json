@@ -25,6 +25,12 @@
       "skillPath": "skills/audio-acquisition/SKILL.md",
       "computedHash": "8bf1b91c7fb7cc03d4b8519d2780ddc9800a89c0817ad220edbd39ddbb2118be"
     },
+    "beat-sync-editing": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/beat-sync-editing/SKILL.md",
+      "computedHash": "92118cd6a5821974aa084a9838f263b46ee65fa1f48aaded8e676861f8c2de28"
+    },
     "brand-kit": {
       "source": "scrollmark/social-skills",
       "sourceType": "github",
@@ -36,6 +42,12 @@
       "sourceType": "github",
       "skillPath": "skills/canvas-design/SKILL.md",
       "computedHash": "a1f288079624402f30682753c1d43920b6664785698d21d3e7aa197450a6448b"
+    },
+    "caption-animation": {
+      "source": "iart-ai/tiktok-video-skills",
+      "sourceType": "github",
+      "skillPath": "skills/caption-animation/SKILL.md",
+      "computedHash": "734b05774507cf841836293c1673984cd10159c5e15cf7e6d4fe3217bd7829be"
     },
     "comment-mining": {
       "source": "ScrapeCreators/social-media-research-skills",
@@ -97,6 +109,18 @@
       "skillPath": ".claude/skills/instagram-research/SKILL.md",
       "computedHash": "80568f3c60115b5d96a99ba777220501cebfbe6a72e8c72c1429ff8942baec59"
     },
+    "kinetic-typography": {
+      "source": "iart-ai/kinetic-typography-skills",
+      "sourceType": "github",
+      "skillPath": "skills/kinetic-typography/SKILL.md",
+      "computedHash": "0e45dfdf8393137b61fcccf5c681c05dcde053076c5dd61f7b6ca0765290f77e"
+    },
+    "manim": {
+      "source": "iart-ai/manim-skills",
+      "sourceType": "github",
+      "skillPath": "skills/manim/SKILL.md",
+      "computedHash": "04c78c749f129b7a9460ff5fe1ed7ae1707f3414a4608df7dbd27e6f84c590b0"
+    },
     "mcp-builder": {
       "source": "anthropics/skills",
       "sourceType": "github",
@@ -108,6 +132,12 @@
       "sourceType": "github",
       "skillPath": "skills/media-acquisition/SKILL.md",
       "computedHash": "a33481b07c16412831395ef5342de5472f38ba7f22444b4c8797ecb367a00b30"
+    },
+    "motion-background": {
+      "source": "iart-ai/motion-design-skills",
+      "sourceType": "github",
+      "skillPath": "skills/motion-background/SKILL.md",
+      "computedHash": "2eeb78bb147dac3b128afc05d4c108249c15ad83ba97cd2ceb7f7fcb24b5e5ea"
     },
     "outlier-post-finder": {
       "source": "ScrapeCreators/social-media-research-skills",

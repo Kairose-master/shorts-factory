@@ -61,6 +61,11 @@ a credential; everything unmarked runs free and offline.
 | "which format fits this idea" | `research-to-production` — it maps measured visual source to format |
 | "can we render what the report recommends" | `research-to-production` Rule 0 (runs `studio-setup` doctor first) |
 | "produce a video end to end" | `video-production` |
+| "animate the headline / title card" | `kinetic-typography` |
+| "animated word-by-word captions" | `caption-animation` |
+| "fix the pacing / cut rhythm / transitions" | `beat-sync-editing` |
+| "animated background behind content" | `motion-background` |
+| "animate a timeline / map / diagram (3B1B style)" | `manim` |
 
 ## Meta
 
