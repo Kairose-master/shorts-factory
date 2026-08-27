@@ -53,6 +53,26 @@ a credential; everything unmarked runs free and offline.
 | "structure the video" | `video-formats` |
 | "keep it on brand" | `brand-kit` |
 
+## Production — turning a script into a file
+
+| The user asks | Run |
+|---|---|
+| "structure the video / pick a format" | `video-formats` |
+| "actually make the video" | `video-assembly` — narration first, then frames, then the QC gate |
+| "animate it / no footage / budget is gone" | `motion-graphics` — every frame drawn from code, no credits |
+| "where do the clips come from" | `media-acquisition` (mixed) |
+| "voice, music, sound" | `audio-acquisition` (mixed) |
+| "put the presenter over other footage" | `subject-compositing` |
+| "hand it to a human editor" | `edit-handoff` |
+| "run the paid Remotion pipeline" | `video-production` (Remotion + sourced footage + preview editor) |
+
+`video-production` and `video-assembly` are not duplicates. `video-production`
+orchestrates the paid engine — sourced footage, a preview editor, a render gate.
+`video-assembly` is the local build that needs no key and no editor: it
+synthesises narration, derives the scene clock from the measurement, renders,
+muxes and gates. Route to `video-assembly` when the video has to exist now for
+nothing, and to `video-production` when it needs the world in it.
+
 ## Meta
 
 | The user asks | Run |

@@ -1,0 +1,564 @@
+[
+  {
+    "id": "s1",
+    "text": "Python and ffmpeg drew every frame of this video. Zero credits. That number is the part nobody shows you.",
+    "voice": "en-US-AndrewNeural",
+    "rate": "+0%",
+    "wav": "projects/the-bill/vo/s1.wav",
+    "seconds": 7.296,
+    "words": 19,
+    "wpm": 156.2,
+    "words_timed": [
+      {
+        "t": 0.113,
+        "dur": 0.487,
+        "text": "Python"
+      },
+      {
+        "t": 0.613,
+        "dur": 0.15,
+        "text": "and"
+      },
+      {
+        "t": 0.775,
+        "dur": 0.9,
+        "text": "ffmpeg"
+      },
+      {
+        "t": 1.688,
+        "dur": 0.275,
+        "text": "drew"
+      },
+      {
+        "t": 2.075,
+        "dur": 0.3,
+        "text": "every"
+      },
+      {
+        "t": 2.388,
+        "dur": 0.4,
+        "text": "frame"
+      },
+      {
+        "t": 2.8,
+        "dur": 0.087,
+        "text": "of"
+      },
+      {
+        "t": 2.9,
+        "dur": 0.163,
+        "text": "this"
+      },
+      {
+        "t": 3.075,
+        "dur": 0.4,
+        "text": "video"
+      },
+      {
+        "t": 3.875,
+        "dur": 0.263,
+        "text": "Zero"
+      },
+      {
+        "t": 4.15,
+        "dur": 0.512,
+        "text": "credits"
+      },
+      {
+        "t": 5.075,
+        "dur": 0.125,
+        "text": "That"
+      },
+      {
+        "t": 5.213,
+        "dur": 0.3,
+        "text": "number"
+      },
+      {
+        "t": 5.525,
+        "dur": 0.1,
+        "text": "is"
+      },
+      {
+        "t": 5.638,
+        "dur": 0.075,
+        "text": "the"
+      },
+      {
+        "t": 5.725,
+        "dur": 0.275,
+        "text": "part"
+      },
+      {
+        "t": 6.013,
+        "dur": 0.362,
+        "text": "nobody"
+      },
+      {
+        "t": 6.388,
+        "dur": 0.325,
+        "text": "shows"
+      },
+      {
+        "t": 6.725,
+        "dur": 0.188,
+        "text": "you"
+      }
+    ]
+  },
+  {
+    "id": "s2",
+    "text": "Sixteen top AI tool videos, ranked against their own baselines. Not one mentions cost.",
+    "voice": "en-US-AndrewNeural",
+    "rate": "+0%",
+    "wav": "projects/the-bill/vo/s2.wav",
+    "seconds": 6.384,
+    "words": 14,
+    "wpm": 131.6,
+    "words_timed": [
+      {
+        "t": 0.1,
+        "dur": 0.487,
+        "text": "Sixteen"
+      },
+      {
+        "t": 0.6,
+        "dur": 0.325,
+        "text": "top"
+      },
+      {
+        "t": 1.038,
+        "dur": 0.312,
+        "text": "AI"
+      },
+      {
+        "t": 1.363,
+        "dur": 0.287,
+        "text": "tool"
+      },
+      {
+        "t": 1.663,
+        "dur": 0.637,
+        "text": "videos"
+      },
+      {
+        "t": 2.575,
+        "dur": 0.287,
+        "text": "ranked"
+      },
+      {
+        "t": 2.875,
+        "dur": 0.3,
+        "text": "against"
+      },
+      {
+        "t": 3.188,
+        "dur": 0.175,
+        "text": "their"
+      },
+      {
+        "t": 3.375,
+        "dur": 0.175,
+        "text": "own"
+      },
+      {
+        "t": 3.562,
+        "dur": 0.8,
+        "text": "baselines"
+      },
+      {
+        "t": 4.775,
+        "dur": 0.163,
+        "text": "Not"
+      },
+      {
+        "t": 4.95,
+        "dur": 0.163,
+        "text": "one"
+      },
+      {
+        "t": 5.125,
+        "dur": 0.35,
+        "text": "mentions"
+      },
+      {
+        "t": 5.487,
+        "dur": 0.512,
+        "text": "cost"
+      }
+    ]
+  },
+  {
+    "id": "s3",
+    "text": "Their comment sections do. Quote: they always forget to mention the cost of credits.",
+    "voice": "en-US-AndrewNeural",
+    "rate": "+0%",
+    "wav": "projects/the-bill/vo/s3.wav",
+    "seconds": 5.112,
+    "words": 14,
+    "wpm": 164.3,
+    "words_timed": [
+      {
+        "t": 0.113,
+        "dur": 0.1,
+        "text": "Their"
+      },
+      {
+        "t": 0.225,
+        "dur": 0.338,
+        "text": "comment"
+      },
+      {
+        "t": 0.575,
+        "dur": 0.45,
+        "text": "sections"
+      },
+      {
+        "t": 1.038,
+        "dur": 0.237,
+        "text": "do"
+      },
+      {
+        "t": 1.7,
+        "dur": 0.312,
+        "text": "Quote"
+      },
+      {
+        "t": 2.4,
+        "dur": 0.125,
+        "text": "they"
+      },
+      {
+        "t": 2.538,
+        "dur": 0.362,
+        "text": "always"
+      },
+      {
+        "t": 2.913,
+        "dur": 0.312,
+        "text": "forget"
+      },
+      {
+        "t": 3.237,
+        "dur": 0.062,
+        "text": "to"
+      },
+      {
+        "t": 3.312,
+        "dur": 0.362,
+        "text": "mention"
+      },
+      {
+        "t": 3.688,
+        "dur": 0.087,
+        "text": "the"
+      },
+      {
+        "t": 3.788,
+        "dur": 0.325,
+        "text": "cost"
+      },
+      {
+        "t": 4.125,
+        "dur": 0.075,
+        "text": "of"
+      },
+      {
+        "t": 4.213,
+        "dur": 0.537,
+        "text": "credits"
+      }
+    ]
+  },
+  {
+    "id": "s4",
+    "text": "The top video credits a model for the motion. A commenter says it just called a paid generator. Like praising McDonald's for discovering potatoes.",
+    "voice": "en-US-AndrewNeural",
+    "rate": "-4%",
+    "wav": "projects/the-bill/vo/s4.wav",
+    "seconds": 8.712,
+    "words": 24,
+    "wpm": 165.3,
+    "words_timed": [
+      {
+        "t": 0.117,
+        "dur": 0.052,
+        "text": "The"
+      },
+      {
+        "t": 0.182,
+        "dur": 0.26,
+        "text": "top"
+      },
+      {
+        "t": 0.456,
+        "dur": 0.352,
+        "text": "video"
+      },
+      {
+        "t": 0.82,
+        "dur": 0.352,
+        "text": "credits"
+      },
+      {
+        "t": 1.185,
+        "dur": 0.039,
+        "text": "a"
+      },
+      {
+        "t": 1.237,
+        "dur": 0.43,
+        "text": "model"
+      },
+      {
+        "t": 1.68,
+        "dur": 0.117,
+        "text": "for"
+      },
+      {
+        "t": 1.81,
+        "dur": 0.065,
+        "text": "the"
+      },
+      {
+        "t": 1.888,
+        "dur": 0.456,
+        "text": "motion"
+      },
+      {
+        "t": 2.773,
+        "dur": 0.052,
+        "text": "A"
+      },
+      {
+        "t": 2.839,
+        "dur": 0.482,
+        "text": "commenter"
+      },
+      {
+        "t": 3.333,
+        "dur": 0.221,
+        "text": "says"
+      },
+      {
+        "t": 3.568,
+        "dur": 0.091,
+        "text": "it"
+      },
+      {
+        "t": 3.672,
+        "dur": 0.273,
+        "text": "just"
+      },
+      {
+        "t": 3.958,
+        "dur": 0.221,
+        "text": "called"
+      },
+      {
+        "t": 4.193,
+        "dur": 0.039,
+        "text": "a"
+      },
+      {
+        "t": 4.245,
+        "dur": 0.365,
+        "text": "paid"
+      },
+      {
+        "t": 4.622,
+        "dur": 0.625,
+        "text": "generator"
+      },
+      {
+        "t": 5.677,
+        "dur": 0.208,
+        "text": "Like"
+      },
+      {
+        "t": 5.898,
+        "dur": 0.482,
+        "text": "praising"
+      },
+      {
+        "t": 6.393,
+        "dur": 0.573,
+        "text": "McDonald's"
+      },
+      {
+        "t": 6.979,
+        "dur": 0.117,
+        "text": "for"
+      },
+      {
+        "t": 7.109,
+        "dur": 0.508,
+        "text": "discovering"
+      },
+      {
+        "t": 7.63,
+        "dur": 0.69,
+        "text": "potatoes"
+      }
+    ]
+  },
+  {
+    "id": "s5",
+    "text": "So, this video's bill. Voice, free. Frames, a script. Footage, none. Credits, zero.",
+    "voice": "en-US-AndrewNeural",
+    "rate": "+0%",
+    "wav": "projects/the-bill/vo/s5.wav",
+    "seconds": 7.032,
+    "words": 13,
+    "wpm": 110.9,
+    "words_timed": [
+      {
+        "t": 0.1,
+        "dur": 0.237,
+        "text": "So"
+      },
+      {
+        "t": 0.512,
+        "dur": 0.175,
+        "text": "this"
+      },
+      {
+        "t": 0.7,
+        "dur": 0.4,
+        "text": "video's"
+      },
+      {
+        "t": 1.113,
+        "dur": 0.3,
+        "text": "bill"
+      },
+      {
+        "t": 1.825,
+        "dur": 0.338,
+        "text": "Voice"
+      },
+      {
+        "t": 2.2,
+        "dur": 0.338,
+        "text": "free"
+      },
+      {
+        "t": 3.0,
+        "dur": 0.425,
+        "text": "Frames"
+      },
+      {
+        "t": 3.513,
+        "dur": 0.037,
+        "text": "a"
+      },
+      {
+        "t": 3.562,
+        "dur": 0.487,
+        "text": "script"
+      },
+      {
+        "t": 4.513,
+        "dur": 0.35,
+        "text": "Footage"
+      },
+      {
+        "t": 4.95,
+        "dur": 0.375,
+        "text": "none"
+      },
+      {
+        "t": 5.737,
+        "dur": 0.4,
+        "text": "Credits"
+      },
+      {
+        "t": 6.237,
+        "dur": 0.425,
+        "text": "zero"
+      }
+    ]
+  },
+  {
+    "id": "s6",
+    "text": "Ask the next person selling you a one prompt workflow what their number was.",
+    "voice": "en-US-AndrewNeural",
+    "rate": "-8%",
+    "wav": "projects/the-bill/vo/s6.wav",
+    "seconds": 4.536,
+    "words": 14,
+    "wpm": 185.2,
+    "words_timed": [
+      {
+        "t": 0.109,
+        "dur": 0.231,
+        "text": "Ask"
+      },
+      {
+        "t": 0.353,
+        "dur": 0.082,
+        "text": "the"
+      },
+      {
+        "t": 0.448,
+        "dur": 0.285,
+        "text": "next"
+      },
+      {
+        "t": 0.747,
+        "dur": 0.353,
+        "text": "person"
+      },
+      {
+        "t": 1.114,
+        "dur": 0.367,
+        "text": "selling"
+      },
+      {
+        "t": 1.495,
+        "dur": 0.19,
+        "text": "you"
+      },
+      {
+        "t": 1.766,
+        "dur": 0.082,
+        "text": "a"
+      },
+      {
+        "t": 1.861,
+        "dur": 0.312,
+        "text": "one"
+      },
+      {
+        "t": 2.188,
+        "dur": 0.367,
+        "text": "prompt"
+      },
+      {
+        "t": 2.568,
+        "dur": 0.584,
+        "text": "workflow"
+      },
+      {
+        "t": 3.166,
+        "dur": 0.136,
+        "text": "what"
+      },
+      {
+        "t": 3.315,
+        "dur": 0.136,
+        "text": "their"
+      },
+      {
+        "t": 3.465,
+        "dur": 0.272,
+        "text": "number"
+      },
+      {
+        "t": 3.75,
+        "dur": 0.394,
+        "text": "was"
+      }
+    ]
+  }
+]

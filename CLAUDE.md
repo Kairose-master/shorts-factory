@@ -1,15 +1,17 @@
 # shorts-factory
 
-A short-form video research and scripting workspace. 43 Agent Skills are installed
-under `.claude/skills/`, pulled from five upstream repositories and left
-**byte-identical to upstream** so `npx skills update` keeps working.
+A short-form video research, scripting **and production** workspace. 46 Agent
+Skills live under `.claude/skills/`. 43 are pulled from five upstream
+repositories and left **byte-identical to upstream** so `npx skills update`
+keeps working; three are local and are ours to edit — `shorts-factory`
+(orchestration), `motion-graphics` and `video-assembly` (production).
 
 Run `python3 scripts/verify_skills.py` after any change to the skills tree.
 
 ## Start here
 
 For any research or scripting request, invoke the **`shorts-factory`** skill
-first (`.claude/skills/shorts-factory/SKILL.md`). It owns the nine-stage
+first (`.claude/skills/shorts-factory/SKILL.md`). It owns the ten-stage
 pipeline, the ask-to-skill routing table, the cost gate on paid APIs, and the
 run-mode rule below. The sections here are the workspace conventions it assumes.
 
@@ -48,7 +50,7 @@ have improved, and run open mode. State which mode produced each number.
 
 ## The pipeline
 
-Each stage names the skill that owns it. Stages 1–6 need live data; 7–9 do not.
+Each stage names the skill that owns it. Stages 1–6 need live data; 7–10 do not.
 
 | # | Stage | Skill | Needs |
 |---|-------|-------|-------|
@@ -61,6 +63,14 @@ Each stage names the skill that owns it. Stages 1–6 need live data; 7–9 do n
 | 7 | Trend clustering | `trend-radar` | none |
 | 8 | Content idea | `viral-short-form-ideas`, `content-planner`, `repurpose-engine`, `content-repurposing` | none / mixed |
 | 9 | Script | `viral-short-form` + the platform skill (`viral-youtube-shorts`, `viral-tiktok-content`, `viral-instagram-reels`), then `viral-captions-and-ctas`, `voice-matching` | none |
+| 10 | Produce | `video-formats` → `video-assembly` (narration, timing, mux, QC) + `motion-graphics` (frames), or `video-production` for the paid Remotion path | none / mixed |
+
+**Stage 10 is local and free.** `video-assembly` synthesises narration, derives
+the scene clock from the *measured* read, renders, muxes to -14 LUFS and gates
+the file; `motion-graphics` draws every frame from code. `pip install pillow
+numpy imageio-ffmpeg edge-tts` and nothing else — no key, no credits, no editor.
+Finished runs live in `projects/<slug>/` with a `storyboard.md` that records the
+evidence behind each scene and what the run cost.
 
 `content-planner` orchestrates stages 2–3 across all four platforms at once and
 writes into `content-plans/`. It is the most expensive single entry point —
@@ -78,6 +88,7 @@ Pick the **narrowest** skill that matches the ask.
 - "is this trend worth riding" → `trend-radar`
 - "write me hooks" → `viral-hooks`; "critique this hook" → `hook-anatomy`
 - "write the script" → `viral-short-form` for shape, the platform skill for tuning
+- "now actually make the video" → `video-assembly`; "animate it / no footage" → `motion-graphics`
 - Raw endpoint lookup → `scrapecreators-api` (the data layer the others call)
 
 Two skills that look duplicated are kept on purpose:

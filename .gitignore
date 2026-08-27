@@ -18,6 +18,14 @@ content-plans/*/
 *.wav
 *.m4a
 
+# ...but a finished video and the narration it was timed against are the
+# record of what shipped, and a TTS endpoint is not guaranteed to return the
+# same audio next month. Intermediate silent renders stay out; they rebuild
+# from render.py in under a minute.
+!projects/**/*.mp4
+projects/**/silent.mp4
+!projects/**/vo/*.wav
+
 # Python
 __pycache__/
 *.py[cod]

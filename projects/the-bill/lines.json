@@ -1,0 +1,8 @@
+[
+  {"id": "s1", "text": "Python and ffmpeg drew every frame of this video. Zero credits. That number is the part nobody shows you.", "extra": 0.45},
+  {"id": "s2", "text": "Sixteen top AI tool videos, ranked against their own baselines. Not one mentions cost.", "extra": 0.4},
+  {"id": "s3", "text": "Their comment sections do. Quote: they always forget to mention the cost of credits.", "extra": 0.35},
+  {"id": "s4", "text": "The top video credits a model for the motion. A commenter says it just called a paid generator. Like praising McDonald's for discovering potatoes.", "rate": "-4%", "extra": 0.3},
+  {"id": "s5", "text": "So, this video's bill. Voice, free. Frames, a script. Footage, none. Credits, zero.", "extra": 1.5},
+  {"id": "s6", "text": "Ask the next person selling you a one prompt workflow what their number was.", "rate": "-8%", "extra": 0.8, "gap": 0}
+]
