@@ -29,3 +29,11 @@ node_modules/
 
 # OS
 .DS_Store
+
+# Vendored render engine — OpenMontage (AGPL-3.0), ~160MB, reproducible.
+# Reinstall with: bash .claude/skills/openmontage/scripts/install.sh
+vendor/
+
+# Office renders. Plans, scripts and QC verdicts are committed; binaries are not.
+office/production/*/renders/
+office/production/*/refs/
