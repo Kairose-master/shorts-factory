@@ -53,6 +53,15 @@ a credential; everything unmarked runs free and offline.
 | "structure the video" | `video-formats` |
 | "keep it on brand" | `brand-kit` |
 
+## Produce
+
+| The user asks | Run |
+|---|---|
+| "now actually make the video from this research" | `research-to-production` (bridge), then `video-production` |
+| "which format fits this idea" | `research-to-production` — it maps measured visual source to format |
+| "can we render what the report recommends" | `research-to-production` Rule 0 (runs `studio-setup` doctor first) |
+| "produce a video end to end" | `video-production` |
+
 ## Meta
 
 | The user asks | Run |
