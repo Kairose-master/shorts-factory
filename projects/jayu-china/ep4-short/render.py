@@ -31,14 +31,15 @@ def b1():   # WTF 배경 — 텍스트는 s1_overlay
     return glow(im, BW/2, 1000, 500, (54, 42, 30))
 
 def s1_overlay(im, t):
+    OW = UI.W  # anim은 kb_crop 이후 1080 출력 좌표계
     d = ImageDraw.Draw(im, "RGBA")
     e0 = UI.ease_out_back(min(1, max(t, 0)/0.34))
-    w2 = int((BW-240)/2*e0)
+    w2 = int((OW-200)/2*e0)
     if w2 > 8:
-        d.rounded_rectangle([BW/2-w2, TOP+60, BW/2+w2, TOP+860], 34,
+        d.rounded_rectangle([OW/2-w2, TOP+60, OW/2+w2, TOP+860], 34,
                             fill=(34, 28, 26, 255), outline=RED, width=10)
-        hw = min(w2, BW//2-120)
-        d.rectangle([BW/2-hw, TOP+64, BW/2+hw, TOP+240], fill=(*RED, 255))
+        hw = min(w2, OW//2-120)
+        d.rectangle([OW/2-hw, TOP+64, OW/2+hw, TOP+240], fill=(*RED, 255))
     lines = [("한국 보수당", SER(92), PAPER, TOP+104, 0.10),
              ("親中", SER(200), YELLOW, TOP+330, 0.34),
              ("친중입니다", SAN(80), PAPER, TOP+650, 0.52)]
@@ -46,13 +47,13 @@ def s1_overlay(im, t):
         if t <= t0: continue
         e = UI.ease_out_back((t-t0)/0.30)
         a = int(255*min(1, (t-t0)/0.18))
-        lay = Image.new("RGBA", (BW, 300), (0, 0, 0, 0))
+        lay = Image.new("RGBA", (OW, 300), (0, 0, 0, 0))
         dd = ImageDraw.Draw(lay)
-        dd.text((BW//2, 10), txt, font=f, fill=col+(a,), anchor="ma")
+        dd.text((OW//2, 10), txt, font=f, fill=col+(a,), anchor="ma")
         sc = 0.90+0.10*min(e, 1.15)
-        nw, nh = int(BW*sc), int(300*sc)
+        nw, nh = int(OW*sc), int(300*sc)
         lay = lay.resize((nw, nh))
-        im.paste(lay, ((BW-nw)//2, y+int((1-min(e, 1))*30)), lay)
+        im.paste(lay, ((OW-nw)//2, y+int((1-min(e, 1))*30)), lay)
     return im
 
 def b2():   # 전제: 1946 갈림길 (시리즈 앵커)

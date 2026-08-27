@@ -143,6 +143,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "중국 유학이 미국 유학만큼 자연스럽다 (EP6)"
+    },
+    {
+      "id": "jayu-ep6",
+      "series": "자유중국",
+      "ep": 6,
+      "title_suggested": "이 세계 대학생에겐 중국 유학이 미국 유학만큼 자연스럽습니다",
+      "hook": "이 세계 청년에겐, 중국 유학이 미국 유학만큼 자연스럽습니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep6-short/jayu_ep6_final.mp4",
+      "durationSec": 69.4,
+      "qScore": {
+        "H": 85,
+        "C": 90,
+        "V": 84,
+        "R": 86,
+        "P": 89,
+        "N": 85,
+        "Q": 86.7,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "이 세계의 일본에선 좌파가 재무장을 외칩니다 (EP7)"
     }
   ]
 }
