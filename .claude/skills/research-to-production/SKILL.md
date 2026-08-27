@@ -88,6 +88,47 @@ When the visual analysis did not run (quota, cost, a skipped stage), say the
 format choice is **inferred** and name what would confirm it. Do not present an
 inferred format as a measured one.
 
+## Step 2.5: synthesise narration before you time anything
+
+Narration duration **is** the scene clock. A storyboard timed by eye is an
+estimate; the voice decides. Synthesise first, then fit the visuals — never the
+reverse. Measured on this repo's own Script B: total came in 1.45s under the
+estimate, but the hook ran **5.17s against a 4.0s slot**, 29% over. The total
+looked fine and the one scene that mattered did not.
+
+**Voice routing, measured — not assumed:**
+
+| Script language | Engine | Why |
+|---|---|---|
+| English (+ es/fr/hi/it/pt/ja/zh) | **Kokoro**, local | free, offline, and returns **word timings** |
+| **Korean** | **Gemini TTS** (`gemini-2.5-flash-preview-tts`) | Kokoro does not speak Korean |
+
+**Kokoro has no Korean.** Its nine language codes are
+`a b e f h i p j z` — American/British English, Spanish, French, Hindi, Italian,
+Portuguese, Japanese, Mandarin. Published roundups claiming Korean support are
+wrong; check `kokoro.pipeline.LANG_CODES` rather than a blog. All 54 published
+voices carry those same prefixes.
+
+Two consequences worth stating to the user before they commit to a Korean format:
+
+- **No word timings on the Gemini path.** Captions are driven by word timings, so
+  a captioned Korean format needs a separate caption pass that an English one
+  does not. Budget the extra step.
+- **The two engines differ by roughly 12 dB.** Kokoro measured rms 0.042 / peak
+  0.43; Gemini 0.10–0.23 / peak 0.84–0.91. Mixing them untouched makes the Korean
+  lines jump. Normalise before any mix.
+
+Korean speaking rate measures ~5.5 characters/second, so a 60s Short holds about
+330 characters of narration. Hooks of 40–75 characters run 7–13s — a fifth of the
+video before anything else happens. Check the script against that budget here,
+not after the render.
+
+If the local voice is missing, `pip install kokoro soundfile` from PyPI. Note the
+route in `audio-acquisition` (a GitHub tarball) can be blocked by an egress proxy;
+PyPI and huggingface.co are usually reachable when github.com is not. Install
+`num2words` with `--no-deps` first — its `docopt` dependency is CLI-only and fails
+to build on modern setuptools.
+
 ## Step 3: write the storyboard
 
 Follow the chosen format's grammar in `references/formats/<name>.md` exactly — that

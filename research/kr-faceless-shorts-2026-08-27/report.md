@@ -229,9 +229,9 @@ shorts-to-long-form 퍼널이 실제로 집행된 사례.
 
 | 항목 | 상태 | 영향 |
 |---|---|---|
-| `video-studio` 렌더 엔진 | ❌ **미설치** | 렌더 자체가 불가. 파이프라인 5~9단계 전부 정지 |
+| `video-studio` 렌더 엔진 | ❌ **설치 불가** | 프록시가 github.com 차단(403). PyPI엔 없음 |
 | `ffmpeg` / `ffprobe` | ❌ 없음 | 길이 측정, 라우드니스, 자막 번인 불가 |
-| 로컬 TTS (내레이션) | ❌ 미설치 | **A·B·D 포맷 전부 내레이션이 핵심인데 목소리가 없음** |
+| 로컬 TTS (내레이션) | ✅ **해결됨** — §6.5 참조 | Kokoro 설치 완료(영어). 한국어는 Gemini TTS |
 | 스톡 영상·이미지 | ❌ 키 없음 | Pexels/Pixabay 무료인데 키 미등록 |
 | 스톡 오디오 | ❌ 키 없음 | Freesound 무료인데 키 미등록 |
 | `node` / `npx` | ✅ 있음 | 렌더러 구동 가능 |
@@ -242,13 +242,71 @@ shorts-to-long-form 퍼널이 실제로 집행된 사례.
 **결론: 지금은 기획까지만 되고 렌더는 안 됩니다.** 가장 싼 A 포맷(정지 이미지 +
 내레이션)조차 TTS가 없어서 못 만듭니다.
 
+### 6.5 TTS — 실제로 설치하고 생성해본 결과
+
+**결론: 내레이션은 뚫렸습니다. 영어는 Kokoro, 한국어는 Gemini TTS.**
+
+`audio-acquisition`이 지정한 경로(`pip install 'video-studio-engine[audio] @ github…'`)는
+**쓸 수 없습니다** — 이 환경의 프록시가 github.com을 403으로 막습니다(scrollmark
+저장소 페이지·tarball 모두 403). 대신 **Kokoro를 PyPI에서 직접 설치**해 우회했습니다.
+PyPI와 huggingface.co는 프록시 예외라 열려 있습니다.
+
+설치 시 걸린 것과 해법:
+
+| 문제 | 해법 |
+|---|---|
+| `docopt` 휠 빌드 실패 (레거시 setup.py) | `num2words`를 `--no-deps`로 설치 — docopt은 CLI 전용이라 라이브러리엔 불필요 |
+| `misaki`/`kokoro` 의존성 재해결 시 docopt 재시도 | 둘 다 `--no-deps` 후 실제 import 오류를 따라가며 개별 설치 |
+| 누락된 런타임 | `attrs`, `addict`, `espeakng-loader`, `phonemizer-fork`, `regex`, `spacy` |
+
+**한국어 지원 정정.** 웹 검색 결과 일부는 "Kokoro가 한국어를 지원한다"고 하지만
+**설치본 실측은 그렇지 않습니다.** 지원 언어는 9종이고 한국어가 없습니다:
+
+```
+{'a': American English, 'b': British English, 'e': es, 'f': fr-fr,
+ 'h': hi, 'i': it, 'p': pt-br, 'j': Japanese, 'z': Mandarin Chinese}
+```
+
+HuggingFace의 보이스 54종도 프리픽스가 `a/b/z/j/h/e/p/i/f`뿐 — 한국어 보이스는
+0개입니다. **이 리포트의 한국 채널 포맷에 Kokoro를 그대로 쓸 수 없습니다.**
+
+**그래서 한국어는 Gemini TTS로 실측했습니다** (`gemini-2.5-flash-preview-tts`).
+키가 이미 있고, §Method 한계 2의 429(비디오 분석 쿼터)와 **별개 쿼터**라 지금 작동합니다.
+
+| 생성물 | 엔진 | 보이스 | 길이 | 원문 |
+|---|---|---|---|---|
+| 책트폭행 hook | Gemini | Kore | 7.29s | 40자 |
+| 궁금소 hook | Gemini | Charon | 12.01s | 75자 |
+| 제로비 hook | Gemini | Puck | 9.45s | 55자 |
+
+**한국어 발화 속도 실측: 약 5.5자/초.** 60초 숏폼이면 대략 330자가 상한입니다.
+§3의 hook들은 40~75자이므로 7~13초 — 즉 **hook만으로 숏폼의 1/5를 씁니다.**
+
+### 두 엔진의 실질 차이
+
+| | Kokoro (영어) | Gemini TTS (한국어) |
+|---|---|---|
+| 비용 | **무료·오프라인·무제한** | 유료/쿼터 |
+| word timings | **반환함** → 자막 자동 구동 | 없음 → 자막 별도 작업 |
+| 한국어 | ❌ | ✅ |
+| 측정 음량 | rms 0.042, peak 0.43 | rms 0.10~0.23, peak 0.84~0.91 |
+
+**음량 차이가 약 12 dB입니다.** 두 엔진을 한 영상에 섞으면 한국어 쪽이 크게 튑니다.
+믹스 전 정규화가 필수입니다 — 본 실행에서도 합본을 만들 때 RMS 정규화를 넣었습니다.
+
+**word timings 부재가 한국어 포맷의 실질 제약입니다.** §5의 A·B 포맷은 전부 자막이
+핵심인데, Gemini 경로에는 단어 타이밍이 없어 자막 싱크를 따로 만들어야 합니다.
+영어 포맷에는 없는 추가 공정입니다.
+
 ### 막힌 것을 푸는 순서 (비용 낮은 순)
 
-1. **`pip install 'video-studio-engine[audio] @ https://github.com/scrollmark/social-skills/archive/refs/heads/master.tar.gz'`**
-   — 렌더 엔진 + 로컬 TTS를 한 번에. **무료.** 이게 없으면 나머지가 의미 없음
-2. **`ffmpeg` 설치** (libass 포함) — 무료. 자막 번인·라우드니스
+1. ~~로컬 TTS~~ — **완료.** Kokoro(영어) 설치·검증, Gemini TTS(한국어) 검증 (§6.5)
+2. **`ffmpeg` 설치** (libass 포함) — 무료. 자막 번인·라우드니스. **다음 차례는 이것**
 3. **Pexels / Pixabay / Freesound 키 발급** — 무료. B·C 포맷의 소재 공급
-4. 그 다음에야 유료 생성(Veo/Gemini 이미지/Lyria)을 고려. **A 포맷은 1~3만으로 완성 가능**
+4. **렌더 엔진은 별도 판단 필요** — 프록시가 github.com을 막아 `video-studio`를 설치할 수
+   없습니다. 대안은 (a) 프록시 예외 요청, (b) PyPI에 있는 다른 렌더러(Remotion은 npm이라
+   가능), (c) `edit-handoff`로 사람 편집자에게 넘기기. **이건 제가 임의로 고를 문제가 아닙니다**
+5. 그 다음에야 유료 생성(Veo/Gemini 이미지/Lyria)을 고려
 
 ### 새로 만든 연결 스킬
 

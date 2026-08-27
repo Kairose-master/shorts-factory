@@ -468,6 +468,26 @@ specifics are audience language rather than invented detail. No follow prompt:
 `viral-captions-and-ctas` treats generic follow CTAs as reach-suppressing, and
 the closing instruction is more re-watchable than an ask.
 
+> **Measured against a real voice.** Script B's narration was synthesised with
+> Kokoro (`am_michael`, speed 1.0) and timed per scene. The storyboard above is
+> an estimate; these are the numbers.
+>
+> | scene | storyboard | measured | delta |
+> |---|---|---|---|
+> | s1 hook | 4.0s | **5.17s** | +1.17 |
+> | s2 | 7.0s | 5.40s | −1.60 |
+> | s3 | 10.0s | **11.15s** | +1.15 |
+> | s4 | 9.0s | 7.38s | −1.62 |
+> | s5 | 6.0s | 5.45s | −0.55 |
+> | **total** | 36.0s | **34.55s** | −1.45 |
+>
+> The total is close, which hides the problem: **the hook needs 5.17s, not 4.0s
+> — 29% over its slot.** Cutting it to fit would mean cutting the identity
+> call-out that §5 says does the filtering. The fix is to take the 1.6s back
+> from s2 and s4, both of which came in under. `audio-acquisition` states the
+> rule this demonstrates: measured narration duration is the scene clock, so
+> narration is synthesised *before* footage, never after.
+
 **Title:** Your buyer can't find Outlook
 **Caption:** The moat isn't technical. Who's the least technical client you've closed?
 
