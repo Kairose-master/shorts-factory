@@ -151,7 +151,8 @@ def make_anim(si, sc):
     def anim(im, t):
         tv = sc["t0"] + t
         UI.title_band(im, "중국이 공산화되지", "않았다면?",
-                      tv if si == 0 else 10.0)
+                      tv if si == 0 else 10.0,
+                      world="가상 역사 · 1946 국민당이 내전에서 이긴 세계")
         for c, cs, cd in sc["chips"]:
             if cs <= t < cs+cd+0.10:
                 UI.chip(im, c, t-cs)

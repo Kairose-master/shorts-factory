@@ -174,7 +174,8 @@ def smooth(p): return p*p*(3-2*p)
 def make_anim(si, sc):
     def anim(im, t):
         UI.title_band(im, "자유중국의 보수는", "누구인가?",
-                      (sc["t0"]+t) if si == 0 else 10.0, tag="「자유중국」 EP2")
+                      (sc["t0"]+t) if si == 0 else 10.0, tag="「자유중국」 EP2",
+                      world="가상 역사 · 국민당이 이긴 세계의 보수")
         for c, cs, cd in sc["chips"]:
             if cs <= t < cs+cd+0.10:
                 UI.chip(im, c, t-cs); break

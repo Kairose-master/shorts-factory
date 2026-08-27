@@ -24,8 +24,11 @@ def ease_out_back(p, s=1.4):
     return 1 + p * p * ((s + 1) * p + s)
 
 # ---------- 상단 타이틀 밴드 ----------
-def title_band(im, line_w, line_y, t, y0=88, tag="「자유중국」 EP1"):
-    """흰 줄 + 노랑 줄, 스태거 0.13s. 입장: 슬라이드다운+페이드+스케일."""
+def title_band(im, line_w, line_y, t, y0=88, tag="「자유중국」 EP1", world=None):
+    """흰 줄 + 노랑 줄, 스태거 0.13s. 입장: 슬라이드다운+페이드+스케일.
+
+    world: 세계관 명시 라벨(예: "가상 역사 · 국민당이 이긴 세계"). 밴드 좌하단에
+    상시 노출 — 대체역사임을 어느 시점에 진입한 시청자도 오해 없이 알게 한다."""
     def line_layer(txt, font, fill, ent):
         e = ease_out_cubic(ent / 0.42)
         a = int(255 * min(1, ent / 0.22)) if ent > 0 else 0
@@ -50,6 +53,9 @@ def title_band(im, line_w, line_y, t, y0=88, tag="「자유중국」 EP1"):
         im.paste(lay, (lx, y0 + 150 + dy), lay)
     d.text((W - 40, y0 + band_h - 150), tag, font=FT(34),
            fill=(200, 200, 200, 230), anchor="ra")
+    if world:
+        d.text((40, y0 + band_h - 148), world, font=FT(30),
+               fill=(222, 198, 132, 235), anchor="la")
     return im
 
 # ---------- 하단 진행 칩 ----------
