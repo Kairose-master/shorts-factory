@@ -25,6 +25,12 @@
       "skillPath": "skills/audio-acquisition/SKILL.md",
       "computedHash": "8bf1b91c7fb7cc03d4b8519d2780ddc9800a89c0817ad220edbd39ddbb2118be"
     },
+    "autoresearch": {
+      "source": "Orchestra-Research/AI-Research-SKILLs",
+      "sourceType": "github",
+      "skillPath": "0-autoresearch-skill/SKILL.md",
+      "computedHash": "b7ca0d7a6e905da85a8b494d3fe398ac78eaa278854f67b50a34f2b37a9a2b78"
+    },
     "beat-sync-editing": {
       "source": "iart-ai/motion-design-skills",
       "sourceType": "github",

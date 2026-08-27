@@ -67,6 +67,7 @@ a credential; everything unmarked runs free and offline.
 | "animated background behind content" | `motion-background` |
 | "animate a timeline / map / diagram (3B1B style)" | `manim` |
 | "run the factory loop / 발행 큐 / 성과 분석 / 다음 에피소드" | `content-factory` (SSOT: `factory/MASTER-PROMPT-v1.md`) |
+| "자율 리서치 프로젝트 / 다중 가설 실험 오케스트레이션" | `autoresearch` (2루프: 실험 반복 + 종합 조향) |
 
 ## Meta
 
