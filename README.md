@@ -80,6 +80,24 @@ and a `.env` file are interchangeable from their point of view.
 
 Every variable is documented in `.env.example` with its provider and cost model.
 
+### Getting the keys
+
+| Key | Where | Free tier | Notes |
+|---|---|---|---|
+| `SCRAPECREATORS_API_KEY` | [app.scrapecreators.com](https://app.scrapecreators.com) | **100 credits, no card**, plus up to 7,000 more for feedback / starring their repo. Credits never expire | 1 credit ≈ 1 request; **cached results cost 0**. Paid: $47 / 25k credits, $497 / 500k |
+| `APIFY_TOKEN` | [console.apify.com](https://console.apify.com) → Settings → Integrations | $5/month platform credit, no card | ⚠️ Free plan has **trial-only access to rented Actors** — the TikTok/Instagram/X scrapers are rented, so sustained use needs Starter ($29/mo) |
+| `GEMINI_API_KEY` | [aistudio.google.com/apikey](https://aistudio.google.com/apikey) | Yes, generous | Google account only |
+| `TUBELAB_API_KEY` | [tubelab.net](https://tubelab.net) → Settings → API | Check `/pricing` | Pricing page is JS-rendered and could not be verified here |
+
+Verify a key works without spending anything:
+
+```bash
+python3 scripts/check_keys.py
+```
+
+It calls only free account/metadata endpoints — never a scrape. `--offline`
+does a presence check with no network at all.
+
 | Variable | Used by | Required? | Purpose |
 |---|---|---|---|
 | `SCRAPECREATORS_API_KEY` | all 13 ScrapeCreators skills | Required for live data | Public social data across TikTok, Instagram, YouTube, Reddit, X, LinkedIn, Facebook, Threads, Bluesky, Pinterest, Rumble and ad libraries |
