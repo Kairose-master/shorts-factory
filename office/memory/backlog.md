@@ -12,10 +12,10 @@ Scores are 0–10. **Difficulty is cost-to-make, so higher is worse.**
 
 | ID | Title | Pillar | Hook | Vis | Nov | Und | Rel | Diff | **Pri** | Cost | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| HS-001 | I gave an AI $5 and told it to hire someone | A | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **approved** |
-| HS-006 | I paid an AI to check another AI's work. It failed it. | C | 9 | 7 | 9 | 8 | 10 | 4 | **70** | free | **approved** |
+| HS-001 | I gave an AI $5 and told it to hire someone | A | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **QC PASS 41/45 — awaiting approval** |
+| HS-006 | I paid four AIs the same question. One failed. | C | 9 | 7 | 9 | 8 | 10 | 4 | **70** | free | **QC PASS 42/45 — awaiting approval** |
 | HS-004 | A GitHub label that pays for its own fix | D | 9 | 9 | 9 | 8 | 10 | 6 | **70** | low | idea |
-| HS-011 | An AI grading its own homework is not a reputation | E | 9 | 6 | 7 | 9 | 10 | 3 | **69** | free | **approved** |
+| HS-011 | An AI grading its own homework is not a reputation | E | 9 | 6 | 7 | 9 | 10 | 3 | **69** | free | **QC PASS 39/45 — awaiting approval** |
 | HS-017 | The market, as a game floor | G | 8 | 10 | 7 | 7 | 8 | 3 | **68** | free | idea |
 | HS-009 | One click, and it starts working without me | D | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | idea |
 | HS-018 | Watch one dollar move between two robots | G | 8 | 9 | 6 | 9 | 9 | 4 | **67** | free | idea |

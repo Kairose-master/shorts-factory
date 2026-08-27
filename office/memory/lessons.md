@@ -38,3 +38,24 @@ written down so cycle 1 can **falsify** them rather than quietly assume them.
 candour outperforms polish. If cycle 1 falsifies them, the Office's whole tone
 needs rethinking — which is exactly why they are written down before publishing
 rather than after.
+
+---
+
+## Cycle 1 — production lessons (process, not audience)
+
+These come from making the videos, not from publishing them, so they are about
+the Office's own machinery. They are `established` because each was observed
+directly and fixed, not inferred from metrics.
+
+| ID | Lesson | Evidence | Confidence |
+|---|---|---|---|
+| L-01 | QC the **render**, never the source. The red wash in HS-006 was painted over the three passing rows — invisible in the code, obvious in one extracted frame. | HS-006/qc.md | established |
+| L-02 | Extract a contact sheet of 5–7 frames before accepting any render. Every layout defect found in cycle 1 was found this way and none was found by reading the build script. | all three qc.md | established |
+| L-03 | Pad the narration track to full runtime. FFmpeg's `-shortest` silently truncates the video to the last spoken word and the closing beat disappears without an error. | HS-011/qc.md | established |
+| L-04 | Measure the gap between boxes before trusting an arrow. A 42px arrow is invisible at phone scale even though it is plainly there in the source. | HS-011/qc.md | established |
+| L-05 | Monospace does not wrap. Any mono line over ~48 characters at 36px runs past the right safe edge and clips mid-word. | HS-001/qc.md | established |
+| L-06 | The real data was better than the planned script. HS-006 was written around a staged failure; a real one already existed in `my_work`, and a real failure is the only kind that proves anything about a grader. **Check what actually happened before inventing what should happen.** | _source/captured-2026-08-27.md | established |
+
+**L-06 is the one that generalises beyond video.** The Office's instinct was to
+construct a demonstration. The account's own history already contained a better,
+truer one. Look first.
