@@ -83,8 +83,11 @@ def mix_audio(scenes, vo_dir, out_wav, lead=0.22):
         w.writeframes((track*32767).astype(np.int16).tobytes())
     return total
 
-def encode(scenes, mix_wav, out_mp4, seed0=0):
-    """scenes: [(builder, secs, kb, anim_fn|None)] — KB+그레인+비네트로 파이프 인코딩."""
+def encode(scenes, mix_wav, out_mp4, seed0=0, trans=0.0):
+    """scenes: [(builder, secs, kb, anim_fn|None)] — KB+그레인+비네트로 파이프 인코딩.
+
+    trans>0 이면 씬 경계에 슬라이드 휩 전환(초 단위, ease_out_cubic — 선형 금지):
+    나가는 프레임이 밀려나가고 들어오는 씬이 살짝 스케일 세틀로 진입한다."""
     exe = imageio_ffmpeg.get_ffmpeg_exe()
     proc = subprocess.Popen(
         [exe, "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "rgb24",
@@ -93,6 +96,9 @@ def encode(scenes, mix_wav, out_mp4, seed0=0):
          "-c:a", "aac", "-ar", "48000", "-b:a", "160k", "-shortest",
          "-movflags", "+faststart", out_mp4], stdin=subprocess.PIPE)
     n = 0
+    tf = int(trans * FPS)
+    prev_last = None
+    ease = lambda q: 1 - (1 - min(max(q, 0), 1)) ** 3
     for si, (builder, secs, kb, anim) in enumerate(scenes):
         base = builder()
         gc = {}
@@ -100,11 +106,28 @@ def encode(scenes, mix_wav, out_mp4, seed0=0):
             p = fi/FPS/secs
             im = kb_crop(base, p, kb)
             if anim: im = anim(im, fi/FPS)
+            if tf and prev_last is not None and fi < tf:
+                q = ease((fi + 1) / tf)
+                horiz = (si % 2 == 1)
+                off = int((W if horiz else H) * (1 - q))
+                sc = 1.04 - 0.04 * q                      # 들어오는 씬: 슬라이드+스케일 세틀
+                iw, ih = int(W*sc), int(H*sc)
+                inc = im.resize((iw, ih))
+                canvas = prev_last.copy()
+                dark = int(70 * (1 - q))                  # 나가는 씬 살짝 어둡게
+                if dark:
+                    canvas = Image.eval(canvas, lambda v: max(0, v - dark))
+                if horiz:
+                    canvas.paste(inc, (off - (iw - W)//2, -(ih - H)//2))
+                else:
+                    canvas.paste(inc, (-(iw - W)//2, off - (ih - H)//2))
+                im = canvas
             gk = fi//3
             if gk not in gc:
                 gc = {gk: np.random.default_rng(seed0+si*991+gk).integers(-5, 6, (H, W, 1))}
             arr = np.clip((np.asarray(im).astype(np.int16)+gc[gk])*VIG, 0, 255).astype(np.uint8)
             proc.stdin.write(arr.tobytes()); n += 1
+        prev_last = im
         print(f"  scene{si+1} ok ({n})")
     proc.stdin.close(); proc.wait()
     return n, proc.returncode

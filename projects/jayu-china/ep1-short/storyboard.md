@@ -41,3 +41,32 @@ QC: 9씬 프레임 육안, black tail 없음.
 - 고정 댓글: "이 세계의 좌우 지도를 그려보세요 — 다음 화에서 보수당의 정체가 공개됩니다"
 - 캡션: "복지 늘리자는 쪽이 보수입니다. 왜인지는 2편에서."
 - 엔드 질문이 댓글 엔진 — 영상은 끝까지 판정하지 않음
+
+---
+
+# v2 — 실측 Shorts 인터페이스 + 고속 전환
+
+사용자 제공 스크린샷 2종(슬라쇼츠TV/이고바)을 실측해 이식. 스펙:
+`../../malgap-style/shorts-ui-spec.md`, 구현: `shorts_ui.py`.
+
+- **상단 타이틀 밴드**: 흰 줄 + 노랑 강조줄("않았다면?"), 검정 스트로크.
+  입장 = 슬라이드다운+페이드+스케일 3속성 동시, 줄 간 스태거 0.13s
+- **하단 진행 칩**: 노랑-온-블랙, 내레이션 구절 동기화 교체, 팝(오버슛)+상승+페이드
+  입장. 폭 초과 시 자동 폰트 축소
+- **씬 전환**: 0.20s 슬라이드 휩(가로/세로 교차), 나가는 씬 다크다운 + 들어오는 씬
+  스케일 세틀 — noir_kit `trans` 파라미터(기존 호출 무영향)
+- 간격 0.30→**0.12s**, 엔드 홀드 1.4→1.0s → 71.1s→**69.3s, 발화 밀도 97.1%**
+- 애니메이션 규율: remotion-motion-graphics(87★) non-negotiable 3규칙 이식 —
+  선형 보간 금지, 다속성 입장, 스태거. KB 줌도 smoothstep
+
+## 설치된 애니메이션 스킬 (스타순, lock 등록)
+
+| 스킬 | 출처 | ★ |
+|---|---|---|
+| remotion-motion-graphics | haidrrrry/claude-remotion-skill | 87 |
+| remotion-transitions | Ashad001/remotion-transitions | 68 |
+| remotion-{best-practices,create,markup,captions,render,interactivity} | **remotion-dev 공식** claude-code-plugin | 13 |
+
+**Remotion 실동 검증 완료**: npm 직결 설치 → `npx remotion render` 60프레임 mp4
+성공. 필수 플래그: `--browser-executable=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell --chromium-no-sandbox`
+(일반 chromium 바이너리는 launch 실패 — headless_shell만 동작). 다음 단계 렌더러 후보.

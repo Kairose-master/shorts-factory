@@ -133,6 +133,54 @@
       "skillPath": "skills/read-the-room/SKILL.md",
       "computedHash": "c181d0ab97060189072b4d4698602eb368ece16176311c841b6abc330cf5096d"
     },
+    "remotion-best-practices": {
+      "source": "remotion-dev/claude-code-plugin",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-best-practices/SKILL.md",
+      "computedHash": "ed7e8d54a58380c87a6566b7a59777938832cf2679587155d004f3a6d1dec8ba"
+    },
+    "remotion-captions": {
+      "source": "remotion-dev/claude-code-plugin",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-captions/SKILL.md",
+      "computedHash": "3fd106fb372064418329084e163b4201ff1f6520e7c0a0c08fe6489715cfb008"
+    },
+    "remotion-create": {
+      "source": "remotion-dev/claude-code-plugin",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-create/SKILL.md",
+      "computedHash": "c6796f654f8b9fecc7fd1356b8d791e6baad9633d0180c4f18c4643a7f06aed7"
+    },
+    "remotion-interactivity": {
+      "source": "remotion-dev/claude-code-plugin",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-interactivity/SKILL.md",
+      "computedHash": "ccc3ccdfef7090f6c11d84789a65a602bc4d54b3841fca35ff99a7394469675e"
+    },
+    "remotion-markup": {
+      "source": "remotion-dev/claude-code-plugin",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-markup/SKILL.md",
+      "computedHash": "9bd30bc316fe0d3072dbe871ec222442bf81d10e787445ed4324d4d281566b39"
+    },
+    "remotion-motion-graphics": {
+      "source": "haidrrrry/claude-remotion-skill",
+      "sourceType": "github",
+      "skillPath": "remotion-motion-graphics/SKILL.md",
+      "computedHash": "7bc57dcc03c9812feb94b32785bb2fb26ab9740f523f7def580a1b372b3b6336"
+    },
+    "remotion-render": {
+      "source": "remotion-dev/claude-code-plugin",
+      "sourceType": "github",
+      "skillPath": "skills/remotion-render/SKILL.md",
+      "computedHash": "45888101df1e462a453d35b5cedc3c06ab6e648b75082ed52b48db6e4bcf3780"
+    },
+    "remotion-transitions": {
+      "source": "Ashad001/remotion-transitions",
+      "sourceType": "github",
+      "skillPath": "SKILL.md",
+      "computedHash": "927067258fce4b5c6ac0ce85f2db12e1a7b4bedab9fe6445aecfae2d1a9e6199"
+    },
     "repurpose-engine": {
       "source": "scrollmark/social-skills",
       "sourceType": "github",
