@@ -25,7 +25,7 @@ SKILLS = ROOT / ".claude" / "skills"
 
 # Paths referenced from prose. Deliberately narrow: a bare word is not a path.
 PATH_RE = re.compile(
-    r"(?<![\w/.-])((?:scripts|references|reference|assets|examples|templates)/[\w./-]+)"
+    r"(?<![\w/.-])((?:scripts|references|reference|assets|examples|templates)/[\w./{}-]+)"
 )
 ENV_RE = re.compile(r"\b([A-Z][A-Z0-9]*(?:_[A-Z0-9]+){1,4})\b")
 # Env names that show up in prose but are not credentials this repo needs.
@@ -94,8 +94,17 @@ def check_skill(d: Path):
         if "*" in rel or rel.endswith("/"):
             continue
         rec["refs_checked"] += 1
-        if not (d / rel).exists():
-            rec["errors"].append(f"SKILL.md references missing path: {rel}")
+        if (d / rel).exists():
+            continue
+        # A {placeholder} segment stands for a filename chosen at read time, so
+        # the most we can check is that the directory holding it exists.
+        if "{" in rel:
+            parent = rel.rsplit("/", 1)[0]
+            if (d / parent).is_dir():
+                continue
+            rec["errors"].append(f"SKILL.md references missing directory: {parent}/")
+            continue
+        rec["errors"].append(f"SKILL.md references missing path: {rel}")
 
     # Anything outside the folder cannot travel with the skill.
     for m in re.finditer(r"(?<![\w.])\.\./[\w./-]+", text):

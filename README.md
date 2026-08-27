@@ -52,9 +52,33 @@ new platform's API into a proper integration — see *Adding a platform* below.
 
 ## Credentials
 
-Nothing here ships a key, and no skill should invent one. Copy `.env.example`
-to `.env` and fill in what you need — every variable is documented there with
-its provider and cost model.
+Nothing here ships a key, and no skill should invent one.
+
+**Where the secret should live depends on where you are running.** In a cloud
+session, do not create a `.env` file at all — put the values in the
+environment instead, so nothing sensitive is ever written to disk in the repo.
+
+| Where you run | Where the key goes |
+|---|---|
+| Claude Code cloud session | **Environment variables in the environment's settings** — injected at container start. No file on disk, nothing to leak, and it dies with the container ([docs](https://code.claude.com/docs/en/claude-code-on-the-web)) |
+| GitHub Actions (scheduled runs) | **Actions secrets**, referenced as `env:` in the workflow. These are *not* visible to an interactive session |
+| Local machine | `.env` — already gitignored |
+
+GitHub Secrets only decrypt inside a Workflow run. They do not reach an
+interactive session, so they are the answer for automation and not for a
+session you are typing into.
+
+A `pre-commit` hook in `.githooks/` refuses any commit that stages an env file
+or a line that looks like a filled-in key. Enable it once per clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+Skills read keys from the environment either way, so `export SCRAPECREATORS_API_KEY=...`
+and a `.env` file are interchangeable from their point of view.
+
+Every variable is documented in `.env.example` with its provider and cost model.
 
 | Variable | Used by | Required? | Purpose |
 |---|---|---|---|
@@ -90,6 +114,17 @@ Not installed, and only needed for the video *production* track:
 
 `python3 .claude/skills/studio-setup/scripts/doctor.py` reports what is
 reachable right now, including which optional keys are unset.
+
+## The orchestrator skill
+
+`shorts-factory` (`.claude/skills/shorts-factory/`) is the entry point for any
+research or scripting request. It owns the nine-stage pipeline, the ask-to-skill
+routing table (`references/routing.md`), the cost gate on paid APIs, and the
+run-mode rule: **API mode** when keys are set, **open mode** when they are not.
+Open mode runs stages 1–2 from public web sources and stages 6–9 at full
+strength — missing keys degrade a run, they do not block it.
+
+Example output: `research/ai-tools-automation-2026-08-27/report.md`.
 
 ## Verification
 

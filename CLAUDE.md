@@ -6,6 +6,31 @@ under `.claude/skills/`, pulled from five upstream repositories and left
 
 Run `python3 scripts/verify_skills.py` after any change to the skills tree.
 
+## Start here
+
+For any research or scripting request, invoke the **`shorts-factory`** skill
+first (`.claude/skills/shorts-factory/SKILL.md`). It owns the nine-stage
+pipeline, the ask-to-skill routing table, the cost gate on paid APIs, and the
+run-mode rule below. The sections here are the workspace conventions it assumes.
+
+## Run mode
+
+Check credentials before planning a run:
+
+```bash
+for k in SCRAPECREATORS_API_KEY APIFY_TOKEN TUBELAB_API_KEY GEMINI_API_KEY; do
+  printf '%-26s %s\n' "$k" "$(printenv "$k" >/dev/null && echo SET || echo unset)"
+done
+```
+
+- **API mode** — the relevant key is set. Every stage available.
+- **Open mode** — keys missing. Stages 1–2 run from public web sources, stages
+  6–9 run at full strength. Outliers become *reported* performance rather than
+  measured baselines.
+
+Missing keys are not a reason to stall. Name the variable, say what it would
+have improved, and run open mode. State which mode produced each number.
+
 ## Ground rules
 
 - **Never invent a credential.** If a skill needs a key that is not in `.env`,
@@ -103,4 +128,13 @@ a new folder, not a change to any existing skill. To add 抖音 / 小红书 / �
 5. Re-run `python3 scripts/verify_skills.py`.
 
 Use the `skill-creator` skill to scaffold, and `mcp-builder` if the platform is
-better served as an MCP server than as curl-in-a-skill.
+better served as an MCP server than as curl-in-a-skill. Add the new skill to the
+routing table in `.claude/skills/shorts-factory/references/routing.md` so it is
+reachable, and delete its row from the "Not routable" list there.
+
+## Reporting standard
+
+Every report opens with a **Method** block — mode, sources, sample size, date,
+and what was not checked — and follows the hard rules in the `shorts-factory`
+skill: cite or drop it, raw views are not performance, quote hooks verbatim,
+small samples get small claims, never promise virality.
