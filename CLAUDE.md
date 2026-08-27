@@ -1,10 +1,15 @@
 # shorts-factory
 
-A short-form video research, scripting **and production** workspace. 46 Agent
-Skills live under `.claude/skills/`. 43 are pulled from five upstream
-repositories and left **byte-identical to upstream** so `npx skills update`
-keeps working; three are local and are ours to edit — `shorts-factory`
-(orchestration), `motion-graphics` and `video-assembly` (production).
+A short-form video research, scripting **and production** workspace. 48 Agent
+Skills live under `.claude/skills/`. 44 come from upstream repositories and are
+left **byte-identical to upstream** so `npx skills update` keeps working; four
+are local and are ours to edit — `shorts-factory` (orchestration),
+`research-to-video` (is this idea buildable, and from what),
+`motion-graphics` and `video-assembly` (production).
+
+`web-media-getter` was added with `npx skills add connerkward/web-media-getter-skill`,
+so it lives in `.agents/skills/` with a symlink from `.claude/skills/` — the
+CLI's own layout. Leave both in place or `npx skills update` loses track of it.
 
 Run `python3 scripts/verify_skills.py` after any change to the skills tree.
 
@@ -63,7 +68,14 @@ Each stage names the skill that owns it. Stages 1–6 need live data; 7–10 do 
 | 7 | Trend clustering | `trend-radar` | none |
 | 8 | Content idea | `viral-short-form-ideas`, `content-planner`, `repurpose-engine`, `content-repurposing` | none / mixed |
 | 9 | Script | `viral-short-form` + the platform skill (`viral-youtube-shorts`, `viral-tiktok-content`, `viral-instagram-reels`), then `viral-captions-and-ctas`, `voice-matching` | none |
-| 10 | Produce | `video-formats` → `video-assembly` (narration, timing, mux, QC) + `motion-graphics` (frames), or `video-production` for the paid Remotion path | none / mixed |
+| 10 | Produce | `research-to-video` (tier the idea) → `video-assembly` (narration, timing, mux, QC) + `motion-graphics` (frames) + `web-media-getter` (free archive assets), or `video-production` for the paid Remotion path | none / mixed |
+
+**Ask `research-to-video` first: which tier is this idea?** A = code-drawn
+graphics, B = public-domain archive, C = broadcast clips (rights work), D =
+custom illustration or shooting. A and B are free and buildable today; C and D
+are not, and finding that out after the script is written wastes the script.
+Faceless is not assetless — of the nine tracked Korean channels, 8 of 9 never
+show a face and **0 of 9** could be rebuilt from code alone.
 
 **Stage 10 is local and free.** `video-assembly` synthesises narration, derives
 the scene clock from the *measured* read, renders, muxes to -14 LUFS and gates
@@ -88,7 +100,9 @@ Pick the **narrowest** skill that matches the ask.
 - "is this trend worth riding" → `trend-radar`
 - "write me hooks" → `viral-hooks`; "critique this hook" → `hook-anatomy`
 - "write the script" → `viral-short-form` for shape, the platform skill for tuning
+- "이 리서치로 영상 만들어" → `research-to-video` (tier first), then `video-assembly`
 - "now actually make the video" → `video-assembly`; "animate it / no footage" → `motion-graphics`
+- "need real footage / stills, no budget" → `web-media-getter` (NASA, Wikimedia, Internet Archive, LoC, Openverse — no key)
 - Raw endpoint lookup → `scrapecreators-api` (the data layer the others call)
 
 Two skills that look duplicated are kept on purpose:

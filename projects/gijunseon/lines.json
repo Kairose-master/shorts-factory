@@ -1,0 +1,45 @@
+[
+  {
+    "id": "s1",
+    "text": "구독자 99만 채널이 숏츠를 올리면 조회수 1,100만이 나옵니다. 정상은 몇 배일까요?",
+    "voice": "ko-KR-InJoonNeural",
+    "extra": 0.5
+  },
+  {
+    "id": "s2",
+    "text": "한국 숏츠 채널 아홉 개, 550편을 세어 봤습니다.",
+    "voice": "ko-KR-InJoonNeural",
+    "extra": 0.4
+  },
+  {
+    "id": "s3",
+    "text": "기준은 조회수가 아닙니다. 중앙값 나누기 구독자입니다.",
+    "voice": "ko-KR-InJoonNeural",
+    "extra": 0.5
+  },
+  {
+    "id": "s4",
+    "text": "아홉 중 일곱이 0.4배 미만. 구독자에게만 닿습니다.",
+    "voice": "ko-KR-InJoonNeural",
+    "extra": 0.6
+  },
+  {
+    "id": "s5",
+    "text": "1위는 11.16배. 그런데 최고 기록도 3.5배입니다. 실패작이 없다는 뜻이죠.",
+    "voice": "ko-KR-InJoonNeural",
+    "extra": 0.9
+  },
+  {
+    "id": "s6",
+    "text": "그리고 셋은 사실상 숏츠를 멈췄습니다. 한 채널은 915일째.",
+    "voice": "ko-KR-InJoonNeural",
+    "extra": 0.7
+  },
+  {
+    "id": "s7",
+    "text": "당신 채널 중앙값을 구독자로 나눠 보세요.",
+    "voice": "ko-KR-InJoonNeural",
+    "extra": 0.8,
+    "gap": 0
+  }
+]

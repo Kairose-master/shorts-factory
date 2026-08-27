@@ -2,9 +2,9 @@
 
 A short-form video research and scripting workspace for Claude Code.
 
-46 Agent Skills under `.claude/skills/` — 43 from five upstream repositories,
-left byte-identical to upstream, plus three local ones (`shorts-factory`,
-`motion-graphics`, `video-assembly`). `CLAUDE.md` holds the
+48 Agent Skills under `.claude/skills/` — 44 from upstream repositories, left
+byte-identical to upstream, plus four local ones (`shorts-factory`,
+`research-to-video`, `motion-graphics`, `video-assembly`). `CLAUDE.md` holds the
 routing rules; this file covers install, credentials and verification.
 
 ## Quick start
@@ -35,7 +35,8 @@ reported and skipped, and `--prefix` installs as `shorts-factory--<name>` instea
 | [bradautomates/head-of-content](https://github.com/bradautomates/head-of-content) | 6 | `youtube-research`, `tiktok-research`, `instagram-research`, `x-research`, `video-content-analyzer`, `content-planner` |
 | [anthropics/skills](https://github.com/anthropics/skills) | 1 | `mcp-builder` |
 
-| local (this repo) | 3 | `shorts-factory` (orchestration), `motion-graphics` (code-drawn animation), `video-assembly` (narration → timing → render → mux → QC) |
+| [connerkward/web-media-getter-skill](https://github.com/connerkward/web-media-getter-skill) | 1 | `web-media-getter` — free image/video search across Openverse, Wikimedia, Internet Archive, Library of Congress and NASA with a licence tag per result (five sources need no key) |
+| local (this repo) | 4 | `shorts-factory` (orchestration), `research-to-video` (tier an idea before storyboarding it), `motion-graphics` (code-drawn animation), `video-assembly` (narration → timing → render → mux → QC) |
 
 Provenance and content hashes live in `skills-lock.json`, written by the
 official `skills` CLI. `npx skills update` upgrades in place. The three local

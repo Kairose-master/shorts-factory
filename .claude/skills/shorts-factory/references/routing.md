@@ -58,13 +58,19 @@ a credential; everything unmarked runs free and offline.
 | The user asks | Run |
 |---|---|
 | "structure the video / pick a format" | `video-formats` |
+| "리서치 결과로 영상 만들어" / "can we actually build this" | `research-to-video` — tier the idea, then run the pipeline |
 | "actually make the video" | `video-assembly` — narration first, then frames, then the QC gate |
 | "animate it / no footage / budget is gone" | `motion-graphics` — every frame drawn from code, no credits |
-| "where do the clips come from" | `media-acquisition` (mixed) |
+| "where do the clips come from" | `web-media-getter` (free archives, no key) or `media-acquisition` (mixed) |
 | "voice, music, sound" | `audio-acquisition` (mixed) |
 | "put the presenter over other footage" | `subject-compositing` |
 | "hand it to a human editor" | `edit-handoff` |
 | "run the paid Remotion pipeline" | `video-production` (Remotion + sourced footage + preview editor) |
+
+`research-to-video` decides **whether an idea is buildable at all** and on what
+assets, before a storyboard exists. Its Tier A–D table is the first question to
+ask of any research finding: faceless is not assetless, and 0 of 9 measured
+Korean channels could be rebuilt from code alone.
 
 `video-production` and `video-assembly` are not duplicates. `video-production`
 orchestrates the paid engine — sourced footage, a preview editor, a render gate.

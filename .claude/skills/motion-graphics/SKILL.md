@@ -15,7 +15,7 @@ comparison, a process. Use footage (`media-acquisition`) when the shot is
 
 ## Requires
 
-`pip install pillow numpy imageio-ffmpeg` — that is the whole dependency list,
+`pip install pillow numpy imageio-ffmpeg fonttools` — that is the whole dependency list,
 and `imageio-ffmpeg` carries its own ffmpeg binary, so no system package is
 needed. Run `scripts/selfcheck.py` first; it renders three seconds and a contact
 sheet in about ten, and it fails on a missing font *now* rather than at minute
@@ -38,6 +38,19 @@ project's `render.py` and call `mg.render(frame_fn, duration, path)`.
 | Text | `wrap`, `fit_font`, `text_block`, `reveal_words`, `typewriter` |
 | Marks | `rule` (self-drawing line), `panel`, `progress_bar`, `counter`, `mix` |
 | Output | `render`, `Encoder`, `contact_sheet`, `duration_of` |
+
+Two companions sit next to it and are imported the same way:
+
+- **`scripts/fonts.py`** — `fonts.korean(700)` returns a path that genuinely
+  draws 한글. PIL does **not** fall back: ask DejaVu for Hangul and you get tofu
+  boxes, silently, through a render that exits 0. It prefers a native face,
+  downloads Noto Sans KR (OFL) when the machine has none, and warns loudly if it
+  has to settle for a pan-CJK font that merely *covers* the script.
+- **`scripts/captions.py`** — burned captions from the TTS word boundaries in
+  `plan.json`. `chunk()` groups words into cards on pauses, length and sentence
+  ends; `fit()` sizes to the **longest** card; `draw()` paints the live card and
+  tints the word being spoken. Nine of nine Korean Shorts channels measured on
+  2026-08-27 burn full captions — in that niche this is not decoration.
 
 `seg` is the one to understand. Every element is written against the **scene
 clock**, and `seg` converts that clock into one element's own 0‑to‑1 progress:
@@ -93,5 +106,8 @@ of `render.py` rather than editing the engine.
   and re-editable as code. Reach for generation when the shot needs the world.
 - **Declaring a render correct from the exit code.** `contact_sheet()` exists
   because ffmpeg exits 0 on twelve identical blank frames. Look at the sheet.
+- **Trusting a render that used a font without the script's glyphs.** Tofu
+  survives every automated check there is. Use `fonts.resolve()` and look at a
+  frame.
 - **Animating everything at once.** If three things move in the same 300 ms the
   eye picks one and misses two. Stagger by 120–200 ms.

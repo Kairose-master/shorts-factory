@@ -36,6 +36,10 @@ def ffmpeg_exe() -> str:
     return imageio_ffmpeg.get_ffmpeg_exe()
 
 
+def is_cjk(text: str) -> bool:
+    return any("\u3040" <= c <= "\u9fff" or "\uac00" <= c <= "\ud7af" for c in text)
+
+
 def wav_seconds(path: Path) -> float:
     with wave.open(str(path)) as w:
         return w.getnframes() / w.getframerate()
@@ -93,14 +97,21 @@ def main() -> int:
         mp3.unlink()
         secs = wav_seconds(wav)
         words = len(text.split())
+        chars = len([c for c in text if not c.isspace()])
         timing.append({"id": sid, "text": text, "voice": voice, "rate": rate,
                        "wav": str(wav), "seconds": round(secs, 3), "words": words,
-                       "wpm": round(words / secs * 60, 1), "words_timed": words_timed})
-        print(f"  {sid:>4}  {secs:6.2f}s  {words:3d} words  {timing[-1]['wpm']:5.1f} wpm")
+                       "wpm": round(words / secs * 60, 1),
+                       "chars": chars, "cps": round(chars / secs, 2),
+                       "words_timed": words_timed})
+        rate = (f"{timing[-1]['cps']:5.2f} chars/s" if is_cjk(text)
+                else f"{timing[-1]['wpm']:5.1f} wpm")
+        print(f"  {sid:>4}  {secs:6.2f}s  {chars:3d} chars  {rate}")
 
     (out / "timing.json").write_text(json.dumps(timing, indent=2, ensure_ascii=False))
     total = sum(t["seconds"] for t in timing)
-    print(f"\n  total narration {total:.2f}s across {len(timing)} lines")
+    chars = sum(t["chars"] for t in timing)
+    print(f"\n  total narration {total:.2f}s across {len(timing)} lines "
+          f"({chars} chars, {chars / total:.2f} chars/s)")
     print(f"  wrote {out / 'timing.json'}  <- scene durations come from here, not the storyboard")
     if not any(t["words_timed"] for t in timing):
         print("  WARN: no word boundaries returned — reveals will have to be placed by ear")
