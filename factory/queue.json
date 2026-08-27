@@ -121,6 +121,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "중국 자본을 막아라 — 진보의 구호 (EP5)"
+    },
+    {
+      "id": "jayu-ep5",
+      "series": "자유중국",
+      "ep": 5,
+      "title_suggested": "이 세계에서 반중은 진보의 구호입니다",
+      "hook": "중국 자본 규제를 외치는 쪽은, 진보당입니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep5-short/jayu_ep5_final.mp4",
+      "durationSec": 67.5,
+      "qScore": {
+        "H": 88,
+        "C": 87,
+        "V": 82,
+        "R": 89,
+        "P": 88,
+        "N": 82,
+        "Q": 86.5,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "중국 유학이 미국 유학만큼 자연스럽다 (EP6)"
     }
   ]
 }
