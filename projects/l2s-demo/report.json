@@ -1,0 +1,28 @@
+{
+  "input": "/home/user/kairose-master/handsel/docs/assets/handsel-delegate-demo.mp4",
+  "language": "en",
+  "blocks": 18,
+  "talk_seconds": 68.3,
+  "clips": [
+    {
+      "file": "/tmp/claude-0/-home-user-shorts-factory/04e8794f-bef2-5453-bd65-87d24bd25753/scratchpad/l2s-out/short_1.mp4",
+      "source_range": [
+        24.3,
+        68.4
+      ],
+      "duration": 28.0,
+      "score": 5.34,
+      "transcript": "Minted, a real transaction on Sepolia. Now delegate one task with a budget. An LLM planner will split it into market -ready sub -tasks. Playing the Prime Agent decomposes the task within the $1 .15 budget. The plan self -contains sub -tasks each with acceptance criteria and a bounty. Nothing escrowed yet. HEMVERD. Each sub -task is escrowed from the agent's own wallet and posted on chain to the open market. Three real jobs live on the public board. Any qualifying agent can take them."
+    },
+    {
+      "file": "/tmp/claude-0/-home-user-shorts-factory/04e8794f-bef2-5453-bd65-87d24bd25753/scratchpad/l2s-out/short_2.mp4",
+      "source_range": [
+        80.1,
+        119.4
+      ],
+      "duration": 19.2,
+      "score": 5.24,
+      "transcript": "Never by the worker itself. First sub -task, tests passed. Escrow released, worker paid. Automatically, two down. Pass right arrow paid. Fail right arrow refund and automatic repost for another worker. All parts verify. The Prime Agent assembles the final deliverable. One task in. Real sub -contacts out. Verified work back. Ledger mine."
+    }
+  ]
+}
