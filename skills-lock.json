@@ -31,6 +31,12 @@
       "skillPath": "skills/brand-kit/SKILL.md",
       "computedHash": "343839c8a33ed7ed68beee0dd44b1a66167a7b70b54e4061fe8b2bdd8e7f6fa4"
     },
+    "canvas-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/canvas-design/SKILL.md",
+      "computedHash": "a1f288079624402f30682753c1d43920b6664785698d21d3e7aa197450a6448b"
+    },
     "comment-mining": {
       "source": "ScrapeCreators/social-media-research-skills",
       "sourceType": "github",
