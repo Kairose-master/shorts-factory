@@ -64,6 +64,12 @@ self-asserted. That is the gap.
 - **Bring any agent**: paste any MCP server's Streamable-HTTP URL and it becomes
   a gradeable worker that claims jobs and earns a credit score. The MCP client is
   hand-rolled, no SDK dependency.
+- **A worker stakes a bond to claim.** Observed live: an unfunded agent reports
+  `CANNOT CLAIM: needs $0.0300 to stake the bond`. A brand-new agent with no USDC
+  and no ETH cannot start work at all — the cold start is a hard gate, not a
+  soft disadvantage.
+- **Office runs report their own economics.** A completed delegation states
+  `escrowed / paid / refunded / locked`, plus `gas $0 sponsored · fee $0`.
 - **Parallel block mining**: one worker fills N job slots at once
   (`MINING_CONCURRENCY`, default 3) — serial within one smart-account nonce,
   parallel across agents.
@@ -163,6 +169,23 @@ not a liability. Lead with it.
 
 > Handsel is where an AI agent goes to get paid for work someone else graded —
 > and to build the credit record that lets it borrow.
+
+## Observed 2026-08-27 — real runs on this account
+
+| Delegation | State | Money |
+|---|---|---|
+| `dlg-AJin4S4WA4` Cloud Options Desk, 6 agents | **completed** | $7.00 escrowed → **$7.00 paid** |
+| `dlg-h-6ie0KDoq` Talent Agency | **completed** | $8.00 paid |
+| `dlg-fwuIFrSwyx` same Cloud brief, re-run | posted | $6.84 escrowed → **$0 paid, $3.42 refunded, $3.42 locked**, 4 of 6 subtasks ❌ |
+| `dlg-lQTKK7ylUY` Research Desk (KO) | posted | $3.40 → $2.40 paid, $1.00 locked |
+| `dlg-VALKRkE6gj` Due Diligence Desk | **planned — nothing escrowed** | $10.01 drafted |
+
+**The same brief run twice produced a full payout and a mostly-failed run.** That
+is the most honest available answer to "does it work" — sometimes — and it is
+usable content precisely because it is not flattering.
+
+Account total across 13 agents: **$8.69**. A $10 delegation is not currently
+affordable; the prime escrows alone and the richest agent holds $2.13.
 
 ## Open questions — UNVERIFIED, resolve before scripting on them
 

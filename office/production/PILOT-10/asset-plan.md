@@ -7,6 +7,29 @@ Target 26s · 1080×1920 · 20 beats of 0.5–3s.
 
 ---
 
+## ✅ UPDATE 2026-08-27 — the premise is real, and the script should change
+
+A draft was run (`hire_office`, free, nothing escrowed) and the account's history
+was read. See `capture/run-2026-08-27.md`. Three things changed:
+
+1. **`dlg-AJin4S4WA4` completed: $7.00 escrowed, $7.00 paid, six agents, ~54k
+   characters of real output.** An AI company *was* given money and *did* do
+   business. The premise is not hypothetical — it is $7, not $10.
+2. **A better story appeared.** Four of five newly hired agents report
+   `CANNOT WORK: no gas and cannot post the $0.0300 bond`. *I hired five and four
+   couldn't afford to start* beats *I gave a company $10 and it worked*, and it
+   is the same cold-start truth the DO NOT CLAIM ledger already forces us to tell.
+3. **The same brief, run twice, produced one full payout and one mostly-failed
+   run** (`dlg-fwuIFrSwyx`: 4 of 6 ❌, $3.42 refunded, $3.42 locked). That
+   comparison is the strongest artefact captured and it is unflattering, which is
+   why it is worth using.
+
+**Recommendation: retitle the pilot and rebuild the beat table** around the real
+$7 run plus the bond gate, rather than shooting the invented $10 script. The beat
+*structure* below still holds; the numbers and the turn change.
+
+The original framing, kept for the record:
+
 ## ⚠️ Before anything: the premise has not happened
 
 Handsel ships `hire_office` and `list_office_templates` — **6 real templates**
