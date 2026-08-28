@@ -40,7 +40,7 @@ byte-identical; and the spectra were checked against their descriptions —
 `whoosh` sweep is genuine in construction but subtle at 0.38s and reads mostly as
 a swell; that is noted rather than overclaimed.
 
-## 2. Freesound / CC0 — BLOCKED
+## 2. Freesound / CC0 — CONNECTED
 
 `sandraschi/sfx-mcp` is vendored at `vendor/sfx-mcp` (audited: MIT, talks only to
 `freesound.org/apiv2`, hard-filters `license:"Creative Commons 0"` in the query).
