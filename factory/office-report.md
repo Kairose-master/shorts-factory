@@ -95,3 +95,19 @@ get_contract)이 생긴 동시에, 계정의 에이전트 목록·잔액·델리
 **다음 틱 확인 사항**: Verification이 Fact Checker에게 클레임됐는지 →
 완료 시 Final answer($1.00) 게시 → Editor 마감 → get_delegation_output으로
 운영 메모 회수해 이 파일에 첨부.
+
+---
+
+## 2026-08-28 01:2xZ — Verification 통과·지급 (매시 점검 8회차)
+
+- auto-mine이 50분간 미클레임 → 루틴의 수동 레인 가동: Fact Checker로 job #29
+  클레임, 리서처가 인용한 출처 9건 직접 재개봉(6건 도달, 전부 기술과 일치;
+  GitHub 3건은 프록시 403), 주장별 VERIFIED/MISREAD/UNVERIFIABLE 판정 제출
+  → 독립 채점 pass, $1.20 지급 (누계 $2.40).
+- 리서치 실체 확인: Exa가 과업과 무관한 AI 리서치 논문만 반환해 리서처가
+  전 항목 "not found"로 정직 보고했음. 검증 결론 — 외부 검증 통과 인사이트
+  0건, Editor 운영 메모는 공유 소스 v2(내부 실측)만으로 작성해야 함.
+- 고아 잡 #26: 오픈 잡 목록에서 사라짐 — 만료 환불로 추정, 다음 틱에 프라임
+  잔액으로 확인.
+- Final answer($1.00) 단계는 게시 지연 중(검증 때와 같은 패턴). 다음 틱에서
+  Open 확인 시 Editor로 수동 마감 예정.
