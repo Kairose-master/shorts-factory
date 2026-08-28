@@ -231,6 +231,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "2080년 대학생에게 보수는 시장이 아니다 (EP10)"
+    },
+    {
+      "id": "jayu-ep10",
+      "series": "자유중국",
+      "ep": 10,
+      "title_suggested": "2080년 대학생에게 보수는 시장이 아닙니다",
+      "hook": "2080년 대학생에게, 보수는 시장이 아닙니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/ep10-short/jayu_ep10_final.mp4",
+      "durationSec": 69.8,
+      "qScore": {
+        "H": 88,
+        "C": 89,
+        "V": 83,
+        "R": 92,
+        "P": 91,
+        "N": 87,
+        "Q": 88.4,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "이 사람은 좌파입니까, 우파입니까? — 분류 게임 (EP11)"
     }
   ]
 }
