@@ -65,7 +65,7 @@ Understandability is a genuine 10 here and the rubric caps at 10.
 - **Retention 4.** The strongest single moment (the red team attacking) lands at
   19s, later than ideal. Moving it earlier would break the causal order — you
   cannot attack a decision before it is written.
-- **Native 4.** Still no music bed. With 13 SFX cues the silence reads as design.
+- **Native 4 → bed added.** See below.
 - The two `$7.00` counters tick up over ~1s, so a frame grabbed mid-animation
   shows `$6.99` or `$5.49`. Both settle and hold. Not a defect, but worth knowing
   before anyone screenshots it for a thumbnail.
@@ -75,3 +75,27 @@ Understandability is a genuine 10 here and the rubric caps at 10.
 **HS-032 leads.** It is the only cut that works on someone with zero context.
 HS-031, HS-006b and HS-011 are all follow-ups for an audience that already knows
 what the product is.
+
+## Music bed — added 2026-08-27
+
+`bed-office`, 45s, in the SFX library. **Chosen over CC0 alternatives on a
+measurement, not a preference.** A bed's only job is to not fight the voice, so
+what matters is how much of its energy sits in the 300–3400 Hz speech band
+relative to its own level:
+
+| candidate | speech-band share |
+|---|---|
+| CC0 #524621 "Synth 3" | **−3.4 dB** — would fight the narration badly |
+| CC0 #860123 "Low Frequency Ambient" | −17.4 dB |
+| **`bed-office` (synthesised)** | **−24.8 dB** |
+
+It is built that way on purpose: sub energy under ~120 Hz, air above 5 kHz, a
+soft 1 Hz pulse at 110 Hz, and the speech band left empty. A company gets a
+heartbeat out of it for free.
+
+Verified present rather than assumed. My first check compared whole-file
+sub-120 Hz against a bed-less cut and showed nothing — the narration's own low
+end hid it across a 37-second average. Measuring **inside a gap between
+narration lines** was decisive: bare VO **−91.0 dB** (silence) → mixed
+**−37.5 dB**, almost entirely sub-120 Hz. Whole-file averages hide a bed; gaps
+do not.

@@ -137,6 +137,7 @@ if __name__ == "__main__":
     print("HS-034: narration")
     vo = voice.build_track(LINES, DUR, OUT / "_vo.wav", OUT / "_vo")
     print("HS-034: sfx")
-    track = voice.mix_sfx(vo, SFX, DUR, OUT / "narration.wav")
+    track = voice.mix_sfx(vo, SFX, DUR, OUT / "narration.wav",
+                          bed="bed-office", bed_db=-27)
     print("HS-034: frames")
     render("HS-034", DUR, E, OUT, audio=track)

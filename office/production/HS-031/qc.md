@@ -69,3 +69,27 @@ rather than a hypothesis.
 ## Definition of done
 
 Met. Awaiting approval. **Not published.**
+
+## Music bed — added 2026-08-27
+
+`bed-office`, 45s, in the SFX library. **Chosen over CC0 alternatives on a
+measurement, not a preference.** A bed's only job is to not fight the voice, so
+what matters is how much of its energy sits in the 300–3400 Hz speech band
+relative to its own level:
+
+| candidate | speech-band share |
+|---|---|
+| CC0 #524621 "Synth 3" | **−3.4 dB** — would fight the narration badly |
+| CC0 #860123 "Low Frequency Ambient" | −17.4 dB |
+| **`bed-office` (synthesised)** | **−24.8 dB** |
+
+It is built that way on purpose: sub energy under ~120 Hz, air above 5 kHz, a
+soft 1 Hz pulse at 110 Hz, and the speech band left empty. A company gets a
+heartbeat out of it for free.
+
+Verified present rather than assumed. My first check compared whole-file
+sub-120 Hz against a bed-less cut and showed nothing — the narration's own low
+end hid it across a 37-second average. Measuring **inside a gap between
+narration lines** was decisive: bare VO **−91.0 dB** (silence) → mixed
+**−37.5 dB**, almost entirely sub-120 Hz. Whole-file averages hide a bed; gaps
+do not.

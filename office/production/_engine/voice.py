@@ -117,11 +117,17 @@ def build_track(lines, total: float, out: Path, workdir: Path) -> Path:
 LIB = Path(__file__).resolve().parents[2] / "asset-library" / "sfx"
 
 
-def mix_sfx(voice_track: Path, cues, total: float, out: Path) -> Path:
+def mix_sfx(voice_track: Path, cues, total: float, out: Path,
+            bed: str = None, bed_db: float = -26.0) -> Path:
     """Lay SFX cues over a finished narration track.
 
     cues: [(start_seconds, name, gain_db)] where `name` is a file stem in
     office/asset-library/sfx (either the synthesised .wav or a fetched .mp3).
+
+    `bed` lays a music bed under everything for the full runtime, with its own
+    fades. It is handled separately from the cues because a bed trimmed by -t
+    stops mid-level, and an abrupt cut at the end of a video is audible in a way
+    a missing sound effect is not.
 
     Voice is never ducked here — the cues are chosen to sit in gaps and the
     gains are set well under the read. A limiter catches the occasional overlap.
@@ -147,6 +153,25 @@ def mix_sfx(voice_track: Path, cues, total: float, out: Path) -> Path:
             f"volume={gain}dB,adelay={int(start*1000)}|{int(start*1000)}[s{n}]")
         labels.append(f"[s{n}]")
         n += 1
+    if bed:
+        src = None
+        for ext in (".wav", ".mp3"):
+            cand = LIB / f"{bed}{ext}"
+            if cand.is_file():
+                src = cand
+                break
+        if src is None:
+            print(f"  ! bed not found, skipped: {bed}")
+        else:
+            args += ["-i", str(src)]
+            fade_out = max(total - 2.0, 0.1)
+            filt.append(
+                f"[{n}:a]aformat=sample_fmts=fltp:sample_rates={SR}:channel_layouts=stereo,"
+                f"atrim=0:{total},volume={bed_db}dB,"
+                f"afade=t=in:st=0:d=1.5,afade=t=out:st={fade_out:.2f}:d=2.0[bed]")
+            labels.append("[bed]")
+            n += 1
+
     if n == 1:
         return voice_track
     filt.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0:dropout_transition=0[m]")
@@ -155,5 +180,5 @@ def mix_sfx(voice_track: Path, cues, total: float, out: Path) -> Path:
                     "-filter_complex", ";".join(filt), "-map", "[out]",
                     "-t", str(total), "-ar", str(SR), "-ac", "2", str(out)],
                    check=True)
-    print(f"  mixed {n-1} sfx cues")
+    print(f"  mixed {n-1} layers" + (f" (incl. bed {bed})" if bed else ""))
     return out

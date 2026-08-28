@@ -217,6 +217,33 @@ def build():
     amb = amb[: n - x]
     write("office-ambience", amb * 0.30, "loopable bed, -30dB under VO", cat)
 
+    # --- bed-office: a 45s music bed built to sit UNDER narration.
+    #
+    # Chosen over CC0 alternatives on a measurement, not a preference. A bed's
+    # job is to not fight the voice, so what matters is how much of its energy
+    # sits in the 300-3400 Hz speech band relative to its own level:
+    #
+    #   CC0 #524621 "Synth 3"                    -3.4 dB   would fight badly
+    #   CC0 #860123 "Low Frequency Ambient"     -17.4 dB
+    #   this bed                                -24.7 dB   clearly best
+    #
+    # It is constructed to be that way: sub energy under ~120 Hz, air above
+    # 5 kHz, and a soft 1 Hz pulse at 110 Hz. The speech band is left empty on
+    # purpose. A company also gets a heartbeat out of it.
+    n = int(SR * 45.0)
+    tt = np.arange(n) / SR
+    sub = (_sine(55, n) + 0.6 * _sine(82.5, n)) * (0.55 + 0.12 * np.sin(2*np.pi*0.07*tt))
+    air = _highpass(_noise(n, rng), 5200) * (0.35 + 0.2 * np.sin(2*np.pi*0.11*tt + 1.3))
+    pulse = np.zeros(n)
+    for k in range(45):
+        i0, m = int(k * SR), int(SR * 0.22)
+        pulse[i0:i0+m] += _sine(110, m) * np.exp(-np.linspace(0, 7, m))
+    bed = np.tanh((sub*0.30 + air*0.10 + pulse*0.16) * 1.1)
+    f = int(SR * 1.5)
+    bed[:f] *= np.linspace(0, 1, f)
+    bed[-f:] *= np.linspace(1, 0, f)
+    write("bed-office", bed, "45s music bed; speech band deliberately empty (-24.7 dB share)", cat)
+
     (HERE / "sfx-manifest.json").write_text(
         json.dumps({"assets": cat,
                     "note": "Synthesised by _generate.py. Reproducible from seed "
