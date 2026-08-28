@@ -18,6 +18,13 @@ content-plans/*/
 *.wav
 *.m4a
 
+# The asset library is the exception. It is the Office's reusable media —
+# an asset library that vanishes on clone is not a library. Small, and the
+# licence for every file is recorded in a manifest beside it.
+!office/asset-library/**/*.wav
+!office/asset-library/**/*.mp3
+!office/asset-library/**/*.mp4
+
 # Python
 __pycache__/
 *.py[cod]
