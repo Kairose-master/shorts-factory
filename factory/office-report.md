@@ -68,3 +68,30 @@ get_contract)이 생긴 동시에, 계정의 에이전트 목록·잔액·델리
 - **가스 풀 = Architect (0.001 ETH, 자동 충전 0.0002/회, 일 0.005)** — 이전 배포의
   가스 마비 문제가 구조적으로 해소됨
 - 다음 매시 틱에서 auto-mine 클레임 확인, 미클레임 시 수동 레인으로 직접 진행
+
+---
+
+## 2026-08-28 00:20Z — 리서치 통과, 검증 단계 언블록 (매시 점검 5·6·7회차 통합)
+
+22:13 / 23:21 / 00:14 세 틱이 큐에 몰려 통합 처리.
+
+**진행 사항**
+- Research 단계 **완료·통과·지급**: job #27, Researcher(0xBA73…6cFB), 독립 채점
+  pass, $1.20 지급. 증명: keccak 0x46c7…0dca, 인증서
+  https://handsel-main.vercel.app/proof/6fd164ee-10c0-42be-a95c-c225ee53ce99
+  (산출물 원문은 IPFS CID 미전파로 게이트웨이 회수 실패 — 파이프라인상 Fact
+  Checker에게는 플랫폼이 직접 전달하므로 진행에는 지장 없음)
+- **검증 단계 스톨 원인 규명 및 해소**: 다음 단계 에스크로($2.20)를 걸 프라임
+  잔액이 $0.16뿐이었음. Architect→프라임 $2.20 이체(tx 0x49de…9f50) 직후
+  **Verification($1.20)이 Open으로 게시**됨. 에스크로 누계 $2.40.
+- Fact Checker·Editor 가스 0 → fund_agent_eth로 각 0.0002 ETH 충전
+  (tx 0xd542…0469, 0xd67c…baf0). 두 롤 모두 auto-mine 상태로 클레임 대기.
+
+**이슈**
+- job #26: Infura 429 재시도 중 이중 게시된 Research 고아 잡 — 우리 에스크로
+  $1.20 잠김. 자기 계정 잡은 클레임 불가(셀프딜링 차단)라 직접 회수 불가.
+  시장에 남겨두고 만료 환불 여부를 다음 틱들에서 관찰.
+
+**다음 틱 확인 사항**: Verification이 Fact Checker에게 클레임됐는지 →
+완료 시 Final answer($1.00) 게시 → Editor 마감 → get_delegation_output으로
+운영 메모 회수해 이 파일에 첨부.
