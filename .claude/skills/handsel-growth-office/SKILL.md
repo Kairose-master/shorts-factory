@@ -51,6 +51,8 @@ would have improved, run the open path, label which mode produced each number.
 | "write hooks" | `viral-hooks` → log every variant to `office/memory/hooks.md` |
 | "critique this hook" | `hook-anatomy` |
 | "write the script" | `viral-short-form` → the platform skill |
+| "what should be on screen" / "find the footage" | **`asset-hunter`** — beats, search, provenance, handoff |
+| "no asset exists for this shot" | **`motion-designer`** — reusable Remotion/SVG primitives |
 | "make the video" | `openmontage` (+ `voicebox`, `penpot`, `aicron`) |
 | "narration / which voice" | `voicebox` — its bundled voice-casting reference holds the standing cast |
 | "title card, brand consistency" | `penpot` → `brand-kit` |
@@ -93,9 +95,34 @@ Every entry declares a **posture**, and it is load-bearing:
 Lawbook codes are a design proposal — the source document says so about itself
 twice. See `office/research/verification-lawbook.md`.
 
-Run `python3 scripts/verify_backlog.py` after editing the backlog. The `Pri`
+Run the repo-root backlog verifier (`verify_backlog.py`, under the repo `scripts/`
+ directory) after editing the backlog. The `Pri`
 column is a formula over judgement scores; a wrong cell makes a judgement look
 like a fact.
+
+## The asset layer — a separate system from research
+
+Trend research and asset acquisition are **different systems** and must not be
+collapsed. `trend-discovery` and `last30days` study the internet; `asset-hunter`
+studies the script.
+
+```
+SHOT_DESIGNER → ASSET_HUNTER ─┬─ real Handsel capture
+                              ├─ library / stock (keys permitting)
+                              └─ gap → MOTION_DESIGNER → clip
+                                        ↓
+                                  ASSET PACKAGE → VIDEO_EDITOR
+```
+
+**The editor never searches for media.** If it has to, `asset-hunter` did not
+finish. If an asset is missing mid-edit: `VIDEO_EDITOR → ASSET_GAP →
+ASSET_HUNTER`. If an animation is missing: `ASSET_HUNTER → MOTION_DESIGNER →
+VIDEO_EDITOR`. This separation is not advisory.
+
+Stock keys (`PEXELS_API_KEY`, `UNSPLASH_ACCESS_KEY`, `FREESOUND_API_KEY`) are
+**unset**; all three servers are audited and approved in the Office's skills
+registry. Being blocked costs texture and B-roll, not the ability to make videos
+— the decision engine puts real capture and generated motion above stock anyway.
 
 ## The cycle
 
