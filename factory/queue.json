@@ -253,6 +253,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "이 사람은 좌파입니까, 우파입니까? — 분류 게임 (EP11)"
+    },
+    {
+      "id": "jayu-ep11",
+      "series": "자유중국",
+      "ep": 11,
+      "title_suggested": "이 정치인, 좌파인지 우파인지 10초 안에 골라보세요",
+      "hook": "복지 확대, 시장 개방, 군비 증강. 좌파일까요, 우파일까요?",
+      "hookType": "참여형 분류 게임",
+      "status": "READY",
+      "file": "projects/jayu-china/ep11-short/jayu_ep11_final.mp4",
+      "durationSec": 70.4,
+      "qScore": {
+        "H": 89,
+        "C": 87,
+        "V": 85,
+        "R": 91,
+        "P": 89,
+        "N": 88,
+        "Q": 88.2,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "당신에게 5표 — 2080 자유중국 총선 (EP12, 시즌1 피날레)"
     }
   ]
 }
