@@ -275,6 +275,28 @@
         "verdict": "RELEASE"
       },
       "nextContradiction": "당신에게 5표 — 2080 자유중국 총선 (EP12, 시즌1 피날레)"
+    },
+    {
+      "id": "jayu-ep12",
+      "series": "자유중국",
+      "ep": 12,
+      "title_suggested": "당신에게 5표가 주어졌습니다. 좌우 자는 버리세요",
+      "hook": "당신에게 5표가 주어졌습니다. 현실의 좌우 자는, 버리고 오세요.",
+      "hookType": "참여형 투표 게임 (시즌1 피날레)",
+      "status": "READY",
+      "file": "projects/jayu-china/ep12-short/jayu_ep12_final.mp4",
+      "durationSec": 70.1,
+      "qScore": {
+        "H": 90,
+        "C": 88,
+        "V": 86,
+        "R": 93,
+        "P": 92,
+        "N": 85,
+        "Q": 89.3,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "시즌2 「자유중국의 철학」 — 왜 우리는 자꾸 한 줄로 세우려 했을까? (제작은 Editor-in-Chief 결정 대기)"
     }
   ]
 }
