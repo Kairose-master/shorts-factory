@@ -112,3 +112,29 @@ That is worth remembering the next time the Office reports a clean QC pass.
 pointers all come from *my* judgement of what is interesting, not from a single
 published number. Nothing has been posted. The Office has 0 measurements and
 should keep saying so.
+
+---
+
+## The audience miss — corrected 2026-08-27
+
+| ID | Lesson | Evidence | Confidence |
+|---|---|---|---|
+| L-13 | **Four cuts in, the Office had not made a single video that works on someone who has never heard of Handsel.** HS-001, HS-006b, HS-011 and HS-031 all assume context: they print delegation ids, explain a staking bond, or open on a limitation and close on "Sometimes." Every one is interesting to a reader who already knows the product. None of them *sells* it. | HS-032/qc.md; the jargon audit against the other four | **established** |
+| L-14 | **The scoring rubric has no axis for "serves the goal", so it could not catch L-13.** HS-031 and HS-032 both score 43/45 and are not close for a cold audience. Hook · Visual · Novelty · Understandability · Relevance · Difficulty all measure craft; none asks *who is this for.* | both qc.md files | **established** |
+
+**Why it happened, plainly.** Prior P-05 says candour outperforms polish, and the
+strongest artefacts in the ledger are about being wrong or being tested (L-12).
+Both are true. But the Office generalised them into *make candid videos* and
+skipped the prior question — the brief said the narrative is **build an AI
+company, give it capital, watch it do business**, and that protocol vocabulary is
+supporting evidence, never the hook. Candour is a *tone*. It is not a substitute
+for telling a stranger what the product is.
+
+**The fix, and its limit.** HS-032 leads; the candid cuts become follow-ups for an
+audience that already has context. This does not retire P-05 — HS-031 is still a
+good video, just not a first one. Sequence, not replacement.
+
+`audience_readiness` should be added to the scoring rubric: *can someone with
+zero context follow this and want to try it?* Not patched mid-flight, because
+re-scoring 27 entries on a dimension invented five minutes ago would produce
+numbers that look measured and are not.

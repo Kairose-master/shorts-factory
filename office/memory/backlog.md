@@ -64,6 +64,7 @@ being wrong or being tested.** That is not a coincidence — it is the positioni
 | ID | Title | Pillar | Incident | Lawbook code | Posture | H | V | N | U | R | D | **Pri** | Cost | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | HS-024 | $100 on the internet. Try to take it. | C | I-02 | `SECURITY_BLOCKED` | SHIPPED | 10 | 8 | 9 | 9 | 9 | 3 | **76** | free | idea |
+| HS-032 | I hired an entire company for $7. | D | I-11 | `—` | SHIPPED | 9 | 9 | 8 | 10 | 10 | 4 | **75** | free | **MADE — QC 43/45, the lead cut** |
 | HS-031 | I hired five AI workers. Four couldn't afford to start. | C | I-11 | `—` | SHIPPED | 10 | 8 | 9 | 8 | 10 | 4 | **75** | free | **MADE — QC 43/45, awaiting approval** |
 | HS-006b | Three came back with a proof. One did not. | C | I-01 | `VERIFICATION_INCONCLUSIVE` | GAP | 9 | 8 | 9 | 8 | 10 | 4 | **72** | free | **MADE — awaiting approval** |
 | HS-001 | I gave an AI $5 and told it to hire someone | A | I-04 | `—` | SHIPPED | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **MADE — awaiting approval** |
