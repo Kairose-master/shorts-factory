@@ -58,6 +58,15 @@ def frontmatter(text):
     return data, None
 
 
+PY_REQ_RE = re.compile(r"[Pp]ython[ _-]?3\.(\d{1,2})\s*\+")
+
+
+def _declared_python(text):
+    """Highest 'Python 3.N+' minimum a SKILL.md claims for itself, or None."""
+    hits = [int(m) for m in PY_REQ_RE.findall(text)]
+    return (3, max(hits)) if hits else None
+
+
 def check_skill(d: Path):
     rec = {
         "skill": d.name, "errors": [], "warnings": [],
@@ -121,12 +130,26 @@ def check_skill(d: Path):
         rec["bins"].update(BIN_HINT.findall(src))
 
     # Dry run: bundled Python must at least parse and compile.
+    #
+    # A skill may target a newer Python than the one running this check — the
+    # syntax is then valid and only *this* interpreter cannot parse it. When
+    # SKILL.md declares a higher minimum, a parse failure is reported as a
+    # warning naming the requirement, not as an error, so a correctly installed
+    # skill does not fail the build on an older host.
+    needs = _declared_python(text)
+    running = sys.version_info[:2]
+    newer_ok = needs is not None and needs > running
     for py in d.rglob("*.py"):
         rec["python_scripts"] += 1
         try:
             ast.parse(py.read_text(encoding="utf-8", errors="replace"), filename=str(py))
         except SyntaxError as exc:
-            rec["errors"].append(f"{py.relative_to(d)} does not compile: {exc}")
+            if newer_ok:
+                rec["warnings"].append(
+                    f"{py.relative_to(d)} needs Python "
+                    f"{needs[0]}.{needs[1]}+ (running {running[0]}.{running[1]}): {exc.msg}")
+            else:
+                rec["errors"].append(f"{py.relative_to(d)} does not compile: {exc}")
 
     for sh in d.rglob("*.sh"):
         if not os.access(sh, os.X_OK):

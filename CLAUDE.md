@@ -1,15 +1,37 @@
 # shorts-factory
 
-A short-form video research and scripting workspace. 43 Agent Skills are installed
-under `.claude/skills/`, pulled from five upstream repositories and left
-**byte-identical to upstream** so `npx skills update` keeps working.
+A short-form video research and scripting workspace, and the home of the
+**Handsel Short-Form Growth Office** (`office/`).
 
-Run `python3 scripts/verify_skills.py` after any change to the skills tree.
+52 Agent Skills are installed under `.claude/skills/`:
+
+- **43 upstream skills** pulled from five repositories and left **byte-identical
+  to upstream** so `npx skills update` keeps working. These are the ones tracked
+  in `skills-lock.json`.
+- **8 local skills** authored here and deliberately *not* in the lock file:
+  `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
+  `aicron`, `zapier-mcp` — plus `shorts-factory` itself. `npx skills update`
+  will not touch them.
+- **1 vendored upstream skill**, `last30days` (MIT,
+  [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)),
+  copied byte-identical but not in the lock file. **It needs Python 3.12+**,
+  which this container does not ship — `LAST30DAYS_PYTHON` in
+  `.claude/settings.json` points at a `uv`-managed 3.12. `verify_skills.py`
+  reports its 3.12-only syntax as a warning naming that requirement, not an
+  error.
+
+Run `python3 scripts/verify_skills.py` after any change to the skills tree,
+and `python3 scripts/verify_backlog.py` after any change to the Office backlog.
 
 ## Start here
 
-For any research or scripting request, invoke the **`shorts-factory`** skill
-first (`.claude/skills/shorts-factory/SKILL.md`). It owns the nine-stage
+**For any Handsel promotion or content request, invoke the
+`handsel-growth-office` skill first** (`.claude/skills/handsel-growth-office/SKILL.md`).
+It owns the Growth Office in `office/` — the mission, the memory, the approval
+boundary, and the rule that nothing publishes without explicit human approval.
+
+For a generic research or scripting request with no Handsel angle, invoke the
+**`shorts-factory`** skill instead (`.claude/skills/shorts-factory/SKILL.md`). It owns the nine-stage
 pipeline, the ask-to-skill routing table, the cost gate on paid APIs, and the
 run-mode rule below. The sections here are the workspace conventions it assumes.
 
@@ -78,6 +100,9 @@ Pick the **narrowest** skill that matches the ask.
 - "is this trend worth riding" → `trend-radar`
 - "write me hooks" → `viral-hooks`; "critique this hook" → `hook-anatomy`
 - "write the script" → `viral-short-form` for shape, the platform skill for tuning
+- "what are people actually saying about X this month" → `last30days`
+  (Reddit · Hacker News · Polymarket keyless and free; X/TikTok/YouTube/
+  Instagram need keys. Run it before generating a backlog — see lesson L-07.)
 - Raw endpoint lookup → `scrapecreators-api` (the data layer the others call)
 
 Two skills that look duplicated are kept on purpose:
@@ -131,6 +156,39 @@ Use the `skill-creator` skill to scaffold, and `mcp-builder` if the platform is
 better served as an MCP server than as curl-in-a-skill. Add the new skill to the
 routing table in `.claude/skills/shorts-factory/references/routing.md` so it is
 reachable, and delete its row from the "Not routable" list there.
+
+## The Growth Office
+
+`office/` is the Handsel Short-Form Growth Office — a standing content operation,
+not a run folder. It is **committed** because it is the Office's memory and must
+survive the container.
+
+```
+office/
+├── CHARTER.md                 mission · roles · autonomy boundary · pillars
+├── research/handsel-model.md  the verified product model + DO NOT CLAIM ledger
+├── memory/                    backlog · hooks · published · rejected
+│                              experiments · analytics · lessons
+├── sop/                       production-pipeline · quality-control · analytics-loop
+└── production/<idea-id>/      plan · script · hooks · qc  (renders gitignored)
+```
+
+Two rules override everything else in this file when the Office is running:
+
+1. **Nothing publishes without explicit human approval.** Every time.
+2. **Never invent Handsel functionality.** Every factual claim traces to a line in
+   `office/research/handsel-model.md`, or it is cut.
+
+## The render layer
+
+`vendor/OpenMontage` (AGPL-3.0, gitignored) is the only capability here that
+produces an actual `.mp4`; every other skill produces text. Install or repair it
+with `bash .claude/skills/openmontage/scripts/install.sh`. It is outside the
+skills tree on purpose — copyleft source does not get merged into this repo.
+
+The free render path needs no key: Piper/eSpeak narration, Remotion or
+HyperFrames composition, Archive.org/NASA/Wikimedia footage, FFmpeg post. Use it
+for every experiment. Paid generation is a Gate-gated exception, not a default.
 
 ## Reporting standard
 
