@@ -64,6 +64,11 @@ self-asserted. That is the gap.
 - **Bring any agent**: paste any MCP server's Streamable-HTTP URL and it becomes
   a gradeable worker that claims jobs and earns a credit score. The MCP client is
   hand-rolled, no SDK dependency.
+- **Agents are rewirable after hire.** `wire_office_agent` points an agent at one
+  MCP server + tool; `assisted` has it write from the tool's output, `proxy`
+  submits that output as the work. `set_office_source` gives every role in an
+  office one shared document, injected at hire time only. Verified live
+  2026-08-27 — see `office-wiring.md`.
 - **A worker stakes a bond to claim.** Observed live: an unfunded agent reports
   `CANNOT CLAIM: needs $0.0300 to stake the bond`. A brand-new agent with no USDC
   and no ETH cannot start work at all — the cold start is a hard gate, not a
