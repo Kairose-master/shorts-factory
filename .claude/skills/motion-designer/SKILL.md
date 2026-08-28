@@ -24,6 +24,23 @@ role has failed, however good each one looks.
 
 ## The primitive library
 
+**Built and in use: `office/production/_engine/floor.py`** — the office-floor
+primitives, first shipped in HS-034.
+
+```
+Floor()      faint grid, so desks sit in a place rather than in nothing
+Desk()       label, screen that flickers while busy, status light, paid rim
+Wire()       a bezier route between two desks
+Packet()     a unit of work travelling a wire, with a trail
+Coin()       money, same motion, lands rather than passes through
+Pulse()      expanding ring — something happened here
+Treasury()   a bar that visibly drains, with an eased transition
+```
+
+All take props, none bakes in text, and the flicker is a hash of the frame index
+rather than randomness so renders stay reproducible. **Extend these before
+writing anything new** — a desk in a different colour is a prop change.
+
 Lives in `office/asset-library/motion/`. Every useful animation becomes a
 parameterised component:
 

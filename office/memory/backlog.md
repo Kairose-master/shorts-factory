@@ -68,6 +68,7 @@ being wrong or being tested.** That is not a coincidence — it is the positioni
 | HS-032 | I hired an entire company for $7. | D | I-11 | `—` | SHIPPED | 9 | 9 | 8 | 10 | 10 | 4 | **75** | free | **MADE — QC 43/45, the lead cut** |
 | HS-031 | I hired five AI workers. Four couldn't afford to start. | C | I-11 | `—` | SHIPPED | 10 | 8 | 9 | 8 | 10 | 4 | **75** | free | **MADE — QC 43/45, awaiting approval** |
 | HS-033 | I gave my AI employee a new skill | D | I-12 | `—` | SHIPPED | 9 | 8 | 8 | 9 | 9 | 3 | **72** | free | idea |
+| HS-034 | The company, running (floor simulation) | G | I-11 | `—` | SHIPPED | 8 | 10 | 9 | 9 | 10 | 5 | **72** | free | **MADE — QC 43/45** |
 | HS-006b | Three came back with a proof. One did not. | C | I-01 | `VERIFICATION_INCONCLUSIVE` | GAP | 9 | 8 | 9 | 8 | 10 | 4 | **72** | free | **MADE — awaiting approval** |
 | HS-001 | I gave an AI $5 and told it to hire someone | A | I-04 | `—` | SHIPPED | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **MADE — awaiting approval** |
 | HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | I-09 | `—` | SHIPPED | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | idea |
