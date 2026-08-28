@@ -1,249 +1,223 @@
-# Content Backlog
+# Content Backlog — v2, rebuilt on the Lawbook generator
 
-Every idea the Office has had. Nothing is ever deleted — `rejected` and
-`retired` are statuses, because an idea deleted today is regenerated in six
-weeks by an Office with no memory of it.
+**Rebuilt 2026-08-27** after the HS-006 correction. v1 generated ideas from the
+product; this one generates them from **incidents**, per lesson L-07.
 
-**Priority** = `Hook×3 + Visual×2 + Relevance×2 + Novelty + Understandability − Difficulty×2`
-(range −20…90). Hook is weighted hardest: a 9/10 script behind a 3/10 hook is
-not seen. Difficulty is doubled and subtracted: the constraint is cycles, not ideas.
+## How an entry gets made
 
-Scores are 0–10. **Difficulty is cost-to-make, so higher is worse.**
+```
+REAL INCIDENT  →  which Lawbook axis/code it lands on  →  one short
+```
 
-| ID | Title | Pillar | Hook | Vis | Nov | Und | Rel | Diff | **Pri** | Cost | Status |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| HS-001 | I gave an AI $5 and told it to hire someone | A | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **QC PASS 41/45 — awaiting approval** |
-| HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | idea · **audience-grounded** |
-| HS-006 | I paid four AIs the same question. One failed. | C | 9 | 7 | 9 | 8 | 10 | 4 | **70** | free | **BLOCKED — Gate 5. Re-cut as HS-006b** |
-| HS-006b | Three came back with a proof. One did not. | C | 9 | 8 | 9 | 8 | 10 | 4 | **72** | free | **replaces HS-006 — awaiting approval** |
-| HS-004 | A GitHub label that pays for its own fix | D | 9 | 9 | 9 | 8 | 10 | 6 | **70** | low | idea |
-| HS-011 | An AI grading its own homework is not a reputation | E | 9 | 6 | 7 | 9 | 10 | 3 | **69** | free | **QC PASS 39/45 — awaiting approval** |
-| HS-017 | The market, as a game floor | G | 8 | 10 | 7 | 7 | 8 | 3 | **68** | free | idea |
-| HS-009 | One click, and it starts working without me | D | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | idea |
-| HS-018 | Watch one dollar move between two robots | G | 8 | 9 | 6 | 9 | 9 | 4 | **67** | free | idea |
-| HS-005 | Five AI agents. Ten dollars. No instructions. | C | 10 | 8 | 9 | 9 | 7 | 6 | **66** | med | idea |
-| HS-022 | 402 Payment Required | E | 8 | 8 | 7 | 7 | 9 | 3 | **66** | free | idea · **audience-grounded** |
-| HS-019 | "Trust me bro" vs. a signed proof | H | 9 | 6 | 6 | 8 | 8 | 2 | **65** | free | idea |
-| HS-015 | I built a dashboard designed to make me look bad | F | 9 | 6 | 8 | 7 | 7 | 2 | **64** | free | idea |
-| HS-014 | Robots have credit scores now. 300 to 990. | E | 7 | 7 | 6 | 8 | 9 | 3 | **61** | free | idea |
-| HS-020 | 한국 개발자가 만든 AI 노동시장 (KO cut) | D | 7 | 7 | 7 | 8 | 8 | 3 | **60** | free | idea |
-| HS-008 | No login. No wallet. Thirty seconds. | D | 6 | 7 | 4 | 9 | 9 | 2 | **59** | free | idea |
-| HS-010 | Paste one URL and your agent has a job | D | 7 | 6 | 8 | 6 | 9 | 3 | **59** | free | idea |
-| HS-012 | PASS does not mean PASS | E | 8 | 6 | 10 | 5 | 9 | 5 | **59** | free | idea |
-| HS-002 | Two AIs haggling over a price | A | 8 | 7 | 7 | 7 | 8 | 5 | **58** | free | idea |
-| HS-013 | Escrow, explained with two robots and a jar | E | 6 | 8 | 3 | 10 | 8 | 3 | **57** | free | idea |
-| HS-023 | "Price becomes the advertisement" | E | 7 | 6 | 8 | 6 | 7 | 3 | **55** | free | idea · **audience-grounded** |
-| HS-003 | Every bug that cost me real money | B | 8 | 4 | 8 | 6 | 7 | 3 | **54** | free | idea |
-| HS-016 | I wrote a prediction to be falsifiable. Then I falsified it. | F | 8 | 4 | 9 | 5 | 5 | 3 | **50** | free | idea |
-| HS-007 | What is the cheapest job an AI will accept? | C | 7 | 5 | 6 | 8 | 5 | 3 | **49** | low | idea |
+One incident, one code, one video. The generator is the incident ledger below,
+not a brainstorm. When the ledger grows, the backlog grows — that is the whole
+point of the structure (`../research/verification-lawbook.md`).
+
+## Posture — the field that keeps this honest
+
+The 16 Lawbook codes are a **design proposal, not shipped product** — the source
+document says so about itself twice. So every entry declares what it is allowed
+to show:
+
+| Posture | Meaning | What the video may put on a Handsel screen |
+|---|---|---|
+| **SHIPPED** | Handsel actually does this. Traceable to `../research/handsel-model.md`. | Real UI, real data |
+| **CONCEPT** | The Lawbook proposes it; the product does not emit it. | Only with `CONCEPT` visible on screen, never as product UI |
+| **GAP** | Handsel does **not** do this yet, and the incident proves it. | A build-in-public video about the gap. Never dressed as a feature. |
+
+**A CONCEPT entry that ships without its label is a fabricated feature** — Charter
+rule 1, and indefensible for a project selling verifiability.
+
+## Scoring
+
+`Priority = Hook×3 + Visual×2 + Relevance×2 + Novelty + Understandability − Difficulty×2`
+0–10 each; **Difficulty is cost-to-make, so higher is worse.** Generated and
+arithmetic-checked by script — do not hand-edit a `Pri` cell.
 
 ---
 
-## Entries
+## The incident ledger
 
-### HS-001 — I gave an AI $5 and told it to hire someone · Pillar A · **approved**
+Every incident is a real, checkable event. Source in the last column.
 
-- **Hook (selected):** *"I gave an AI five dollars and told it to hire someone."*
-- **Audience:** Agent builders · Developers · General
-- **Format:** screen-demo · **Length:** 30s
-- **Visual concept:** One unbroken screen recording. A chat window. A plan appears
-  splitting the task into priced subtasks. Money escrows. A *different* agent
-  claims a piece. Work comes back. Paid. Numbers on screen are real.
-- **Script concept:** Narrator states the setup, then shuts up and lets the screen
-  carry it. The turn is the moment a second agent — not the one being talked to —
-  claims the job.
-- **Why it may work:** The premise is a complete story in nine words and it is
-  literally true. No metaphor to decode, no jargon in the hook, and the payoff is
-  visible rather than asserted.
-- **Handsel relevance 10** — this *is* the product's front door (`plan_delegation`
-  → `confirm_delegation` → `delegation_status`).
-- **Cost:** free — screen capture, Piper narration, FFmpeg.
-- **Confidence 7 · Novelty 8**
+| ID | Incident | Source |
+|---|---|---|
+| **I-01** | Job #20: three surfaces disagree about one job. `my_work` → `FAILED`; `get_job` → `Completed (done and paid)`; `get_work_proof` → `No proof recorded`. | live queries, 2026-08-27 |
+| **I-02** | **$100 of real USDC sat in mainnet escrow for 30 days as an open "extract this without earning it" challenge. Job #2 came back `Refunded` — nobody took it.** Job #3 is a second run, currently `Accepted`. | `get_job 2`, `get_job 3` |
+| **I-03** | Job #8: Handsel paid $5 to an outside agent to check whether its **own** mainnet/testnet labels were consistent — after admitting in the task text that they were genuinely wrong until 2026-08-04, and that a bot receipt once let a sandbox response be recorded as a mainnet success (§23, `failure-modes.md`). | `get_job 8` |
+| **I-04** | `plan_delegation` split a $5 budget and spent $1 of it on a second agent to review the first one's work, unprompted. | `dlg-S711y4gs3O` |
+| **I-05** | Nine agents on one account: 670, 367, 362, 361, 361 — and **five sitting at exactly 0.00**, never having earned. | `list_my_agents` |
+| **I-06** | Market price for text work: median **$1.00**, range $0.10–$8.00, across **10 trades**. | `market_price` |
+| **I-07** | An open job on the board with a bounty of **$0.000001**. | `browse_open_jobs` #10 |
+| **I-08** | A real GitHub repo job on `Kairose-master/handsel`, mainnet App, escrowed from a label. | `browse_open_jobs` #7 |
+| **I-09** | r/AI_Agents, 2026-08-22: *"My autonomous AI agent has earned $0 in 48 days and still owes me $155."* 79 upvotes, **62 comments**. | `../research/audience-signal-2026-08-27.md` |
+| **I-10** | **The Office published a video claiming an agent "FAILED" and could not support it.** Caught by an external document, not by our own QC. | `../production/HS-006/qc-correction-2026-08-27.md` |
 
-### HS-006 — I paid an AI to check another AI's work. It failed it. · Pillar C · **approved**
-
-- **Hook (selected):** *"I paid an AI to check another AI's work. It failed it."*
-- **Audience:** Developers · Agent builders
-- **Format:** screen-demo · **Length:** 35s
-- **Visual concept:** An auto-graded code job. Tests attached. Worker submits.
-  The platform runtime — never the worker's — runs the tests. **FAIL.** Escrow
-  auto-refunds, the job reposts itself, and the failed worker is blocked from
-  re-claiming. All on screen, no cuts.
-- **Script concept:** PROBLEM → EXPERIMENT → RESULT. The result is a failure, and
-  the failure is the point: the system did the thing you would otherwise have had
-  to do yourself.
-- **Why it may work:** Every demo shows the happy path. Showing the sad path is
-  differentiated, and it is the only way to demonstrate that grading is real. A
-  dev audience distrusts a demo that never fails.
-- **Handsel relevance 10** — the auto-graded loop with its 2-repost cap.
-- **Cost:** free — shares a capture session with HS-001.
-- **Confidence 8 · Novelty 9**
-
-### HS-011 — An AI grading its own homework is not a reputation · Pillar E · **approved**
-
-- **Hook (selected):** *"This AI says it did a great job. It's also the one that graded it."*
-- **Audience:** Developers · Agent builders · General
-- **Format:** animated explainer · **Length:** 35s
-- **Visual concept:** Two boxes. Worker and Grader. First they are the same box —
-  the arrow loops back on itself. Then the Grader detaches and moves away. The
-  problem is drawn before the solution is named.
-- **Script concept:** QUESTION → SURPRISE → DEMO → PAYOFF. Ends on Proving
-  Ground: the server generates the problem *and a hidden answer*; the solver never
-  sees the answer.
-- **Why it may work:** It is the load-bearing idea under the entire product and it
-  is understandable with no crypto vocabulary at all. This is the video that makes
-  every other video make sense — the compounding one.
-- **Handsel relevance 10** — grader ≠ solver, enforced at contract and API level.
-- **Cost:** free — Remotion/HyperFrames, Piper + eSpeak cast.
-- **Confidence 7 · Novelty 7**
-
-### HS-004 — A GitHub label that pays for its own fix · Pillar D
-
-Six beats, all screen-recordable, all real: `bounty:$5` label → escrow → agent
-claims → PR opens → **your own CI** grades it → merge settles. **Difficulty 6**
-because it needs the GitHub App installed on a repo and a funded bounty — the
-README itself calls this "a commitment rather than a five-minute try." Do it on
-the sandbox first. Strongest visual story in the backlog; not the cheapest.
-
-### HS-017 — The market, as a game floor · Pillar G
-
-`/world` is the arcade view of the live market. Capture it, cut to a bed, no
-narration, kinetic captions naming what each actor is doing. **Runner-up for this
-cycle** — highest visual score in the backlog (10) and free. Held back only
-because three approved experiments already saturate one production cycle.
-
-### HS-009 — One click, and it starts working without me · Pillar D
-Auto-mine. One button creates the worker, provisions its wallet, and it begins
-claiming qualifying jobs by itself — several in parallel (N-slot block mining).
-The "walk away and it keeps earning" framing is strong; verify slot count on
-screen rather than citing the default.
-
-### HS-018 — Watch one dollar move between two robots · Pillar G
-Follow a single USDC through escrow → grading → release, as one continuous
-visual. Pairs naturally with HS-013.
-
-### HS-005 — Five AI agents. Ten dollars. No instructions. · Pillar C
-The strongest hook in the backlog (10). Held back: **medium cost** and the
-outcome is genuinely unknown, which is the appeal and the risk. Run it once
-HS-001 has established the format. Must be run on the sandbox, and the result
-published whatever it is — including "nothing interesting happened."
-
-### HS-019 — "Trust me bro" vs. a signed proof · Pillar H
-Split screen. Left: an agent asserting it did well. Right: an EIP-712-signed
-proof at `/proof/<id>`. Meme format, real artefact. Cheapest idea that still
-carries the thesis. Check meme freshness with `trend-radar` before making it.
-
-### HS-015 — I built a dashboard designed to make me look bad · Pillar F
-`/market-health` is described in the repo as "the numbers that do not flatter us."
-A founder shipping an anti-vanity dashboard is a story, and it converts the
-project's honesty into a distribution asset. **Gated on whether the founder wants
-to appear on camera** — see the open questions in `research/handsel-model.md`.
-
-### HS-014 — Robots have credit scores now. 300 to 990. · Pillar E
-The familiar 300–850 human range mapped onto 300–990 for agents. Weights on
-screen: Performance 40 / Reliability 30 / Reputation 20 / Risk 10. Must state
-that **nothing is seeded** — every agent starts at 0.
-
-### HS-020 — 한국 개발자가 만든 AI 노동시장 · Pillar D · KO
-Korean-language cut for Korean dev/AI communities. Handsel is Korean-built; that
-is a real angle, not a translation. Native Korean script — do **not** subtitle an
-English cut. Optionally produced through AICRON (also Korean) as a second layer
-of the same story. Voice: Google `ko-KR-Neural2` narrator, eSpeak `ko` agents.
-
-### HS-008 — No login. No wallet. Thirty seconds. · Pillar D
-`/try` with faucet money and the same code as production. Lowest-novelty idea
-here (4) but the highest conversion intent — it is the one with an obvious next
-action. Good B-slot filler; poor lead.
-
-### HS-010 — Paste one URL and your agent has a job · Pillar D
-The MCP-worker adapter. Narrow audience (agent builders) but near-perfect fit for
-it. Understandability 6 because it needs the viewer to already know what MCP is.
-
-### HS-012 — PASS does not mean PASS · Pillar E
-Evidence assurance E0–E4: a CI run, an LLM verdict and a self-attestation all
-emit `PASS` and must not authorise the same remedy. **The most genuinely novel
-idea in the repo** (novelty 10) and the hardest to land in 40 seconds
-(understandability 5). Make it *after* HS-011 — it needs that groundwork. Highest
-upside with a technical audience.
-
-### HS-013 — Escrow, explained with two robots and a jar · Pillar E
-Deliberately the simplest thing here. Novelty 3, understandability 10. The
-foundation video that HS-018 and HS-001 can both point back to.
-
-### HS-003 — Every bug that cost me real money · Pillar B
-`docs/failure-modes.md` lists every production defect that froze or lost money,
-its root cause and fix. Publishing that is rare and credible. Low visual score
-(4) — it is text — so it needs strong typography treatment or it dies muted.
-
-### HS-016 — I wrote a prediction to be falsifiable. Then I falsified it. · Pillar F
-From `docs/physical-operatorship.md`. Intellectually the most interesting founder
-story available; relevance to the product is only 5, and understandability 5.
-A credibility play for a research audience, not a growth play.
-
-### HS-007 — What is the cheapest job an AI will accept? · Pillar C
-Curiosity-driven experiment. Costs real bounties to run and the answer may be
-boring. Lowest priority; keep as an idea.
-
-### HS-021 — My AI agent earned $0 in 48 days and owes me $155 · Pillar C · **audience-grounded**
-
-**The first backlog entry not invented by this Office.** Derived from a real
-r/AI_Agents thread (2026-08-22, 79 upvotes / **62 comments** — the highest
-comment-to-upvote ratio in the whole 30-day sweep; see
-`../research/audience-signal-2026-08-27.md`).
-
-- **Hook direction:** the debt, not the budget. *"My AI agent has earned nothing
-  in 48 days. It owes me a hundred and fifty-five dollars."*
-- **Why it may work:** this exact framing already started an argument with the
-  exact audience Handsel needs, and nobody in the Office wrote it. It is the same
-  signal as prior P-02 — failure out-engages success with developers — arriving
-  from outside.
-- **The Handsel turn:** an agent cannot earn if nothing will pay it. The market
-  is the missing half. This is the strongest available *problem-first* entry
-  into the product, where HS-001 is solution-first.
-- **Relevance 9, not 10** — the connection needs one inferential step from the
-  viewer, where HS-001's is direct.
-- **Careful:** do **not** restage the original poster's story or imply it is ours.
-  Reference the pattern, tell our own version, and never claim Handsel would have
-  earned that agent money — the DO NOT CLAIM ledger forbids a traction claim and
-  this is exactly where one would slip in.
-- **Cost:** free. Same engine as the cycle-1 videos.
-
-### HS-022 — 402 Payment Required · Pillar E · **audience-grounded**
-
-The top-scoring cluster in the sweep frames the whole agent economy through the
-HTTP status code: an agent hits `402`, pays, gets the data, keeps working.
-
-- **Hook direction:** *"There's an HTTP status code almost nobody has ever seen.
-  Your AI is about to see it constantly."*
-- **Why it may work:** developers have known `402 Payment Required` as a
-  curiosity their entire careers — a reserved code that never got used. It has
-  built-in recognition and a built-in reveal, and it needs no crypto vocabulary.
-- **Handsel relevance 9** — the one-pager names x402 as the rail Handsel builds
-  on, and states the trust layer above it is the gap Handsel fills. That is the
-  payoff: the payment code is solved, the *who-do-you-trust* part is not.
-- **Visual 8** — a status code on screen is a strong, cheap, legible image.
-- Verify the current x402 standardisation facts against `handsel-model.md` §3
-  before scripting; do not restate a figure from a Reddit post.
-
-### HS-023 — "Price becomes the advertisement" · Pillar E · **audience-grounded**
-
-From a commenter, not a post — 26 upvotes on r/nanocurrency. A better
-articulation of a machine market than anything in the Office's own copy: in an
-economy where the buyers are machines, there is no brand to persuade, only a
-number to compare.
-
-- **Hook direction:** *"In an economy where every customer is a robot, marketing
-  doesn't exist. There's only the price."*
-- **Why it may work:** it is a genuine idea rather than a product pitch, and it
-  reframes what Handsel's market *is* without naming a feature.
-- **Relevance 7** — closer to a category essay than a product video. Lowest of
-  the three, kept because the line is unusually good.
-- **Attribution:** it is a stranger's phrasing. Use the idea, write our own
-  sentence, and do not quote them without credit.
+**I-02, I-03 and I-10 are the three strongest assets here and all three are about
+being wrong or being tested.** That is not a coincidence — it is the positioning.
 
 ---
+
+## The backlog
+
+| ID | Title | Pillar | Incident | Lawbook code | Posture | H | V | N | U | R | D | **Pri** | Cost | Status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| HS-024 | $100 on the internet. Try to take it. | C | I-02 | `SECURITY_BLOCKED` | SHIPPED | 10 | 8 | 9 | 9 | 9 | 3 | **76** | free | idea |
+| HS-006b | Three came back with a proof. One did not. | C | I-01 | `VERIFICATION_INCONCLUSIVE` | GAP | 9 | 8 | 9 | 8 | 10 | 4 | **72** | free | **MADE — awaiting approval** |
+| HS-001 | I gave an AI $5 and told it to hire someone | A | I-04 | `—` | SHIPPED | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **MADE — awaiting approval** |
+| HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | I-09 | `—` | SHIPPED | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | idea |
+| HS-004 | A GitHub label that pays for its own fix | D | I-08 | `—` | SHIPPED | 9 | 9 | 9 | 8 | 10 | 6 | **70** | low | idea |
+| HS-011 | An AI grading its own homework is not a reputation | E | — | `—` | SHIPPED | 9 | 6 | 7 | 9 | 10 | 3 | **69** | free | **MADE — awaiting approval** |
+| HS-017 | The market, as a game floor | G | — | `—` | SHIPPED | 8 | 10 | 7 | 7 | 8 | 3 | **68** | free | idea |
+| HS-025 | I paid someone $5 to check if I was lying | B | I-03 | `EVIDENCE_INVALID` | SHIPPED | 9 | 7 | 9 | 8 | 9 | 4 | **68** | free | idea |
+| HS-027 | Five of my agents have never earned anything | F | I-05 | `—` | SHIPPED | 8 | 8 | 7 | 9 | 9 | 3 | **68** | free | idea |
+| HS-009 | One click, and it starts working without me | D | — | `—` | SHIPPED | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | idea |
+| HS-018 | Watch one dollar move between two robots | G | — | `—` | SHIPPED | 8 | 9 | 6 | 9 | 9 | 4 | **67** | free | idea |
+| HS-029 | CAN'T VERIFY is not WORK FAILED | E | I-01 | `EVIDENCE_INACCESSIBLE` | CONCEPT | 9 | 7 | 8 | 8 | 8 | 3 | **67** | free | idea |
+| HS-030 | Don't trust the score. Inspect the proof. | E | I-03 | `—` | SHIPPED | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | idea |
+| HS-005 | Five AI agents. Ten dollars. No instructions. | C | — | `—` | SHIPPED | 10 | 8 | 9 | 9 | 7 | 6 | **66** | med | idea |
+| HS-022 | 402 Payment Required | E | I-09 | `—` | SHIPPED | 8 | 8 | 7 | 7 | 9 | 3 | **66** | free | idea |
+| HS-026 | We published a claim we could not back | B | I-10 | `ADJUDICATION_REVERSED` | GAP | 9 | 6 | 10 | 7 | 7 | 2 | **66** | free | idea |
+| HS-019 | "Trust me bro" vs. a signed proof | H | I-03 | `—` | SHIPPED | 9 | 6 | 6 | 8 | 8 | 2 | **65** | free | idea |
+| HS-015 | I built a dashboard designed to make me look bad | F | — | `—` | SHIPPED | 9 | 6 | 8 | 7 | 7 | 2 | **64** | free | idea |
+| HS-014 | Robots have credit scores now. 300 to 990. | E | I-05 | `—` | SHIPPED | 7 | 7 | 6 | 8 | 9 | 3 | **61** | free | idea |
+| HS-028 | The going rate is one dollar. Across ten trades. | E | I-06 | `—` | SHIPPED | 7 | 7 | 8 | 8 | 7 | 2 | **61** | free | idea |
+| HS-020 | 한국 개발자가 만든 AI 노동시장 (KO cut) | D | — | `—` | SHIPPED | 7 | 7 | 7 | 8 | 8 | 3 | **60** | free | idea |
+| HS-007 | The cheapest job on the board costs $0.000001 | C | I-07 | `—` | SHIPPED | 8 | 6 | 8 | 9 | 6 | 3 | **59** | free | idea |
+| HS-012 | PASS does not mean PASS | E | — | `VERIFIER_DISAGREEMENT` | CONCEPT | 8 | 6 | 10 | 5 | 9 | 5 | **59** | free | idea |
+| HS-023 | "Price becomes the advertisement" | E | I-09 | `—` | SHIPPED | 7 | 6 | 8 | 6 | 7 | 3 | **55** | free | idea |
+| HS-003 | Every bug that cost me real money | B | I-03 | `—` | SHIPPED | 8 | 4 | 8 | 6 | 7 | 3 | **54** | free | idea |
+
+<!-- 25 entries, priority verified -->
+
+---
+
+## Entries — the ones that changed
+
+Only entries whose reasoning moved in the rebuild are written out. The rest keep
+the notes they had in v1 (see git history for `backlog.md` before 2026-08-27).
+
+### HS-024 — $100 on the internet. Try to take it. · **Pri 76, new top of backlog**
+
+**Incident I-02. Posture: SHIPPED.** The strongest asset in the ledger and the
+Office had missed it entirely.
+
+$100 of **real USDC** was placed in `LaborMarketV2` escrow on Base mainnet as an
+open challenge: *"extract this without grader-passed work entitling you to it.
+Take it and it is yours — no claim form, no adjudication. The chain is the only
+judge."* Job #2 ran its 30 days and settled `Refunded`. Job #3 is a second run,
+live now.
+
+- **Hook direction:** *"There's a hundred dollars sitting on the internet right
+  now. The rules say: steal it and it's yours."*
+- **Why it may work (Hook 10):** it is a bounty story, which is a proven
+  short-form genre, and the stake is real money on a public chain — checkable by
+  the viewer, which almost nothing in AI marketing is.
+- **The turn:** the money came back. Not because anyone was stopped — because
+  nobody managed it.
+- **What it may NOT claim:** that the contracts are secure, or audited. They are
+  **not audited** (DO NOT CLAIM ledger). One challenge surviving 30 days is one
+  challenge surviving 30 days. The video must say that itself — which is
+  stronger, not weaker: *"this isn't proof it's safe. It's just the only kind of
+  evidence we can actually give you yet."*
+- **Check before scripting:** #3's current state. It is live and could change.
+
+### HS-025 — I paid someone $5 to check if I was lying · **Pri 68**
+
+**Incident I-03. Posture: SHIPPED.**
+
+Job #8's own task text admits Handsel's mainnet/testnet labels were genuinely
+inconsistent until 2026-08-04, that README "try it free" links pointed at a v1
+archive on a different contract, and that a bot receipt once let a sandbox
+response be recorded as a mainnet success. Then it pays an outside agent $5 to
+verify the corrections actually landed — with acceptance criteria demanding every
+surface be named and every finding quote exact text.
+
+- **Hook:** *"I wrote down every place my own product had lied. Then I paid a
+  stranger to check I'd fixed them."*
+- **Why it may work:** self-audit-as-product is rare and it is the exact behaviour
+  the product sells. The company used its own labor market on itself.
+- **Novelty 9** — nobody else is publishing this.
+
+### HS-026 — We published a claim we could not back · **Pri 66**
+
+**Incident I-10. Posture: GAP.** The Office's own failure, as content.
+
+We made a video about independent verification that put the word `FAILED` on
+screen as a work-quality verdict, passed our own QC at 42/45, and could not
+support it once two more surfaces were checked.
+
+- **Hook:** *"We made a video about verifying AI work. The video made a claim we
+  hadn't verified."*
+- **Why it may work (Novelty 10):** the correction *is* the demonstration. It
+  shows the failure mode the product exists to prevent, using the people selling
+  the product as the example.
+- **Risk, and it is real:** this can read as either unusual integrity or as
+  incompetence. Gate 8 (cringe) applies hard. It works only if the tone is flat
+  and specific — the three surfaces, the exact word, the exact fix — and never
+  self-congratulatory. **Do not make this until HS-006b has shipped**; a
+  correction video before the corrected video is incoherent.
+
+### HS-027 — Five of my agents have never earned anything · **Pri 68**
+
+**Incident I-05. Posture: SHIPPED.** Nine agents: 670, 367, 362, 361, 361 —
+and five at exactly `0.00`.
+
+- **Hook:** *"Nine AI agents. Four have a credit score. Five have never earned a
+  cent."*
+- **Why it may work:** it is the cold start, on screen, undisguised — and the
+  DO NOT CLAIM ledger says the cold start is the honest state. This turns the
+  Office's biggest messaging constraint into the video.
+- Pairs with HS-014 (what the 300–990 score means) and HS-021 (the audience's own
+  version of the same pain).
+
+### HS-029 — CAN'T VERIFY is not WORK FAILED · **Pri 67 · Posture: CONCEPT**
+
+The Lawbook thesis as an explainer, built from incident I-01. **`EVIDENCE_INACCESSIBLE`
+must appear labelled `CONCEPT` on screen** — Handsel does not emit it today.
+Written as *"here is the distinction that matters, and here is a real job where
+nobody could tell which side it fell on"*, not as a feature tour.
+
+### HS-030 — Don't trust the score. Inspect the proof. · **Pri 67**
+
+**Posture: SHIPPED.** The strongest line in the Lawbook document, and it maps to
+something that genuinely exists: EIP-712-signed proofs at `/proof/<id>`, and the
+fact that job #20 has **no** proof recorded is itself the demonstration — a
+missing proof is information.
+
+### HS-007 — The cheapest job on the board costs $0.000001 · **Pri 59, re-grounded**
+
+Was a speculative "what's the cheapest job an AI will accept?" It is now anchored
+to **incident I-07**: a real open posting at one millionth of a dollar. No longer
+needs a paid experiment to make — the artefact already exists on the board.
+
+---
+
+## Retired in the rebuild
+
+Not deleted — retired, with the reason, per the Charter. A retired idea can come
+back when an incident grounds it.
+
+| ID | Title | Why retired |
+|---|---|---|
+| HS-002 | Two AIs haggling over a price | Feature tour with no incident behind it. The negotiation channel exists, but nothing in the ledger shows it being used, so any video would be staged. **Revisit if** a real negotiation appears in the data. |
+| HS-008 | No login. No wallet. Thirty seconds. | A product tour, not an incident. Novelty was already the lowest in v1 (4). Its job is better done as an end card on any other video. |
+| HS-010 | Paste one URL and your agent has a job | Same problem: describes a capability rather than showing an event. **Revisit if** an external MCP worker actually claims and passes a job on this account. |
+| HS-013 | Escrow, explained with two robots and a jar | Generic category education with no Handsel specificity — it would work identically for any escrow product, which is Gate 6's definition of failure. HS-018 covers the same ground with real money moving. |
+| HS-016 | I wrote a prediction to be falsifiable, then falsified it | Could not verify the underlying story from any source I have. Unverifiable premise, so it cannot pass Gate 5. **Revisit if** the document is produced. |
 
 ## Rejected
 
-None yet. When one is rejected, log the reason in the idea's own words in
-`rejected.md` — "reads as crypto-shill" is retrievable, "QC-3" is not.
+Still none. `rejected.md` records rejections at QC or later; the five above are
+**retired at idea stage**, which is a different thing and deliberately reversible.
+
+## What changed, and what it cost
+
+- **v1 had 24 entries; v2 has 25**, but 10 are now anchored to a checkable
+  incident where v1 had 3.
+- **The new #1 (HS-024, Pri 76) beats everything in v1.** It was sitting in the
+  account's own job history the entire time. v1 never looked.
+- Five entries retired for having no incident behind them.
+- **Three of the four highest-value assets are about being wrong, being tested,
+  or being unable to tell** — I-02, I-03, I-10. The Office's instinct in v1 was
+  to sell capability. The evidence says the credible story is the opposite.

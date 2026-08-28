@@ -47,7 +47,7 @@ would have improved, run the open path, label which mode produced each number.
 |---|---|
 | "what's working in AI/dev short-form" | `trend-discovery` → `trend-radar` |
 | "why did that video pop" | `content-autopsy` → `hook-anatomy` |
-| "give me Handsel video ideas" | `viral-short-form-ideas` + `office/memory/backlog.md` |
+| "give me Handsel video ideas" | **the incident ledger in `office/memory/backlog.md`** — see below |
 | "write hooks" | `viral-hooks` → log every variant to `office/memory/hooks.md` |
 | "critique this hook" | `hook-anatomy` |
 | "write the script" | `viral-short-form` → the platform skill |
@@ -64,6 +64,38 @@ would have improved, run the open path, label which mode produced each number.
 
 Pick the **narrowest** skill that matches. `viral-hooks` generates, `hook-anatomy`
 diagnoses. `trend-discovery` finds, `trend-radar` judges.
+
+## Where ideas come from — the generator
+
+**Do not brainstorm.** The backlog is generated:
+
+```
+REAL INCIDENT  →  which Lawbook axis/code it lands on  →  one short
+```
+
+Start from the incident ledger at the top of `office/memory/backlog.md`. Every
+entry is anchored to a checkable event — a job number, a query, a thread. When a
+new incident appears (a job settles oddly, a verdict disagrees with itself, a
+score moves, a thread blows up), add it to the ledger first; the backlog entry
+follows from it. Lesson L-07: v1 of this backlog was generated from the product
+and its top idea was beaten by an incident that had been sitting in the account's
+own job history the whole time.
+
+Every entry declares a **posture**, and it is load-bearing:
+
+- **SHIPPED** — traceable to `office/research/handsel-model.md`. Real UI, real data.
+- **CONCEPT** — the Verification Lawbook proposes it; the product does not emit
+  it. May only appear with `CONCEPT` visible on screen.
+- **GAP** — Handsel does not do this yet. A build-in-public video about the gap,
+  never dressed as a feature.
+
+**A CONCEPT entry shipped without its label is a fabricated feature.** The 16
+Lawbook codes are a design proposal — the source document says so about itself
+twice. See `office/research/verification-lawbook.md`.
+
+Run `python3 scripts/verify_backlog.py` after editing the backlog. The `Pri`
+column is a formula over judgement scores; a wrong cell makes a judgement look
+like a fact.
 
 ## The cycle
 
@@ -82,6 +114,10 @@ SOPs: `office/sop/`.
 - **Never optimise from one observation.** `Observations: 1` is a note, not a lesson.
 - **`unmeasured` is written, never estimated.** A guessed retention figure poisons
   every lesson derived from it.
+- **Never publish an untyped verdict.** One word that collapses outcome, cause,
+  attribution and settlement is a guess wearing a verdict's clothes (L-09).
+- **Tracing a claim to a source is not verifying it.** Where a claim rests on a
+  system's own status string, query a second and third surface first (L-08).
 - **Log the rejects.** Ideas, hooks, renders. In plain words, with what was worth
   keeping.
 - Raw views are not performance — baseline-relative or it does not count.

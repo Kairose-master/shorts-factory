@@ -98,3 +98,17 @@ Office. Nothing in the Office's own QC would have found it — the gate was pass
 the claim was sourced, the video was scored highest of the three. What found it
 was someone handing over a framework built specifically to name this failure mode.
 That is worth remembering the next time the Office reports a clean QC pass.
+
+---
+
+## Backlog v2 — what the rebuild proved
+
+| ID | Lesson | Evidence | Confidence |
+|---|---|---|---|
+| L-11 | **The best asset was already in the data.** Rebuilding the backlog from incidents rather than from the product surfaced HS-024 (the $100 mainnet challenge that survived 30 days and refunded) at Pri 76 — above everything in v1. It had been in the account's own job history from the start, through two production cycles, unnoticed. | memory/backlog.md v2; `get_job 2` | **established** |
+| L-12 | **Three of the four strongest assets are about being wrong, tested, or unable to tell** — the $100 challenge, the paid self-audit, and the Office's own retracted claim. The instinct in v1 was to sell capability; the evidence says the credible story runs the other way. This is prior P-05 (candour outperforms polish) getting a third independent pointer, now from asset ranking rather than audience data. | I-02, I-03, I-10 in backlog v2 | **directional** |
+
+**P-05 moves speculative → directional.** It is still not `established`: three
+pointers all come from *my* judgement of what is interesting, not from a single
+published number. Nothing has been posted. The Office has 0 measurements and
+should keep saying so.

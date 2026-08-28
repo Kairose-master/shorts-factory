@@ -20,7 +20,8 @@ A short-form video research and scripting workspace, and the home of the
   reports its 3.12-only syntax as a warning naming that requirement, not an
   error.
 
-Run `python3 scripts/verify_skills.py` after any change to the skills tree.
+Run `python3 scripts/verify_skills.py` after any change to the skills tree,
+and `python3 scripts/verify_backlog.py` after any change to the Office backlog.
 
 ## Start here
 
