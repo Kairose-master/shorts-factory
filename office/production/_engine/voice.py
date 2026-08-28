@@ -112,3 +112,48 @@ def build_track(lines, total: float, out: Path, workdir: Path) -> Path:
                     "-t", str(total), "-ar", str(SR), "-ac", "2", str(out)],
                    check=True)
     return out
+
+
+LIB = Path(__file__).resolve().parents[2] / "asset-library" / "sfx"
+
+
+def mix_sfx(voice_track: Path, cues, total: float, out: Path) -> Path:
+    """Lay SFX cues over a finished narration track.
+
+    cues: [(start_seconds, name, gain_db)] where `name` is a file stem in
+    office/asset-library/sfx (either the synthesised .wav or a fetched .mp3).
+
+    Voice is never ducked here — the cues are chosen to sit in gaps and the
+    gains are set well under the read. A limiter catches the occasional overlap.
+    """
+    out = Path(out)
+    args = ["-i", str(voice_track)]
+    filt = ["[0:a]aformat=sample_fmts=fltp:sample_rates=%d:channel_layouts=stereo[v]" % SR]
+    labels = ["[v]"]
+    n = 1
+    for start, name, gain in cues:
+        src = None
+        for ext in (".wav", ".mp3"):
+            cand = LIB / f"{name}{ext}"
+            if cand.is_file():
+                src = cand
+                break
+        if src is None:
+            print(f"  ! sfx not found, skipped: {name}")
+            continue
+        args += ["-i", str(src)]
+        filt.append(
+            f"[{n}:a]aformat=sample_fmts=fltp:sample_rates={SR}:channel_layouts=stereo,"
+            f"volume={gain}dB,adelay={int(start*1000)}|{int(start*1000)}[s{n}]")
+        labels.append(f"[s{n}]")
+        n += 1
+    if n == 1:
+        return voice_track
+    filt.append(f"{''.join(labels)}amix=inputs={len(labels)}:normalize=0:dropout_transition=0[m]")
+    filt.append("[m]alimiter=limit=0.95,loudnorm=I=-14:TP=-1.0:LRA=11,apad[out]")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", *args,
+                    "-filter_complex", ";".join(filt), "-map", "[out]",
+                    "-t", str(total), "-ar", str(SR), "-ac", "2", str(out)],
+                   check=True)
+    print(f"  mixed {n-1} sfx cues")
+    return out

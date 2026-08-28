@@ -51,6 +51,7 @@ Every incident is a real, checkable event. Source in the last column.
 | **I-07** | An open job on the board with a bounty of **$0.000001**. | `browse_open_jobs` #10 |
 | **I-08** | A real GitHub repo job on `Kairose-master/handsel`, mainnet App, escrowed from a label. | `browse_open_jobs` #7 |
 | **I-09** | r/AI_Agents, 2026-08-22: *"My autonomous AI agent has earned $0 in 48 days and still owes me $155."* 79 upvotes, **62 comments**. | `../research/audience-signal-2026-08-27.md` |
+| **I-11** | `hire_office` draft: 5 agents hired, **4 report `CANNOT WORK: needs $0.0300 to stake the bond`**. And two runs of one brief: `dlg-AJin4S4WA4` paid $7.00 in full; `dlg-fwuIFrSwyx` failed 4 of 6 and refunded $3.42. | live queries 2026-08-27 |
 | **I-10** | **The Office published a video claiming an agent "FAILED" and could not support it.** Caught by an external document, not by our own QC. | `../production/HS-006/qc-correction-2026-08-27.md` |
 
 **I-02, I-03 and I-10 are the three strongest assets here and all three are about
@@ -63,6 +64,7 @@ being wrong or being tested.** That is not a coincidence — it is the positioni
 | ID | Title | Pillar | Incident | Lawbook code | Posture | H | V | N | U | R | D | **Pri** | Cost | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | HS-024 | $100 on the internet. Try to take it. | C | I-02 | `SECURITY_BLOCKED` | SHIPPED | 10 | 8 | 9 | 9 | 9 | 3 | **76** | free | idea |
+| HS-031 | I hired five AI workers. Four couldn't afford to start. | C | I-11 | `—` | SHIPPED | 10 | 8 | 9 | 8 | 10 | 4 | **75** | free | **MADE — QC 43/45, awaiting approval** |
 | HS-006b | Three came back with a proof. One did not. | C | I-01 | `VERIFICATION_INCONCLUSIVE` | GAP | 9 | 8 | 9 | 8 | 10 | 4 | **72** | free | **MADE — awaiting approval** |
 | HS-001 | I gave an AI $5 and told it to hire someone | A | I-04 | `—` | SHIPPED | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **MADE — awaiting approval** |
 | HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | I-09 | `—` | SHIPPED | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | idea |
