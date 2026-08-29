@@ -44,6 +44,8 @@ DISC_SIZE, DISC_Y = 34, 1452
 # 유튜브 UI 가 81.7%(y=1568) 아래를 덮는다. 모든 요소가 그 위에 있어야 한다.
 UI_SAFE_BOTTOM = 1568
 PROGRESS_Y, PROGRESS_W, PROGRESS_H = 1500, 756, 8
+END_LEAD_SIZE, END_MAIN_SIZE, END_SUB_SIZE = 50, 76, 50
+END_Y = 880
 GAP_MS = 260              # 문장 사이 숨
 LEAD_IN_MS = 350          # 첫 문장 전 여백
 
@@ -102,6 +104,23 @@ def parse_script(path):
     return out
 
 
+def make_endcard(sermon_id, seconds):
+    """엔드카드 내용을 설교 meta.json 에서 만든다. build_short.py 와 같은 규칙."""
+    if seconds <= 0 or not sermon_id:
+        return None
+    mp = OFFICE / "sermons" / sermon_id / "meta.json"
+    if not mp.is_file():
+        die(f"엔드카드를 만들 meta.json 이 없습니다: {mp}")
+    m = json.loads(mp.read_text(encoding="utf-8"))
+    date = m.get("date") or ""
+    if date:
+        y, mo, d = date.split("-")
+        date = f"{y}년 {int(mo)}월 {int(d)}일"
+    main = " ".join(x for x in (date, m.get("service_type") or "") if x) or m.get("title_raw", "")
+    sub = " · ".join(x for x in (m.get("scripture"), m.get("preacher")) if x)
+    return {"ms": int(seconds * 1000), "main": main, "sub": sub, "church": "방배동 예심교회"}
+
+
 def wav_ms(p):
     with wave.open(str(p)) as w:
         return int(w.getnframes() / w.getframerate() * 1000)
@@ -122,7 +141,7 @@ def synth(lines, outdir, model, length_scale=1.0):
     return wavs
 
 
-def build_ass(hook_lines, lines, total_ms, attribution="", disclosure=""):
+def build_ass(hook_lines, lines, total_ms, attribution="", disclosure="", endcard=None):
     hook = r"\N".join(hook_lines)
     head = f"""[Script Info]
 ScriptType: v4.00+
@@ -137,6 +156,9 @@ Style: HOOK,{FONT},{HOOK_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,-
 Style: BODY,{FONT},{BODY_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,{BODY_OUTLINE},3,5,110,110,0,1
 Style: BODYQ,{FONT},{BODY_SIZE},{YELLOW},{YELLOW},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,{BODY_OUTLINE},3,5,110,110,0,1
 Style: CITE,{FONT},{CITE_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,3,0,1,5,2,5,110,110,0,1
+Style: ENDLEAD,{FONT},{END_LEAD_SIZE},&H30FFFFFF,&H30FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: ENDMAIN,{FONT},{END_MAIN_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
+Style: ENDSUB,{FONT},{END_SUB_SIZE},&H18FFFFFF,&H18FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
 Style: ATTR,{FONT},{ATTR_SIZE},&H80FFFFFF,&H80FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,1,0,1,3,0,5,80,80,0,1
 Style: DISC,{FONT},{DISC_SIZE},&HA0FFFFFF,&HA0FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,1,0,1,3,0,5,80,80,0,1
 
@@ -153,6 +175,16 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         # 출처에 설교자 이름이 있으면 시청자는 들리는 목소리를 그 사람으로 읽는다.
         ev.append(f"Dialogue: 0,{ass_time(600)},{ass_time(total_ms)},DISC,,0,0,0,,"
                   f"{{\\pos(540,{DISC_Y})\\fad(500,0)}}{disclosure}")
+    if endcard:
+        es, ee = total_ms, total_ms + endcard["ms"]
+        ev.append(f"Dialogue: 3,{ass_time(es)},{ass_time(ee)},ENDLEAD,,0,0,0,,"
+                  f"{{\\pos(540,{END_Y - 130})\\fad(300,0)}}원본 설교 전체는 채널에 있습니다")
+        ev.append(f"Dialogue: 3,{ass_time(es + 120)},{ass_time(ee)},ENDMAIN,,0,0,0,,"
+                  f"{{\\pos(540,{END_Y})\\fad(300,0)}}{endcard['main']}")
+        ev.append(f"Dialogue: 3,{ass_time(es + 240)},{ass_time(ee)},ENDSUB,,0,0,0,,"
+                  f"{{\\pos(540,{END_Y + 120})\\fad(300,0)}}{endcard['sub']}")
+        ev.append(f"Dialogue: 3,{ass_time(es + 240)},{ass_time(ee)},ENDSUB,,0,0,0,,"
+                  f"{{\\pos(540,{END_Y + 200})\\fad(300,0)}}{endcard['church']}")
     t = LEAD_IN_MS
     for ln in lines:
         end = t + ln["dur"]
@@ -176,6 +208,9 @@ def main():
     ap.add_argument("--shorts-id", required=True)
     ap.add_argument("--hook", required=True, help="상단 훅. '|' 로 줄바꿈, 최대 2줄")
     ap.add_argument("--model", default=str(VOICE_DIR / "ko_KR-kss-medium.onnx"))
+    ap.add_argument("--sermon", default="", help="설교 id. 비우면 plan.md 에서 찾는다")
+    ap.add_argument("--endcard", type=float, default=3.5,
+                    help="끝에 붙일 원본 설교 안내 카드 길이(초). 0 이면 끄기")
     ap.add_argument("--length-scale", type=float, default=1.0,
                     help="Piper 발화 길이. 1.0 미만이면 빨라진다 (0.9 권장 하한)")
     ap.add_argument("--attribution", default="", help="하단 출처 표기. 비우면 meta.json 에서 생성")
@@ -228,8 +263,16 @@ def main():
                 attribution = (f"{m.get('preacher','')} 설교 「{m.get('scripture','')}」"
                                f" {m.get('date','')} 에서 재구성")
                 break
+    sermon_id = a.sermon
+    if not sermon_id:
+        plan = (base / "plan.md").read_text(encoding="utf-8")
+        for d in sorted((OFFICE / "sermons").iterdir()):
+            if d.is_dir() and d.name in plan:
+                sermon_id = d.name
+                break
+    endcard = make_endcard(sermon_id, a.endcard)
     ass = capdir / "narration.ass"
-    ass.write_text(build_ass(hook_lines, lines, total, attribution, a.disclosure),
+    ass.write_text(build_ass(hook_lines, lines, total, attribution, a.disclosure, endcard),
                    encoding="utf-8")
 
     # 문장 사이 무음을 넣어 이어붙인다
@@ -253,7 +296,8 @@ def main():
 
     # 배경: 짙은 남색 그라디언트에 아주 느린 확대. 첫 500ms 안에 움직임이 있어야
     # 한다(제작 SOP 기본값) — 훅의 페이드인과 이 확대가 그 역할을 한다.
-    dur_s = total / 1000
+    dur_s = (total + (endcard["ms"] if endcard else 0)) / 1000
+    body_s = total / 1000
     bg = (f"gradients=s={W}x{H}:c0=0x2A4A7F:c1=0x0B1020:c2=0x1A2C4E:"
           f"x0=200:y0=0:x1=900:y1={H}:nb_colors=3:d={dur_s:.2f}:speed=0.015:r=30,"
           f"format=yuv420p")
@@ -264,16 +308,20 @@ def main():
     vf = (f"zoompan=z='min(zoom+0.00018,1.08)':d=1:s={W}x{H}:fps=30,"
           f"drawbox=x={px}:y={PROGRESS_Y}:w={PROGRESS_W}:h={PROGRESS_H}:"
           f"color=white@0.16:t=fill,"
-          f"drawbox=x={px}:y={PROGRESS_Y}:w='{PROGRESS_W}*min(t/{dur_s:.3f},1)':"
+          f"drawbox=x={px}:y={PROGRESS_Y}:w='{PROGRESS_W}*min(t/{body_s:.3f},1)':"
           f"h={PROGRESS_H}:color=white@0.5:t=fill,"
+          + (f"drawbox=x=0:y=0:w=iw:h=ih:color=black@0.45:t=fill:"
+             f"enable='gte(t,{body_s:.3f})'," if endcard else "")
+          +
           f"subtitles='{ass}':fontsdir=/usr/share/fonts")
 
     target = outdir / "final.mp4"
     cmd = ["ffmpeg", "-hide_banner", "-y",
            "-f", "lavfi", "-t", f"{dur_s:.3f}", "-i", bg,
-           "-i", str(voice), "-vf", vf, "-r", "30",
+           "-i", str(voice), "-vf", vf, "-af",
+           (f"apad=pad_dur={a.endcard}" if endcard else "anull"), "-r", "30",
            "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
-           "-c:a", "aac", "-b:a", "160k", "-shortest",
+           "-c:a", "aac", "-b:a", "160k", "-t", f"{dur_s:.3f}",
            "-movflags", "+faststart", str(target)]
     print("렌더:", target)
     r = subprocess.run(cmd, capture_output=True, text=True)

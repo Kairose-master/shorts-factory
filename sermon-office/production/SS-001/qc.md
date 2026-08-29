@@ -2,7 +2,7 @@
 
 ```
 아이디어      SS-001  먼저 믿은 게 우월이 되는 순간
-렌더          renders/final.mp4  (0:60.6, 1080x1920, H.264/AAC)
+렌더          renders/final.mp4  (1:05.5 = 본편 62.0 + 엔드카드 3.5, 1080x1920)
 엔진          _engine/build_narration.py · Piper ko_KR-kss-medium · length-scale 0.88
 단계          정식 QC (렌더 존재)
 ```

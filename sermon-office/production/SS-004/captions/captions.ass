@@ -9,12 +9,19 @@ ScaledBorderAndShadow: yes
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: HOOK,Noto Sans CJK KR,116,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,-1,0,1,7,4,8,60,60,155,1
 Style: CAP,Noto Sans CJK KR,64,&H0000E0FF,&H0000E0FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,2,2,130,130,422,1
+Style: ENDLEAD,Noto Sans CJK KR,50,&H30FFFFFF,&H30FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: ENDMAIN,Noto Sans CJK KR,76,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
+Style: ENDSUB,Noto Sans CJK KR,50,&H18FFFFFF,&H18FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
 Style: STATUS,Noto Sans CJK KR,34,&H90FFFFFF,&H90FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,3,0,2,130,130,352,1
 Style: VERIFY,Noto Sans CJK KR,44,&H0000FFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,4,0,7,40,40,40,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:00:51.37,HOOK,,0,0,0,,먼저 믿은 게\N우월이 되는 순간
+Dialogue: 3,0:00:51.37,0:00:54.87,ENDLEAD,,0,0,0,,{\pos(540,690)\fad(300,0)}원본 설교 전체는 채널에 있습니다
+Dialogue: 3,0:00:51.49,0:00:54.87,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2026년 8월 28일 새벽기도
+Dialogue: 3,0:00:51.61,0:00:54.87,ENDSUB,,0,0,0,,{\pos(540,940)\fad(300,0)}겔 47:13-23 · 장선기 목사
+Dialogue: 3,0:00:51.61,0:00:54.87,ENDSUB,,0,0,0,,{\pos(540,1020)\fad(300,0)}방배동 예심교회
 Dialogue: 0,0:00:00.00,0:00:03.30,CAP,,0,0,0,,그래서 지금도 우리는 믿었다고\N해 가지고
 Dialogue: 0,0:00:03.30,0:00:05.87,CAP,,0,0,0,,우월감을 가지면 안 됩니다.
 Dialogue: 0,0:00:05.87,0:00:10.50,CAP,,0,0,0,,믿었다고 해 가지고 굉장히\N교만한 사람이 있어요.

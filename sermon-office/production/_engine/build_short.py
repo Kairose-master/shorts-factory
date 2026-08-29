@@ -49,6 +49,8 @@ CAP_MARGIN_BOTTOM = 422  # 자막 하단이 78% 지점. 유튜브 채널행(81.7
 CAP_MARGIN_SIDE = 130    # 좌우 12% — 우측 액션 버튼 열을 피한다
 CAP_OUTLINE = 6
 STATUS_SIZE, STATUS_MARGIN = 34, 352   # 자막 검수 상태 라벨, 자막 위
+END_LEAD_SIZE, END_MAIN_SIZE, END_SUB_SIZE = 50, 76, 50
+END_Y = 820              # 엔드카드 세로 중심
 CAP_LINE_CHARS = 17      # 한글 기준 한 줄 최대 글자수
 CAP_GROUP_CHARS = 36     # 자막 한 덩어리 최대 글자수 (17자 × 2줄)
 CAP_GROUP_MS = 5000      # 자막 한 덩어리 최대 지속
@@ -189,6 +191,25 @@ def read_caption_tsv(path):
     return out
 
 
+def make_endcard(sermon_id, seconds):
+    """엔드카드 내용을 설교 meta.json 에서 만든다. 손으로 적지 않는다."""
+    if seconds <= 0:
+        return None
+    mp = OFFICE / "sermons" / sermon_id / "meta.json"
+    if not mp.is_file():
+        die(f"엔드카드를 만들 meta.json 이 없습니다: {mp}")
+    m = json.loads(mp.read_text(encoding="utf-8"))
+    date = m.get("date") or ""
+    if date:
+        y, mo, d = date.split("-")
+        date = f"{y}년 {int(mo)}월 {int(d)}일"
+    svc = m.get("service_type") or ""
+    main = " ".join(x for x in (date, svc) if x) or m.get("title_raw", "")
+    sub = " · ".join(x for x in (m.get("scripture"), m.get("preacher")) if x)
+    return {"ms": int(seconds * 1000), "main": main, "sub": sub,
+            "church": "방배동 예심교회"}
+
+
 def scale_cues(cues, speed):
     """배속을 걸면 자막 타이밍도 같은 비율로 당겨야 한다."""
     if speed == 1.0:
@@ -196,7 +217,7 @@ def scale_cues(cues, speed):
     return [(int(s / speed), int(e / speed), t) for s, e, t in cues]
 
 
-def build_ass(hook_lines, cues, duration_ms, verify=False, status=""):
+def build_ass(hook_lines, cues, duration_ms, verify=False, status="", endcard=None):
     hook = r"\N".join(hook_lines)
     head = f"""[Script Info]
 ScriptType: v4.00+
@@ -209,6 +230,9 @@ ScaledBorderAndShadow: yes
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: HOOK,{FONT},{HOOK_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,-1,0,1,{HOOK_OUTLINE},{HOOK_SHADOW},8,60,60,{HOOK_MARGIN_TOP},1
 Style: CAP,{FONT},{CAP_SIZE},{YELLOW},{YELLOW},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,{CAP_OUTLINE},2,2,{CAP_MARGIN_SIDE},{CAP_MARGIN_SIDE},{CAP_MARGIN_BOTTOM},1
+Style: ENDLEAD,{FONT},{END_LEAD_SIZE},&H30FFFFFF,&H30FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: ENDMAIN,{FONT},{END_MAIN_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
+Style: ENDSUB,{FONT},{END_SUB_SIZE},&H18FFFFFF,&H18FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
 Style: STATUS,{FONT},{STATUS_SIZE},&H90FFFFFF,&H90FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,1,0,1,3,0,2,{CAP_MARGIN_SIDE},{CAP_MARGIN_SIDE},{STATUS_MARGIN},1
 Style: VERIFY,{FONT},44,&H0000FFFF,&H0000FFFF,{BLACK},{BLACK},0,0,0,0,100,100,0,0,1,4,0,7,40,40,40,1
 
@@ -218,6 +242,19 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     ev = []
     if not verify:
         ev.append(f"Dialogue: 0,{ass_time(0)},{ass_time(duration_ms)},HOOK,,0,0,0,,{hook}")
+        if endcard:
+            # 제작 SOP: CTA 는 항상 전편 설교로 보낸다. 쇼츠가 설교를 대체한다고
+            # 말하지 않는다(DO NOT CLAIM 8).
+            es = duration_ms
+            ee = duration_ms + endcard["ms"]
+            ev.append(f"Dialogue: 3,{ass_time(es)},{ass_time(ee)},ENDLEAD,,0,0,0,,"
+                      f"{{\\pos(540,{END_Y - 130})\\fad(300,0)}}원본 설교 전체는 채널에 있습니다")
+            ev.append(f"Dialogue: 3,{ass_time(es + 120)},{ass_time(ee)},ENDMAIN,,0,0,0,,"
+                      f"{{\\pos(540,{END_Y})\\fad(300,0)}}{endcard['main']}")
+            ev.append(f"Dialogue: 3,{ass_time(es + 240)},{ass_time(ee)},ENDSUB,,0,0,0,,"
+                      f"{{\\pos(540,{END_Y + 120})\\fad(300,0)}}{endcard['sub']}")
+            ev.append(f"Dialogue: 3,{ass_time(es + 240)},{ass_time(ee)},ENDSUB,,0,0,0,,"
+                      f"{{\\pos(540,{END_Y + 200})\\fad(300,0)}}{endcard['church']}")
         if status:
             # 자막이 아직 음성 대조를 통과하지 못했다는 표시. 노란 글씨는 "목사님이
             # 이렇게 말했다"는 주장이므로, 검수 전에는 그 주장에 단서를 단다.
@@ -252,6 +289,8 @@ def main():
                     help="음량 정규화를 끈다 (기본은 켬, 목표 -14 LUFS)")
     ap.add_argument("--scrim", type=float, default=0.0,
                     help="글자 가독성을 위한 검은 명암막 불투명도 0.0-0.6")
+    ap.add_argument("--endcard", type=float, default=3.0,
+                    help="끝에 붙일 원본 설교 안내 카드 길이(초). 0 이면 끄기")
     ap.add_argument("--verified-by", default="",
                     help="음성 대조를 수행한 사람. QUOTE 등급의 책임 소재를 남긴다")
     ap.add_argument("--verified-at", default="", help="음성 대조 일자")
@@ -297,8 +336,9 @@ def main():
     ass = capdir / ("verify.ass" if a.verify else "captions.ass")
     status = "" if (verified or a.verify) else "자동 자막 · 검수 전"
     out_ms = int(dur_ms / a.speed)
-    ass.write_text(build_ass(hook_lines, scale_cues(cues, a.speed), out_ms, a.verify, status),
-                   encoding="utf-8")
+    endcard = None if a.verify else make_endcard(a.sermon, a.endcard)
+    ass.write_text(build_ass(hook_lines, scale_cues(cues, a.speed), out_ms,
+                             a.verify, status, endcard), encoding="utf-8")
 
     target = outdir / ("verify.mp4" if a.verify else "final.mp4")
     # 16:9 → 9:16: 높이에 맞춰 키운 뒤 가운데를 잘라낸다. 인물이 중앙에 있는
@@ -311,7 +351,14 @@ def main():
     cx = "(iw-ow)/2" if a.crop_x == 0.5 else f"(iw-ow)*{a.crop_x}"
     scrim = (f",drawbox=x=0:y=0:w=iw:h=ih:color=black@{a.scrim}:t=fill"
              if a.scrim > 0 else "")
+    out_s = dur_s / a.speed
+    # 엔드카드 구간만큼 마지막 프레임을 물리고, 그 구간을 더 어둡게 덮어
+    # 글자가 읽히게 한다.
+    pad = (f",tpad=stop_mode=clone:stop_duration={a.endcard}"
+           f",drawbox=x=0:y=0:w=iw:h=ih:color=black@0.55:t=fill:"
+           f"enable='gte(t,{out_s:.3f})'" if a.endcard > 0 else "")
     vf = (f"{pre}scale=-2:{H}:flags=lanczos,crop={W}:{H}:{cx}:0{scrim},{speed_v}"
+          f"setpts=PTS-STARTPTS{pad},"
           f"subtitles='{ass}':fontsdir=/usr/share/fonts")
     # atempo 는 0.5–2.0 만 받는다. 그 밖은 연쇄한다.
     af, rem = "", a.speed
@@ -323,23 +370,27 @@ def main():
     # 설교 녹음은 대개 조용하다. 쇼츠 피드에서 다른 영상과 음량이 맞아야 한다.
     if a.loudnorm:
         af += ",loudnorm=I=-14:TP=-1.5:LRA=11"
+    if a.endcard > 0:
+        af += f",apad=pad_dur={a.endcard}"
 
     if a.still:
-        cmd = ["ffmpeg", "-hide_banner", "-y", "-loop", "1", "-t", f"{dur_s:.3f}",
-               "-i", a.still]
+        cmd = ["ffmpeg", "-hide_banner", "-y", "-loop", "1",
+               "-t", f"{dur_s + a.endcard * a.speed + 1:.3f}", "-i", a.still]
         if a.audio_from:
             cmd += ["-ss", f"{start/1000:.3f}", "-t", f"{dur_s:.3f}", "-i", a.audio_from]
         cmd += ["-vf", vf, "-r", "30", "-c:v", "libx264",
                 "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p"]
         if a.audio_from:
-            cmd += ["-af", af, "-c:a", "aac", "-b:a", "160k", "-map", "0:v", "-map", "1:a",
-                    "-shortest"]
+            cmd += ["-af", af, "-c:a", "aac", "-b:a", "160k",
+                    "-map", "0:v", "-map", "1:a",
+                    "-t", f"{dur_s / a.speed + a.endcard:.3f}"]
         cmd += ["-movflags", "+faststart", str(target)]
     else:
         cmd = ["ffmpeg", "-hide_banner", "-y", "-ss", f"{start/1000:.3f}",
                "-t", f"{dur_s:.3f}", "-i", a.source, "-vf", vf, "-af", af,
                "-c:v", "libx264", "-preset", "medium", "-crf", "20",
                "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
+               "-t", f"{dur_s / a.speed + a.endcard:.3f}",
                "-movflags", "+faststart", str(target)]
 
     print("렌더:", target)
@@ -354,7 +405,8 @@ def main():
                             "-frames:v", "1", str(f)], capture_output=True)
             print("  프레임:", f)
 
-    print(f"\n  원본 {dur_s:.1f}초 → 출력 {dur_s/a.speed:.1f}초 (x{a.speed}) · "
+    print(f"\n  원본 {dur_s:.1f}초 → 본편 {dur_s/a.speed:.1f}초 (x{a.speed})"
+          f" + 엔드카드 {a.endcard:.1f}초 = {dur_s/a.speed + a.endcard:.1f}초 · "
           f"자막 {len(cues)}큐 · {W}x{H}")
     if a.still and not a.audio_from:
         print("  ⚠ 정지화면 렌더입니다. 레이아웃 확인용이며 게시물이 아닙니다.")
