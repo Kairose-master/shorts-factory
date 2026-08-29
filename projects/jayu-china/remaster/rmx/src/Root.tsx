@@ -1,7 +1,15 @@
 import React from "react";
 import { AbsoluteFill, Audio, Composition, Sequence, staticFile } from "remotion";
 import ep4 from "./data/ep4.json";
+import ep5 from "./data/ep5.json";
+import ep6 from "./data/ep6.json";
+import ep7 from "./data/ep7.json";
+import ep8 from "./data/ep8.json";
 import { EP4_SCENES } from "./scenes/ep4/scenes";
+import { EP5_SCENES } from "./scenes/ep5/scenes";
+import { EP6_SCENES } from "./scenes/ep6/scenes";
+import { EP7_SCENES } from "./scenes/ep7/scenes";
+import { EP8_SCENES } from "./scenes/ep8/scenes";
 import { Fonts, Grade, Grain, Vignette } from "./kit/layers";
 import { TitleBand, Chip } from "./kit/ui";
 
@@ -34,8 +42,22 @@ const Episode: React.FC<{ data: EpData; scenes: readonly React.FC<{ dur: number 
 );
 
 const EP4Comp: React.FC = () => <Episode data={ep4} scenes={EP4_SCENES} />;
+const EP5Comp: React.FC = () => <Episode data={ep5 as EpData} scenes={EP5_SCENES} />;
+const EP6Comp: React.FC = () => <Episode data={ep6 as EpData} scenes={EP6_SCENES} />;
+const EP7Comp: React.FC = () => <Episode data={ep7 as EpData} scenes={EP7_SCENES} />;
+const EP8Comp: React.FC = () => <Episode data={ep8 as EpData} scenes={EP8_SCENES} />;
 
 export const Root: React.FC = () => (
-  <Composition id="EP4" component={EP4Comp}
-    durationInFrames={ep4.durationInFrames} fps={ep4.fps} width={1080} height={1920} />
+  <>
+    <Composition id="EP4" component={EP4Comp}
+      durationInFrames={ep4.durationInFrames} fps={ep4.fps} width={1080} height={1920} />
+    <Composition id="EP5" component={EP5Comp}
+      durationInFrames={ep5.durationInFrames} fps={ep5.fps} width={1080} height={1920} />
+    <Composition id="EP6" component={EP6Comp}
+      durationInFrames={ep6.durationInFrames} fps={ep6.fps} width={1080} height={1920} />
+    <Composition id="EP7" component={EP7Comp}
+      durationInFrames={ep7.durationInFrames} fps={ep7.fps} width={1080} height={1920} />
+    <Composition id="EP8" component={EP8Comp}
+      durationInFrames={ep8.durationInFrames} fps={ep8.fps} width={1080} height={1920} />
+  </>
 );
