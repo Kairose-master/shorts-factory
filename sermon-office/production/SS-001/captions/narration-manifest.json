@@ -1,0 +1,107 @@
+{
+ "shorts_id": "SS-001",
+ "engine": "build_narration",
+ "voice": "ko_KR-kss-medium.onnx",
+ "length_scale": 0.88,
+ "total_ms": 61276,
+ "sentences": 13,
+ "postures": [
+  "EDITORIAL",
+  "RECONSTRUCTED"
+ ],
+ "attribution": "장선기 목사 설교 「겔 47:13-23」 2026-08-28 에서 재구성",
+ "disclosure": "나레이션은 AI 합성 음성입니다 · 방배동 예심교회",
+ "lines": [
+  {
+   "line": 11,
+   "posture": "EDITORIAL",
+   "ref": "",
+   "dur_ms": 6025,
+   "text": "3천 년 전, 이스라엘 사람들이 가장 듣기 싫어했을 명령이 에스겔 47장에 있습니다."
+  },
+  {
+   "line": 12,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 33:07",
+   "dur_ms": 5328,
+   "text": "하나님이 이스라엘에게 땅을 나누라고 하십니다. 지파별로, 제비를 뽑아서."
+  },
+  {
+   "line": 13,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 33:27",
+   "dur_ms": 7035,
+   "text": "그런데 마지막에 한 줄이 붙습니다. 너희 가운데 살면서 자녀를 낳은 타국인에게도 몫을 주라고."
+  },
+  {
+   "line": 14,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 33:27",
+   "dur_ms": 3680,
+   "text": "본토에서 난 이스라엘 사람과 똑같이 여기라고 합니다."
+  },
+  {
+   "line": 15,
+   "posture": "EDITORIAL",
+   "ref": "",
+   "dur_ms": 2589,
+   "text": "에스겔 47장 22절입니다."
+  },
+  {
+   "line": 16,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 34:07",
+   "dur_ms": 6083,
+   "text": "출애굽 세대가 가나안에 들어갔을 때는 이러지 않았습니다. 그 땅은 이스라엘만의 것이었습니다."
+  },
+  {
+   "line": 17,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 34:26",
+   "dur_ms": 2426,
+   "text": "구별이 필요한 단계였기 때문입니다."
+  },
+  {
+   "line": 18,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 35:11",
+   "dur_ms": 3482,
+   "text": "그런데 이스라엘은 그 구별을 특권으로 바꿨습니다."
+  },
+  {
+   "line": 19,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 35:28",
+   "dur_ms": 4655,
+   "text": "바벨론에 끌려가고 나서야, 하나님이 그 땅에도 계시다는 걸 알게 됩니다."
+  },
+  {
+   "line": 20,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 36:12",
+   "dur_ms": 4040,
+   "text": "그리고 돌아온 뒤의 땅 분배에는, 외국인의 몫이 들어갑니다."
+  },
+  {
+   "line": 21,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 36:32",
+   "dur_ms": 4318,
+   "text": "설교자는 이것을 원래 하나님의 뜻이 회복된 것으로 읽습니다."
+  },
+  {
+   "line": 22,
+   "posture": "RECONSTRUCTED",
+   "ref": "U5 41:30",
+   "dur_ms": 3285,
+   "text": "먼저 믿은 것은 우월이 아니라 은혜라는 것입니다."
+  },
+  {
+   "line": 23,
+   "posture": "EDITORIAL",
+   "ref": "",
+   "dur_ms": 3900,
+   "text": "8월 28일 새벽기도 전체 설교는 채널에 있습니다."
+  }
+ ]
+}

@@ -54,6 +54,9 @@ python3 scripts/verify_sermon_office.py            # 무과금 · 구조·근거
 
 # 기둥 E 클립 렌더 (소스 영상 필요)
 python3 sermon-office/production/_engine/build_short.py --help
+
+# 기둥 A–D·F 나레이션 렌더 (소스 영상 불필요)
+python3 sermon-office/production/_engine/build_narration.py --help
 ```
 
 `verify_sermon_office.py`는 백로그를 고칠 때마다 돌린다. 백로그의 독립성 점수를
@@ -65,10 +68,12 @@ python3 sermon-office/production/_engine/build_short.py --help
 - **수집된 설교 2편** — `S-20260828-EZK47`, `S-20260827-EZK47`
 - **논리 재분석 완료 1편** — `S-20260828-EZK47` (단위 5개 중 3개가 쇼츠 후보)
 - **백로그 6건**, 전부 무료 제작 가능
-- **제작됨 2편** — SS-001(대본, REVISE) · SS-004(레이아웃 검증, BLOCKED)
+- **렌더 완료 1편** — **SS-001** (60.6초, 나레이션 포함, QC **PASS 35/45**) — 승인 대기
+- **차단 1편** — SS-004 (기둥 E 클립, QC BLOCKED: 자막 미검증 + 소스 영상 없음)
 - **벤치마크 조사 완료** — 갓피플TV 쇼츠 48편. 길이 기본값을 40–60초로 교정
 - **사람이 풀어야 하는 차단 3개:**
-  1. **소스 영상** — 컨테이너에서 YouTube 다운로드 차단(L-07). 채널 소유자가
-     YouTube Studio에서 공급
+  1. **소스 영상** — `googlevideo.com` 이 egress 정책으로 차단(L-07). 봇 확인이
+     아니라 정책 거부이므로 우회 불가. 채널 소유자가 YouTube Studio에서 공급.
+     **기둥 E 만 막힌다** — 기둥 A–D·F 는 소스 없이 렌더된다(L-08)
   2. **자막 교정 = 음성 대조** — `brand/shorts-format.md` §자막 교정 루프
   3. **리텐션·완주율** — 어떤 API로도 불가. `memory/analytics.md`

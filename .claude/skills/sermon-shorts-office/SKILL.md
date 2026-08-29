@@ -61,7 +61,8 @@ QC·`sermon-office/memory/` 기록 — 는 묻지 않고 실행한다.
 | "대본 써줘" | `viral-short-form` → `viral-youtube-shorts` |
 | "화면에 뭐 띄우지" | `asset-hunter`; 빈 곳은 `motion-designer` |
 | **"클립으로 쇼츠 만들어줘" (기둥 E)** | **`sermon-office/brand/shorts-format.md`** → `production/_engine/build_short.py` |
-| "영상 만들어줘" (기둥 A–D·F) | `openmontage` (+ `voicebox` 나레이션, `penpot` 정적 요소) |
+| **"나레이션 쇼츠 만들어줘" (기둥 A–D·F)** | **`production/_engine/build_narration.py`** — 소스 영상 불필요 |
+| 더 복잡한 합성이 필요할 때 | `openmontage` (+ `voicebox`, `penpot`) |
 | "자막 어떻게 다나" | `brand/shorts-format.md` §자막 교정 루프 — 교정이 곧 음성 대조다 |
 | "이거 나가도 되나" | `sermon-office/sop/quality-control.md` — 아홉 게이트 |
 | "캡션 써줘" | `viral-captions-and-ctas` → `platform-fluency` |
@@ -125,8 +126,16 @@ build_short.py --captions <고친파일>  → QUOTE + captions/captions-verified
 **길이 기본값 40–60초** (35–50초 우선). 벤치마크 중앙값은 66초다 — 설교 쇼츠는
 일반 숏폼 조언보다 길다. 논증을 깨면서까지 줄이지 않는다.
 
-**소스 영상은 채널 소유자가 공급한다.** 이 컨테이너는 YouTube 다운로드가
-차단되어 있다(교훈 L-07). `--still` 은 레이아웃 확인용이며 게시물이 아니다.
+**소스 영상은 채널 소유자가 공급한다.** `googlevideo.com` 이 egress 정책으로
+차단되어 있다 — 봇 확인이 아니라 **정책 거부**이므로 우회하지 않고 보고한다
+(교훈 L-07). `--still` 은 레이아웃 확인용이며 게시물이 아니다.
+
+**막히는 것은 기둥 E 뿐이다.** 기둥 A–D·F 는 논증만 있으면 렌더된다 —
+`build_narration.py` + Piper `ko_KR-kss-medium`. SS-001 이 그렇게 완성됐다(L-08).
+
+**합성 음성을 쓰면 화면에 고지한다.** 출처에 설교자 이름만 적으면 시청자가
+그 목소리를 그 사람의 것으로 읽는다. 귀속은 관계까지 말한다(L-09) —
+`--disclosure` 기본값에 박혀 있다.
 
 ## 기둥 — E가 기본값이다
 
