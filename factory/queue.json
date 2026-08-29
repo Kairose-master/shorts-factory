@@ -109,8 +109,8 @@
       "hookType": "역설 선언형",
       "status": "READY",
       "file": "projects/jayu-china/ep4-short/jayu_ep4_final.mp4",
-      "durationSec": 68.7,
-      "remaster": "v3 Remotion (2026-08-29) — 일러스트 씬/실측 자막, 내용 불변",
+      "durationSec": 49.5,
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
       "qScore": {
         "H": 92,
         "C": 88,
@@ -121,7 +121,8 @@
         "Q": 87.9,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "중국 자본을 막아라 — 진보의 구호 (EP5)"
+      "nextContradiction": "중국 자본을 막아라 — 진보의 구호 (EP5)",
+      "bandTitle": "한국 보수는 왜 / 친중이 되었나?"
     },
     {
       "id": "jayu-ep5",
@@ -132,7 +133,7 @@
       "hookType": "역설 선언형",
       "status": "READY",
       "file": "projects/jayu-china/ep5-short/jayu_ep5_final.mp4",
-      "durationSec": 67.5,
+      "durationSec": 47.3,
       "qScore": {
         "H": 88,
         "C": 87,
@@ -143,7 +144,9 @@
         "Q": 86.5,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "중국 유학이 미국 유학만큼 자연스럽다 (EP6)"
+      "nextContradiction": "중국 유학이 미국 유학만큼 자연스럽다 (EP6)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "반중 구호는 왜 / 진보의 것이 되었나?"
     },
     {
       "id": "jayu-ep6",
@@ -154,7 +157,7 @@
       "hookType": "역설 선언형",
       "status": "READY",
       "file": "projects/jayu-china/ep6-short/jayu_ep6_final.mp4",
-      "durationSec": 69.4,
+      "durationSec": 45.5,
       "qScore": {
         "H": 85,
         "C": 90,
@@ -165,7 +168,9 @@
         "Q": 86.7,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "이 세계의 일본에선 좌파가 재무장을 외칩니다 (EP7)"
+      "nextContradiction": "이 세계의 일본에선 좌파가 재무장을 외칩니다 (EP7)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "이 세계 청년에겐 / 중국 유학이 평범하다"
     },
     {
       "id": "jayu-ep7",
@@ -176,7 +181,7 @@
       "hookType": "역설 선언형",
       "status": "READY",
       "file": "projects/jayu-china/ep7-short/jayu_ep7_final.mp4",
-      "durationSec": 69.7,
+      "durationSec": 46.5,
       "qScore": {
         "H": 90,
         "C": 86,
@@ -187,7 +192,9 @@
         "Q": 87.0,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "1950 친미 보수와 2050 친미 진보가 동시에 존재 (EP8)"
+      "nextContradiction": "1950 친미 보수와 2050 친미 진보가 동시에 존재 (EP8)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "이 세계 일본에선 / 좌파가 재무장을 외친다"
     },
     {
       "id": "jayu-ep8",
@@ -198,7 +205,7 @@
       "hookType": "역설 선언형",
       "status": "READY",
       "file": "projects/jayu-china/ep8-short/jayu_ep8_final.mp4",
-      "durationSec": 67.1,
+      "durationSec": 48.0,
       "qScore": {
         "H": 89,
         "C": 85,
@@ -209,7 +216,9 @@
         "Q": 87.2,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "이 세계 대만 선거의 최대 쟁점은 독립이 아니다 (EP9)"
+      "nextContradiction": "이 세계 대만 선거의 최대 쟁점은 독립이 아니다 (EP9)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "친미는 보수인가 / 진보인가?"
     },
     {
       "id": "jayu-ep9",
@@ -220,7 +229,7 @@
       "hookType": "역설 선언형",
       "status": "READY",
       "file": "projects/jayu-china/ep9-short/jayu_ep9_final.mp4",
-      "durationSec": 64.5,
+      "durationSec": 45.4,
       "qScore": {
         "H": 88,
         "C": 87,
@@ -231,7 +240,9 @@
         "Q": 87.0,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "2080년 대학생에게 보수는 시장이 아니다 (EP10)"
+      "nextContradiction": "2080년 대학생에게 보수는 시장이 아니다 (EP10)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "대만 선거의 쟁점은 / 독립이 아니다"
     },
     {
       "id": "jayu-ep10",
@@ -242,7 +253,7 @@
       "hookType": "역설 선언형",
       "status": "READY",
       "file": "projects/jayu-china/ep10-short/jayu_ep10_final.mp4",
-      "durationSec": 69.8,
+      "durationSec": 48.1,
       "qScore": {
         "H": 88,
         "C": 89,
@@ -253,7 +264,9 @@
         "Q": 88.4,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "이 사람은 좌파입니까, 우파입니까? — 분류 게임 (EP11)"
+      "nextContradiction": "이 사람은 좌파입니까, 우파입니까? — 분류 게임 (EP11)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "2080년 대학생에게 / 보수는 시장이 아니다"
     },
     {
       "id": "jayu-ep11",
@@ -264,7 +277,7 @@
       "hookType": "참여형 분류 게임",
       "status": "READY",
       "file": "projects/jayu-china/ep11-short/jayu_ep11_final.mp4",
-      "durationSec": 70.4,
+      "durationSec": 48.2,
       "qScore": {
         "H": 89,
         "C": 87,
@@ -275,7 +288,9 @@
         "Q": 88.2,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "당신에게 5표 — 2080 자유중국 총선 (EP12, 시즌1 피날레)"
+      "nextContradiction": "당신에게 5표 — 2080 자유중국 총선 (EP12, 시즌1 피날레)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "이 정치인은 / 좌파입니까 우파입니까?"
     },
     {
       "id": "jayu-ep12",
@@ -286,7 +301,7 @@
       "hookType": "참여형 투표 게임 (시즌1 피날레)",
       "status": "READY",
       "file": "projects/jayu-china/ep12-short/jayu_ep12_final.mp4",
-      "durationSec": 70.1,
+      "durationSec": 46.9,
       "qScore": {
         "H": 90,
         "C": 88,
@@ -297,7 +312,9 @@
         "Q": 89.3,
         "verdict": "RELEASE"
       },
-      "nextContradiction": "시즌2 「자유중국의 철학」 — 왜 우리는 자꾸 한 줄로 세우려 했을까? (제작은 Editor-in-Chief 결정 대기)"
+      "nextContradiction": "시즌2 「자유중국의 철학」 — 왜 우리는 자꾸 한 줄로 세우려 했을까? (제작은 Editor-in-Chief 결정 대기)",
+      "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
+      "bandTitle": "당신에게 5표 / 좌우 자는 버리세요"
     }
   ]
 }
