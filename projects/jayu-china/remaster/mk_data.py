@@ -13,10 +13,11 @@ sys.path.insert(0, ROOT)
 import evo_kit as tts_kit          # edge-tts 구 단위 (무료·무제한) — 편집장 결정 2026-08-29
 
 
-ep = int(sys.argv[1])
+ep = sys.argv[1]                          # 숫자(시즌1) 또는 슬러그(예: s2e1)
 regen = "--regen" in sys.argv
-epdir = f"{ROOT}/../ep{ep}-short"
-spath = f"{ROOT}/scripts/ep{ep}.json"
+epdir = f"{ROOT}/../ep{ep}-short" if ep.isdigit() else f"{ROOT}/../{ep}-short"
+slug = f"ep{ep}" if ep.isdigit() else ep
+spath = f"{ROOT}/scripts/{slug}.json"
 
 if os.path.exists(spath):
     S = json.load(open(spath, encoding="utf-8"))
@@ -46,17 +47,17 @@ for e in plan:
     if secs > MAX_SECS:
         over.append((e["id"], round(secs, 1)))
     scenes.append({"id": e["id"], "from": round(t0*FPS), "dur": round(secs*FPS),
-                   "wav": f"vo/ep{ep}/{e['id']}.wav", "lead": LEAD,
+                   "wav": f"vo/{slug}/{e['id']}.wav", "lead": LEAD,
                    "chips": [{"t": round((s+LEAD)*FPS), "d": max(8, round(d*FPS)), "text": c}
                              for c, s, d in e["chips"]]})
     t0 += secs
 
 data = {"fps": FPS, "durationInFrames": round(t0*FPS)+1, "scenes": scenes,
         "title": title, "tag": tag, "world": world}
-os.makedirs(f"{ROOT}/rmx/public/vo/ep{ep}", exist_ok=True)
+os.makedirs(f"{ROOT}/rmx/public/vo/{slug}", exist_ok=True)
 for e in plan:
-    shutil.copy(f"{vo}/{e['id']}.wav", f"{ROOT}/rmx/public/vo/ep{ep}/{e['id']}.wav")
-json.dump(data, open(f"{ROOT}/rmx/src/data/ep{ep}.json", "w"), ensure_ascii=False, indent=1)
-print(f"ep{ep}: {len(scenes)}씬 {data['durationInFrames']} frames = {t0:.1f}s")
+    shutil.copy(f"{vo}/{e['id']}.wav", f"{ROOT}/rmx/public/vo/{slug}/{e['id']}.wav")
+json.dump(data, open(f"{ROOT}/rmx/src/data/{slug}.json", "w"), ensure_ascii=False, indent=1)
+print(f"{slug}: {len(scenes)}씬 {data['durationInFrames']} frames = {t0:.1f}s")
 if over:
     print(f"  ⚠ 6.4초 상한 초과 (대본 분할 필요): {over}")

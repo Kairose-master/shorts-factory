@@ -19,6 +19,8 @@ import ep11 from "./data/ep11.json";
 import { EP11_SCENES } from "./scenes/ep11/scenes";
 import ep12 from "./data/ep12.json";
 import { EP12_SCENES } from "./scenes/ep12/scenes";
+import s2e1 from "./data/s2e1.json";
+import { S2E1_SCENES } from "./scenes/s2e1/scenes";
 import { TitleBand, Chip } from "./kit/ui";
 
 type EpData = typeof ep4;
@@ -63,6 +65,8 @@ const EP11Comp: React.FC = () => <Episode data={ep11 as EpData} scenes={EP11_SCE
 
 const EP12Comp: React.FC = () => <Episode data={ep12 as EpData} scenes={EP12_SCENES} />;
 
+const S2E1Comp: React.FC = () => <Episode data={s2e1 as EpData} scenes={S2E1_SCENES} />;
+
 export const Root: React.FC = () => (
   <>
     <Composition id="EP4" component={EP4Comp}
@@ -83,5 +87,7 @@ export const Root: React.FC = () => (
       durationInFrames={ep11.durationInFrames} fps={ep11.fps} width={1080} height={1920} />
     <Composition id="EP12" component={EP12Comp}
       durationInFrames={ep12.durationInFrames} fps={ep12.fps} width={1080} height={1920} />
+    <Composition id="S2E1" component={S2E1Comp}
+      durationInFrames={s2e1.durationInFrames} fps={s2e1.fps} width={1080} height={1920} />
   </>
 );

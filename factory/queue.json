@@ -315,6 +315,31 @@
       "nextContradiction": "시즌2 「자유중국의 철학」 — 왜 우리는 자꾸 한 줄로 세우려 했을까? (제작은 Editor-in-Chief 결정 대기)",
       "remaster": "v2.0 (2026-08-29) — 45초 10씬 · 페이오프 전진 · Remotion 일러스트 · edge 구단위 +32%",
       "bandTitle": "당신에게 5표 / 좌우 자는 버리세요"
+    },
+    {
+      "id": "jayu-s2e1",
+      "series": "자유중국의 철학",
+      "season": 2,
+      "ep": 1,
+      "title_suggested": "혁명에서 진 이념이 대학에서 살아남았다",
+      "hook": "이 세계의 마르크스는, 정당이 아니라 대학에 있습니다.",
+      "hookType": "역설 선언형",
+      "status": "READY",
+      "file": "projects/jayu-china/s2e1-short/jayu_s2e1_final.mp4",
+      "durationSec": 47.9,
+      "format": "v2.0 (45초 10씬 · 페이오프 전진)",
+      "qScore": {
+        "H": 88,
+        "C": 90,
+        "V": 87,
+        "R": 91,
+        "P": 92,
+        "N": 89,
+        "Q": 89.5,
+        "verdict": "RELEASE"
+      },
+      "nextContradiction": "승리한 삼민주의는 성경이 되었다 (철학편 EP2)",
+      "notes": "시즌2 첫 편. 정본 philosophy-series-bible-v1.txt §5 EP.1 준거. 해압축 상자 연출 최초 구현."
     }
   ]
 }
