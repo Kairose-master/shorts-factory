@@ -60,7 +60,9 @@ QC·`sermon-office/memory/` 기록 — 는 묻지 않고 실행한다.
 | "이 훅 어때" | `hook-anatomy` |
 | "대본 써줘" | `viral-short-form` → `viral-youtube-shorts` |
 | "화면에 뭐 띄우지" | `asset-hunter`; 빈 곳은 `motion-designer` |
-| "영상 만들어줘" | `openmontage` (+ `voicebox` 나레이션, `penpot` 정적 요소) |
+| **"클립으로 쇼츠 만들어줘" (기둥 E)** | **`sermon-office/brand/shorts-format.md`** → `production/_engine/build_short.py` |
+| "영상 만들어줘" (기둥 A–D·F) | `openmontage` (+ `voicebox` 나레이션, `penpot` 정적 요소) |
+| "자막 어떻게 다나" | `brand/shorts-format.md` §자막 교정 루프 — 교정이 곧 음성 대조다 |
 | "이거 나가도 되나" | `sermon-office/sop/quality-control.md` — 아홉 게이트 |
 | "캡션 써줘" | `viral-captions-and-ctas` → `platform-fluency` |
 | "올려줘" | **정지. 패키징하고 승인을 요청한다.** |
@@ -92,6 +94,39 @@ QC·`sermon-office/memory/` 기록 — 는 묻지 않고 실행한다.
 **논리 재분석의 목적은 비평이 아니라 선별이다.** 산출물은 "이 설교의 논리에
 문제가 있다"가 아니라 "어떤 주장이 40분의 문맥 없이 60초 안에서 혼자 설 수
 있는가"다. 논리 지도는 **오피스 내부 문서이며 게시되지 않는다.**
+
+## 기둥 E의 시각 포맷
+
+레퍼런스는 갓피플TV(@GODpeopleTV). 규격은 `sermon-office/brand/shorts-format.md`
+가 소유하고, `production/_engine/build_short.py` 가 구현한다.
+
+```
+상단 8–21%   흰색 대형 훅 2줄     = EDITORIAL (오피스가 쓴 말)
+중앙          설교 영상 9:16 크롭
+하단 ~78%    노란 자막 #FFE000    = QUOTE (목사님이 한 말)
+81.7% 이하    유튜브 UI — 침범 금지
+```
+
+**두 색이 다른 것은 디자인이 아니라 자세 등급의 시각적 구현이다.** 흰 글씨에
+목사님 말을 넣거나 노란 글씨에 오피스가 지어낸 말을 넣으면 등급 위조다.
+
+**자막 교정 루프 — 이 포맷의 핵심 공정:**
+
+```
+build_short.py            → captions/captions-draft.tsv  (ASR, RECONSTRUCTED)
+build_short.py --verify   → renders/verify.mp4
+사람: verify.mp4 를 들으며 draft.tsv 를 고친다  ← 이 행위가 곧 음성 대조다
+build_short.py --captions <고친파일>  → QUOTE + captions/captions-verified.json
+```
+
+`captions-verified.json` 이 없는 렌더는 노란 자막이 있어도 **QUOTE가 아니다.**
+검증기가 확인한다.
+
+**길이 기본값 40–60초** (35–50초 우선). 벤치마크 중앙값은 66초다 — 설교 쇼츠는
+일반 숏폼 조언보다 길다. 논증을 깨면서까지 줄이지 않는다.
+
+**소스 영상은 채널 소유자가 공급한다.** 이 컨테이너는 YouTube 다운로드가
+차단되어 있다(교훈 L-07). `--still` 은 레이아웃 확인용이며 게시물이 아니다.
 
 ## 기둥 — E가 기본값이다
 
@@ -157,7 +192,7 @@ Gemini · 모든 생성형 provider.
 
 ```bash
 python3 ./scripts/sermon_ingest.py --selftest      # 제목 파서 회귀 테스트
-python3 ./scripts/verify_sermon_office.py          # 구조·백로그 산술·근거 추적
+python3 ./scripts/verify_sermon_office.py          # 구조·백로그 산술·근거 추적·QUOTE 증거
 ```
 
 백로그를 고칠 때마다, 대본을 쓸 때마다 돌린다. 검증기는 백로그의 독립성 점수를

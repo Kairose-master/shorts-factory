@@ -14,6 +14,7 @@ Handsel Growth Office(`office/`)와 같은 골격을 쓰되, **남의 설교를 
 | `CHARTER.md` | 미션 · 역할 · 자율 경계 · **자세 등급** · 기둥 · 하드 룰 |
 | `research/channel-model.md` | 검증된 채널 사실 + **DO NOT CLAIM 원장** |
 | `sop/logic-analysis.md` | 논리 재분석 — 이 오피스의 핵심 공정 |
+| `brand/shorts-format.md` | 기둥 E 시각 규격 · 자막 교정 루프 |
 | `memory/backlog.md` | 설교에서 도출된 쇼츠 후보 |
 | `sop/production-pipeline.md` | 14단계 |
 | `sop/quality-control.md` | 아홉 게이트와 거부권 |
@@ -29,11 +30,14 @@ sermon-office/
 │   └── runs/                     조사 보고서 (Method 블록 필수)
 ├── memory/                       backlog · hooks · published · rejected
 │                                 experiments · analytics · lessons
+├── brand/shorts-format.md        기둥 E 시각 규격 (레퍼런스 포맷)
 ├── sop/                          ingest · logic-analysis · production-pipeline
 │                                 quality-control · analytics-loop
 ├── sermons/<sermon-id>/          meta.json · transcript.json(gitignore)
 │                                 summary.md · logic-map.md
-└── production/<쇼츠-id>/          plan · hooks · script · qc  (렌더는 gitignore)
+└── production/
+    ├── _engine/build_short.py    9:16 클립 렌더러
+    └── <쇼츠-id>/                plan · script · qc · captions/  (renders/ 는 gitignore)
 ```
 
 ## 사이클 시작
@@ -46,7 +50,10 @@ sermon-office/
 python3 scripts/sermon_ingest.py --selftest        # 무과금 · 파서 회귀 테스트
 python3 scripts/sermon_ingest.py --list            # 1 credit · 신규 설교 확인
 python3 scripts/sermon_ingest.py --fetch --limit 3 # 1+3 credits · 자막까지
-python3 scripts/verify_sermon_office.py            # 무과금 · 구조·근거 검증
+python3 scripts/verify_sermon_office.py            # 무과금 · 구조·근거·QUOTE 증거 검증
+
+# 기둥 E 클립 렌더 (소스 영상 필요)
+python3 sermon-office/production/_engine/build_short.py --help
 ```
 
 `verify_sermon_office.py`는 백로그를 고칠 때마다 돌린다. 백로그의 독립성 점수를
@@ -58,6 +65,10 @@ python3 scripts/verify_sermon_office.py            # 무과금 · 구조·근거
 - **수집된 설교 2편** — `S-20260828-EZK47`, `S-20260827-EZK47`
 - **논리 재분석 완료 1편** — `S-20260828-EZK47` (단위 5개 중 3개가 쇼츠 후보)
 - **백로그 6건**, 전부 무료 제작 가능
-- **제작됨 1편** — SS-001, 승인 대기
-- **최대 역량 공백:** 리텐션·완주율 지표에 접근할 수 없다. 채널 소유자의
-  YouTube Studio가 필요하다. `memory/analytics.md` 참조.
+- **제작됨 2편** — SS-001(대본, REVISE) · SS-004(레이아웃 검증, BLOCKED)
+- **벤치마크 조사 완료** — 갓피플TV 쇼츠 48편. 길이 기본값을 40–60초로 교정
+- **사람이 풀어야 하는 차단 3개:**
+  1. **소스 영상** — 컨테이너에서 YouTube 다운로드 차단(L-07). 채널 소유자가
+     YouTube Studio에서 공급
+  2. **자막 교정 = 음성 대조** — `brand/shorts-format.md` §자막 교정 루프
+  3. **리텐션·완주율** — 어떤 API로도 불가. `memory/analytics.md`

@@ -202,6 +202,48 @@ def check_scripts():
             print(f"  {pid}/script.md — {tagged}줄 태깅 · QUOTE {verified}/{quotes} 대조됨")
 
 
+def check_quote_provenance():
+    """자세가 QUOTE 인 항목은, 렌더가 존재한다면 자막 검증 증거가 있어야 한다.
+
+    노란 자막은 화면에서 '목사님이 이렇게 말했다' 고 주장한다. ASR 초안으로
+    렌더한 것을 QUOTE 라고 부르면 헌장 하드 룰 1 위반이다.
+    """
+    path = OFFICE / "memory" / "backlog.md"
+    if not path.is_file():
+        return
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if not line.startswith("| SS-"):
+            continue
+        c = [x.strip() for x in line.strip().strip("|").split("|")]
+        if len(c) != 16 or c[6] != "QUOTE":
+            continue
+        rid = c[0]
+        d = OFFICE / "production" / rid
+        if not d.is_dir():
+            continue
+        rendered = (d / "renders" / "final.mp4").is_file()
+        verified = (d / "captions" / "captions-verified.json").is_file()
+        status = c[15]
+        if rendered and not verified:
+            if "승인" in status and "대기" not in status:
+                err(f"{rid}: QUOTE 인데 captions-verified.json 없이 승인 상태 — "
+                    f"자막이 검증되지 않았다")
+            else:
+                warn(f"{rid}: QUOTE 렌더가 있으나 captions/captions-verified.json 이 없음 "
+                     f"— 아직 QUOTE 가 아니다 (음성 대조 겸 자막 교정 필요)")
+        if verified:
+            try:
+                meta = json.loads((d / "captions" / "captions-verified.json")
+                                  .read_text(encoding="utf-8"))
+            except json.JSONDecodeError as e:
+                err(f"{rid}: captions-verified.json 파싱 실패 — {e}")
+                continue
+            if meta.get("posture") != "QUOTE":
+                err(f"{rid}: captions-verified.json 의 posture 가 QUOTE 가 아님")
+            print(f"  {rid} — 자막 검증됨 · {meta.get('cue_count')}큐 · "
+                  f"{meta.get('sermon')}")
+
+
 def check_published():
     p = OFFICE / "memory" / "published.md"
     if not p.is_file():
@@ -220,6 +262,7 @@ def main():
     check_backlog()
     check_sermons()
     check_scripts()
+    check_quote_provenance()
     check_published()
 
     for w in warnings:
