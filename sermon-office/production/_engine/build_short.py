@@ -252,6 +252,9 @@ def main():
                     help="음량 정규화를 끈다 (기본은 켬, 목표 -14 LUFS)")
     ap.add_argument("--scrim", type=float, default=0.0,
                     help="글자 가독성을 위한 검은 명암막 불투명도 0.0-0.6")
+    ap.add_argument("--verified-by", default="",
+                    help="음성 대조를 수행한 사람. QUOTE 등급의 책임 소재를 남긴다")
+    ap.add_argument("--verified-at", default="", help="음성 대조 일자")
     ap.add_argument("--speed", type=float, default=1.0,
                     help="배속. 1.45 면 88초가 61초가 된다. 음높이는 유지된다")
     ap.add_argument("--frames", default="", help="미리보기 프레임을 뽑을 초 (쉼표 구분)")
@@ -281,6 +284,9 @@ def main():
     capdir.mkdir(parents=True, exist_ok=True)
 
     if a.captions:
+        if not a.verified_by:
+            die("--captions 를 쓰면 --verified-by 가 필요합니다.\n"
+                "       QUOTE 는 누가 음성을 대조했는지 기록될 때만 성립합니다.")
         cues, verified = read_caption_tsv(Path(a.captions)), True
     else:
         cues, verified = load_cues(a.sermon, start, end), False
@@ -362,7 +368,8 @@ def main():
         (capdir / "captions-verified.json").write_text(json.dumps(
             {"shorts_id": a.shorts_id, "sermon": a.sermon,
              "source_tsv": str(a.captions), "in_ms": start, "out_ms": end,
-             "cue_count": len(cues), "posture": "QUOTE"},
+             "cue_count": len(cues), "posture": "QUOTE",
+             "verified_by": a.verified_by, "verified_at": a.verified_at},
             ensure_ascii=False, indent=1), encoding="utf-8")
     else:
         print("  ⚠ 자막 등급 RECONSTRUCTED — 자동(ASR) 원문 그대로입니다.")
