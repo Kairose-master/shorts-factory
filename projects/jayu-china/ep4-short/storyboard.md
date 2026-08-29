@@ -47,3 +47,16 @@
 ## QA 스코어 (§10)
 
 H 92 · C 88 · V 80 · R 88 · P 90 · N 86 → **Q = 87.9 → RELEASE** (발행 결정은 §17 사용자 체크포인트)
+
+## 리마스터 v3 (2026-08-29, Remotion)
+
+편집장 지시로 레퍼런스 쇼츠(4e0-Xdl15ww) 수준 리마스터. 내용·대본·정본 준거는
+v1 그대로, 시각만 전면 교체:
+
+- 파이프라인: remotion-dev/skills (remaster/rmx/) — React/SVG 씬, 스프링 이징,
+  스태거 입장, 배경 메시+그레인+비네트 5레이어.
+- 씬 일러스트: 악수(s1)·1946 갈림길(s2)·압록강 철교 주행 열차(s4)·동맹 병사+깃발(s5)·
+  철도 지도 드로우온(s6)·부산항(s7)·나침반 스윙(s8)·사슬 캐스케이드(s9)·피켓 시위(s11).
+- 자막 칩: edge-tts WordBoundary 실측 타이밍 (vo2/lines.json words).
+- 렌더: npx remotion render EP4 → loudnorm I=-14, TP=-1.5 → jayu_ep4_final.mp4 (68.7s).
+- QC: 씬 정지컷 3라운드 + 최종 mp4 15프레임 육안 검수 통과.
