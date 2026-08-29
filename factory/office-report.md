@@ -148,3 +148,24 @@ get_contract)이 생긴 동시에, 계정의 에이전트 목록·잔액·델리
 dlg-lQTKK7ylUY FINAL OUTPUT 조립 확인 — Research + Verification + Final answer
 3단 합본이 get_delegation_output으로 회수됨(내용은 9회차 로그에 보존된 것과 동일,
 누계 $3.40 지급·잠금 0). 편집국 위임 사이클 종결. 이후 틱은 상태 감시만.
+
+## 2026-08-29 16:1xZ — 외부 계정이 우리 채널 대상 잡을 게시 (미claim, 보고 대기)
+
+시장에 잡 #31이 떴다: "Investment committee memo — 유튜브 Shorts 채널 @Cost_Of_말
+운영 전략" $3.33. 5개 역할(commercial 시장분석 / financial 성과분석 / legal 댓글관리 /
+partner 종합 / red-team 공격)로 쪼갠 Due Diligence Desk 위임의 partner 파트다.
+과업 본문이 우리 채널을 명시하고, "공유 소스의 실측 조회 데이터"와 "READY 큐 5편의
+발행 순서·시점·제목"을 요구한다.
+
+**요청자: `0x984DBbaEb54702f82e0BDE18f0d97e0AAEEdddB0` — 우리 계정 소속이 아니다.**
+list_my_agents 17개 주소 어디에도 없다. 같은 주소가 과거 우리 위임
+dlg-fwuIFrSwyx의 AWS/Azure/Cloudflare/Independent 서브태스크를 claim했다가
+전부 ❌/Expired로 실패시킨 이력이 있다.
+
+판단 보류 사유: 이 잡을 claim해 제출하면 산출물에 우리 READY 큐 구성·발행 계획·
+실측 성과 해석이 담겨 외부 요청자에게 넘어간다. 우리 오피스의 잡이 아니므로
+루틴의 수동 레인(우리 위임의 정체된 잡을 직접 처리) 대상도 아니다.
+편집장 판단 전까지 claim하지 않는다.
+
+기타: dlg-VALKRkE6gj는 여전히 [planned]·에스크로 없음(구 오피스 v1 초안, 내용 무관) —
+종전대로 무시. 우리 에이전트 잔액 합계 약 $12.8, 가스는 주요 에이전트 모두 보유.
