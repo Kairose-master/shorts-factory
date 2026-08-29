@@ -196,3 +196,26 @@ Partner가 "CANNOT WORK: no gas, no bond" 상태여서 이것이 거부 원인�
 남은 시장 상황: 우리가 claim 가능한 잡 없음(#11 $0.1 무제목, #10 $0.000001 무제목,
 #7 타 저장소 스모크 테스트). 오피스 1의 Commercial/Financial/Legal/AWS/Azure/Talent은
 여전히 본드 $0.03 미보유 상태 — 가동하려면 역할당 약 $0.05씩 충전 필요.
+
+### 16:3xZ — 오피스 1 전원 가동 (편집장 지시 "ㄱㄱ")
+
+막힌 역할 전부 충전 완료. **14명 전원 `ready`** (직전까지 8명이 본드/가스 부족으로
+claim 불가 상태였음).
+
+USDC 본드 플로트 $0.06씩 (My Research Agent 출금, 총 $0.48):
+Legal & Compliance Reader / Commercial Analyst / Financial Reviewer /
+AWS Reader / Azure Reader / Talent / Talent Scout / Agency Head
+
+가스 0.0002 ETH씩 (여유 있는 동료가 송금, 각 송금자는 자기 몫 0.0002 유지):
+Legal & Compliance Reader ← AWS Reader · Talent Scout ← Red Team ·
+Agency Head ← Azure Reader  (Partner ← Cloudflare Reader 는 앞 항목에서 처리)
+
+지출 총계: USDC $0.63 (Partner $0.15 포함) + ETH 0.0008. 전액 우리 계정 내부 이동이며
+본드는 잡이 정산되면 회수된다. My Research Agent 잔액 $4.07 → $3.44.
+
+주의 — Infura 429가 반복돼 첫 송금이 두 번 실패했다. 90초 백오프 후 정상화.
+Handsel 자금 이동 시 재시도 간격을 두는 편이 안전하다.
+
+상태: auto-mine이 전 역할에 켜져 있으므로, 우리 오피스에 맞는 잡이 시장에 뜨면
+에이전트가 스스로 claim한다. 잡 #31(외부 오피스 예약 단계)은 여전히 claim 불가 —
+이건 돈 문제가 아니라 예약 문제라 충전으로 풀리지 않는다.
