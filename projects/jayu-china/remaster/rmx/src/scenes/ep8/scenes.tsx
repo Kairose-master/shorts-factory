@@ -46,8 +46,8 @@ const S1: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-/* s3 — 약속 */
-const S3: React.FC<{ dur: number }> = ({ dur }) => (
+/* (미사용) 약속 씬 — v2.0에서 삭제 */
+const S3Unused: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.yellow} />
     <Camera dur={dur} zoom={1.05}>
@@ -62,7 +62,7 @@ const S3: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s4 — 1950: 미국 = 반공 질서의 축 */
-const S4: React.FC<{ dur: number }> = ({ dur }) => {
+const S3: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const spin = interpolate(frame, [0, dur], [0, 26]);
@@ -101,7 +101,7 @@ const S4: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s5 — 그때의 반미 = 급진 */
-const S5: React.FC<{ dur: number }> = ({ dur }) => (
+const S4: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.red} />
     <Camera dur={dur} zoom={1.055}>
@@ -110,13 +110,14 @@ const S5: React.FC<{ dur: number }> = ({ dur }) => (
           pose="hands_up" facing={0} waveArm />
       </Scene>
     </Camera>
-    <Typo top={590} size={100} delay={3}>그때의 반미는</Typo>
-    <Typo top={800} size={130} color="#e68c80" delay={10}>반질서 · 급진</Typo>
+    <Typo top={555} size={92} delay={2}>그때의 반미는 급진</Typo>
+    <Typo top={730} size={72} color={C.yellow} delay={22}>축이 어디냐가</Typo>
+    <Typo top={880} size={72} color={C.yellow} delay={28}>이름을 정한다</Typo>
   </AbsoluteFill>
 );
 
 /* s6 — 축의 이동: 미국 → 자유중국 */
-const S6: React.FC<{ dur: number }> = ({ dur }) => {
+const S5: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const shift = spring({ frame: frame - 30, fps, config: theme.spring.heavy });
@@ -150,7 +151,7 @@ const S6: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s7 — 미국 = 균형추, 개혁의 지렛대 */
-const S7: React.FC<{ dur: number }> = ({ dur }) => {
+const S6: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const tilt = interpolate(spring({ frame: frame - 24, fps, config: theme.spring.heavy }),
@@ -180,7 +181,7 @@ const S7: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s8 — 2050 집회: 한 깃발에 세 단어, 색은 진보 */
-const S8: React.FC<{ dur: number }> = ({ dur }) => (
+const S7: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.green} />
     <Camera dur={dur} zoom={1.05}>
@@ -201,7 +202,7 @@ const S8: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s9 — Payoff */
-const S9: React.FC<{ dur: number }> = () => (
+const S8: React.FC<{ dur: number }> = () => (
   <AbsoluteFill>
     <BgMesh tint={C.amber} />
     <Scene ground={1600} groundCol="#26242a">
@@ -235,7 +236,7 @@ const S9: React.FC<{ dur: number }> = () => (
 );
 
 /* s10 — 확장: 낯설게 받는 곳 (대만 예고) */
-const S10: React.FC<{ dur: number }> = ({ dur }) => (
+const S9: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.red} tint2={C.steel} />
     <Camera dur={dur} zoom={1.06}>
@@ -255,7 +256,7 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s11 — 다음 모순 (하드컷) */
-const S11: React.FC<{ dur: number }> = ({ dur }) => (
+const S10: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.yellow} tint2={C.steel} />
     <Camera dur={dur} zoom={1.06}>
@@ -267,4 +268,5 @@ const S11: React.FC<{ dur: number }> = ({ dur }) => (
   </AbsoluteFill>
 );
 
-export const EP8_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10, S11];
+export const EP8_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10];
+void S3Unused;

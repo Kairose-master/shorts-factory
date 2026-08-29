@@ -37,8 +37,8 @@ const S1: React.FC<{ dur: number }> = ({ dur }) => (
   </AbsoluteFill>
 );
 
-/* s3 — 약속 */
-const S3: React.FC<{ dur: number }> = ({ dur }) => (
+/* (미사용) 약속 씬 — v2.0에서 삭제 */
+const S3Unused: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.yellow} />
     <Camera dur={dur} zoom={1.05}>
@@ -53,7 +53,7 @@ const S3: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s4 — 국경이 아니라 노선: 밤기차 출발 */
-const S4: React.FC<{ dur: number }> = ({ dur }) => {
+const S3: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const dx = interpolate(frame, [30, dur], [0, 900],
     { easing: theme.ease.in, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -145,7 +145,7 @@ const S6: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s7 — 문화: 차트 + 드라마 */
-const S7: React.FC<{ dur: number }> = () => (
+const S7Unused: React.FC<{ dur: number }> = () => (
   <AbsoluteFill>
     <BgMesh tint={C.red} tint2={C.amber} />
     <Scene ground={1600} groundCol="#26242a">
@@ -176,7 +176,7 @@ const S7: React.FC<{ dur: number }> = () => (
 );
 
 /* s8 — 같은 식탁: 아버지와 딸 */
-const S8: React.FC<{ dur: number }> = ({ dur }) => (
+const S7: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.amber} tint2={C.green} />
     <Camera dur={dur} zoom={1.055}>
@@ -211,7 +211,7 @@ const S8: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s9 — Payoff: 정치는 진영을, 생활은 노선을 */
-const S9: React.FC<{ dur: number }> = ({ dur }) => {
+const S4: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const draw = interpolate(frame, [24, 70], [0, 1],
     { easing: theme.ease.inOut, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -239,7 +239,7 @@ const S9: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s10 — 확장: 같은 지도, 반대 방향 (일본 예고) */
-const S10: React.FC<{ dur: number }> = ({ dur }) => (
+const S9: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.red} tint2={C.steel} />
     <Camera dur={dur} zoom={1.05}>
@@ -266,7 +266,7 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s11 — 다음 모순: 일본 좌파 재무장 (하드컷) */
-const S11: React.FC<{ dur: number }> = ({ dur }) => (
+const S10: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.red} />
     <Camera dur={dur} zoom={1.06}>
@@ -278,4 +278,40 @@ const S11: React.FC<{ dur: number }> = ({ dur }) => (
   </AbsoluteFill>
 );
 
-export const EP6_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10, S11];
+/* s8 — 본 페이오프: 지도가 바뀌면 일상이 먼저 바뀐다 */
+const S8: React.FC<{ dur: number }> = () => {
+  const steps = [["지도가 바뀌었다", "#5a6072", C.paper], ["노선이 생겼다", C.amber, C.amber],
+    ["일상이 따라갔다", C.yellow, C.yellow]] as const;
+  return (
+    <AbsoluteFill>
+      <BgMesh />
+      <Scene ground={1560} groundCol="#26242a">
+        <Skyline y={1560} seed={68} minY={1340} />
+      </Scene>
+      <Typo top={545} size={76} delay={2}>친중이라서가 아니다</Typo>
+      <div style={{ position: "absolute", top: 730, left: 0, right: 0, display: "flex",
+        flexDirection: "column", alignItems: "center", gap: 0 }}>
+        {steps.map(([t, oc, tc], i) => (
+          <React.Fragment key={t}>
+            {i > 0 && (
+              <Entrance delay={8 + i * 9} from={16}>
+                <svg width={40} height={58}>
+                  <line x1={20} y1={0} x2={20} y2={38} stroke={C.amber} strokeWidth={9} />
+                  <polygon points="20,56 4,36 36,36" fill={C.amber} />
+                </svg>
+              </Entrance>
+            )}
+            <Entrance delay={6 + i * 9}>
+              <Card w={620} outline={oc}>
+                <span style={{ fontSize: 54, color: tc, whiteSpace: "nowrap" }}>{t}</span>
+              </Card>
+            </Entrance>
+          </React.Fragment>
+        ))}
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+export const EP6_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10];
+void S3Unused; void S7Unused;

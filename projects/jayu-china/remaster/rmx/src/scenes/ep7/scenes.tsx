@@ -51,8 +51,8 @@ const S1: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-/* s3 — 약속 */
-const S3: React.FC<{ dur: number }> = ({ dur }) => (
+/* (미사용) 약속 씬 — v2.0에서 삭제 */
+const S3Unused: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.yellow} />
     <Camera dur={dur} zoom={1.05}>
@@ -67,7 +67,7 @@ const S3: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s4 — 기존 질서 = 미군: 기지 + 안보 우산 */
-const S4: React.FC<{ dur: number }> = ({ dur }) => {
+const S3: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const up = spring({ frame: frame - 20, fps, config: theme.spring.heavy });
@@ -106,7 +106,7 @@ const S4: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s5 — 우파는 지킨다 */
-const S5: React.FC<{ dur: number }> = ({ dur }) => (
+const S4: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.amber} />
     <Camera dur={dur} zoom={1.05}>
@@ -117,13 +117,14 @@ const S5: React.FC<{ dur: number }> = ({ dur }) => (
         <Sans x={560} y={1500} size={40} color="#c8c4bc">이 세계 일본의 우파</Sans>
       </Scene>
     </Camera>
-    <Typo top={580} size={92} delay={3}>동맹 = 국익</Typo>
-    <Typo top={760} size={62} delay={12} serif={false} color="#d8d0c2">그 질서를 지키는 쪽</Typo>
+    <Typo top={555} size={84} delay={2}>지키는 쪽이 우파</Typo>
+    <Typo top={720} size={66} color={C.greenText} delay={24}>그래서 좌파가</Typo>
+    <Typo top={860} size={66} color={C.greenText} delay={30}>미군을 밀어낸다</Typo>
   </AbsoluteFill>
 );
 
 /* s6 — 좌파의 말: 자율 3종 */
-const S6: React.FC<{ dur: number }> = () => (
+const S5: React.FC<{ dur: number }> = () => (
   <AbsoluteFill>
     <BgMesh tint={C.green} />
     <Scene ground={1600} groundCol="#26242a">
@@ -145,7 +146,7 @@ const S6: React.FC<{ dur: number }> = () => (
 );
 
 /* s7 — 자율의 값 = 자주국방 */
-const S7: React.FC<{ dur: number }> = ({ dur }) => {
+const S6: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const gap = interpolate(frame, [16, 60], [0, 150],
     { easing: theme.ease.inOut, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -177,7 +178,7 @@ const S7: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s8 — 도쿄 평화 집회의 군비 증강 서명 부스 */
-const S8: React.FC<{ dur: number }> = ({ dur }) => (
+const S7: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.green} tint2={C.red} />
     <Camera dur={dur} zoom={1.05}>
@@ -212,7 +213,7 @@ const S8: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s9 — Payoff: 원칙 같음, 질서 다름 → 결론 뒤집힘 */
-const S9: React.FC<{ dur: number }> = () => (
+const S8: React.FC<{ dur: number }> = () => (
   <AbsoluteFill>
     <BgMesh />
     <Scene ground={1600} groundCol="#26242a">
@@ -245,7 +246,7 @@ const S9: React.FC<{ dur: number }> = () => (
 );
 
 /* s10 — 확장: 그럼 친미는 보수일까? */
-const S10: React.FC<{ dur: number }> = ({ dur }) => (
+const S9: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.yellow} tint2={C.red} />
     <Camera dur={dur} zoom={1.06}>
@@ -261,7 +262,7 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s11 — 다음 모순 (하드컷) */
-const S11: React.FC<{ dur: number }> = ({ dur }) => (
+const S10: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.amber} tint2={C.steel} />
     <Camera dur={dur} zoom={1.06}>
@@ -273,4 +274,5 @@ const S11: React.FC<{ dur: number }> = ({ dur }) => (
   </AbsoluteFill>
 );
 
-export const EP7_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10, S11];
+export const EP7_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10];
+void S3Unused;

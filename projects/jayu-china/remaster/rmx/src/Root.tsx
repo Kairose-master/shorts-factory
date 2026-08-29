@@ -11,6 +11,14 @@ import { EP6_SCENES } from "./scenes/ep6/scenes";
 import { EP7_SCENES } from "./scenes/ep7/scenes";
 import { EP8_SCENES } from "./scenes/ep8/scenes";
 import { Fonts, Grade, Grain, Vignette } from "./kit/layers";
+import ep9 from "./data/ep9.json";
+import { EP9_SCENES } from "./scenes/ep9/scenes";
+import ep10 from "./data/ep10.json";
+import { EP10_SCENES } from "./scenes/ep10/scenes";
+import ep11 from "./data/ep11.json";
+import { EP11_SCENES } from "./scenes/ep11/scenes";
+import ep12 from "./data/ep12.json";
+import { EP12_SCENES } from "./scenes/ep12/scenes";
 import { TitleBand, Chip } from "./kit/ui";
 
 type EpData = typeof ep4;
@@ -47,6 +55,14 @@ const EP6Comp: React.FC = () => <Episode data={ep6 as EpData} scenes={EP6_SCENES
 const EP7Comp: React.FC = () => <Episode data={ep7 as EpData} scenes={EP7_SCENES} />;
 const EP8Comp: React.FC = () => <Episode data={ep8 as EpData} scenes={EP8_SCENES} />;
 
+const EP9Comp: React.FC = () => <Episode data={ep9 as EpData} scenes={EP9_SCENES} />;
+
+const EP10Comp: React.FC = () => <Episode data={ep10 as EpData} scenes={EP10_SCENES} />;
+
+const EP11Comp: React.FC = () => <Episode data={ep11 as EpData} scenes={EP11_SCENES} />;
+
+const EP12Comp: React.FC = () => <Episode data={ep12 as EpData} scenes={EP12_SCENES} />;
+
 export const Root: React.FC = () => (
   <>
     <Composition id="EP4" component={EP4Comp}
@@ -59,5 +75,13 @@ export const Root: React.FC = () => (
       durationInFrames={ep7.durationInFrames} fps={ep7.fps} width={1080} height={1920} />
     <Composition id="EP8" component={EP8Comp}
       durationInFrames={ep8.durationInFrames} fps={ep8.fps} width={1080} height={1920} />
+    <Composition id="EP9" component={EP9Comp}
+      durationInFrames={ep9.durationInFrames} fps={ep9.fps} width={1080} height={1920} />
+    <Composition id="EP10" component={EP10Comp}
+      durationInFrames={ep10.durationInFrames} fps={ep10.fps} width={1080} height={1920} />
+    <Composition id="EP11" component={EP11Comp}
+      durationInFrames={ep11.durationInFrames} fps={ep11.fps} width={1080} height={1920} />
+    <Composition id="EP12" component={EP12Comp}
+      durationInFrames={ep12.durationInFrames} fps={ep12.fps} width={1080} height={1920} />
   </>
 );
