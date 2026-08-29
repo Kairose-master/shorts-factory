@@ -2,46 +2,19 @@ import React from "react";
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { theme } from "../../theme";
 import { BgMesh, Camera } from "../../kit/layers";
-import { Entrance, Stamp, Card, Breathe } from "../../kit/ui";
+import { Entrance, Stamp, Card } from "../../kit/ui";
 import { Person } from "../../kit/people";
-import { ForestRow, Skyline, Train, Rail, Bridge, River, Ship, Crane, Containers, Flag, Picket, Smoke } from "../../kit/props";
+import { Skyline, Train, Bridge, River, Ship, Crane, Containers, Flag, Picket, Smoke } from "../../kit/props";
+import { Anchor1946, Scene, Sans, Typo, GROUND } from "../common";
 
 const C = theme.colors;
-const GROUND = "#2c2a2c";
-const W = 1080, H = 1920;
-
-/** SVG 씬 캔버스 + 지면. */
-const Scene: React.FC<{ ground?: number; groundCol?: string; children: React.ReactNode }> =
-({ ground, groundCol = GROUND, children }) => (
-  <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}
-    style={{ position: "absolute", inset: 0 }}>
-    {ground !== undefined && (
-      <>
-        <rect x={0} y={ground} width={W} height={H - ground} fill={groundCol} />
-        <rect x={0} y={ground - 6} width={W} height={14} fill="#3f434f" />
-      </>
-    )}
-    {children}
-  </svg>
-);
-
-const Serif: React.FC<{ x: number; y: number; size: number; color?: string;
-  children: React.ReactNode }> = ({ x, y, size, color = C.paper, children }) => (
-  <text x={x} y={y} textAnchor="middle" fontFamily={theme.font.serif} fontSize={size}
-    fill={color} stroke="#000" strokeWidth={size * 0.09} paintOrder="stroke">{children}</text>
-);
-const Sans: React.FC<{ x: number; y: number; size: number; color?: string; anchor?: string;
-  children: React.ReactNode }> = ({ x, y, size, color = C.paper, anchor = "middle", children }) => (
-  <text x={x} y={y} textAnchor={anchor as never} fontFamily={theme.font.sans} fontSize={size}
-    fill={color} stroke="#000" strokeWidth={size * 0.11} paintOrder="stroke">{children}</text>
-);
 
 /* s1 — WTF: 한중 악수 + 親中 스탬프 */
-export const S1: React.FC<{ dur: number }> = ({ dur }) => {
+const S1: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const pIn = (d: number) => spring({ frame: frame - d, fps, config: theme.spring.smooth });
-  const p1 = pIn(2), p2 = pIn(5);
+  const p1 = pIn(1), p2 = pIn(4);
   return (
     <AbsoluteFill>
       <BgMesh />
@@ -60,85 +33,21 @@ export const S1: React.FC<{ dur: number }> = ({ dur }) => {
           <Sans x={925} y={1000} size={42} color="#ecc478">자유중국</Sans>
         </Scene>
       </Camera>
-      <Entrance delay={4} from={-30} style={{ position: "absolute", top: 528, width: "100%",
+      <Entrance delay={2} from={-30} style={{ position: "absolute", top: 528, width: "100%",
         textAlign: "center" }}>
         <span style={{ fontFamily: theme.font.sans, fontSize: 54, color: C.paper,
           textShadow: "0 4px 16px #000, 0 0 6px #000" }}>한국 보수당은</span>
       </Entrance>
       <div style={{ position: "absolute", top: 665, width: "100%",
         display: "flex", justifyContent: "center" }}>
-        <Stamp text="親中" delay={14} size={400} textColor={C.yellow} />
+        <Stamp text="親中" delay={10} size={400} textColor={C.yellow} />
       </div>
     </AbsoluteFill>
   );
 };
 
-/* s2 — 1946 갈림길 (시리즈 앵커) */
-export const S2: React.FC<{ dur: number }> = ({ dur }) => {
-  const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const grow = spring({ frame: frame - 6, fps, config: theme.spring.heavy });
-  const jx = 540, jy = 1330;
-  const bx = interpolate(grow, [0, 1], [0, 300]);
-  const by = interpolate(grow, [0, 1], [0, 330]);
-  return (
-    <AbsoluteFill>
-      <BgMesh tint={C.steel} tint2={C.amber} />
-      <Camera dur={dur} zoom={1.06}>
-        <Scene ground={1010} groundCol="#292628">
-          <ForestRow y={1010} seed={46} color="#1f2c20" />
-          {Array.from({ length: 8 }).map((_, i) => {
-            const t = i / 7;
-            return <rect key={i} x={jx - 84 + 30 * t} y={1740 - (1740 - jy) * t}
-              width={168 - 60 * t} height={13} fill="#5e5030" />;
-          })}
-          <line x1={jx} y1={1740} x2={jx} y2={jy} stroke={C.outline} strokeWidth={26} />
-          <line x1={jx} y1={1740} x2={jx} y2={jy} stroke="#787c8a" strokeWidth={15} />
-          <line x1={jx} y1={jy} x2={jx - bx} y2={jy - by * 0.82} stroke={C.outline} strokeWidth={20} />
-          <line x1={jx} y1={jy} x2={jx - bx} y2={jy - by * 0.82} stroke="#4c505e" strokeWidth={11} />
-          <line x1={jx} y1={jy} x2={jx + bx} y2={jy - by * 0.82} stroke={C.outline} strokeWidth={24} />
-          <line x1={jx} y1={jy} x2={jx + bx} y2={jy - by * 0.82} stroke={C.amber} strokeWidth={14} />
-          <circle cx={jx} cy={jy} r={26} fill={C.paper} stroke={C.outline} strokeWidth={8} />
-          {grow > 0.75 && (
-            <>
-              <Sans x={205} y={1090} size={46} color="#7c8090">공산당</Sans>
-              <Sans x={880} y={1058} size={54} color={C.amber}>국민당 승리</Sans>
-            </>
-          )}
-        </Scene>
-      </Camera>
-      <Entrance delay={2} style={{ position: "absolute", top: 560, width: "100%",
-        textAlign: "center" }}>
-        <span style={{ fontFamily: theme.font.serif, fontSize: 175, color: C.paper,
-          textShadow: "0 6px 30px #000" }}>1946</span>
-      </Entrance>
-    </AbsoluteFill>
-  );
-};
-
-/* s3 — 약속: 타이포 */
-export const S3: React.FC<{ dur: number }> = ({ dur }) => (
-  <AbsoluteFill>
-    <BgMesh tint={C.yellow} />
-    <Camera dur={dur} zoom={1.05}>
-      <Scene ground={1430} groundCol="#26242a">
-        <Person x={540} y={1500} height={400} outfit="student" expr="smile"
-          pose="hands_up" tie="#3e5a78" waveArm />
-      </Scene>
-    </Camera>
-    <Entrance delay={3} style={{ position: "absolute", top: 620, width: "100%", textAlign: "center" }}>
-      <span style={{ fontFamily: theme.font.serif, fontSize: 140, color: C.paper,
-        textShadow: "0 6px 26px #000" }}>이유는</span>
-    </Entrance>
-    <Entrance delay={9} style={{ position: "absolute", top: 850, width: "100%", textAlign: "center" }}>
-      <span style={{ fontFamily: theme.font.serif, fontSize: 126, color: C.yellow,
-        textShadow: "0 6px 26px #000" }}>역사가 달랐다</span>
-    </Entrance>
-  </AbsoluteFill>
-);
-
-/* s4 — 압록강 철교 보급 열차 */
-export const S4: React.FC<{ dur: number }> = ({ dur }) => {
+/* s3 — 근거1: 압록강 철교를 건너는 보급 열차 */
+const S3: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const trainX = interpolate(frame, [0, dur], [-160, 980], { easing: theme.ease.inOut });
   return (
@@ -146,7 +55,7 @@ export const S4: React.FC<{ dur: number }> = ({ dur }) => {
       <BgMesh tint={C.steel} />
       <Camera dur={dur} zoom={1.05} panX={-14}>
         <Scene>
-          <ForestRow y={1150} seed={4} color="#20301f" />
+          <Skyline y={1150} seed={43} minY={640} />
           <River y0={1150} y1={1500} />
           <rect x={0} y={1500} width={1080} height={420} fill={GROUND} />
           <Bridge x0={-40} x1={1120} y={1120} />
@@ -161,13 +70,15 @@ export const S4: React.FC<{ dur: number }> = ({ dur }) => {
             facing={1} pose="stand" />
         </Scene>
       </Camera>
-      <Entrance delay={10} style={{ position: "absolute", top: 580, width: "100%",
+      <Entrance delay={6} style={{ position: "absolute", top: 580, width: "100%",
         display: "flex", justifyContent: "center" }}>
         <Card w={520} outline="#666c7e">
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 30 }}>
             <span style={{ fontSize: 60, color: "#9a9eaa" }}>중공군</span>
-            <svg width={110} height={80}><line x1={10} y1={10} x2={100} y2={70} stroke={C.red} strokeWidth={13} strokeLinecap="round" />
-              <line x1={100} y1={10} x2={10} y2={70} stroke={C.red} strokeWidth={13} strokeLinecap="round" /></svg>
+            <svg width={110} height={80}>
+              <line x1={10} y1={10} x2={100} y2={70} stroke={C.red} strokeWidth={13} strokeLinecap="round" />
+              <line x1={100} y1={10} x2={10} y2={70} stroke={C.red} strokeWidth={13} strokeLinecap="round" />
+            </svg>
           </div>
         </Card>
       </Entrance>
@@ -175,39 +86,46 @@ export const S4: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-/* s5 — 같은 편: 두 병사 + 깃발 + 同盟 */
-export const S5: React.FC<{ dur: number }> = ({ dur }) => (
-  <AbsoluteFill>
-    <BgMesh />
-    <Camera dur={dur} zoom={1.055}>
-      <Scene ground={1360}>
-        <Flag x={165} y={1360} w={240} color="#b07a32" />
-        <Flag x={915} y={1360} w={-240} color="#4a5c78" />
-        <Person x={442} y={1382} height={470} outfit="uniform" expr="smile" hat="helmet"
-          facing={1} pose="stand" />
-        <Person x={644} y={1382} height={440} outfit="uniform" expr="smile" hat="helmet"
-          facing={-1} pose="stand" />
-        <Sans x={215} y={1035} size={40} color="#ecc478">자유중국군</Sans>
-        <Sans x={870} y={1035} size={40}>한국군</Sans>
-      </Scene>
-    </Camera>
-    <div style={{ position: "absolute", top: 545, width: "100%",
-      display: "flex", justifyContent: "center" }}>
-      <Stamp text="同盟" delay={8} size={300} />
-    </div>
-    <Entrance delay={16} style={{ position: "absolute", top: 800, width: "100%", textAlign: "center" }}>
-      <span style={{ fontFamily: theme.font.serif, fontSize: 78, color: C.paper,
-        textShadow: "0 5px 22px #000" }}>같은 편의 기억</span>
-    </Entrance>
-  </AbsoluteFill>
-);
+/* s4 — 미니 페이오프: 同盟 → 그래서 보수가 중국 편 (11~15초, 첫 보상) */
+const S4: React.FC<{ dur: number }> = ({ dur }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const line = spring({ frame: frame - 34, fps, config: theme.spring.snappy });
+  return (
+    <AbsoluteFill>
+      <BgMesh tint={C.amber} />
+      <Camera dur={dur} zoom={1.05}>
+        <Scene ground={1360}>
+          <Flag x={165} y={1360} w={240} color="#b07a32" />
+          <Flag x={915} y={1360} w={-240} color="#4a5c78" />
+          <Person x={442} y={1382} height={470} outfit="uniform" expr="smile" hat="helmet"
+            facing={1} pose="stand" />
+          <Person x={644} y={1382} height={440} outfit="uniform" expr="smile" hat="helmet"
+            facing={-1} pose="stand" />
+          <Sans x={215} y={1035} size={40} color="#ecc478">자유중국군</Sans>
+          <Sans x={870} y={1035} size={40}>한국군</Sans>
+        </Scene>
+      </Camera>
+      <div style={{ position: "absolute", top: 545, width: "100%",
+        display: "flex", justifyContent: "center" }}>
+        <Stamp text="同盟" delay={4} size={280} />
+      </div>
+      {/* 미니 페이오프 문장 — 훅 질문에 대한 짧은 답 */}
+      <div style={{ position: "absolute", top: 845, width: "100%", textAlign: "center",
+        opacity: line, transform: `translateY(${interpolate(line, [0, 1], [26, 0])}px)` }}>
+        <span style={{ fontFamily: theme.font.serif, fontSize: 74, color: C.yellow,
+          textShadow: "0 5px 22px #000" }}>그래서 보수가 중국 편</span>
+      </div>
+    </AbsoluteFill>
+  );
+};
 
-/* s6 — 대륙 종단 철도 지도 */
-export const S6: React.FC<{ dur: number }> = ({ dur }) => {
+/* s5 — 근거2: 대륙 종단 철도 부산→난징 */
+const S5: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const stops = [["부산", 780, 1330], ["서울", 600, 1080], ["신의주", 448, 850], ["난징", 268, 640]] as const;
-  const draw = interpolate(frame, [6, 40], [0, 1],
+  const draw = interpolate(frame, [4, 34], [0, 1],
     { easing: theme.ease.inOut, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
   return (
     <AbsoluteFill>
@@ -215,41 +133,37 @@ export const S6: React.FC<{ dur: number }> = ({ dur }) => {
       <Camera dur={dur} zoom={1.05}>
         <Scene ground={1470} groundCol="#26242a">
           <Skyline y={1470} seed={6} minY={1180} />
-          <polyline
-            points={stops.map(([, x, y]) => `${x},${y}`).join(" ")}
+          <polyline points={stops.map(([, x, y]) => `${x},${y}`).join(" ")}
             fill="none" stroke={C.outline} strokeWidth={24} strokeLinejoin="round"
             strokeDasharray={1400} strokeDashoffset={1400 * (1 - draw)} />
-          <polyline
-            points={stops.map(([, x, y]) => `${x},${y}`).join(" ")}
+          <polyline points={stops.map(([, x, y]) => `${x},${y}`).join(" ")}
             fill="none" stroke={C.amber} strokeWidth={13} strokeLinejoin="round"
             strokeDasharray={1400} strokeDashoffset={1400 * (1 - draw)} />
           {stops.map(([name, x, y], i) => {
             const big = i === 0 || i === 3;
-            const p = spring({ frame: frame - 8 - i * 7, fps, config: theme.spring.snappy });
+            const p = spring({ frame: frame - 5 - i * 6, fps, config: theme.spring.snappy });
             return (
               <g key={name} opacity={p} transform={`scale(${0.7 + 0.3 * p})`}
                 style={{ transformOrigin: `${x}px ${y}px` }}>
                 <circle cx={x} cy={y} r={big ? 24 : 15} fill={big ? C.amber : "#969aa6"}
                   stroke={C.outline} strokeWidth={6} />
-                <Sans x={i === 0 ? x - 44 : x + 44} y={y + (i === 0 ? -46 : 14)}
-                  size={big ? 56 : 44} color={big ? C.yellow : C.paper}
-                  anchor={i === 0 ? "end" : "start"}>{name}</Sans>
+                {i === 0
+                  ? <Sans x={x - 44} y={y - 70} size={56} color={C.yellow} anchor="end">{name}</Sans>
+                  : <Sans x={x + 44} y={y + 14} size={big ? 56 : 44}
+                      color={big ? C.yellow : C.paper} anchor="start">{name}</Sans>}
               </g>
             );
           })}
-          <Train x={1035} y={1470} scale={0.42} cars={1} drive={0} />
+          <Train x={1210} y={1470} scale={0.46} cars={1} roll={0} />
         </Scene>
       </Camera>
-      <Entrance delay={3} style={{ position: "absolute", top: 555, width: "100%", textAlign: "center" }}>
-        <span style={{ fontFamily: theme.font.serif, fontSize: 92, color: C.paper,
-          textShadow: "0 5px 22px #000" }}>수출길 = 대륙</span>
-      </Entrance>
+      <Typo top={555} size={92} delay={2}>수출길 = 대륙</Typo>
     </AbsoluteFill>
   );
 };
 
-/* s7 — 부산항 재계: 김도현 */
-export const S7: React.FC<{ dur: number }> = ({ dur }) => (
+/* s6 — 근거3: 부산항 재계 김도현 */
+const S6: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.steel} tint2={C.amber} />
     <Camera dur={dur} zoom={1.05} panX={10}>
@@ -257,18 +171,14 @@ export const S7: React.FC<{ dur: number }> = ({ dur }) => (
         <Ship x={810} y={1120} scale={0.88} />
         <rect x={0} y={1255} width={1080} height={665} fill={GROUND} />
         <rect x={0} y={1247} width={1080} height={16} fill="#3f434f" />
-        <Crane x={790} y={1247} dir={-1} scale={0.92} />
+        <Crane x={900} y={1247} dir={-1} scale={0.92} />
         <Containers x={70} y={1247} />
-        <Breathe><g /></Breathe>
         <Person x={370} y={1650} height={490} outfit="suit" expr="smug" facing={1}
           pose="hold_case" tie="#983a2e" />
       </Scene>
     </Camera>
-    <Entrance delay={4} style={{ position: "absolute", top: 555, width: "100%", textAlign: "center" }}>
-      <span style={{ fontFamily: theme.font.serif, fontSize: 84, color: C.paper,
-        textShadow: "0 5px 22px #000" }}>지킬 것이 많은 쪽</span>
-    </Entrance>
-    <Entrance delay={26} style={{ position: "absolute", top: 1560, width: "100%",
+    <Typo top={555} size={84} delay={2}>지킬 것이 많은 쪽</Typo>
+    <Entrance delay={16} style={{ position: "absolute", top: 1560, width: "100%",
       display: "flex", justifyContent: "center" }}>
       <div style={{ background: "#0d0b0a", borderRadius: 14, padding: "14px 30px",
         fontFamily: theme.font.sans, fontSize: 38, color: C.paper }}>
@@ -277,37 +187,34 @@ export const S7: React.FC<{ dur: number }> = ({ dur }) => (
   </AbsoluteFill>
 );
 
-/* s8 — 반공의 방향: 나침반 바늘 → 모스크바 */
-export const S8: React.FC<{ dur: number }> = ({ dur }) => {
+/* s7 — Second Hook: 반공의 시선은 모스크바 */
+const S7: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const swing = spring({ frame: frame - 26, fps, config: { damping: 9, stiffness: 90 } });
+  const swing = spring({ frame: frame - 22, fps, config: { damping: 9, stiffness: 90 } });
   const ang = interpolate(swing, [0, 1], [115, -38]);
   return (
     <AbsoluteFill>
       <BgMesh tint={C.red} tint2={C.steel} />
       <Camera dur={dur} zoom={1.05}>
-        <Scene ground={1400} groundCol="#28262a">
-          <Person x={540} y={1430} height={430} outfit="coat" expr="closed" facing={0}
+        <Scene ground={1420} groundCol="#28262a">
+          <Person x={540} y={1460} height={460} outfit="coat" expr="closed" facing={0}
             pose="arms_cross" />
           <Sans x={830} y={1230} size={38} color="#c8c4bc">이 세계의 반공 보수</Sans>
         </Scene>
       </Camera>
-      <Entrance delay={2} style={{ position: "absolute", top: 545, width: "100%", textAlign: "center" }}>
-        <span style={{ fontFamily: theme.font.serif, fontSize: 84, color: C.paper,
-          textShadow: "0 5px 22px #000" }}>反共의 방향</span>
-      </Entrance>
-      <div style={{ position: "absolute", top: 740, left: 0, right: 0, display: "flex",
-        justifyContent: "center", gap: 120 }}>
-        <Entrance delay={10}><Card w={330} outline="#5a6072">
+      <Typo top={545} size={84} delay={2}>反共의 방향</Typo>
+      <div style={{ position: "absolute", top: 760, left: 0, right: 0, display: "flex",
+        justifyContent: "center", gap: 90 }}>
+        <Entrance delay={8}><Card w={330} outline="#5a6072">
           <span style={{ fontSize: 56, color: "#7c8090" }}>베이징</span></Card></Entrance>
-        <Entrance delay={14}><Card w={360} outline={C.red}>
+        <Entrance delay={12}><Card w={360} outline={C.red}>
           <span style={{ fontSize: 56, color: "#e68c80" }}>모스크바</span></Card></Entrance>
       </div>
       <svg width={1080} height={1920} style={{ position: "absolute", inset: 0 }}>
-        <circle cx={540} cy={700} r={25} fill={C.paper} stroke={C.outline} strokeWidth={7} />
-        <g transform={`rotate(${ang} 540 700)`} opacity={Math.min(1, frame / 26)}>
-          <line x1={540} y1={700} x2={540} y2={880} stroke={C.red} strokeWidth={15} strokeLinecap="round" />
+        <circle cx={540} cy={715} r={25} fill={C.paper} stroke={C.outline} strokeWidth={7} />
+        <g transform={`rotate(${ang} 540 715)`} opacity={Math.min(1, frame / 20)}>
+          <line x1={540} y1={715} x2={540} y2={880} stroke={C.red} strokeWidth={15} strokeLinecap="round" />
           <polygon points="540,910 516,872 564,872" fill={C.red} />
         </g>
       </svg>
@@ -315,44 +222,44 @@ export const S8: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-/* s9 — Payoff: 인과 사슬 캐스케이드 */
-export const S9: React.FC<{ dur: number }> = () => {
-  const steps = [["중공군 없는 전쟁", "#5a6072", C.paper], ["적대 기억 없음", "#5a6072", C.paper],
-    ["동맹 + 대륙경제", C.amber, C.amber], ["보수 = 친중", C.yellow, C.yellow]] as const;
+/* s8 — 본 페이오프: 사슬 3단 */
+const S8: React.FC<{ dur: number }> = () => {
+  const steps = [["기억이 없다", "#5a6072", C.paper], ["길이 이어졌다", C.amber, C.amber],
+    ["보수 = 친중", C.yellow, C.yellow]] as const;
   return (
     <AbsoluteFill>
       <BgMesh />
       <Scene ground={1560} groundCol="#26242a">
         <Skyline y={1560} seed={9} minY={1340} />
       </Scene>
-      <div style={{ position: "absolute", top: 545, left: 0, right: 0, display: "flex",
+      <Typo top={545} size={78} delay={2}>친중이 이상한 게 아니다</Typo>
+      <div style={{ position: "absolute", top: 730, left: 0, right: 0, display: "flex",
         flexDirection: "column", alignItems: "center", gap: 0 }}>
         {steps.map(([t, oc, tc], i) => (
           <React.Fragment key={t}>
             {i > 0 && (
-              <Entrance delay={6 + i * 9} from={16}>
-                <svg width={40} height={62}>
-                  <line x1={20} y1={0} x2={20} y2={40} stroke={C.amber} strokeWidth={9} />
-                  <polygon points="20,60 4,38 36,38" fill={C.amber} />
+              <Entrance delay={8 + i * 9} from={16}>
+                <svg width={40} height={58}>
+                  <line x1={20} y1={0} x2={20} y2={38} stroke={C.amber} strokeWidth={9} />
+                  <polygon points="20,56 4,36 36,36" fill={C.amber} />
                 </svg>
               </Entrance>
             )}
-            <Entrance delay={4 + i * 9}>
-              <Card w={660} outline={oc}><span style={{ fontSize: 52, color: tc }}>{t}</span></Card>
+            <Entrance delay={6 + i * 9}>
+              <Card w={620} outline={oc}>
+                <span style={{ fontSize: 54, color: tc, whiteSpace: "nowrap" }}>{t}</span>
+              </Card>
             </Entrance>
           </React.Fragment>
         ))}
-        <Entrance delay={46}>
-          <div style={{ marginTop: 30, fontFamily: theme.font.sans, fontSize: 46,
-            color: "#d8d0c2", textShadow: "0 4px 16px #000" }}>기억이 다르면 묶음이 다르다</div>
-        </Entrance>
       </div>
+      <Typo top={1300} size={46} delay={36} serif={false} color="#d8d0c2">보수는 지켜온 것을 지킬 뿐이다</Typo>
     </AbsoluteFill>
   );
 };
 
-/* s10 — 확장: 질문 */
-export const S10: React.FC<{ dur: number }> = ({ dur }) => (
+/* s9 — 확장 질문 */
+const S9: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.yellow} tint2={C.red} />
     <Camera dur={dur} zoom={1.06}>
@@ -361,19 +268,14 @@ export const S10: React.FC<{ dur: number }> = ({ dur }) => (
           pose="stand" tie="#3e5a78" />
       </Scene>
     </Camera>
-    {[["그럼, 누가", 610, 120, C.paper, 3], ["중국 의존을", 810, 120, C.paper, 9],
-      ["비판할까?", 1010, 140, C.yellow, 15]].map(([t, y, fs, col, d]) => (
-      <Entrance key={t as string} delay={d as number}
-        style={{ position: "absolute", top: y as number, width: "100%", textAlign: "center" }}>
-        <span style={{ fontFamily: theme.font.serif, fontSize: fs as number, color: col as string,
-          textShadow: "0 6px 26px #000" }}>{t}</span>
-      </Entrance>
-    ))}
+    <Typo top={600} size={110} delay={2}>그럼 누가</Typo>
+    <Typo top={790} size={104} delay={7}>중국 의존을</Typo>
+    <Typo top={990} size={128} color={C.yellow} delay={12}>비판할까?</Typo>
   </AbsoluteFill>
 );
 
-/* s11 — 다음 모순: 진보의 피켓 (하드컷) */
-export const S11: React.FC<{ dur: number }> = ({ dur }) => (
+/* s10 — 다음 모순: 진보의 피켓 (하드컷) */
+const S10: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.green} tint2={C.steel} />
     <Camera dur={dur} zoom={1.07}>
@@ -391,7 +293,7 @@ export const S11: React.FC<{ dur: number }> = ({ dur }) => (
           pose="hands_up" facing={0} waveArm />
       </Scene>
     </Camera>
-    <Entrance delay={5} style={{ position: "absolute", top: 620, left: 620, right: 0,
+    <Entrance delay={3} style={{ position: "absolute", top: 620, left: 620, right: 0,
       textAlign: "center" }}>
       <div style={{ fontFamily: theme.font.serif, fontSize: 92, color: C.greenText,
         textShadow: "0 5px 22px #000", lineHeight: 1.35 }}>진보의<br />구호</div>
@@ -399,4 +301,4 @@ export const S11: React.FC<{ dur: number }> = ({ dur }) => (
   </AbsoluteFill>
 );
 
-export const EP4_SCENES = [S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11];
+export const EP4_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10];

@@ -48,23 +48,8 @@ const S1: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-/* s3 — 약속: 누가? 왜? */
-const S3: React.FC<{ dur: number }> = ({ dur }) => (
-  <AbsoluteFill>
-    <BgMesh tint={C.yellow} />
-    <Camera dur={dur} zoom={1.05}>
-      <Scene ground={1450} groundCol="#26242a">
-        <Person x={540} y={1560} height={360} outfit="student" expr="worried"
-          pose="stand" tie="#3e5a78" />
-      </Scene>
-    </Camera>
-    <Typo top={640} size={185} delay={3}>누가?</Typo>
-    <Typo top={950} size={225} color={C.yellow} delay={10}>왜?</Typo>
-  </AbsoluteFill>
-);
-
-/* s4 — 통합의 청구서: 항만 매입 / 공장 유출 */
-const S4: React.FC<{ dur: number }> = ({ dur }) => {
+/* s3 — 근거1: 항만 매입 / 공장 유출 */
+const S3: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const fx = interpolate(frame, [20, dur], [0, 260],
     { easing: theme.ease.inOut, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -105,8 +90,8 @@ const S4: React.FC<{ dur: number }> = ({ dur }) => {
   );
 };
 
-/* s5 — 시소: 수혜는 재계로, 청구서는 노동으로 + 박성호 */
-const S5: React.FC<{ dur: number }> = ({ dur }) => {
+/* s4 — 미니 페이오프: 시소 + '반대하는 쪽이 진보' */
+const S4: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const tilt = interpolate(spring({ frame: frame - 14, fps, config: theme.spring.heavy }),
@@ -133,8 +118,57 @@ const S5: React.FC<{ dur: number }> = ({ dur }) => {
           <Sans x={880} y={1210} size={52} color="#e68c80">청구서 → 노동</Sans>
         </Scene>
       </Camera>
-      <Typo top={555} size={84} delay={4}>기울어진 통합</Typo>
-      <Entrance delay={30} style={{ position: "absolute", top: 1560, width: "100%",
+      <Typo top={545} size={80} delay={2}>기울어진 통합</Typo>
+      {/* 미니 페이오프 — 훅 질문에 대한 짧은 답 */}
+      <Entrance delay={30} style={{ position: "absolute", top: 690, width: "100%",
+        textAlign: "center" }}>
+        <span style={{ fontFamily: theme.font.serif, fontSize: 70, color: C.greenText,
+          textShadow: "0 5px 22px #000" }}>반대하는 쪽이 진보</span>
+      </Entrance>
+    </AbsoluteFill>
+  );
+};
+
+/* s5 — 근거2: 문 닫은 조선소, 박성호 */
+const S5: React.FC<{ dur: number }> = ({ dur }) => {
+  const frame = useCurrentFrame();
+  const shut = interpolate(frame, [18, 44], [0, 1],
+    { easing: theme.ease.out, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill>
+      <BgMesh tint={C.steel} tint2={C.red} />
+      <Camera dur={dur} zoom={1.05}>
+        <Scene ground={1420} groundCol="#28262a">
+          {/* 조선소 게이트 */}
+          <rect x={130} y={760} width={820} height={40} fill="#57503f"
+            stroke={C.outline} strokeWidth={7} />
+          <rect x={150} y={800} width={44} height={620} fill="#4a4436"
+            stroke={C.outline} strokeWidth={6} />
+          <rect x={886} y={800} width={44} height={620} fill="#4a4436"
+            stroke={C.outline} strokeWidth={6} />
+          <Crane x={700} y={1420} dir={-1} scale={0.62} />
+          {/* 닫히는 문 */}
+          <g>
+            <rect x={194 - 350 * (1 - shut)} y={860} width={346} height={560}
+              fill="#3e444e" stroke={C.outline} strokeWidth={7} />
+            <rect x={540 + 346 * (1 - shut)} y={860} width={346} height={560}
+              fill="#3e444e" stroke={C.outline} strokeWidth={7} />
+          </g>
+          {/* 폐쇄 안내문 */}
+          <g opacity={shut} transform="rotate(-4 540 1120)">
+            <rect x={380} y={1050} width={320} height={140} rx={10} fill="#e8e2d4"
+              stroke={C.outline} strokeWidth={7} />
+            <text x={540} y={1112} textAnchor="middle" fontFamily={theme.font.sans}
+              fontSize={46} fill={C.red}>조업 중단</text>
+            <text x={540} y={1160} textAnchor="middle" fontFamily={theme.font.sans}
+              fontSize={30} fill="#6e6250">인천 조선소</text>
+          </g>
+          <Person x={300} y={1620} height={420} outfit="worker" expr="worried" hat="cap"
+            pose="stand" facing={1} />
+        </Scene>
+      </Camera>
+      <Typo top={555} size={80} delay={2}>청구서를 받은 사람</Typo>
+      <Entrance delay={26} style={{ position: "absolute", top: 1640, width: "100%",
         display: "flex", justifyContent: "center" }}>
         <div style={{ background: "#0d0b0a", borderRadius: 14, padding: "14px 30px",
           fontFamily: theme.font.sans, fontSize: 38, color: C.paper }}>
@@ -168,8 +202,8 @@ const S6: React.FC<{ dur: number }> = () => {
   );
 };
 
-/* s7 — 등식: 기존 질서와 싸우는 쪽 = 진보 */
-const S7: React.FC<{ dur: number }> = ({ dur }) => (
+/* (미사용) 등식 씬 — v2.0에서 미니 페이오프로 대체 */
+const S7Unused: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.green} />
     <Camera dur={dur} zoom={1.055}>
@@ -185,7 +219,7 @@ const S7: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s8 — 뒤집힌 장면: 노조 깃발 主權 / 재계 사설 開放 */
-const S8: React.FC<{ dur: number }> = ({ dur }) => (
+const S7: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.steel} tint2={C.green} />
     <Camera dur={dur} zoom={1.05}>
@@ -213,7 +247,7 @@ const S8: React.FC<{ dur: number }> = ({ dur }) => (
 );
 
 /* s9 — Payoff: 지킨다=보수 / 저항한다=진보 */
-const S9: React.FC<{ dur: number }> = () => (
+const S8: React.FC<{ dur: number }> = () => (
   <AbsoluteFill>
     <BgMesh tint={C.amber} tint2={C.green} />
     <Scene ground={1560} groundCol="#26242a">
@@ -248,7 +282,7 @@ const S9: React.FC<{ dur: number }> = () => (
 );
 
 /* s10 — 정당은 싸우고, 청년은 떠난다 */
-const S10: React.FC<{ dur: number }> = ({ dur }) => {
+const S9: React.FC<{ dur: number }> = ({ dur }) => {
   const frame = useCurrentFrame();
   const walk = interpolate(frame, [10, dur], [0, 240],
     { easing: theme.ease.inOut, extrapolateLeft: "clamp", extrapolateRight: "clamp" });
@@ -276,7 +310,7 @@ const S10: React.FC<{ dur: number }> = ({ dur }) => {
 };
 
 /* s11 — 다음 모순: 중국 유학 (하드컷) */
-const S11: React.FC<{ dur: number }> = ({ dur }) => (
+const S10: React.FC<{ dur: number }> = ({ dur }) => (
   <AbsoluteFill>
     <BgMesh tint={C.yellow} tint2={C.steel} />
     <Camera dur={dur} zoom={1.06}>
@@ -292,4 +326,5 @@ const S11: React.FC<{ dur: number }> = ({ dur }) => (
   </AbsoluteFill>
 );
 
-export const EP5_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10, S11];
+export const EP5_SCENES = [S1, Anchor1946, S3, S4, S5, S6, S7, S8, S9, S10];
+void S7Unused;
