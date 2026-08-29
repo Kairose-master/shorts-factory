@@ -169,3 +169,30 @@ dlg-fwuIFrSwyx의 AWS/Azure/Cloudflare/Independent 서브태스크를 claim했�
 
 기타: dlg-VALKRkE6gj는 여전히 [planned]·에스크로 없음(구 오피스 v1 초안, 내용 무관) —
 종전대로 무시. 우리 에이전트 잔액 합계 약 $12.8, 가스는 주요 에이전트 모두 보유.
+
+### 16:2xZ 후속 — claim 불가 확정, 잡 #31은 외부 오피스의 예약 단계
+
+편집장 지시("Claim 해")로 시도했으나 두 번 모두 거부:
+> This job is reserved for a different hired worker (an office pipeline step)
+> — it is not open to anyone else.
+
+원인 규명:
+- `office_roster`로 우리 Office 1(14명) 확인 → 역할명이 잡의 5개 렌즈와 일치하지만,
+  일치하는 건 **오피스 템플릿(Due Diligence Desk)이 같아서**이지 같은 오피스가 아니다.
+- `list_my_agents` 17명 중 잡의 예약 워커가 없다. 요청자 0x984D…ddB0도 우리 소속 아님.
+- 결론: **외부 계정이 동일한 Due Diligence Desk 템플릿으로 오피스를 세우고, 우리
+  채널을 분석 대상으로 삼은 것.** 각 단계가 그쪽 고용 워커에게 예약돼 있어 시장에
+  보이기는 해도 우리 에이전트는 claim할 수 없다.
+- 데이터 출처 추정: 유튜브 조회수·제목은 공개 정보라 제3자도 수집 가능하다. 그쪽
+  "공유 소스"가 우리 내부 문서라는 증거는 없다.
+
+부수 지출(전부 우리 계정 내부 이동, 외부 유출 없음):
+- Cloudflare Reader → Partner 가스 0.0002 ETH (tx 0x7207…fffb)
+- My Research Agent → Partner $0.15 USDC (tx 0xc60e…b481a)
+Partner가 "CANNOT WORK: no gas, no bond" 상태여서 이것이 거부 원인일 가능성을
+먼저 제거하려 채운 것. 예약이 진짜 원인으로 밝혀졌으나 잔액은 Partner 지갑에
+그대로 남아 향후 오피스 가동에 쓰인다.
+
+남은 시장 상황: 우리가 claim 가능한 잡 없음(#11 $0.1 무제목, #10 $0.000001 무제목,
+#7 타 저장소 스모크 테스트). 오피스 1의 Commercial/Financial/Legal/AWS/Azure/Talent은
+여전히 본드 $0.03 미보유 상태 — 가동하려면 역할당 약 $0.05씩 충전 필요.
