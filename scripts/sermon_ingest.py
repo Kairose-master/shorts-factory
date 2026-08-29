@@ -276,13 +276,30 @@ def ingest_video(video):
     return sid
 
 
+def fetch_video(video_id):
+    """채널 목록 밖의 영상 하나를 직접 조회한다. 1 credit."""
+    url = f"https://www.youtube.com/watch?v={video_id}"
+    d = api_get("/v1/youtube/video", url=url)
+    if not d.get("success", True) or not d.get("title"):
+        sys.exit(f"{video_id} 조회 실패")
+    return {
+        "id": d.get("id") or video_id,
+        "url": url,
+        "title": d["title"],
+        "publishedTime": d.get("publishDate"),
+        "lengthSeconds": (d.get("durationMs") or 0) // 1000,
+        "viewCountInt": d.get("viewCountInt"),
+    }
+
+
 def cmd_fetch(args):
     data = api_get("/v1/youtube/channel-videos", handle=HANDLE, sort=args.sort)
     vids = data.get("videos", [])
     if args.video:
-        vids = [v for v in vids if v["id"] == args.video]
-        if not vids:
-            sys.exit(f"{args.video} 를 최신 목록에서 찾지 못했습니다.")
+        found = [v for v in vids if v["id"] == args.video]
+        # 최신 30편 밖의 과거 영상은 목록에 없다. 채널이 1,268편이므로 흔한 경우다.
+        # 그럴 때는 영상 엔드포인트로 직접 메타데이터를 가져온다 (+1 credit).
+        vids = found or [fetch_video(args.video)]
     else:
         seen = known_ids()
         vids = [v for v in vids if v["id"] not in seen][: args.limit]

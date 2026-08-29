@@ -48,6 +48,7 @@ CAP_SIZE = 64
 CAP_MARGIN_BOTTOM = 422  # 자막 하단이 78% 지점. 유튜브 채널행(81.7%) 위
 CAP_MARGIN_SIDE = 130    # 좌우 12% — 우측 액션 버튼 열을 피한다
 CAP_OUTLINE = 6
+STATUS_SIZE, STATUS_MARGIN = 34, 352   # 자막 검수 상태 라벨, 자막 위
 CAP_LINE_CHARS = 17      # 한글 기준 한 줄 최대 글자수
 CAP_GROUP_CHARS = 36     # 자막 한 덩어리 최대 글자수 (17자 × 2줄)
 CAP_GROUP_MS = 5000      # 자막 한 덩어리 최대 지속
@@ -188,7 +189,14 @@ def read_caption_tsv(path):
     return out
 
 
-def build_ass(hook_lines, cues, duration_ms, verify=False):
+def scale_cues(cues, speed):
+    """배속을 걸면 자막 타이밍도 같은 비율로 당겨야 한다."""
+    if speed == 1.0:
+        return cues
+    return [(int(s / speed), int(e / speed), t) for s, e, t in cues]
+
+
+def build_ass(hook_lines, cues, duration_ms, verify=False, status=""):
     hook = r"\N".join(hook_lines)
     head = f"""[Script Info]
 ScriptType: v4.00+
@@ -201,6 +209,7 @@ ScaledBorderAndShadow: yes
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: HOOK,{FONT},{HOOK_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,-1,0,1,{HOOK_OUTLINE},{HOOK_SHADOW},8,60,60,{HOOK_MARGIN_TOP},1
 Style: CAP,{FONT},{CAP_SIZE},{YELLOW},{YELLOW},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,{CAP_OUTLINE},2,2,{CAP_MARGIN_SIDE},{CAP_MARGIN_SIDE},{CAP_MARGIN_BOTTOM},1
+Style: STATUS,{FONT},{STATUS_SIZE},&H90FFFFFF,&H90FFFFFF,{BLACK},{BLACK},0,0,0,0,100,100,1,0,1,3,0,2,{CAP_MARGIN_SIDE},{CAP_MARGIN_SIDE},{STATUS_MARGIN},1
 Style: VERIFY,{FONT},44,&H0000FFFF,&H0000FFFF,{BLACK},{BLACK},0,0,0,0,100,100,0,0,1,4,0,7,40,40,40,1
 
 [Events]
@@ -209,6 +218,10 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     ev = []
     if not verify:
         ev.append(f"Dialogue: 0,{ass_time(0)},{ass_time(duration_ms)},HOOK,,0,0,0,,{hook}")
+        if status:
+            # 자막이 아직 음성 대조를 통과하지 못했다는 표시. 노란 글씨는 "목사님이
+            # 이렇게 말했다"는 주장이므로, 검수 전에는 그 주장에 단서를 단다.
+            ev.append(f"Dialogue: 0,{ass_time(0)},{ass_time(duration_ms)},STATUS,,0,0,0,,{status}")
     for s, e, t in cues:
         ev.append(f"Dialogue: 0,{ass_time(s)},{ass_time(e)},CAP,,0,0,0,,{wrap(t)}")
         if verify:
@@ -226,10 +239,21 @@ def main():
     ap.add_argument("--out", dest="tout", required=True, help="종료 타임코드")
     ap.add_argument("--hook", default="", help="상단 훅. '|' 로 줄바꿈")
     ap.add_argument("--source", help="원본 설교 mp4")
-    ap.add_argument("--still", help="소스 영상 대신 정지화면 (레이아웃 확인용)")
+    ap.add_argument("--still", help="소스 영상 대신 정지화면")
+    ap.add_argument("--audio-from", help="정지화면 렌더에 이 파일의 해당 구간 오디오를 쓴다")
     ap.add_argument("--captions", help="사람이 교정한 자막 TSV. 주면 QUOTE 등급으로 렌더")
     ap.add_argument("--verify", action="store_true",
                     help="음성 대조용 클립 — 훅 없이 자막과 타임코드만")
+    ap.add_argument("--source-crop", default="",
+                    help="9:16 으로 채우기 전에 소스에서 잘라낼 영역 W:H:X:Y")
+    ap.add_argument("--crop-x", type=float, default=0.5,
+                    help="9:16 크롭의 가로 위치. 0.0 왼쪽 · 0.5 가운데 · 1.0 오른쪽")
+    ap.add_argument("--no-loudnorm", dest="loudnorm", action="store_false",
+                    help="음량 정규화를 끈다 (기본은 켬, 목표 -14 LUFS)")
+    ap.add_argument("--scrim", type=float, default=0.0,
+                    help="글자 가독성을 위한 검은 명암막 불투명도 0.0-0.6")
+    ap.add_argument("--speed", type=float, default=1.0,
+                    help="배속. 1.45 면 88초가 61초가 된다. 음높이는 유지된다")
     ap.add_argument("--frames", default="", help="미리보기 프레임을 뽑을 초 (쉼표 구분)")
     a = ap.parse_args()
 
@@ -265,22 +289,49 @@ def main():
     if not cues:
         die("해당 구간에 자막 큐가 없습니다")
     ass = capdir / ("verify.ass" if a.verify else "captions.ass")
-    ass.write_text(build_ass(hook_lines, cues, dur_ms, a.verify), encoding="utf-8")
+    status = "" if (verified or a.verify) else "자동 자막 · 검수 전"
+    out_ms = int(dur_ms / a.speed)
+    ass.write_text(build_ass(hook_lines, scale_cues(cues, a.speed), out_ms, a.verify, status),
+                   encoding="utf-8")
 
     target = outdir / ("verify.mp4" if a.verify else "final.mp4")
     # 16:9 → 9:16: 높이에 맞춰 키운 뒤 가운데를 잘라낸다. 인물이 중앙에 있는
     # 강단 영상이라 가운데 크롭이 곧 인물 크롭이다.
-    vf = (f"scale=-2:{H}:flags=lanczos,crop={W}:{H},"
+    speed_v = f"setpts=PTS/{a.speed}," if a.speed != 1.0 else ""
+    # 교회 업로드에는 흰 여백·워터마크 띠가 붙는 경우가 많다. 9:16 로 채우기 전에
+    # 먼저 실제 화면 영역만 잘라낸다.
+    pre = f"crop={a.source_crop}," if a.source_crop else ""
+    # 9:16 크롭 위치. 0.5 가 가운데, 0.0 이 왼쪽 끝.
+    cx = "(iw-ow)/2" if a.crop_x == 0.5 else f"(iw-ow)*{a.crop_x}"
+    scrim = (f",drawbox=x=0:y=0:w=iw:h=ih:color=black@{a.scrim}:t=fill"
+             if a.scrim > 0 else "")
+    vf = (f"{pre}scale=-2:{H}:flags=lanczos,crop={W}:{H}:{cx}:0{scrim},{speed_v}"
           f"subtitles='{ass}':fontsdir=/usr/share/fonts")
+    # atempo 는 0.5–2.0 만 받는다. 그 밖은 연쇄한다.
+    af, rem = "", a.speed
+    while rem > 2.0:
+        af += "atempo=2.0,"; rem /= 2.0
+    while rem < 0.5:
+        af += "atempo=0.5,"; rem /= 0.5
+    af += f"atempo={rem:.4f}"
+    # 설교 녹음은 대개 조용하다. 쇼츠 피드에서 다른 영상과 음량이 맞아야 한다.
+    if a.loudnorm:
+        af += ",loudnorm=I=-14:TP=-1.5:LRA=11"
 
     if a.still:
         cmd = ["ffmpeg", "-hide_banner", "-y", "-loop", "1", "-t", f"{dur_s:.3f}",
-               "-i", a.still, "-vf", vf, "-r", "30", "-c:v", "libx264",
-               "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
-               "-movflags", "+faststart", str(target)]
+               "-i", a.still]
+        if a.audio_from:
+            cmd += ["-ss", f"{start/1000:.3f}", "-t", f"{dur_s:.3f}", "-i", a.audio_from]
+        cmd += ["-vf", vf, "-r", "30", "-c:v", "libx264",
+                "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p"]
+        if a.audio_from:
+            cmd += ["-af", af, "-c:a", "aac", "-b:a", "160k", "-map", "0:v", "-map", "1:a",
+                    "-shortest"]
+        cmd += ["-movflags", "+faststart", str(target)]
     else:
         cmd = ["ffmpeg", "-hide_banner", "-y", "-ss", f"{start/1000:.3f}",
-               "-t", f"{dur_s:.3f}", "-i", a.source, "-vf", vf,
+               "-t", f"{dur_s:.3f}", "-i", a.source, "-vf", vf, "-af", af,
                "-c:v", "libx264", "-preset", "medium", "-crf", "20",
                "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "160k",
                "-movflags", "+faststart", str(target)]
@@ -297,9 +348,12 @@ def main():
                             "-frames:v", "1", str(f)], capture_output=True)
             print("  프레임:", f)
 
-    print(f"\n  길이 {dur_s:.1f}초 · 자막 {len(cues)}큐 · {W}x{H}")
-    if a.still:
+    print(f"\n  원본 {dur_s:.1f}초 → 출력 {dur_s/a.speed:.1f}초 (x{a.speed}) · "
+          f"자막 {len(cues)}큐 · {W}x{H}")
+    if a.still and not a.audio_from:
         print("  ⚠ 정지화면 렌더입니다. 레이아웃 확인용이며 게시물이 아닙니다.")
+    elif a.still and a.audio_from:
+        print("  ℹ 화면은 정지 이미지, 소리는 설교 원본입니다.")
     if a.verify:
         return
     if verified:

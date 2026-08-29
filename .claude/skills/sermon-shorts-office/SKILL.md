@@ -126,9 +126,19 @@ build_short.py --captions <고친파일>  → QUOTE + captions/captions-verified
 **길이 기본값 40–60초** (35–50초 우선). 벤치마크 중앙값은 66초다 — 설교 쇼츠는
 일반 숏폼 조언보다 길다. 논증을 깨면서까지 줄이지 않는다.
 
-**소스 영상은 채널 소유자가 공급한다.** `googlevideo.com` 이 egress 정책으로
-차단되어 있다 — 봇 확인이 아니라 **정책 거부**이므로 우회하지 않고 보고한다
-(교훈 L-07). `--still` 은 레이아웃 확인용이며 게시물이 아니다.
+**소스는 Apify 로 받는다.** `googlevideo.com` 은 이 컨테이너의 egress 정책으로
+막혀 있지만(L-07), Apify 액터는 **Apify 인프라에서** 내려받아 `api.apify.com` 으로
+준다 — 허용된 호스트다(L-11).
+
+```
+streamers/youtube-video-downloader · storeInKVStore:true · 약 $0.71/편
+무료 플랜은 길이 기반 예산 한도가 있다. 40분대는 되고 76분은 안 된다.
+```
+
+**새벽기도 업로드에는 화면이 없다.** TunesToTube 로 음성에 정지 사진을 붙인
+6fps 파일이다(L-10). 그래서 기둥 E 는 **E-촬영**과 **E-음성**으로 나뉜다 —
+`sermon-office/brand/shorts-format.md`. 둘 다 QUOTE 가 가능하다. 목소리가
+본인이면 인용이 성립하고, 다른 것은 화면뿐이다.
 
 **막히는 것은 기둥 E 뿐이다.** 기둥 A–D·F 는 논증만 있으면 렌더된다 —
 `build_narration.py` + Piper `ko_KR-kss-medium`. SS-001 이 그렇게 완성됐다(L-08).
