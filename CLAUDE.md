@@ -1,17 +1,20 @@
 # shorts-factory
 
-A short-form video research and scripting workspace, and the home of the
-**Handsel Short-Form Growth Office** (`office/`).
+A short-form video research and scripting workspace, and the home of two
+standing content operations:
 
-52 Agent Skills are installed under `.claude/skills/`:
+- the **Handsel Short-Form Growth Office** (`office/`)
+- the **예심교회 Sermon Shorts Office** (`sermon-office/`)
+
+61 Agent Skills are installed under `.claude/skills/`:
 
 - **43 upstream skills** pulled from five repositories and left **byte-identical
   to upstream** so `npx skills update` keeps working. These are the ones tracked
   in `skills-lock.json`.
-- **8 local skills** authored here and deliberately *not* in the lock file:
-  `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
-  `aicron`, `zapier-mcp` — plus `shorts-factory` itself. `npx skills update`
-  will not touch them.
+- **9 local skills** authored here and deliberately *not* in the lock file:
+  `handsel-growth-office`, `sermon-shorts-office`, `openmontage`, `voicebox`,
+  `penpot`, `airtable`, `aicron`, `zapier-mcp` — plus `shorts-factory` itself.
+  `npx skills update` will not touch them.
 - **1 vendored upstream skill**, `last30days` (MIT,
   [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)),
   copied byte-identical but not in the lock file. **It needs Python 3.12+**,
@@ -21,7 +24,8 @@ A short-form video research and scripting workspace, and the home of the
   error.
 
 Run `python3 scripts/verify_skills.py` after any change to the skills tree,
-and `python3 scripts/verify_backlog.py` after any change to the Office backlog.
+`python3 scripts/verify_backlog.py` after any change to the Handsel Office backlog,
+and `python3 scripts/verify_sermon_office.py` after any change to `sermon-office/`.
 
 ## Start here
 
@@ -29,6 +33,13 @@ and `python3 scripts/verify_backlog.py` after any change to the Office backlog.
 `handsel-growth-office` skill first** (`.claude/skills/handsel-growth-office/SKILL.md`).
 It owns the Growth Office in `office/` — the mission, the memory, the approval
 boundary, and the rule that nothing publishes without explicit human approval.
+
+**For anything about the 방배동 예심교회 sermon channel (`@yeshim1126`) — new
+sermons, summaries, logic re-analysis, shorts hooks, scripts, production —
+invoke the `sermon-shorts-office` skill first**
+(`.claude/skills/sermon-shorts-office/SKILL.md`). It owns the Sermon Shorts
+Office in `sermon-office/`. Same skeleton as the Growth Office, plus the
+constraints that come from handling **someone else's sermon**.
 
 For a generic research or scripting request with no Handsel angle, invoke the
 **`shorts-factory`** skill instead (`.claude/skills/shorts-factory/SKILL.md`). It owns the nine-stage
@@ -178,6 +189,50 @@ Two rules override everything else in this file when the Office is running:
 1. **Nothing publishes without explicit human approval.** Every time.
 2. **Never invent Handsel functionality.** Every factual claim traces to a line in
    `office/research/handsel-model.md`, or it is cut.
+
+## The Sermon Shorts Office
+
+`sermon-office/` turns the sermons on **방배동 예심교회** (`@yeshim1126`,
+1,268 videos, 0 shorts) into short-form video. Committed, like `office/` —
+it is the Office's memory.
+
+```
+sermon-office/
+├── CHARTER.md                    mission · roles · autonomy · 자세 등급 · pillars
+├── research/channel-model.md     verified channel facts + DO NOT CLAIM ledger
+├── memory/                       backlog · hooks · published · rejected
+│                                 experiments · analytics · lessons
+├── sop/                          ingest · logic-analysis · production-pipeline
+│                                 quality-control · analytics-loop
+├── sermons/<sermon-id>/          meta.json · transcript.json · summary · logic-map
+└── production/<short-id>/        plan · script · qc  (renders gitignored)
+```
+
+The distinctive stage is **논리 재분석** (`sop/logic-analysis.md`): each sermon is
+cut into argument units, each unit reconstructed on a Toulmin skeleton, each
+scored 0–10 for **독립성** — whether the claim stands alone in 60 seconds without
+the 40 minutes around it. Only units scoring 7+ become shorts. **The output is
+selection, not critique**; the logic map is internal and never published.
+
+Three rules override everything else in this file when this Office is running:
+
+1. **Nothing publishes without the channel owner's explicit approval.** Every time.
+2. **Never make the pastor say something he did not say.** Every line carries a
+   자세 등급 — `QUOTE` (audio-verified), `RECONSTRUCTED` (no quotation marks), or
+   `EDITORIAL` (visibly the producer's voice). Auto-captions are ASR and are
+   measurably wrong on church vocabulary; they are a *finding* tool, never a
+   *quoting* tool.
+3. **The office does not adjudicate theology.** A doctrinal disagreement goes to
+   a human, not into a short.
+
+Ingest and verify from the repo root:
+
+```bash
+python3 ./scripts/sermon_ingest.py --selftest        # free, title-parser regression
+python3 ./scripts/sermon_ingest.py --list            # 1 credit
+python3 ./scripts/sermon_ingest.py --fetch --limit 3 # 1 + 3 credits
+python3 ./scripts/verify_sermon_office.py            # free, structure + traceability
+```
 
 ## The render layer
 

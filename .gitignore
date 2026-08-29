@@ -44,3 +44,10 @@ vendor/
 # Office renders. Plans, scripts and QC verdicts are committed; binaries are not.
 office/production/*/renders/
 office/production/*/refs/
+
+# 설교 쇼츠 오피스. 렌더는 커밋하지 않는다 — 계획·대본·QC 판정만.
+sermon-office/production/*/renders/
+sermon-office/production/*/refs/
+# sermons/*/transcript.json 은 의도적으로 커밋한다. 논리 지도와 대본의 모든
+# 인용이 그 파일의 타임스탬프를 가리키므로, 사라지면 근거 추적이 끊긴다.
+# 재수집은 편당 1 credit 이 든다. 코퍼스가 커지면 이 정책을 다시 본다.
