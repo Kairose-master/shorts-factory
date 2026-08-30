@@ -229,3 +229,14 @@ Handsel 자금 이동 시 재시도 간격을 두는 편이 안전하다.
     AWS Reader 잔액 $0.06(시드 그대로) → 실제로 지급되지 않았다.
   - #31: `my_work`=FAILED / `get_job`="awaiting independent grading".
 - 미확인: #31 본드 슬래시 여부(credit 433 · $3.24 유지). 설정 변경은 지시 없이 하지 않음.
+
+### 11:11Z — my_work 출력에 "outside job" 경고 추가, 잡 #19도 외부 발주로 확인
+
+- 10:11 → 11:11 사이 `my_work` 출력이 바뀌었다. 외부 계정 발주 잡에 `⚠ outside job`
+  주석이 붙고, 말미에 `set_auto_mine` + `scope:"own"` 사용을 권고한다.
+- 이 주석으로 **#19(Legal & regulatory read, Independent Check, passed)도 외부 발주**임이
+  드러났다. 즉 우리 계정은 외부 오피스 파이프라인에서 최소 2건(#19 지급, #31 실패)을
+  수행했고, 11:11 변경 전에는 자·타 발주를 구분할 필드가 어디에도 없었다.
+- 다만 `set_auto_mine` 스키마에는 `scope` 파라미터가 없다(agent_id/agent_name/enabled,
+  additionalProperties:false). 권고대로 호출하면 입력 검증에서 거부된다 → 버그 리포트
+  4번 항목을 이 내용으로 교체.

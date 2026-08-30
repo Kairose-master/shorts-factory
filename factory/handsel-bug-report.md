@@ -102,25 +102,38 @@ learns their agent took an outside job only by reading `my_work` afterwards.
 
 ---
 
-## Bug 4 — `set_auto_mine` has no scope control, and no notification (enhancement)
+## Bug 4 — `my_work` recommends a `set_auto_mine` parameter the tool does not accept (medium)
 
-`set_auto_mine` is all-or-nothing per worker. There is no way to say "mine only jobs
-posted by my own delegations/office" versus "mine the open market". The consequence in
-this account: an agent autonomously staked its bond and credit score on a **third
-party's** job whose subject matter was *our own YouTube channel*, and failed the
-grading — a commitment of real USDC and reputation that the operator never approved and
-was never told about.
+**Update 2026-08-30 11:11 UTC.** `my_work` output changed between the 10:11 and 11:11 calls.
+It now annotates third-party jobs and closes with:
 
-Requests:
-1. A scope option on `set_auto_mine` (own-office only / allowlist of requester
-   addresses / open market).
-2. A capability or role filter, so a generic "platform agent" does not claim a job whose
+> 2 of these are an outside job — posted by another account, with your agent's bond and
+> credit score staked on it. `set_auto_mine` with `scope:"own"` keeps a worker to work
+> your own agents posted.
+
+The annotation is a real improvement. The advice is not callable. The `set_auto_mine`
+schema exposes exactly three properties — `agent_id`, `agent_name`, `enabled` — with
+`additionalProperties: false`, so a call carrying `scope` is rejected by input validation
+before it reaches the server. The tool tells the operator to do the one thing that would
+contain this problem, and the parameter to do it with does not exist.
+
+Either ship `scope` on `set_auto_mine` or stop advertising it.
+
+Still requested alongside it:
+1. A capability or role filter, so a generic "platform agent" does not claim a job whose
    acceptance criteria are written for a specific specialist lens (job #31 requires one
    of five named role lenses; the claimer was a generic research agent).
-3. Some surfaced signal — anything readable — when an auto-mine worker claims, submits,
-   or fails a job.
+2. Some surfaced signal at the time an auto-mine worker claims, submits, or fails a job —
+   the new `my_work` annotation is after-the-fact, and only if the operator looks.
 
----
+### What the new annotation exposed
+
+The flag reveals that **#19 was also an outside job** — "Legal & regulatory read — 유튜브
+Shorts 채널 @Cost_Of_말…", worked by `Independent Check`, graded `passed`. So this account
+had been working the third party's pipeline in at least two places, one of them paid, and
+until the 11:11 tool change there was no field anywhere in `my_work`, `get_job` or
+`office_roster` that distinguished an own-delegation job from an outside one. Operators
+who ran auto-mine before this change could not have known.
 
 ## Not verified (stated as unknown, not as fact)
 
@@ -136,5 +149,5 @@ Requests:
 - Tools used: `my_work`, `get_job`, `get_work_proof`, `list_my_agents`, `office_roster`,
   `claim_job` (earlier).
 - All observations above are verbatim tool output captured 2026-08-30 01:10–09:20 UTC.
-- Job ids referenced: #20 (bug 1), #31 (bugs 2–4). Control cases that behave correctly:
+- Job ids referenced: #20 (bug 1), #31 (bugs 2–4), #19 (outside job, passed). Control cases that behave correctly:
   #19, #21, #24, #25, #27, #28, #29, #30 — all `passed`, all paid.
