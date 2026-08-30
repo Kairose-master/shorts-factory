@@ -1,0 +1,2557 @@
+{
+ "videoId": "rQVMnDjuMZ8",
+ "language": "Korean",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=rQVMnDjuMZ8&ei=xc2Tav_7OZ_Yy_sPkcyngAc&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788096565&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=8F0EB44464D92D3ABA41E4F600AA5F9E6035ED60.2CC7D1EECEC3033700BF904BD0943DD29AA61B8C&key=yt8&kind=asr&lang=ko",
+   "name": {
+    "simpleText": "Korean (auto-generated)"
+   },
+   "vssId": "a.ko",
+   "languageCode": "ko",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "찬송가",
+   "startMs": "2600",
+   "endMs": "7080",
+   "startTimeText": "0:02"
+  },
+  {
+   "text": "263장 함께",
+   "startMs": "3759",
+   "endMs": "7080",
+   "startTimeText": "0:03"
+  },
+  {
+   "text": "찬양하시는 올려 드리겠습니다 찬송가",
+   "startMs": "7880",
+   "endMs": "14160",
+   "startTimeText": "0:07"
+  },
+  {
+   "text": "263장",
+   "startMs": "11160",
+   "endMs": "14160",
+   "startTimeText": "0:11"
+  },
+  {
+   "text": "있니다이",
+   "startMs": "15359",
+   "endMs": "19320",
+   "startTimeText": "0:15"
+  },
+  {
+   "text": "세상",
+   "startMs": "17080",
+   "endMs": "21840",
+   "startTimeText": "0:17"
+  },
+  {
+   "text": "엄하고 나",
+   "startMs": "19320",
+   "endMs": "24199",
+   "startTimeText": "0:19"
+  },
+  {
+   "text": "비록",
+   "startMs": "21840",
+   "endMs": "26760",
+   "startTimeText": "0:21"
+  },
+  {
+   "text": "약하나",
+   "startMs": "24199",
+   "endMs": "28960",
+   "startTimeText": "0:24"
+  },
+  {
+   "text": "늘기도",
+   "startMs": "26760",
+   "endMs": "31520",
+   "startTimeText": "0:26"
+  },
+  {
+   "text": "힘쓰면 큰",
+   "startMs": "28960",
+   "endMs": "34360",
+   "startTimeText": "0:28"
+  },
+  {
+   "text": "권능",
+   "startMs": "31520",
+   "endMs": "35960",
+   "startTimeText": "0:31"
+  },
+  {
+   "text": "없겠네",
+   "startMs": "34360",
+   "endMs": "38760",
+   "startTimeText": "0:34"
+  },
+  {
+   "text": "주의",
+   "startMs": "35960",
+   "endMs": "40520",
+   "startTimeText": "0:35"
+  },
+  {
+   "text": "은혜로",
+   "startMs": "38760",
+   "endMs": "43320",
+   "startTimeText": "0:38"
+  },
+  {
+   "text": "대속",
+   "startMs": "40520",
+   "endMs": "45360",
+   "startTimeText": "0:40"
+  },
+  {
+   "text": "받아서",
+   "startMs": "43320",
+   "endMs": "48440",
+   "startTimeText": "0:43"
+  },
+  {
+   "text": "피와같이 붉은",
+   "startMs": "45360",
+   "endMs": "50480",
+   "startTimeText": "0:45"
+  },
+  {
+   "text": "죄",
+   "startMs": "48440",
+   "endMs": "53480",
+   "startTimeText": "0:48"
+  },
+  {
+   "text": "눈가",
+   "startMs": "50480",
+   "endMs": "53480",
+   "startTimeText": "0:50"
+  },
+  {
+   "text": "지겠네",
+   "startMs": "53520",
+   "endMs": "56000",
+   "startTimeText": "0:53"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "54680",
+   "endMs": "58920",
+   "startTimeText": "0:54"
+  },
+  {
+   "text": "주님의",
+   "startMs": "56000",
+   "endMs": "60879",
+   "startTimeText": "0:56"
+  },
+  {
+   "text": "권능은",
+   "startMs": "58920",
+   "endMs": "63360",
+   "startTimeText": "0:58"
+  },
+  {
+   "text": "없이",
+   "startMs": "60879",
+   "endMs": "65880",
+   "startTimeText": "1:00"
+  },
+  {
+   "text": "오니 도을",
+   "startMs": "63360",
+   "endMs": "68200",
+   "startTimeText": "1:03"
+  },
+  {
+   "text": "같은 내",
+   "startMs": "65880",
+   "endMs": "70840",
+   "startTimeText": "1:05"
+  },
+  {
+   "text": "마음 곧",
+   "startMs": "68200",
+   "endMs": "73840",
+   "startTimeText": "1:08"
+  },
+  {
+   "text": "높여",
+   "startMs": "70840",
+   "endMs": "73840",
+   "startTimeText": "1:10"
+  },
+  {
+   "text": "주소서",
+   "startMs": "74000",
+   "endMs": "78640",
+   "startTimeText": "1:14"
+  },
+  {
+   "text": "주의",
+   "startMs": "75799",
+   "endMs": "80360",
+   "startTimeText": "1:15"
+  },
+  {
+   "text": "은혜로",
+   "startMs": "78640",
+   "endMs": "83280",
+   "startTimeText": "1:18"
+  },
+  {
+   "text": "대속",
+   "startMs": "80360",
+   "endMs": "84920",
+   "startTimeText": "1:20"
+  },
+  {
+   "text": "받아서",
+   "startMs": "83280",
+   "endMs": "88840",
+   "startTimeText": "1:23"
+  },
+  {
+   "text": "피와 같이 붉은",
+   "startMs": "84920",
+   "endMs": "90840",
+   "startTimeText": "1:24"
+  },
+  {
+   "text": "죄",
+   "startMs": "88840",
+   "endMs": "93520",
+   "startTimeText": "1:28"
+  },
+  {
+   "text": "같이",
+   "startMs": "90840",
+   "endMs": "96079",
+   "startTimeText": "1:30"
+  },
+  {
+   "text": "겠네 내",
+   "startMs": "93520",
+   "endMs": "98399",
+   "startTimeText": "1:33"
+  },
+  {
+   "text": "마음이",
+   "startMs": "96079",
+   "endMs": "100960",
+   "startTimeText": "1:36"
+  },
+  {
+   "text": "악하여 늘",
+   "startMs": "98399",
+   "endMs": "103719",
+   "startTimeText": "1:38"
+  },
+  {
+   "text": "넘어",
+   "startMs": "100960",
+   "endMs": "106360",
+   "startTimeText": "1:40"
+  },
+  {
+   "text": "지오니 주",
+   "startMs": "103719",
+   "endMs": "108719",
+   "startTimeText": "1:43"
+  },
+  {
+   "text": "예수 힘",
+   "startMs": "106360",
+   "endMs": "111560",
+   "startTimeText": "1:46"
+  },
+  {
+   "text": "주사 그",
+   "startMs": "108719",
+   "endMs": "114560",
+   "startTimeText": "1:48"
+  },
+  {
+   "text": "세게",
+   "startMs": "111560",
+   "endMs": "114560",
+   "startTimeText": "1:51"
+  },
+  {
+   "text": "하소서",
+   "startMs": "114680",
+   "endMs": "118840",
+   "startTimeText": "1:54"
+  },
+  {
+   "text": "주의",
+   "startMs": "116439",
+   "endMs": "121079",
+   "startTimeText": "1:56"
+  },
+  {
+   "text": "은혜로",
+   "startMs": "118840",
+   "endMs": "124079",
+   "startTimeText": "1:58"
+  },
+  {
+   "text": "대속",
+   "startMs": "121079",
+   "endMs": "125680",
+   "startTimeText": "2:01"
+  },
+  {
+   "text": "받아서",
+   "startMs": "124079",
+   "endMs": "129239",
+   "startTimeText": "2:04"
+  },
+  {
+   "text": "피와 같이 붉은",
+   "startMs": "125680",
+   "endMs": "131239",
+   "startTimeText": "2:05"
+  },
+  {
+   "text": "죄",
+   "startMs": "129239",
+   "endMs": "134160",
+   "startTimeText": "2:09"
+  },
+  {
+   "text": "눈가",
+   "startMs": "131239",
+   "endMs": "136800",
+   "startTimeText": "2:11"
+  },
+  {
+   "text": "치겠네",
+   "startMs": "134160",
+   "endMs": "141680",
+   "startTimeText": "2:14"
+  },
+  {
+   "text": "제삼 받은 후 새",
+   "startMs": "136800",
+   "endMs": "142780",
+   "startTimeText": "2:16"
+  },
+  {
+   "text": "사람",
+   "startMs": "141680",
+   "endMs": "144280",
+   "startTimeText": "2:21"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "142780",
+   "endMs": "147720",
+   "startTimeText": "2:22"
+  },
+  {
+   "text": "되어서 주",
+   "startMs": "144280",
+   "endMs": "150400",
+   "startTimeText": "2:24"
+  },
+  {
+   "text": "앞에서서는 날",
+   "startMs": "147720",
+   "endMs": "152720",
+   "startTimeText": "2:27"
+  },
+  {
+   "text": "늘",
+   "startMs": "150400",
+   "endMs": "153920",
+   "startTimeText": "2:30"
+  },
+  {
+   "text": "찬송하겠네",
+   "startMs": "152720",
+   "endMs": "156800",
+   "startTimeText": "2:32"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "153920",
+   "endMs": "159560",
+   "startTimeText": "2:33"
+  },
+  {
+   "text": "주의",
+   "startMs": "156800",
+   "endMs": "161319",
+   "startTimeText": "2:36"
+  },
+  {
+   "text": "은혜로",
+   "startMs": "159560",
+   "endMs": "164159",
+   "startTimeText": "2:39"
+  },
+  {
+   "text": "대속",
+   "startMs": "161319",
+   "endMs": "165800",
+   "startTimeText": "2:41"
+  },
+  {
+   "text": "받아서",
+   "startMs": "164159",
+   "endMs": "169319",
+   "startTimeText": "2:44"
+  },
+  {
+   "text": "피와 같이 붉은",
+   "startMs": "165800",
+   "endMs": "171959",
+   "startTimeText": "2:45"
+  },
+  {
+   "text": "죄",
+   "startMs": "169319",
+   "endMs": "173860",
+   "startTimeText": "2:49"
+  },
+  {
+   "text": "눈같이 희겠네",
+   "startMs": "171959",
+   "endMs": "178309",
+   "startTimeText": "2:51"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "173860",
+   "endMs": "178309",
+   "startTimeText": "2:53"
+  },
+  {
+   "text": "아멘",
+   "startMs": "178760",
+   "endMs": "183280",
+   "startTimeText": "2:58"
+  },
+  {
+   "text": "기도하시겠습니다",
+   "startMs": "181080",
+   "endMs": "186760",
+   "startTimeText": "3:01"
+  },
+  {
+   "text": "살아계신 하나님 오늘도 새로운 생명을",
+   "startMs": "183280",
+   "endMs": "189640",
+   "startTimeText": "3:03"
+  },
+  {
+   "text": "허락하여 주셔서 감사합니다 새로운",
+   "startMs": "186760",
+   "endMs": "192599",
+   "startTimeText": "3:06"
+  },
+  {
+   "text": "나를 허락하여 주시고이 새벽을 깨워",
+   "startMs": "189640",
+   "endMs": "195200",
+   "startTimeText": "3:09"
+  },
+  {
+   "text": "이렇게 예배당으로 나와 하나님을",
+   "startMs": "192599",
+   "endMs": "197840",
+   "startTimeText": "3:12"
+  },
+  {
+   "text": "찬양하고 예배하고 기도할 수 있는",
+   "startMs": "195200",
+   "endMs": "201440",
+   "startTimeText": "3:15"
+  },
+  {
+   "text": "모든들을 그 건강을 허락하여 주셔서",
+   "startMs": "197840",
+   "endMs": "204440",
+   "startTimeText": "3:17"
+  },
+  {
+   "text": "감사합니다 하나님 오늘 하루도",
+   "startMs": "201440",
+   "endMs": "206360",
+   "startTimeText": "3:21"
+  },
+  {
+   "text": "그어느때보다 하나님",
+   "startMs": "204440",
+   "endMs": "208680",
+   "startTimeText": "3:24"
+  },
+  {
+   "text": "가운데에서",
+   "startMs": "206360",
+   "endMs": "211439",
+   "startTimeText": "3:26"
+  },
+  {
+   "text": "주님과까는 수 있도록 도와주시옵소서",
+   "startMs": "208680",
+   "endMs": "214200",
+   "startTimeText": "3:28"
+  },
+  {
+   "text": "하나님 우리 마음의 중심을 아시는",
+   "startMs": "211439",
+   "endMs": "216239",
+   "startTimeText": "3:31"
+  },
+  {
+   "text": "분이십니다 하나님 우리의 모든",
+   "startMs": "214200",
+   "endMs": "219400",
+   "startTimeText": "3:34"
+  },
+  {
+   "text": "연약함을 긍휼히 여겨 주시고 우리의",
+   "startMs": "216239",
+   "endMs": "222519",
+   "startTimeText": "3:36"
+  },
+  {
+   "text": "모든 죄악을 용서하여 주시고 하나님",
+   "startMs": "219400",
+   "endMs": "226000",
+   "startTimeText": "3:39"
+  },
+  {
+   "text": "오늘 하루도 하나님 품 안에서 우리가",
+   "startMs": "222519",
+   "endMs": "229120",
+   "startTimeText": "3:42"
+  },
+  {
+   "text": "안식하며을 누리며 그렇게 깊은 평강",
+   "startMs": "226000",
+   "endMs": "230519",
+   "startTimeText": "3:46"
+  },
+  {
+   "text": "가운데 살아갈 수 있도록",
+   "startMs": "229120",
+   "endMs": "233599",
+   "startTimeText": "3:49"
+  },
+  {
+   "text": "도와주시옵소서 어떠한 걱정이나 염려가",
+   "startMs": "230519",
+   "endMs": "236400",
+   "startTimeText": "3:50"
+  },
+  {
+   "text": "있을지라도 나를 만드시고 내 모든",
+   "startMs": "233599",
+   "endMs": "239200",
+   "startTimeText": "3:53"
+  },
+  {
+   "text": "것을 아시는 아버지 하나님께 그 모든",
+   "startMs": "236400",
+   "endMs": "242000",
+   "startTimeText": "3:56"
+  },
+  {
+   "text": "짐을 맡겨 드립니다 주님 그 모든",
+   "startMs": "239200",
+   "endMs": "245120",
+   "startTimeText": "3:59"
+  },
+  {
+   "text": "짐을 대신 짊어져 주시고 예수님의",
+   "startMs": "242000",
+   "endMs": "248040",
+   "startTimeText": "4:02"
+  },
+  {
+   "text": "십자가 공로로 그 모든 것 가운데에",
+   "startMs": "245120",
+   "endMs": "251519",
+   "startTimeText": "4:05"
+  },
+  {
+   "text": "하나님의 놀라운 능력 능력과 그 크신",
+   "startMs": "248040",
+   "endMs": "253799",
+   "startTimeText": "4:08"
+  },
+  {
+   "text": "사랑이 임할 수 있도록 도와주시옵소서",
+   "startMs": "251519",
+   "endMs": "256840",
+   "startTimeText": "4:11"
+  },
+  {
+   "text": "그래서 오늘 하루의 삶이 하나님의",
+   "startMs": "253799",
+   "endMs": "259440",
+   "startTimeText": "4:13"
+  },
+  {
+   "text": "뜻이 이루어지고 하늘에서 하나님의",
+   "startMs": "256840",
+   "endMs": "262639",
+   "startTimeText": "4:16"
+  },
+  {
+   "text": "뜻이 이루어진 것처럼이 땅에서 그리고",
+   "startMs": "259440",
+   "endMs": "265320",
+   "startTimeText": "4:19"
+  },
+  {
+   "text": "우리 가정 가운데에서 우리 직장과",
+   "startMs": "262639",
+   "endMs": "267160",
+   "startTimeText": "4:22"
+  },
+  {
+   "text": "사업장 가운데에서 온전히 다",
+   "startMs": "265320",
+   "endMs": "269960",
+   "startTimeText": "4:25"
+  },
+  {
+   "text": "이루어지는 귀한 하루가 될 수 있도록",
+   "startMs": "267160",
+   "endMs": "272919",
+   "startTimeText": "4:27"
+  },
+  {
+   "text": "성령으로 역사하여 주시옵소서이 시간",
+   "startMs": "269960",
+   "endMs": "275360",
+   "startTimeText": "4:29"
+  },
+  {
+   "text": "말씀 앞으로 나아갑니다 성령님",
+   "startMs": "272919",
+   "endMs": "277960",
+   "startTimeText": "4:32"
+  },
+  {
+   "text": "임하셔서 각 개인을 향하신 하나님의",
+   "startMs": "275360",
+   "endMs": "281280",
+   "startTimeText": "4:35"
+  },
+  {
+   "text": "음성을 듣고 그 가운데에서 새 힘과",
+   "startMs": "277960",
+   "endMs": "283520",
+   "startTimeText": "4:37"
+  },
+  {
+   "text": "위로를 얻는 귀한 시간이 되게",
+   "startMs": "281280",
+   "endMs": "286639",
+   "startTimeText": "4:41"
+  },
+  {
+   "text": "도와주시옵소서 예수님 이름으로",
+   "startMs": "283520",
+   "endMs": "289680",
+   "startTimeText": "4:43"
+  },
+  {
+   "text": "기도합니다 아멘 오늘 함께 보실",
+   "startMs": "286639",
+   "endMs": "290960",
+   "startTimeText": "4:46"
+  },
+  {
+   "text": "하나님",
+   "startMs": "289680",
+   "endMs": "293479",
+   "startTimeText": "4:49"
+  },
+  {
+   "text": "말씀은 시편",
+   "startMs": "290960",
+   "endMs": "297199",
+   "startTimeText": "4:50"
+  },
+  {
+   "text": "32편 1절부터",
+   "startMs": "293479",
+   "endMs": "297199",
+   "startTimeText": "4:53"
+  },
+  {
+   "text": "절까지",
+   "startMs": "297360",
+   "endMs": "300360",
+   "startTimeText": "4:57"
+  },
+  {
+   "text": "아 6절까지",
+   "startMs": "300440",
+   "endMs": "303120",
+   "startTimeText": "5:00"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "301710",
+   "endMs": "305840",
+   "startTimeText": "5:01"
+  },
+  {
+   "text": "말씀입니다 시편 32편 1절부터",
+   "startMs": "303120",
+   "endMs": "308479",
+   "startTimeText": "5:03"
+  },
+  {
+   "text": "6절까지",
+   "startMs": "305840",
+   "endMs": "308479",
+   "startTimeText": "5:05"
+  },
+  {
+   "text": "말씀 함께",
+   "startMs": "312400",
+   "endMs": "318039",
+   "startTimeText": "5:12"
+  },
+  {
+   "text": "합하 허물의 사함을 받고 자신의 죄가",
+   "startMs": "314720",
+   "endMs": "320560",
+   "startTimeText": "5:14"
+  },
+  {
+   "text": "가려진 자는 복이 있도다 마음에",
+   "startMs": "318039",
+   "endMs": "323360",
+   "startTimeText": "5:18"
+  },
+  {
+   "text": "간사함이 없고 여호와께 정죄를 당하지",
+   "startMs": "320560",
+   "endMs": "326039",
+   "startTimeText": "5:20"
+  },
+  {
+   "text": "아니하는 자는 복이 있도다 내가 입을",
+   "startMs": "323360",
+   "endMs": "329960",
+   "startTimeText": "5:23"
+  },
+  {
+   "text": "열지 아니할 때에 종일 시음으로 내",
+   "startMs": "326039",
+   "endMs": "333560",
+   "startTimeText": "5:26"
+  },
+  {
+   "text": "하였다 주의 손이 주야로 나를 누르니",
+   "startMs": "329960",
+   "endMs": "337160",
+   "startTimeText": "5:29"
+  },
+  {
+   "text": "내 지이 빠져서 여름 가에 마음같이",
+   "startMs": "333560",
+   "endMs": "339880",
+   "startTimeText": "5:33"
+  },
+  {
+   "text": "되었나이다 내가 이르기를 내 허물을",
+   "startMs": "337160",
+   "endMs": "342520",
+   "startTimeText": "5:37"
+  },
+  {
+   "text": "여호와께 자복하리라 하고 주께 내",
+   "startMs": "339880",
+   "endMs": "345120",
+   "startTimeText": "5:39"
+  },
+  {
+   "text": "죄를 아뢰고 내 죄악을 숨기지",
+   "startMs": "342520",
+   "endMs": "347759",
+   "startTimeText": "5:42"
+  },
+  {
+   "text": "아니하였더니 곧 주께서 악을",
+   "startMs": "345120",
+   "endMs": "350600",
+   "startTimeText": "5:45"
+  },
+  {
+   "text": "사하셨나이다 이로 말미암아 모든",
+   "startMs": "347759",
+   "endMs": "353840",
+   "startTimeText": "5:47"
+  },
+  {
+   "text": "경건한 자는 주를 만날 기회를 얻어서",
+   "startMs": "350600",
+   "endMs": "356639",
+   "startTimeText": "5:50"
+  },
+  {
+   "text": "주께 기도할지 진실로 홍수가",
+   "startMs": "353840",
+   "endMs": "360160",
+   "startTimeText": "5:53"
+  },
+  {
+   "text": "범람할지라도 그에게 미치지 못하리로다",
+   "startMs": "356639",
+   "endMs": "362720",
+   "startTimeText": "5:56"
+  },
+  {
+   "text": "아멘 한 군데 더 찾아오겠습니다",
+   "startMs": "360160",
+   "endMs": "365000",
+   "startTimeText": "6:00"
+  },
+  {
+   "text": "역대상 21장",
+   "startMs": "362720",
+   "endMs": "366599",
+   "startTimeText": "6:02"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "365000",
+   "endMs": "369520",
+   "startTimeText": "6:05"
+  },
+  {
+   "text": "말씀입니다 역대상 21장 1절부터",
+   "startMs": "366599",
+   "endMs": "372680",
+   "startTimeText": "6:06"
+  },
+  {
+   "text": "8절까지 말씀 한 군데 저",
+   "startMs": "369520",
+   "endMs": "376120",
+   "startTimeText": "6:09"
+  },
+  {
+   "text": "찾아보겠습니다 역대상 21장 1절부터",
+   "startMs": "372680",
+   "endMs": "378599",
+   "startTimeText": "6:12"
+  },
+  {
+   "text": "8절까지",
+   "startMs": "376120",
+   "endMs": "383639",
+   "startTimeText": "6:16"
+  },
+  {
+   "text": "말씀입니다 구약 성경 641조",
+   "startMs": "378599",
+   "endMs": "383639",
+   "startTimeText": "6:18"
+  },
+  {
+   "text": "있습니다",
+   "startMs": "388400",
+   "endMs": "391759",
+   "startTimeText": "6:28"
+  },
+  {
+   "text": "네 함께",
+   "startMs": "390720",
+   "endMs": "394440",
+   "startTimeText": "6:30"
+  },
+  {
+   "text": "하시겠습니다 사탄이 일어나 이스라엘을",
+   "startMs": "391759",
+   "endMs": "397120",
+   "startTimeText": "6:31"
+  },
+  {
+   "text": "대적하고 다을 충동하여 이스라엘을",
+   "startMs": "394440",
+   "endMs": "401160",
+   "startTimeText": "6:34"
+  },
+  {
+   "text": "수하게 하니라 다이 요과 성의",
+   "startMs": "397120",
+   "endMs": "404039",
+   "startTimeText": "6:37"
+  },
+  {
+   "text": "지도자들에게이 너희는 가서에서부터",
+   "startMs": "401160",
+   "endMs": "407000",
+   "startTimeText": "6:41"
+  },
+  {
+   "text": "단까지 이스라엘을 계수하고 돌아와게",
+   "startMs": "404039",
+   "endMs": "409919",
+   "startTimeText": "6:44"
+  },
+  {
+   "text": "보고하여 그 수요를 알게 하라니 요이",
+   "startMs": "407000",
+   "endMs": "412800",
+   "startTimeText": "6:47"
+  },
+  {
+   "text": "아뢰되 여호와께서 그 성을 지금보다",
+   "startMs": "409919",
+   "endMs": "415720",
+   "startTimeText": "6:49"
+  },
+  {
+   "text": "배나 더하시기를 원하나이다 내주",
+   "startMs": "412800",
+   "endMs": "418400",
+   "startTimeText": "6:52"
+  },
+  {
+   "text": "왕이여이 성이 다 내 주의 종이",
+   "startMs": "415720",
+   "endMs": "421160",
+   "startTimeText": "6:55"
+  },
+  {
+   "text": "아니니 내 주께서 어찌하여이 일을",
+   "startMs": "418400",
+   "endMs": "423919",
+   "startTimeText": "6:58"
+  },
+  {
+   "text": "명령하시나니 어찌하여 이스라엘이",
+   "startMs": "421160",
+   "endMs": "425120",
+   "startTimeText": "7:01"
+  },
+  {
+   "text": "범죄하게",
+   "startMs": "423919",
+   "endMs": "428639",
+   "startTimeText": "7:03"
+  },
+  {
+   "text": "하시나이까 왕의 명령이 유압을 한지라",
+   "startMs": "425120",
+   "endMs": "430840",
+   "startTimeText": "7:05"
+  },
+  {
+   "text": "드디어 요압이 떠나 이스라엘 땅에",
+   "startMs": "428639",
+   "endMs": "433560",
+   "startTimeText": "7:08"
+  },
+  {
+   "text": "두루 다닐 후에 예루살렘으로 돌아와",
+   "startMs": "430840",
+   "endMs": "435520",
+   "startTimeText": "7:10"
+  },
+  {
+   "text": "요압이 백성의 수요를 다윗에게",
+   "startMs": "433560",
+   "endMs": "438080",
+   "startTimeText": "7:13"
+  },
+  {
+   "text": "보고하니 이스라엘 중에 칼을 뺄 만한",
+   "startMs": "435520",
+   "endMs": "440879",
+   "startTimeText": "7:15"
+  },
+  {
+   "text": "자가 10만 명이요 유다 중에 칼을",
+   "startMs": "438080",
+   "endMs": "443919",
+   "startTimeText": "7:18"
+  },
+  {
+   "text": "뺄 만한 자가 47만 명이라 유합이",
+   "startMs": "440879",
+   "endMs": "446879",
+   "startTimeText": "7:20"
+  },
+  {
+   "text": "왕의 명령을 마땅치 않게 여겨 레위와",
+   "startMs": "443919",
+   "endMs": "449680",
+   "startTimeText": "7:23"
+  },
+  {
+   "text": "베냐민 사람은 계수하지 아니하였더라",
+   "startMs": "446879",
+   "endMs": "451560",
+   "startTimeText": "7:26"
+  },
+  {
+   "text": "하나님이이 일을 악하게 여기사",
+   "startMs": "449680",
+   "endMs": "454080",
+   "startTimeText": "7:29"
+  },
+  {
+   "text": "이스라엘을 치시매 다이 하나님께",
+   "startMs": "451560",
+   "endMs": "457520",
+   "startTimeText": "7:31"
+  },
+  {
+   "text": "아뢰되 내가이 일을 행함으로 큰 죄를",
+   "startMs": "454080",
+   "endMs": "462160",
+   "startTimeText": "7:34"
+  },
+  {
+   "text": "하였나이다 이제 간니 종이 죄를",
+   "startMs": "457520",
+   "endMs": "465520",
+   "startTimeText": "7:37"
+  },
+  {
+   "text": "주옵소서 내가 심히 미련하게 하였다",
+   "startMs": "462160",
+   "endMs": "471840",
+   "startTimeText": "7:42"
+  },
+  {
+   "text": "하니라 아멘 그 왕에는 그 다의 죄를",
+   "startMs": "465520",
+   "endMs": "475400",
+   "startTimeText": "7:45"
+  },
+  {
+   "text": "낱낱이 다 을하고",
+   "startMs": "471840",
+   "endMs": "478319",
+   "startTimeText": "7:51"
+  },
+  {
+   "text": "있습니다의가",
+   "startMs": "475400",
+   "endMs": "483360",
+   "startTimeText": "7:55"
+  },
+  {
+   "text": "가지가 를 범한 일과 인구조사를 해서",
+   "startMs": "478319",
+   "endMs": "486919",
+   "startTimeText": "7:58"
+  },
+  {
+   "text": "하나님께 심판을 받은 일인데 그",
+   "startMs": "483360",
+   "endMs": "490479",
+   "startTimeText": "8:03"
+  },
+  {
+   "text": "대기에는 그 세바 사건이 기록되 있지",
+   "startMs": "486919",
+   "endMs": "494080",
+   "startTimeText": "8:06"
+  },
+  {
+   "text": "않고요 일부러 뺐습니다 일부러고",
+   "startMs": "490479",
+   "endMs": "498360",
+   "startTimeText": "8:10"
+  },
+  {
+   "text": "그리고 인구조사 사건도 다윗이",
+   "startMs": "494080",
+   "endMs": "501840",
+   "startTimeText": "8:14"
+  },
+  {
+   "text": "하긴했는데 그 그 원초적인 그 죄의",
+   "startMs": "498360",
+   "endMs": "504120",
+   "startTimeText": "8:18"
+  },
+  {
+   "text": "원인이 다윗에게 있는 것이 아니라",
+   "startMs": "501840",
+   "endMs": "507280",
+   "startTimeText": "8:21"
+  },
+  {
+   "text": "21장 1절에 사탄이 일어나",
+   "startMs": "504120",
+   "endMs": "510840",
+   "startTimeText": "8:24"
+  },
+  {
+   "text": "이스라엘을 적하고을 라고 해서 그",
+   "startMs": "507280",
+   "endMs": "514640",
+   "startTimeText": "8:27"
+  },
+  {
+   "text": "다윗의 죄의 원인을 다윗에게",
+   "startMs": "510840",
+   "endMs": "517360",
+   "startTimeText": "8:30"
+  },
+  {
+   "text": "돌리기보다는 사탄에게",
+   "startMs": "514640",
+   "endMs": "520399",
+   "startTimeText": "8:34"
+  },
+  {
+   "text": "돌림으로써 이제 다윗에게 어떤 이제",
+   "startMs": "517360",
+   "endMs": "523159",
+   "startTimeText": "8:37"
+  },
+  {
+   "text": "하나님께 큰 죄가 있다라는 것을",
+   "startMs": "520399",
+   "endMs": "526399",
+   "startTimeText": "8:40"
+  },
+  {
+   "text": "가급적이면 안 보여주려고 하는 그런",
+   "startMs": "523159",
+   "endMs": "529720",
+   "startTimeText": "8:43"
+  },
+  {
+   "text": "의도가 있습니다 그것이 이제 역대기",
+   "startMs": "526399",
+   "endMs": "534360",
+   "startTimeText": "8:46"
+  },
+  {
+   "text": "관점인 것입니다 왜냐하면 그 이제 그",
+   "startMs": "529720",
+   "endMs": "538200",
+   "startTimeText": "8:49"
+  },
+  {
+   "text": "열왕기서는 선지서에 속하는 문서로서",
+   "startMs": "534360",
+   "endMs": "541399",
+   "startTimeText": "8:54"
+  },
+  {
+   "text": "이스라엘의 죄를 드러내고자 하는 그런",
+   "startMs": "538200",
+   "endMs": "544680",
+   "startTimeText": "8:58"
+  },
+  {
+   "text": "목적이 있습니다 그래서 어 이스라엘이",
+   "startMs": "541399",
+   "endMs": "546920",
+   "startTimeText": "9:01"
+  },
+  {
+   "text": "왜 멸망을",
+   "startMs": "544680",
+   "endMs": "549720",
+   "startTimeText": "9:04"
+  },
+  {
+   "text": "당했을까 거에 대한 이제 진지한",
+   "startMs": "546920",
+   "endMs": "552959",
+   "startTimeText": "9:06"
+  },
+  {
+   "text": "고민을 포로기 있는 동안에 고민을",
+   "startMs": "549720",
+   "endMs": "556640",
+   "startTimeText": "9:09"
+  },
+  {
+   "text": "하면서 아 우리 조상들이 다윗을",
+   "startMs": "552959",
+   "endMs": "560120",
+   "startTimeText": "9:12"
+  },
+  {
+   "text": "포함해서 수많은 왕들뿐만 아니라 우리",
+   "startMs": "556640",
+   "endMs": "563240",
+   "startTimeText": "9:16"
+  },
+  {
+   "text": "조상들이 하나님께 범죄를 했다라는",
+   "startMs": "560120",
+   "endMs": "567000",
+   "startTimeText": "9:20"
+  },
+  {
+   "text": "것을 낱낱이 다 드러내고 후손들에게",
+   "startMs": "563240",
+   "endMs": "569880",
+   "startTimeText": "9:23"
+  },
+  {
+   "text": "우리는 그들을 본받아서 하 님의",
+   "startMs": "567000",
+   "endMs": "572600",
+   "startTimeText": "9:27"
+  },
+  {
+   "text": "명령과 법을 떠나지 말고 어 이제",
+   "startMs": "569880",
+   "endMs": "574560",
+   "startTimeText": "9:29"
+  },
+  {
+   "text": "철저하게 하나님 뜻대로 살아 된다라는",
+   "startMs": "572600",
+   "endMs": "579279",
+   "startTimeText": "9:32"
+  },
+  {
+   "text": "것을 보여주기 위해서 이제 열왕기의",
+   "startMs": "574560",
+   "endMs": "582600",
+   "startTimeText": "9:34"
+  },
+  {
+   "text": "역사서는 모든 죄를 다 드러냈습니다",
+   "startMs": "579279",
+   "endMs": "584120",
+   "startTimeText": "9:39"
+  },
+  {
+   "text": "근데",
+   "startMs": "582600",
+   "endMs": "586760",
+   "startTimeText": "9:42"
+  },
+  {
+   "text": "역대기는 에스라가 기록을 한 것으로",
+   "startMs": "584120",
+   "endMs": "589959",
+   "startTimeText": "9:44"
+  },
+  {
+   "text": "보고 있습니다 역대기는 포로에서",
+   "startMs": "586760",
+   "endMs": "593560",
+   "startTimeText": "9:46"
+  },
+  {
+   "text": "돌아와서 귀환을 해서 새성전을 짓고",
+   "startMs": "589959",
+   "endMs": "596560",
+   "startTimeText": "9:49"
+  },
+  {
+   "text": "그리고 미아를 통해서 성벽을 짓고",
+   "startMs": "593560",
+   "endMs": "600240",
+   "startTimeText": "9:53"
+  },
+  {
+   "text": "국가를 건하는 그 입장에서",
+   "startMs": "596560",
+   "endMs": "603160",
+   "startTimeText": "9:56"
+  },
+  {
+   "text": "이제 좀 희망적인 메시지를 주기",
+   "startMs": "600240",
+   "endMs": "606360",
+   "startTimeText": "10:00"
+  },
+  {
+   "text": "위해서 기록한 것이 역대기 있니다",
+   "startMs": "603160",
+   "endMs": "610560",
+   "startTimeText": "10:03"
+  },
+  {
+   "text": "그래서 뭐 다윗뿐만 아니라 어떤 이제",
+   "startMs": "606360",
+   "endMs": "614360",
+   "startTimeText": "10:06"
+  },
+  {
+   "text": "조상들의 큰 죄를 고발하기 보다는",
+   "startMs": "610560",
+   "endMs": "617120",
+   "startTimeText": "10:10"
+  },
+  {
+   "text": "이제 앞으로이 앞으로의 세대를",
+   "startMs": "614360",
+   "endMs": "620320",
+   "startTimeText": "10:14"
+  },
+  {
+   "text": "향하여서 이제 어떤 희망적인 메시지를",
+   "startMs": "617120",
+   "endMs": "623880",
+   "startTimeText": "10:17"
+  },
+  {
+   "text": "전달하기 위해서 죄를 드러내기 보다는",
+   "startMs": "620320",
+   "endMs": "625160",
+   "startTimeText": "10:20"
+  },
+  {
+   "text": "가급적이면",
+   "startMs": "623880",
+   "endMs": "628680",
+   "startTimeText": "10:23"
+  },
+  {
+   "text": "예 기록하지 않고서 그렇게 하는 것을",
+   "startMs": "625160",
+   "endMs": "630760",
+   "startTimeText": "10:25"
+  },
+  {
+   "text": "볼수 가 있습니다 그래서 오늘 본문",
+   "startMs": "628680",
+   "endMs": "634720",
+   "startTimeText": "10:28"
+  },
+  {
+   "text": "같은 경우도 어 이제 인구 조사한",
+   "startMs": "630760",
+   "endMs": "637040",
+   "startTimeText": "10:30"
+  },
+  {
+   "text": "것이 사실은 다윗의 어떤 교만한 그런",
+   "startMs": "634720",
+   "endMs": "640360",
+   "startTimeText": "10:34"
+  },
+  {
+   "text": "모습들 때문에 어 지은 죄 이지만은",
+   "startMs": "637040",
+   "endMs": "642000",
+   "startTimeText": "10:37"
+  },
+  {
+   "text": "그 원인이 다윗에게",
+   "startMs": "640360",
+   "endMs": "644600",
+   "startTimeText": "10:40"
+  },
+  {
+   "text": "있다기보다는 사탄에게 있다라고 이렇게",
+   "startMs": "642000",
+   "endMs": "646959",
+   "startTimeText": "10:42"
+  },
+  {
+   "text": "기록을 하고 있습니다 그럼에도",
+   "startMs": "644600",
+   "endMs": "649800",
+   "startTimeText": "10:44"
+  },
+  {
+   "text": "불구하고 다윗이 어 어쨌든 본인이",
+   "startMs": "646959",
+   "endMs": "652200",
+   "startTimeText": "10:46"
+  },
+  {
+   "text": "어떠한 이제 죄악된 행동을 했기",
+   "startMs": "649800",
+   "endMs": "655360",
+   "startTimeText": "10:49"
+  },
+  {
+   "text": "때문에 하나님께 죄를 고백한 것을 볼",
+   "startMs": "652200",
+   "endMs": "658079",
+   "startTimeText": "10:52"
+  },
+  {
+   "text": "수 있습니다 그래서 8절 말씀에",
+   "startMs": "655360",
+   "endMs": "660720",
+   "startTimeText": "10:55"
+  },
+  {
+   "text": "다윗이 하나님께 아 내가이 일을",
+   "startMs": "658079",
+   "endMs": "663639",
+   "startTimeText": "10:58"
+  },
+  {
+   "text": "행함으로 큰 죄를 하였나이다 이제",
+   "startMs": "660720",
+   "endMs": "666519",
+   "startTimeText": "11:00"
+  },
+  {
+   "text": "간구함 나니 종의 죄를 용서하여",
+   "startMs": "663639",
+   "endMs": "670440",
+   "startTimeText": "11:03"
+  },
+  {
+   "text": "주옵소서 내가 심히 미련하게",
+   "startMs": "666519",
+   "endMs": "672800",
+   "startTimeText": "11:06"
+  },
+  {
+   "text": "행하였나이다라고 고백을함으로써",
+   "startMs": "670440",
+   "endMs": "675639",
+   "startTimeText": "11:10"
+  },
+  {
+   "text": "하나님께 용서를 구했고 하나님께서는",
+   "startMs": "672800",
+   "endMs": "678480",
+   "startTimeText": "11:12"
+  },
+  {
+   "text": "이제 용서하시는 그런 하나님이시기",
+   "startMs": "675639",
+   "endMs": "682040",
+   "startTimeText": "11:15"
+  },
+  {
+   "text": "때문에 하나님께서 죄를 용서해 주시고",
+   "startMs": "678480",
+   "endMs": "685880",
+   "startTimeText": "11:18"
+  },
+  {
+   "text": "어 이제이 인구 조사 것이 전화위복이",
+   "startMs": "682040",
+   "endMs": "691920",
+   "startTimeText": "11:22"
+  },
+  {
+   "text": "되어서 어 예렘 를 정하게 된 그런",
+   "startMs": "685880",
+   "endMs": "694760",
+   "startTimeText": "11:25"
+  },
+  {
+   "text": "계기가 되었습니다 하나님의",
+   "startMs": "691920",
+   "endMs": "697639",
+   "startTimeText": "11:31"
+  },
+  {
+   "text": "천사가 심판을 내리는 전 천사가",
+   "startMs": "694760",
+   "endMs": "700360",
+   "startTimeText": "11:34"
+  },
+  {
+   "text": "이렇게 칼을 들고서 있는 모습을 다은",
+   "startMs": "697639",
+   "endMs": "702320",
+   "startTimeText": "11:37"
+  },
+  {
+   "text": "영적인 사람이었기 때문에 이렇게 영이",
+   "startMs": "700360",
+   "endMs": "705320",
+   "startTimeText": "11:40"
+  },
+  {
+   "text": "열려서 보았던 것 같습니다 그래서 그",
+   "startMs": "702320",
+   "endMs": "708000",
+   "startTimeText": "11:42"
+  },
+  {
+   "text": "이제 전염병을 일으키는 천사가 칼을",
+   "startMs": "705320",
+   "endMs": "711279",
+   "startTimeText": "11:45"
+  },
+  {
+   "text": "들고 있는 그 위치를 보고서 그 앞에",
+   "startMs": "708000",
+   "endMs": "715160",
+   "startTimeText": "11:48"
+  },
+  {
+   "text": "가서 제사를 드리고 그곳을 다이",
+   "startMs": "711279",
+   "endMs": "717760",
+   "startTimeText": "11:51"
+  },
+  {
+   "text": "밭을습니다 그 을고 나중에는 그",
+   "startMs": "715160",
+   "endMs": "718920",
+   "startTimeText": "11:55"
+  },
+  {
+   "text": "터위에",
+   "startMs": "717760",
+   "endMs": "721680",
+   "startTimeText": "11:57"
+  },
+  {
+   "text": "예루살렘 성전을 예 지어서 지금 있는",
+   "startMs": "718920",
+   "endMs": "724079",
+   "startTimeText": "11:58"
+  },
+  {
+   "text": "그 성전 터가 바로 그 장소라는 것을",
+   "startMs": "721680",
+   "endMs": "726800",
+   "startTimeText": "12:01"
+  },
+  {
+   "text": "볼 수 있습니다 오늘 시편 32편",
+   "startMs": "724079",
+   "endMs": "729639",
+   "startTimeText": "12:04"
+  },
+  {
+   "text": "말씀에 이제 1절에 허물의 사함을",
+   "startMs": "726800",
+   "endMs": "732200",
+   "startTimeText": "12:06"
+  },
+  {
+   "text": "받고 자신의 죄가 가려진 자는 복이",
+   "startMs": "729639",
+   "endMs": "735839",
+   "startTimeText": "12:09"
+  },
+  {
+   "text": "있도다 예",
+   "startMs": "732200",
+   "endMs": "735839",
+   "startTimeText": "12:12"
+  },
+  {
+   "text": "그리고 이제 2절 말씀에 마음에",
+   "startMs": "736199",
+   "endMs": "742160",
+   "startTimeText": "12:16"
+  },
+  {
+   "text": "간사함이 없고 여호와께 정죄를 당하지",
+   "startMs": "738800",
+   "endMs": "745079",
+   "startTimeText": "12:18"
+  },
+  {
+   "text": "아니하는 자는 복이 있도다이",
+   "startMs": "742160",
+   "endMs": "747399",
+   "startTimeText": "12:22"
+  },
+  {
+   "text": "기록함으로써 이제 이제 다윗의",
+   "startMs": "745079",
+   "endMs": "750199",
+   "startTimeText": "12:25"
+  },
+  {
+   "text": "씨인데요 예 그 어떤 사람보다",
+   "startMs": "747399",
+   "endMs": "753360",
+   "startTimeText": "12:27"
+  },
+  {
+   "text": "하나님께 큰 죄를 지었고 그 어떤",
+   "startMs": "750199",
+   "endMs": "755880",
+   "startTimeText": "12:30"
+  },
+  {
+   "text": "사람보다 하나님으로부터 큰 용서를",
+   "startMs": "753360",
+   "endMs": "758639",
+   "startTimeText": "12:33"
+  },
+  {
+   "text": "경험한 사람이 다윗입니다 그래서",
+   "startMs": "755880",
+   "endMs": "760800",
+   "startTimeText": "12:35"
+  },
+  {
+   "text": "이것은 다윗의 진심어린 고백입니다",
+   "startMs": "758639",
+   "endMs": "763880",
+   "startTimeText": "12:38"
+  },
+  {
+   "text": "본인 자신을 향한 말이기도 하고 그",
+   "startMs": "760800",
+   "endMs": "766920",
+   "startTimeText": "12:40"
+  },
+  {
+   "text": "고백의 의미가 내용이 허물의 사함을",
+   "startMs": "763880",
+   "endMs": "769959",
+   "startTimeText": "12:43"
+  },
+  {
+   "text": "받고 자신의 죄가 가려진 자는 복이",
+   "startMs": "766920",
+   "endMs": "772680",
+   "startTimeText": "12:46"
+  },
+  {
+   "text": "있도다 예 마음이 간사함이 없고",
+   "startMs": "769959",
+   "endMs": "776040",
+   "startTimeText": "12:49"
+  },
+  {
+   "text": "여호와께 정죄를 당하지 아니하는 자는",
+   "startMs": "772680",
+   "endMs": "780000",
+   "startTimeText": "12:52"
+  },
+  {
+   "text": "복이 있도다라고 다윗이에 시편에",
+   "startMs": "776040",
+   "endMs": "782440",
+   "startTimeText": "12:56"
+  },
+  {
+   "text": "기록함으로써 진심으로 하나님께 큰",
+   "startMs": "780000",
+   "endMs": "783959",
+   "startTimeText": "13:00"
+  },
+  {
+   "text": "복을 받는 것은",
+   "startMs": "782440",
+   "endMs": "787240",
+   "startTimeText": "13:02"
+  },
+  {
+   "text": "무엇이냐 자신의 허물이 가려진 그",
+   "startMs": "783959",
+   "endMs": "790680",
+   "startTimeText": "13:03"
+  },
+  {
+   "text": "은혜를 받는 것 그것이 큰 은혜다",
+   "startMs": "787240",
+   "endMs": "793560",
+   "startTimeText": "13:07"
+  },
+  {
+   "text": "그리고 어떠한 하나님을 향한 큰 죄를",
+   "startMs": "790680",
+   "endMs": "797079",
+   "startTimeText": "13:10"
+  },
+  {
+   "text": "했을지라도 어 그 하나님께로부터",
+   "startMs": "793560",
+   "endMs": "800160",
+   "startTimeText": "13:13"
+  },
+  {
+   "text": "정죄를 당하지 않는 그런 사람들",
+   "startMs": "797079",
+   "endMs": "803240",
+   "startTimeText": "13:17"
+  },
+  {
+   "text": "그것이 바로 큰",
+   "startMs": "800160",
+   "endMs": "807760",
+   "startTimeText": "13:20"
+  },
+  {
+   "text": "은혜라고 다은 보고 있습니다 우리",
+   "startMs": "803240",
+   "endMs": "810600",
+   "startTimeText": "13:23"
+  },
+  {
+   "text": "삶가운데가 알게 모르게 지은 죄들이",
+   "startMs": "807760",
+   "endMs": "813320",
+   "startTimeText": "13:27"
+  },
+  {
+   "text": "많이 있습니다 많이 있고 심지어는",
+   "startMs": "810600",
+   "endMs": "816399",
+   "startTimeText": "13:30"
+  },
+  {
+   "text": "어떤 죄는 시간이 지나서 나중에",
+   "startMs": "813320",
+   "endMs": "819800",
+   "startTimeText": "13:33"
+  },
+  {
+   "text": "깨달았을 때에 내가 어떻게 그런 죄를",
+   "startMs": "816399",
+   "endMs": "822920",
+   "startTimeText": "13:36"
+  },
+  {
+   "text": "지었을까 어떻게 그렇게 부끄러운 말을",
+   "startMs": "819800",
+   "endMs": "827240",
+   "startTimeText": "13:39"
+  },
+  {
+   "text": "하고 그렇게 수치스러운 행동을 했을까",
+   "startMs": "822920",
+   "endMs": "829000",
+   "startTimeText": "13:42"
+  },
+  {
+   "text": "심지어 어떤 사람을 향한 말이나",
+   "startMs": "827240",
+   "endMs": "830639",
+   "startTimeText": "13:47"
+  },
+  {
+   "text": "행동을 했을",
+   "startMs": "829000",
+   "endMs": "833680",
+   "startTimeText": "13:49"
+  },
+  {
+   "text": "경우에도 뭐 어떻게 그 사람의 마음을",
+   "startMs": "830639",
+   "endMs": "836199",
+   "startTimeText": "13:50"
+  },
+  {
+   "text": "그렇게 아프게 을까 만약에 당장이라도",
+   "startMs": "833680",
+   "endMs": "837759",
+   "startTimeText": "13:53"
+  },
+  {
+   "text": "지금 만날 수",
+   "startMs": "836199",
+   "endMs": "840720",
+   "startTimeText": "13:56"
+  },
+  {
+   "text": "있다면은 좀 뭐 미안하다고 말할 수",
+   "startMs": "837759",
+   "endMs": "842720",
+   "startTimeText": "13:57"
+  },
+  {
+   "text": "있을 텐데 근데 그럴 수 없는 사람도",
+   "startMs": "840720",
+   "endMs": "845040",
+   "startTimeText": "14:00"
+  },
+  {
+   "text": "있지 않습니까 지금 어디 있는지도",
+   "startMs": "842720",
+   "endMs": "848480",
+   "startTimeText": "14:02"
+  },
+  {
+   "text": "모르고 근데 그냥 기억 속에 남아서",
+   "startMs": "845040",
+   "endMs": "850360",
+   "startTimeText": "14:05"
+  },
+  {
+   "text": "아 어떻게 내가 그 사람에게 그러한",
+   "startMs": "848480",
+   "endMs": "852959",
+   "startTimeText": "14:08"
+  },
+  {
+   "text": "아픔 말을 했고 상처를",
+   "startMs": "850360",
+   "endMs": "856320",
+   "startTimeText": "14:10"
+  },
+  {
+   "text": "주었고 너무나 마음이 아프다고 해서",
+   "startMs": "852959",
+   "endMs": "859519",
+   "startTimeText": "14:12"
+  },
+  {
+   "text": "아마 이제 마음속에 아픔과 이제",
+   "startMs": "856320",
+   "endMs": "861839",
+   "startTimeText": "14:16"
+  },
+  {
+   "text": "더불어서 하나님을 향한 어떤 수치심과",
+   "startMs": "859519",
+   "endMs": "864800",
+   "startTimeText": "14:19"
+  },
+  {
+   "text": "죄책감 속에서 마음이 아파하시는 그런",
+   "startMs": "861839",
+   "endMs": "867680",
+   "startTimeText": "14:21"
+  },
+  {
+   "text": "분들이 계실 것입니다",
+   "startMs": "864800",
+   "endMs": "870720",
+   "startTimeText": "14:24"
+  },
+  {
+   "text": "예 하나님의 뜻은 우리가 그런 죄책감",
+   "startMs": "867680",
+   "endMs": "874360",
+   "startTimeText": "14:27"
+  },
+  {
+   "text": "가운데에서 이렇게 괴로워하고 하는",
+   "startMs": "870720",
+   "endMs": "876839",
+   "startTimeText": "14:30"
+  },
+  {
+   "text": "것보다 물론 만날 수 있으면 그",
+   "startMs": "874360",
+   "endMs": "879519",
+   "startTimeText": "14:34"
+  },
+  {
+   "text": "사람과 화해하고 용서를 하면은 가장",
+   "startMs": "876839",
+   "endMs": "882160",
+   "startTimeText": "14:36"
+  },
+  {
+   "text": "이제 예수님 말씀처럼 용서를 구하는",
+   "startMs": "879519",
+   "endMs": "887399",
+   "startTimeText": "14:39"
+  },
+  {
+   "text": "삶이 가장 좋겠지만 그렇지 못한",
+   "startMs": "882160",
+   "endMs": "887399",
+   "startTimeText": "14:42"
+  },
+  {
+   "text": "경우에라도 어 이제 속상해하고 그것",
+   "startMs": "888680",
+   "endMs": "895279",
+   "startTimeText": "14:48"
+  },
+  {
+   "text": "때문에 하나님을 향해서 어떤 정감",
+   "startMs": "892600",
+   "endMs": "898680",
+   "startTimeText": "14:52"
+  },
+  {
+   "text": "속에서 하나님께로 마음껏 나오지 못하",
+   "startMs": "895279",
+   "endMs": "902320",
+   "startTimeText": "14:55"
+  },
+  {
+   "text": "하고 하는 그런 모습을 보기보다는",
+   "startMs": "898680",
+   "endMs": "905839",
+   "startTimeText": "14:58"
+  },
+  {
+   "text": "그럼에도 불구하고 하나님은 우리와",
+   "startMs": "902320",
+   "endMs": "909519",
+   "startTimeText": "15:02"
+  },
+  {
+   "text": "이제 단절된 모습을 하나님은 더",
+   "startMs": "905839",
+   "endMs": "911240",
+   "startTimeText": "15:05"
+  },
+  {
+   "text": "안타까워 하시기",
+   "startMs": "909519",
+   "endMs": "914040",
+   "startTimeText": "15:09"
+  },
+  {
+   "text": "때문에에 이제 우리 마음속에 어떤",
+   "startMs": "911240",
+   "endMs": "916120",
+   "startTimeText": "15:11"
+  },
+  {
+   "text": "그런 죄책감과 수치심 같은 것들",
+   "startMs": "914040",
+   "endMs": "919120",
+   "startTimeText": "15:14"
+  },
+  {
+   "text": "하나님께서는 그래도 용서해 주시고",
+   "startMs": "916120",
+   "endMs": "921440",
+   "startTimeText": "15:16"
+  },
+  {
+   "text": "가려 주시고 어 그래서 우리가",
+   "startMs": "919120",
+   "endMs": "924519",
+   "startTimeText": "15:19"
+  },
+  {
+   "text": "하나님을 향하여서 이제 그도 담대하게",
+   "startMs": "921440",
+   "endMs": "927199",
+   "startTimeText": "15:21"
+  },
+  {
+   "text": "은혜 가운데서 나오기를 바라시는 그런",
+   "startMs": "924519",
+   "endMs": "930519",
+   "startTimeText": "15:24"
+  },
+  {
+   "text": "자비의 하나님이십니다 예 그래서 삶",
+   "startMs": "927199",
+   "endMs": "932519",
+   "startTimeText": "15:27"
+  },
+  {
+   "text": "가운데 그런 기억들이 다 있습니다 예",
+   "startMs": "930519",
+   "endMs": "936079",
+   "startTimeText": "15:30"
+  },
+  {
+   "text": "있지만은 어 하나님을 향하여서 이제",
+   "startMs": "932519",
+   "endMs": "937839",
+   "startTimeText": "15:32"
+  },
+  {
+   "text": "하나님께 그 죄를 고백하시면 될 것",
+   "startMs": "936079",
+   "endMs": "940360",
+   "startTimeText": "15:36"
+  },
+  {
+   "text": "같습니다 하나님 제가 예전에 이러",
+   "startMs": "937839",
+   "endMs": "943560",
+   "startTimeText": "15:37"
+  },
+  {
+   "text": "이러한 말로서 누군가에게 상처를 준",
+   "startMs": "940360",
+   "endMs": "947079",
+   "startTimeText": "15:40"
+  },
+  {
+   "text": "적이 있고 어떤 행동으로서 그 사람의",
+   "startMs": "943560",
+   "endMs": "949800",
+   "startTimeText": "15:43"
+  },
+  {
+   "text": "마음을 아프게 하였고데 지금 생각하면",
+   "startMs": "947079",
+   "endMs": "953240",
+   "startTimeText": "15:47"
+  },
+  {
+   "text": "너무나 부끄럽고 수치스럽고 그 사람을",
+   "startMs": "949800",
+   "endMs": "955759",
+   "startTimeText": "15:49"
+  },
+  {
+   "text": "향해 너무나 미안한 마음이 듭니다",
+   "startMs": "953240",
+   "endMs": "957600",
+   "startTimeText": "15:53"
+  },
+  {
+   "text": "그래서 그 죄책감이 제 마음속에",
+   "startMs": "955759",
+   "endMs": "959880",
+   "startTimeText": "15:55"
+  },
+  {
+   "text": "있지만 그 사람과의 관계를 지금",
+   "startMs": "957600",
+   "endMs": "962360",
+   "startTimeText": "15:57"
+  },
+  {
+   "text": "당장에는 어떻게 풀지 못하겠으나 그",
+   "startMs": "959880",
+   "endMs": "965360",
+   "startTimeText": "15:59"
+  },
+  {
+   "text": "죄를 하나님께 제가 고백을 드립니다",
+   "startMs": "962360",
+   "endMs": "969199",
+   "startTimeText": "16:02"
+  },
+  {
+   "text": "하나님 용서해 주세요라고 그 진심어린",
+   "startMs": "965360",
+   "endMs": "972839",
+   "startTimeText": "16:05"
+  },
+  {
+   "text": "마음으로 하나님께 고백을 하시면 예",
+   "startMs": "969199",
+   "endMs": "975560",
+   "startTimeText": "16:09"
+  },
+  {
+   "text": "다윗은 우리보다 더 큰 죄를 지은",
+   "startMs": "972839",
+   "endMs": "978319",
+   "startTimeText": "16:12"
+  },
+  {
+   "text": "사람입니다 다윗의 행정을 보면 저희가",
+   "startMs": "975560",
+   "endMs": "980279",
+   "startTimeText": "16:15"
+  },
+  {
+   "text": "많은 은혜를 받습니다 우리가 뭐",
+   "startMs": "978319",
+   "endMs": "983279",
+   "startTimeText": "16:18"
+  },
+  {
+   "text": "다윗처럼 뭐 우리아를 실제로 전장에",
+   "startMs": "980279",
+   "endMs": "987079",
+   "startTimeText": "16:20"
+  },
+  {
+   "text": "나가서 속임으로 죽이거나 하는네",
+   "startMs": "983279",
+   "endMs": "988959",
+   "startTimeText": "16:23"
+  },
+  {
+   "text": "권력을 이용해서 아주 나쁜 행동을 한",
+   "startMs": "987079",
+   "endMs": "991959",
+   "startTimeText": "16:27"
+  },
+  {
+   "text": "거죠 그런 죄를 짓거나 어 자기의",
+   "startMs": "988959",
+   "endMs": "995600",
+   "startTimeText": "16:28"
+  },
+  {
+   "text": "어떤 지금 뭐 위치를 확인하기 위해서",
+   "startMs": "991959",
+   "endMs": "998160",
+   "startTimeText": "16:31"
+  },
+  {
+   "text": "장군을 시켜서 쓸데없는 인군 조사를",
+   "startMs": "995600",
+   "endMs": "1000560",
+   "startTimeText": "16:35"
+  },
+  {
+   "text": "하게 한다던가 하는 예 그런 일을",
+   "startMs": "998160",
+   "endMs": "1002399",
+   "startTimeText": "16:38"
+  },
+  {
+   "text": "하지 않았지 않습니까 다윗은 그런",
+   "startMs": "1000560",
+   "endMs": "1005279",
+   "startTimeText": "16:40"
+  },
+  {
+   "text": "죄를 범하였으도 불구하고 즉시 회개를",
+   "startMs": "1002399",
+   "endMs": "1006680",
+   "startTimeText": "16:42"
+  },
+  {
+   "text": "했습니다 하나님께 좀 용서해",
+   "startMs": "1005279",
+   "endMs": "1009040",
+   "startTimeText": "16:45"
+  },
+  {
+   "text": "주시옵소서 내가 하나님께 큰",
+   "startMs": "1006680",
+   "endMs": "1012079",
+   "startTimeText": "16:46"
+  },
+  {
+   "text": "죄를지었습니다 이렇게 용서함으로써",
+   "startMs": "1009040",
+   "endMs": "1014720",
+   "startTimeText": "16:49"
+  },
+  {
+   "text": "하나님께 용서를 받았고 그래서 그",
+   "startMs": "1012079",
+   "endMs": "1016759",
+   "startTimeText": "16:52"
+  },
+  {
+   "text": "하나님께 용서받은 그 죄가 얼마나",
+   "startMs": "1014720",
+   "endMs": "1020480",
+   "startTimeText": "16:54"
+  },
+  {
+   "text": "큰지 그리고 하나님의 용서가",
+   "startMs": "1016759",
+   "endMs": "1020480",
+   "startTimeText": "16:56"
+  },
+  {
+   "text": "신속하고 그 자비하심이 얼마나 큰지를",
+   "startMs": "1020759",
+   "endMs": "1027000",
+   "startTimeText": "17:00"
+  },
+  {
+   "text": "다은 몸 경험했기 때문에 허의을 받고",
+   "startMs": "1023240",
+   "endMs": "1030000",
+   "startTimeText": "17:03"
+  },
+  {
+   "text": "자신의 죄가 가려진 자기 자신을",
+   "startMs": "1027000",
+   "endMs": "1032760",
+   "startTimeText": "17:07"
+  },
+  {
+   "text": "이야기하는 거죠 그 자는 복이",
+   "startMs": "1030000",
+   "endMs": "1037439",
+   "startTimeText": "17:10"
+  },
+  {
+   "text": "있다 5절에 내가이기를 허물을께",
+   "startMs": "1032760",
+   "endMs": "1041520",
+   "startTimeText": "17:12"
+  },
+  {
+   "text": "하리라고 주께 죄를 아뢰고 죄악을",
+   "startMs": "1037439",
+   "endMs": "1046520",
+   "startTimeText": "17:17"
+  },
+  {
+   "text": "숨기지 아니하였더니 주께서",
+   "startMs": "1041520",
+   "endMs": "1046520",
+   "startTimeText": "17:21"
+  },
+  {
+   "text": "을이 써 본인이 하나님께 죄를 숨기지",
+   "startMs": "1047400",
+   "endMs": "1053520",
+   "startTimeText": "17:27"
+  },
+  {
+   "text": "않고 고백하는 그 순간에 하나님이",
+   "startMs": "1051000",
+   "endMs": "1056640",
+   "startTimeText": "17:31"
+  },
+  {
+   "text": "나를 용서해 주셨고 나의 허물을 가려",
+   "startMs": "1053520",
+   "endMs": "1059960",
+   "startTimeText": "17:33"
+  },
+  {
+   "text": "주셨고 나를 정지하지 않으신 것처럼",
+   "startMs": "1056640",
+   "endMs": "1062679",
+   "startTimeText": "17:36"
+  },
+  {
+   "text": "성도들을 향하여서 하나님을 향한 어떤",
+   "startMs": "1059960",
+   "endMs": "1066799",
+   "startTimeText": "17:39"
+  },
+  {
+   "text": "죄악을 숨기지 말고 고백을 하시길",
+   "startMs": "1062679",
+   "endMs": "1069440",
+   "startTimeText": "17:42"
+  },
+  {
+   "text": "권면을 드리는 겁니다 다윗이 그러면",
+   "startMs": "1066799",
+   "endMs": "1074000",
+   "startTimeText": "17:46"
+  },
+  {
+   "text": "어 하나님께서도 그 죄를 바로 사해",
+   "startMs": "1069440",
+   "endMs": "1077840",
+   "startTimeText": "17:49"
+  },
+  {
+   "text": "주시고 그 허물을 덮어 주시고 그리고",
+   "startMs": "1074000",
+   "endMs": "1080400",
+   "startTimeText": "17:54"
+  },
+  {
+   "text": "그 죄를 가려 주실뿐만 아니라",
+   "startMs": "1077840",
+   "endMs": "1083039",
+   "startTimeText": "17:57"
+  },
+  {
+   "text": "정죄하지 않으신다 예 그리고 바로",
+   "startMs": "1080400",
+   "endMs": "1086200",
+   "startTimeText": "18:00"
+  },
+  {
+   "text": "그렇게 하나님으로부터 죄가 가림을",
+   "startMs": "1083039",
+   "endMs": "1089159",
+   "startTimeText": "18:03"
+  },
+  {
+   "text": "받고 허물이 사을 받고 정죄를 당하지",
+   "startMs": "1086200",
+   "endMs": "1092799",
+   "startTimeText": "18:06"
+  },
+  {
+   "text": "않는 바로 그것이 하나님의 큰 은혜다",
+   "startMs": "1089159",
+   "endMs": "1095080",
+   "startTimeText": "18:09"
+  },
+  {
+   "text": "이러한 모든 큰 은혜들 이것이 바로",
+   "startMs": "1092799",
+   "endMs": "1097240",
+   "startTimeText": "18:12"
+  },
+  {
+   "text": "우리 성도들에게 주시고자 하는",
+   "startMs": "1095080",
+   "endMs": "1099360",
+   "startTimeText": "18:15"
+  },
+  {
+   "text": "하나님의",
+   "startMs": "1097240",
+   "endMs": "1102480",
+   "startTimeText": "18:17"
+  },
+  {
+   "text": "은혜임에 이로 말미암아 모든 경건한",
+   "startMs": "1099360",
+   "endMs": "1105720",
+   "startTimeText": "18:19"
+  },
+  {
+   "text": "사람은 주님을 만날 기회를 얻어서",
+   "startMs": "1102480",
+   "endMs": "1107320",
+   "startTimeText": "18:22"
+  },
+  {
+   "text": "주께",
+   "startMs": "1105720",
+   "endMs": "1111480",
+   "startTimeText": "18:25"
+  },
+  {
+   "text": "기도할지라도 그 그래서 어 하나님께",
+   "startMs": "1107320",
+   "endMs": "1114320",
+   "startTimeText": "18:27"
+  },
+  {
+   "text": "죄를 용서 구하고 하나님께 나아가서",
+   "startMs": "1111480",
+   "endMs": "1116600",
+   "startTimeText": "18:31"
+  },
+  {
+   "text": "하나님께 동행하는 그런 삶을 사는",
+   "startMs": "1114320",
+   "endMs": "1117799",
+   "startTimeText": "18:34"
+  },
+  {
+   "text": "경한",
+   "startMs": "1116600",
+   "endMs": "1121720",
+   "startTimeText": "18:36"
+  },
+  {
+   "text": "사람들에게 어떤 홍와 같은 그런 이제",
+   "startMs": "1117799",
+   "endMs": "1125080",
+   "startTimeText": "18:37"
+  },
+  {
+   "text": "위기가 닥칠지라도 그는 하나님께 용서",
+   "startMs": "1121720",
+   "endMs": "1127000",
+   "startTimeText": "18:41"
+  },
+  {
+   "text": "받고 하나님과 동행하는 삶을 살고",
+   "startMs": "1125080",
+   "endMs": "1129559",
+   "startTimeText": "18:45"
+  },
+  {
+   "text": "있기 때문에 어떠한 위험이 닥칠지라도",
+   "startMs": "1127000",
+   "endMs": "1132880",
+   "startTimeText": "18:47"
+  },
+  {
+   "text": "그 홍와 같은 일이 그에게 결코",
+   "startMs": "1129559",
+   "endMs": "1135840",
+   "startTimeText": "18:49"
+  },
+  {
+   "text": "미치지 못할 것이다라고 이렇게 면의",
+   "startMs": "1132880",
+   "endMs": "1138320",
+   "startTimeText": "18:52"
+  },
+  {
+   "text": "말씀을 하고 있습니다이 은혜가",
+   "startMs": "1135840",
+   "endMs": "1141320",
+   "startTimeText": "18:55"
+  },
+  {
+   "text": "모두에게 어 임하는 매일매일의 삶이",
+   "startMs": "1138320",
+   "endMs": "1144280",
+   "startTimeText": "18:58"
+  },
+  {
+   "text": "되었으면 좋겠습니다 오늘 하루도",
+   "startMs": "1141320",
+   "endMs": "1146480",
+   "startTimeText": "19:01"
+  },
+  {
+   "text": "하나님께 나아가 마음속에 있는 그",
+   "startMs": "1144280",
+   "endMs": "1150440",
+   "startTimeText": "19:04"
+  },
+  {
+   "text": "깊은 것들 고백하시고 용서를 구할",
+   "startMs": "1146480",
+   "endMs": "1151919",
+   "startTimeText": "19:06"
+  },
+  {
+   "text": "부분이 있다면 하나님 용서해",
+   "startMs": "1150440",
+   "endMs": "1153840",
+   "startTimeText": "19:10"
+  },
+  {
+   "text": "주세요라고 이렇게",
+   "startMs": "1151919",
+   "endMs": "1157400",
+   "startTimeText": "19:11"
+  },
+  {
+   "text": "예 편하게 말씀을 드리시면 하나님은",
+   "startMs": "1153840",
+   "endMs": "1159280",
+   "startTimeText": "19:13"
+  },
+  {
+   "text": "다 용서해 주시고 예수님의 십자가",
+   "startMs": "1157400",
+   "endMs": "1162919",
+   "startTimeText": "19:17"
+  },
+  {
+   "text": "보혈로 말미암아 우리의 온 영과",
+   "startMs": "1159280",
+   "endMs": "1165799",
+   "startTimeText": "19:19"
+  },
+  {
+   "text": "생각과 마음과 육체를 다 씻어 주시고",
+   "startMs": "1162919",
+   "endMs": "1168400",
+   "startTimeText": "19:22"
+  },
+  {
+   "text": "그럼에도 불구하고 너는 나의 사랑하는",
+   "startMs": "1165799",
+   "endMs": "1171200",
+   "startTimeText": "19:25"
+  },
+  {
+   "text": "자녀다 나도 너를 정죄하지",
+   "startMs": "1168400",
+   "endMs": "1174400",
+   "startTimeText": "19:28"
+  },
+  {
+   "text": "아니한다라고 말씀하심으로써 어 사랑과",
+   "startMs": "1171200",
+   "endMs": "1176760",
+   "startTimeText": "19:31"
+  },
+  {
+   "text": "위로의 하나님으로 다가오실 그런",
+   "startMs": "1174400",
+   "endMs": "1178640",
+   "startTimeText": "19:34"
+  },
+  {
+   "text": "은혜가 우리에게 임할 줄 믿습니다",
+   "startMs": "1176760",
+   "endMs": "1180480",
+   "startTimeText": "19:36"
+  },
+  {
+   "text": "그런 은혜가 예수님께 모든 성도분들",
+   "startMs": "1178640",
+   "endMs": "1182400",
+   "startTimeText": "19:38"
+  },
+  {
+   "text": "가운데에 주의 모든 자녀 가운데에",
+   "startMs": "1180480",
+   "endMs": "1184919",
+   "startTimeText": "19:40"
+  },
+  {
+   "text": "임하는 하루가 되길 예수님의 이름으로",
+   "startMs": "1182400",
+   "endMs": "1187480",
+   "startTimeText": "19:42"
+  },
+  {
+   "text": "축복합니다 함께 기도하시겠습니다",
+   "startMs": "1184919",
+   "endMs": "1190280",
+   "startTimeText": "19:44"
+  },
+  {
+   "text": "하늘에 계신 우리 아버지 아버지의",
+   "startMs": "1187480",
+   "endMs": "1192679",
+   "startTimeText": "19:47"
+  },
+  {
+   "text": "이름을 거룩하게 하시며 아버지의",
+   "startMs": "1190280",
+   "endMs": "1195000",
+   "startTimeText": "19:50"
+  },
+  {
+   "text": "나라가 오게 하시며 아버지의 뜻이",
+   "startMs": "1192679",
+   "endMs": "1197000",
+   "startTimeText": "19:52"
+  },
+  {
+   "text": "하늘에서와 같이 땅에서도 이루어지게",
+   "startMs": "1195000",
+   "endMs": "1200320",
+   "startTimeText": "19:55"
+  },
+  {
+   "text": "하소서 오늘 에게 이할 식을 주시고",
+   "startMs": "1197000",
+   "endMs": "1202760",
+   "startTimeText": "19:57"
+  },
+  {
+   "text": "리가 리에게 못한 사람을 용서하여 준",
+   "startMs": "1200320",
+   "endMs": "1205559",
+   "startTimeText": "20:00"
+  },
+  {
+   "text": "것같이 우리 죄를 용서하여 주시고",
+   "startMs": "1202760",
+   "endMs": "1207640",
+   "startTimeText": "20:02"
+  },
+  {
+   "text": "리를 시험에 빠지지 않게 하시고",
+   "startMs": "1205559",
+   "endMs": "1211159",
+   "startTimeText": "20:05"
+  },
+  {
+   "text": "악에서 구하소서 나라와 권능과 광이",
+   "startMs": "1207640",
+   "endMs": "1213919",
+   "startTimeText": "20:07"
+  },
+  {
+   "text": "히 아버지의 것입니다",
+   "startMs": "1211159",
+   "endMs": "1216919",
+   "startTimeText": "20:11"
+  },
+  {
+   "text": "아",
+   "startMs": "1213919",
+   "endMs": "1216919",
+   "startTimeText": "20:13"
+  }
+ ]
+}

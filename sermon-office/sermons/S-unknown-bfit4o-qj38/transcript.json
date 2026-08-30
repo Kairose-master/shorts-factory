@@ -1,0 +1,127 @@
+{
+ "videoId": "bfit4o-qj38",
+ "language": "Korean",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=bfit4o-qj38&ei=jM6TauHCPKGh-coPlai-8A8&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788096765&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=B493C9B797ABE05E8B15D9ED333C42C599905E8F.322D11E3555F5552D5274ACD0E04B3B98F995C81&key=yt8&kind=asr&lang=ko",
+   "name": {
+    "simpleText": "Korean (auto-generated)"
+   },
+   "vssId": "a.ko",
+   "languageCode": "ko",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "기쁨은 하나님과 함께 하는 것이다",
+   "startMs": "2159",
+   "endMs": "6180",
+   "startTimeText": "0:02"
+  },
+  {
+   "text": "함께하는 것",
+   "startMs": "4560",
+   "endMs": "7980",
+   "startTimeText": "0:04"
+  },
+  {
+   "text": "시원한 커피다",
+   "startMs": "6180",
+   "endMs": "9120",
+   "startTimeText": "0:06"
+  },
+  {
+   "text": "관계다",
+   "startMs": "7980",
+   "endMs": "10080",
+   "startTimeText": "0:07"
+  },
+  {
+   "text": "기쁨은",
+   "startMs": "9120",
+   "endMs": "11219",
+   "startTimeText": "0:09"
+  },
+  {
+   "text": "치유다",
+   "startMs": "10080",
+   "endMs": "12719",
+   "startTimeText": "0:10"
+  },
+  {
+   "text": "침대다",
+   "startMs": "11219",
+   "endMs": "14040",
+   "startTimeText": "0:11"
+  },
+  {
+   "text": "순종이다",
+   "startMs": "12719",
+   "endMs": "16080",
+   "startTimeText": "0:12"
+  },
+  {
+   "text": "마음이다",
+   "startMs": "14040",
+   "endMs": "18800",
+   "startTimeText": "0:14"
+  },
+  {
+   "text": "함께 하는 것이다",
+   "startMs": "16080",
+   "endMs": "18800",
+   "startTimeText": "0:16"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "29380",
+   "endMs": "32469",
+   "startTimeText": "0:29"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "36420",
+   "endMs": "56229",
+   "startTimeText": "0:36"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "58950",
+   "endMs": "67060",
+   "startTimeText": "0:58"
+  },
+  {
+   "text": "자",
+   "startMs": "83520",
+   "endMs": "86520",
+   "startTimeText": "1:23"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "84980",
+   "endMs": "88259",
+   "startTimeText": "1:24"
+  },
+  {
+   "text": "영상 한번 찍고",
+   "startMs": "86520",
+   "endMs": "89690",
+   "startTimeText": "1:26"
+  },
+  {
+   "text": "감사합니다",
+   "startMs": "88259",
+   "endMs": "92890",
+   "startTimeText": "1:28"
+  },
+  {
+   "text": "[박수]",
+   "startMs": "89690",
+   "endMs": "92890",
+   "startTimeText": "1:29"
+  }
+ ]
+}

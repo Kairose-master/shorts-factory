@@ -1,0 +1,367 @@
+{
+ "videoId": "nSibH2PzZqI",
+ "language": "Korean",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=nSibH2PzZqI&ei=tsKTap6WEIqIir4P5szUkQE&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&xospf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788093734&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=C03896D02577923C8027416C07D3765A7837B483.C904A8889594899B8ABCA4C60BD5A9EBCA1B0449&key=yt8&kind=asr&lang=ko",
+   "name": {
+    "simpleText": "Korean (auto-generated)"
+   },
+   "vssId": "a.ko",
+   "languageCode": "ko",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "마르고",
+   "startMs": "7000",
+   "endMs": "10519",
+   "startTimeText": "0:07"
+  },
+  {
+   "text": "꽃은 [음악]",
+   "startMs": "8760",
+   "endMs": "12080",
+   "startTimeText": "0:08"
+  },
+  {
+   "text": "시드나",
+   "startMs": "10519",
+   "endMs": "17240",
+   "startTimeText": "0:10"
+  },
+  {
+   "text": "주의 말씀은 영원해",
+   "startMs": "12080",
+   "endMs": "17240",
+   "startTimeText": "0:12"
+  },
+  {
+   "text": "불은",
+   "startMs": "19080",
+   "endMs": "22519",
+   "startTimeText": "0:19"
+  },
+  {
+   "text": "마르고",
+   "startMs": "20760",
+   "endMs": "24240",
+   "startTimeText": "0:20"
+  },
+  {
+   "text": "꽃은",
+   "startMs": "22519",
+   "endMs": "26000",
+   "startTimeText": "0:22"
+  },
+  {
+   "text": "시드나 [음악]",
+   "startMs": "24240",
+   "endMs": "30400",
+   "startTimeText": "0:24"
+  },
+  {
+   "text": "주의 말씀은 영원해 다시 고백할까요?",
+   "startMs": "26000",
+   "endMs": "33160",
+   "startTimeText": "0:26"
+  },
+  {
+   "text": "부름 마르고",
+   "startMs": "30400",
+   "endMs": "34920",
+   "startTimeText": "0:30"
+  },
+  {
+   "text": "부름 [음악]",
+   "startMs": "33160",
+   "endMs": "36719",
+   "startTimeText": "0:33"
+  },
+  {
+   "text": "마르고",
+   "startMs": "34920",
+   "endMs": "38480",
+   "startTimeText": "0:34"
+  },
+  {
+   "text": "꽃은",
+   "startMs": "36719",
+   "endMs": "40200",
+   "startTimeText": "0:36"
+  },
+  {
+   "text": "시드한",
+   "startMs": "38480",
+   "endMs": "45480",
+   "startTimeText": "0:38"
+  },
+  {
+   "text": "주의 말씀은 영원해",
+   "startMs": "40200",
+   "endMs": "45480",
+   "startTimeText": "0:40"
+  },
+  {
+   "text": "부름",
+   "startMs": "47120",
+   "endMs": "50600",
+   "startTimeText": "0:47"
+  },
+  {
+   "text": "마르고 [음악]",
+   "startMs": "48840",
+   "endMs": "52359",
+   "startTimeText": "0:48"
+  },
+  {
+   "text": "꽃은",
+   "startMs": "50600",
+   "endMs": "54079",
+   "startTimeText": "0:50"
+  },
+  {
+   "text": "시드나",
+   "startMs": "52359",
+   "endMs": "59000",
+   "startTimeText": "0:52"
+  },
+  {
+   "text": "주의 [음악] 말씀은 영원해",
+   "startMs": "54079",
+   "endMs": "59000",
+   "startTimeText": "0:54"
+  },
+  {
+   "text": "주의 말씀을",
+   "startMs": "60680",
+   "endMs": "67600",
+   "startTimeText": "1:00"
+  },
+  {
+   "text": "믿는 자",
+   "startMs": "64320",
+   "endMs": "70795",
+   "startTimeText": "1:04"
+  },
+  {
+   "text": "그의 구원을 [음악]",
+   "startMs": "67600",
+   "endMs": "70795",
+   "startTimeText": "1:07"
+  },
+  {
+   "text": "얻으리",
+   "startMs": "71240",
+   "endMs": "74640",
+   "startTimeText": "1:11"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "73360",
+   "endMs": "78280",
+   "startTimeText": "1:13"
+  },
+  {
+   "text": "주의 말씀을",
+   "startMs": "74640",
+   "endMs": "81720",
+   "startTimeText": "1:14"
+  },
+  {
+   "text": "행하는 자",
+   "startMs": "78280",
+   "endMs": "84559",
+   "startTimeText": "1:18"
+  },
+  {
+   "text": "그의 능력을 [음악]",
+   "startMs": "81720",
+   "endMs": "84559",
+   "startTimeText": "1:21"
+  },
+  {
+   "text": "보게 되니",
+   "startMs": "84920",
+   "endMs": "89790",
+   "startTimeText": "1:24"
+  },
+  {
+   "text": ">> [음악]",
+   "startMs": "87770",
+   "endMs": "89790",
+   "startTimeText": "1:27"
+  },
+  {
+   "text": ">> 주의",
+   "startMs": "90560",
+   "endMs": "96341",
+   "startTimeText": "1:30"
+  },
+  {
+   "text": "말씀은 영원해 [음악]",
+   "startMs": "92439",
+   "endMs": "96341",
+   "startTimeText": "1:32"
+  },
+  {
+   "text": "주의",
+   "startMs": "97399",
+   "endMs": "102236",
+   "startTimeText": "1:37"
+  },
+  {
+   "text": "말씀은 영원해 [음악]",
+   "startMs": "99240",
+   "endMs": "102236",
+   "startTimeText": "1:39"
+  },
+  {
+   "text": "주의 [음악]",
+   "startMs": "104520",
+   "endMs": "111351",
+   "startTimeText": "1:44"
+  },
+  {
+   "text": "말씀은 영원해 아멘",
+   "startMs": "106399",
+   "endMs": "111719",
+   "startTimeText": "1:46"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "111351",
+   "endMs": "113560",
+   "startTimeText": "1:51"
+  },
+  {
+   "text": ">> 주의",
+   "startMs": "111719",
+   "endMs": "115840",
+   "startTimeText": "1:51"
+  },
+  {
+   "text": "말씀은 영원의",
+   "startMs": "113560",
+   "endMs": "117960",
+   "startTimeText": "1:53"
+  },
+  {
+   "text": "영원해",
+   "startMs": "115840",
+   "endMs": "120960",
+   "startTimeText": "1:55"
+  },
+  {
+   "text": "영원해",
+   "startMs": "117960",
+   "endMs": "120960",
+   "startTimeText": "1:57"
+  },
+  {
+   "text": "영원해 [음악]",
+   "startMs": "121479",
+   "endMs": "123851",
+   "startTimeText": "2:01"
+  },
+  {
+   "text": "부름 마르고 [음악]",
+   "startMs": "127680",
+   "endMs": "131680",
+   "startTimeText": "2:07"
+  },
+  {
+   "text": "부름",
+   "startMs": "129959",
+   "endMs": "133480",
+   "startTimeText": "2:09"
+  },
+  {
+   "text": "마르고",
+   "startMs": "131680",
+   "endMs": "135200",
+   "startTimeText": "2:11"
+  },
+  {
+   "text": "꽃은 [음악]",
+   "startMs": "133480",
+   "endMs": "137000",
+   "startTimeText": "2:13"
+  },
+  {
+   "text": "시드나",
+   "startMs": "135200",
+   "endMs": "141239",
+   "startTimeText": "2:15"
+  },
+  {
+   "text": "주의 말씀은 영원해",
+   "startMs": "137000",
+   "endMs": "144040",
+   "startTimeText": "2:17"
+  },
+  {
+   "text": ">> 여러분 믿으십니까?",
+   "startMs": "141239",
+   "endMs": "145840",
+   "startTimeText": "2:21"
+  },
+  {
+   "text": "부름",
+   "startMs": "144040",
+   "endMs": "147376",
+   "startTimeText": "2:24"
+  },
+  {
+   "text": "마르고",
+   "startMs": "145840",
+   "endMs": "149319",
+   "startTimeText": "2:25"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "147376",
+   "endMs": "151080",
+   "startTimeText": "2:27"
+  },
+  {
+   "text": "시드한",
+   "startMs": "149319",
+   "endMs": "154760",
+   "startTimeText": "2:29"
+  },
+  {
+   "text": "주의 말씀은 영원해 [음악]",
+   "startMs": "151080",
+   "endMs": "157680",
+   "startTimeText": "2:31"
+  },
+  {
+   "text": "주의 말씀을",
+   "startMs": "154760",
+   "endMs": "160531",
+   "startTimeText": "2:34"
+  },
+  {
+   "text": "주의 말씀을 [음악]",
+   "startMs": "157680",
+   "endMs": "160531",
+   "startTimeText": "2:37"
+  },
+  {
+   "text": "믿는 자",
+   "startMs": "161360",
+   "endMs": "168000",
+   "startTimeText": "2:41"
+  },
+  {
+   "text": "그 구원 আল্লাহ",
+   "startMs": "164720",
+   "endMs": "168000",
+   "startTimeText": "2:44"
+  }
+ ]
+}

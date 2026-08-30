@@ -1,0 +1,5215 @@
+{
+ "videoId": "5rs4S1g8UJc",
+ "language": "Korean",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=5rs4S1g8UJc&ei=ucCTavWaLOaEkucP6vKKAQ&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&xospf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788093225&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=30C08D1B4521D60D75B7803EF1F444558C819EBC.6784459E8736B80979568C58D22180736F550C75&key=yt8&kind=asr&lang=ko",
+   "name": {
+    "simpleText": "Korean (auto-generated)"
+   },
+   "vssId": "a.ko",
+   "languageCode": "ko",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "찬송가 317장 찬양하심으로 5월",
+   "startMs": "680",
+   "endMs": "6040",
+   "startTimeText": "0:00"
+  },
+  {
+   "text": "28일 목요일 세부 기도드리겠습니다.",
+   "startMs": "3639",
+   "endMs": "9600",
+   "startTimeText": "0:03"
+  },
+  {
+   "text": "찬송가 317장입니다.",
+   "startMs": "6040",
+   "endMs": "9600",
+   "startTimeText": "0:06"
+  },
+  {
+   "text": "찬송가 317장.",
+   "startMs": "9880",
+   "endMs": "14639",
+   "startTimeText": "0:09"
+  },
+  {
+   "text": "내 주 예수",
+   "startMs": "12240",
+   "endMs": "15599",
+   "startTimeText": "0:12"
+  },
+  {
+   "text": "주시 [노래]",
+   "startMs": "14639",
+   "endMs": "17279",
+   "startTimeText": "0:14"
+  },
+  {
+   "text": "은혜",
+   "startMs": "15599",
+   "endMs": "20279",
+   "startTimeText": "0:15"
+  },
+  {
+   "text": "안것만",
+   "startMs": "17279",
+   "endMs": "20279",
+   "startTimeText": "0:17"
+  },
+  {
+   "text": "내 주 앞에이",
+   "startMs": "21680",
+   "endMs": "28820",
+   "startTimeText": "0:21"
+  },
+  {
+   "text": "적은 것 다 드리니.",
+   "startMs": "24480",
+   "endMs": "30840",
+   "startTimeText": "0:24"
+  },
+  {
+   "text": "[노래]",
+   "startMs": "28820",
+   "endMs": "30840",
+   "startTimeText": "0:28"
+  },
+  {
+   "text": "주 예수여",
+   "startMs": "31039",
+   "endMs": "36120",
+   "startTimeText": "0:31"
+  },
+  {
+   "text": "내 정성을",
+   "startMs": "33399",
+   "endMs": "39120",
+   "startTimeText": "0:33"
+  },
+  {
+   "text": "받으소서.",
+   "startMs": "36120",
+   "endMs": "39120",
+   "startTimeText": "0:36"
+  },
+  {
+   "text": "주 날 위해",
+   "startMs": "40800",
+   "endMs": "45680",
+   "startTimeText": "0:40"
+  },
+  {
+   "text": "보배로",
+   "startMs": "43160",
+   "endMs": "48680",
+   "startTimeText": "0:43"
+  },
+  {
+   "text": "비을리사",
+   "startMs": "45680",
+   "endMs": "48680",
+   "startTimeText": "0:45"
+  },
+  {
+   "text": "그 귀하신",
+   "startMs": "50160",
+   "endMs": "55160",
+   "startTimeText": "0:50"
+  },
+  {
+   "text": "생명까지",
+   "startMs": "52600",
+   "endMs": "58295",
+   "startTimeText": "0:52"
+  },
+  {
+   "text": "다 주시니.",
+   "startMs": "55160",
+   "endMs": "59719",
+   "startTimeText": "0:55"
+  },
+  {
+   "text": "[노래]",
+   "startMs": "58295",
+   "endMs": "62440",
+   "startTimeText": "0:58"
+  },
+  {
+   "text": "내 천한 몸이",
+   "startMs": "59719",
+   "endMs": "64640",
+   "startTimeText": "0:59"
+  },
+  {
+   "text": "생명을",
+   "startMs": "62440",
+   "endMs": "67640",
+   "startTimeText": "1:02"
+  },
+  {
+   "text": "외악이랴",
+   "startMs": "64640",
+   "endMs": "67640",
+   "startTimeText": "1:04"
+  },
+  {
+   "text": "주 예수께",
+   "startMs": "69439",
+   "endMs": "74640",
+   "startTimeText": "1:09"
+  },
+  {
+   "text": "미친 것이",
+   "startMs": "72000",
+   "endMs": "77640",
+   "startTimeText": "1:12"
+  },
+  {
+   "text": "안것만",
+   "startMs": "74640",
+   "endMs": "77640",
+   "startTimeText": "1:14"
+  },
+  {
+   "text": "나 주에",
+   "startMs": "79080",
+   "endMs": "84159",
+   "startTimeText": "1:19"
+  },
+  {
+   "text": "드린 것을",
+   "startMs": "81680",
+   "endMs": "87520",
+   "startTimeText": "1:21"
+  },
+  {
+   "text": "참 적으니",
+   "startMs": "84159",
+   "endMs": "87520",
+   "startTimeText": "1:24"
+  },
+  {
+   "text": "주 예수여",
+   "startMs": "88759",
+   "endMs": "93840",
+   "startTimeText": "1:28"
+  },
+  {
+   "text": "너 그렇게",
+   "startMs": "91320",
+   "endMs": "96840",
+   "startTimeText": "1:31"
+  },
+  {
+   "text": "보소서.",
+   "startMs": "93840",
+   "endMs": "96840",
+   "startTimeText": "1:33"
+  },
+  {
+   "text": "날 위하여",
+   "startMs": "98840",
+   "endMs": "103840",
+   "startTimeText": "1:38"
+  },
+  {
+   "text": "십자가에",
+   "startMs": "101360",
+   "endMs": "106840",
+   "startTimeText": "1:41"
+  },
+  {
+   "text": "비으리신",
+   "startMs": "103840",
+   "endMs": "106840",
+   "startTimeText": "1:43"
+  },
+  {
+   "text": "주 예수의",
+   "startMs": "108479",
+   "endMs": "113640",
+   "startTimeText": "1:48"
+  },
+  {
+   "text": "은혜로서",
+   "startMs": "111000",
+   "endMs": "116640",
+   "startTimeText": "1:51"
+  },
+  {
+   "text": "인치시고",
+   "startMs": "113640",
+   "endMs": "116640",
+   "startTimeText": "1:53"
+  },
+  {
+   "text": "내 모든 것 주의 소유",
+   "startMs": "118360",
+   "endMs": "126479",
+   "startTimeText": "1:58"
+  },
+  {
+   "text": "삼으소서.",
+   "startMs": "123479",
+   "endMs": "126479",
+   "startTimeText": "2:03"
+  },
+  {
+   "text": "주 나 위에",
+   "startMs": "128440",
+   "endMs": "133480",
+   "startTimeText": "2:08"
+  },
+  {
+   "text": "그 귀하신",
+   "startMs": "130879",
+   "endMs": "136480",
+   "startTimeText": "2:10"
+  },
+  {
+   "text": "몸버리사이",
+   "startMs": "133480",
+   "endMs": "136480",
+   "startTimeText": "2:13"
+  },
+  {
+   "text": "내 몸을 피값으로",
+   "startMs": "138440",
+   "endMs": "146280",
+   "startTimeText": "2:18"
+  },
+  {
+   "text": "사셨으니",
+   "startMs": "143280",
+   "endMs": "146280",
+   "startTimeText": "2:23"
+  },
+  {
+   "text": "내 생명도",
+   "startMs": "147959",
+   "endMs": "153319",
+   "startTimeText": "2:27"
+  },
+  {
+   "text": "주 예수께",
+   "startMs": "150519",
+   "endMs": "156319",
+   "startTimeText": "2:30"
+  },
+  {
+   "text": "바칩니다.",
+   "startMs": "153319",
+   "endMs": "156319",
+   "startTimeText": "2:33"
+  },
+  {
+   "text": "기도하시겠습니다.",
+   "startMs": "160000",
+   "endMs": "164159",
+   "startTimeText": "2:40"
+  },
+  {
+   "text": "하나님 아버지 감사합니다. 지난밤에도",
+   "startMs": "161760",
+   "endMs": "166920",
+   "startTimeText": "2:41"
+  },
+  {
+   "text": "평안을 허락하시며 잠을 주시고 오늘",
+   "startMs": "164159",
+   "endMs": "168560",
+   "startTimeText": "2:44"
+  },
+  {
+   "text": "새벽에 일어나 주님 앞에 나오게",
+   "startMs": "166920",
+   "endMs": "170560",
+   "startTimeText": "2:46"
+  },
+  {
+   "text": "하시니 감사드립니다.",
+   "startMs": "168560",
+   "endMs": "172959",
+   "startTimeText": "2:48"
+  },
+  {
+   "text": "하루하루를 우리에게 선물러 주셨으니",
+   "startMs": "170560",
+   "endMs": "175680",
+   "startTimeText": "2:50"
+  },
+  {
+   "text": "하루의 하루의 삶을 잘 빚어나가서",
+   "startMs": "172959",
+   "endMs": "177720",
+   "startTimeText": "2:52"
+  },
+  {
+   "text": "아름다운 성도의 삶으로 이어질 수",
+   "startMs": "175680",
+   "endMs": "180800",
+   "startTimeText": "2:55"
+  },
+  {
+   "text": "있도록 인도하여 주시옵소서. 하나님",
+   "startMs": "177720",
+   "endMs": "182480",
+   "startTimeText": "2:57"
+  },
+  {
+   "text": "아버지이 나라와 민족을 위해서",
+   "startMs": "180800",
+   "endMs": "184480",
+   "startTimeText": "3:00"
+  },
+  {
+   "text": "기도드립니다.이 나라의 평안을",
+   "startMs": "182480",
+   "endMs": "186760",
+   "startTimeText": "3:02"
+  },
+  {
+   "text": "허락하여 주시고 민족의 소망을",
+   "startMs": "184480",
+   "endMs": "189360",
+   "startTimeText": "3:04"
+  },
+  {
+   "text": "주시기를 원합니다. 예수 그리스도",
+   "startMs": "186760",
+   "endMs": "191760",
+   "startTimeText": "3:06"
+  },
+  {
+   "text": "안에 있는 소망과 구원의 길을",
+   "startMs": "189360",
+   "endMs": "194400",
+   "startTimeText": "3:09"
+  },
+  {
+   "text": "발견하는 복된 민족이 되도록 역사하여",
+   "startMs": "191760",
+   "endMs": "196840",
+   "startTimeText": "3:11"
+  },
+  {
+   "text": "주시옵소서. 특별히 북한 땅에 있는",
+   "startMs": "194400",
+   "endMs": "199560",
+   "startTimeText": "3:14"
+  },
+  {
+   "text": "동포들을 불쌍히 여기시사 그 땅에",
+   "startMs": "196840",
+   "endMs": "201280",
+   "startTimeText": "3:16"
+  },
+  {
+   "text": "복음이 들어갈 수 있도록 인도하여",
+   "startMs": "199560",
+   "endMs": "204480",
+   "startTimeText": "3:19"
+  },
+  {
+   "text": "주시고 예수 그리스도를 믿고 예배드릴",
+   "startMs": "201280",
+   "endMs": "206360",
+   "startTimeText": "3:21"
+  },
+  {
+   "text": "수 있는 날를 허락하여 주시기를",
+   "startMs": "204480",
+   "endMs": "209080",
+   "startTimeText": "3:24"
+  },
+  {
+   "text": "원합니다. 분노와 증와 죽이려는",
+   "startMs": "206360",
+   "endMs": "211280",
+   "startTimeText": "3:26"
+  },
+  {
+   "text": "권세들이 떠나가는 역사를 허락하여",
+   "startMs": "209080",
+   "endMs": "213599",
+   "startTimeText": "3:29"
+  },
+  {
+   "text": "주시기를 원합니다. 하나님 아버지",
+   "startMs": "211280",
+   "endMs": "215480",
+   "startTimeText": "3:31"
+  },
+  {
+   "text": "세계 열방 가운데 있는 민족들을",
+   "startMs": "213599",
+   "endMs": "218519",
+   "startTimeText": "3:33"
+  },
+  {
+   "text": "하나하나 세워 보시며 구원의 길로",
+   "startMs": "215480",
+   "endMs": "220560",
+   "startTimeText": "3:35"
+  },
+  {
+   "text": "인도하시는 하나님 아버지의 마음을",
+   "startMs": "218519",
+   "endMs": "223280",
+   "startTimeText": "3:38"
+  },
+  {
+   "text": "따라 열방에서 수고하고 헌신하는",
+   "startMs": "220560",
+   "endMs": "225879",
+   "startTimeText": "3:40"
+  },
+  {
+   "text": "선교사님들과 그리스도인들을 붙들어",
+   "startMs": "223280",
+   "endMs": "228319",
+   "startTimeText": "3:43"
+  },
+  {
+   "text": "주시기를 원합니다. 주님께서 다시",
+   "startMs": "225879",
+   "endMs": "231319",
+   "startTimeText": "3:45"
+  },
+  {
+   "text": "오실 때 많은 사람들이 구원의",
+   "startMs": "228319",
+   "endMs": "233480",
+   "startTimeText": "3:48"
+  },
+  {
+   "text": "아름다운 역사를 노래하고 주님을",
+   "startMs": "231319",
+   "endMs": "235720",
+   "startTimeText": "3:51"
+  },
+  {
+   "text": "찬양하며 기쁨의 교재를 나눌 수",
+   "startMs": "233480",
+   "endMs": "238400",
+   "startTimeText": "3:53"
+  },
+  {
+   "text": "있도록 인도하여 주시옵소서. 하나님",
+   "startMs": "235720",
+   "endMs": "240040",
+   "startTimeText": "3:55"
+  },
+  {
+   "text": "아버지 우리 예수 교회를 위해서",
+   "startMs": "238400",
+   "endMs": "242879",
+   "startTimeText": "3:58"
+  },
+  {
+   "text": "기도드립니다. 서로 모이기에 힘쓰고",
+   "startMs": "240040",
+   "endMs": "245040",
+   "startTimeText": "4:00"
+  },
+  {
+   "text": "기도에 힘쓰며 말씀 생활에 힘쓰게",
+   "startMs": "242879",
+   "endMs": "247360",
+   "startTimeText": "4:02"
+  },
+  {
+   "text": "하시며 하나님을 알아가게 하여",
+   "startMs": "245040",
+   "endMs": "249640",
+   "startTimeText": "4:05"
+  },
+  {
+   "text": "주시옵소서. 가족들을 위해 또한",
+   "startMs": "247360",
+   "endMs": "251720",
+   "startTimeText": "4:07"
+  },
+  {
+   "text": "계획하고 준비하는 것 가운데 하나님이",
+   "startMs": "249640",
+   "endMs": "254480",
+   "startTimeText": "4:09"
+  },
+  {
+   "text": "인도하심을 허락하여 주셔서 좋은 땅에",
+   "startMs": "251720",
+   "endMs": "256720",
+   "startTimeText": "4:11"
+  },
+  {
+   "text": "심겨진 씨앗으로 인해 많은 열매가",
+   "startMs": "254480",
+   "endMs": "259519",
+   "startTimeText": "4:14"
+  },
+  {
+   "text": "열리는 것처럼 그 은혜를 허락하여",
+   "startMs": "256720",
+   "endMs": "262240",
+   "startTimeText": "4:16"
+  },
+  {
+   "text": "주시옵소서. 하나님 아버지, 오늘도",
+   "startMs": "259519",
+   "endMs": "264400",
+   "startTimeText": "4:19"
+  },
+  {
+   "text": "하나님을 의지하면서 하나님 앞에",
+   "startMs": "262240",
+   "endMs": "266800",
+   "startTimeText": "4:22"
+  },
+  {
+   "text": "나와서 우리의 모든 기도 제목들을",
+   "startMs": "264400",
+   "endMs": "269479",
+   "startTimeText": "4:24"
+  },
+  {
+   "text": "올려 드립니다. 하루하라 살 때 여러",
+   "startMs": "266800",
+   "endMs": "272120",
+   "startTimeText": "4:26"
+  },
+  {
+   "text": "가지 일들이 많고 하나님 또 우리",
+   "startMs": "269479",
+   "endMs": "274840",
+   "startTimeText": "4:29"
+  },
+  {
+   "text": "가족들을 위해서 또 기도할 때마다",
+   "startMs": "272120",
+   "endMs": "277880",
+   "startTimeText": "4:32"
+  },
+  {
+   "text": "아버지 하나님 그 무엇이 필요한지",
+   "startMs": "274840",
+   "endMs": "279639",
+   "startTimeText": "4:34"
+  },
+  {
+   "text": "우리 가운데 또 간절한 소망이",
+   "startMs": "277880",
+   "endMs": "282199",
+   "startTimeText": "4:37"
+  },
+  {
+   "text": "있습니다. 하나님께서 하늘을 여시고",
+   "startMs": "279639",
+   "endMs": "284280",
+   "startTimeText": "4:39"
+  },
+  {
+   "text": "가족들 한 분 한 분의 상 가운데",
+   "startMs": "282199",
+   "endMs": "287080",
+   "startTimeText": "4:42"
+  },
+  {
+   "text": "영혼 가운데 인생 가운데 하나님께서",
+   "startMs": "284280",
+   "endMs": "289759",
+   "startTimeText": "4:44"
+  },
+  {
+   "text": "돌봐 주시고 인도하여 주시옵소서.",
+   "startMs": "287080",
+   "endMs": "291880",
+   "startTimeText": "4:47"
+  },
+  {
+   "text": "우리 또한 성도들이 주님 안에서 한",
+   "startMs": "289759",
+   "endMs": "294320",
+   "startTimeText": "4:49"
+  },
+  {
+   "text": "가족을 이루었습니다. 아버지 하나님",
+   "startMs": "291880",
+   "endMs": "296080",
+   "startTimeText": "4:51"
+  },
+  {
+   "text": "성도들을 위해서 기도할 때마다",
+   "startMs": "294320",
+   "endMs": "298479",
+   "startTimeText": "4:54"
+  },
+  {
+   "text": "하나님께서 들으시고 성도들의 삶",
+   "startMs": "296080",
+   "endMs": "300800",
+   "startTimeText": "4:56"
+  },
+  {
+   "text": "가운데 하나님께서 놀라운 역사와",
+   "startMs": "298479",
+   "endMs": "303680",
+   "startTimeText": "4:58"
+  },
+  {
+   "text": "운총을 베풀어 주시옵소서. 아버지",
+   "startMs": "300800",
+   "endMs": "306080",
+   "startTimeText": "5:00"
+  },
+  {
+   "text": "하나님 특별히 믿지 않는 성도들의",
+   "startMs": "303680",
+   "endMs": "308360",
+   "startTimeText": "5:03"
+  },
+  {
+   "text": "가족을 위해서 기도드립니다.",
+   "startMs": "306080",
+   "endMs": "311160",
+   "startTimeText": "5:06"
+  },
+  {
+   "text": "하나님께서 하루하루 돌봐 주시고",
+   "startMs": "308360",
+   "endMs": "313800",
+   "startTimeText": "5:08"
+  },
+  {
+   "text": "마음들이 조금씩 움직이게 하여 주시고",
+   "startMs": "311160",
+   "endMs": "316240",
+   "startTimeText": "5:11"
+  },
+  {
+   "text": "마침내 주님을 같이 예배할 수 있는",
+   "startMs": "313800",
+   "endMs": "319000",
+   "startTimeText": "5:13"
+  },
+  {
+   "text": "아름다운 날들을 반드시 허락하여",
+   "startMs": "316240",
+   "endMs": "321720",
+   "startTimeText": "5:16"
+  },
+  {
+   "text": "주시옵소서. 병중에 힘들어하는 성도들",
+   "startMs": "319000",
+   "endMs": "324400",
+   "startTimeText": "5:19"
+  },
+  {
+   "text": "가운데 하나님 치유와 회복의 은총을",
+   "startMs": "321720",
+   "endMs": "326960",
+   "startTimeText": "5:21"
+  },
+  {
+   "text": "허락하여 주시고 그 가족들을 아버지",
+   "startMs": "324400",
+   "endMs": "329880",
+   "startTimeText": "5:24"
+  },
+  {
+   "text": "보시사 평강이 있게 하여 주시옵소서.",
+   "startMs": "326960",
+   "endMs": "332440",
+   "startTimeText": "5:26"
+  },
+  {
+   "text": "하나님은 능치 못할 일이 없는 줄로",
+   "startMs": "329880",
+   "endMs": "335199",
+   "startTimeText": "5:29"
+  },
+  {
+   "text": "믿사오니 아버지 하나님의 능력으로",
+   "startMs": "332440",
+   "endMs": "337919",
+   "startTimeText": "5:32"
+  },
+  {
+   "text": "고치시고 인도하시고 주님의 길로",
+   "startMs": "335199",
+   "endMs": "340840",
+   "startTimeText": "5:35"
+  },
+  {
+   "text": "인도하여 주시옵소서. 모든 것을 주님",
+   "startMs": "337919",
+   "endMs": "343000",
+   "startTimeText": "5:37"
+  },
+  {
+   "text": "손에 부탁드리며 예수 그리스도의",
+   "startMs": "340840",
+   "endMs": "346400",
+   "startTimeText": "5:40"
+  },
+  {
+   "text": "이름으로 기도드립니다. 아멘. 오늘",
+   "startMs": "343000",
+   "endMs": "348479",
+   "startTimeText": "5:43"
+  },
+  {
+   "text": "우리에게 주시는 하나님의 말씀은",
+   "startMs": "346400",
+   "endMs": "350319",
+   "startTimeText": "5:46"
+  },
+  {
+   "text": "고린도전서 9장 19절부터",
+   "startMs": "348479",
+   "endMs": "353639",
+   "startTimeText": "5:48"
+  },
+  {
+   "text": "27절까지의 말씀입니다.",
+   "startMs": "350319",
+   "endMs": "357440",
+   "startTimeText": "5:50"
+  },
+  {
+   "text": "고린도전서 9장 19절부터 27절까지",
+   "startMs": "353639",
+   "endMs": "359360",
+   "startTimeText": "5:53"
+  },
+  {
+   "text": "우리 같이 말씀을 봉독하도록",
+   "startMs": "357440",
+   "endMs": "362120",
+   "startTimeText": "5:57"
+  },
+  {
+   "text": "하겠습니다. 내가 모든 사람에게서",
+   "startMs": "359360",
+   "endMs": "364479",
+   "startTimeText": "5:59"
+  },
+  {
+   "text": "자유로우나 스스로 모든 사람에게 종이",
+   "startMs": "362120",
+   "endMs": "366560",
+   "startTimeText": "6:02"
+  },
+  {
+   "text": "된 것은 더 많은 사람을 얻고자",
+   "startMs": "364479",
+   "endMs": "369039",
+   "startTimeText": "6:04"
+  },
+  {
+   "text": "함이라. 유대인들에게 내가 유대인과",
+   "startMs": "366560",
+   "endMs": "371000",
+   "startTimeText": "6:06"
+  },
+  {
+   "text": "같이 된 것은 유대인들을 얻고자",
+   "startMs": "369039",
+   "endMs": "373440",
+   "startTimeText": "6:09"
+  },
+  {
+   "text": "함이요. 율법 아래에 있는 자들에게는",
+   "startMs": "371000",
+   "endMs": "376280",
+   "startTimeText": "6:11"
+  },
+  {
+   "text": "내가 율법 아래에 있지 아니하나 율법",
+   "startMs": "373440",
+   "endMs": "378120",
+   "startTimeText": "6:13"
+  },
+  {
+   "text": "아래에 있는 자같이 된 것은 율법",
+   "startMs": "376280",
+   "endMs": "380680",
+   "startTimeText": "6:16"
+  },
+  {
+   "text": "아래에 있는 자들을 얻고자 함이요.",
+   "startMs": "378120",
+   "endMs": "383120",
+   "startTimeText": "6:18"
+  },
+  {
+   "text": "율법 없는 자에게는 내가 하나님께는",
+   "startMs": "380680",
+   "endMs": "384800",
+   "startTimeText": "6:20"
+  },
+  {
+   "text": "율법 없는 자가 아니요 도리어",
+   "startMs": "383120",
+   "endMs": "387360",
+   "startTimeText": "6:23"
+  },
+  {
+   "text": "그리스도의 율법 아래에 있는 자이니",
+   "startMs": "384800",
+   "endMs": "389479",
+   "startTimeText": "6:24"
+  },
+  {
+   "text": "율법 없는 자와 같이 된 것은 율법",
+   "startMs": "387360",
+   "endMs": "392080",
+   "startTimeText": "6:27"
+  },
+  {
+   "text": "없는 자들을 얻고자 함이라. 약한",
+   "startMs": "389479",
+   "endMs": "394080",
+   "startTimeText": "6:29"
+  },
+  {
+   "text": "자들에게 내가 약한 자와 같이 된",
+   "startMs": "392080",
+   "endMs": "396560",
+   "startTimeText": "6:32"
+  },
+  {
+   "text": "것은 약한 자들을 얻고자 함이요.",
+   "startMs": "394080",
+   "endMs": "398599",
+   "startTimeText": "6:34"
+  },
+  {
+   "text": "내가 여러 사람에게 여러 모습이 된",
+   "startMs": "396560",
+   "endMs": "400759",
+   "startTimeText": "6:36"
+  },
+  {
+   "text": "것은 아무쪼록 몇 사람이라도",
+   "startMs": "398599",
+   "endMs": "403319",
+   "startTimeText": "6:38"
+  },
+  {
+   "text": "구원하고자 함이니 내가 복음을 위하여",
+   "startMs": "400759",
+   "endMs": "405800",
+   "startTimeText": "6:40"
+  },
+  {
+   "text": "모든 것을 행함은 복음에 참여하고자",
+   "startMs": "403319",
+   "endMs": "408360",
+   "startTimeText": "6:43"
+  },
+  {
+   "text": "함이라. 운동장에서 다름질 하는",
+   "startMs": "405800",
+   "endMs": "411000",
+   "startTimeText": "6:45"
+  },
+  {
+   "text": "자들이 다 달릴지라도 오직 상을 받는",
+   "startMs": "408360",
+   "endMs": "413280",
+   "startTimeText": "6:48"
+  },
+  {
+   "text": "사람은 한 사람인 줄을 너희가 알지",
+   "startMs": "411000",
+   "endMs": "415720",
+   "startTimeText": "6:51"
+  },
+  {
+   "text": "못하느냐? 너희도 상을 받도록 이와",
+   "startMs": "413280",
+   "endMs": "418440",
+   "startTimeText": "6:53"
+  },
+  {
+   "text": "같이 다른질 하라. 이기기를 다투는",
+   "startMs": "415720",
+   "endMs": "421240",
+   "startTimeText": "6:55"
+  },
+  {
+   "text": "자마다 모든 일에 절제하나니 그들은",
+   "startMs": "418440",
+   "endMs": "423879",
+   "startTimeText": "6:58"
+  },
+  {
+   "text": "썩을 승리자의 관을 얻고자 하되",
+   "startMs": "421240",
+   "endMs": "425840",
+   "startTimeText": "7:01"
+  },
+  {
+   "text": "우리는 썩지 아니할 것을 얻고자",
+   "startMs": "423879",
+   "endMs": "428520",
+   "startTimeText": "7:03"
+  },
+  {
+   "text": "하노라. 그러므로 나는 다른 절하기를",
+   "startMs": "425840",
+   "endMs": "430879",
+   "startTimeText": "7:05"
+  },
+  {
+   "text": "향방 없는 것 같이 아니하고 싸우기를",
+   "startMs": "428520",
+   "endMs": "433520",
+   "startTimeText": "7:08"
+  },
+  {
+   "text": "허공을 치는 것 같지 아니하며 내가",
+   "startMs": "430879",
+   "endMs": "435840",
+   "startTimeText": "7:10"
+  },
+  {
+   "text": "내 몸을 쳐 복정하게함은 내가 남에게",
+   "startMs": "433520",
+   "endMs": "437960",
+   "startTimeText": "7:13"
+  },
+  {
+   "text": "전파한 후에 자신이 두려워 버림을",
+   "startMs": "435840",
+   "endMs": "441879",
+   "startTimeText": "7:15"
+  },
+  {
+   "text": "당할까 두려워함이로다. 아멘.",
+   "startMs": "437960",
+   "endMs": "444240",
+   "startTimeText": "7:17"
+  },
+  {
+   "text": "사도 바울이 복음을 위해 가지고",
+   "startMs": "441879",
+   "endMs": "446879",
+   "startTimeText": "7:21"
+  },
+  {
+   "text": "달려가고 있을 때 사도 바울이 어떤",
+   "startMs": "444240",
+   "endMs": "449840",
+   "startTimeText": "7:24"
+  },
+  {
+   "text": "식으로 어 인생 가운데 하나님의",
+   "startMs": "446879",
+   "endMs": "451560",
+   "startTimeText": "7:26"
+  },
+  {
+   "text": "말씀과",
+   "startMs": "449840",
+   "endMs": "454080",
+   "startTimeText": "7:29"
+  },
+  {
+   "text": "그다음에 사람들의 모습 가운데 어",
+   "startMs": "451560",
+   "endMs": "457039",
+   "startTimeText": "7:31"
+  },
+  {
+   "text": "조화를 이루면서 이렇게 나아가는가?",
+   "startMs": "454080",
+   "endMs": "459639",
+   "startTimeText": "7:34"
+  },
+  {
+   "text": "그런 것들이 오늘 본문에 나와",
+   "startMs": "457039",
+   "endMs": "462280",
+   "startTimeText": "7:37"
+  },
+  {
+   "text": "있습니다. 19절에 보면 내가 모든",
+   "startMs": "459639",
+   "endMs": "466400",
+   "startTimeText": "7:39"
+  },
+  {
+   "text": "사람에게서 자유롭다. 그 자유로운",
+   "startMs": "462280",
+   "endMs": "470440",
+   "startTimeText": "7:42"
+  },
+  {
+   "text": "어떤 어 그런 생각들이 있고 그런",
+   "startMs": "466400",
+   "endMs": "472915",
+   "startTimeText": "7:46"
+  },
+  {
+   "text": "결정할 수 있는 그런 것들이",
+   "startMs": "470440",
+   "endMs": "474479",
+   "startTimeText": "7:50"
+  },
+  {
+   "text": "[목을 가다듬음] 있고 어떤 권리가",
+   "startMs": "472915",
+   "endMs": "476159",
+   "startTimeText": "7:52"
+  },
+  {
+   "text": "있지만은",
+   "startMs": "474479",
+   "endMs": "479199",
+   "startTimeText": "7:54"
+  },
+  {
+   "text": "자유롭지만 모든 사람에게서",
+   "startMs": "476159",
+   "endMs": "481039",
+   "startTimeText": "7:56"
+  },
+  {
+   "text": "이제 자유롭게 무언가를 할 수가",
+   "startMs": "479199",
+   "endMs": "483639",
+   "startTimeText": "7:59"
+  },
+  {
+   "text": "있지만은 스스로 모든 사람에게 종이",
+   "startMs": "481039",
+   "endMs": "484360",
+   "startTimeText": "8:01"
+  },
+  {
+   "text": "됐다. 그러니까 [목을 가다듬음]",
+   "startMs": "483639",
+   "endMs": "486159",
+   "startTimeText": "8:03"
+  },
+  {
+   "text": "모든 사람에게 내가 자유롭게 뭐",
+   "startMs": "484360",
+   "endMs": "488800",
+   "startTimeText": "8:04"
+  },
+  {
+   "text": "행동할 수 있지만은 그 권리를 다",
+   "startMs": "486159",
+   "endMs": "491440",
+   "startTimeText": "8:06"
+  },
+  {
+   "text": "쓰지 않은 거죠. 그다음에 어떤",
+   "startMs": "488800",
+   "endMs": "494159",
+   "startTimeText": "8:08"
+  },
+  {
+   "text": "사람에게는 그냥 종으로서 섬기는",
+   "startMs": "491440",
+   "endMs": "497599",
+   "startTimeText": "8:11"
+  },
+  {
+   "text": "모습으로 내가 남아 있는 것은에 더",
+   "startMs": "494159",
+   "endMs": "500080",
+   "startTimeText": "8:14"
+  },
+  {
+   "text": "많은 사람을 얻고자 함이라.에",
+   "startMs": "497599",
+   "endMs": "503240",
+   "startTimeText": "8:17"
+  },
+  {
+   "text": "자유롭지만은이 사람에게는 내가 잘",
+   "startMs": "500080",
+   "endMs": "507440",
+   "startTimeText": "8:20"
+  },
+  {
+   "text": "섬겨 줘야 마치 종처럼 섬겨 줘야 어",
+   "startMs": "503240",
+   "endMs": "509240",
+   "startTimeText": "8:23"
+  },
+  {
+   "text": "된다라고 생각하면 그 사람을 살리기",
+   "startMs": "507440",
+   "endMs": "511960",
+   "startTimeText": "8:27"
+  },
+  {
+   "text": "위해서 내가 자유지만 자유가 있지만",
+   "startMs": "509240",
+   "endMs": "514680",
+   "startTimeText": "8:29"
+  },
+  {
+   "text": "그 사람을 위해서 나의 권리를 쓰지",
+   "startMs": "511960",
+   "endMs": "517080",
+   "startTimeText": "8:31"
+  },
+  {
+   "text": "아니하고 다른 쪽으로 이렇게 그",
+   "startMs": "514680",
+   "endMs": "520080",
+   "startTimeText": "8:34"
+  },
+  {
+   "text": "사람에게 맞춰서 이렇게 행동한 것은",
+   "startMs": "517080",
+   "endMs": "523760",
+   "startTimeText": "8:37"
+  },
+  {
+   "text": "더 많은 사람을 얻고자 함이라. 그",
+   "startMs": "520080",
+   "endMs": "526839",
+   "startTimeText": "8:40"
+  },
+  {
+   "text": "그런게 필요하죠. 우리가 보면은에",
+   "startMs": "523760",
+   "endMs": "529399",
+   "startTimeText": "8:43"
+  },
+  {
+   "text": "너무 극단적으로 이렇게",
+   "startMs": "526839",
+   "endMs": "532399",
+   "startTimeText": "8:46"
+  },
+  {
+   "text": "자기의 어떤 소신이에",
+   "startMs": "529399",
+   "endMs": "533959",
+   "startTimeText": "8:49"
+  },
+  {
+   "text": "있지만은",
+   "startMs": "532399",
+   "endMs": "536959",
+   "startTimeText": "8:52"
+  },
+  {
+   "text": "그게 엄청난 진리의 문제가 아니고",
+   "startMs": "533959",
+   "endMs": "538880",
+   "startTimeText": "8:53"
+  },
+  {
+   "text": "이럴 수도 있고 저럴 수도 있는",
+   "startMs": "536959",
+   "endMs": "541480",
+   "startTimeText": "8:56"
+  },
+  {
+   "text": "경우에 내가 가지고 있는 소신대로",
+   "startMs": "538880",
+   "endMs": "544000",
+   "startTimeText": "8:58"
+  },
+  {
+   "text": "행동을 할 수 있지만은 그러나 그렇게",
+   "startMs": "541480",
+   "endMs": "546120",
+   "startTimeText": "9:01"
+  },
+  {
+   "text": "하지 아니하고 그 사람에게 맞춰 주고",
+   "startMs": "544000",
+   "endMs": "548399",
+   "startTimeText": "9:04"
+  },
+  {
+   "text": "그렇게 하는 것은 그 사람을 얻기",
+   "startMs": "546120",
+   "endMs": "550600",
+   "startTimeText": "9:06"
+  },
+  {
+   "text": "위함이다. 그러니까 우리가 목적을",
+   "startMs": "548399",
+   "endMs": "552680",
+   "startTimeText": "9:08"
+  },
+  {
+   "text": "생각을 해 보면",
+   "startMs": "550600",
+   "endMs": "555240",
+   "startTimeText": "9:10"
+  },
+  {
+   "text": "우리가 행동을 좀 이렇게 결정을 할",
+   "startMs": "552680",
+   "endMs": "558120",
+   "startTimeText": "9:12"
+  },
+  {
+   "text": "수 있겠죠. 그래서 뭐가 더 많은",
+   "startMs": "555240",
+   "endMs": "559880",
+   "startTimeText": "9:15"
+  },
+  {
+   "text": "유익이 있는가 이런 것들을 따라",
+   "startMs": "558120",
+   "endMs": "563120",
+   "startTimeText": "9:18"
+  },
+  {
+   "text": "가지고 그것이 절대적인 진리의 문제가",
+   "startMs": "559880",
+   "endMs": "566680",
+   "startTimeText": "9:19"
+  },
+  {
+   "text": "아니라면 좀 그 사람에게 맞춰 줘서",
+   "startMs": "563120",
+   "endMs": "568839",
+   "startTimeText": "9:23"
+  },
+  {
+   "text": "그 사람을 얻고자 하기 위해서 이렇게",
+   "startMs": "566680",
+   "endMs": "570720",
+   "startTimeText": "9:26"
+  },
+  {
+   "text": "해야 되는 부분도 있습니다. 전도의",
+   "startMs": "568839",
+   "endMs": "575000",
+   "startTimeText": "9:28"
+  },
+  {
+   "text": "부분도 그렇죠. 뭐 배우자에 대한",
+   "startMs": "570720",
+   "endMs": "578040",
+   "startTimeText": "9:30"
+  },
+  {
+   "text": "그런 어떤 전도의 부분도 아이 나도",
+   "startMs": "575000",
+   "endMs": "581160",
+   "startTimeText": "9:35"
+  },
+  {
+   "text": "그냥 이렇게 할 수 있는데 또 그",
+   "startMs": "578040",
+   "endMs": "583600",
+   "startTimeText": "9:38"
+  },
+  {
+   "text": "사람에게 좀 맞춰 주는 것은 그",
+   "startMs": "581160",
+   "endMs": "585760",
+   "startTimeText": "9:41"
+  },
+  {
+   "text": "사람을 얻고자 하기 위해서 여러분들",
+   "startMs": "583600",
+   "endMs": "588120",
+   "startTimeText": "9:43"
+  },
+  {
+   "text": "그런 것들을 좀 맞춰 주는데 그게",
+   "startMs": "585760",
+   "endMs": "590720",
+   "startTimeText": "9:45"
+  },
+  {
+   "text": "자존심상하지 않고요. 오히려 어떻게",
+   "startMs": "588120",
+   "endMs": "594920",
+   "startTimeText": "9:48"
+  },
+  {
+   "text": "보면은 어 굉장히 거기에 또 목적이",
+   "startMs": "590720",
+   "endMs": "597760",
+   "startTimeText": "9:50"
+  },
+  {
+   "text": "있으니까에 그런 것들을 위해 가지고",
+   "startMs": "594920",
+   "endMs": "601200",
+   "startTimeText": "9:54"
+  },
+  {
+   "text": "내려놓고 그러면서 이제에 맞춰 주는",
+   "startMs": "597760",
+   "endMs": "603160",
+   "startTimeText": "9:57"
+  },
+  {
+   "text": "그런 모습들이 더 아름답지 않을까",
+   "startMs": "601200",
+   "endMs": "604959",
+   "startTimeText": "10:01"
+  },
+  {
+   "text": "그런 생각을 해 보게 됩니다.",
+   "startMs": "603160",
+   "endMs": "608240",
+   "startTimeText": "10:03"
+  },
+  {
+   "text": "20절에 보면은 사도 바울은",
+   "startMs": "604959",
+   "endMs": "610079",
+   "startTimeText": "10:04"
+  },
+  {
+   "text": "유대인들에게는 어 [목을 가다듬음]",
+   "startMs": "608240",
+   "endMs": "612600",
+   "startTimeText": "10:08"
+  },
+  {
+   "text": "어떻게 또 행동했습니까? 유대인과",
+   "startMs": "610079",
+   "endMs": "614440",
+   "startTimeText": "10:10"
+  },
+  {
+   "text": "같이 된 것은 유대인들을 얻고자",
+   "startMs": "612600",
+   "endMs": "617079",
+   "startTimeText": "10:12"
+  },
+  {
+   "text": "함이요. 유대인들이 지키고 있는 어떤",
+   "startMs": "614440",
+   "endMs": "620399",
+   "startTimeText": "10:14"
+  },
+  {
+   "text": "전통적인 그런 부분들이 있잖아요.",
+   "startMs": "617079",
+   "endMs": "623000",
+   "startTimeText": "10:17"
+  },
+  {
+   "text": "근데 사도 바울은 이미에",
+   "startMs": "620399",
+   "endMs": "626200",
+   "startTimeText": "10:20"
+  },
+  {
+   "text": "말씀의 정확한 원리가 뭔지를 알고",
+   "startMs": "623000",
+   "endMs": "629560",
+   "startTimeText": "10:23"
+  },
+  {
+   "text": "그런데 어떻게 보면 뭐 유대인들이",
+   "startMs": "626200",
+   "endMs": "631720",
+   "startTimeText": "10:26"
+  },
+  {
+   "text": "지키고 있는 것들이 말씀에 위배되지",
+   "startMs": "629560",
+   "endMs": "634200",
+   "startTimeText": "10:29"
+  },
+  {
+   "text": "않는 부분들이 있다면",
+   "startMs": "631720",
+   "endMs": "637279",
+   "startTimeText": "10:31"
+  },
+  {
+   "text": "뭐 유대인과 같이 되려고 노력을",
+   "startMs": "634200",
+   "endMs": "639279",
+   "startTimeText": "10:34"
+  },
+  {
+   "text": "했습니다. 유대인들의 어떤 그런",
+   "startMs": "637279",
+   "endMs": "643160",
+   "startTimeText": "10:37"
+  },
+  {
+   "text": "방법들을 좀 따르려고 어 생각을 하고",
+   "startMs": "639279",
+   "endMs": "646040",
+   "startTimeText": "10:39"
+  },
+  {
+   "text": "그 유대인들을 얻고자 어 유대인들과",
+   "startMs": "643160",
+   "endMs": "649399",
+   "startTimeText": "10:43"
+  },
+  {
+   "text": "같이 된 부분이 있다. 어 그다음에",
+   "startMs": "646040",
+   "endMs": "651519",
+   "startTimeText": "10:46"
+  },
+  {
+   "text": "율법 아래 있는 자들에게는 내가 율법",
+   "startMs": "649399",
+   "endMs": "653920",
+   "startTimeText": "10:49"
+  },
+  {
+   "text": "아래에 있지 아니하나 어 율법은",
+   "startMs": "651519",
+   "endMs": "655959",
+   "startTimeText": "10:51"
+  },
+  {
+   "text": "오히려 넘어서서 하나님의 뜻이",
+   "startMs": "653920",
+   "endMs": "659200",
+   "startTimeText": "10:53"
+  },
+  {
+   "text": "무엇인지 알고 그 율법이라는게 사실은",
+   "startMs": "655959",
+   "endMs": "662279",
+   "startTimeText": "10:55"
+  },
+  {
+   "text": "어떤 근본적인 그런 더 큰 원리를",
+   "startMs": "659200",
+   "endMs": "666240",
+   "startTimeText": "10:59"
+  },
+  {
+   "text": "지시하기 위해서 어 율법 요런 것들을",
+   "startMs": "662279",
+   "endMs": "669440",
+   "startTimeText": "11:02"
+  },
+  {
+   "text": "했는데 아직까지 그 근본적인 진리를",
+   "startMs": "666240",
+   "endMs": "672200",
+   "startTimeText": "11:06"
+  },
+  {
+   "text": "잘 모르고 그냥에",
+   "startMs": "669440",
+   "endMs": "676000",
+   "startTimeText": "11:09"
+  },
+  {
+   "text": "어떤 수준이 좀 낮은 상태나 아니면은",
+   "startMs": "672200",
+   "endMs": "678560",
+   "startTimeText": "11:12"
+  },
+  {
+   "text": "하나님께서 그것을 얘기했을 때 더 큰",
+   "startMs": "676000",
+   "endMs": "681240",
+   "startTimeText": "11:16"
+  },
+  {
+   "text": "거를 지시하기 위해서 어떤 단계적으로",
+   "startMs": "678560",
+   "endMs": "683320",
+   "startTimeText": "11:18"
+  },
+  {
+   "text": "생각하신 것이 있는데에 [콧방귀]",
+   "startMs": "681240",
+   "endMs": "685000",
+   "startTimeText": "11:21"
+  },
+  {
+   "text": "그것들을 잘 몰라 가지고 그게",
+   "startMs": "683320",
+   "endMs": "687560",
+   "startTimeText": "11:23"
+  },
+  {
+   "text": "중요하다라고 생각하는 사람들에게 있어",
+   "startMs": "685000",
+   "endMs": "689120",
+   "startTimeText": "11:25"
+  },
+  {
+   "text": "가지고는",
+   "startMs": "687560",
+   "endMs": "692040",
+   "startTimeText": "11:27"
+  },
+  {
+   "text": "내가 그것들을 능히 뛰어나 뛰어넘고",
+   "startMs": "689120",
+   "endMs": "694959",
+   "startTimeText": "11:29"
+  },
+  {
+   "text": "그것에 근본적인 것을 알고 있지만",
+   "startMs": "692040",
+   "endMs": "697320",
+   "startTimeText": "11:32"
+  },
+  {
+   "text": "거기에 맞춰 주는 것은 율법 아래에",
+   "startMs": "694959",
+   "endMs": "699279",
+   "startTimeText": "11:34"
+  },
+  {
+   "text": "있는 자같이 된 것은 율법 아래 있는",
+   "startMs": "697320",
+   "endMs": "701079",
+   "startTimeText": "11:37"
+  },
+  {
+   "text": "자들을 얻고자 함이요. 이렇게",
+   "startMs": "699279",
+   "endMs": "704279",
+   "startTimeText": "11:39"
+  },
+  {
+   "text": "이야기를 하고 있습니다. 유대인들이",
+   "startMs": "701079",
+   "endMs": "706240",
+   "startTimeText": "11:41"
+  },
+  {
+   "text": "중요하게 생각하는게 할리 같은",
+   "startMs": "704279",
+   "endMs": "708760",
+   "startTimeText": "11:44"
+  },
+  {
+   "text": "거잖아요. 어, [콧방귀] 그러니까",
+   "startMs": "706240",
+   "endMs": "710480",
+   "startTimeText": "11:46"
+  },
+  {
+   "text": "할례도",
+   "startMs": "708760",
+   "endMs": "713959",
+   "startTimeText": "11:48"
+  },
+  {
+   "text": "나쁜게 아니죠. 나쁜게 아니고 할례를",
+   "startMs": "710480",
+   "endMs": "716040",
+   "startTimeText": "11:50"
+  },
+  {
+   "text": "구원의",
+   "startMs": "713959",
+   "endMs": "718360",
+   "startTimeText": "11:53"
+  },
+  {
+   "text": "구원과 직결시키는게 문제가 되는",
+   "startMs": "716040",
+   "endMs": "720800",
+   "startTimeText": "11:56"
+  },
+  {
+   "text": "거지. 예. 뭐 할례를 받고 안",
+   "startMs": "718360",
+   "endMs": "723839",
+   "startTimeText": "11:58"
+  },
+  {
+   "text": "받고는 별로 중요한게 아닌데 그러면",
+   "startMs": "720800",
+   "endMs": "725399",
+   "startTimeText": "12:00"
+  },
+  {
+   "text": "유대인들은 할례를 중요하게",
+   "startMs": "723839",
+   "endMs": "727920",
+   "startTimeText": "12:03"
+  },
+  {
+   "text": "생각하잖아요. 왜냐면 구별되었다.",
+   "startMs": "725399",
+   "endMs": "730079",
+   "startTimeText": "12:05"
+  },
+  {
+   "text": "그런 표시로 이렇게 할례를 받는",
+   "startMs": "727920",
+   "endMs": "733160",
+   "startTimeText": "12:07"
+  },
+  {
+   "text": "거니까. 그러면 유대인들한테 들어가서",
+   "startMs": "730079",
+   "endMs": "736120",
+   "startTimeText": "12:10"
+  },
+  {
+   "text": "사역할 때는 뭐 할례에 대해서 뭐",
+   "startMs": "733160",
+   "endMs": "737519",
+   "startTimeText": "12:13"
+  },
+  {
+   "text": "깎아내릴 필요가 있겠습니까?",
+   "startMs": "736120",
+   "endMs": "740240",
+   "startTimeText": "12:16"
+  },
+  {
+   "text": "없겠습니까? 없죠. 그리고 할례받는",
+   "startMs": "737519",
+   "endMs": "743839",
+   "startTimeText": "12:17"
+  },
+  {
+   "text": "것에 대해서도 어 그렇게 나쁘게 말할",
+   "startMs": "740240",
+   "endMs": "748000",
+   "startTimeText": "12:20"
+  },
+  {
+   "text": "필요가 없고 그것이 이제 진리의 부분",
+   "startMs": "743839",
+   "endMs": "751440",
+   "startTimeText": "12:23"
+  },
+  {
+   "text": "구원을 받으려면 할례를 해야 된다",
+   "startMs": "748000",
+   "endMs": "754199",
+   "startTimeText": "12:28"
+  },
+  {
+   "text": "이렇게 얘기를 하면 그거는 아니겠지만",
+   "startMs": "751440",
+   "endMs": "756680",
+   "startTimeText": "12:31"
+  },
+  {
+   "text": "그러나 뭐 할례를 행하고 그런 것에",
+   "startMs": "754199",
+   "endMs": "759279",
+   "startTimeText": "12:34"
+  },
+  {
+   "text": "대해 가지고 내가 유대인들을 구원하기",
+   "startMs": "756680",
+   "endMs": "761279",
+   "startTimeText": "12:36"
+  },
+  {
+   "text": "위해 가지고 굳이이 사람들 할례를",
+   "startMs": "759279",
+   "endMs": "763480",
+   "startTimeText": "12:39"
+  },
+  {
+   "text": "중요하게 생각하고",
+   "startMs": "761279",
+   "endMs": "765959",
+   "startTimeText": "12:41"
+  },
+  {
+   "text": "그냥 구별되었다라는 그런 생각을 하고",
+   "startMs": "763480",
+   "endMs": "768560",
+   "startTimeText": "12:43"
+  },
+  {
+   "text": "있는 사람한테가 가지고 할례받는게 게",
+   "startMs": "765959",
+   "endMs": "771240",
+   "startTimeText": "12:45"
+  },
+  {
+   "text": "얼마나 나쁜 거냐 이런 식으로 얘기를",
+   "startMs": "768560",
+   "endMs": "773360",
+   "startTimeText": "12:48"
+  },
+  {
+   "text": "할 필요는 없다는 거죠. 그래서 율법",
+   "startMs": "771240",
+   "endMs": "775760",
+   "startTimeText": "12:51"
+  },
+  {
+   "text": "아래 있는 자들에게는 내가 율법 아래",
+   "startMs": "773360",
+   "endMs": "777600",
+   "startTimeText": "12:53"
+  },
+  {
+   "text": "있지 아니하나",
+   "startMs": "775760",
+   "endMs": "780519",
+   "startTimeText": "12:55"
+  },
+  {
+   "text": "그 할례 받는거나 할례 안 받는 거는",
+   "startMs": "777600",
+   "endMs": "783040",
+   "startTimeText": "12:57"
+  },
+  {
+   "text": "별로 그렇게 중요하지 않는데 그러나",
+   "startMs": "780519",
+   "endMs": "785920",
+   "startTimeText": "13:00"
+  },
+  {
+   "text": "율법 아래 있는 자들에게 율법 아래",
+   "startMs": "783040",
+   "endMs": "788240",
+   "startTimeText": "13:03"
+  },
+  {
+   "text": "있는 자들과 같이 된 것은 율법 아래",
+   "startMs": "785920",
+   "endMs": "790120",
+   "startTimeText": "13:05"
+  },
+  {
+   "text": "있는 자들을 얻고자 함이다.",
+   "startMs": "788240",
+   "endMs": "792199",
+   "startTimeText": "13:08"
+  },
+  {
+   "text": "유대인들에게도 내가 유대인과 같이 된",
+   "startMs": "790120",
+   "endMs": "794639",
+   "startTimeText": "13:10"
+  },
+  {
+   "text": "것은 유대인을 얻고자 함이요. 그니까",
+   "startMs": "792199",
+   "endMs": "796480",
+   "startTimeText": "13:12"
+  },
+  {
+   "text": "나는 그것들을 능히 뛰어넘을 수",
+   "startMs": "794639",
+   "endMs": "800000",
+   "startTimeText": "13:14"
+  },
+  {
+   "text": "있지만은 그러나 이런 부분을 중요하게",
+   "startMs": "796480",
+   "endMs": "803320",
+   "startTimeText": "13:16"
+  },
+  {
+   "text": "생각한다면 굳이 그것이에 그것에",
+   "startMs": "800000",
+   "endMs": "805560",
+   "startTimeText": "13:20"
+  },
+  {
+   "text": "대해서 내가 적대시하거나 그럴 필요",
+   "startMs": "803320",
+   "endMs": "807720",
+   "startTimeText": "13:23"
+  },
+  {
+   "text": "없이 거기에 맞춰 준 것은 그",
+   "startMs": "805560",
+   "endMs": "811160",
+   "startTimeText": "13:25"
+  },
+  {
+   "text": "사람들을 얻고자 합니다라는 것입니다.",
+   "startMs": "807720",
+   "endMs": "813639",
+   "startTimeText": "13:27"
+  },
+  {
+   "text": "그다음에 21절에 보면 또 율법 없는",
+   "startMs": "811160",
+   "endMs": "815920",
+   "startTimeText": "13:31"
+  },
+  {
+   "text": "자들 그 이방인들이 있잖아요.",
+   "startMs": "813639",
+   "endMs": "817639",
+   "startTimeText": "13:33"
+  },
+  {
+   "text": "이방인들은에",
+   "startMs": "815920",
+   "endMs": "820399",
+   "startTimeText": "13:35"
+  },
+  {
+   "text": "율법이 이제 율법을 잘 모르는",
+   "startMs": "817639",
+   "endMs": "823160",
+   "startTimeText": "13:37"
+  },
+  {
+   "text": "사람들이 있습니다. 근데에 내가",
+   "startMs": "820399",
+   "endMs": "825079",
+   "startTimeText": "13:40"
+  },
+  {
+   "text": "하나님께는 율법 없는 자가 아니라",
+   "startMs": "823160",
+   "endMs": "826760",
+   "startTimeText": "13:43"
+  },
+  {
+   "text": "도어 그리스도의 율법 아래 있는",
+   "startMs": "825079",
+   "endMs": "831120",
+   "startTimeText": "13:45"
+  },
+  {
+   "text": "자다. 하나님이 주신 율법이 있고",
+   "startMs": "826760",
+   "endMs": "833320",
+   "startTimeText": "13:46"
+  },
+  {
+   "text": "그다음에 그리스도의 율법 아래 있다는",
+   "startMs": "831120",
+   "endMs": "835959",
+   "startTimeText": "13:51"
+  },
+  {
+   "text": "것은 그 하나님께서 주시는 그 율법을",
+   "startMs": "833320",
+   "endMs": "837040",
+   "startTimeText": "13:53"
+  },
+  {
+   "text": "알면서 [목을 가다듬음] 그리스도의",
+   "startMs": "835959",
+   "endMs": "841240",
+   "startTimeText": "13:55"
+  },
+  {
+   "text": "율법은 하나님이 주신 율법보다 율법의",
+   "startMs": "837040",
+   "endMs": "844639",
+   "startTimeText": "13:57"
+  },
+  {
+   "text": "근본적인 그런 것들도 더 알고 있는",
+   "startMs": "841240",
+   "endMs": "846160",
+   "startTimeText": "14:01"
+  },
+  {
+   "text": "것이에",
+   "startMs": "844639",
+   "endMs": "848959",
+   "startTimeText": "14:04"
+  },
+  {
+   "text": "그리스도의 율법이잖아요. 왜냐면",
+   "startMs": "846160",
+   "endMs": "851600",
+   "startTimeText": "14:06"
+  },
+  {
+   "text": "하나님께서 율법을 이렇게 주셨을 때",
+   "startMs": "848959",
+   "endMs": "853759",
+   "startTimeText": "14:08"
+  },
+  {
+   "text": "어떤 뭘 하지 말라, 뭘 하지 말라.",
+   "startMs": "851600",
+   "endMs": "857240",
+   "startTimeText": "14:11"
+  },
+  {
+   "text": "근데 그리스도 율법은 뭐까지도 보게",
+   "startMs": "853759",
+   "endMs": "859639",
+   "startTimeText": "14:13"
+  },
+  {
+   "text": "되는 겁니까? 마음까지도.",
+   "startMs": "857240",
+   "endMs": "861399",
+   "startTimeText": "14:17"
+  },
+  {
+   "text": "이렇게 보니까 원래 하나님께서",
+   "startMs": "859639",
+   "endMs": "863680",
+   "startTimeText": "14:19"
+  },
+  {
+   "text": "말씀하신 율법은 그런 것까지도 다",
+   "startMs": "861399",
+   "endMs": "867680",
+   "startTimeText": "14:21"
+  },
+  {
+   "text": "당겨 있는 건데 그걸 잘 모르고 어",
+   "startMs": "863680",
+   "endMs": "870519",
+   "startTimeText": "14:23"
+  },
+  {
+   "text": "그 율법에 대해서 이제 이스라엘",
+   "startMs": "867680",
+   "endMs": "872839",
+   "startTimeText": "14:27"
+  },
+  {
+   "text": "사람들이 그 정도만 생각을 했는데",
+   "startMs": "870519",
+   "endMs": "875320",
+   "startTimeText": "14:30"
+  },
+  {
+   "text": "나는 율법 없는 자는 아니다.",
+   "startMs": "872839",
+   "endMs": "877959",
+   "startTimeText": "14:32"
+  },
+  {
+   "text": ">> 그리고 주님께서 그 율법을 얘기하셨을",
+   "startMs": "875320",
+   "endMs": "882120",
+   "startTimeText": "14:35"
+  },
+  {
+   "text": "때 그 율법의 진정한 의미는 그것들을",
+   "startMs": "877959",
+   "endMs": "884560",
+   "startTimeText": "14:37"
+  },
+  {
+   "text": "더 뛰어넘는 것이다.",
+   "startMs": "882120",
+   "endMs": "887600",
+   "startTimeText": "14:42"
+  },
+  {
+   "text": "뭐 그런 것들을 다 알고 있고 자기는",
+   "startMs": "884560",
+   "endMs": "890040",
+   "startTimeText": "14:44"
+  },
+  {
+   "text": "율법이 없어 가지고 그런게 아니라",
+   "startMs": "887600",
+   "endMs": "892560",
+   "startTimeText": "14:47"
+  },
+  {
+   "text": "하나님께서 얘기하시는 더 근원적인",
+   "startMs": "890040",
+   "endMs": "894800",
+   "startTimeText": "14:50"
+  },
+  {
+   "text": "것들을 알고 있으면서 그리스도의",
+   "startMs": "892560",
+   "endMs": "897800",
+   "startTimeText": "14:52"
+  },
+  {
+   "text": "율법을 붙들고 있는 [목을 가다듬음]",
+   "startMs": "894800",
+   "endMs": "901120",
+   "startTimeText": "14:54"
+  },
+  {
+   "text": "사람인데 율법 없는 자들에게는 내가",
+   "startMs": "897800",
+   "endMs": "903240",
+   "startTimeText": "14:57"
+  },
+  {
+   "text": "하나님께는 율법 없는 자가 아니요.",
+   "startMs": "901120",
+   "endMs": "905079",
+   "startTimeText": "15:01"
+  },
+  {
+   "text": "그리스도의 율법 아래 있지만 율법",
+   "startMs": "903240",
+   "endMs": "907399",
+   "startTimeText": "15:03"
+  },
+  {
+   "text": "없는 자와 같이 된 것은 율법 없는",
+   "startMs": "905079",
+   "endMs": "909360",
+   "startTimeText": "15:05"
+  },
+  {
+   "text": "자들을 얻고자 함이에요. 이것도 뭐",
+   "startMs": "907399",
+   "endMs": "912160",
+   "startTimeText": "15:07"
+  },
+  {
+   "text": "이방인들 할례 문제도 마찬가지죠.",
+   "startMs": "909360",
+   "endMs": "915279",
+   "startTimeText": "15:09"
+  },
+  {
+   "text": "할례라는 그런 것들을 이방인들은 안",
+   "startMs": "912160",
+   "endMs": "917880",
+   "startTimeText": "15:12"
+  },
+  {
+   "text": "행한단 말이에요.",
+   "startMs": "915279",
+   "endMs": "920639",
+   "startTimeText": "15:15"
+  },
+  {
+   "text": "그러니까 이게 중요하지 않다.이",
+   "startMs": "917880",
+   "endMs": "924519",
+   "startTimeText": "15:17"
+  },
+  {
+   "text": "근원적인 거는 어 하나님께 구별되는",
+   "startMs": "920639",
+   "endMs": "927839",
+   "startTimeText": "15:20"
+  },
+  {
+   "text": "것을 나타내는 표이지 그것 자체를",
+   "startMs": "924519",
+   "endMs": "930120",
+   "startTimeText": "15:24"
+  },
+  {
+   "text": "하는 것이 그렇게 중요하지 않다.",
+   "startMs": "927839",
+   "endMs": "933240",
+   "startTimeText": "15:27"
+  },
+  {
+   "text": "그러니까 어 더 그 할례의 뜻을 더",
+   "startMs": "930120",
+   "endMs": "935279",
+   "startTimeText": "15:30"
+  },
+  {
+   "text": "어떻게 보면 알고 있어 가지고 그런",
+   "startMs": "933240",
+   "endMs": "938519",
+   "startTimeText": "15:33"
+  },
+  {
+   "text": "것들을 안 하는데 그런 사람들한테가",
+   "startMs": "935279",
+   "endMs": "940440",
+   "startTimeText": "15:35"
+  },
+  {
+   "text": "가지고 뭐 유대인처럼 또 할례를",
+   "startMs": "938519",
+   "endMs": "942639",
+   "startTimeText": "15:38"
+  },
+  {
+   "text": "받아야 된다라고 얘기할 필요가",
+   "startMs": "940440",
+   "endMs": "944839",
+   "startTimeText": "15:40"
+  },
+  {
+   "text": "없다라는 거죠. 그래서 할례 안",
+   "startMs": "942639",
+   "endMs": "947319",
+   "startTimeText": "15:42"
+  },
+  {
+   "text": "받아도 괜찮다. 또 이렇게 얘기를",
+   "startMs": "944839",
+   "endMs": "949920",
+   "startTimeText": "15:44"
+  },
+  {
+   "text": "했던 것은 어 자기 안에 그리스도의",
+   "startMs": "947319",
+   "endMs": "952319",
+   "startTimeText": "15:47"
+  },
+  {
+   "text": "율법, 하나님의 율법의 그 진정한",
+   "startMs": "949920",
+   "endMs": "955759",
+   "startTimeText": "15:49"
+  },
+  {
+   "text": "의미 에를 더 담아서 얘기하신 분이",
+   "startMs": "952319",
+   "endMs": "958519",
+   "startTimeText": "15:52"
+  },
+  {
+   "text": "예수 그리스도인데 그분의 기준이",
+   "startMs": "955759",
+   "endMs": "960319",
+   "startTimeText": "15:55"
+  },
+  {
+   "text": "뭔지를 자기는 명확하게 알고 있기",
+   "startMs": "958519",
+   "endMs": "962920",
+   "startTimeText": "15:58"
+  },
+  {
+   "text": "때문에 할례를 받는 것이나 받지 않는",
+   "startMs": "960319",
+   "endMs": "965880",
+   "startTimeText": "16:00"
+  },
+  {
+   "text": "것이나 그렇게 중요한 것은 아닙니다.",
+   "startMs": "962920",
+   "endMs": "969360",
+   "startTimeText": "16:02"
+  },
+  {
+   "text": "받는 사람들한테가 가지고는 그래요.",
+   "startMs": "965880",
+   "endMs": "972079",
+   "startTimeText": "16:05"
+  },
+  {
+   "text": "받는게 나쁜게 아니다. 그냥 받으면서",
+   "startMs": "969360",
+   "endMs": "975040",
+   "startTimeText": "16:09"
+  },
+  {
+   "text": "신앙생활 한 거고 그다음에 안 받는",
+   "startMs": "972079",
+   "endMs": "977639",
+   "startTimeText": "16:12"
+  },
+  {
+   "text": "것에 대해서 또 거기에 또 하나님의",
+   "startMs": "975040",
+   "endMs": "980199",
+   "startTimeText": "16:15"
+  },
+  {
+   "text": "뜻이 있다라고 생각하는 사람은 그래",
+   "startMs": "977639",
+   "endMs": "982040",
+   "startTimeText": "16:17"
+  },
+  {
+   "text": "할례 받고 안 받고는 뭐 그렇게",
+   "startMs": "980199",
+   "endMs": "985360",
+   "startTimeText": "16:20"
+  },
+  {
+   "text": "중요한 건 아니니까 마음으로 어떻게",
+   "startMs": "982040",
+   "endMs": "987600",
+   "startTimeText": "16:22"
+  },
+  {
+   "text": "보면 구별되는 것이 더 중요하다.",
+   "startMs": "985360",
+   "endMs": "989839",
+   "startTimeText": "16:25"
+  },
+  {
+   "text": "그렇게 생각하면서 그거를 억지로 받게",
+   "startMs": "987600",
+   "endMs": "993319",
+   "startTimeText": "16:27"
+  },
+  {
+   "text": "하려고 하지는 않고 그러니까 이렇게",
+   "startMs": "989839",
+   "endMs": "995399",
+   "startTimeText": "16:29"
+  },
+  {
+   "text": "된 것은 또 율법 없는 자와 같이 된",
+   "startMs": "993319",
+   "endMs": "997399",
+   "startTimeText": "16:33"
+  },
+  {
+   "text": "것은 율법 없는 자들을 얻고자",
+   "startMs": "995399",
+   "endMs": "1001759",
+   "startTimeText": "16:35"
+  },
+  {
+   "text": "합니다. 그러니까 우리의 삶 가운데",
+   "startMs": "997399",
+   "endMs": "1004560",
+   "startTimeText": "16:37"
+  },
+  {
+   "text": "절대적인 진리는 뭐밖에 없습니까?",
+   "startMs": "1001759",
+   "endMs": "1006040",
+   "startTimeText": "16:41"
+  },
+  {
+   "text": "예수 그리스도로 말미암아서",
+   "startMs": "1004560",
+   "endMs": "1009399",
+   "startTimeText": "16:44"
+  },
+  {
+   "text": "구원받는다. 그거 외에는 그냥",
+   "startMs": "1006040",
+   "endMs": "1012120",
+   "startTimeText": "16:46"
+  },
+  {
+   "text": "나름대로 신앙생활을 할 때 본인들이",
+   "startMs": "1009399",
+   "endMs": "1013880",
+   "startTimeText": "16:49"
+  },
+  {
+   "text": "가지고 있는 그런 [목을 가다듬음]",
+   "startMs": "1012120",
+   "endMs": "1016560",
+   "startTimeText": "16:52"
+  },
+  {
+   "text": "의미가 있는데 그런 것들이 성경에",
+   "startMs": "1013880",
+   "endMs": "1020000",
+   "startTimeText": "16:53"
+  },
+  {
+   "text": "위배되지 않는다면은에",
+   "startMs": "1016560",
+   "endMs": "1022120",
+   "startTimeText": "16:56"
+  },
+  {
+   "text": "뭐 저렇게 생각할 수도 있지 뭐",
+   "startMs": "1020000",
+   "endMs": "1024760",
+   "startTimeText": "17:00"
+  },
+  {
+   "text": "이렇게 생각할 수도 있지. 어, 예를",
+   "startMs": "1022120",
+   "endMs": "1028199",
+   "startTimeText": "17:02"
+  },
+  {
+   "text": "들어서 뭐 교회 잘 출석하는 것이",
+   "startMs": "1024760",
+   "endMs": "1031240",
+   "startTimeText": "17:04"
+  },
+  {
+   "text": "중요하다라고 생각하는 사람들에게는",
+   "startMs": "1028199",
+   "endMs": "1035199",
+   "startTimeText": "17:08"
+  },
+  {
+   "text": "어, 그래 참 잘한다. 그래, 그렇게",
+   "startMs": "1031240",
+   "endMs": "1037520",
+   "startTimeText": "17:11"
+  },
+  {
+   "text": "나도 그렇게 생각해. 잘석하는게",
+   "startMs": "1035199",
+   "endMs": "1040280",
+   "startTimeText": "17:15"
+  },
+  {
+   "text": "중요해. 이렇게 얘기를 할 수 있고",
+   "startMs": "1037520",
+   "endMs": "1042720",
+   "startTimeText": "17:17"
+  },
+  {
+   "text": "그다음에 어떤 사람은 교회 출석하는",
+   "startMs": "1040280",
+   "endMs": "1045360",
+   "startTimeText": "17:20"
+  },
+  {
+   "text": "것도 중요하지만 또 일상의 사면 또",
+   "startMs": "1042720",
+   "endMs": "1047720",
+   "startTimeText": "17:22"
+  },
+  {
+   "text": "예배드리듯이 살아야 된다 이렇게",
+   "startMs": "1045360",
+   "endMs": "1050080",
+   "startTimeText": "17:25"
+  },
+  {
+   "text": "생각하는 사람도 있고 뭐 때로는 뭐",
+   "startMs": "1047720",
+   "endMs": "1053840",
+   "startTimeText": "17:27"
+  },
+  {
+   "text": "줄 줄 말고도 뭐 다른 날에 또 뭐",
+   "startMs": "1050080",
+   "endMs": "1056320",
+   "startTimeText": "17:30"
+  },
+  {
+   "text": "때로는 뭐 집에서도 이렇게 가족들이랑",
+   "startMs": "1053840",
+   "endMs": "1058960",
+   "startTimeText": "17:33"
+  },
+  {
+   "text": "시간도 보낼 수 있고 뭐 그럴 수",
+   "startMs": "1056320",
+   "endMs": "1060919",
+   "startTimeText": "17:36"
+  },
+  {
+   "text": "있다. 뭐 그런 것들도 하나님께서",
+   "startMs": "1058960",
+   "endMs": "1063360",
+   "startTimeText": "17:38"
+  },
+  {
+   "text": "기뻐하신 거다. 뭐 그렇게 얘기하는",
+   "startMs": "1060919",
+   "endMs": "1065960",
+   "startTimeText": "17:40"
+  },
+  {
+   "text": "그런 사람들이 있으면에 그 사람들에가",
+   "startMs": "1063360",
+   "endMs": "1068559",
+   "startTimeText": "17:43"
+  },
+  {
+   "text": "가지고 그렇게 된 거.에",
+   "startMs": "1065960",
+   "endMs": "1071640",
+   "startTimeText": "17:45"
+  },
+  {
+   "text": "그 어떻게든지 그런 통로를 삼아",
+   "startMs": "1068559",
+   "endMs": "1074799",
+   "startTimeText": "17:48"
+  },
+  {
+   "text": "가지고 그들에게 복음을 전하고 그들을",
+   "startMs": "1071640",
+   "endMs": "1077799",
+   "startTimeText": "17:51"
+  },
+  {
+   "text": "주님께로 인도하는 목에 목적이 있기",
+   "startMs": "1074799",
+   "endMs": "1080640",
+   "startTimeText": "17:54"
+  },
+  {
+   "text": "때문에 여러 모양으로 이제 사도",
+   "startMs": "1077799",
+   "endMs": "1083480",
+   "startTimeText": "17:57"
+  },
+  {
+   "text": "바울은 맞춤으로 어 이렇게 나아갔던",
+   "startMs": "1080640",
+   "endMs": "1085679",
+   "startTimeText": "18:00"
+  },
+  {
+   "text": "것을 볼 수가 있습니다. 그런데 그",
+   "startMs": "1083480",
+   "endMs": "1088120",
+   "startTimeText": "18:03"
+  },
+  {
+   "text": "사도 바울 안에 기준이 있는 거예요,",
+   "startMs": "1085679",
+   "endMs": "1091200",
+   "startTimeText": "18:05"
+  },
+  {
+   "text": "없는 거예요? 있어요.",
+   "startMs": "1088120",
+   "endMs": "1093760",
+   "startTimeText": "18:08"
+  },
+  {
+   "text": "있고 그 [콧방귀] 기준에 따라서",
+   "startMs": "1091200",
+   "endMs": "1095172",
+   "startTimeText": "18:11"
+  },
+  {
+   "text": "하나님의 뜻을 명백하게",
+   "startMs": "1093760",
+   "endMs": "1096400",
+   "startTimeText": "18:13"
+  },
+  {
+   "text": "[목을 가다듬음] 알고 있으니까 그",
+   "startMs": "1095172",
+   "endMs": "1099320",
+   "startTimeText": "18:15"
+  },
+  {
+   "text": "기준에 따라서 이런 것들은 그냥",
+   "startMs": "1096400",
+   "endMs": "1102000",
+   "startTimeText": "18:16"
+  },
+  {
+   "text": "상황적으로 그냥 이렇게도 볼 수 있고",
+   "startMs": "1099320",
+   "endMs": "1105000",
+   "startTimeText": "18:19"
+  },
+  {
+   "text": "저렇게도 볼 수 있으니까 그건 별로",
+   "startMs": "1102000",
+   "endMs": "1108120",
+   "startTimeText": "18:22"
+  },
+  {
+   "text": "어 중요하지 않다.에",
+   "startMs": "1105000",
+   "endMs": "1110679",
+   "startTimeText": "18:25"
+  },
+  {
+   "text": "그렇게 생각해 가지고 사도 바울은",
+   "startMs": "1108120",
+   "endMs": "1113480",
+   "startTimeText": "18:28"
+  },
+  {
+   "text": "그렇게에 하는 거예요.",
+   "startMs": "1110679",
+   "endMs": "1114822",
+   "startTimeText": "18:30"
+  },
+  {
+   "text": "뭐 헌금도 마찬가지지",
+   "startMs": "1113480",
+   "endMs": "1115559",
+   "startTimeText": "18:33"
+  },
+  {
+   "text": "[목을 가다듬음]",
+   "startMs": "1114822",
+   "endMs": "1119600",
+   "startTimeText": "18:34"
+  },
+  {
+   "text": "않겠습니까? 뭐 황금생활도 뭐 뭐",
+   "startMs": "1115559",
+   "endMs": "1122760",
+   "startTimeText": "18:35"
+  },
+  {
+   "text": "우리 교회 같은 경우는 또 뭐 그",
+   "startMs": "1119600",
+   "endMs": "1125159",
+   "startTimeText": "18:39"
+  },
+  {
+   "text": "특별하게 이제 절기를 따라 가지고",
+   "startMs": "1122760",
+   "endMs": "1129200",
+   "startTimeText": "18:42"
+  },
+  {
+   "text": "이제 절기의 어떤 헌금 봉투가 있는데",
+   "startMs": "1125159",
+   "endMs": "1132120",
+   "startTimeText": "18:45"
+  },
+  {
+   "text": "봉투를 사용해야 된다라고 생각하는",
+   "startMs": "1129200",
+   "endMs": "1137320",
+   "startTimeText": "18:49"
+  },
+  {
+   "text": "사람도 있고 뭐 봉투 없이 그냥",
+   "startMs": "1132120",
+   "endMs": "1139520",
+   "startTimeText": "18:52"
+  },
+  {
+   "text": "알아서 준비해야 된다라고 생각하는",
+   "startMs": "1137320",
+   "endMs": "1141200",
+   "startTimeText": "18:57"
+  },
+  {
+   "text": "사람이 있고 [목을 가다듬음]",
+   "startMs": "1139520",
+   "endMs": "1143720",
+   "startTimeText": "18:59"
+  },
+  {
+   "text": "그거는 중요한 문제예요. 중요하지",
+   "startMs": "1141200",
+   "endMs": "1145400",
+   "startTimeText": "19:01"
+  },
+  {
+   "text": "않은 문제예요. 중요하지 않은",
+   "startMs": "1143720",
+   "endMs": "1148679",
+   "startTimeText": "19:03"
+  },
+  {
+   "text": "문제예요. 근데 미리미리 뭔가를",
+   "startMs": "1145400",
+   "endMs": "1151240",
+   "startTimeText": "19:05"
+  },
+  {
+   "text": "준비하고 그런 것들에 대해서 마음을",
+   "startMs": "1148679",
+   "endMs": "1153280",
+   "startTimeText": "19:08"
+  },
+  {
+   "text": "새기고 그러기 위해서는 어떤 것들을",
+   "startMs": "1151240",
+   "endMs": "1155760",
+   "startTimeText": "19:11"
+  },
+  {
+   "text": "알리는 것이 필요하다라고 생각하는",
+   "startMs": "1153280",
+   "endMs": "1158280",
+   "startTimeText": "19:13"
+  },
+  {
+   "text": "사람이 있으면 뭐 그런 사람들에게는",
+   "startMs": "1155760",
+   "endMs": "1161240",
+   "startTimeText": "19:15"
+  },
+  {
+   "text": "또 그렇게 그래 그것도 굉장히",
+   "startMs": "1158280",
+   "endMs": "1163880",
+   "startTimeText": "19:18"
+  },
+  {
+   "text": "향기로운 일이다. 그러나 그렇지 않은",
+   "startMs": "1161240",
+   "endMs": "1166440",
+   "startTimeText": "19:21"
+  },
+  {
+   "text": "사람들에게는 또 그것도 괜찮은",
+   "startMs": "1163880",
+   "endMs": "1168919",
+   "startTimeText": "19:23"
+  },
+  {
+   "text": "일이다. 이렇게 이야기를 하는 것은",
+   "startMs": "1166440",
+   "endMs": "1171520",
+   "startTimeText": "19:26"
+  },
+  {
+   "text": "그 모든 사람들을 얻고자 하는 그런",
+   "startMs": "1168919",
+   "endMs": "1174080",
+   "startTimeText": "19:28"
+  },
+  {
+   "text": "사도 바울의 더 큰 그런 것이 있다.",
+   "startMs": "1171520",
+   "endMs": "1175000",
+   "startTimeText": "19:31"
+  },
+  {
+   "text": "분명히 [목을 가다듬음] 자기가",
+   "startMs": "1174080",
+   "endMs": "1177600",
+   "startTimeText": "19:34"
+  },
+  {
+   "text": "가지고 있는 기준이 있지만은 어",
+   "startMs": "1175000",
+   "endMs": "1180559",
+   "startTimeText": "19:35"
+  },
+  {
+   "text": "자기가 이것이 더 신앙생활에 있어서",
+   "startMs": "1177600",
+   "endMs": "1182760",
+   "startTimeText": "19:37"
+  },
+  {
+   "text": "자기는 더 좋다라는 것을 알고는",
+   "startMs": "1180559",
+   "endMs": "1186280",
+   "startTimeText": "19:40"
+  },
+  {
+   "text": "있지만 사람들의 수중과에",
+   "startMs": "1182760",
+   "endMs": "1188360",
+   "startTimeText": "19:42"
+  },
+  {
+   "text": "그다음에 그것이 성경적으로 위배되지",
+   "startMs": "1186280",
+   "endMs": "1190559",
+   "startTimeText": "19:46"
+  },
+  {
+   "text": "아니하고 그것이 어떤 성경적인",
+   "startMs": "1188360",
+   "endMs": "1193480",
+   "startTimeText": "19:48"
+  },
+  {
+   "text": "방향성을 향해서 다 달려가는 어떤",
+   "startMs": "1190559",
+   "endMs": "1196440",
+   "startTimeText": "19:50"
+  },
+  {
+   "text": "그런 단계적인 그런 기준에 있을 때는",
+   "startMs": "1193480",
+   "endMs": "1199080",
+   "startTimeText": "19:53"
+  },
+  {
+   "text": "내가 그런 것들을 보면서 판단하거나",
+   "startMs": "1196440",
+   "endMs": "1201640",
+   "startTimeText": "19:56"
+  },
+  {
+   "text": "정제하거나 그게 아니라 같이 호흡을",
+   "startMs": "1199080",
+   "endMs": "1204200",
+   "startTimeText": "19:59"
+  },
+  {
+   "text": "맞추면서 나아가려고 노력했다. 그것은",
+   "startMs": "1201640",
+   "endMs": "1206320",
+   "startTimeText": "20:01"
+  },
+  {
+   "text": "그 모든 사람들을 얻고자 함이라는",
+   "startMs": "1204200",
+   "endMs": "1209360",
+   "startTimeText": "20:04"
+  },
+  {
+   "text": "거죠. 22절을 보세요. 우리 같이",
+   "startMs": "1206320",
+   "endMs": "1211520",
+   "startTimeText": "20:06"
+  },
+  {
+   "text": "읽겠습니다. 약한 자들에게는 내가",
+   "startMs": "1209360",
+   "endMs": "1213600",
+   "startTimeText": "20:09"
+  },
+  {
+   "text": "약한 자와 같이 된 것은 약한 자들을",
+   "startMs": "1211520",
+   "endMs": "1215600",
+   "startTimeText": "20:11"
+  },
+  {
+   "text": "얻고자 하며 내가 여러 사람에게 여러",
+   "startMs": "1213600",
+   "endMs": "1217440",
+   "startTimeText": "20:13"
+  },
+  {
+   "text": "모습이 된 것은 아무쪼록 몇",
+   "startMs": "1215600",
+   "endMs": "1219840",
+   "startTimeText": "20:15"
+  },
+  {
+   "text": "사람이라도 구원하고자 함이니 약한",
+   "startMs": "1217440",
+   "endMs": "1222120",
+   "startTimeText": "20:17"
+  },
+  {
+   "text": "자들 있잖아요. 약한 자들은 뭐 그런",
+   "startMs": "1219840",
+   "endMs": "1225360",
+   "startTimeText": "20:19"
+  },
+  {
+   "text": "거예요. 어 예를 들어서 우상에게",
+   "startMs": "1222120",
+   "endMs": "1228000",
+   "startTimeText": "20:22"
+  },
+  {
+   "text": "받쳐진 재물 같은 거 [콧방귀] 아",
+   "startMs": "1225360",
+   "endMs": "1230039",
+   "startTimeText": "20:25"
+  },
+  {
+   "text": "그런 거는 먹으면 안 되게 안 되지",
+   "startMs": "1228000",
+   "endMs": "1231679",
+   "startTimeText": "20:28"
+  },
+  {
+   "text": "않느냐. 근데 사도 바울은 기준을",
+   "startMs": "1230039",
+   "endMs": "1233200",
+   "startTimeText": "20:30"
+  },
+  {
+   "text": "알고 있잖아요. 그것 아무것도",
+   "startMs": "1231679",
+   "endMs": "1235640",
+   "startTimeText": "20:31"
+  },
+  {
+   "text": "아니다라는 건 알고 있어요. 근데 그",
+   "startMs": "1233200",
+   "endMs": "1237309",
+   "startTimeText": "20:33"
+  },
+  {
+   "text": "사람들은 또 이거는 우상에게",
+   "startMs": "1235640",
+   "endMs": "1238000",
+   "startTimeText": "20:35"
+  },
+  {
+   "text": "[콧방귀]",
+   "startMs": "1237309",
+   "endMs": "1241919",
+   "startTimeText": "20:37"
+  },
+  {
+   "text": "받쳐진 거니까 또 이게 좀 그런",
+   "startMs": "1238000",
+   "endMs": "1244440",
+   "startTimeText": "20:38"
+  },
+  {
+   "text": "우상을 향한 어떤 섬김의 마음이 있는",
+   "startMs": "1241919",
+   "endMs": "1246760",
+   "startTimeText": "20:41"
+  },
+  {
+   "text": "거 아니에요. 또 이렇게 얘기하는",
+   "startMs": "1244440",
+   "endMs": "1249640",
+   "startTimeText": "20:44"
+  },
+  {
+   "text": "사람이 있으니까 그런 사람들한테가",
+   "startMs": "1246760",
+   "endMs": "1253480",
+   "startTimeText": "20:46"
+  },
+  {
+   "text": "가지고 그 다들 이제 그 믿음이 그냥",
+   "startMs": "1249640",
+   "endMs": "1255480",
+   "startTimeText": "20:49"
+  },
+  {
+   "text": "믿음의 수준이 조금 이렇게 연약한",
+   "startMs": "1253480",
+   "endMs": "1258679",
+   "startTimeText": "20:53"
+  },
+  {
+   "text": "사람들이 이제 모인 곳에서",
+   "startMs": "1255480",
+   "endMs": "1260960",
+   "startTimeText": "20:55"
+  },
+  {
+   "text": "그 우상의 재물을 안 먹는게 좋은 거",
+   "startMs": "1258679",
+   "endMs": "1262799",
+   "startTimeText": "20:58"
+  },
+  {
+   "text": "아닙니까? 이렇게 얘기했는데 거기서",
+   "startMs": "1260960",
+   "endMs": "1264164",
+   "startTimeText": "21:00"
+  },
+  {
+   "text": "일부러",
+   "startMs": "1262799",
+   "endMs": "1264919",
+   "startTimeText": "21:02"
+  },
+  {
+   "text": ">> [콧방귀][한숨]",
+   "startMs": "1264164",
+   "endMs": "1266640",
+   "startTimeText": "21:04"
+  },
+  {
+   "text": ">> 진짜를 가르쳐 주기 위해서 우상의",
+   "startMs": "1264919",
+   "endMs": "1270000",
+   "startTimeText": "21:04"
+  },
+  {
+   "text": "재물을 막 먹으면 되겠냐는 거죠.",
+   "startMs": "1266640",
+   "endMs": "1273039",
+   "startTimeText": "21:06"
+  },
+  {
+   "text": "그러면 그런 것들에 대해서 어 이게이",
+   "startMs": "1270000",
+   "endMs": "1275159",
+   "startTimeText": "21:10"
+  },
+  {
+   "text": "사람들은 아직 그런 지식에 이르지",
+   "startMs": "1273039",
+   "endMs": "1278200",
+   "startTimeText": "21:13"
+  },
+  {
+   "text": "못해 가지고 근데 우상의 재물을 안",
+   "startMs": "1275159",
+   "endMs": "1280679",
+   "startTimeText": "21:15"
+  },
+  {
+   "text": "먹어도 되는 거 아니에요. 그런데",
+   "startMs": "1278200",
+   "endMs": "1284240",
+   "startTimeText": "21:18"
+  },
+  {
+   "text": "자기는 자유는 있어요. 그런데에 그",
+   "startMs": "1280679",
+   "endMs": "1286960",
+   "startTimeText": "21:20"
+  },
+  {
+   "text": "연약한 사람들과 같이 또 함께 호흡을",
+   "startMs": "1284240",
+   "endMs": "1289440",
+   "startTimeText": "21:24"
+  },
+  {
+   "text": "한 것은 그들을",
+   "startMs": "1286960",
+   "endMs": "1292159",
+   "startTimeText": "21:26"
+  },
+  {
+   "text": "거기서부터 시작해 가지고 더",
+   "startMs": "1289440",
+   "endMs": "1294080",
+   "startTimeText": "21:29"
+  },
+  {
+   "text": "성장시키려는 목적을 가지고 있지.",
+   "startMs": "1292159",
+   "endMs": "1296720",
+   "startTimeText": "21:32"
+  },
+  {
+   "text": "처음부터가 가지고 뭐 술 문제도",
+   "startMs": "1294080",
+   "endMs": "1298600",
+   "startTimeText": "21:34"
+  },
+  {
+   "text": "똑같은 거 아닙니까?",
+   "startMs": "1296720",
+   "endMs": "1300760",
+   "startTimeText": "21:36"
+  },
+  {
+   "text": "그리스도인들이 술 마시면 안 된다라고",
+   "startMs": "1298600",
+   "endMs": "1303000",
+   "startTimeText": "21:38"
+  },
+  {
+   "text": "생각하는데 어떤 사람이 술은 별로",
+   "startMs": "1300760",
+   "endMs": "1305480",
+   "startTimeText": "21:40"
+  },
+  {
+   "text": "그렇게 중요한게 아니다. 뭐 취하지",
+   "startMs": "1303000",
+   "endMs": "1307400",
+   "startTimeText": "21:43"
+  },
+  {
+   "text": "않는게",
+   "startMs": "1305480",
+   "endMs": "1311320",
+   "startTimeText": "21:45"
+  },
+  {
+   "text": "뭐 취하지 말아야지 취했을 때 이제에",
+   "startMs": "1307400",
+   "endMs": "1313760",
+   "startTimeText": "21:47"
+  },
+  {
+   "text": "그 거기에서 이제 굉장히 문제가 생길",
+   "startMs": "1311320",
+   "endMs": "1317559",
+   "startTimeText": "21:51"
+  },
+  {
+   "text": "수 있다. 자기는 이렇게 생각하는데에",
+   "startMs": "1313760",
+   "endMs": "1319720",
+   "startTimeText": "21:53"
+  },
+  {
+   "text": "뭐 어떤 사람은 술 마셔도 된다라고",
+   "startMs": "1317559",
+   "endMs": "1322159",
+   "startTimeText": "21:57"
+  },
+  {
+   "text": "생각을 하는데 어떤 그리스도인들은 술",
+   "startMs": "1319720",
+   "endMs": "1324360",
+   "startTimeText": "21:59"
+  },
+  {
+   "text": "마시면은 안 되는 거 아니냐. 우리",
+   "startMs": "1322159",
+   "endMs": "1326320",
+   "startTimeText": "22:02"
+  },
+  {
+   "text": "몸이 거룩한 성전이니까 좀 구별해야",
+   "startMs": "1324360",
+   "endMs": "1328880",
+   "startTimeText": "22:04"
+  },
+  {
+   "text": "된다. 근데 어떤 사역자가가 가지고",
+   "startMs": "1326320",
+   "endMs": "1330400",
+   "startTimeText": "22:06"
+  },
+  {
+   "text": "야, 술 마시는 거 아무 문제도",
+   "startMs": "1328880",
+   "endMs": "1332720",
+   "startTimeText": "22:08"
+  },
+  {
+   "text": "아니야. 다 술 마시는게 문제라고",
+   "startMs": "1330400",
+   "endMs": "1335279",
+   "startTimeText": "22:10"
+  },
+  {
+   "text": "생각하는 사람들에게가 가지고 일부러",
+   "startMs": "1332720",
+   "endMs": "1337760",
+   "startTimeText": "22:12"
+  },
+  {
+   "text": "막 술을 마시면서 막 그렇게 그",
+   "startMs": "1335279",
+   "endMs": "1340200",
+   "startTimeText": "22:15"
+  },
+  {
+   "text": "사람들의 마음을 어렵게 만들 필요가",
+   "startMs": "1337760",
+   "endMs": "1342120",
+   "startTimeText": "22:17"
+  },
+  {
+   "text": "있겠습니까, 없겠습니까? 안 된다는",
+   "startMs": "1340200",
+   "endMs": "1344240",
+   "startTimeText": "22:20"
+  },
+  {
+   "text": "거죠.",
+   "startMs": "1342120",
+   "endMs": "1347240",
+   "startTimeText": "22:22"
+  },
+  {
+   "text": "그래서 그 내가 여러 사람에게 여러",
+   "startMs": "1344240",
+   "endMs": "1348679",
+   "startTimeText": "22:24"
+  },
+  {
+   "text": "모습이 된 것은 아무쪼로 몇",
+   "startMs": "1347240",
+   "endMs": "1350440",
+   "startTimeText": "22:27"
+  },
+  {
+   "text": "사람이라도 구원하고자 합니다.",
+   "startMs": "1348679",
+   "endMs": "1353360",
+   "startTimeText": "22:28"
+  },
+  {
+   "text": "그러니까 그 사람들의 어떤 수종과에",
+   "startMs": "1350440",
+   "endMs": "1355400",
+   "startTimeText": "22:30"
+  },
+  {
+   "text": "그런 것들을 생각을 하면서 거기에서",
+   "startMs": "1353360",
+   "endMs": "1359480",
+   "startTimeText": "22:33"
+  },
+  {
+   "text": "호흡을 맞춰서에 같이 그 단계에서 어",
+   "startMs": "1355400",
+   "endMs": "1362520",
+   "startTimeText": "22:35"
+  },
+  {
+   "text": "밑에 내려가 가지고 어 같이 그",
+   "startMs": "1359480",
+   "endMs": "1365240",
+   "startTimeText": "22:39"
+  },
+  {
+   "text": "가운데에 행동하면서",
+   "startMs": "1362520",
+   "endMs": "1367520",
+   "startTimeText": "22:42"
+  },
+  {
+   "text": "그것을 그 사람들을 이렇게 이런",
+   "startMs": "1365240",
+   "endMs": "1369840",
+   "startTimeText": "22:45"
+  },
+  {
+   "text": "방향으로 올리려고 한 것은 몇",
+   "startMs": "1367520",
+   "endMs": "1372120",
+   "startTimeText": "22:47"
+  },
+  {
+   "text": "사람이라도 구원하고자 합니다. 예,",
+   "startMs": "1369840",
+   "endMs": "1374400",
+   "startTimeText": "22:49"
+  },
+  {
+   "text": "그런 것들을 좀 알아 주셨으면",
+   "startMs": "1372120",
+   "endMs": "1376760",
+   "startTimeText": "22:52"
+  },
+  {
+   "text": "좋겠습니다. 그래서 교회 공동체마다",
+   "startMs": "1374400",
+   "endMs": "1379360",
+   "startTimeText": "22:54"
+  },
+  {
+   "text": "좀 연약한 부분들이 있는데에 그런",
+   "startMs": "1376760",
+   "endMs": "1382159",
+   "startTimeText": "22:56"
+  },
+  {
+   "text": "것들에 대해서 정제하고 그러기보다는",
+   "startMs": "1379360",
+   "endMs": "1384960",
+   "startTimeText": "22:59"
+  },
+  {
+   "text": "그 사람이 수준에 맞춰 가지고 행동해",
+   "startMs": "1382159",
+   "endMs": "1387480",
+   "startTimeText": "23:02"
+  },
+  {
+   "text": "주고 이렇게 하는 것이 중요하죠.",
+   "startMs": "1384960",
+   "endMs": "1390080",
+   "startTimeText": "23:04"
+  },
+  {
+   "text": "아이들 마찬가지잖아요.",
+   "startMs": "1387480",
+   "endMs": "1392480",
+   "startTimeText": "23:07"
+  },
+  {
+   "text": "아이들 같은 경우 뭐 어려서부터 뭐",
+   "startMs": "1390080",
+   "endMs": "1394440",
+   "startTimeText": "23:10"
+  },
+  {
+   "text": "예를 들어서 영어를 배운다 그러면",
+   "startMs": "1392480",
+   "endMs": "1397080",
+   "startTimeText": "23:12"
+  },
+  {
+   "text": "영어 말을 잘 못 하죠.",
+   "startMs": "1394440",
+   "endMs": "1399000",
+   "startTimeText": "23:14"
+  },
+  {
+   "text": "업버하잖아요.",
+   "startMs": "1397080",
+   "endMs": "1402000",
+   "startTimeText": "23:17"
+  },
+  {
+   "text": "자기도 좀 틀려 주면서",
+   "startMs": "1399000",
+   "endMs": "1403960",
+   "startTimeText": "23:19"
+  },
+  {
+   "text": "애들이랑 호흡하는게 중요하지. 그",
+   "startMs": "1402000",
+   "endMs": "1405760",
+   "startTimeText": "23:22"
+  },
+  {
+   "text": "앞에가 가지고 막 영어를 자기는",
+   "startMs": "1403960",
+   "endMs": "1407960",
+   "startTimeText": "23:23"
+  },
+  {
+   "text": "잘한다고 해가지고 어마어마하게",
+   "startMs": "1405760",
+   "endMs": "1410240",
+   "startTimeText": "23:25"
+  },
+  {
+   "text": "유창하게 하면서 애한테 너 그다으로",
+   "startMs": "1407960",
+   "endMs": "1412400",
+   "startTimeText": "23:27"
+  },
+  {
+   "text": "영화하면 안 돼. 아 이런 식으로",
+   "startMs": "1410240",
+   "endMs": "1414279",
+   "startTimeText": "23:30"
+  },
+  {
+   "text": "얘기하면 애가 성장을 할 수",
+   "startMs": "1412400",
+   "endMs": "1415600",
+   "startTimeText": "23:32"
+  },
+  {
+   "text": "있겠습니까?",
+   "startMs": "1414279",
+   "endMs": "1418360",
+   "startTimeText": "23:34"
+  },
+  {
+   "text": "그니까 일부러 수준도 낮춰 가지고 아",
+   "startMs": "1415600",
+   "endMs": "1422360",
+   "startTimeText": "23:35"
+  },
+  {
+   "text": "잘했다 이러면서 이렇게 한 것은 여러",
+   "startMs": "1418360",
+   "endMs": "1424520",
+   "startTimeText": "23:38"
+  },
+  {
+   "text": "사람이라도 몇 사람이라도 구원하고자",
+   "startMs": "1422360",
+   "endMs": "1428200",
+   "startTimeText": "23:42"
+  },
+  {
+   "text": "합니다. 그러니까 자기의 권리, 자기",
+   "startMs": "1424520",
+   "endMs": "1429840",
+   "startTimeText": "23:44"
+  },
+  {
+   "text": "자랑이나 이런 것들을 어떻게 한",
+   "startMs": "1428200",
+   "endMs": "1432720",
+   "startTimeText": "23:48"
+  },
+  {
+   "text": "겁니까? 내려놓은 거죠. 그러니까",
+   "startMs": "1429840",
+   "endMs": "1435320",
+   "startTimeText": "23:49"
+  },
+  {
+   "text": "하나님의 아들 예수 그리스도도 뭐를",
+   "startMs": "1432720",
+   "endMs": "1437159",
+   "startTimeText": "23:52"
+  },
+  {
+   "text": "입고이 땅 가운데 오셨어요? 육신을",
+   "startMs": "1435320",
+   "endMs": "1439559",
+   "startTimeText": "23:55"
+  },
+  {
+   "text": "입고이 땅 가운데 오셨다는 것은",
+   "startMs": "1437159",
+   "endMs": "1441679",
+   "startTimeText": "23:57"
+  },
+  {
+   "text": "그러지 않으셔도 되잖아요. 예.",
+   "startMs": "1439559",
+   "endMs": "1444960",
+   "startTimeText": "23:59"
+  },
+  {
+   "text": "그런데 그것은 우리를 위해서 같이에",
+   "startMs": "1441679",
+   "endMs": "1448080",
+   "startTimeText": "24:01"
+  },
+  {
+   "text": "호흡하시고 그다음에 우리를 또 주님의",
+   "startMs": "1444960",
+   "endMs": "1448919",
+   "startTimeText": "24:04"
+  },
+  {
+   "text": "길로 인도하시기 [목을 가다듬음]",
+   "startMs": "1448080",
+   "endMs": "1451960",
+   "startTimeText": "24:08"
+  },
+  {
+   "text": "위해서 연약한 그런 육신의 몸을 입은",
+   "startMs": "1448919",
+   "endMs": "1454120",
+   "startTimeText": "24:08"
+  },
+  {
+   "text": "자로이 땅 가운데 오셔 가지고",
+   "startMs": "1451960",
+   "endMs": "1457400",
+   "startTimeText": "24:11"
+  },
+  {
+   "text": "함께하시면서 그들 끌고 가셨죠.",
+   "startMs": "1454120",
+   "endMs": "1461279",
+   "startTimeText": "24:14"
+  },
+  {
+   "text": "제자들도 함께 하시면서 예수님께서도",
+   "startMs": "1457400",
+   "endMs": "1464080",
+   "startTimeText": "24:17"
+  },
+  {
+   "text": "기적 자체가 중요한게 아니었는데 그냥",
+   "startMs": "1461279",
+   "endMs": "1467799",
+   "startTimeText": "24:21"
+  },
+  {
+   "text": "또이 사람들이 또 뭐 배고프다 뭐 밥",
+   "startMs": "1464080",
+   "endMs": "1469880",
+   "startTimeText": "24:24"
+  },
+  {
+   "text": "달라 그러면 뭐 오병의 기적도",
+   "startMs": "1467799",
+   "endMs": "1472159",
+   "startTimeText": "24:27"
+  },
+  {
+   "text": "하셨어요, 안 하셨어요? 하셨잖아요.",
+   "startMs": "1469880",
+   "endMs": "1474279",
+   "startTimeText": "24:29"
+  },
+  {
+   "text": "근데 그게 본질은",
+   "startMs": "1472159",
+   "endMs": "1478000",
+   "startTimeText": "24:32"
+  },
+  {
+   "text": "아니잖아요. 뭐 이렇게 계속해서이",
+   "startMs": "1474279",
+   "endMs": "1480279",
+   "startTimeText": "24:34"
+  },
+  {
+   "text": "먹을 것을 채우고 이것보다 더 중요한",
+   "startMs": "1478000",
+   "endMs": "1483200",
+   "startTimeText": "24:38"
+  },
+  {
+   "text": "것은 영적으로 구원받는 것에 대해서",
+   "startMs": "1480279",
+   "endMs": "1485720",
+   "startTimeText": "24:40"
+  },
+  {
+   "text": "어떤 그런 의미도 담으셔 가지고 그런",
+   "startMs": "1483200",
+   "endMs": "1487919",
+   "startTimeText": "24:43"
+  },
+  {
+   "text": "것들이 있습니까? 그런 것을 통해",
+   "startMs": "1485720",
+   "endMs": "1490000",
+   "startTimeText": "24:45"
+  },
+  {
+   "text": "가지고 이렇게 올리기를 원하시는 그런",
+   "startMs": "1487919",
+   "endMs": "1492279",
+   "startTimeText": "24:47"
+  },
+  {
+   "text": "주님의 뜻이 있었다는 것입니다.",
+   "startMs": "1490000",
+   "endMs": "1496080",
+   "startTimeText": "24:50"
+  },
+  {
+   "text": "그래서 우리도 신앙생활을 할 때",
+   "startMs": "1492279",
+   "endMs": "1498760",
+   "startTimeText": "24:52"
+  },
+  {
+   "text": "어떤 사람을 얻고자 할 때에 그것이",
+   "startMs": "1496080",
+   "endMs": "1502080",
+   "startTimeText": "24:56"
+  },
+  {
+   "text": "성격적인 진리에 위배되지 않은 거라면",
+   "startMs": "1498760",
+   "endMs": "1506720",
+   "startTimeText": "24:58"
+  },
+  {
+   "text": "그런 모습도 이렇게 좀 그 단계에서",
+   "startMs": "1502080",
+   "endMs": "1508720",
+   "startTimeText": "25:02"
+  },
+  {
+   "text": "같이 호흡해 주면서 나가는게",
+   "startMs": "1506720",
+   "endMs": "1512200",
+   "startTimeText": "25:06"
+  },
+  {
+   "text": "필요하다. 에 그래서에",
+   "startMs": "1508720",
+   "endMs": "1515480",
+   "startTimeText": "25:08"
+  },
+  {
+   "text": "내 수준에다 다 끌어맞추는게 아니라",
+   "startMs": "1512200",
+   "endMs": "1518120",
+   "startTimeText": "25:12"
+  },
+  {
+   "text": "때로는 수준을 좀 낮춰 가지고",
+   "startMs": "1515480",
+   "endMs": "1520960",
+   "startTimeText": "25:15"
+  },
+  {
+   "text": "거기서부터 이제 같이 하면서 끌어",
+   "startMs": "1518120",
+   "endMs": "1523240",
+   "startTimeText": "25:18"
+  },
+  {
+   "text": "올리는 거 예, 그것이 이제 주님의",
+   "startMs": "1520960",
+   "endMs": "1524880",
+   "startTimeText": "25:20"
+  },
+  {
+   "text": "뜻이 아닌가 그런 이야기를 하고",
+   "startMs": "1523240",
+   "endMs": "1526440",
+   "startTimeText": "25:23"
+  },
+  {
+   "text": "있습니다.",
+   "startMs": "1524880",
+   "endMs": "1530039",
+   "startTimeText": "25:24"
+  },
+  {
+   "text": "그다음에 이제 사도 바울이 또",
+   "startMs": "1526440",
+   "endMs": "1534080",
+   "startTimeText": "25:26"
+  },
+  {
+   "text": "그 분명한 또 자기가 추구하고자 있는",
+   "startMs": "1530039",
+   "endMs": "1536919",
+   "startTimeText": "25:30"
+  },
+  {
+   "text": "그런 가치를 이야기를 하는데 23절을",
+   "startMs": "1534080",
+   "endMs": "1539080",
+   "startTimeText": "25:34"
+  },
+  {
+   "text": "보면 내가 복음을 위하여서 모든 것을",
+   "startMs": "1536919",
+   "endMs": "1542640",
+   "startTimeText": "25:36"
+  },
+  {
+   "text": "행함은 복음을 전파하기 위해서 어떤",
+   "startMs": "1539080",
+   "endMs": "1545760",
+   "startTimeText": "25:39"
+  },
+  {
+   "text": "그 마음들이 많이 열려 있고 어",
+   "startMs": "1542640",
+   "endMs": "1548880",
+   "startTimeText": "25:42"
+  },
+  {
+   "text": "융통성이 있게 된 것. 그리고 복음을",
+   "startMs": "1545760",
+   "endMs": "1551360",
+   "startTimeText": "25:45"
+  },
+  {
+   "text": "위하여서 모든 것을 행함은",
+   "startMs": "1548880",
+   "endMs": "1552480",
+   "startTimeText": "25:48"
+  },
+  {
+   "text": "행하했다라는 [목을 가다듬음] 것은",
+   "startMs": "1551360",
+   "endMs": "1555440",
+   "startTimeText": "25:51"
+  },
+  {
+   "text": "복음을 자기가 실천했다는 거예요.",
+   "startMs": "1552480",
+   "endMs": "1559080",
+   "startTimeText": "25:52"
+  },
+  {
+   "text": "그다음에 자기가 본을 보이면서 또",
+   "startMs": "1555440",
+   "endMs": "1563200",
+   "startTimeText": "25:55"
+  },
+  {
+   "text": "복음을 또 전파하기 위해서 자기는 또",
+   "startMs": "1559080",
+   "endMs": "1565919",
+   "startTimeText": "25:59"
+  },
+  {
+   "text": "본이 되려고 노력했고 그다음에",
+   "startMs": "1563200",
+   "endMs": "1568799",
+   "startTimeText": "26:03"
+  },
+  {
+   "text": "사람들의 수준을 생각하고에",
+   "startMs": "1565919",
+   "endMs": "1571600",
+   "startTimeText": "26:05"
+  },
+  {
+   "text": "그러면서 여러 모습으로 자기의 어떤",
+   "startMs": "1568799",
+   "endMs": "1573840",
+   "startTimeText": "26:08"
+  },
+  {
+   "text": "고집만을 또 내세우지 아니하고 여러",
+   "startMs": "1571600",
+   "endMs": "1577320",
+   "startTimeText": "26:11"
+  },
+  {
+   "text": "모습으로 된 것은 자기가 복음에",
+   "startMs": "1573840",
+   "endMs": "1579600",
+   "startTimeText": "26:13"
+  },
+  {
+   "text": "참여하고자 함이라. 복음이라는 분명한",
+   "startMs": "1577320",
+   "endMs": "1581960",
+   "startTimeText": "26:17"
+  },
+  {
+   "text": "목표가 자기는 있다는 거예요.",
+   "startMs": "1579600",
+   "endMs": "1584640",
+   "startTimeText": "26:19"
+  },
+  {
+   "text": "그러니까 나도",
+   "startMs": "1581960",
+   "endMs": "1587600",
+   "startTimeText": "26:21"
+  },
+  {
+   "text": "복음을 전하는 일 그리고 복음을",
+   "startMs": "1584640",
+   "endMs": "1591000",
+   "startTimeText": "26:24"
+  },
+  {
+   "text": "붙드는 일 그런 것이 가장",
+   "startMs": "1587600",
+   "endMs": "1593399",
+   "startTimeText": "26:27"
+  },
+  {
+   "text": "중요하니까이 복음을 통해 가지고",
+   "startMs": "1591000",
+   "endMs": "1596000",
+   "startTimeText": "26:31"
+  },
+  {
+   "text": "우리가 나갈 길도 알고 구원의 길도",
+   "startMs": "1593399",
+   "endMs": "1599880",
+   "startTimeText": "26:33"
+  },
+  {
+   "text": "알게 되니까 나 자체도 늘 복음에",
+   "startMs": "1596000",
+   "endMs": "1603159",
+   "startTimeText": "26:36"
+  },
+  {
+   "text": "참여하고 어 복음에 사로잡힌 사람이",
+   "startMs": "1599880",
+   "endMs": "1605120",
+   "startTimeText": "26:39"
+  },
+  {
+   "text": "되기 위해서 나도 노력을 하고",
+   "startMs": "1603159",
+   "endMs": "1607399",
+   "startTimeText": "26:43"
+  },
+  {
+   "text": "있다라는 것을 사도 바울은 이야기를",
+   "startMs": "1605120",
+   "endMs": "1609440",
+   "startTimeText": "26:45"
+  },
+  {
+   "text": "하고 있습니다. 그러니까 어떤 사람이",
+   "startMs": "1607399",
+   "endMs": "1611679",
+   "startTimeText": "26:47"
+  },
+  {
+   "text": "이런 모습으로 된 것은 네가 뭐 대충",
+   "startMs": "1609440",
+   "endMs": "1614159",
+   "startTimeText": "26:49"
+  },
+  {
+   "text": "사는게 아니냐. 근데 오히려 더",
+   "startMs": "1611679",
+   "endMs": "1616360",
+   "startTimeText": "26:51"
+  },
+  {
+   "text": "대충사에게 사는 것이 아니라 더",
+   "startMs": "1614159",
+   "endMs": "1619919",
+   "startTimeText": "26:54"
+  },
+  {
+   "text": "어렵고 힘든 자리를 가는 거죠.에",
+   "startMs": "1616360",
+   "endMs": "1623480",
+   "startTimeText": "26:56"
+  },
+  {
+   "text": "복음을 전파하기 위해서 그리고 복음의",
+   "startMs": "1619919",
+   "endMs": "1626080",
+   "startTimeText": "26:59"
+  },
+  {
+   "text": "장애가 없기 위해서 본을 보이기 위해",
+   "startMs": "1623480",
+   "endMs": "1628399",
+   "startTimeText": "27:03"
+  },
+  {
+   "text": "가지고 또 노력을 하는 그런 모습을",
+   "startMs": "1626080",
+   "endMs": "1630720",
+   "startTimeText": "27:06"
+  },
+  {
+   "text": "사도 바울은 가지고 있다라는",
+   "startMs": "1628399",
+   "endMs": "1633279",
+   "startTimeText": "27:08"
+  },
+  {
+   "text": "것입니다. 그래서 24절에 보면",
+   "startMs": "1630720",
+   "endMs": "1635080",
+   "startTimeText": "27:10"
+  },
+  {
+   "text": "운동장에서 다른 죄를 아하는 자들이",
+   "startMs": "1633279",
+   "endMs": "1637039",
+   "startTimeText": "27:13"
+  },
+  {
+   "text": "다 달릴지라도 상을 받는 사람이 한",
+   "startMs": "1635080",
+   "endMs": "1639279",
+   "startTimeText": "27:15"
+  },
+  {
+   "text": "사람인 줄을 알지 못하냐? 그러니까",
+   "startMs": "1637039",
+   "endMs": "1641320",
+   "startTimeText": "27:17"
+  },
+  {
+   "text": "너희도 상을 받도록 이와 같이",
+   "startMs": "1639279",
+   "endMs": "1644279",
+   "startTimeText": "27:19"
+  },
+  {
+   "text": "다른죄를 하라. 다 이때 당시",
+   "startMs": "1641320",
+   "endMs": "1647159",
+   "startTimeText": "27:21"
+  },
+  {
+   "text": "고린도에서 2년마다 이렇게",
+   "startMs": "1644279",
+   "endMs": "1648720",
+   "startTimeText": "27:24"
+  },
+  {
+   "text": "올림픽과 같은 그런 경기가",
+   "startMs": "1647159",
+   "endMs": "1650960",
+   "startTimeText": "27:27"
+  },
+  {
+   "text": "있었잖아요. 그런 것들을 보면서 사도",
+   "startMs": "1648720",
+   "endMs": "1653080",
+   "startTimeText": "27:28"
+  },
+  {
+   "text": "바울은 늘 묵상을 한 거죠. 아,",
+   "startMs": "1650960",
+   "endMs": "1656080",
+   "startTimeText": "27:30"
+  },
+  {
+   "text": "최선을 다해서 이렇게 달리는구나.",
+   "startMs": "1653080",
+   "endMs": "1658120",
+   "startTimeText": "27:33"
+  },
+  {
+   "text": "그리고 상을 받도록 이렇게 열심히",
+   "startMs": "1656080",
+   "endMs": "1660519",
+   "startTimeText": "27:36"
+  },
+  {
+   "text": "달려야 되는구나. 우리도 복음을 위해",
+   "startMs": "1658120",
+   "endMs": "1663919",
+   "startTimeText": "27:38"
+  },
+  {
+   "text": "가지고 복음을 전파하고 우리가 복음의",
+   "startMs": "1660519",
+   "endMs": "1666120",
+   "startTimeText": "27:40"
+  },
+  {
+   "text": "장애물이 되지 않도록 복음을 또",
+   "startMs": "1663919",
+   "endMs": "1668559",
+   "startTimeText": "27:43"
+  },
+  {
+   "text": "실천하면서 그런 것들을 보여줘야",
+   "startMs": "1666120",
+   "endMs": "1670679",
+   "startTimeText": "27:46"
+  },
+  {
+   "text": "되도록 열심히 달려야 된다라고",
+   "startMs": "1668559",
+   "endMs": "1672600",
+   "startTimeText": "27:48"
+  },
+  {
+   "text": "이야기를 하고 있습니다. 그다음에",
+   "startMs": "1670679",
+   "endMs": "1675159",
+   "startTimeText": "27:50"
+  },
+  {
+   "text": "25절. 요게도 십자가의 원리가 있는",
+   "startMs": "1672600",
+   "endMs": "1676399",
+   "startTimeText": "27:52"
+  },
+  {
+   "text": "거죠. [목을 가다듬음]",
+   "startMs": "1675159",
+   "endMs": "1678559",
+   "startTimeText": "27:55"
+  },
+  {
+   "text": "같이 읽겠습니다. 시작. 이기기를",
+   "startMs": "1676399",
+   "endMs": "1680760",
+   "startTimeText": "27:56"
+  },
+  {
+   "text": "다투는 자마다 모든 일에 절제하나니",
+   "startMs": "1678559",
+   "endMs": "1682799",
+   "startTimeText": "27:58"
+  },
+  {
+   "text": "그들은 썩을 승리자의 관을 얻고자",
+   "startMs": "1680760",
+   "endMs": "1685240",
+   "startTimeText": "28:00"
+  },
+  {
+   "text": "하되 우리는 썩지 아니할 것을 얻고자",
+   "startMs": "1682799",
+   "endMs": "1688000",
+   "startTimeText": "28:02"
+  },
+  {
+   "text": "하노라. 이기기를 원하는 자의",
+   "startMs": "1685240",
+   "endMs": "1690480",
+   "startTimeText": "28:05"
+  },
+  {
+   "text": "경기에서 달리고 이런 사람들도 모든",
+   "startMs": "1688000",
+   "endMs": "1693799",
+   "startTimeText": "28:08"
+  },
+  {
+   "text": "일에 절제하고 어 음식도 조절하고",
+   "startMs": "1690480",
+   "endMs": "1697880",
+   "startTimeText": "28:10"
+  },
+  {
+   "text": "이러면서 어 했던 것은 했던 것은",
+   "startMs": "1693799",
+   "endMs": "1700360",
+   "startTimeText": "28:13"
+  },
+  {
+   "text": "승리자의 관을 얻고자함이",
+   "startMs": "1697880",
+   "endMs": "1703080",
+   "startTimeText": "28:17"
+  },
+  {
+   "text": "아니냐. 근데이 세상에서 이런 것들은",
+   "startMs": "1700360",
+   "endMs": "1705480",
+   "startTimeText": "28:20"
+  },
+  {
+   "text": "결국에는 썩어질 것들인데 그러나",
+   "startMs": "1703080",
+   "endMs": "1707559",
+   "startTimeText": "28:23"
+  },
+  {
+   "text": "우리는 썩지 아니할 그런 승리자의",
+   "startMs": "1705480",
+   "endMs": "1710320",
+   "startTimeText": "28:25"
+  },
+  {
+   "text": "관이 있으니까 우리도 절제를 더 해야",
+   "startMs": "1707559",
+   "endMs": "1712559",
+   "startTimeText": "28:27"
+  },
+  {
+   "text": "되지 않겠느냐.에",
+   "startMs": "1710320",
+   "endMs": "1714559",
+   "startTimeText": "28:30"
+  },
+  {
+   "text": "그러면",
+   "startMs": "1712559",
+   "endMs": "1716840",
+   "startTimeText": "28:32"
+  },
+  {
+   "text": "그러므로 나는 다른질 하기를 또 향방",
+   "startMs": "1714559",
+   "endMs": "1718519",
+   "startTimeText": "28:34"
+  },
+  {
+   "text": "없는 것 같지 아니하고 싸우기를",
+   "startMs": "1716840",
+   "endMs": "1720840",
+   "startTimeText": "28:36"
+  },
+  {
+   "text": "허공을 치는 것 같지 아니한다. 내가",
+   "startMs": "1718519",
+   "endMs": "1722840",
+   "startTimeText": "28:38"
+  },
+  {
+   "text": "다름질하는 분명한 목적이 있다는",
+   "startMs": "1720840",
+   "endMs": "1725760",
+   "startTimeText": "28:40"
+  },
+  {
+   "text": "거예요. 다름질 할 때 어 결승선을",
+   "startMs": "1722840",
+   "endMs": "1727120",
+   "startTimeText": "28:42"
+  },
+  {
+   "text": "향해서 가야 되는 거 아니에요.",
+   "startMs": "1725760",
+   "endMs": "1729360",
+   "startTimeText": "28:45"
+  },
+  {
+   "text": "그러니까 결승선 방향을 잘 설정하고",
+   "startMs": "1727120",
+   "endMs": "1731720",
+   "startTimeText": "28:47"
+  },
+  {
+   "text": "가야 되는 거잖아요. 그리고 싸우기를",
+   "startMs": "1729360",
+   "endMs": "1735279",
+   "startTimeText": "28:49"
+  },
+  {
+   "text": "허공을 치는 것처럼 어 싸울 대상이",
+   "startMs": "1731720",
+   "endMs": "1738080",
+   "startTimeText": "28:51"
+  },
+  {
+   "text": "뭔지를 분명하게 알고 어 때려야 되는",
+   "startMs": "1735279",
+   "endMs": "1740279",
+   "startTimeText": "28:55"
+  },
+  {
+   "text": "거 아니겠습니까? 그런 것처럼 나는",
+   "startMs": "1738080",
+   "endMs": "1742519",
+   "startTimeText": "28:58"
+  },
+  {
+   "text": "분명한 목적이 있다. 그게 뭡니까?",
+   "startMs": "1740279",
+   "endMs": "1744600",
+   "startTimeText": "29:00"
+  },
+  {
+   "text": "바로 복음이라는 거예요. 복음에",
+   "startMs": "1742519",
+   "endMs": "1747919",
+   "startTimeText": "29:02"
+  },
+  {
+   "text": "참여하고 복음을 전파하는 거죠. 내가",
+   "startMs": "1744600",
+   "endMs": "1751600",
+   "startTimeText": "29:04"
+  },
+  {
+   "text": "복음에서 배제되지 않고 그러려면 내가",
+   "startMs": "1747919",
+   "endMs": "1754279",
+   "startTimeText": "29:07"
+  },
+  {
+   "text": "복음 가운데 있어야 되잖아요.",
+   "startMs": "1751600",
+   "endMs": "1756519",
+   "startTimeText": "29:11"
+  },
+  {
+   "text": "그러니까이 길이 생명의 길이니까 나는",
+   "startMs": "1754279",
+   "endMs": "1759320",
+   "startTimeText": "29:14"
+  },
+  {
+   "text": "분명히 알고 있다. 나는이 복음 안에",
+   "startMs": "1756519",
+   "endMs": "1761960",
+   "startTimeText": "29:16"
+  },
+  {
+   "text": "내가 있어야 된다는 것을 알고 예수",
+   "startMs": "1759320",
+   "endMs": "1763640",
+   "startTimeText": "29:19"
+  },
+  {
+   "text": "그리스도의 그런 말씀 안에 내가",
+   "startMs": "1761960",
+   "endMs": "1766919",
+   "startTimeText": "29:21"
+  },
+  {
+   "text": "있어야 된다는 것을 알고 또 이것을",
+   "startMs": "1763640",
+   "endMs": "1771640",
+   "startTimeText": "29:23"
+  },
+  {
+   "text": "전파하는 것 이것이 자기가 분명히에",
+   "startMs": "1766919",
+   "endMs": "1773399",
+   "startTimeText": "29:26"
+  },
+  {
+   "text": "가야 되는 길이라는 거를 알고 있는",
+   "startMs": "1771640",
+   "endMs": "1776440",
+   "startTimeText": "29:31"
+  },
+  {
+   "text": "거예요. 에 방향 예수 그리스도의",
+   "startMs": "1773399",
+   "endMs": "1779039",
+   "startTimeText": "29:33"
+  },
+  {
+   "text": "십자가의 그도 십자가를 통해 가지고",
+   "startMs": "1776440",
+   "endMs": "1781519",
+   "startTimeText": "29:36"
+  },
+  {
+   "text": "구원의 길을 보여 주신 거 내가 그",
+   "startMs": "1779039",
+   "endMs": "1784200",
+   "startTimeText": "29:39"
+  },
+  {
+   "text": "구원의 길을 나도 붙들고 그게",
+   "startMs": "1781519",
+   "endMs": "1785880",
+   "startTimeText": "29:41"
+  },
+  {
+   "text": "방향이잖아요.",
+   "startMs": "1784200",
+   "endMs": "1789960",
+   "startTimeText": "29:44"
+  },
+  {
+   "text": "그리고 또 다른 방향은 뭐냐면 그것을",
+   "startMs": "1785880",
+   "endMs": "1792640",
+   "startTimeText": "29:45"
+  },
+  {
+   "text": "전파하는 거. 나만 있는게 아니라",
+   "startMs": "1789960",
+   "endMs": "1794880",
+   "startTimeText": "29:49"
+  },
+  {
+   "text": "다른 사람도 알게 되는 거. 그것이",
+   "startMs": "1792640",
+   "endMs": "1797440",
+   "startTimeText": "29:52"
+  },
+  {
+   "text": "사도 바울이 가지고 있던 목적이고",
+   "startMs": "1794880",
+   "endMs": "1799480",
+   "startTimeText": "29:54"
+  },
+  {
+   "text": "사도 바울이 싸우고 있는 목적이라는",
+   "startMs": "1797440",
+   "endMs": "1803559",
+   "startTimeText": "29:57"
+  },
+  {
+   "text": "거죠. 분명히 나는 내 자신 자체가",
+   "startMs": "1799480",
+   "endMs": "1806279",
+   "startTimeText": "29:59"
+  },
+  {
+   "text": "복음에 사로잡힌 사람이 되기를 원하고",
+   "startMs": "1803559",
+   "endMs": "1809279",
+   "startTimeText": "30:03"
+  },
+  {
+   "text": "그래야 되니까 영생의 말씀이 있으니까",
+   "startMs": "1806279",
+   "endMs": "1811559",
+   "startTimeText": "30:06"
+  },
+  {
+   "text": "우리가 어디에게 가겠습니까? 하나님의",
+   "startMs": "1809279",
+   "endMs": "1813440",
+   "startTimeText": "30:09"
+  },
+  {
+   "text": "말씀을 내가 붙들고 어떻게든지",
+   "startMs": "1811559",
+   "endMs": "1816600",
+   "startTimeText": "30:11"
+  },
+  {
+   "text": "살아내고 나도 어 승리자가 되도록",
+   "startMs": "1813440",
+   "endMs": "1819200",
+   "startTimeText": "30:13"
+  },
+  {
+   "text": "나아가는 거 그뿐 아니라 하나님의",
+   "startMs": "1816600",
+   "endMs": "1821640",
+   "startTimeText": "30:16"
+  },
+  {
+   "text": "말씀을 전파해 가지고 다른 사람들도",
+   "startMs": "1819200",
+   "endMs": "1824080",
+   "startTimeText": "30:19"
+  },
+  {
+   "text": "그 길로 이끌는 거. 사도 바울은",
+   "startMs": "1821640",
+   "endMs": "1827519",
+   "startTimeText": "30:21"
+  },
+  {
+   "text": "그것을 명백하게 목적을 가지고",
+   "startMs": "1824080",
+   "endMs": "1830559",
+   "startTimeText": "30:24"
+  },
+  {
+   "text": "그다음에 그 싸우는 대상이 무엇인지를",
+   "startMs": "1827519",
+   "endMs": "1834399",
+   "startTimeText": "30:27"
+  },
+  {
+   "text": "알고 그러면서 절제하면서 내 권리를",
+   "startMs": "1830559",
+   "endMs": "1837000",
+   "startTimeText": "30:30"
+  },
+  {
+   "text": "내려놓으면서 다른 사람들을 유익하기",
+   "startMs": "1834399",
+   "endMs": "1840159",
+   "startTimeText": "30:34"
+  },
+  {
+   "text": "위해서 나는 그렇게 열심히 달려간다.",
+   "startMs": "1837000",
+   "endMs": "1842240",
+   "startTimeText": "30:37"
+  },
+  {
+   "text": "그래서 27절에 보면 내가 내 몸을",
+   "startMs": "1840159",
+   "endMs": "1844640",
+   "startTimeText": "30:40"
+  },
+  {
+   "text": "쳐 복종하게함은 [목을 가다듬음] 어",
+   "startMs": "1842240",
+   "endMs": "1847399",
+   "startTimeText": "30:42"
+  },
+  {
+   "text": "내 몸에 어떤 자유가 있지만 그것들을",
+   "startMs": "1844640",
+   "endMs": "1850080",
+   "startTimeText": "30:44"
+  },
+  {
+   "text": "어떤 부분들을 내가 절제하면서",
+   "startMs": "1847399",
+   "endMs": "1851840",
+   "startTimeText": "30:47"
+  },
+  {
+   "text": "내려놓은 것은에 [목을 가다듬음]",
+   "startMs": "1850080",
+   "endMs": "1855200",
+   "startTimeText": "30:50"
+  },
+  {
+   "text": "그러면서 나 자체도 어 그렇게",
+   "startMs": "1851840",
+   "endMs": "1857880",
+   "startTimeText": "30:51"
+  },
+  {
+   "text": "노력하는 것은 내가 남에게 전파한",
+   "startMs": "1855200",
+   "endMs": "1860000",
+   "startTimeText": "30:55"
+  },
+  {
+   "text": "후에 자신이 도리어 버림을 당할까",
+   "startMs": "1857880",
+   "endMs": "1863840",
+   "startTimeText": "30:57"
+  },
+  {
+   "text": "두려워함이라. 내가 남에게 전파하지만",
+   "startMs": "1860000",
+   "endMs": "1866639",
+   "startTimeText": "31:00"
+  },
+  {
+   "text": "내 자신이 또 복음의 길에 벗어나",
+   "startMs": "1863840",
+   "endMs": "1869080",
+   "startTimeText": "31:03"
+  },
+  {
+   "text": "가지고 버림을 당할까라는 것은",
+   "startMs": "1866639",
+   "endMs": "1871080",
+   "startTimeText": "31:06"
+  },
+  {
+   "text": "경계에서 실격을 이야기를 하는",
+   "startMs": "1869080",
+   "endMs": "1873279",
+   "startTimeText": "31:09"
+  },
+  {
+   "text": "거예요. 너 실격이다. 이렇게 될",
+   "startMs": "1871080",
+   "endMs": "1877159",
+   "startTimeText": "31:11"
+  },
+  {
+   "text": "수가 있으니까 나는 어 복음을",
+   "startMs": "1873279",
+   "endMs": "1880526",
+   "startTimeText": "31:13"
+  },
+  {
+   "text": "전파하지만 또 분명한 나의 목적은",
+   "startMs": "1877159",
+   "endMs": "1882600",
+   "startTimeText": "31:17"
+  },
+  {
+   "text": "[목을 가다듬음] 뭐냐면 내가 복음을",
+   "startMs": "1880526",
+   "endMs": "1884399",
+   "startTimeText": "31:20"
+  },
+  {
+   "text": "붙들어야 되는 거죠. 그러니까",
+   "startMs": "1882600",
+   "endMs": "1886600",
+   "startTimeText": "31:22"
+  },
+  {
+   "text": "사람들이 그런 경우가 많아요. 너무",
+   "startMs": "1884399",
+   "endMs": "1890000",
+   "startTimeText": "31:24"
+  },
+  {
+   "text": "사명이 치우쳐 가지고 어 자신은",
+   "startMs": "1886600",
+   "endMs": "1893440",
+   "startTimeText": "31:26"
+  },
+  {
+   "text": "그것들을 지키지 않으면서 어 자기",
+   "startMs": "1890000",
+   "endMs": "1896320",
+   "startTimeText": "31:30"
+  },
+  {
+   "text": "자신을 돌아보지 않으면서 남한테만",
+   "startMs": "1893440",
+   "endMs": "1898880",
+   "startTimeText": "31:33"
+  },
+  {
+   "text": "그런 사명만 생각하면서 자기 자신은",
+   "startMs": "1896320",
+   "endMs": "1901600",
+   "startTimeText": "31:36"
+  },
+  {
+   "text": "막 이렇게 오히려 복음에서 멀어지는",
+   "startMs": "1898880",
+   "endMs": "1903919",
+   "startTimeText": "31:38"
+  },
+  {
+   "text": "경우도 많이 있으니까. 사도 바울은",
+   "startMs": "1901600",
+   "endMs": "1906600",
+   "startTimeText": "31:41"
+  },
+  {
+   "text": "분명히 알고 있는 거죠. 나 자신도",
+   "startMs": "1903919",
+   "endMs": "1908799",
+   "startTimeText": "31:43"
+  },
+  {
+   "text": "경주를 하고 있다. 나도 끝까지",
+   "startMs": "1906600",
+   "endMs": "1911880",
+   "startTimeText": "31:46"
+  },
+  {
+   "text": "복음을 잘 붙들려고 어 그렇게 하고",
+   "startMs": "1908799",
+   "endMs": "1914279",
+   "startTimeText": "31:48"
+  },
+  {
+   "text": "내가 오히려 남한테 전파하면서 내",
+   "startMs": "1911880",
+   "endMs": "1915919",
+   "startTimeText": "31:51"
+  },
+  {
+   "text": "자신이 복음에서 벗어나면 안",
+   "startMs": "1914279",
+   "endMs": "1918840",
+   "startTimeText": "31:54"
+  },
+  {
+   "text": "되잖아요. 그러니까 나도 어 내",
+   "startMs": "1915919",
+   "endMs": "1922240",
+   "startTimeText": "31:55"
+  },
+  {
+   "text": "자신을 항상 바라보면서 절제하고 내",
+   "startMs": "1918840",
+   "endMs": "1924919",
+   "startTimeText": "31:58"
+  },
+  {
+   "text": "자신을 돌아보는 것은 내가 남한테",
+   "startMs": "1922240",
+   "endMs": "1927080",
+   "startTimeText": "32:02"
+  },
+  {
+   "text": "전파해 놓고서 내 자신은 복음에서",
+   "startMs": "1924919",
+   "endMs": "1929559",
+   "startTimeText": "32:04"
+  },
+  {
+   "text": "멀어져 가지고 타락의 길로 가지",
+   "startMs": "1927080",
+   "endMs": "1932760",
+   "startTimeText": "32:07"
+  },
+  {
+   "text": "않으려고 나는 노력하면서 그다음에 또",
+   "startMs": "1929559",
+   "endMs": "1935760",
+   "startTimeText": "32:09"
+  },
+  {
+   "text": "다른 사람을 얻고자 하면서 어 유익을",
+   "startMs": "1932760",
+   "endMs": "1938799",
+   "startTimeText": "32:12"
+  },
+  {
+   "text": "위해 가지고 달려가는 그러니까 나뿐만",
+   "startMs": "1935760",
+   "endMs": "1941639",
+   "startTimeText": "32:15"
+  },
+  {
+   "text": "아니라 나도 돌아보면서 다른",
+   "startMs": "1938799",
+   "endMs": "1943880",
+   "startTimeText": "32:18"
+  },
+  {
+   "text": "사람들에게 유익하기 위해서 사도",
+   "startMs": "1941639",
+   "endMs": "1945639",
+   "startTimeText": "32:21"
+  },
+  {
+   "text": "바울은 그렇게 모든 것을 고려를",
+   "startMs": "1943880",
+   "endMs": "1946480",
+   "startTimeText": "32:23"
+  },
+  {
+   "text": "하면서",
+   "startMs": "1945639",
+   "endMs": "1949279",
+   "startTimeText": "32:25"
+  },
+  {
+   "text": "나아가는 거죠. 그래서 신앙생활은 어",
+   "startMs": "1946480",
+   "endMs": "1951240",
+   "startTimeText": "32:26"
+  },
+  {
+   "text": "굉장히 아름다운 것이 아닌가 그렇게",
+   "startMs": "1949279",
+   "endMs": "1954000",
+   "startTimeText": "32:29"
+  },
+  {
+   "text": "생각을 하게 됩니다. 모든 사람들이",
+   "startMs": "1951240",
+   "endMs": "1956639",
+   "startTimeText": "32:31"
+  },
+  {
+   "text": "또 자기의 만족과 유익만을 위해서",
+   "startMs": "1954000",
+   "endMs": "1959519",
+   "startTimeText": "32:34"
+  },
+  {
+   "text": "나아갈 때 어 나 자신이 어떻게 해야",
+   "startMs": "1956639",
+   "endMs": "1961639",
+   "startTimeText": "32:36"
+  },
+  {
+   "text": "주님의 뜻에 합당한 사람으로 아름답게",
+   "startMs": "1959519",
+   "endMs": "1964240",
+   "startTimeText": "32:39"
+  },
+  {
+   "text": "빚어갈 수 있는가 그런 것들을 생각을",
+   "startMs": "1961639",
+   "endMs": "1966720",
+   "startTimeText": "32:41"
+  },
+  {
+   "text": "해 보면서 그다음에 다른 사람들도",
+   "startMs": "1964240",
+   "endMs": "1968760",
+   "startTimeText": "32:44"
+  },
+  {
+   "text": "유익하게 하기 위해서 내가 좀",
+   "startMs": "1966720",
+   "endMs": "1971480",
+   "startTimeText": "32:46"
+  },
+  {
+   "text": "융통성을 가지고",
+   "startMs": "1968760",
+   "endMs": "1974559",
+   "startTimeText": "32:48"
+  },
+  {
+   "text": "그 그 사람들을 잘 격려하면서",
+   "startMs": "1971480",
+   "endMs": "1977240",
+   "startTimeText": "32:51"
+  },
+  {
+   "text": "그게 아주 진리의 문제가 아니면",
+   "startMs": "1974559",
+   "endMs": "1979159",
+   "startTimeText": "32:54"
+  },
+  {
+   "text": "그렇게 생각할 수도 있겠다 이렇게",
+   "startMs": "1977240",
+   "endMs": "1982039",
+   "startTimeText": "32:57"
+  },
+  {
+   "text": "생각하면서 조금씩 조금씩 시간이",
+   "startMs": "1979159",
+   "endMs": "1984559",
+   "startTimeText": "32:59"
+  },
+  {
+   "text": "지나고 또 말씀 말씀 보다 보면",
+   "startMs": "1982039",
+   "endMs": "1987039",
+   "startTimeText": "33:02"
+  },
+  {
+   "text": "우리도 생각이 바뀌잖아요. 어린아이와",
+   "startMs": "1984559",
+   "endMs": "1991080",
+   "startTimeText": "33:04"
+  },
+  {
+   "text": "같은 사람들이 늘 있어요. 그래서",
+   "startMs": "1987039",
+   "endMs": "1993840",
+   "startTimeText": "33:07"
+  },
+  {
+   "text": "목회를 할 때도 저 그런 생각을 하고",
+   "startMs": "1991080",
+   "endMs": "1995679",
+   "startTimeText": "33:11"
+  },
+  {
+   "text": "있거든요. 그러니까 중요한 건",
+   "startMs": "1993840",
+   "endMs": "1998880",
+   "startTimeText": "33:13"
+  },
+  {
+   "text": "방향성이다. 근데 그 사람이 지금",
+   "startMs": "1995679",
+   "endMs": "2000799",
+   "startTimeText": "33:15"
+  },
+  {
+   "text": "어린아이의 단계와 같아 가지고요",
+   "startMs": "1998880",
+   "endMs": "2004960",
+   "startTimeText": "33:18"
+  },
+  {
+   "text": "정도밖에 생각 못 하는데 뭐 혼내고",
+   "startMs": "2000799",
+   "endMs": "2007639",
+   "startTimeText": "33:20"
+  },
+  {
+   "text": "뭐 그러는 거보다 조금씩 조금씩",
+   "startMs": "2004960",
+   "endMs": "2010360",
+   "startTimeText": "33:24"
+  },
+  {
+   "text": "이렇게에 그 길로 잘 달려갈 수",
+   "startMs": "2007639",
+   "endMs": "2013919",
+   "startTimeText": "33:27"
+  },
+  {
+   "text": "있도록 이렇게 그 사람에게 맞는",
+   "startMs": "2010360",
+   "endMs": "2016080",
+   "startTimeText": "33:30"
+  },
+  {
+   "text": "방식으로 이렇게 해 줄 수 있는",
+   "startMs": "2013919",
+   "endMs": "2019200",
+   "startTimeText": "33:33"
+  },
+  {
+   "text": "그러면 사람을 얻게 됩니다. 그러니까",
+   "startMs": "2016080",
+   "endMs": "2021120",
+   "startTimeText": "33:36"
+  },
+  {
+   "text": "어떤 사람이 또 이런 생각을 가지고",
+   "startMs": "2019200",
+   "endMs": "2023679",
+   "startTimeText": "33:39"
+  },
+  {
+   "text": "있는데 아 그 나름대로 그 안에서",
+   "startMs": "2021120",
+   "endMs": "2028200",
+   "startTimeText": "33:41"
+  },
+  {
+   "text": "고민하고 그랬던 거면 그래요. 그게",
+   "startMs": "2023679",
+   "endMs": "2031880",
+   "startTimeText": "33:43"
+  },
+  {
+   "text": "존중해 주고 그렇게 해야지 그 절대",
+   "startMs": "2028200",
+   "endMs": "2033080",
+   "startTimeText": "33:48"
+  },
+  {
+   "text": "안 돼. [목을 가다듬음] 이런",
+   "startMs": "2031880",
+   "endMs": "2035559",
+   "startTimeText": "33:51"
+  },
+  {
+   "text": "식으로 얘기하면 사람이 남아",
+   "startMs": "2033080",
+   "endMs": "2038240",
+   "startTimeText": "33:53"
+  },
+  {
+   "text": "있겠습니까? 떠나겠습니까?",
+   "startMs": "2035559",
+   "endMs": "2040679",
+   "startTimeText": "33:55"
+  },
+  {
+   "text": "떠나게 되는 거죠. 당연히 나를",
+   "startMs": "2038240",
+   "endMs": "2043120",
+   "startTimeText": "33:58"
+  },
+  {
+   "text": "좋아하지 않나 보다. 그다음에 나를",
+   "startMs": "2040679",
+   "endMs": "2044639",
+   "startTimeText": "34:00"
+  },
+  {
+   "text": "배척하나 보다. 이렇게 생각을",
+   "startMs": "2043120",
+   "endMs": "2046960",
+   "startTimeText": "34:03"
+  },
+  {
+   "text": "하잖아요. [콧방귀] 그래서 좀이",
+   "startMs": "2044639",
+   "endMs": "2050159",
+   "startTimeText": "34:04"
+  },
+  {
+   "text": "복음이라는 거 예수 그리스도께서 어",
+   "startMs": "2046960",
+   "endMs": "2053560",
+   "startTimeText": "34:06"
+  },
+  {
+   "text": "사람들의 어떤 그런 그 수준들을",
+   "startMs": "2050159",
+   "endMs": "2057159",
+   "startTimeText": "34:10"
+  },
+  {
+   "text": "생각을 하시고에 그들과 같이 되시고",
+   "startMs": "2053560",
+   "endMs": "2060919",
+   "startTimeText": "34:13"
+  },
+  {
+   "text": "또 그들의 입장에서 생각을 하시고",
+   "startMs": "2057159",
+   "endMs": "2064119",
+   "startTimeText": "34:17"
+  },
+  {
+   "text": "그러나 본인은 분명히 항상 주님 앞에",
+   "startMs": "2060919",
+   "endMs": "2066919",
+   "startTimeText": "34:20"
+  },
+  {
+   "text": "나와서 주님 뜻이 무엇인가를 물으면서",
+   "startMs": "2064119",
+   "endMs": "2069720",
+   "startTimeText": "34:24"
+  },
+  {
+   "text": "또 사람들에게는 그 수준을 맞춰서 또",
+   "startMs": "2066919",
+   "endMs": "2072520",
+   "startTimeText": "34:26"
+  },
+  {
+   "text": "이렇게 가고 본인의 목적이 분명히",
+   "startMs": "2069720",
+   "endMs": "2075639",
+   "startTimeText": "34:29"
+  },
+  {
+   "text": "있었어요. 나는이 길로 가야 되겠다.",
+   "startMs": "2072520",
+   "endMs": "2078839",
+   "startTimeText": "34:32"
+  },
+  {
+   "text": "그리고 소신 있게 나아가지만 다른",
+   "startMs": "2075639",
+   "endMs": "2081119",
+   "startTimeText": "34:35"
+  },
+  {
+   "text": "사람들에게 대해서는 좀 너그러운",
+   "startMs": "2078839",
+   "endMs": "2083919",
+   "startTimeText": "34:38"
+  },
+  {
+   "text": "마음으로 이렇게 받아들이면서 나아가는",
+   "startMs": "2081119",
+   "endMs": "2087960",
+   "startTimeText": "34:41"
+  },
+  {
+   "text": "것은 내가 그럴 권리가 없고 내가",
+   "startMs": "2083919",
+   "endMs": "2090639",
+   "startTimeText": "34:43"
+  },
+  {
+   "text": "몰라서 그러는게 아니라 얻기 위함이",
+   "startMs": "2087960",
+   "endMs": "2095800",
+   "startTimeText": "34:47"
+  },
+  {
+   "text": "이러면서 그렇게 갈 때 어 조금 더에",
+   "startMs": "2090639",
+   "endMs": "2098560",
+   "startTimeText": "34:50"
+  },
+  {
+   "text": "복된 그런 세상이 되지 않을까?",
+   "startMs": "2095800",
+   "endMs": "2100520",
+   "startTimeText": "34:55"
+  },
+  {
+   "text": "자식들도 마찬가지고 부부도",
+   "startMs": "2098560",
+   "endMs": "2102480",
+   "startTimeText": "34:58"
+  },
+  {
+   "text": "마찬가지죠.에",
+   "startMs": "2100520",
+   "endMs": "2105440",
+   "startTimeText": "35:00"
+  },
+  {
+   "text": "좀 그들의 어떤 입장에서 좀 생각을",
+   "startMs": "2102480",
+   "endMs": "2109200",
+   "startTimeText": "35:02"
+  },
+  {
+   "text": "해 보면 아,요 정도까지 하는 것도",
+   "startMs": "2105440",
+   "endMs": "2111119",
+   "startTimeText": "35:05"
+  },
+  {
+   "text": "참 잘하고 있는 부분이다 이러면서",
+   "startMs": "2109200",
+   "endMs": "2113079",
+   "startTimeText": "35:09"
+  },
+  {
+   "text": "격려하면서",
+   "startMs": "2111119",
+   "endMs": "2116000",
+   "startTimeText": "35:11"
+  },
+  {
+   "text": "나의 어떤 목적이 있지만 그래 수준을",
+   "startMs": "2113079",
+   "endMs": "2119320",
+   "startTimeText": "35:13"
+  },
+  {
+   "text": "맞춰 가지고 좀 이렇게 나아가 줄 때",
+   "startMs": "2116000",
+   "endMs": "2122000",
+   "startTimeText": "35:16"
+  },
+  {
+   "text": "그 가정이 되게 괜찮지 않겠습니까?",
+   "startMs": "2119320",
+   "endMs": "2123520",
+   "startTimeText": "35:19"
+  },
+  {
+   "text": "근데",
+   "startMs": "2122000",
+   "endMs": "2127240",
+   "startTimeText": "35:22"
+  },
+  {
+   "text": "맨날 그 꼬집고 막 이렇게 나정도 못",
+   "startMs": "2123520",
+   "endMs": "2129440",
+   "startTimeText": "35:23"
+  },
+  {
+   "text": "올라갔다고 그렇게 한다면 아마 다",
+   "startMs": "2127240",
+   "endMs": "2131560",
+   "startTimeText": "35:27"
+  },
+  {
+   "text": "떠나게 될 거죠. 부부 관계도",
+   "startMs": "2129440",
+   "endMs": "2134520",
+   "startTimeText": "35:29"
+  },
+  {
+   "text": "마찬가지고 사람들과의 관계에서도이",
+   "startMs": "2131560",
+   "endMs": "2137599",
+   "startTimeText": "35:31"
+  },
+  {
+   "text": "사도 바울이 그런 것들도 내려놓는",
+   "startMs": "2134520",
+   "endMs": "2139280",
+   "startTimeText": "35:34"
+  },
+  {
+   "text": "거라는 거예요. 내 생각의 어떤",
+   "startMs": "2137599",
+   "endMs": "2142400",
+   "startTimeText": "35:37"
+  },
+  {
+   "text": "고집이나 그런 한계를 내려놓는 거니까",
+   "startMs": "2139280",
+   "endMs": "2144680",
+   "startTimeText": "35:39"
+  },
+  {
+   "text": "결국에는 십자가에 두는 거예요.",
+   "startMs": "2142400",
+   "endMs": "2146640",
+   "startTimeText": "35:42"
+  },
+  {
+   "text": "사람들을 살리기 위해서 자신을",
+   "startMs": "2144680",
+   "endMs": "2149880",
+   "startTimeText": "35:44"
+  },
+  {
+   "text": "내어주고 자신의 생각의 어떤 부분이",
+   "startMs": "2146640",
+   "endMs": "2153009",
+   "startTimeText": "35:46"
+  },
+  {
+   "text": "진리와 상관이 없는 부분이라면",
+   "startMs": "2149880",
+   "endMs": "2153664",
+   "startTimeText": "35:49"
+  },
+  {
+   "text": "[한숨][헉 소리]",
+   "startMs": "2153009",
+   "endMs": "2154920",
+   "startTimeText": "35:53"
+  },
+  {
+   "text": "[콧방귀] 나는 마음에 안 들 수",
+   "startMs": "2153664",
+   "endMs": "2158079",
+   "startTimeText": "35:53"
+  },
+  {
+   "text": "있지만 그러나 그들을 위해 가지고 좀",
+   "startMs": "2154920",
+   "endMs": "2161040",
+   "startTimeText": "35:54"
+  },
+  {
+   "text": "내려놓 거 이게 쉽지가 않아요. 예.",
+   "startMs": "2158079",
+   "endMs": "2163040",
+   "startTimeText": "35:58"
+  },
+  {
+   "text": "그러니까 그들에게 맞춰 가지고",
+   "startMs": "2161040",
+   "endMs": "2165480",
+   "startTimeText": "36:01"
+  },
+  {
+   "text": "한다는게 [콧방귀] 자존심 도상할",
+   "startMs": "2163040",
+   "endMs": "2168680",
+   "startTimeText": "36:03"
+  },
+  {
+   "text": "때도 있고 내가 이런 거 이거",
+   "startMs": "2165480",
+   "endMs": "2171480",
+   "startTimeText": "36:05"
+  },
+  {
+   "text": "유치한테 내가 이런 것까지도 같이 해",
+   "startMs": "2168680",
+   "endMs": "2173880",
+   "startTimeText": "36:08"
+  },
+  {
+   "text": "줘야 돼. 예. 뭐 그런 것도",
+   "startMs": "2171480",
+   "endMs": "2175680",
+   "startTimeText": "36:11"
+  },
+  {
+   "text": "있잖아요.",
+   "startMs": "2173880",
+   "endMs": "2179119",
+   "startTimeText": "36:13"
+  },
+  {
+   "text": "나는 뭐 댄스 같은 거 뭐 춤추고 뭐",
+   "startMs": "2175680",
+   "endMs": "2181400",
+   "startTimeText": "36:15"
+  },
+  {
+   "text": "요런 거 별로 안 좋아해. 근데",
+   "startMs": "2179119",
+   "endMs": "2183839",
+   "startTimeText": "36:19"
+  },
+  {
+   "text": "사람들 그런 거를 좋아하고 또",
+   "startMs": "2181400",
+   "endMs": "2187119",
+   "startTimeText": "36:21"
+  },
+  {
+   "text": "거기에서 또 기쁨을 누리고 뭐 그러면",
+   "startMs": "2183839",
+   "endMs": "2189720",
+   "startTimeText": "36:23"
+  },
+  {
+   "text": "멈치지만 좀",
+   "startMs": "2187119",
+   "endMs": "2191800",
+   "startTimeText": "36:27"
+  },
+  {
+   "text": "하는 거 쉽겠습니까? 안 하는게",
+   "startMs": "2189720",
+   "endMs": "2194319",
+   "startTimeText": "36:29"
+  },
+  {
+   "text": "편해요? 하는게 편해요?",
+   "startMs": "2191800",
+   "endMs": "2197560",
+   "startTimeText": "36:31"
+  },
+  {
+   "text": "안 하는게 편하죠. 난 그거 싫어.",
+   "startMs": "2194319",
+   "endMs": "2199319",
+   "startTimeText": "36:34"
+  },
+  {
+   "text": "근데 사람을 얻기 위해 가지고 나도",
+   "startMs": "2197560",
+   "endMs": "2201520",
+   "startTimeText": "36:37"
+  },
+  {
+   "text": "같이 그 가운데",
+   "startMs": "2199319",
+   "endMs": "2203720",
+   "startTimeText": "36:39"
+  },
+  {
+   "text": "그냥 멈치지만 뭐 이렇게 해 주는 거",
+   "startMs": "2201520",
+   "endMs": "2206839",
+   "startTimeText": "36:41"
+  },
+  {
+   "text": "그거요. 되게 어려운 거예요. 그까",
+   "startMs": "2203720",
+   "endMs": "2210839",
+   "startTimeText": "36:43"
+  },
+  {
+   "text": "참 그런게 굉장히",
+   "startMs": "2206839",
+   "endMs": "2212839",
+   "startTimeText": "36:46"
+  },
+  {
+   "text": "아름다운 거잖아요. 그들을 얻기 위해",
+   "startMs": "2210839",
+   "endMs": "2217119",
+   "startTimeText": "36:50"
+  },
+  {
+   "text": "가지고 나는 그렇게 하지 못하지만은",
+   "startMs": "2212839",
+   "endMs": "2219880",
+   "startTimeText": "36:52"
+  },
+  {
+   "text": "노력을 하고 있는게 크게 더 아름다운",
+   "startMs": "2217119",
+   "endMs": "2222240",
+   "startTimeText": "36:57"
+  },
+  {
+   "text": "일이 아니겠습니까? 그러니까 그 모든",
+   "startMs": "2219880",
+   "endMs": "2225800",
+   "startTimeText": "36:59"
+  },
+  {
+   "text": "것이 십자가에 도다. 그것이 기준이",
+   "startMs": "2222240",
+   "endMs": "2227520",
+   "startTimeText": "37:02"
+  },
+  {
+   "text": "되고 내게 있는 것을 다 쓰지",
+   "startMs": "2225800",
+   "endMs": "2229880",
+   "startTimeText": "37:05"
+  },
+  {
+   "text": "아니하고 다른 사람들을 얻기 위해서",
+   "startMs": "2227520",
+   "endMs": "2233040",
+   "startTimeText": "37:07"
+  },
+  {
+   "text": "나의 것들을 좀 내려놓으면서 맞추면서",
+   "startMs": "2229880",
+   "endMs": "2236480",
+   "startTimeText": "37:09"
+  },
+  {
+   "text": "가지만 나는 분명하게 또 나의 달려갈",
+   "startMs": "2233040",
+   "endMs": "2239280",
+   "startTimeText": "37:13"
+  },
+  {
+   "text": "길들을 잘 지키면서 나아가고 다른",
+   "startMs": "2236480",
+   "endMs": "2242319",
+   "startTimeText": "37:16"
+  },
+  {
+   "text": "사람들을 배려하고 어 이것을 사도",
+   "startMs": "2239280",
+   "endMs": "2244040",
+   "startTimeText": "37:19"
+  },
+  {
+   "text": "바울은 이야기를 하고 있습니다.",
+   "startMs": "2242319",
+   "endMs": "2246119",
+   "startTimeText": "37:22"
+  },
+  {
+   "text": "기도하겠습니다.",
+   "startMs": "2244040",
+   "endMs": "2247720",
+   "startTimeText": "37:24"
+  },
+  {
+   "text": "하늘에 계신 우리 아버지 아버지의",
+   "startMs": "2246119",
+   "endMs": "2249560",
+   "startTimeText": "37:26"
+  },
+  {
+   "text": "이름을 거룩하게 하시며 아버지의",
+   "startMs": "2247720",
+   "endMs": "2251680",
+   "startTimeText": "37:27"
+  },
+  {
+   "text": "나라가 오게 하시며 아버지의 뜻이",
+   "startMs": "2249560",
+   "endMs": "2253640",
+   "startTimeText": "37:29"
+  },
+  {
+   "text": "하늘에서와 같이 땅에서도 이루어지게",
+   "startMs": "2251680",
+   "endMs": "2255800",
+   "startTimeText": "37:31"
+  },
+  {
+   "text": "하소서. 오늘 우리에게 일용할 양식을",
+   "startMs": "2253640",
+   "endMs": "2257720",
+   "startTimeText": "37:33"
+  },
+  {
+   "text": "주시고 우리가 우리에게 잘못한 사람을",
+   "startMs": "2255800",
+   "endMs": "2260160",
+   "startTimeText": "37:35"
+  },
+  {
+   "text": "용서해 준 것 같이 우리 죄를 용서해",
+   "startMs": "2257720",
+   "endMs": "2262040",
+   "startTimeText": "37:37"
+  },
+  {
+   "text": "주시고 우리를 시험에 빠지지 않게",
+   "startMs": "2260160",
+   "endMs": "2264440",
+   "startTimeText": "37:40"
+  },
+  {
+   "text": "하시고 악에서 구하소서. 나라와",
+   "startMs": "2262040",
+   "endMs": "2266480",
+   "startTimeText": "37:42"
+  },
+  {
+   "text": "권능과 영광이 영원히 아버지의",
+   "startMs": "2264440",
+   "endMs": "2270280",
+   "startTimeText": "37:44"
+  },
+  {
+   "text": "것입니다. 아멘.",
+   "startMs": "2266480",
+   "endMs": "2270280",
+   "startTimeText": "37:46"
+  }
+ ]
+}

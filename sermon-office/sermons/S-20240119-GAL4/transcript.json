@@ -1,0 +1,5785 @@
+{
+ "videoId": "CzDlfpqEpSs",
+ "language": "Korean",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=CzDlfpqEpSs&ei=kcyTauDcGaik0_wPhNTo4QE&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788096257&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=11C9A320401D0B85C41B28A462797BC09723C7BC.B0DAF706E06AF6F81B52217908FCD6C9C029041E&key=yt8&kind=asr&lang=ko",
+   "name": {
+    "simpleText": "Korean (auto-generated)"
+   },
+   "vssId": "a.ko",
+   "languageCode": "ko",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "찬송가 96장",
+   "startMs": "2120",
+   "endMs": "6000",
+   "startTimeText": "0:02"
+  },
+  {
+   "text": "찬양하시는 찬송가",
+   "startMs": "10160",
+   "endMs": "13679",
+   "startTimeText": "0:10"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "12320",
+   "endMs": "16560",
+   "startTimeText": "0:12"
+  },
+  {
+   "text": "96장 예수님은 누구신가 찬송가",
+   "startMs": "13679",
+   "endMs": "19920",
+   "startTimeText": "0:13"
+  },
+  {
+   "text": "96장 있니다",
+   "startMs": "16560",
+   "endMs": "22240",
+   "startTimeText": "0:16"
+  },
+  {
+   "text": "예수님은",
+   "startMs": "19920",
+   "endMs": "26920",
+   "startTimeText": "0:19"
+  },
+  {
+   "text": "누구신가 우는 자의",
+   "startMs": "22240",
+   "endMs": "31520",
+   "startTimeText": "0:22"
+  },
+  {
+   "text": "위로와 없는 자의",
+   "startMs": "26920",
+   "endMs": "36120",
+   "startTimeText": "0:26"
+  },
+  {
+   "text": "풍성이며 전한 자의",
+   "startMs": "31520",
+   "endMs": "43079",
+   "startTimeText": "0:31"
+  },
+  {
+   "text": "높음과 잡힌 자의 누임 되고 우리",
+   "startMs": "36120",
+   "endMs": "45559",
+   "startTimeText": "0:36"
+  },
+  {
+   "text": "기쁨",
+   "startMs": "43079",
+   "endMs": "47840",
+   "startTimeText": "0:43"
+  },
+  {
+   "text": "되시네",
+   "startMs": "45559",
+   "endMs": "50199",
+   "startTimeText": "0:45"
+  },
+  {
+   "text": "예수님은",
+   "startMs": "47840",
+   "endMs": "54840",
+   "startTimeText": "0:47"
+  },
+  {
+   "text": "누구신가 약한 자의",
+   "startMs": "50199",
+   "endMs": "57160",
+   "startTimeText": "0:50"
+  },
+  {
+   "text": "강과",
+   "startMs": "54840",
+   "endMs": "58920",
+   "startTimeText": "0:54"
+  },
+  {
+   "text": "눈먼자의",
+   "startMs": "57160",
+   "endMs": "60640",
+   "startTimeText": "0:57"
+  },
+  {
+   "text": "비심",
+   "startMs": "58920",
+   "endMs": "64119",
+   "startTimeText": "0:58"
+  },
+  {
+   "text": "병든 자의",
+   "startMs": "60640",
+   "endMs": "68880",
+   "startTimeText": "1:00"
+  },
+  {
+   "text": "고침과 죽은 자의",
+   "startMs": "64119",
+   "endMs": "73600",
+   "startTimeText": "1:04"
+  },
+  {
+   "text": "부활되고 우리 생명",
+   "startMs": "68880",
+   "endMs": "75880",
+   "startTimeText": "1:08"
+  },
+  {
+   "text": "되시네",
+   "startMs": "73600",
+   "endMs": "78200",
+   "startTimeText": "1:13"
+  },
+  {
+   "text": "예수님은",
+   "startMs": "75880",
+   "endMs": "82960",
+   "startTimeText": "1:15"
+  },
+  {
+   "text": "누구신가 주한 자의",
+   "startMs": "78200",
+   "endMs": "87720",
+   "startTimeText": "1:18"
+  },
+  {
+   "text": "정황과 죽을 자의",
+   "startMs": "82960",
+   "endMs": "92479",
+   "startTimeText": "1:22"
+  },
+  {
+   "text": "생명이며 죄인 들의",
+   "startMs": "87720",
+   "endMs": "94880",
+   "startTimeText": "1:27"
+  },
+  {
+   "text": "중보와",
+   "startMs": "92479",
+   "endMs": "97280",
+   "startTimeText": "1:32"
+  },
+  {
+   "text": "멸망자의",
+   "startMs": "94880",
+   "endMs": "102119",
+   "startTimeText": "1:34"
+  },
+  {
+   "text": "구원되고 우리 평화",
+   "startMs": "97280",
+   "endMs": "104320",
+   "startTimeText": "1:37"
+  },
+  {
+   "text": "되시네",
+   "startMs": "102119",
+   "endMs": "106560",
+   "startTimeText": "1:42"
+  },
+  {
+   "text": "예수님은",
+   "startMs": "104320",
+   "endMs": "109159",
+   "startTimeText": "1:44"
+  },
+  {
+   "text": "누구신가 온",
+   "startMs": "106560",
+   "endMs": "111439",
+   "startTimeText": "1:46"
+  },
+  {
+   "text": "교회의",
+   "startMs": "109159",
+   "endMs": "113799",
+   "startTimeText": "1:49"
+  },
+  {
+   "text": "머리와 온",
+   "startMs": "111439",
+   "endMs": "116320",
+   "startTimeText": "1:51"
+  },
+  {
+   "text": "세상의",
+   "startMs": "113799",
+   "endMs": "121430",
+   "startTimeText": "1:53"
+  },
+  {
+   "text": "구주시며 모든 왕의",
+   "startMs": "116320",
+   "endMs": "123320",
+   "startTimeText": "1:56"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "121430",
+   "endMs": "131119",
+   "startTimeText": "2:01"
+  },
+  {
+   "text": "심판하실 주님 되고 우리 영광",
+   "startMs": "123320",
+   "endMs": "131119",
+   "startTimeText": "2:03"
+  },
+  {
+   "text": "되시네 하나님 아버지 감사합니다",
+   "startMs": "132239",
+   "endMs": "137879",
+   "startTimeText": "2:12"
+  },
+  {
+   "text": "우리의 가운데 성령님을 보내주셔서",
+   "startMs": "135080",
+   "endMs": "140920",
+   "startTimeText": "2:15"
+  },
+  {
+   "text": "우리를 도우시고 인도하여 주셔서",
+   "startMs": "137879",
+   "endMs": "143440",
+   "startTimeText": "2:17"
+  },
+  {
+   "text": "감사드립니다 우리가 기도할 생각을 할",
+   "startMs": "140920",
+   "endMs": "146280",
+   "startTimeText": "2:20"
+  },
+  {
+   "text": "수 있는 것도 하나님이 함께하신다는",
+   "startMs": "143440",
+   "endMs": "149840",
+   "startTimeText": "2:23"
+  },
+  {
+   "text": "생각을 하면서 갑자기 우리 가운데을",
+   "startMs": "146280",
+   "endMs": "152599",
+   "startTimeText": "2:26"
+  },
+  {
+   "text": "누리게 되는 것도 우리의 힘이 아닌",
+   "startMs": "149840",
+   "endMs": "154720",
+   "startTimeText": "2:29"
+  },
+  {
+   "text": "성령님께서 우리 안에 계시고",
+   "startMs": "152599",
+   "endMs": "157160",
+   "startTimeText": "2:32"
+  },
+  {
+   "text": "함께하시며 도우시기 때문에 그런",
+   "startMs": "154720",
+   "endMs": "159159",
+   "startTimeText": "2:34"
+  },
+  {
+   "text": "생각을 할 수 있게 되는 것을",
+   "startMs": "157160",
+   "endMs": "160680",
+   "startTimeText": "2:37"
+  },
+  {
+   "text": "인하여서",
+   "startMs": "159159",
+   "endMs": "162920",
+   "startTimeText": "2:39"
+  },
+  {
+   "text": "감사드립니다 하나님 아버지 예수님의",
+   "startMs": "160680",
+   "endMs": "165519",
+   "startTimeText": "2:40"
+  },
+  {
+   "text": "성도들을 위해 기도드립니다 우리는",
+   "startMs": "162920",
+   "endMs": "168400",
+   "startTimeText": "2:42"
+  },
+  {
+   "text": "육신의 연약함을 가지고 육신의",
+   "startMs": "165519",
+   "endMs": "172080",
+   "startTimeText": "2:45"
+  },
+  {
+   "text": "생각을 따라서 살 수밖에 없는 그런",
+   "startMs": "168400",
+   "endMs": "174840",
+   "startTimeText": "2:48"
+  },
+  {
+   "text": "존재인지라 끊임없이 상황들에 좌우되며",
+   "startMs": "172080",
+   "endMs": "177879",
+   "startTimeText": "2:52"
+  },
+  {
+   "text": "심하기 쉽습니다 하지만 그때마다",
+   "startMs": "174840",
+   "endMs": "180640",
+   "startTimeText": "2:54"
+  },
+  {
+   "text": "성령께서 신다고 하셨으니",
+   "startMs": "177879",
+   "endMs": "183480",
+   "startTimeText": "2:57"
+  },
+  {
+   "text": "께서 의손을 밀어 주셔서 믿음으로",
+   "startMs": "180640",
+   "endMs": "186000",
+   "startTimeText": "3:00"
+  },
+  {
+   "text": "일어날 수 있도록 인도하여",
+   "startMs": "183480",
+   "endMs": "188640",
+   "startTimeText": "3:03"
+  },
+  {
+   "text": "주시옵소서 약한 자들을 치료하시고",
+   "startMs": "186000",
+   "endMs": "191519",
+   "startTimeText": "3:06"
+  },
+  {
+   "text": "반드시 회복될 것에 대한 소망을 갖게",
+   "startMs": "188640",
+   "endMs": "194239",
+   "startTimeText": "3:08"
+  },
+  {
+   "text": "하여 주시고 잘 치료받고 건강을",
+   "startMs": "191519",
+   "endMs": "197400",
+   "startTimeText": "3:11"
+  },
+  {
+   "text": "찾도록 인도하여 주시옵소서 삶이",
+   "startMs": "194239",
+   "endMs": "200239",
+   "startTimeText": "3:14"
+  },
+  {
+   "text": "두려운 성도들에게 두려워 말라 내가",
+   "startMs": "197400",
+   "endMs": "202519",
+   "startTimeText": "3:17"
+  },
+  {
+   "text": "너와 함께함이라",
+   "startMs": "200239",
+   "endMs": "206319",
+   "startTimeText": "3:20"
+  },
+  {
+   "text": "주님께서 말씀하 주시기를 절",
+   "startMs": "202519",
+   "endMs": "210680",
+   "startTimeText": "3:22"
+  },
+  {
+   "text": "합니다 가지을 있는들에 님께서 앞장서",
+   "startMs": "206319",
+   "endMs": "213159",
+   "startTimeText": "3:26"
+  },
+  {
+   "text": "가시며 길을 비춰 주시고 주님의",
+   "startMs": "210680",
+   "endMs": "215319",
+   "startTimeText": "3:30"
+  },
+  {
+   "text": "선하신 뜻이 있는 길로 인도하여",
+   "startMs": "213159",
+   "endMs": "218040",
+   "startTimeText": "3:33"
+  },
+  {
+   "text": "주시옵소서 상황들이 막힌 것 같이",
+   "startMs": "215319",
+   "endMs": "220959",
+   "startTimeText": "3:35"
+  },
+  {
+   "text": "느끼는 성도들에게 주님께서 예비하신",
+   "startMs": "218040",
+   "endMs": "223640",
+   "startTimeText": "3:38"
+  },
+  {
+   "text": "다른 길이 또 있음을 깨닫는 지혜를",
+   "startMs": "220959",
+   "endMs": "226400",
+   "startTimeText": "3:40"
+  },
+  {
+   "text": "허락하여 주시옵소서 하나님 아버지이",
+   "startMs": "223640",
+   "endMs": "228560",
+   "startTimeText": "3:43"
+  },
+  {
+   "text": "나라와 민족을 위해 기도드립니다이",
+   "startMs": "226400",
+   "endMs": "232000",
+   "startTimeText": "3:46"
+  },
+  {
+   "text": "나라 민족을 사랑하여 주셨고 앞으로도",
+   "startMs": "228560",
+   "endMs": "234640",
+   "startTimeText": "3:48"
+  },
+  {
+   "text": "사랑하여 주시기를 간절히 원합니다",
+   "startMs": "232000",
+   "endMs": "237000",
+   "startTimeText": "3:52"
+  },
+  {
+   "text": "하나님 아버지 지금이 나라가 갈길을",
+   "startMs": "234640",
+   "endMs": "240439",
+   "startTimeText": "3:54"
+  },
+  {
+   "text": "잘지 못해 방하는 나라가 되었는데 바",
+   "startMs": "237000",
+   "endMs": "243599",
+   "startTimeText": "3:57"
+  },
+  {
+   "text": "갈는을 열어주시기를 원합니다 아",
+   "startMs": "240439",
+   "endMs": "247040",
+   "startTimeText": "4:00"
+  },
+  {
+   "text": "그리하여 전 세계가 혼란과 전쟁과",
+   "startMs": "243599",
+   "endMs": "249599",
+   "startTimeText": "4:03"
+  },
+  {
+   "text": "두려움과 죽음으로 가쳐 있는데이",
+   "startMs": "247040",
+   "endMs": "251519",
+   "startTimeText": "4:07"
+  },
+  {
+   "text": "나라가 예수 그리스도 안에서 길을",
+   "startMs": "249599",
+   "endMs": "253920",
+   "startTimeText": "4:09"
+  },
+  {
+   "text": "찾아 전 세계 가운데 복음의 빛을",
+   "startMs": "251519",
+   "endMs": "256400",
+   "startTimeText": "4:11"
+  },
+  {
+   "text": "비추는 나라로 쓰임받을 수 있도록",
+   "startMs": "253920",
+   "endMs": "259120",
+   "startTimeText": "4:13"
+  },
+  {
+   "text": "사용하여 주시고 특별히이 나라의 다음",
+   "startMs": "256400",
+   "endMs": "261280",
+   "startTimeText": "4:16"
+  },
+  {
+   "text": "세대들을 젊은 세대들을 사용하여",
+   "startMs": "259120",
+   "endMs": "264720",
+   "startTimeText": "4:19"
+  },
+  {
+   "text": "주셔서 소망이 있게 하여 주시옵소서",
+   "startMs": "261280",
+   "endMs": "267880",
+   "startTimeText": "4:21"
+  },
+  {
+   "text": "날 우리 나라를 방해하고 있는 장들을",
+   "startMs": "264720",
+   "endMs": "270240",
+   "startTimeText": "4:24"
+  },
+  {
+   "text": "붙들어주시고 한도 운데 평화를",
+   "startMs": "267880",
+   "endMs": "272720",
+   "startTimeText": "4:27"
+  },
+  {
+   "text": "허락하여 주시고 늘 전쟁 생각을",
+   "startMs": "270240",
+   "endMs": "275120",
+   "startTimeText": "4:30"
+  },
+  {
+   "text": "하면서 죽음으로 몰고 가려는 악한",
+   "startMs": "272720",
+   "endMs": "278759",
+   "startTimeText": "4:32"
+  },
+  {
+   "text": "북한 정권의 권세가 무너지게 하여",
+   "startMs": "275120",
+   "endMs": "281360",
+   "startTimeText": "4:35"
+  },
+  {
+   "text": "주시옵소서 북한 땅 가운데 주님",
+   "startMs": "278759",
+   "endMs": "284360",
+   "startTimeText": "4:38"
+  },
+  {
+   "text": "해방과 자유의 기쁨을 허락하여 주소서",
+   "startMs": "281360",
+   "endMs": "286680",
+   "startTimeText": "4:41"
+  },
+  {
+   "text": "많은 백성들이 주께 돌아올 수 있는",
+   "startMs": "284360",
+   "endMs": "288840",
+   "startTimeText": "4:44"
+  },
+  {
+   "text": "은총을 허락하여",
+   "startMs": "286680",
+   "endMs": "291320",
+   "startTimeText": "4:46"
+  },
+  {
+   "text": "주시옵소서 하나님 아버지 그 땅에",
+   "startMs": "288840",
+   "endMs": "295000",
+   "startTimeText": "4:48"
+  },
+  {
+   "text": "복음이 전파되었고 평양의 대이 있었고",
+   "startMs": "291320",
+   "endMs": "297840",
+   "startTimeText": "4:51"
+  },
+  {
+   "text": "많은 사람이 주님을 알게 되었는데",
+   "startMs": "295000",
+   "endMs": "300360",
+   "startTimeText": "4:55"
+  },
+  {
+   "text": "아버지 하나님 이제는",
+   "startMs": "297840",
+   "endMs": "303320",
+   "startTimeText": "4:57"
+  },
+  {
+   "text": "참으로 억압 가운데 있습니다 하나님",
+   "startMs": "300360",
+   "endMs": "306280",
+   "startTimeText": "5:00"
+  },
+  {
+   "text": "해방시켜 주시옵소서 아버지는 복음의",
+   "startMs": "303320",
+   "endMs": "310240",
+   "startTimeText": "5:03"
+  },
+  {
+   "text": "빛을 다시 비춰 주시옵소서 아멘 이제",
+   "startMs": "306280",
+   "endMs": "312560",
+   "startTimeText": "5:06"
+  },
+  {
+   "text": "말씀 가운데로 나아갑니다 주님의",
+   "startMs": "310240",
+   "endMs": "314440",
+   "startTimeText": "5:10"
+  },
+  {
+   "text": "진리가 우리를 자유케 하실 줄로",
+   "startMs": "312560",
+   "endMs": "317280",
+   "startTimeText": "5:12"
+  },
+  {
+   "text": "믿습니다 하나님 인도하여 주시옵소서",
+   "startMs": "314440",
+   "endMs": "320160",
+   "startTimeText": "5:14"
+  },
+  {
+   "text": "예수님의 이름으로 기도드립니다",
+   "startMs": "317280",
+   "endMs": "322680",
+   "startTimeText": "5:17"
+  },
+  {
+   "text": "아멘 우리에게 주시는 하나님의 말씀은",
+   "startMs": "320160",
+   "endMs": "325199",
+   "startTimeText": "5:20"
+  },
+  {
+   "text": "갈라디아서 4장 21절부터 5장",
+   "startMs": "322680",
+   "endMs": "329600",
+   "startTimeText": "5:22"
+  },
+  {
+   "text": "1절까지 말씀입니다 갈라디아서 4장",
+   "startMs": "325199",
+   "endMs": "330919",
+   "startTimeText": "5:25"
+  },
+  {
+   "text": "21절부터",
+   "startMs": "329600",
+   "endMs": "333919",
+   "startTimeText": "5:29"
+  },
+  {
+   "text": "5장",
+   "startMs": "330919",
+   "endMs": "333919",
+   "startTimeText": "5:30"
+  },
+  {
+   "text": "1절까지 갈라디아서 4장 21절부터",
+   "startMs": "336080",
+   "endMs": "342240",
+   "startTimeText": "5:36"
+  },
+  {
+   "text": "5장 1절까지 같이 봉하도 하겠습니다",
+   "startMs": "338759",
+   "endMs": "345039",
+   "startTimeText": "5:38"
+  },
+  {
+   "text": "내게 말하라 율법 아래 입고자 하는",
+   "startMs": "342240",
+   "endMs": "348160",
+   "startTimeText": "5:42"
+  },
+  {
+   "text": "자들아 율법을 듣지 못하였느냐 기록된",
+   "startMs": "345039",
+   "endMs": "350639",
+   "startTimeText": "5:45"
+  },
+  {
+   "text": "바 아브라함에게 두 아들이 있으니",
+   "startMs": "348160",
+   "endMs": "353800",
+   "startTimeText": "5:48"
+  },
+  {
+   "text": "하나는 여종에게 하나는 자유 있는",
+   "startMs": "350639",
+   "endMs": "356639",
+   "startTimeText": "5:50"
+  },
+  {
+   "text": "여자에게서났다 하였으며 종에게는",
+   "startMs": "353800",
+   "endMs": "359479",
+   "startTimeText": "5:53"
+  },
+  {
+   "text": "육체를 따라고 자유 있는 여자에게는",
+   "startMs": "356639",
+   "endMs": "363080",
+   "startTimeText": "5:56"
+  },
+  {
+   "text": "약속으로 말미암느니라 이것은 비니이",
+   "startMs": "359479",
+   "endMs": "365440",
+   "startTimeText": "5:59"
+  },
+  {
+   "text": "여자들은 두 언약이라 하나는",
+   "startMs": "363080",
+   "endMs": "369120",
+   "startTimeText": "6:03"
+  },
+  {
+   "text": "산으로부터 종을 낳은 자니 곧 갈이이",
+   "startMs": "365440",
+   "endMs": "372639",
+   "startTimeText": "6:05"
+  },
+  {
+   "text": "갈은 아라비아에 있는 시내산으로 지금",
+   "startMs": "369120",
+   "endMs": "375400",
+   "startTimeText": "6:09"
+  },
+  {
+   "text": "있는 예루살렘과 같은 곳이니 그가 그",
+   "startMs": "372639",
+   "endMs": "377960",
+   "startTimeText": "6:12"
+  },
+  {
+   "text": "자녀들과 더불어 노릇하고 오직 위에",
+   "startMs": "375400",
+   "endMs": "380360",
+   "startTimeText": "6:15"
+  },
+  {
+   "text": "있는 예루살렘은 자유자 곧 우리",
+   "startMs": "377960",
+   "endMs": "383479",
+   "startTimeText": "6:17"
+  },
+  {
+   "text": "어머니라 기록된 바 잉태하지 못한자",
+   "startMs": "380360",
+   "endMs": "386120",
+   "startTimeText": "6:20"
+  },
+  {
+   "text": "즐거워하라 상고를 모르는 자 소리질러",
+   "startMs": "383479",
+   "endMs": "389960",
+   "startTimeText": "6:23"
+  },
+  {
+   "text": "외치라이는 홀로사는 자의 자 의",
+   "startMs": "386120",
+   "endMs": "393199",
+   "startTimeText": "6:26"
+  },
+  {
+   "text": "자녀보다 으라 하였으니 들아 너희는",
+   "startMs": "389960",
+   "endMs": "395840",
+   "startTimeText": "6:29"
+  },
+  {
+   "text": "이삭과 같이 약속의 자녀라 그러나",
+   "startMs": "393199",
+   "endMs": "398720",
+   "startTimeText": "6:33"
+  },
+  {
+   "text": "그때에 육체를 따라난 자 성을 따라낸",
+   "startMs": "395840",
+   "endMs": "402160",
+   "startTimeText": "6:35"
+  },
+  {
+   "text": "자를 한 것같이 이제도 그다 그러나",
+   "startMs": "398720",
+   "endMs": "404840",
+   "startTimeText": "6:38"
+  },
+  {
+   "text": "성이 무엇을 말하느냐 여과 그 아들을",
+   "startMs": "402160",
+   "endMs": "407360",
+   "startTimeText": "6:42"
+  },
+  {
+   "text": "내쫓으라 여종의 아들이 자유 있는",
+   "startMs": "404840",
+   "endMs": "410280",
+   "startTimeText": "6:44"
+  },
+  {
+   "text": "여자의 아들과 더을 얻지 못하리라",
+   "startMs": "407360",
+   "endMs": "413599",
+   "startTimeText": "6:47"
+  },
+  {
+   "text": "하라 그런즉 들아리는 여종의 자가",
+   "startMs": "410280",
+   "endMs": "416319",
+   "startTimeText": "6:50"
+  },
+  {
+   "text": "아니요 자유 있는 여자의 자라",
+   "startMs": "413599",
+   "endMs": "418440",
+   "startTimeText": "6:53"
+  },
+  {
+   "text": "그리스도께서를 자유롭게 하려고 자유를",
+   "startMs": "416319",
+   "endMs": "421479",
+   "startTimeText": "6:56"
+  },
+  {
+   "text": "셨으니 그러 굳건하게소서 다시는 종의",
+   "startMs": "418440",
+   "endMs": "422960",
+   "startTimeText": "6:58"
+  },
+  {
+   "text": "멍에를 내지",
+   "startMs": "421479",
+   "endMs": "425120",
+   "startTimeText": "7:01"
+  },
+  {
+   "text": "말라",
+   "startMs": "422960",
+   "endMs": "429240",
+   "startTimeText": "7:02"
+  },
+  {
+   "text": "아멘 여러분 그 말씀이 그냥 한 번에",
+   "startMs": "425120",
+   "endMs": "431080",
+   "startTimeText": "7:05"
+  },
+  {
+   "text": "이렇게 많은 것을 깨달을 수 있는",
+   "startMs": "429240",
+   "endMs": "434800",
+   "startTimeText": "7:09"
+  },
+  {
+   "text": "말씀이 아니라는 것을 여러분들 점점",
+   "startMs": "431080",
+   "endMs": "438000",
+   "startTimeText": "7:11"
+  },
+  {
+   "text": "좀 많이 알게 되실 텐데 날마다",
+   "startMs": "434800",
+   "endMs": "440440",
+   "startTimeText": "7:14"
+  },
+  {
+   "text": "꾸준히 말씀을 또 보고 또 보고",
+   "startMs": "438000",
+   "endMs": "442560",
+   "startTimeText": "7:18"
+  },
+  {
+   "text": "이래야 그 말씀의",
+   "startMs": "440440",
+   "endMs": "445319",
+   "startTimeText": "7:20"
+  },
+  {
+   "text": "진리가 우리 가운데 새겨집니다 여기서",
+   "startMs": "442560",
+   "endMs": "449680",
+   "startTimeText": "7:22"
+  },
+  {
+   "text": "조금 저기서 조금 이래 가지고 절대로",
+   "startMs": "445319",
+   "endMs": "453000",
+   "startTimeText": "7:25"
+  },
+  {
+   "text": "말씀의 깊이를 알 수가 없고 뭐지나",
+   "startMs": "449680",
+   "endMs": "455919",
+   "startTimeText": "7:29"
+  },
+  {
+   "text": "봤자 알고 있는 건 별로 없습니다",
+   "startMs": "453000",
+   "endMs": "459879",
+   "startTimeText": "7:33"
+  },
+  {
+   "text": "그니까 자세하게 계속해서 집중해서이",
+   "startMs": "455919",
+   "endMs": "463639",
+   "startTimeText": "7:35"
+  },
+  {
+   "text": "맥락 안에서 계속도 보고 계속도 보고",
+   "startMs": "459879",
+   "endMs": "467599",
+   "startTimeText": "7:39"
+  },
+  {
+   "text": "새기는 것만이 오히려 자세하게 보는",
+   "startMs": "463639",
+   "endMs": "470440",
+   "startTimeText": "7:43"
+  },
+  {
+   "text": "것만이 이거 뭐 여기서 찔금 저기서",
+   "startMs": "467599",
+   "endMs": "473800",
+   "startTimeText": "7:47"
+  },
+  {
+   "text": "찔금 50년 봐도 남는게 없어요",
+   "startMs": "470440",
+   "endMs": "477319",
+   "startTimeText": "7:50"
+  },
+  {
+   "text": "그러니까 꾸준히 여러분들 이렇게 깊게",
+   "startMs": "473800",
+   "endMs": "479639",
+   "startTimeText": "7:53"
+  },
+  {
+   "text": "보시는게 오히려 확실하게 말씀이",
+   "startMs": "477319",
+   "endMs": "482440",
+   "startTimeText": "7:57"
+  },
+  {
+   "text": "세겨져 가지 단단하게 나아갈 수 있는",
+   "startMs": "479639",
+   "endMs": "485080",
+   "startTimeText": "7:59"
+  },
+  {
+   "text": "가장 빠른 방법입니다 그래서",
+   "startMs": "482440",
+   "endMs": "486840",
+   "startTimeText": "8:02"
+  },
+  {
+   "text": "여러분들은 참 복 있는 사람이라고",
+   "startMs": "485080",
+   "endMs": "488440",
+   "startTimeText": "8:05"
+  },
+  {
+   "text": "저는 생각을 하고",
+   "startMs": "486840",
+   "endMs": "491400",
+   "startTimeText": "8:06"
+  },
+  {
+   "text": "있습니다 여러분 갈라디아서 어",
+   "startMs": "488440",
+   "endMs": "494960",
+   "startTimeText": "8:08"
+  },
+  {
+   "text": "사람들이 율법주의로 가게 되는 거 어",
+   "startMs": "491400",
+   "endMs": "497680",
+   "startTimeText": "8:11"
+  },
+  {
+   "text": "그게 얼마나 그리스도 안에 있는",
+   "startMs": "494960",
+   "endMs": "500720",
+   "startTimeText": "8:14"
+  },
+  {
+   "text": "자유를 억압하고 우리 가운데 두려움과",
+   "startMs": "497680",
+   "endMs": "504240",
+   "startTimeText": "8:17"
+  },
+  {
+   "text": "정제 속에서 신앙생활을 하게 했는가",
+   "startMs": "500720",
+   "endMs": "506280",
+   "startTimeText": "8:20"
+  },
+  {
+   "text": "그것들이 사람들에게 또",
+   "startMs": "504240",
+   "endMs": "508759",
+   "startTimeText": "8:24"
+  },
+  {
+   "text": "오해를 받게 하고 오해를 사게 해",
+   "startMs": "506280",
+   "endMs": "511400",
+   "startTimeText": "8:26"
+  },
+  {
+   "text": "가지고 예수 그리스도 말고 다른 길로",
+   "startMs": "508759",
+   "endMs": "514159",
+   "startTimeText": "8:28"
+  },
+  {
+   "text": "이제 자꾸 가게 되는 그런 것들을",
+   "startMs": "511400",
+   "endMs": "516839",
+   "startTimeText": "8:31"
+  },
+  {
+   "text": "굉장히 경계를 하고 있습니다 근데",
+   "startMs": "514159",
+   "endMs": "519200",
+   "startTimeText": "8:34"
+  },
+  {
+   "text": "우리의 신앙도 보면은 이런 경우가",
+   "startMs": "516839",
+   "endMs": "522000",
+   "startTimeText": "8:36"
+  },
+  {
+   "text": "되게 많아요 한국교회 거의 대분의",
+   "startMs": "519200",
+   "endMs": "524720",
+   "startTimeText": "8:39"
+  },
+  {
+   "text": "신앙생활이 보면 예수님을",
+   "startMs": "522000",
+   "endMs": "527440",
+   "startTimeText": "8:42"
+  },
+  {
+   "text": "알았지만 변함없이 순종은 누구에게",
+   "startMs": "524720",
+   "endMs": "531279",
+   "startTimeText": "8:44"
+  },
+  {
+   "text": "하고 있냐면 법에게 순종을 하고 있는",
+   "startMs": "527440",
+   "endMs": "534600",
+   "startTimeText": "8:47"
+  },
+  {
+   "text": "그러니까 자유가 없고 굉장히 맨날",
+   "startMs": "531279",
+   "endMs": "536440",
+   "startTimeText": "8:51"
+  },
+  {
+   "text": "무서움",
+   "startMs": "534600",
+   "endMs": "539720",
+   "startTimeText": "8:54"
+  },
+  {
+   "text": "두려움 하나님의 아빠 아버지라",
+   "startMs": "536440",
+   "endMs": "542240",
+   "startTimeText": "8:56"
+  },
+  {
+   "text": "보다도 굉장히 자유가",
+   "startMs": "539720",
+   "endMs": "546360",
+   "startTimeText": "8:59"
+  },
+  {
+   "text": "없고 뭔가 눌려 있는듯한 그런 모습을",
+   "startMs": "542240",
+   "endMs": "550040",
+   "startTimeText": "9:02"
+  },
+  {
+   "text": "갖고 있는데 그것은 참으로 복음의 그",
+   "startMs": "546360",
+   "endMs": "553440",
+   "startTimeText": "9:06"
+  },
+  {
+   "text": "기쁜 소식이 되지 못하는",
+   "startMs": "550040",
+   "endMs": "556399",
+   "startTimeText": "9:10"
+  },
+  {
+   "text": "것이죠 갈라디아 성도들에게 이제 사도",
+   "startMs": "553440",
+   "endMs": "559640",
+   "startTimeText": "9:13"
+  },
+  {
+   "text": "바울은 또 이야기를 합니다 21절에",
+   "startMs": "556399",
+   "endMs": "563200",
+   "startTimeText": "9:16"
+  },
+  {
+   "text": "보면 내게 말하라 율법 아래 입고자",
+   "startMs": "559640",
+   "endMs": "565680",
+   "startTimeText": "9:19"
+  },
+  {
+   "text": "하는 자들아이 갈라디아 성도들이 어디",
+   "startMs": "563200",
+   "endMs": "566959",
+   "startTimeText": "9:23"
+  },
+  {
+   "text": "아래 있고자",
+   "startMs": "565680",
+   "endMs": "569760",
+   "startTimeText": "9:25"
+  },
+  {
+   "text": "한다고요 자꾸 율법 아래 하는 거예요",
+   "startMs": "566959",
+   "endMs": "574160",
+   "startTimeText": "9:26"
+  },
+  {
+   "text": "율법 아에 그게 강했나 봐요",
+   "startMs": "569760",
+   "endMs": "578399",
+   "startTimeText": "9:29"
+  },
+  {
+   "text": "굉장히 율법을 지키는 사람 철저하게",
+   "startMs": "574160",
+   "endMs": "581760",
+   "startTimeText": "9:34"
+  },
+  {
+   "text": "지키는 사이만 익숙해져 있어 가지고",
+   "startMs": "578399",
+   "endMs": "585399",
+   "startTimeText": "9:38"
+  },
+  {
+   "text": "이게 잘 안 되는 거죠",
+   "startMs": "581760",
+   "endMs": "585399",
+   "startTimeText": "9:41"
+  },
+  {
+   "text": "그러니까 이게 자기의 과거 삶에서",
+   "startMs": "585480",
+   "endMs": "589440",
+   "startTimeText": "9:45"
+  },
+  {
+   "text": "이게",
+   "startMs": "588519",
+   "endMs": "591800",
+   "startTimeText": "9:48"
+  },
+  {
+   "text": "벗어난다는게 굉장히",
+   "startMs": "589440",
+   "endMs": "595279",
+   "startTimeText": "9:49"
+  },
+  {
+   "text": "어렵습니다 한국 사람들은 이게 보면",
+   "startMs": "591800",
+   "endMs": "598600",
+   "startTimeText": "9:51"
+  },
+  {
+   "text": "뭐든지 공부를 되게 좋아해 가지고",
+   "startMs": "595279",
+   "endMs": "602160",
+   "startTimeText": "9:55"
+  },
+  {
+   "text": "그래서 신앙 훈련도 공부 쪽으로만",
+   "startMs": "598600",
+   "endMs": "604880",
+   "startTimeText": "9:58"
+  },
+  {
+   "text": "잘해요 보면 무슨 학교 무슨 학교",
+   "startMs": "602160",
+   "endMs": "607279",
+   "startTimeText": "10:02"
+  },
+  {
+   "text": "이래야 이래야 한국에서는 굉장히",
+   "startMs": "604880",
+   "endMs": "610200",
+   "startTimeText": "10:04"
+  },
+  {
+   "text": "어피를 해요 그니까 막 자유함이",
+   "startMs": "607279",
+   "endMs": "612079",
+   "startTimeText": "10:07"
+  },
+  {
+   "text": "굉장히 없어요 그러니까 이전 생활",
+   "startMs": "610200",
+   "endMs": "616399",
+   "startTimeText": "10:10"
+  },
+  {
+   "text": "방식이 너무나 이제 어 사람을 옥죄고",
+   "startMs": "612079",
+   "endMs": "619920",
+   "startTimeText": "10:12"
+  },
+  {
+   "text": "이러기 때문에 그 과거의 어떤 평경",
+   "startMs": "616399",
+   "endMs": "622720",
+   "startTimeText": "10:16"
+  },
+  {
+   "text": "내가 가지고 있는 고정관념이 나를",
+   "startMs": "619920",
+   "endMs": "624360",
+   "startTimeText": "10:19"
+  },
+  {
+   "text": "엄청나게 강력하게 이제 사아",
+   "startMs": "622720",
+   "endMs": "628160",
+   "startTimeText": "10:22"
+  },
+  {
+   "text": "잡는다고요 그니까 이것을 탈피를 하기",
+   "startMs": "624360",
+   "endMs": "629800",
+   "startTimeText": "10:24"
+  },
+  {
+   "text": "위해서는 계속",
+   "startMs": "628160",
+   "endMs": "632200",
+   "startTimeText": "10:28"
+  },
+  {
+   "text": "하나님이 말씀하신 것이 무엇인가 여기",
+   "startMs": "629800",
+   "endMs": "634839",
+   "startTimeText": "10:29"
+  },
+  {
+   "text": "집중해 가지고 나의 과거 방식을",
+   "startMs": "632200",
+   "endMs": "638639",
+   "startTimeText": "10:32"
+  },
+  {
+   "text": "어떻게해요 버려야 된다고요 맞죠네",
+   "startMs": "634839",
+   "endMs": "641240",
+   "startTimeText": "10:34"
+  },
+  {
+   "text": "그니까 왜 뭐 가스라이팅이",
+   "startMs": "638639",
+   "endMs": "645120",
+   "startTimeText": "10:38"
+  },
+  {
+   "text": "얘기하잖아요 그 그죠 계속 누군가가",
+   "startMs": "641240",
+   "endMs": "648480",
+   "startTimeText": "10:41"
+  },
+  {
+   "text": "나에게 잘못된 것을 계속 세뇌시키며",
+   "startMs": "645120",
+   "endMs": "650399",
+   "startTimeText": "10:45"
+  },
+  {
+   "text": "내가 자유하게 될 수 있는 길이",
+   "startMs": "648480",
+   "endMs": "653000",
+   "startTimeText": "10:48"
+  },
+  {
+   "text": "있음에도 불구하고 계속 거기에 묶여",
+   "startMs": "650399",
+   "endMs": "656600",
+   "startTimeText": "10:50"
+  },
+  {
+   "text": "있잖아요 마찬가지죠 그니까 예수",
+   "startMs": "653000",
+   "endMs": "659240",
+   "startTimeText": "10:53"
+  },
+  {
+   "text": "그리스도 복음의 자유가 있는데 속",
+   "startMs": "656600",
+   "endMs": "661160",
+   "startTimeText": "10:56"
+  },
+  {
+   "text": "마귀 사탄에 의해 가지고 가스 라이팅",
+   "startMs": "659240",
+   "endMs": "665200",
+   "startTimeText": "10:59"
+  },
+  {
+   "text": "당하고 있으니까 계속 거기에 자유자",
+   "startMs": "661160",
+   "endMs": "666440",
+   "startTimeText": "11:01"
+  },
+  {
+   "text": "됐음에도",
+   "startMs": "665200",
+   "endMs": "669320",
+   "startTimeText": "11:05"
+  },
+  {
+   "text": "불구하고 집밖에 못 나가는 거죠",
+   "startMs": "666440",
+   "endMs": "671600",
+   "startTimeText": "11:06"
+  },
+  {
+   "text": "그리고 동네 깡패 얘기만 계속 듣고",
+   "startMs": "669320",
+   "endMs": "674440",
+   "startTimeText": "11:09"
+  },
+  {
+   "text": "앉아 있는 거예 이렇게 되니까 이게",
+   "startMs": "671600",
+   "endMs": "676200",
+   "startTimeText": "11:11"
+  },
+  {
+   "text": "거기서 벗어나야",
+   "startMs": "674440",
+   "endMs": "681279",
+   "startTimeText": "11:14"
+  },
+  {
+   "text": "되잖아요 딱 신고하고 어 그다음에 그",
+   "startMs": "676200",
+   "endMs": "683399",
+   "startTimeText": "11:16"
+  },
+  {
+   "text": "나를 괴롭혔던 놈을 감옥에 다 쳐",
+   "startMs": "681279",
+   "endMs": "684839",
+   "startTimeText": "11:21"
+  },
+  {
+   "text": "놓고",
+   "startMs": "683399",
+   "endMs": "688120",
+   "startTimeText": "11:23"
+  },
+  {
+   "text": "어 그런 그러면서 이제 자유를 얻어야",
+   "startMs": "684839",
+   "endMs": "692079",
+   "startTimeText": "11:24"
+  },
+  {
+   "text": "되는데 계속 새해 당하고 이렇게 하고",
+   "startMs": "688120",
+   "endMs": "695279",
+   "startTimeText": "11:28"
+  },
+  {
+   "text": "있으니까 참 자유가 없는 거죠 그리고",
+   "startMs": "692079",
+   "endMs": "697720",
+   "startTimeText": "11:32"
+  },
+  {
+   "text": "나서 예수 그리스도의 자유에 대해서",
+   "startMs": "695279",
+   "endMs": "700079",
+   "startTimeText": "11:35"
+  },
+  {
+   "text": "얘기했지만이 갈라디아 지방에 이제",
+   "startMs": "697720",
+   "endMs": "701920",
+   "startTimeText": "11:37"
+  },
+  {
+   "text": "1차 전도 행해 가지고 사도 바울이",
+   "startMs": "700079",
+   "endMs": "704600",
+   "startTimeText": "11:40"
+  },
+  {
+   "text": "그렇게 시간이 없었어요 그래서 복음의",
+   "startMs": "701920",
+   "endMs": "706880",
+   "startTimeText": "11:41"
+  },
+  {
+   "text": "핵심에 대해서 딱 얘기하고 그때 이제",
+   "startMs": "704600",
+   "endMs": "709120",
+   "startTimeText": "11:44"
+  },
+  {
+   "text": "사람들이 듣고 너무나 자유함을",
+   "startMs": "706880",
+   "endMs": "711519",
+   "startTimeText": "11:46"
+  },
+  {
+   "text": "느꼈는데 이제 사도 바울이 전도행위",
+   "startMs": "709120",
+   "endMs": "714240",
+   "startTimeText": "11:49"
+  },
+  {
+   "text": "끝나고 나서 갈라디아 지역에 충분히",
+   "startMs": "711519",
+   "endMs": "716440",
+   "startTimeText": "11:51"
+  },
+  {
+   "text": "머물지 않았다고요 뭐 에베소 지역에는",
+   "startMs": "714240",
+   "endMs": "719519",
+   "startTimeText": "11:54"
+  },
+  {
+   "text": "뭐 2년 넘게 머물고 뭐 이러면서 막",
+   "startMs": "716440",
+   "endMs": "723279",
+   "startTimeText": "11:56"
+  },
+  {
+   "text": "다 뭐 서원도 세워 가지고 뭐 계속",
+   "startMs": "719519",
+   "endMs": "725160",
+   "startTimeText": "11:59"
+  },
+  {
+   "text": "하나님 말씀에 두 회가 넘도록 막",
+   "startMs": "723279",
+   "endMs": "728079",
+   "startTimeText": "12:03"
+  },
+  {
+   "text": "전파하고 막 이렇게 하니까 사람이",
+   "startMs": "725160",
+   "endMs": "731920",
+   "startTimeText": "12:05"
+  },
+  {
+   "text": "벗어나아요 근데 갈라디아 지역은 그",
+   "startMs": "728079",
+   "endMs": "734480",
+   "startTimeText": "12:08"
+  },
+  {
+   "text": "뭐 의도치 않게 또 갔습니다 아",
+   "startMs": "731920",
+   "endMs": "736600",
+   "startTimeText": "12:11"
+  },
+  {
+   "text": "아시잖아요 사도 바울이 어떻게 돼",
+   "startMs": "734480",
+   "endMs": "740320",
+   "startTimeText": "12:14"
+  },
+  {
+   "text": "가지고 병들어 가지고에 그 해양가",
+   "startMs": "736600",
+   "endMs": "742160",
+   "startTimeText": "12:16"
+  },
+  {
+   "text": "쪽에 풍토병으로 피해 가지고 이제",
+   "startMs": "740320",
+   "endMs": "744399",
+   "startTimeText": "12:20"
+  },
+  {
+   "text": "풍토병이 걸렸어요 그래서 약간 높은",
+   "startMs": "742160",
+   "endMs": "746360",
+   "startTimeText": "12:22"
+  },
+  {
+   "text": "지대로 이제 올라가게 돼 가지고",
+   "startMs": "744399",
+   "endMs": "749160",
+   "startTimeText": "12:24"
+  },
+  {
+   "text": "거기서 갈라디아 성도들을 만나 가지고",
+   "startMs": "746360",
+   "endMs": "752120",
+   "startTimeText": "12:26"
+  },
+  {
+   "text": "시 이제 치료겸 이렇게 머물려 있는데",
+   "startMs": "749160",
+   "endMs": "755279",
+   "startTimeText": "12:29"
+  },
+  {
+   "text": "전도여행 이제 그런 어떤 루트가",
+   "startMs": "752120",
+   "endMs": "758360",
+   "startTimeText": "12:32"
+  },
+  {
+   "text": "있었기 때문에 거기에 길게 있지 않고",
+   "startMs": "755279",
+   "endMs": "760600",
+   "startTimeText": "12:35"
+  },
+  {
+   "text": "복음의 핵심만 딱 얘기해 가지고 그때",
+   "startMs": "758360",
+   "endMs": "761760",
+   "startTimeText": "12:38"
+  },
+  {
+   "text": "자유가",
+   "startMs": "760600",
+   "endMs": "765120",
+   "startTimeText": "12:40"
+  },
+  {
+   "text": "있었는데 봐요 그게 완전히 세계 졌냐",
+   "startMs": "761760",
+   "endMs": "766959",
+   "startTimeText": "12:41"
+  },
+  {
+   "text": "새겨지지 않았다는",
+   "startMs": "765120",
+   "endMs": "769720",
+   "startTimeText": "12:45"
+  },
+  {
+   "text": "거죠 그러니까 사도 바울이 떠나고 나",
+   "startMs": "766959",
+   "endMs": "772320",
+   "startTimeText": "12:46"
+  },
+  {
+   "text": "가지고 거짓 교사들이 와 가지고",
+   "startMs": "769720",
+   "endMs": "775199",
+   "startTimeText": "12:49"
+  },
+  {
+   "text": "이전에 방식을 계속 얘기를 하니까",
+   "startMs": "772320",
+   "endMs": "776480",
+   "startTimeText": "12:52"
+  },
+  {
+   "text": "거기 어떻게",
+   "startMs": "775199",
+   "endMs": "780399",
+   "startTimeText": "12:55"
+  },
+  {
+   "text": "됩니까 설기태 가지고 제",
+   "startMs": "776480",
+   "endMs": "784600",
+   "startTimeText": "12:56"
+  },
+  {
+   "text": "다시이 그 처음에 복음을 증거 받았을",
+   "startMs": "780399",
+   "endMs": "787000",
+   "startTimeText": "13:00"
+  },
+  {
+   "text": "때 예수 그리스도로 말미암는 그",
+   "startMs": "784600",
+   "endMs": "789639",
+   "startTimeText": "13:04"
+  },
+  {
+   "text": "복음과 사랑과 은혜를 경험하고 사도",
+   "startMs": "787000",
+   "endMs": "792040",
+   "startTimeText": "13:07"
+  },
+  {
+   "text": "바울과 뜨겁게 사랑하면서 그 은혜의",
+   "startMs": "789639",
+   "endMs": "793320",
+   "startTimeText": "13:09"
+  },
+  {
+   "text": "결과는",
+   "startMs": "792040",
+   "endMs": "796120",
+   "startTimeText": "13:12"
+  },
+  {
+   "text": "사랑이잖아요 그래서 복음의 그런",
+   "startMs": "793320",
+   "endMs": "799920",
+   "startTimeText": "13:13"
+  },
+  {
+   "text": "진정한 결과는 사랑이 나타나는 건데",
+   "startMs": "796120",
+   "endMs": "802639",
+   "startTimeText": "13:16"
+  },
+  {
+   "text": "그 사랑했던 시간을 왜",
+   "startMs": "799920",
+   "endMs": "805519",
+   "startTimeText": "13:19"
+  },
+  {
+   "text": "까먹었냐 어 진짜 너희들 가운데",
+   "startMs": "802639",
+   "endMs": "808079",
+   "startTimeText": "13:22"
+  },
+  {
+   "text": "율법을 따라 가지고 진짜 하나님의",
+   "startMs": "805519",
+   "endMs": "811560",
+   "startTimeText": "13:25"
+  },
+  {
+   "text": "사랑과 가 나타났어 아니면 그리스도로",
+   "startMs": "808079",
+   "endMs": "814120",
+   "startTimeText": "13:28"
+  },
+  {
+   "text": "말미암아서 참 생명을 얻었어 한번",
+   "startMs": "811560",
+   "endMs": "817360",
+   "startTimeText": "13:31"
+  },
+  {
+   "text": "비교해 봐라 그게 계속 호소했던",
+   "startMs": "814120",
+   "endMs": "820399",
+   "startTimeText": "13:34"
+  },
+  {
+   "text": "거거든요 내가 병이 걸렸을 때 너희가",
+   "startMs": "817360",
+   "endMs": "822440",
+   "startTimeText": "13:37"
+  },
+  {
+   "text": "나를 천사와 같이 영접하고 심지어",
+   "startMs": "820399",
+   "endMs": "825120",
+   "startTimeText": "13:40"
+  },
+  {
+   "text": "그리스도 예수를 대하듯이 나에게",
+   "startMs": "822440",
+   "endMs": "827279",
+   "startTimeText": "13:42"
+  },
+  {
+   "text": "이렇게 했고 너희는 너희 눈이라도",
+   "startMs": "825120",
+   "endMs": "830320",
+   "startTimeText": "13:45"
+  },
+  {
+   "text": "빼줄 정도로 내가 정말로 내 육신의",
+   "startMs": "827279",
+   "endMs": "832199",
+   "startTimeText": "13:47"
+  },
+  {
+   "text": "연약함으로 너희가 시험에 들 만한",
+   "startMs": "830320",
+   "endMs": "834519",
+   "startTimeText": "13:50"
+  },
+  {
+   "text": "상황임에도 불구하고 그게 문제가 되지",
+   "startMs": "832199",
+   "endMs": "837759",
+   "startTimeText": "13:52"
+  },
+  {
+   "text": "않는다고 얘기하면서 바울이 성도들을",
+   "startMs": "834519",
+   "endMs": "840240",
+   "startTimeText": "13:54"
+  },
+  {
+   "text": "사랑하는만큼 성도들도 바울의 어떤",
+   "startMs": "837759",
+   "endMs": "842920",
+   "startTimeText": "13:57"
+  },
+  {
+   "text": "것과 상관없이 사랑하면서 뜨겁게",
+   "startMs": "840240",
+   "endMs": "845440",
+   "startTimeText": "14:00"
+  },
+  {
+   "text": "사랑으로 연합되고 하나님을 아빠",
+   "startMs": "842920",
+   "endMs": "848240",
+   "startTimeText": "14:02"
+  },
+  {
+   "text": "아버지라 부르면서 그리스도 안에",
+   "startMs": "845440",
+   "endMs": "850759",
+   "startTimeText": "14:05"
+  },
+  {
+   "text": "이방인들도 완전하게 똑같이 차별이",
+   "startMs": "848240",
+   "endMs": "855079",
+   "startTimeText": "14:08"
+  },
+  {
+   "text": "없어 이러면서 너무 행복했던 그",
+   "startMs": "850759",
+   "endMs": "858880",
+   "startTimeText": "14:10"
+  },
+  {
+   "text": "시간을 왜 율법으로가 가지고",
+   "startMs": "855079",
+   "endMs": "862560",
+   "startTimeText": "14:15"
+  },
+  {
+   "text": "인제는 원수가 되려고 하고 그다음에",
+   "startMs": "858880",
+   "endMs": "865320",
+   "startTimeText": "14:18"
+  },
+  {
+   "text": "다시 율법에 대해서 벌벌벌",
+   "startMs": "862560",
+   "endMs": "869920",
+   "startTimeText": "14:22"
+  },
+  {
+   "text": "떨고 왜 그런 상태로 갔느냐 결과 를",
+   "startMs": "865320",
+   "endMs": "872560",
+   "startTimeText": "14:25"
+  },
+  {
+   "text": "봐도 복음을 들었을 때 예수 그리스도",
+   "startMs": "869920",
+   "endMs": "875120",
+   "startTimeText": "14:29"
+  },
+  {
+   "text": "복음 안에서 참 자유가 있고 생명력이",
+   "startMs": "872560",
+   "endMs": "877480",
+   "startTimeText": "14:32"
+  },
+  {
+   "text": "있었지냐 계속 그 얘기를 이제",
+   "startMs": "875120",
+   "endMs": "879040",
+   "startTimeText": "14:35"
+  },
+  {
+   "text": "계속해서 하고 있는",
+   "startMs": "877480",
+   "endMs": "881759",
+   "startTimeText": "14:37"
+  },
+  {
+   "text": "거예요 그리고 사도 바울이 이제 알고",
+   "startMs": "879040",
+   "endMs": "884639",
+   "startTimeText": "14:39"
+  },
+  {
+   "text": "있는 모든 또 성경적인 내용들을",
+   "startMs": "881759",
+   "endMs": "887600",
+   "startTimeText": "14:41"
+  },
+  {
+   "text": "계속해서 더 침착하게 계속 얘기를",
+   "startMs": "884639",
+   "endMs": "889240",
+   "startTimeText": "14:44"
+  },
+  {
+   "text": "하고 있는 거 계속 설득하고 있는",
+   "startMs": "887600",
+   "endMs": "893240",
+   "startTimeText": "14:47"
+  },
+  {
+   "text": "거죠 그러니까 그런 얘기 갈라디아",
+   "startMs": "889240",
+   "endMs": "895759",
+   "startTimeText": "14:49"
+  },
+  {
+   "text": "지역에서 잠깐만 복음을 전했는데 너무",
+   "startMs": "893240",
+   "endMs": "898199",
+   "startTimeText": "14:53"
+  },
+  {
+   "text": "그 가운데 복음의 간격이 컸는데 거짓",
+   "startMs": "895759",
+   "endMs": "901000",
+   "startTimeText": "14:55"
+  },
+  {
+   "text": "교사들이 와가지고 속이고 있으니까",
+   "startMs": "898199",
+   "endMs": "902040",
+   "startTimeText": "14:58"
+  },
+  {
+   "text": "사도",
+   "startMs": "901000",
+   "endMs": "905040",
+   "startTimeText": "15:01"
+  },
+  {
+   "text": "바울은에 거기에 대해서 충분한 시간을",
+   "startMs": "902040",
+   "endMs": "908720",
+   "startTimeText": "15:02"
+  },
+  {
+   "text": "둬서 이거를 더 전하지 못했던 거를",
+   "startMs": "905040",
+   "endMs": "910920",
+   "startTimeText": "15:05"
+  },
+  {
+   "text": "함께 하면서 계속 가르치면서 그",
+   "startMs": "908720",
+   "endMs": "913680",
+   "startTimeText": "15:08"
+  },
+  {
+   "text": "복음에 더 풍성함을 누려야 됐던",
+   "startMs": "910920",
+   "endMs": "916360",
+   "startTimeText": "15:10"
+  },
+  {
+   "text": "것들을 못 누렸기 때문에 편지를 통해",
+   "startMs": "913680",
+   "endMs": "919560",
+   "startTimeText": "15:13"
+  },
+  {
+   "text": "가지고 그 못다한 부분을 다 하려고",
+   "startMs": "916360",
+   "endMs": "920839",
+   "startTimeText": "15:16"
+  },
+  {
+   "text": "하는 그런",
+   "startMs": "919560",
+   "endMs": "923600",
+   "startTimeText": "15:19"
+  },
+  {
+   "text": "마음이에이 갈라디아서에 이렇게",
+   "startMs": "920839",
+   "endMs": "926600",
+   "startTimeText": "15:20"
+  },
+  {
+   "text": "있다고요 그 갈라디아서를 보면 그",
+   "startMs": "923600",
+   "endMs": "929120",
+   "startTimeText": "15:23"
+  },
+  {
+   "text": "애끓는 마음이 있어요 그리고 사도",
+   "startMs": "926600",
+   "endMs": "932399",
+   "startTimeText": "15:26"
+  },
+  {
+   "text": "바울은 거짓 선교사들은 거짓",
+   "startMs": "929120",
+   "endMs": "934319",
+   "startTimeText": "15:29"
+  },
+  {
+   "text": "증언자들은 자기를 따르기 위해서",
+   "startMs": "932399",
+   "endMs": "936319",
+   "startTimeText": "15:32"
+  },
+  {
+   "text": "있지만 사도 바울은 무슨 수고를",
+   "startMs": "934319",
+   "endMs": "939480",
+   "startTimeText": "15:34"
+  },
+  {
+   "text": "하려고 한다고요 해산하는 수고",
+   "startMs": "936319",
+   "endMs": "942279",
+   "startTimeText": "15:36"
+  },
+  {
+   "text": "그러니까 내가 내 생명을 걸고라도",
+   "startMs": "939480",
+   "endMs": "945800",
+   "startTimeText": "15:39"
+  },
+  {
+   "text": "너희들에게 애를 낳듯이 너희들에게",
+   "startMs": "942279",
+   "endMs": "947680",
+   "startTimeText": "15:42"
+  },
+  {
+   "text": "간절하게 내가",
+   "startMs": "945800",
+   "endMs": "950839",
+   "startTimeText": "15:45"
+  },
+  {
+   "text": "부탁하고 정신 차리라고 말하고",
+   "startMs": "947680",
+   "endMs": "953160",
+   "startTimeText": "15:47"
+  },
+  {
+   "text": "간절하게 호소하는이 마음이 어디에",
+   "startMs": "950839",
+   "endMs": "954360",
+   "startTimeText": "15:50"
+  },
+  {
+   "text": "들어 있어요",
+   "startMs": "953160",
+   "endMs": "957639",
+   "startTimeText": "15:53"
+  },
+  {
+   "text": "갈라디아서에 들어 있다고요 그래서 또",
+   "startMs": "954360",
+   "endMs": "960000",
+   "startTimeText": "15:54"
+  },
+  {
+   "text": "얘기합니다 또 또 계속 얘기하는 거야",
+   "startMs": "957639",
+   "endMs": "962720",
+   "startTimeText": "15:57"
+  },
+  {
+   "text": "계속 설득하고 얘기하고 내게 말하라",
+   "startMs": "960000",
+   "endMs": "964600",
+   "startTimeText": "16:00"
+  },
+  {
+   "text": "율법 아래 있고자 하는 자들아 왜",
+   "startMs": "962720",
+   "endMs": "967560",
+   "startTimeText": "16:02"
+  },
+  {
+   "text": "율법 아래 있으려고 하느냐 율법을",
+   "startMs": "964600",
+   "endMs": "970480",
+   "startTimeText": "16:04"
+  },
+  {
+   "text": "듣지 못하였느냐 율법에 대해서 알고",
+   "startMs": "967560",
+   "endMs": "974160",
+   "startTimeText": "16:07"
+  },
+  {
+   "text": "있지 않느냐 내가 또 율법에 대해서",
+   "startMs": "970480",
+   "endMs": "976480",
+   "startTimeText": "16:10"
+  },
+  {
+   "text": "한번 자세하게 또 설명을 해 볼게",
+   "startMs": "974160",
+   "endMs": "979160",
+   "startTimeText": "16:14"
+  },
+  {
+   "text": "이러면서 어 아브라함의 두 아들",
+   "startMs": "976480",
+   "endMs": "981319",
+   "startTimeText": "16:16"
+  },
+  {
+   "text": "이야기를 이제 하게 됩니다 그래서",
+   "startMs": "979160",
+   "endMs": "983480",
+   "startTimeText": "16:19"
+  },
+  {
+   "text": "22절에 보면 아브라함에게 두 아들이",
+   "startMs": "981319",
+   "endMs": "986399",
+   "startTimeText": "16:21"
+  },
+  {
+   "text": "있어요 누구누구",
+   "startMs": "983480",
+   "endMs": "986399",
+   "startTimeText": "16:23"
+  },
+  {
+   "text": "있습니까이",
+   "startMs": "987519",
+   "endMs": "990519",
+   "startTimeText": "16:27"
+  },
+  {
+   "text": "이삭과이 이스마엘이 예 이삭과",
+   "startMs": "990600",
+   "endMs": "995959",
+   "startTimeText": "16:30"
+  },
+  {
+   "text": "이스마엘이 있습니다 그래서 하나는",
+   "startMs": "993319",
+   "endMs": "997839",
+   "startTimeText": "16:33"
+  },
+  {
+   "text": "여종에게 하나는 자유 있는",
+   "startMs": "995959",
+   "endMs": "1001519",
+   "startTimeText": "16:35"
+  },
+  {
+   "text": "자에게서났습니다 하나는 여종 누구",
+   "startMs": "997839",
+   "endMs": "1004199",
+   "startTimeText": "16:37"
+  },
+  {
+   "text": "여종에게 난 자는 누구예요 이스마엘",
+   "startMs": "1001519",
+   "endMs": "1006040",
+   "startTimeText": "16:41"
+  },
+  {
+   "text": "그리고 하나는 자유 있는 자에게서",
+   "startMs": "1004199",
+   "endMs": "1009759",
+   "startTimeText": "16:44"
+  },
+  {
+   "text": "나왔으니까 자유 있는 자는 누구예요",
+   "startMs": "1006040",
+   "endMs": "1013360",
+   "startTimeText": "16:46"
+  },
+  {
+   "text": "사라져 사라에게서 난 사람이 누구예요",
+   "startMs": "1009759",
+   "endMs": "1016680",
+   "startTimeText": "16:49"
+  },
+  {
+   "text": "이삭이 그리고 여종은 누구예요",
+   "startMs": "1013360",
+   "endMs": "1019079",
+   "startTimeText": "16:53"
+  },
+  {
+   "text": "하갈이 잘 보세요",
+   "startMs": "1016680",
+   "endMs": "1020680",
+   "startTimeText": "16:56"
+  },
+  {
+   "text": "이것도",
+   "startMs": "1019079",
+   "endMs": "1026000",
+   "startTimeText": "16:59"
+  },
+  {
+   "text": "이것도 하나는여 종이고 하나는 자유",
+   "startMs": "1020680",
+   "endMs": "1030439",
+   "startTimeText": "17:00"
+  },
+  {
+   "text": "있는 여자예요 맞죠",
+   "startMs": "1026000",
+   "endMs": "1033439",
+   "startTimeText": "17:06"
+  },
+  {
+   "text": "여종 자유 있는 자",
+   "startMs": "1030439",
+   "endMs": "1035640",
+   "startTimeText": "17:10"
+  },
+  {
+   "text": "어 이것",
+   "startMs": "1033439",
+   "endMs": "1037439",
+   "startTimeText": "17:13"
+  },
+  {
+   "text": "자체가",
+   "startMs": "1035640",
+   "endMs": "1039199",
+   "startTimeText": "17:15"
+  },
+  {
+   "text": "사실은",
+   "startMs": "1037439",
+   "endMs": "1041039",
+   "startTimeText": "17:17"
+  },
+  {
+   "text": "율법과",
+   "startMs": "1039199",
+   "endMs": "1044439",
+   "startTimeText": "17:19"
+  },
+  {
+   "text": "그리스도를 이야기를 한다는",
+   "startMs": "1041039",
+   "endMs": "1048960",
+   "startTimeText": "17:21"
+  },
+  {
+   "text": "거죠음 그러니까 그 성경의 그 저기",
+   "startMs": "1044439",
+   "endMs": "1051720",
+   "startTimeText": "17:24"
+  },
+  {
+   "text": "하갈과 사라 이야기를 하고",
+   "startMs": "1048960",
+   "endMs": "1054440",
+   "startTimeText": "17:28"
+  },
+  {
+   "text": "이스마엘고 이삭 이야기를 한 것은",
+   "startMs": "1051720",
+   "endMs": "1058520",
+   "startTimeText": "17:31"
+  },
+  {
+   "text": "결국에는 신약에 뭐를 또 예표 하고",
+   "startMs": "1054440",
+   "endMs": "1062200",
+   "startTimeText": "17:34"
+  },
+  {
+   "text": "있냐면 율법과 그리스도를 예표 하고",
+   "startMs": "1058520",
+   "endMs": "1065559",
+   "startTimeText": "17:38"
+  },
+  {
+   "text": "있다는 거예요 그러니까 구약의",
+   "startMs": "1062200",
+   "endMs": "1068400",
+   "startTimeText": "17:42"
+  },
+  {
+   "text": "사건이요 하나님 참 놀라우신 분이",
+   "startMs": "1065559",
+   "endMs": "1072160",
+   "startTimeText": "17:45"
+  },
+  {
+   "text": "뭐냐면 구약의 그 사건의 그것이",
+   "startMs": "1068400",
+   "endMs": "1074840",
+   "startTimeText": "17:48"
+  },
+  {
+   "text": "실질적으로 역사적인 사건인데",
+   "startMs": "1072160",
+   "endMs": "1077400",
+   "startTimeText": "17:52"
+  },
+  {
+   "text": "그것만으로 그치는게 아니라 신약까지",
+   "startMs": "1074840",
+   "endMs": "1080400",
+   "startTimeText": "17:54"
+  },
+  {
+   "text": "다",
+   "startMs": "1077400",
+   "endMs": "1080400",
+   "startTimeText": "17:57"
+  },
+  {
+   "text": "내다보면서이 예를 들 사건들을",
+   "startMs": "1080480",
+   "endMs": "1086600",
+   "startTimeText": "18:00"
+  },
+  {
+   "text": "하나님께서 미리 예비를 해 놓으신",
+   "startMs": "1083559",
+   "endMs": "1088640",
+   "startTimeText": "18:03"
+  },
+  {
+   "text": "것을 볼 수가 있습니다 그러니까",
+   "startMs": "1086600",
+   "endMs": "1090880",
+   "startTimeText": "18:06"
+  },
+  {
+   "text": "성경에 들어오는",
+   "startMs": "1088640",
+   "endMs": "1094640",
+   "startTimeText": "18:08"
+  },
+  {
+   "text": "내용은 그냥 단순히 그",
+   "startMs": "1090880",
+   "endMs": "1099559",
+   "startTimeText": "18:10"
+  },
+  {
+   "text": "사건 그 사건만을 생각한게 아니라",
+   "startMs": "1094640",
+   "endMs": "1102240",
+   "startTimeText": "18:14"
+  },
+  {
+   "text": "그리스도로 연결되어",
+   "startMs": "1099559",
+   "endMs": "1107039",
+   "startTimeText": "18:19"
+  },
+  {
+   "text": "가지고 그 안에 그런 내용들이 함의가",
+   "startMs": "1102240",
+   "endMs": "1109600",
+   "startTimeText": "18:22"
+  },
+  {
+   "text": "되어 있다는 거야 포함이 되 있다라는",
+   "startMs": "1107039",
+   "endMs": "1113080",
+   "startTimeText": "18:27"
+  },
+  {
+   "text": "것입니다 그러니까 성경은 두 가지로",
+   "startMs": "1109600",
+   "endMs": "1117000",
+   "startTimeText": "18:29"
+  },
+  {
+   "text": "이제 항상 봐야 돼요 하나는 뭐냐면",
+   "startMs": "1113080",
+   "endMs": "1120400",
+   "startTimeText": "18:33"
+  },
+  {
+   "text": "그 사건 자체로 하나님이 가르치고자",
+   "startMs": "1117000",
+   "endMs": "1124960",
+   "startTimeText": "18:37"
+  },
+  {
+   "text": "하는 내용이 있고 그다음에 성경",
+   "startMs": "1120400",
+   "endMs": "1127480",
+   "startTimeText": "18:40"
+  },
+  {
+   "text": "전체에서 성경 전체는 누구를 향해",
+   "startMs": "1124960",
+   "endMs": "1130440",
+   "startTimeText": "18:44"
+  },
+  {
+   "text": "있냐면 그리스도를 향해서 가고 있는데",
+   "startMs": "1127480",
+   "endMs": "1133840",
+   "startTimeText": "18:47"
+  },
+  {
+   "text": "그리스도 중심적인 내용들이이 사건에도",
+   "startMs": "1130440",
+   "endMs": "1137200",
+   "startTimeText": "18:50"
+  },
+  {
+   "text": "또 묻어져 있다라는 것이죠 그래서",
+   "startMs": "1133840",
+   "endMs": "1140159",
+   "startTimeText": "18:53"
+  },
+  {
+   "text": "여러분 수 수아 얘기를 하면 여호수아",
+   "startMs": "1137200",
+   "endMs": "1141760",
+   "startTimeText": "18:57"
+  },
+  {
+   "text": "저기 그 가나안 땅에 들어갔던",
+   "startMs": "1140159",
+   "endMs": "1144039",
+   "startTimeText": "19:00"
+  },
+  {
+   "text": "여호수아는 또",
+   "startMs": "1141760",
+   "endMs": "1146320",
+   "startTimeText": "19:01"
+  },
+  {
+   "text": "누구를 포함하고 있냐면 예수",
+   "startMs": "1144039",
+   "endMs": "1148240",
+   "startTimeText": "19:04"
+  },
+  {
+   "text": "그리스도를 포함하고 있죠 요셉도",
+   "startMs": "1146320",
+   "endMs": "1151320",
+   "startTimeText": "19:06"
+  },
+  {
+   "text": "마찬가지입니다 요셉",
+   "startMs": "1148240",
+   "endMs": "1154039",
+   "startTimeText": "19:08"
+  },
+  {
+   "text": "요셉도 누구를 포함하고 있어요 예수",
+   "startMs": "1151320",
+   "endMs": "1155919",
+   "startTimeText": "19:11"
+  },
+  {
+   "text": "그리스도 모세도 누구를 포함하고",
+   "startMs": "1154039",
+   "endMs": "1158520",
+   "startTimeText": "19:14"
+  },
+  {
+   "text": "있어요 예수 그리스도 그러니까 다",
+   "startMs": "1155919",
+   "endMs": "1161200",
+   "startTimeText": "19:15"
+  },
+  {
+   "text": "예수 그리스도의 흔적이 다이 가운데",
+   "startMs": "1158520",
+   "endMs": "1164240",
+   "startTimeText": "19:18"
+  },
+  {
+   "text": "묻어져 있기 때문에 모든 사건을",
+   "startMs": "1161200",
+   "endMs": "1169039",
+   "startTimeText": "19:21"
+  },
+  {
+   "text": "통해서 결국에는 예수 그리스도를",
+   "startMs": "1164240",
+   "endMs": "1170679",
+   "startTimeText": "19:24"
+  },
+  {
+   "text": "발견해야 되는",
+   "startMs": "1169039",
+   "endMs": "1174200",
+   "startTimeText": "19:29"
+  },
+  {
+   "text": "거거든요 뭔 소린지 아시겠죠 그러니까",
+   "startMs": "1170679",
+   "endMs": "1176960",
+   "startTimeText": "19:30"
+  },
+  {
+   "text": "기가 맡기게 하나님은 치밀하게 모든",
+   "startMs": "1174200",
+   "endMs": "1179679",
+   "startTimeText": "19:34"
+  },
+  {
+   "text": "사건을 선택했는데 그것 자체만으로도",
+   "startMs": "1176960",
+   "endMs": "1182720",
+   "startTimeText": "19:36"
+  },
+  {
+   "text": "교훈을 주려는 의미가 있지만 그 모든",
+   "startMs": "1179679",
+   "endMs": "1186280",
+   "startTimeText": "19:39"
+  },
+  {
+   "text": "것에 누구를 결국에는 어 담고 있냐면",
+   "startMs": "1182720",
+   "endMs": "1189440",
+   "startTimeText": "19:42"
+  },
+  {
+   "text": "예수 그리스도로 말미암아 될 일을",
+   "startMs": "1186280",
+   "endMs": "1192679",
+   "startTimeText": "19:46"
+  },
+  {
+   "text": "거기에 다 겪 가지고 있어요 그래서",
+   "startMs": "1189440",
+   "endMs": "1195360",
+   "startTimeText": "19:49"
+  },
+  {
+   "text": "성경 해석은 보면은 그 자체로서",
+   "startMs": "1192679",
+   "endMs": "1197240",
+   "startTimeText": "19:52"
+  },
+  {
+   "text": "교훈을 주는게",
+   "startMs": "1195360",
+   "endMs": "1200400",
+   "startTimeText": "19:55"
+  },
+  {
+   "text": "있지만 계속 들여다 보면 그 예수",
+   "startMs": "1197240",
+   "endMs": "1203360",
+   "startTimeText": "19:57"
+  },
+  {
+   "text": "그리스도의 흔적이 뭐라고요 묻어",
+   "startMs": "1200400",
+   "endMs": "1205440",
+   "startTimeText": "20:00"
+  },
+  {
+   "text": "있다라는 거예요 그거를",
+   "startMs": "1203360",
+   "endMs": "1208799",
+   "startTimeText": "20:03"
+  },
+  {
+   "text": "발견하는게 성경입니다 그래서 성경은에",
+   "startMs": "1205440",
+   "endMs": "1211080",
+   "startTimeText": "20:05"
+  },
+  {
+   "text": "결국에는 그리스도 중심적이 돼야",
+   "startMs": "1208799",
+   "endMs": "1213200",
+   "startTimeText": "20:08"
+  },
+  {
+   "text": "된다라고 이야기를 하고 있습니다 근데",
+   "startMs": "1211080",
+   "endMs": "1216280",
+   "startTimeText": "20:11"
+  },
+  {
+   "text": "물론 시간이 부족해 가지고 어 성경",
+   "startMs": "1213200",
+   "endMs": "1217880",
+   "startTimeText": "20:13"
+  },
+  {
+   "text": "그 자체의 교훈을 우리가 주로",
+   "startMs": "1216280",
+   "endMs": "1219320",
+   "startTimeText": "20:16"
+  },
+  {
+   "text": "얘기하지만",
+   "startMs": "1217880",
+   "endMs": "1222880",
+   "startTimeText": "20:17"
+  },
+  {
+   "text": "저도 제 설교를 많이 들어",
+   "startMs": "1219320",
+   "endMs": "1225520",
+   "startTimeText": "20:19"
+  },
+  {
+   "text": "보셨겠지만 거의 대부분 구약의 사건을",
+   "startMs": "1222880",
+   "endMs": "1228360",
+   "startTimeText": "20:22"
+  },
+  {
+   "text": "얘기하면 예수님도 이러셨다 어",
+   "startMs": "1225520",
+   "endMs": "1231280",
+   "startTimeText": "20:25"
+  },
+  {
+   "text": "예수님이 이어졌다 이것은 결국에는",
+   "startMs": "1228360",
+   "endMs": "1233240",
+   "startTimeText": "20:28"
+  },
+  {
+   "text": "교회를 이야기를 하는 거고 예수",
+   "startMs": "1231280",
+   "endMs": "1235440",
+   "startTimeText": "20:31"
+  },
+  {
+   "text": "그리스도를 얘기하는 거고 성령님을",
+   "startMs": "1233240",
+   "endMs": "1237960",
+   "startTimeText": "20:33"
+  },
+  {
+   "text": "이야기를 하는 거고 결국에는 그리스도",
+   "startMs": "1235440",
+   "endMs": "1240280",
+   "startTimeText": "20:35"
+  },
+  {
+   "text": "중심적인 내용들이 거기에 다 묻어",
+   "startMs": "1237960",
+   "endMs": "1241520",
+   "startTimeText": "20:37"
+  },
+  {
+   "text": "있다는 거예요",
+   "startMs": "1240280",
+   "endMs": "1244360",
+   "startTimeText": "20:40"
+  },
+  {
+   "text": "그래서 사도 바울이 그 이야기를 하고",
+   "startMs": "1241520",
+   "endMs": "1246240",
+   "startTimeText": "20:41"
+  },
+  {
+   "text": "있습니다 아브라함에게 두 아들인데",
+   "startMs": "1244360",
+   "endMs": "1249039",
+   "startTimeText": "20:44"
+  },
+  {
+   "text": "하나는여 종이다 여종은 자유가 있어요",
+   "startMs": "1246240",
+   "endMs": "1252880",
+   "startTimeText": "20:46"
+  },
+  {
+   "text": "없어요 없죠 그리고 자유 있는 여인이",
+   "startMs": "1249039",
+   "endMs": "1257520",
+   "startTimeText": "20:49"
+  },
+  {
+   "text": "있습니다 그러면 지금 뭐 하갈의",
+   "startMs": "1252880",
+   "endMs": "1259679",
+   "startTimeText": "20:52"
+  },
+  {
+   "text": "심정을 이해하자 사라의 심정을",
+   "startMs": "1257520",
+   "endMs": "1262799",
+   "startTimeText": "20:57"
+  },
+  {
+   "text": "이해하자 그 얘기가 아니에요 그러니까",
+   "startMs": "1259679",
+   "endMs": "1265720",
+   "startTimeText": "20:59"
+  },
+  {
+   "text": "자꾸 성경을 해석할 때 뭐 하가이",
+   "startMs": "1262799",
+   "endMs": "1269400",
+   "startTimeText": "21:02"
+  },
+  {
+   "text": "너무 불쌍하지 않아요 뭐 하가이 뭐",
+   "startMs": "1265720",
+   "endMs": "1271840",
+   "startTimeText": "21:05"
+  },
+  {
+   "text": "여정으로 태어나고 싶었어도 여정으로",
+   "startMs": "1269400",
+   "endMs": "1275000",
+   "startTimeText": "21:09"
+  },
+  {
+   "text": "태어났어요 하가이 너무",
+   "startMs": "1271840",
+   "endMs": "1277640",
+   "startTimeText": "21:11"
+  },
+  {
+   "text": "불쌍하잖아요 성경은이 얘기를 하고",
+   "startMs": "1275000",
+   "endMs": "1279039",
+   "startTimeText": "21:15"
+  },
+  {
+   "text": "싶은게",
+   "startMs": "1277640",
+   "endMs": "1282400",
+   "startTimeText": "21:17"
+  },
+  {
+   "text": "아니에요 그냥 예를든 거예요 그때",
+   "startMs": "1279039",
+   "endMs": "1285120",
+   "startTimeText": "21:19"
+  },
+  {
+   "text": "당시에 종이라는 문화가 있고 그다음에",
+   "startMs": "1282400",
+   "endMs": "1286600",
+   "startTimeText": "21:22"
+  },
+  {
+   "text": "자유함이",
+   "startMs": "1285120",
+   "endMs": "1288679",
+   "startTimeText": "21:25"
+  },
+  {
+   "text": "있으면 그거",
+   "startMs": "1286600",
+   "endMs": "1291520",
+   "startTimeText": "21:26"
+  },
+  {
+   "text": "결국 그것을 차용을",
+   "startMs": "1288679",
+   "endMs": "1294720",
+   "startTimeText": "21:28"
+  },
+  {
+   "text": "해가지고 그거 더 하나님의 뜻을",
+   "startMs": "1291520",
+   "endMs": "1299000",
+   "startTimeText": "21:31"
+  },
+  {
+   "text": "이해시키고자 그 거를 사용해서 뭘로",
+   "startMs": "1294720",
+   "endMs": "1302120",
+   "startTimeText": "21:34"
+  },
+  {
+   "text": "설명을 해야 되잖아요 예 그러니까",
+   "startMs": "1299000",
+   "endMs": "1306000",
+   "startTimeText": "21:39"
+  },
+  {
+   "text": "그것을 설명하기 위해서 그때 문화나",
+   "startMs": "1302120",
+   "endMs": "1310200",
+   "startTimeText": "21:42"
+  },
+  {
+   "text": "풍습이나 이런 것들의 개념들을 이용해",
+   "startMs": "1306000",
+   "endMs": "1313159",
+   "startTimeText": "21:46"
+  },
+  {
+   "text": "가지고 어떤 더 궁극적인 걸 나타내기",
+   "startMs": "1310200",
+   "endMs": "1315640",
+   "startTimeText": "21:50"
+  },
+  {
+   "text": "위해서 그것을 선택했을 뿐이지",
+   "startMs": "1313159",
+   "endMs": "1318919",
+   "startTimeText": "21:53"
+  },
+  {
+   "text": "하나님이 가를 버리거나",
+   "startMs": "1315640",
+   "endMs": "1323480",
+   "startTimeText": "21:55"
+  },
+  {
+   "text": "뭐 사라를 뭐 더 뭐 이랬거나 이런",
+   "startMs": "1318919",
+   "endMs": "1326480",
+   "startTimeText": "21:58"
+  },
+  {
+   "text": "거는 다른 의미란 말이에요 그건 다른",
+   "startMs": "1323480",
+   "endMs": "1330320",
+   "startTimeText": "22:03"
+  },
+  {
+   "text": "의미예요 근데 꼭 성경을 해석할",
+   "startMs": "1326480",
+   "endMs": "1334039",
+   "startTimeText": "22:06"
+  },
+  {
+   "text": "때 그냥 그것을 교제로 쓰셔 가지고",
+   "startMs": "1330320",
+   "endMs": "1337720",
+   "startTimeText": "22:10"
+  },
+  {
+   "text": "무가를 더 궁극적인 내용을 뭘 얘기를",
+   "startMs": "1334039",
+   "endMs": "1340480",
+   "startTimeText": "22:14"
+  },
+  {
+   "text": "하고 있는 이걸 발견하지 아니하고",
+   "startMs": "1337720",
+   "endMs": "1346600",
+   "startTimeText": "22:17"
+  },
+  {
+   "text": "지역적인 것을 발견한다고 이스마 못을",
+   "startMs": "1340480",
+   "endMs": "1346600",
+   "startTimeText": "22:20"
+  },
+  {
+   "text": "했습니까 줘가지고 저기 하가르 줘",
+   "startMs": "1346960",
+   "endMs": "1351559",
+   "startTimeText": "22:26"
+  },
+  {
+   "text": "가지고 아브라함에게서 이스마엘",
+   "startMs": "1350120",
+   "endMs": "1355039",
+   "startTimeText": "22:30"
+  },
+  {
+   "text": "나왔는데 이스마엘이 얼마나 불쌍합니다",
+   "startMs": "1351559",
+   "endMs": "1357760",
+   "startTimeText": "22:31"
+  },
+  {
+   "text": "오늘날에 이스마엘도 너무나 불쌍합니다",
+   "startMs": "1355039",
+   "endMs": "1360200",
+   "startTimeText": "22:35"
+  },
+  {
+   "text": "이렇게 설교를 해",
+   "startMs": "1357760",
+   "endMs": "1364600",
+   "startTimeText": "22:37"
+  },
+  {
+   "text": "버린다고 아이 물론 뭐 그게 꼭 나쁜",
+   "startMs": "1360200",
+   "endMs": "1367159",
+   "startTimeText": "22:40"
+  },
+  {
+   "text": "해석만을 아닙니다 왜냐면 성경 자체가",
+   "startMs": "1364600",
+   "endMs": "1368559",
+   "startTimeText": "22:44"
+  },
+  {
+   "text": "그것을 통해서 우리 가운데 또",
+   "startMs": "1367159",
+   "endMs": "1371440",
+   "startTimeText": "22:47"
+  },
+  {
+   "text": "말하고자 하는 내용이 있지만 결국에는",
+   "startMs": "1368559",
+   "endMs": "1375440",
+   "startTimeText": "22:48"
+  },
+  {
+   "text": "궁극적으로 보면은 그 내용은 맞지는",
+   "startMs": "1371440",
+   "endMs": "1377679",
+   "startTimeText": "22:51"
+  },
+  {
+   "text": "않는 거예요 100% 맞지는 않지만",
+   "startMs": "1375440",
+   "endMs": "1380240",
+   "startTimeText": "22:55"
+  },
+  {
+   "text": "한 1 2% 또 하나님의 그런 섭리는",
+   "startMs": "1377679",
+   "endMs": "1382440",
+   "startTimeText": "22:57"
+  },
+  {
+   "text": "들어 있지만 100% 맞지는 않는",
+   "startMs": "1380240",
+   "endMs": "1385240",
+   "startTimeText": "23:00"
+  },
+  {
+   "text": "거예요 왜냐면 그 문화적인 내용 그",
+   "startMs": "1382440",
+   "endMs": "1388279",
+   "startTimeText": "23:02"
+  },
+  {
+   "text": "상황들을 차용해 가지고 더 궁극적인",
+   "startMs": "1385240",
+   "endMs": "1391080",
+   "startTimeText": "23:05"
+  },
+  {
+   "text": "실제를 설명하기 위해서 썼을",
+   "startMs": "1388279",
+   "endMs": "1394000",
+   "startTimeText": "23:08"
+  },
+  {
+   "text": "뿐이에요 그러니까 종은 자유가 있어요",
+   "startMs": "1391080",
+   "endMs": "1396799",
+   "startTimeText": "23:11"
+  },
+  {
+   "text": "없어요 없단 말이에요 자유자 어느게",
+   "startMs": "1394000",
+   "endMs": "1400279",
+   "startTimeText": "23:14"
+  },
+  {
+   "text": "더 우월합니다 자유자 우월한 거예요",
+   "startMs": "1396799",
+   "endMs": "1402679",
+   "startTimeText": "23:16"
+  },
+  {
+   "text": "그러면 여종에게",
+   "startMs": "1400279",
+   "endMs": "1405880",
+   "startTimeText": "23:20"
+  },
+  {
+   "text": "났으면 신분이 뭐가 되는 거예요 종이",
+   "startMs": "1402679",
+   "endMs": "1408919",
+   "startTimeText": "23:22"
+  },
+  {
+   "text": "되는 거죠 그러면 결국 는 종이라는",
+   "startMs": "1405880",
+   "endMs": "1411679",
+   "startTimeText": "23:25"
+  },
+  {
+   "text": "것은 뭐냐면",
+   "startMs": "1408919",
+   "endMs": "1411679",
+   "startTimeText": "23:28"
+  },
+  {
+   "text": "주인에게에 그 구속이 되어 가지고",
+   "startMs": "1411799",
+   "endMs": "1417120",
+   "startTimeText": "23:31"
+  },
+  {
+   "text": "자유가 있어요 없어요 없단 말이에요",
+   "startMs": "1414159",
+   "endMs": "1419320",
+   "startTimeText": "23:34"
+  },
+  {
+   "text": "그니까 여종에게",
+   "startMs": "1417120",
+   "endMs": "1422000",
+   "startTimeText": "23:37"
+  },
+  {
+   "text": "났으면 여종에게",
+   "startMs": "1419320",
+   "endMs": "1424960",
+   "startTimeText": "23:39"
+  },
+  {
+   "text": "낳으면 똑같이 종해 신분이 되어",
+   "startMs": "1422000",
+   "endMs": "1428720",
+   "startTimeText": "23:42"
+  },
+  {
+   "text": "가지고 그 가운데 자유가 없지 않느냐",
+   "startMs": "1424960",
+   "endMs": "1431279",
+   "startTimeText": "23:44"
+  },
+  {
+   "text": "그런데 자유자",
+   "startMs": "1428720",
+   "endMs": "1433559",
+   "startTimeText": "23:48"
+  },
+  {
+   "text": "나면은 아들이",
+   "startMs": "1431279",
+   "endMs": "1437960",
+   "startTimeText": "23:51"
+  },
+  {
+   "text": "되어가지고 그죠 예 그다음에 아버지의",
+   "startMs": "1433559",
+   "endMs": "1441520",
+   "startTimeText": "23:53"
+  },
+  {
+   "text": "모든 것을 물려받게 되는 거예요 근데",
+   "startMs": "1437960",
+   "endMs": "1445600",
+   "startTimeText": "23:57"
+  },
+  {
+   "text": "여종에게 나왔으면 종의 신분을 가지고",
+   "startMs": "1441520",
+   "endMs": "1448640",
+   "startTimeText": "24:01"
+  },
+  {
+   "text": "있기 때문에 그다음에",
+   "startMs": "1445600",
+   "endMs": "1451600",
+   "startTimeText": "24:05"
+  },
+  {
+   "text": "아버지로부터 자유자의 아들이 있고",
+   "startMs": "1448640",
+   "endMs": "1454279",
+   "startTimeText": "24:08"
+  },
+  {
+   "text": "종의 자식이 있으면 누구에게 물려",
+   "startMs": "1451600",
+   "endMs": "1457400",
+   "startTimeText": "24:11"
+  },
+  {
+   "text": "져요 자유자의 아들에게 모든 것을",
+   "startMs": "1454279",
+   "endMs": "1460480",
+   "startTimeText": "24:14"
+  },
+  {
+   "text": "물려받지 여종의 아들에게는 물론 뭐",
+   "startMs": "1457400",
+   "endMs": "1465320",
+   "startTimeText": "24:17"
+  },
+  {
+   "text": "어 그 완전한 그런 아들로 나온 것이",
+   "startMs": "1460480",
+   "endMs": "1468000",
+   "startTimeText": "24:20"
+  },
+  {
+   "text": "아니기 때문에 거기에서는 일부는 줄",
+   "startMs": "1465320",
+   "endMs": "1471120",
+   "startTimeText": "24:25"
+  },
+  {
+   "text": "수 있겠지만 항상 그 가운데 제한점이",
+   "startMs": "1468000",
+   "endMs": "1473399",
+   "startTimeText": "24:28"
+  },
+  {
+   "text": "있고 참자유가",
+   "startMs": "1471120",
+   "endMs": "1477080",
+   "startTimeText": "24:31"
+  },
+  {
+   "text": "없다 그 이야기를 하고 있는 것입니다",
+   "startMs": "1473399",
+   "endMs": "1480480",
+   "startTimeText": "24:33"
+  },
+  {
+   "text": "결국에는 이것이 바로 율법에느냐",
+   "startMs": "1477080",
+   "endMs": "1483520",
+   "startTimeText": "24:37"
+  },
+  {
+   "text": "율법은 바로 종이 되게 하는 거거든요",
+   "startMs": "1480480",
+   "endMs": "1484919",
+   "startTimeText": "24:40"
+  },
+  {
+   "text": "그다음에",
+   "startMs": "1483520",
+   "endMs": "1487320",
+   "startTimeText": "24:43"
+  },
+  {
+   "text": "자유자 그리스도로 말미암아서",
+   "startMs": "1484919",
+   "endMs": "1489880",
+   "startTimeText": "24:44"
+  },
+  {
+   "text": "그리스도로 말미암아서 하나님이 우리의",
+   "startMs": "1487320",
+   "endMs": "1494080",
+   "startTimeText": "24:47"
+  },
+  {
+   "text": "진정한 아빠 아버지가 되로 유을 받는",
+   "startMs": "1489880",
+   "endMs": "1498960",
+   "startTimeText": "24:49"
+  },
+  {
+   "text": "것을 그때부터도 여기에 감춰",
+   "startMs": "1494080",
+   "endMs": "1502039",
+   "startTimeText": "24:54"
+  },
+  {
+   "text": "있는 거 그래서 23절 우리 같이",
+   "startMs": "1498960",
+   "endMs": "1504559",
+   "startTimeText": "24:58"
+  },
+  {
+   "text": "읽겠습니다 시작 종에게는 육체를",
+   "startMs": "1502039",
+   "endMs": "1507799",
+   "startTimeText": "25:02"
+  },
+  {
+   "text": "따라고 자유 있는 여자에게는 약속으로",
+   "startMs": "1504559",
+   "endMs": "1510480",
+   "startTimeText": "25:04"
+  },
+  {
+   "text": "말미암았느니라 이렇게 말씀을 하고",
+   "startMs": "1507799",
+   "endMs": "1513159",
+   "startTimeText": "25:07"
+  },
+  {
+   "text": "있습니다 종에게는 뭐를 따라서",
+   "startMs": "1510480",
+   "endMs": "1517000",
+   "startTimeText": "25:10"
+  },
+  {
+   "text": "났다고요 육체를 따라서 났다는 거예요",
+   "startMs": "1513159",
+   "endMs": "1518279",
+   "startTimeText": "25:13"
+  },
+  {
+   "text": "육체를",
+   "startMs": "1517000",
+   "endMs": "1521240",
+   "startTimeText": "25:17"
+  },
+  {
+   "text": "따라났다 그리고 심지어 종에게는",
+   "startMs": "1518279",
+   "endMs": "1526559",
+   "startTimeText": "25:18"
+  },
+  {
+   "text": "육체를 라다는 거 뭐냐면 하나님과",
+   "startMs": "1521240",
+   "endMs": "1526559",
+   "startTimeText": "25:21"
+  },
+  {
+   "text": "상관없이 쪽에 더 영향력을 받아서",
+   "startMs": "1526679",
+   "endMs": "1532320",
+   "startTimeText": "25:26"
+  },
+  {
+   "text": "영적인 아주 신령한 더 우월한",
+   "startMs": "1529640",
+   "endMs": "1535480",
+   "startTimeText": "25:29"
+  },
+  {
+   "text": "것으로부터 받는게 아니라 그냥 육체의",
+   "startMs": "1532320",
+   "endMs": "1539880",
+   "startTimeText": "25:32"
+  },
+  {
+   "text": "정욕을 따라서 나았을 뿐이다 거기에는",
+   "startMs": "1535480",
+   "endMs": "1542840",
+   "startTimeText": "25:35"
+  },
+  {
+   "text": "영원한 생명력이 있다 없다 없다",
+   "startMs": "1539880",
+   "endMs": "1544760",
+   "startTimeText": "25:39"
+  },
+  {
+   "text": "육체를 따라서",
+   "startMs": "1542840",
+   "endMs": "1547720",
+   "startTimeText": "25:42"
+  },
+  {
+   "text": "났으니까 그런데 자유 있는 여자에게는",
+   "startMs": "1544760",
+   "endMs": "1550919",
+   "startTimeText": "25:44"
+  },
+  {
+   "text": "뭐로 말미암아서 났어요 약속은 누가",
+   "startMs": "1547720",
+   "endMs": "1552840",
+   "startTimeText": "25:47"
+  },
+  {
+   "text": "해 주신 겁니까",
+   "startMs": "1550919",
+   "endMs": "1556600",
+   "startTimeText": "25:50"
+  },
+  {
+   "text": "하나님으로부터 나게 됐다는",
+   "startMs": "1552840",
+   "endMs": "1556600",
+   "startTimeText": "25:52"
+  },
+  {
+   "text": "거죠 여러분 이게 참 요한복음 1장",
+   "startMs": "1556679",
+   "endMs": "1564039",
+   "startTimeText": "25:56"
+  },
+  {
+   "text": "12절 14절 말씀이 떠오를 거예요",
+   "startMs": "1561039",
+   "endMs": "1566039",
+   "startTimeText": "26:01"
+  },
+  {
+   "text": "왜냐면 이렇게 기록이 되 있어요",
+   "startMs": "1564039",
+   "endMs": "1568320",
+   "startTimeText": "26:04"
+  },
+  {
+   "text": "영접하는 자 곧 그 이름을 믿는",
+   "startMs": "1566039",
+   "endMs": "1570720",
+   "startTimeText": "26:06"
+  },
+  {
+   "text": "자들에게는 하나님의 자녀가 되는",
+   "startMs": "1568320",
+   "endMs": "1573320",
+   "startTimeText": "26:08"
+  },
+  {
+   "text": "권세를 주셨으니이는 혈통으로나",
+   "startMs": "1570720",
+   "endMs": "1575440",
+   "startTimeText": "26:10"
+  },
+  {
+   "text": "육정으로나 사람의 뜻으로 나지",
+   "startMs": "1573320",
+   "endMs": "1577640",
+   "startTimeText": "26:13"
+  },
+  {
+   "text": "아니하고 오직 하나님께로부터 난",
+   "startMs": "1575440",
+   "endMs": "1579559",
+   "startTimeText": "26:15"
+  },
+  {
+   "text": "자들이니라 말씀이 육신이 되어 우리",
+   "startMs": "1577640",
+   "endMs": "1581480",
+   "startTimeText": "26:17"
+  },
+  {
+   "text": "가운데 가시에 우리가 그의 영광을",
+   "startMs": "1579559",
+   "endMs": "1583520",
+   "startTimeText": "26:19"
+  },
+  {
+   "text": "보니 아버지의 독생자의 영광이 은혜의",
+   "startMs": "1581480",
+   "endMs": "1585919",
+   "startTimeText": "26:21"
+  },
+  {
+   "text": "진리가 충만하더라 요한복음에 똑같은",
+   "startMs": "1583520",
+   "endMs": "1588960",
+   "startTimeText": "26:23"
+  },
+  {
+   "text": "얘기죠 그죠 혈통으로나 육정으로나",
+   "startMs": "1585919",
+   "endMs": "1592559",
+   "startTimeText": "26:25"
+  },
+  {
+   "text": "사람의 뜻으로 나지 아니하고",
+   "startMs": "1588960",
+   "endMs": "1596080",
+   "startTimeText": "26:28"
+  },
+  {
+   "text": "그런데 가를 통해서 나온 것은 뭐예요",
+   "startMs": "1592559",
+   "endMs": "1599120",
+   "startTimeText": "26:32"
+  },
+  {
+   "text": "육체 육 혈통이나 육정이나 사람의",
+   "startMs": "1596080",
+   "endMs": "1601240",
+   "startTimeText": "26:36"
+  },
+  {
+   "text": "뜻으로 말미암은",
+   "startMs": "1599120",
+   "endMs": "1604200",
+   "startTimeText": "26:39"
+  },
+  {
+   "text": "거잖아요 그런데 영접하는 자 곧 그",
+   "startMs": "1601240",
+   "endMs": "1605399",
+   "startTimeText": "26:41"
+  },
+  {
+   "text": "이름을 믿는",
+   "startMs": "1604200",
+   "endMs": "1608320",
+   "startTimeText": "26:44"
+  },
+  {
+   "text": "자들은이 육체를 따라서 난 자가",
+   "startMs": "1605399",
+   "endMs": "1610679",
+   "startTimeText": "26:45"
+  },
+  {
+   "text": "갑자기 바뀌어",
+   "startMs": "1608320",
+   "endMs": "1613279",
+   "startTimeText": "26:48"
+  },
+  {
+   "text": "가지고 곧 그 이름을 믿는 자에게는",
+   "startMs": "1610679",
+   "endMs": "1616080",
+   "startTimeText": "26:50"
+  },
+  {
+   "text": "뭐가 된다고요 하나님의 자녀가 된다는",
+   "startMs": "1613279",
+   "endMs": "1619080",
+   "startTimeText": "26:53"
+  },
+  {
+   "text": "거예요 인제 이스마엘이 있는데 누구로",
+   "startMs": "1616080",
+   "endMs": "1621880",
+   "startTimeText": "26:56"
+  },
+  {
+   "text": "바뀌어요 이삭으로 바뀌어 버린다는",
+   "startMs": "1619080",
+   "endMs": "1626640",
+   "startTimeText": "26:59"
+  },
+  {
+   "text": "거죠 그러니까 우리는 다",
+   "startMs": "1621880",
+   "endMs": "1626640",
+   "startTimeText": "27:01"
+  },
+  {
+   "text": "이스마일로프 이나게 되고 죄를 지어서",
+   "startMs": "1640279",
+   "endMs": "1646279",
+   "startTimeText": "27:20"
+  },
+  {
+   "text": "그렇게 죄 되게 되면 다 죄와 율법",
+   "startMs": "1643440",
+   "endMs": "1648559",
+   "startTimeText": "27:23"
+  },
+  {
+   "text": "가운데 갇혀 버리잖아요 그까 우리는",
+   "startMs": "1646279",
+   "endMs": "1652480",
+   "startTimeText": "27:26"
+  },
+  {
+   "text": "다 육체를 말미암아서 태어났는데 이게",
+   "startMs": "1648559",
+   "endMs": "1653840",
+   "startTimeText": "27:28"
+  },
+  {
+   "text": "놀란 거는",
+   "startMs": "1652480",
+   "endMs": "1657520",
+   "startTimeText": "27:32"
+  },
+  {
+   "text": "또 원래 그러면은 버림받아서 죽어야",
+   "startMs": "1653840",
+   "endMs": "1659960",
+   "startTimeText": "27:33"
+  },
+  {
+   "text": "되잖아요 종의 자녀가 됐으니까",
+   "startMs": "1657520",
+   "endMs": "1661960",
+   "startTimeText": "27:37"
+  },
+  {
+   "text": "종으로부터 태어났고 종의 자녀가",
+   "startMs": "1659960",
+   "endMs": "1663519",
+   "startTimeText": "27:39"
+  },
+  {
+   "text": "됐으니까",
+   "startMs": "1661960",
+   "endMs": "1666840",
+   "startTimeText": "27:41"
+  },
+  {
+   "text": "그러다가에 죽어야 되는데 신기하게",
+   "startMs": "1663519",
+   "endMs": "1668480",
+   "startTimeText": "27:43"
+  },
+  {
+   "text": "우리는 이스마엘이 있는데 뭐가",
+   "startMs": "1666840",
+   "endMs": "1671880",
+   "startTimeText": "27:46"
+  },
+  {
+   "text": "돼버렸어요 예 주님으로 말미암아서",
+   "startMs": "1668480",
+   "endMs": "1674960",
+   "startTimeText": "27:48"
+  },
+  {
+   "text": "다시 태어났다 그게 거듭남 이잖아요",
+   "startMs": "1671880",
+   "endMs": "1677679",
+   "startTimeText": "27:51"
+  },
+  {
+   "text": "다시 태어나서 뭐요는 하나님의 의",
+   "startMs": "1674960",
+   "endMs": "1680399",
+   "startTimeText": "27:54"
+  },
+  {
+   "text": "약속으로 이스마엘이 다시 엄마 뱃속에",
+   "startMs": "1677679",
+   "endMs": "1682240",
+   "startTimeText": "27:57"
+  },
+  {
+   "text": "들어가게 돼요 누구 뱃속에 들어가게",
+   "startMs": "1680399",
+   "endMs": "1684399",
+   "startTimeText": "28:00"
+  },
+  {
+   "text": "돼요 사라의 뱃속에 들어가게 돼",
+   "startMs": "1682240",
+   "endMs": "1687919",
+   "startTimeText": "28:02"
+  },
+  {
+   "text": "가지고 거기서 이제 하나님의 자녀로",
+   "startMs": "1684399",
+   "endMs": "1690559",
+   "startTimeText": "28:04"
+  },
+  {
+   "text": "다시 태어나게 되는 거죠 그래서",
+   "startMs": "1687919",
+   "endMs": "1694360",
+   "startTimeText": "28:07"
+  },
+  {
+   "text": "우리는 거듭났다고 얘기를 하는 거예요",
+   "startMs": "1690559",
+   "endMs": "1698320",
+   "startTimeText": "28:10"
+  },
+  {
+   "text": "이게 다르죠 왜냐면 옛 옛날에 만약에",
+   "startMs": "1694360",
+   "endMs": "1701679",
+   "startTimeText": "28:14"
+  },
+  {
+   "text": "그 그 하갈의 뱃속에서 태어났으면",
+   "startMs": "1698320",
+   "endMs": "1705000",
+   "startTimeText": "28:18"
+  },
+  {
+   "text": "그것이 끝이라면 한 번만 난 거라면",
+   "startMs": "1701679",
+   "endMs": "1707720",
+   "startTimeText": "28:21"
+  },
+  {
+   "text": "그대로 살다가 죽잖아요 근데 우리는",
+   "startMs": "1705000",
+   "endMs": "1709519",
+   "startTimeText": "28:25"
+  },
+  {
+   "text": "뭐예요",
+   "startMs": "1707720",
+   "endMs": "1712159",
+   "startTimeText": "28:27"
+  },
+  {
+   "text": "거듭남이아요 그러니까 한 번은 어떻게",
+   "startMs": "1709519",
+   "endMs": "1715080",
+   "startTimeText": "28:29"
+  },
+  {
+   "text": "됩니까 하가르 통해서 나왔는데",
+   "startMs": "1712159",
+   "endMs": "1718039",
+   "startTimeText": "28:32"
+  },
+  {
+   "text": "그러다가 육체에 종노릇 하게 되고",
+   "startMs": "1715080",
+   "endMs": "1721320",
+   "startTimeText": "28:35"
+  },
+  {
+   "text": "율법의 종노릇 하다 죽게 되는데 다시",
+   "startMs": "1718039",
+   "endMs": "1724559",
+   "startTimeText": "28:38"
+  },
+  {
+   "text": "이거를 엄마 뱃속에 누구의 뱃속에",
+   "startMs": "1721320",
+   "endMs": "1727080",
+   "startTimeText": "28:41"
+  },
+  {
+   "text": "사라의 뱃속에 딱 집어넣어 가지고",
+   "startMs": "1724559",
+   "endMs": "1729760",
+   "startTimeText": "28:44"
+  },
+  {
+   "text": "그다음에 이제 완 두 번째로 태어나",
+   "startMs": "1727080",
+   "endMs": "1732080",
+   "startTimeText": "28:47"
+  },
+  {
+   "text": "가지고 누구 누가 되는 거예요 예수",
+   "startMs": "1729760",
+   "endMs": "1735600",
+   "startTimeText": "28:49"
+  },
+  {
+   "text": "그리스도로 말미암아서 하나님의 자녀가",
+   "startMs": "1732080",
+   "endMs": "1738080",
+   "startTimeText": "28:52"
+  },
+  {
+   "text": "되었다고 이제는 완전히 우리는 는",
+   "startMs": "1735600",
+   "endMs": "1741720",
+   "startTimeText": "28:55"
+  },
+  {
+   "text": "하나님의 자녀로서 신분이 바뀌었다는",
+   "startMs": "1738080",
+   "endMs": "1746200",
+   "startTimeText": "28:58"
+  },
+  {
+   "text": "것입니다 그래서 봐라 여종에게 육체를",
+   "startMs": "1741720",
+   "endMs": "1747840",
+   "startTimeText": "29:01"
+  },
+  {
+   "text": "따라놓고 자유 있는 여자에게서",
+   "startMs": "1746200",
+   "endMs": "1750159",
+   "startTimeText": "29:06"
+  },
+  {
+   "text": "약속으로 말미암 24절 이것은",
+   "startMs": "1747840",
+   "endMs": "1754000",
+   "startTimeText": "29:07"
+  },
+  {
+   "text": "뭐라고요 비유다 실제적으로 일어났던",
+   "startMs": "1750159",
+   "endMs": "1757120",
+   "startTimeText": "29:10"
+  },
+  {
+   "text": "일이지만 거기에 예수 그리스도에 대한",
+   "startMs": "1754000",
+   "endMs": "1759519",
+   "startTimeText": "29:14"
+  },
+  {
+   "text": "비유를 담고 있다라는 것입니다",
+   "startMs": "1757120",
+   "endMs": "1762039",
+   "startTimeText": "29:17"
+  },
+  {
+   "text": "그래서이 여자들은 두 언약을 이야기를",
+   "startMs": "1759519",
+   "endMs": "1764760",
+   "startTimeText": "29:19"
+  },
+  {
+   "text": "하는데 하나는 시내 산으로부터 종을",
+   "startMs": "1762039",
+   "endMs": "1769120",
+   "startTimeText": "29:22"
+  },
+  {
+   "text": "낳은 자니 곧 하리다 산으로부터 뭐를",
+   "startMs": "1764760",
+   "endMs": "1771559",
+   "startTimeText": "29:24"
+  },
+  {
+   "text": "받았어요 율법을 받았잖아요 그러니까",
+   "startMs": "1769120",
+   "endMs": "1774440",
+   "startTimeText": "29:29"
+  },
+  {
+   "text": "신의산 자체가 뭐를 상징해요 율법을",
+   "startMs": "1771559",
+   "endMs": "1776919",
+   "startTimeText": "29:31"
+  },
+  {
+   "text": "상징하고 신의산 자체가 또 누구를",
+   "startMs": "1774440",
+   "endMs": "1779880",
+   "startTimeText": "29:34"
+  },
+  {
+   "text": "상징합니까 하가 상징한다는 거예요",
+   "startMs": "1776919",
+   "endMs": "1784600",
+   "startTimeText": "29:36"
+  },
+  {
+   "text": "하가는 결국에는 신의 산으로부터 뭐가",
+   "startMs": "1779880",
+   "endMs": "1787080",
+   "startTimeText": "29:39"
+  },
+  {
+   "text": "나아졌어요 율법이 나아졌는데 그거를",
+   "startMs": "1784600",
+   "endMs": "1789960",
+   "startTimeText": "29:44"
+  },
+  {
+   "text": "상징하고 있다라는 겁니다 자 근데",
+   "startMs": "1787080",
+   "endMs": "1792880",
+   "startTimeText": "29:47"
+  },
+  {
+   "text": "이거 이게 보세요 시내산에서 율법을",
+   "startMs": "1789960",
+   "endMs": "1797720",
+   "startTimeText": "29:49"
+  },
+  {
+   "text": "받은 날이 오순절 예 오순절이 순 절",
+   "startMs": "1792880",
+   "endMs": "1801840",
+   "startTimeText": "29:52"
+  },
+  {
+   "text": "예 순 절인데 여러분 잘 보세요 이제",
+   "startMs": "1797720",
+   "endMs": "1804760",
+   "startTimeText": "29:57"
+  },
+  {
+   "text": "시내산으로 터 뭐가 나왔어요 율법이",
+   "startMs": "1801840",
+   "endMs": "1807760",
+   "startTimeText": "30:01"
+  },
+  {
+   "text": "나왔잖아요 그리고 그러면 마가의",
+   "startMs": "1804760",
+   "endMs": "1811440",
+   "startTimeText": "30:04"
+  },
+  {
+   "text": "다락방으로 터는 뭐가 임하셨으니",
+   "startMs": "1807760",
+   "endMs": "1813279",
+   "startTimeText": "30:07"
+  },
+  {
+   "text": "성령이",
+   "startMs": "1811440",
+   "endMs": "1816320",
+   "startTimeText": "30:11"
+  },
+  {
+   "text": "임하셨고에 마가 막 성령을 어디로부터",
+   "startMs": "1813279",
+   "endMs": "1817600",
+   "startTimeText": "30:13"
+  },
+  {
+   "text": "임했어요",
+   "startMs": "1816320",
+   "endMs": "1821720",
+   "startTimeText": "30:16"
+  },
+  {
+   "text": "하늘로부터 임했죠 그게",
+   "startMs": "1817600",
+   "endMs": "1824760",
+   "startTimeText": "30:17"
+  },
+  {
+   "text": "똑같이 언제 받았냐면 오순절이 받게",
+   "startMs": "1821720",
+   "endMs": "1828519",
+   "startTimeText": "30:21"
+  },
+  {
+   "text": "됩니다 바요 두 개잖아",
+   "startMs": "1824760",
+   "endMs": "1828519",
+   "startTimeText": "30:24"
+  },
+  {
+   "text": "그러니까 마가의",
+   "startMs": "1829080",
+   "endMs": "1833600",
+   "startTimeText": "30:29"
+  },
+  {
+   "text": "다락방으로 하늘로부터 내려온",
+   "startMs": "1830960",
+   "endMs": "1838279",
+   "startTimeText": "30:30"
+  },
+  {
+   "text": "것은 누구를 상징하면 이거는 사라로",
+   "startMs": "1833600",
+   "endMs": "1841000",
+   "startTimeText": "30:33"
+  },
+  {
+   "text": "온 새 예루살렘을 상징합니다",
+   "startMs": "1838279",
+   "endMs": "1843720",
+   "startTimeText": "30:38"
+  },
+  {
+   "text": "하늘로부터 오는 위에 있는 예루살렘을",
+   "startMs": "1841000",
+   "endMs": "1846799",
+   "startTimeText": "30:41"
+  },
+  {
+   "text": "이야기를 해 이제 이제 나옵니다 자",
+   "startMs": "1843720",
+   "endMs": "1849799",
+   "startTimeText": "30:43"
+  },
+  {
+   "text": "25절에 보면이 하갈은 아라비아에",
+   "startMs": "1846799",
+   "endMs": "1852640",
+   "startTimeText": "30:46"
+  },
+  {
+   "text": "있는 시내 산으로서 지금 있는",
+   "startMs": "1849799",
+   "endMs": "1855720",
+   "startTimeText": "30:49"
+  },
+  {
+   "text": "예루살렘 지금 있는 예루살렘 봐요",
+   "startMs": "1852640",
+   "endMs": "1858480",
+   "startTimeText": "30:52"
+  },
+  {
+   "text": "산으로부터 시 해가지고 지금의",
+   "startMs": "1855720",
+   "endMs": "1861559",
+   "startTimeText": "30:55"
+  },
+  {
+   "text": "예루살렘도 뭐에 사로잡혀 있냐면",
+   "startMs": "1858480",
+   "endMs": "1863360",
+   "startTimeText": "30:58"
+  },
+  {
+   "text": "율법주의에 사로잡혀 있다는 거예요",
+   "startMs": "1861559",
+   "endMs": "1866039",
+   "startTimeText": "31:01"
+  },
+  {
+   "text": "지금 예루살렘은 하나님의 뜻이",
+   "startMs": "1863360",
+   "endMs": "1869320",
+   "startTimeText": "31:03"
+  },
+  {
+   "text": "완전하게 새롭게 정말로 부어져 가지고",
+   "startMs": "1866039",
+   "endMs": "1872399",
+   "startTimeText": "31:06"
+  },
+  {
+   "text": "그래야 되는데 시내산으로 터 시작해",
+   "startMs": "1869320",
+   "endMs": "1873440",
+   "startTimeText": "31:09"
+  },
+  {
+   "text": "가지고",
+   "startMs": "1872399",
+   "endMs": "1876360",
+   "startTimeText": "31:12"
+  },
+  {
+   "text": "유대인들의 가장 중요한 곳인",
+   "startMs": "1873440",
+   "endMs": "1879000",
+   "startTimeText": "31:13"
+  },
+  {
+   "text": "예루살렘까지 뭐로 사로잡혀 있다고요",
+   "startMs": "1876360",
+   "endMs": "1881880",
+   "startTimeText": "31:16"
+  },
+  {
+   "text": "율법주의로 사로잡혀 있다는 거예요",
+   "startMs": "1879000",
+   "endMs": "1885320",
+   "startTimeText": "31:19"
+  },
+  {
+   "text": "그래서 지금 있는 예루살렘도 시내산의",
+   "startMs": "1881880",
+   "endMs": "1888799",
+   "startTimeText": "31:21"
+  },
+  {
+   "text": "그런 율법으로 가득차 있는 것인데",
+   "startMs": "1885320",
+   "endMs": "1891600",
+   "startTimeText": "31:25"
+  },
+  {
+   "text": "그것은 그가 그 자녀들과 더불어서",
+   "startMs": "1888799",
+   "endMs": "1894440",
+   "startTimeText": "31:28"
+  },
+  {
+   "text": "지금도 율법이 지배해 가지고 그곳이",
+   "startMs": "1891600",
+   "endMs": "1897279",
+   "startTimeText": "31:31"
+  },
+  {
+   "text": "다 종노릇 타고 있다라는 것입니다",
+   "startMs": "1894440",
+   "endMs": "1899600",
+   "startTimeText": "31:34"
+  },
+  {
+   "text": "그런데 26절 보세요 같이 읽겠습니다",
+   "startMs": "1897279",
+   "endMs": "1902600",
+   "startTimeText": "31:37"
+  },
+  {
+   "text": "시작 오직 위에 있는 예루살렘은",
+   "startMs": "1899600",
+   "endMs": "1905880",
+   "startTimeText": "31:39"
+  },
+  {
+   "text": "자유자니 곧 우리 어머니라 자 위에",
+   "startMs": "1902600",
+   "endMs": "1909480",
+   "startTimeText": "31:42"
+  },
+  {
+   "text": "있는 예루살렘 하나님께서",
+   "startMs": "1905880",
+   "endMs": "1912960",
+   "startTimeText": "31:45"
+  },
+  {
+   "text": "직접 새롭게 예루살렘 진정한",
+   "startMs": "1909480",
+   "endMs": "1915159",
+   "startTimeText": "31:49"
+  },
+  {
+   "text": "예루살렘은 이렇게 돼야 된다라고",
+   "startMs": "1912960",
+   "endMs": "1918240",
+   "startTimeText": "31:52"
+  },
+  {
+   "text": "얘기하면서 하늘로부터 내려오는",
+   "startMs": "1915159",
+   "endMs": "1922519",
+   "startTimeText": "31:55"
+  },
+  {
+   "text": "예루살렘이 있는데 그것은 뭐라고요",
+   "startMs": "1918240",
+   "endMs": "1925519",
+   "startTimeText": "31:58"
+  },
+  {
+   "text": "자유자 그러니까 하늘로부터 내려온",
+   "startMs": "1922519",
+   "endMs": "1928559",
+   "startTimeText": "32:02"
+  },
+  {
+   "text": "성령님 그다음에 하늘로부터 우리",
+   "startMs": "1925519",
+   "endMs": "1932840",
+   "startTimeText": "32:05"
+  },
+  {
+   "text": "가운데 임한 예수 그리스도 하늘로부터",
+   "startMs": "1928559",
+   "endMs": "1937519",
+   "startTimeText": "32:08"
+  },
+  {
+   "text": "새롭게 내려와준 이것이 바로 사라요",
+   "startMs": "1932840",
+   "endMs": "1940480",
+   "startTimeText": "32:12"
+  },
+  {
+   "text": "어 그것이",
+   "startMs": "1937519",
+   "endMs": "1944159",
+   "startTimeText": "32:17"
+  },
+  {
+   "text": "자유자이고 거기서부터 우리는 새롭게",
+   "startMs": "1940480",
+   "endMs": "1946080",
+   "startTimeText": "32:20"
+  },
+  {
+   "text": "나와야 된다라고 이야기를 하고 있는",
+   "startMs": "1944159",
+   "endMs": "1948519",
+   "startTimeText": "32:24"
+  },
+  {
+   "text": "것을 볼 수가 있습니다",
+   "startMs": "1946080",
+   "endMs": "1950559",
+   "startTimeText": "32:26"
+  },
+  {
+   "text": "그래서 이해가",
+   "startMs": "1948519",
+   "endMs": "1955559",
+   "startTimeText": "32:28"
+  },
+  {
+   "text": "되시죠 인제 막 하라 이스마엘 제",
+   "startMs": "1950559",
+   "endMs": "1960039",
+   "startTimeText": "32:30"
+  },
+  {
+   "text": "보면 아 이것은이 사람에게 감정을",
+   "startMs": "1955559",
+   "endMs": "1963039",
+   "startTimeText": "32:35"
+  },
+  {
+   "text": "대입해 가지고 아유 하 하갈",
+   "startMs": "1960039",
+   "endMs": "1965919",
+   "startTimeText": "32:40"
+  },
+  {
+   "text": "불상에 이스마엘 불상이 2차원이",
+   "startMs": "1963039",
+   "endMs": "1969880",
+   "startTimeText": "32:43"
+  },
+  {
+   "text": "아니고 이것은 샘플로 해 가지고 다른",
+   "startMs": "1965919",
+   "endMs": "1972200",
+   "startTimeText": "32:45"
+  },
+  {
+   "text": "것을 얘기하려고 율법과 그리스도를",
+   "startMs": "1969880",
+   "endMs": "1974600",
+   "startTimeText": "32:49"
+  },
+  {
+   "text": "얘기하려고 하나님께서이 사건을",
+   "startMs": "1972200",
+   "endMs": "1977440",
+   "startTimeText": "32:52"
+  },
+  {
+   "text": "사용했다라는 것을 이제 보게 되는",
+   "startMs": "1974600",
+   "endMs": "1980120",
+   "startTimeText": "32:54"
+  },
+  {
+   "text": "거죠 근데 뭐 한꺼번에 도약을 할 수",
+   "startMs": "1977440",
+   "endMs": "1982559",
+   "startTimeText": "32:57"
+  },
+  {
+   "text": "없기 때문에 구약에서 신약으로 가면서",
+   "startMs": "1980120",
+   "endMs": "1986000",
+   "startTimeText": "33:00"
+  },
+  {
+   "text": "점차 계시는 완전해지게 됩니다 그래서",
+   "startMs": "1982559",
+   "endMs": "1988559",
+   "startTimeText": "33:02"
+  },
+  {
+   "text": "그때는 어린아이와 같아서 요즘만",
+   "startMs": "1986000",
+   "endMs": "1992760",
+   "startTimeText": "33:06"
+  },
+  {
+   "text": "얘기하고 하라와 그냥 저기",
+   "startMs": "1988559",
+   "endMs": "1996120",
+   "startTimeText": "33:08"
+  },
+  {
+   "text": "그하 아 하라가 아니라 하갈과 사라에",
+   "startMs": "1992760",
+   "endMs": "1999440",
+   "startTimeText": "33:12"
+  },
+  {
+   "text": "대해서 이야기를 하고 하갈은 하나님의",
+   "startMs": "1996120",
+   "endMs": "2003080",
+   "startTimeText": "33:16"
+  },
+  {
+   "text": "약속을 저기 그 그 사라가 하나님의",
+   "startMs": "1999440",
+   "endMs": "2005840",
+   "startTimeText": "33:19"
+  },
+  {
+   "text": "약속을 기다리지 못해 가지고 하가르",
+   "startMs": "2003080",
+   "endMs": "2007480",
+   "startTimeText": "33:23"
+  },
+  {
+   "text": "보내 가지고 이스마엘을 나왔다",
+   "startMs": "2005840",
+   "endMs": "2010000",
+   "startTimeText": "33:25"
+  },
+  {
+   "text": "여러분들 그러면 되겠습니까 안 되죠",
+   "startMs": "2007480",
+   "endMs": "2012440",
+   "startTimeText": "33:27"
+  },
+  {
+   "text": "하나님의 약속을 기다려야 됩니다",
+   "startMs": "2010000",
+   "endMs": "2015360",
+   "startTimeText": "33:30"
+  },
+  {
+   "text": "구약을 가지고는요 정도를 설명을 하게",
+   "startMs": "2012440",
+   "endMs": "2017760",
+   "startTimeText": "33:32"
+  },
+  {
+   "text": "되 있어요 왜냐면 어린아이와 같으니까",
+   "startMs": "2015360",
+   "endMs": "2019760",
+   "startTimeText": "33:35"
+  },
+  {
+   "text": "요거를 얘기하면서 점차 이제 신앙이",
+   "startMs": "2017760",
+   "endMs": "2022039",
+   "startTimeText": "33:37"
+  },
+  {
+   "text": "성장하게 되면",
+   "startMs": "2019760",
+   "endMs": "2025240",
+   "startTimeText": "33:39"
+  },
+  {
+   "text": "여러분 이게 결국에는 뭘 이야기를",
+   "startMs": "2022039",
+   "endMs": "2027279",
+   "startTimeText": "33:42"
+  },
+  {
+   "text": "하는 겁니까 이제 우리가 성경을 많이",
+   "startMs": "2025240",
+   "endMs": "2030399",
+   "startTimeText": "33:45"
+  },
+  {
+   "text": "봤지요 그러니까 하갈은 결국에는 뭐를",
+   "startMs": "2027279",
+   "endMs": "2032519",
+   "startTimeText": "33:47"
+  },
+  {
+   "text": "상징하는 거예요 율법을 상징하고",
+   "startMs": "2030399",
+   "endMs": "2035760",
+   "startTimeText": "33:50"
+  },
+  {
+   "text": "그러니까 수 1차 시에서는 하나님의",
+   "startMs": "2032519",
+   "endMs": "2037720",
+   "startTimeText": "33:52"
+  },
+  {
+   "text": "약속을 기다리지 않고 이러면",
+   "startMs": "2035760",
+   "endMs": "2040919",
+   "startTimeText": "33:55"
+  },
+  {
+   "text": "이스마일이 나옵니다 이렇게 가르쳤다면",
+   "startMs": "2037720",
+   "endMs": "2045120",
+   "startTimeText": "33:57"
+  },
+  {
+   "text": "이제 차시 정도 되면 결국에는 이것은",
+   "startMs": "2040919",
+   "endMs": "2047559",
+   "startTimeText": "34:00"
+  },
+  {
+   "text": "율법을 얘기하고 예수 그리스도의",
+   "startMs": "2045120",
+   "endMs": "2049280",
+   "startTimeText": "34:05"
+  },
+  {
+   "text": "복음에 대해서 얘기를 하는 겁니다",
+   "startMs": "2047559",
+   "endMs": "2051800",
+   "startTimeText": "34:07"
+  },
+  {
+   "text": "이렇게 성경은 기록이 되어 있어요",
+   "startMs": "2049280",
+   "endMs": "2055159",
+   "startTimeText": "34:09"
+  },
+  {
+   "text": "그래서 시까지 정도 가야 이제 진짜",
+   "startMs": "2051800",
+   "endMs": "2058520",
+   "startTimeText": "34:11"
+  },
+  {
+   "text": "성경에 대해서 이제 어 기본 지식이",
+   "startMs": "2055159",
+   "endMs": "2061440",
+   "startTimeText": "34:15"
+  },
+  {
+   "text": "생기니까 더 깊게 깨닫게 된다 이렇게",
+   "startMs": "2058520",
+   "endMs": "2064000",
+   "startTimeText": "34:18"
+  },
+  {
+   "text": "이야기를 하는 논리 구조로 성경은",
+   "startMs": "2061440",
+   "endMs": "2066040",
+   "startTimeText": "34:21"
+  },
+  {
+   "text": "기록이 되어 있다라는 것입니다",
+   "startMs": "2064000",
+   "endMs": "2067839",
+   "startTimeText": "34:24"
+  },
+  {
+   "text": "그러니까",
+   "startMs": "2066040",
+   "endMs": "2070159",
+   "startTimeText": "34:26"
+  },
+  {
+   "text": "처음부터 도약을 할 수는 없어요",
+   "startMs": "2067839",
+   "endMs": "2073359",
+   "startTimeText": "34:27"
+  },
+  {
+   "text": "왜냐면 처음부터 뒤부터 배워야 되기",
+   "startMs": "2070159",
+   "endMs": "2076119",
+   "startTimeText": "34:30"
+  },
+  {
+   "text": "때문에 그래서 27절에 보면 같이",
+   "startMs": "2073359",
+   "endMs": "2078599",
+   "startTimeText": "34:33"
+  },
+  {
+   "text": "읽겠습니다 시작 기록된 바 잉태하지",
+   "startMs": "2076119",
+   "endMs": "2080839",
+   "startTimeText": "34:36"
+  },
+  {
+   "text": "못한 자여 즐거워하라 상고를 모르는",
+   "startMs": "2078599",
+   "endMs": "2084040",
+   "startTimeText": "34:38"
+  },
+  {
+   "text": "자여 소리질러 외치라이는 홀로 사는",
+   "startMs": "2080839",
+   "endMs": "2086399",
+   "startTimeText": "34:40"
+  },
+  {
+   "text": "자의 자녀가 남편 있는 자의 자녀보다",
+   "startMs": "2084040",
+   "endMs": "2089200",
+   "startTimeText": "34:44"
+  },
+  {
+   "text": "많음이라 잘 보세요 여기서 잉태하지",
+   "startMs": "2086399",
+   "endMs": "2091480",
+   "startTimeText": "34:46"
+  },
+  {
+   "text": "못하고 상고를 모르는 자는 누구를",
+   "startMs": "2089200",
+   "endMs": "2094879",
+   "startTimeText": "34:49"
+  },
+  {
+   "text": "얘기합니까 사라를 얘기하죠",
+   "startMs": "2091480",
+   "endMs": "2099480",
+   "startTimeText": "34:51"
+  },
+  {
+   "text": "사라가 분 애를 낳았을 때부터 사라는",
+   "startMs": "2094879",
+   "endMs": "2101320",
+   "startTimeText": "34:54"
+  },
+  {
+   "text": "그때 잉태하지",
+   "startMs": "2099480",
+   "endMs": "2102960",
+   "startTimeText": "34:59"
+  },
+  {
+   "text": "못했지만",
+   "startMs": "2101320",
+   "endMs": "2106240",
+   "startTimeText": "35:01"
+  },
+  {
+   "text": "결국에는 누구로 말미암는 사람들이",
+   "startMs": "2102960",
+   "endMs": "2108599",
+   "startTimeText": "35:02"
+  },
+  {
+   "text": "구원의 길로 들어가게 돼요 예수",
+   "startMs": "2106240",
+   "endMs": "2111720",
+   "startTimeText": "35:06"
+  },
+  {
+   "text": "그리스도로 말미암아서 이방인들이 다",
+   "startMs": "2108599",
+   "endMs": "2114760",
+   "startTimeText": "35:08"
+  },
+  {
+   "text": "구원을 받게 되잖아요 결국에는 그것이",
+   "startMs": "2111720",
+   "endMs": "2117119",
+   "startTimeText": "35:11"
+  },
+  {
+   "text": "무엇을 상징합니까 이삭을",
+   "startMs": "2114760",
+   "endMs": "2120680",
+   "startTimeText": "35:14"
+  },
+  {
+   "text": "통해서 사라를 통해서 사라는",
+   "startMs": "2117119",
+   "endMs": "2125240",
+   "startTimeText": "35:17"
+  },
+  {
+   "text": "결국에는 이삭은는 낳지 않지만 하",
+   "startMs": "2120680",
+   "endMs": "2128640",
+   "startTimeText": "35:20"
+  },
+  {
+   "text": "자를 낳고 부러워",
+   "startMs": "2125240",
+   "endMs": "2132200",
+   "startTimeText": "35:25"
+  },
+  {
+   "text": "보이지만 지금 그 그 상황 하갈이",
+   "startMs": "2128640",
+   "endMs": "2134280",
+   "startTimeText": "35:28"
+  },
+  {
+   "text": "이스마엘을 낳았던 그 상황으로 딱",
+   "startMs": "2132200",
+   "endMs": "2137160",
+   "startTimeText": "35:32"
+  },
+  {
+   "text": "돌아가지만 그 시점에 사라는 잉태하지",
+   "startMs": "2134280",
+   "endMs": "2139359",
+   "startTimeText": "35:34"
+  },
+  {
+   "text": "못했고 상고를",
+   "startMs": "2137160",
+   "endMs": "2142560",
+   "startTimeText": "35:37"
+  },
+  {
+   "text": "모르지만 결국 그러나 누가 약속을",
+   "startMs": "2139359",
+   "endMs": "2145200",
+   "startTimeText": "35:39"
+  },
+  {
+   "text": "받았습니까 사라가 약속을 받았기",
+   "startMs": "2142560",
+   "endMs": "2148839",
+   "startTimeText": "35:42"
+  },
+  {
+   "text": "때문에 그리고 먼 미래를 보면은",
+   "startMs": "2145200",
+   "endMs": "2151200",
+   "startTimeText": "35:45"
+  },
+  {
+   "text": "할례로 말미암아서 구원받는 사람이",
+   "startMs": "2148839",
+   "endMs": "2153200",
+   "startTimeText": "35:48"
+  },
+  {
+   "text": "많겠어요 예수 그리스도로 말미암아서",
+   "startMs": "2151200",
+   "endMs": "2155800",
+   "startTimeText": "35:51"
+  },
+  {
+   "text": "구원받는 사람이 훨씬 많겠어요 할로는",
+   "startMs": "2153200",
+   "endMs": "2158119",
+   "startTimeText": "35:53"
+  },
+  {
+   "text": "구원도 못 받고요 구속만 있습니다",
+   "startMs": "2155800",
+   "endMs": "2159839",
+   "startTimeText": "35:55"
+  },
+  {
+   "text": "근데 결국에는 예수 그리스도로",
+   "startMs": "2158119",
+   "endMs": "2162560",
+   "startTimeText": "35:58"
+  },
+  {
+   "text": "말미암아서 이방인이나 모든 남자나",
+   "startMs": "2159839",
+   "endMs": "2166240",
+   "startTimeText": "35:59"
+  },
+  {
+   "text": "여자나 차별없이 다 구원을 받잖아요",
+   "startMs": "2162560",
+   "endMs": "2169079",
+   "startTimeText": "36:02"
+  },
+  {
+   "text": "그러니까 그거를 거꾸로 그 시점으로",
+   "startMs": "2166240",
+   "endMs": "2172520",
+   "startTimeText": "36:06"
+  },
+  {
+   "text": "올라가면 누가 훨씬 기쁜 겁니까 자녀",
+   "startMs": "2169079",
+   "endMs": "2175280",
+   "startTimeText": "36:09"
+  },
+  {
+   "text": "있는 하갈이 기쁜 거예요 자녀 없는",
+   "startMs": "2172520",
+   "endMs": "2178160",
+   "startTimeText": "36:12"
+  },
+  {
+   "text": "사라가 기쁜 거예요 자녀 없는 사라가",
+   "startMs": "2175280",
+   "endMs": "2180480",
+   "startTimeText": "36:15"
+  },
+  {
+   "text": "기쁜 것이다 성경은 그 얘기를 하고",
+   "startMs": "2178160",
+   "endMs": "2182599",
+   "startTimeText": "36:18"
+  },
+  {
+   "text": "있다는 것입니다 비록 지금은 자녀가",
+   "startMs": "2180480",
+   "endMs": "2184920",
+   "startTimeText": "36:20"
+  },
+  {
+   "text": "없지만 결국엔 예수 그리스도로",
+   "startMs": "2182599",
+   "endMs": "2187160",
+   "startTimeText": "36:22"
+  },
+  {
+   "text": "말미암아서 모든 열방의 구원 을 받게",
+   "startMs": "2184920",
+   "endMs": "2189200",
+   "startTimeText": "36:24"
+  },
+  {
+   "text": "되니",
+   "startMs": "2187160",
+   "endMs": "2193079",
+   "startTimeText": "36:27"
+  },
+  {
+   "text": "사라는 엄청 기뻐하게 되고 홀로 사는",
+   "startMs": "2189200",
+   "endMs": "2196359",
+   "startTimeText": "36:29"
+  },
+  {
+   "text": "자의 결국에는 자녀가 홀로 홀로",
+   "startMs": "2193079",
+   "endMs": "2199119",
+   "startTimeText": "36:33"
+  },
+  {
+   "text": "있다라고 생각했던 그 자녀가 나중에는",
+   "startMs": "2196359",
+   "endMs": "2200960",
+   "startTimeText": "36:36"
+  },
+  {
+   "text": "남편 있는 자의 자녀보다 어떻게",
+   "startMs": "2199119",
+   "endMs": "2203599",
+   "startTimeText": "36:39"
+  },
+  {
+   "text": "된다는 거야 훨씬 많아지게 된다는",
+   "startMs": "2200960",
+   "endMs": "2205680",
+   "startTimeText": "36:40"
+  },
+  {
+   "text": "거예 모든 이방인에게도 구원의 길이",
+   "startMs": "2203599",
+   "endMs": "2208480",
+   "startTimeText": "36:43"
+  },
+  {
+   "text": "열리게 되니까 그러면 홀로 있는 자가",
+   "startMs": "2205680",
+   "endMs": "2211720",
+   "startTimeText": "36:45"
+  },
+  {
+   "text": "어떻게 되겠어요 기뻐하겠지 그걸 알고",
+   "startMs": "2208480",
+   "endMs": "2214920",
+   "startTimeText": "36:48"
+  },
+  {
+   "text": "있으면 그러니까 그런 구원의 진리를",
+   "startMs": "2211720",
+   "endMs": "2218480",
+   "startTimeText": "36:51"
+  },
+  {
+   "text": "미리 알고 있는 사람은",
+   "startMs": "2214920",
+   "endMs": "2221400",
+   "startTimeText": "36:54"
+  },
+  {
+   "text": "그것이 지금 당장에 눈에 보이지",
+   "startMs": "2218480",
+   "endMs": "2225319",
+   "startTimeText": "36:58"
+  },
+  {
+   "text": "않아도 기뻐할 수가 있는 겁니다 뭔",
+   "startMs": "2221400",
+   "endMs": "2228480",
+   "startTimeText": "37:01"
+  },
+  {
+   "text": "소린지 아시겠죠 그게 바로 믿음이에요",
+   "startMs": "2225319",
+   "endMs": "2233079",
+   "startTimeText": "37:05"
+  },
+  {
+   "text": "어 그러니까 우리는 결과가 나타났을",
+   "startMs": "2228480",
+   "endMs": "2235400",
+   "startTimeText": "37:08"
+  },
+  {
+   "text": "때 기뻐하는게 아니라 그 결과가",
+   "startMs": "2233079",
+   "endMs": "2238720",
+   "startTimeText": "37:13"
+  },
+  {
+   "text": "뭔지를 알고 있기 때문에 지금 비록",
+   "startMs": "2235400",
+   "endMs": "2240560",
+   "startTimeText": "37:15"
+  },
+  {
+   "text": "내 상 가운데",
+   "startMs": "2238720",
+   "endMs": "2244119",
+   "startTimeText": "37:18"
+  },
+  {
+   "text": "그것이 있지 않아 보여도 뭐예요 그",
+   "startMs": "2240560",
+   "endMs": "2247280",
+   "startTimeText": "37:20"
+  },
+  {
+   "text": "먼미래를 내다보면서 먼저 기뻐하는 거",
+   "startMs": "2244119",
+   "endMs": "2249680",
+   "startTimeText": "37:24"
+  },
+  {
+   "text": "그게 바로 믿음인",
+   "startMs": "2247280",
+   "endMs": "2253640",
+   "startTimeText": "37:27"
+  },
+  {
+   "text": "것이에요 믿음은 바라는 것들 실상인",
+   "startMs": "2249680",
+   "endMs": "2256079",
+   "startTimeText": "37:29"
+  },
+  {
+   "text": "거죠 보이지 못하는 것들의 뭐예요",
+   "startMs": "2253640",
+   "endMs": "2260200",
+   "startTimeText": "37:33"
+  },
+  {
+   "text": "증거 이미 나는 믿음으로 그것이",
+   "startMs": "2256079",
+   "endMs": "2264359",
+   "startTimeText": "37:36"
+  },
+  {
+   "text": "이루어진다는 것을 알고 있기 때문에",
+   "startMs": "2260200",
+   "endMs": "2268599",
+   "startTimeText": "37:40"
+  },
+  {
+   "text": "그러니까 홀로 사는 자녀가 홀로 살고",
+   "startMs": "2264359",
+   "endMs": "2269760",
+   "startTimeText": "37:44"
+  },
+  {
+   "text": "있는 그",
+   "startMs": "2268599",
+   "endMs": "2274040",
+   "startTimeText": "37:48"
+  },
+  {
+   "text": "부인이 더 기뻐한다는 거죠 이게 바로",
+   "startMs": "2269760",
+   "endMs": "2276560",
+   "startTimeText": "37:49"
+  },
+  {
+   "text": "믿음이에요",
+   "startMs": "2274040",
+   "endMs": "2279520",
+   "startTimeText": "37:54"
+  },
+  {
+   "text": "놀랍죠 그러니까 주님도 세계 열방이",
+   "startMs": "2276560",
+   "endMs": "2282280",
+   "startTimeText": "37:56"
+  },
+  {
+   "text": "먼저 구원받을 것을 보시고 있땅",
+   "startMs": "2279520",
+   "endMs": "2285119",
+   "startTimeText": "37:59"
+  },
+  {
+   "text": "가운데 사셨거나",
+   "startMs": "2282280",
+   "endMs": "2288200",
+   "startTimeText": "38:02"
+  },
+  {
+   "text": "그러니까 미리 당겨 가지고 기뻐하고",
+   "startMs": "2285119",
+   "endMs": "2291040",
+   "startTimeText": "38:05"
+  },
+  {
+   "text": "미리 당겨서 있으니까 우리가 끊임없이",
+   "startMs": "2288200",
+   "endMs": "2293400",
+   "startTimeText": "38:08"
+  },
+  {
+   "text": "뭐가 생깁니까 소망이 있게 되는",
+   "startMs": "2291040",
+   "endMs": "2296400",
+   "startTimeText": "38:11"
+  },
+  {
+   "text": "겁니다 오늘 좀 길어지는데 이거",
+   "startMs": "2293400",
+   "endMs": "2299280",
+   "startTimeText": "38:13"
+  },
+  {
+   "text": "설명하고 넘어가야 되지 않겠습니까 예",
+   "startMs": "2296400",
+   "endMs": "2302359",
+   "startTimeText": "38:16"
+  },
+  {
+   "text": "안 그러면 여러분들 계속이 내용들이",
+   "startMs": "2299280",
+   "endMs": "2305280",
+   "startTimeText": "38:19"
+  },
+  {
+   "text": "뭔지 몰라 가지고 계속 또 더 나중에",
+   "startMs": "2302359",
+   "endMs": "2307400",
+   "startTimeText": "38:22"
+  },
+  {
+   "text": "더 시간이 오래 걸리니까 죄송합니다",
+   "startMs": "2305280",
+   "endMs": "2309280",
+   "startTimeText": "38:25"
+  },
+  {
+   "text": "그런데 조금만 더",
+   "startMs": "2307400",
+   "endMs": "2312599",
+   "startTimeText": "38:27"
+  },
+  {
+   "text": "씁시다 28절 그래서 이제 같이",
+   "startMs": "2309280",
+   "endMs": "2314560",
+   "startTimeText": "38:29"
+  },
+  {
+   "text": "읽겠습니다 시작 형제들아 너희는",
+   "startMs": "2312599",
+   "endMs": "2316400",
+   "startTimeText": "38:32"
+  },
+  {
+   "text": "이삭과 같이 이제 약속의 자녀가",
+   "startMs": "2314560",
+   "endMs": "2318319",
+   "startTimeText": "38:34"
+  },
+  {
+   "text": "되었다 누구로 말미암아서 예수",
+   "startMs": "2316400",
+   "endMs": "2320520",
+   "startTimeText": "38:36"
+  },
+  {
+   "text": "그리스도로 말미암아서 이제 너희는",
+   "startMs": "2318319",
+   "endMs": "2322520",
+   "startTimeText": "38:38"
+  },
+  {
+   "text": "거듭나 가지고",
+   "startMs": "2320520",
+   "endMs": "2326760",
+   "startTimeText": "38:40"
+  },
+  {
+   "text": "제는 그니까 꼭 자기를 이제 거기에",
+   "startMs": "2322520",
+   "endMs": "2329240",
+   "startTimeText": "38:42"
+  },
+  {
+   "text": "대입하는 사람이 있어요 나는 이스마엘",
+   "startMs": "2326760",
+   "endMs": "2331839",
+   "startTimeText": "38:46"
+  },
+  {
+   "text": "같아요 그리스도인이 나는 이스마엘",
+   "startMs": "2329240",
+   "endMs": "2334680",
+   "startTimeText": "38:49"
+  },
+  {
+   "text": "같아요 얘기하면 돼요 안 돼요",
+   "startMs": "2331839",
+   "endMs": "2337760",
+   "startTimeText": "38:51"
+  },
+  {
+   "text": "안되죠 근데 성 읽으면서",
+   "startMs": "2334680",
+   "endMs": "2342280",
+   "startTimeText": "38:54"
+  },
+  {
+   "text": "막 이스마엘 나도 이스마엘 같은데",
+   "startMs": "2337760",
+   "endMs": "2346359",
+   "startTimeText": "38:57"
+  },
+  {
+   "text": "버림받은 거 같은데 하나님",
+   "startMs": "2342280",
+   "endMs": "2350000",
+   "startTimeText": "39:02"
+  },
+  {
+   "text": "어찌해요 예 하나님 뜻이 아니에요",
+   "startMs": "2346359",
+   "endMs": "2354800",
+   "startTimeText": "39:06"
+  },
+  {
+   "text": "아니죠 왜 이스마일 있니까 이스마엘",
+   "startMs": "2350000",
+   "endMs": "2358560",
+   "startTimeText": "39:10"
+  },
+  {
+   "text": "아니라고요 자꾸 거기에다 나의 감정을",
+   "startMs": "2354800",
+   "endMs": "2359800",
+   "startTimeText": "39:14"
+  },
+  {
+   "text": "대입시켜",
+   "startMs": "2358560",
+   "endMs": "2362800",
+   "startTimeText": "39:18"
+  },
+  {
+   "text": "가지고 아니 꼭 그런 사람들이 있어요",
+   "startMs": "2359800",
+   "endMs": "2365760",
+   "startTimeText": "39:19"
+  },
+  {
+   "text": "저기 뭐냐면 예수님이 12제자가",
+   "startMs": "2362800",
+   "endMs": "2370160",
+   "startTimeText": "39:22"
+  },
+  {
+   "text": "있는데 자기가 가른 유다 같다는",
+   "startMs": "2365760",
+   "endMs": "2370160",
+   "startTimeText": "39:25"
+  },
+  {
+   "text": "거야네 아니 무슨 말도 안 되는",
+   "startMs": "2373680",
+   "endMs": "2378599",
+   "startTimeText": "39:33"
+  },
+  {
+   "text": "소리를 하고 있는",
+   "startMs": "2376599",
+   "endMs": "2382400",
+   "startTimeText": "39:36"
+  },
+  {
+   "text": "거예요 자기는 끊임없이 뭐 저기 뭐야",
+   "startMs": "2378599",
+   "endMs": "2386119",
+   "startTimeText": "39:38"
+  },
+  {
+   "text": "저기 뭐 뭐죠 자기는 주님을 믿긴",
+   "startMs": "2382400",
+   "endMs": "2390560",
+   "startTimeText": "39:42"
+  },
+  {
+   "text": "믿었지만 가롯유다 같대요 맨날 혹시",
+   "startMs": "2386119",
+   "endMs": "2392960",
+   "startTimeText": "39:46"
+  },
+  {
+   "text": "내가 가른 유하면",
+   "startMs": "2390560",
+   "endMs": "2397119",
+   "startTimeText": "39:50"
+  },
+  {
+   "text": "어떡해요 이게 말이 되는 적용입니다",
+   "startMs": "2392960",
+   "endMs": "2399040",
+   "startTimeText": "39:52"
+  },
+  {
+   "text": "가롯 유다가",
+   "startMs": "2397119",
+   "endMs": "2401040",
+   "startTimeText": "39:57"
+  },
+  {
+   "text": "아니라고요 예수 그리스도를 주로",
+   "startMs": "2399040",
+   "endMs": "2403040",
+   "startTimeText": "39:59"
+  },
+  {
+   "text": "영접했는데 가론 유다가 예수님을 주로",
+   "startMs": "2401040",
+   "endMs": "2405240",
+   "startTimeText": "40:01"
+  },
+  {
+   "text": "영접했습니다 안 했습니까 안 했잖아요",
+   "startMs": "2403040",
+   "endMs": "2408440",
+   "startTimeText": "40:03"
+  },
+  {
+   "text": "가롯유다가 될 수 있어요 안 돼요 안",
+   "startMs": "2405240",
+   "endMs": "2410839",
+   "startTimeText": "40:05"
+  },
+  {
+   "text": "된다고 근데 꼭 묵상할 때",
+   "startMs": "2408440",
+   "endMs": "2415160",
+   "startTimeText": "40:08"
+  },
+  {
+   "text": "뭐냐면 내가 이스마엘 같아요 내가",
+   "startMs": "2410839",
+   "endMs": "2417800",
+   "startTimeText": "40:10"
+  },
+  {
+   "text": "가롯유다 같아요 뭐 이렇게",
+   "startMs": "2415160",
+   "endMs": "2420800",
+   "startTimeText": "40:15"
+  },
+  {
+   "text": "묵상한다",
+   "startMs": "2417800",
+   "endMs": "2420800",
+   "startTimeText": "40:17"
+  },
+  {
+   "text": "아니에요 아 진짜",
+   "startMs": "2421240",
+   "endMs": "2427839",
+   "startTimeText": "40:21"
+  },
+  {
+   "text": "가능성이 0% 가지고 자꾸 자기한테",
+   "startMs": "2424440",
+   "endMs": "2430119",
+   "startTimeText": "40:24"
+  },
+  {
+   "text": "대입해 가지고 그다음에 맨날 두려움에",
+   "startMs": "2427839",
+   "endMs": "2433359",
+   "startTimeText": "40:27"
+  },
+  {
+   "text": "벌벌 다고요 내가 결국에는 주님을",
+   "startMs": "2430119",
+   "endMs": "2435240",
+   "startTimeText": "40:30"
+  },
+  {
+   "text": "팔아넘기는 사람이 되면 어떡합니까",
+   "startMs": "2433359",
+   "endMs": "2437240",
+   "startTimeText": "40:33"
+  },
+  {
+   "text": "예라",
+   "startMs": "2435240",
+   "endMs": "2441200",
+   "startTimeText": "40:35"
+  },
+  {
+   "text": "진짜 말도 안되는 아 이게 이게",
+   "startMs": "2437240",
+   "endMs": "2444200",
+   "startTimeText": "40:37"
+  },
+  {
+   "text": "묵상해 굉장히 위험성 중에 하나예요",
+   "startMs": "2441200",
+   "endMs": "2447800",
+   "startTimeText": "40:41"
+  },
+  {
+   "text": "묵상은 성경 공부에 바탕을 둔",
+   "startMs": "2444200",
+   "endMs": "2451319",
+   "startTimeText": "40:44"
+  },
+  {
+   "text": "상태에서 묵상을 해야 되는데 성경의",
+   "startMs": "2447800",
+   "endMs": "2454760",
+   "startTimeText": "40:47"
+  },
+  {
+   "text": "진리를 내가 충분히 알지 못하고",
+   "startMs": "2451319",
+   "endMs": "2457920",
+   "startTimeText": "40:51"
+  },
+  {
+   "text": "문맥에서 벗어나 가지고 상 게면",
+   "startMs": "2454760",
+   "endMs": "2460760",
+   "startTimeText": "40:54"
+  },
+  {
+   "text": "결국에는 엉뚱한 길로",
+   "startMs": "2457920",
+   "endMs": "2463800",
+   "startTimeText": "40:57"
+  },
+  {
+   "text": "가가지고 엉뚱한 것에 깊게 빠져",
+   "startMs": "2460760",
+   "endMs": "2465000",
+   "startTimeText": "41:00"
+  },
+  {
+   "text": "들어가가지고",
+   "startMs": "2463800",
+   "endMs": "2468800",
+   "startTimeText": "41:03"
+  },
+  {
+   "text": "엉뚱한 것을 묶여 버린다고 그러니까",
+   "startMs": "2465000",
+   "endMs": "2471560",
+   "startTimeText": "41:05"
+  },
+  {
+   "text": "성경 공부가 굉장히",
+   "startMs": "2468800",
+   "endMs": "2474400",
+   "startTimeText": "41:08"
+  },
+  {
+   "text": "중요해요 성경의 발른 해석 가운데",
+   "startMs": "2471560",
+   "endMs": "2476400",
+   "startTimeText": "41:11"
+  },
+  {
+   "text": "기반 가운데 거기에서부터",
+   "startMs": "2474400",
+   "endMs": "2478960",
+   "startTimeText": "41:14"
+  },
+  {
+   "text": "평소에 성경 공부를 열심히 해둬",
+   "startMs": "2476400",
+   "endMs": "2481359",
+   "startTimeText": "41:16"
+  },
+  {
+   "text": "가지고 그러면 가롯 유다를 보면서",
+   "startMs": "2478960",
+   "endMs": "2483560",
+   "startTimeText": "41:18"
+  },
+  {
+   "text": "그런 생각을 하겠어요 안 하겠어요",
+   "startMs": "2481359",
+   "endMs": "2485240",
+   "startTimeText": "41:21"
+  },
+  {
+   "text": "절대 안",
+   "startMs": "2483560",
+   "endMs": "2486839",
+   "startTimeText": "41:23"
+  },
+  {
+   "text": "한다고요",
+   "startMs": "2485240",
+   "endMs": "2490440",
+   "startTimeText": "41:25"
+  },
+  {
+   "text": "옛날에 성경에 탄탄한 기반이 없을",
+   "startMs": "2486839",
+   "endMs": "2494280",
+   "startTimeText": "41:26"
+  },
+  {
+   "text": "때는요 혹시 내가 가롯유다 같은 사람",
+   "startMs": "2490440",
+   "endMs": "2497319",
+   "startTimeText": "41:30"
+  },
+  {
+   "text": "아닌가 버림 받았는데 버림 받기로",
+   "startMs": "2494280",
+   "endMs": "2500040",
+   "startTimeText": "41:34"
+  },
+  {
+   "text": "결정됐는데 내가 선택된 사람이 아닌가",
+   "startMs": "2497319",
+   "endMs": "2502599",
+   "startTimeText": "41:37"
+  },
+  {
+   "text": "근데 주님의 진리를 알고선 그런 생각",
+   "startMs": "2500040",
+   "endMs": "2506040",
+   "startTimeText": "41:40"
+  },
+  {
+   "text": "절대 안 해요 내가 이스마엘이라 뭔",
+   "startMs": "2502599",
+   "endMs": "2508880",
+   "startTimeText": "41:42"
+  },
+  {
+   "text": "이스마일이 그런 생각 절대 안 해요",
+   "startMs": "2506040",
+   "endMs": "2512000",
+   "startTimeText": "41:46"
+  },
+  {
+   "text": "이삭이 이제 하나님의 약속을 따라서",
+   "startMs": "2508880",
+   "endMs": "2515000",
+   "startTimeText": "41:48"
+  },
+  {
+   "text": "난 자녀가 되었다 여러분들 그런",
+   "startMs": "2512000",
+   "endMs": "2517680",
+   "startTimeText": "41:52"
+  },
+  {
+   "text": "믿음을 가지시기를 축복 합니다 근데",
+   "startMs": "2515000",
+   "endMs": "2520520",
+   "startTimeText": "41:55"
+  },
+  {
+   "text": "29절 30절 31절 같이 읽겠습니다",
+   "startMs": "2517680",
+   "endMs": "2522920",
+   "startTimeText": "41:57"
+  },
+  {
+   "text": "시작 그러나 그때에 육체를 따라",
+   "startMs": "2520520",
+   "endMs": "2524760",
+   "startTimeText": "42:00"
+  },
+  {
+   "text": "난자가 성령을 따라 난자를 박한",
+   "startMs": "2522920",
+   "endMs": "2527040",
+   "startTimeText": "42:02"
+  },
+  {
+   "text": "것같이 이제도 그러하도다 그러나",
+   "startMs": "2524760",
+   "endMs": "2529000",
+   "startTimeText": "42:04"
+  },
+  {
+   "text": "성경이 무엇을 말하느냐 여정과 그",
+   "startMs": "2527040",
+   "endMs": "2531319",
+   "startTimeText": "42:07"
+  },
+  {
+   "text": "아들을 내쫓으라 여정의 아들이 자유",
+   "startMs": "2529000",
+   "endMs": "2532960",
+   "startTimeText": "42:09"
+  },
+  {
+   "text": "있는 여자의 아들과 더불어 유업을",
+   "startMs": "2531319",
+   "endMs": "2535119",
+   "startTimeText": "42:11"
+  },
+  {
+   "text": "얻지 못하리라 하였느니라 그런",
+   "startMs": "2532960",
+   "endMs": "2537079",
+   "startTimeText": "42:12"
+  },
+  {
+   "text": "형제들아 우리는 여종의 자녀가 아니요",
+   "startMs": "2535119",
+   "endMs": "2539640",
+   "startTimeText": "42:15"
+  },
+  {
+   "text": "자유 있는 여자의 자니라 잘 보세요",
+   "startMs": "2537079",
+   "endMs": "2541839",
+   "startTimeText": "42:17"
+  },
+  {
+   "text": "29절에 육체를 따라 난자가 성령을",
+   "startMs": "2539640",
+   "endMs": "2544119",
+   "startTimeText": "42:19"
+  },
+  {
+   "text": "따라 난자를 어떻게 한다고요 박해한",
+   "startMs": "2541839",
+   "endMs": "2545160",
+   "startTimeText": "42:21"
+  },
+  {
+   "text": "것처럼",
+   "startMs": "2544119",
+   "endMs": "2548800",
+   "startTimeText": "42:24"
+  },
+  {
+   "text": "금도 율법주의자가 성령으로 나가지고",
+   "startMs": "2545160",
+   "endMs": "2551280",
+   "startTimeText": "42:25"
+  },
+  {
+   "text": "자유로운 사도 바울을 어떻게해요",
+   "startMs": "2548800",
+   "endMs": "2553880",
+   "startTimeText": "42:28"
+  },
+  {
+   "text": "박해하고 있다는 거예요 율법주의자가",
+   "startMs": "2551280",
+   "endMs": "2557040",
+   "startTimeText": "42:31"
+  },
+  {
+   "text": "끝없이 공격을 하고 있다는 거 감이",
+   "startMs": "2553880",
+   "endMs": "2559839",
+   "startTimeText": "42:33"
+  },
+  {
+   "text": "근데 성경은 뭐라고 얘기해요 여종과",
+   "startMs": "2557040",
+   "endMs": "2561680",
+   "startTimeText": "42:37"
+  },
+  {
+   "text": "그 아들을 어떻게해요",
+   "startMs": "2559839",
+   "endMs": "2563920",
+   "startTimeText": "42:39"
+  },
+  {
+   "text": "내쫓으라 옛날에 얘기했잖아요 그",
+   "startMs": "2561680",
+   "endMs": "2566119",
+   "startTimeText": "42:41"
+  },
+  {
+   "text": "율법주의를 어떻게 해라",
+   "startMs": "2563920",
+   "endMs": "2570520",
+   "startTimeText": "42:43"
+  },
+  {
+   "text": "내쫓으라 이제는 어 아들이 오기까지",
+   "startMs": "2566119",
+   "endMs": "2574119",
+   "startTimeText": "42:46"
+  },
+  {
+   "text": "아들 노릇을 한 거죠 근데 진짜가",
+   "startMs": "2570520",
+   "endMs": "2576319",
+   "startTimeText": "42:50"
+  },
+  {
+   "text": "이제 오게 되면은 그 전에 있던 것",
+   "startMs": "2574119",
+   "endMs": "2577720",
+   "startTimeText": "42:54"
+  },
+  {
+   "text": "어떻게 해요",
+   "startMs": "2576319",
+   "endMs": "2580440",
+   "startTimeText": "42:56"
+  },
+  {
+   "text": "내쫓으라 이제 우리 가운데 율법주의는",
+   "startMs": "2577720",
+   "endMs": "2583599",
+   "startTimeText": "42:57"
+  },
+  {
+   "text": "어떻게 해야 된다 내쫓으라 이제는",
+   "startMs": "2580440",
+   "endMs": "2585880",
+   "startTimeText": "43:00"
+  },
+  {
+   "text": "너희는 완전히 자유자 되었다 예수",
+   "startMs": "2583599",
+   "endMs": "2588440",
+   "startTimeText": "43:03"
+  },
+  {
+   "text": "그리스도가 오기 때문에 성령의 난자를",
+   "startMs": "2585880",
+   "endMs": "2590800",
+   "startTimeText": "43:05"
+  },
+  {
+   "text": "박해를 하고 있는데 하나님은 그거를",
+   "startMs": "2588440",
+   "endMs": "2592920",
+   "startTimeText": "43:08"
+  },
+  {
+   "text": "내버려 두지 않으시고 여종과 그의",
+   "startMs": "2590800",
+   "endMs": "2595440",
+   "startTimeText": "43:10"
+  },
+  {
+   "text": "아들을 내가 쫓으라 그의 종의 아들을",
+   "startMs": "2592920",
+   "endMs": "2598280",
+   "startTimeText": "43:12"
+  },
+  {
+   "text": "쫓으라 그리고 자유자로 너희들은",
+   "startMs": "2595440",
+   "endMs": "2602359",
+   "startTimeText": "43:15"
+  },
+  {
+   "text": "살아라 얘기하지 않았느냐 여종의 아들",
+   "startMs": "2598280",
+   "endMs": "2606559",
+   "startTimeText": "43:18"
+  },
+  {
+   "text": "아 여종의 여종과 여종의 아들은 자유",
+   "startMs": "2602359",
+   "endMs": "2608319",
+   "startTimeText": "43:22"
+  },
+  {
+   "text": "있는 여자의 아들과 더불어 유업을",
+   "startMs": "2606559",
+   "endMs": "2610960",
+   "startTimeText": "43:26"
+  },
+  {
+   "text": "받지 못한다 하나님의 유업은 누구만",
+   "startMs": "2608319",
+   "endMs": "2614520",
+   "startTimeText": "43:28"
+  },
+  {
+   "text": "받을 수 있다 어 자유자의 아들인",
+   "startMs": "2610960",
+   "endMs": "2617119",
+   "startTimeText": "43:30"
+  },
+  {
+   "text": "예수 그리스도를 믿는 자만이 얻을 수",
+   "startMs": "2614520",
+   "endMs": "2620280",
+   "startTimeText": "43:34"
+  },
+  {
+   "text": "있다 그래서 그런적 형제들아 우리는",
+   "startMs": "2617119",
+   "endMs": "2622880",
+   "startTimeText": "43:37"
+  },
+  {
+   "text": "여종의 자녀가 아니다 우리는 종의",
+   "startMs": "2620280",
+   "endMs": "2626240",
+   "startTimeText": "43:40"
+  },
+  {
+   "text": "자녀요 아니에요 아니라는 거예요 우리",
+   "startMs": "2622880",
+   "endMs": "2630079",
+   "startTimeText": "43:42"
+  },
+  {
+   "text": "종의 자가 자녀가 아니라 자유 있는",
+   "startMs": "2626240",
+   "endMs": "2633640",
+   "startTimeText": "43:46"
+  },
+  {
+   "text": "여자의 자녀다 그래서 5장 1절 우리",
+   "startMs": "2630079",
+   "endMs": "2636680",
+   "startTimeText": "43:50"
+  },
+  {
+   "text": "같이 읽겠습니다 시작 께서 우리를",
+   "startMs": "2633640",
+   "endMs": "2638760",
+   "startTimeText": "43:53"
+  },
+  {
+   "text": "자유롭게 하려고 자유를 주셨으니",
+   "startMs": "2636680",
+   "endMs": "2640839",
+   "startTimeText": "43:56"
+  },
+  {
+   "text": "그러므로 굳건하게 서서 다시는 종의",
+   "startMs": "2638760",
+   "endMs": "2643160",
+   "startTimeText": "43:58"
+  },
+  {
+   "text": "멍에를 매지",
+   "startMs": "2640839",
+   "endMs": "2646280",
+   "startTimeText": "44:00"
+  },
+  {
+   "text": "말라 굳건하게서 가지고 그리스도 안에",
+   "startMs": "2643160",
+   "endMs": "2650240",
+   "startTimeText": "44:03"
+  },
+  {
+   "text": "우리가 잘고 있다 이제 하나님과 우리",
+   "startMs": "2646280",
+   "endMs": "2652240",
+   "startTimeText": "44:06"
+  },
+  {
+   "text": "사이에 담이 없어 가지고 이제 더",
+   "startMs": "2650240",
+   "endMs": "2654000",
+   "startTimeText": "44:10"
+  },
+  {
+   "text": "이상 두렵고 떨리는게 아니라",
+   "startMs": "2652240",
+   "endMs": "2656599",
+   "startTimeText": "44:12"
+  },
+  {
+   "text": "그리스도로 말미암 아빠 아버지",
+   "startMs": "2654000",
+   "endMs": "2659040",
+   "startTimeText": "44:14"
+  },
+  {
+   "text": "이러면서 그 가운데 우리를 계속",
+   "startMs": "2656599",
+   "endMs": "2662359",
+   "startTimeText": "44:16"
+  },
+  {
+   "text": "정지하고 있는 것을 어떻게내어 쫓으라",
+   "startMs": "2659040",
+   "endMs": "2666760",
+   "startTimeText": "44:19"
+  },
+  {
+   "text": "걔네들은 자꾸 어 그 를 가지고 와서",
+   "startMs": "2662359",
+   "endMs": "2669640",
+   "startTimeText": "44:22"
+  },
+  {
+   "text": "너희들의 유혹을 하려고 그래 자유를",
+   "startMs": "2666760",
+   "endMs": "2671640",
+   "startTimeText": "44:26"
+  },
+  {
+   "text": "빼앗으려고 그래 근데 우리 안에",
+   "startMs": "2669640",
+   "endMs": "2674760",
+   "startTimeText": "44:29"
+  },
+  {
+   "text": "그리스도로 말미암아서 우리는 자유자의",
+   "startMs": "2671640",
+   "endMs": "2678839",
+   "startTimeText": "44:31"
+  },
+  {
+   "text": "아들이 되었고 종과 그 모든 생각들을",
+   "startMs": "2674760",
+   "endMs": "2681119",
+   "startTimeText": "44:34"
+  },
+  {
+   "text": "어떻게해요내어",
+   "startMs": "2678839",
+   "endMs": "2684760",
+   "startTimeText": "44:38"
+  },
+  {
+   "text": "쫓아라 여러분 여러분들은 하나님의",
+   "startMs": "2681119",
+   "endMs": "2686920",
+   "startTimeText": "44:41"
+  },
+  {
+   "text": "자녀입니다 아빠 아버지라고 우리는",
+   "startMs": "2684760",
+   "endMs": "2689599",
+   "startTimeText": "44:44"
+  },
+  {
+   "text": "부를 수 있고 우리 가운데 아들이",
+   "startMs": "2686920",
+   "endMs": "2691839",
+   "startTimeText": "44:46"
+  },
+  {
+   "text": "되어 가지고 누구를 보내 주셨어요",
+   "startMs": "2689599",
+   "endMs": "2694960",
+   "startTimeText": "44:49"
+  },
+  {
+   "text": "아들의 영인 성령님을 우리 가운데",
+   "startMs": "2691839",
+   "endMs": "2698040",
+   "startTimeText": "44:51"
+  },
+  {
+   "text": "보내 주셔서 이제 그분과 함께 참된",
+   "startMs": "2694960",
+   "endMs": "2700319",
+   "startTimeText": "44:54"
+  },
+  {
+   "text": "자유 속에서 이제 더 이상 율법의",
+   "startMs": "2698040",
+   "endMs": "2703280",
+   "startTimeText": "44:58"
+  },
+  {
+   "text": "정지를 받지 않고 기쁨으로 주님을",
+   "startMs": "2700319",
+   "endMs": "2706040",
+   "startTimeText": "45:00"
+  },
+  {
+   "text": "따라가는 그런 여러분들이",
+   "startMs": "2703280",
+   "endMs": "2707680",
+   "startTimeText": "45:03"
+  },
+  {
+   "text": "되시기를내어",
+   "startMs": "2706040",
+   "endMs": "2712280",
+   "startTimeText": "45:06"
+  },
+  {
+   "text": "쫓지이 종의 것들 다 내어쫓고 제",
+   "startMs": "2707680",
+   "endMs": "2715280",
+   "startTimeText": "45:07"
+  },
+  {
+   "text": "우리는 주님 안에서 새로워진 약속의",
+   "startMs": "2712280",
+   "endMs": "2716760",
+   "startTimeText": "45:12"
+  },
+  {
+   "text": "아들이",
+   "startMs": "2715280",
+   "endMs": "2720040",
+   "startTimeText": "45:15"
+  },
+  {
+   "text": "되었습니다 하나님 아버지께 담대함으로",
+   "startMs": "2716760",
+   "endMs": "2723960",
+   "startTimeText": "45:16"
+  },
+  {
+   "text": "나아가십시오 누구 때문에 그리스도",
+   "startMs": "2720040",
+   "endMs": "2727559",
+   "startTimeText": "45:20"
+  },
+  {
+   "text": "때문에 요구하세요",
+   "startMs": "2723960",
+   "endMs": "2727559",
+   "startTimeText": "45:23"
+  },
+  {
+   "text": "하나님 아빠 내가 권리가 있잖아요",
+   "startMs": "2727760",
+   "endMs": "2735720",
+   "startTimeText": "45:27"
+  },
+  {
+   "text": "아버지의 권리가 있습니다 영접하는 자",
+   "startMs": "2732599",
+   "endMs": "2737319",
+   "startTimeText": "45:32"
+  },
+  {
+   "text": "곧 그 이름을 믿는 자들에게는",
+   "startMs": "2735720",
+   "endMs": "2741599",
+   "startTimeText": "45:35"
+  },
+  {
+   "text": "하나님의 자녀가 되는 권세를",
+   "startMs": "2737319",
+   "endMs": "2744680",
+   "startTimeText": "45:37"
+  },
+  {
+   "text": "주셨으니 하나님의 자녀가 되었다라는",
+   "startMs": "2741599",
+   "endMs": "2748040",
+   "startTimeText": "45:41"
+  },
+  {
+   "text": "것입니다 그러면 더 이상 하나님의",
+   "startMs": "2744680",
+   "endMs": "2751839",
+   "startTimeText": "45:44"
+  },
+  {
+   "text": "두려움이 어 있는게 아니라 하나님",
+   "startMs": "2748040",
+   "endMs": "2754960",
+   "startTimeText": "45:48"
+  },
+  {
+   "text": "나의 아버지 이러면서 아빠 아버지라",
+   "startMs": "2751839",
+   "endMs": "2756400",
+   "startTimeText": "45:51"
+  },
+  {
+   "text": "부르면서 기도",
+   "startMs": "2754960",
+   "endMs": "2759119",
+   "startTimeText": "45:54"
+  },
+  {
+   "text": "도하면서 하나님께서 우리 가운데",
+   "startMs": "2756400",
+   "endMs": "2762040",
+   "startTimeText": "45:56"
+  },
+  {
+   "text": "유업을 주실 것을 믿으면서 여러분들",
+   "startMs": "2759119",
+   "endMs": "2764000",
+   "startTimeText": "45:59"
+  },
+  {
+   "text": "소망 가운데 가시는 여러분들이",
+   "startMs": "2762040",
+   "endMs": "2767119",
+   "startTimeText": "46:02"
+  },
+  {
+   "text": "되시기를 주님의 이름으로 축원합니다",
+   "startMs": "2764000",
+   "endMs": "2769040",
+   "startTimeText": "46:04"
+  },
+  {
+   "text": "기도하겠습니다 하늘에 계신 우리",
+   "startMs": "2767119",
+   "endMs": "2770720",
+   "startTimeText": "46:07"
+  },
+  {
+   "text": "아버지 아버지의 이름을 거룩하게",
+   "startMs": "2769040",
+   "endMs": "2773040",
+   "startTimeText": "46:09"
+  },
+  {
+   "text": "하시며 아버지의 나라가 오게 하시며",
+   "startMs": "2770720",
+   "endMs": "2775240",
+   "startTimeText": "46:10"
+  },
+  {
+   "text": "아버지의 뜻이 하늘에서 같이 땅에서도",
+   "startMs": "2773040",
+   "endMs": "2777119",
+   "startTimeText": "46:13"
+  },
+  {
+   "text": "이루어지게 하소서 오늘 우리에게",
+   "startMs": "2775240",
+   "endMs": "2779040",
+   "startTimeText": "46:15"
+  },
+  {
+   "text": "일용할 양식을 주시고 우리가 우리에게",
+   "startMs": "2777119",
+   "endMs": "2781200",
+   "startTimeText": "46:17"
+  },
+  {
+   "text": "잘못한 사람을 용서해 준 것 같이",
+   "startMs": "2779040",
+   "endMs": "2783119",
+   "startTimeText": "46:19"
+  },
+  {
+   "text": "우리 죄를 용서해 주시고 우리를",
+   "startMs": "2781200",
+   "endMs": "2784880",
+   "startTimeText": "46:21"
+  },
+  {
+   "text": "시험에 빠지지 않게 하시고 악에서",
+   "startMs": "2783119",
+   "endMs": "2787680",
+   "startTimeText": "46:23"
+  },
+  {
+   "text": "구하소서 나라와 권능과 영광이 영원히",
+   "startMs": "2784880",
+   "endMs": "2790960",
+   "startTimeText": "46:24"
+  },
+  {
+   "text": "아버지의 것입니다",
+   "startMs": "2787680",
+   "endMs": "2790960",
+   "startTimeText": "46:27"
+  },
+  {
+   "text": "아멘",
+   "startMs": "2793960",
+   "endMs": "2796960",
+   "startTimeText": "46:33"
+  }
+ ]
+}

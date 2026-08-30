@@ -1,0 +1,2461 @@
+{
+ "videoId": "VmHy4mzvoOA",
+ "language": "Korean",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=VmHy4mzvoOA&ei=jMuTavH0BoPdy_sP0pCa2QM&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788095996&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=A11FC586F7705B2D09C4B3F374353C497FEF090A.582689EB5294E5B8A6EC685A91CF9D2E18F7613A&key=yt8&kind=asr&lang=ko",
+   "name": {
+    "simpleText": "Korean (auto-generated)"
+   },
+   "vssId": "a.ko",
+   "languageCode": "ko",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "찬송가",
+   "startMs": "1880",
+   "endMs": "6640",
+   "startTimeText": "0:01"
+  },
+  {
+   "text": "144장 함께 찬양하시는 3월 25일",
+   "startMs": "3240",
+   "endMs": "8240",
+   "startTimeText": "0:03"
+  },
+  {
+   "text": "새벽기도 하나님께",
+   "startMs": "6640",
+   "endMs": "13160",
+   "startTimeText": "0:06"
+  },
+  {
+   "text": "드리겠습니다 찬송가 144장",
+   "startMs": "8240",
+   "endMs": "13160",
+   "startTimeText": "0:08"
+  },
+  {
+   "text": "있니다",
+   "startMs": "15359",
+   "endMs": "18880",
+   "startTimeText": "0:15"
+  },
+  {
+   "text": "예수",
+   "startMs": "17199",
+   "endMs": "21880",
+   "startTimeText": "0:17"
+  },
+  {
+   "text": "나를",
+   "startMs": "18880",
+   "endMs": "21880",
+   "startTimeText": "0:18"
+  },
+  {
+   "text": "위하여",
+   "startMs": "22160",
+   "endMs": "25160",
+   "startTimeText": "0:22"
+  },
+  {
+   "text": "십자가를 질",
+   "startMs": "25599",
+   "endMs": "30480",
+   "startTimeText": "0:25"
+  },
+  {
+   "text": "때",
+   "startMs": "28960",
+   "endMs": "32200",
+   "startTimeText": "0:28"
+  },
+  {
+   "text": "세상",
+   "startMs": "30480",
+   "endMs": "35200",
+   "startTimeText": "0:30"
+  },
+  {
+   "text": "죄를",
+   "startMs": "32200",
+   "endMs": "35200",
+   "startTimeText": "0:32"
+  },
+  {
+   "text": "지시고",
+   "startMs": "35399",
+   "endMs": "41239",
+   "startTimeText": "0:35"
+  },
+  {
+   "text": "고다",
+   "startMs": "38239",
+   "endMs": "41239",
+   "startTimeText": "0:38"
+  },
+  {
+   "text": "가셨네",
+   "startMs": "42280",
+   "endMs": "45280",
+   "startTimeText": "0:42"
+  },
+  {
+   "text": "예수님",
+   "startMs": "45920",
+   "endMs": "48920",
+   "startTimeText": "0:45"
+  },
+  {
+   "text": "예수님",
+   "startMs": "49480",
+   "endMs": "54000",
+   "startTimeText": "0:49"
+  },
+  {
+   "text": "나의 죄",
+   "startMs": "51239",
+   "endMs": "56680",
+   "startTimeText": "0:51"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "54000",
+   "endMs": "58920",
+   "startTimeText": "0:54"
+  },
+  {
+   "text": "위하여",
+   "startMs": "56680",
+   "endMs": "61260",
+   "startTimeText": "0:56"
+  },
+  {
+   "text": "복의 를",
+   "startMs": "58920",
+   "endMs": "63400",
+   "startTimeText": "0:58"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "61260",
+   "endMs": "65080",
+   "startTimeText": "1:01"
+  },
+  {
+   "text": "흘리니",
+   "startMs": "63400",
+   "endMs": "67220",
+   "startTimeText": "1:03"
+  },
+  {
+   "text": "죄인",
+   "startMs": "65080",
+   "endMs": "70600",
+   "startTimeText": "1:05"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "67220",
+   "endMs": "73600",
+   "startTimeText": "1:07"
+  },
+  {
+   "text": "받으소서",
+   "startMs": "70600",
+   "endMs": "73600",
+   "startTimeText": "1:10"
+  },
+  {
+   "text": "십자가를",
+   "startMs": "74240",
+   "endMs": "77240",
+   "startTimeText": "1:14"
+  },
+  {
+   "text": "지심은",
+   "startMs": "77600",
+   "endMs": "80960",
+   "startTimeText": "1:17"
+  },
+  {
+   "text": "무슨",
+   "startMs": "79200",
+   "endMs": "83960",
+   "startTimeText": "1:19"
+  },
+  {
+   "text": "죄가",
+   "startMs": "80960",
+   "endMs": "83960",
+   "startTimeText": "1:20"
+  },
+  {
+   "text": "있나",
+   "startMs": "84240",
+   "endMs": "87240",
+   "startTimeText": "1:24"
+  },
+  {
+   "text": "저지한 사",
+   "startMs": "87680",
+   "endMs": "94040",
+   "startTimeText": "1:27"
+  },
+  {
+   "text": "람들",
+   "startMs": "91159",
+   "endMs": "97040",
+   "startTimeText": "1:31"
+  },
+  {
+   "text": "메시아",
+   "startMs": "94040",
+   "endMs": "97040",
+   "startTimeText": "1:34"
+  },
+  {
+   "text": "죽였네",
+   "startMs": "98360",
+   "endMs": "101360",
+   "startTimeText": "1:38"
+  },
+  {
+   "text": "예수님",
+   "startMs": "101960",
+   "endMs": "104960",
+   "startTimeText": "1:41"
+  },
+  {
+   "text": "예수님",
+   "startMs": "105479",
+   "endMs": "111600",
+   "startTimeText": "1:45"
+  },
+  {
+   "text": "나의 죄",
+   "startMs": "107320",
+   "endMs": "111600",
+   "startTimeText": "1:47"
+  },
+  {
+   "text": "위하여",
+   "startMs": "112759",
+   "endMs": "116399",
+   "startTimeText": "1:52"
+  },
+  {
+   "text": "복의",
+   "startMs": "114560",
+   "endMs": "118840",
+   "startTimeText": "1:54"
+  },
+  {
+   "text": "피를",
+   "startMs": "116399",
+   "endMs": "121320",
+   "startTimeText": "1:56"
+  },
+  {
+   "text": "흘리니",
+   "startMs": "118840",
+   "endMs": "123550",
+   "startTimeText": "1:58"
+  },
+  {
+   "text": "죄인",
+   "startMs": "121320",
+   "endMs": "126600",
+   "startTimeText": "2:01"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "123550",
+   "endMs": "128319",
+   "startTimeText": "2:03"
+  },
+  {
+   "text": "받으소서",
+   "startMs": "126600",
+   "endMs": "130120",
+   "startTimeText": "2:06"
+  },
+  {
+   "text": "피와",
+   "startMs": "128319",
+   "endMs": "131410",
+   "startTimeText": "2:08"
+  },
+  {
+   "text": "같이",
+   "startMs": "130120",
+   "endMs": "133440",
+   "startTimeText": "2:10"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "131410",
+   "endMs": "136440",
+   "startTimeText": "2:11"
+  },
+  {
+   "text": "붉은죄",
+   "startMs": "133440",
+   "endMs": "136440",
+   "startTimeText": "2:13"
+  },
+  {
+   "text": "없는이가",
+   "startMs": "136959",
+   "endMs": "139959",
+   "startTimeText": "2:16"
+  },
+  {
+   "text": "없네",
+   "startMs": "140239",
+   "endMs": "143239",
+   "startTimeText": "2:20"
+  },
+  {
+   "text": "십자가의",
+   "startMs": "143680",
+   "endMs": "146959",
+   "startTimeText": "2:23"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "145060",
+   "endMs": "148840",
+   "startTimeText": "2:25"
+  },
+  {
+   "text": "공로로",
+   "startMs": "146959",
+   "endMs": "150960",
+   "startTimeText": "2:26"
+  },
+  {
+   "text": "눈과",
+   "startMs": "148840",
+   "endMs": "154000",
+   "startTimeText": "2:28"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "150960",
+   "endMs": "157000",
+   "startTimeText": "2:30"
+  },
+  {
+   "text": "되네",
+   "startMs": "154000",
+   "endMs": "157000",
+   "startTimeText": "2:34"
+  },
+  {
+   "text": "예수님",
+   "startMs": "157640",
+   "endMs": "160640",
+   "startTimeText": "2:37"
+  },
+  {
+   "text": "예수님",
+   "startMs": "161040",
+   "endMs": "167159",
+   "startTimeText": "2:41"
+  },
+  {
+   "text": "나의 죄",
+   "startMs": "162920",
+   "endMs": "167159",
+   "startTimeText": "2:42"
+  },
+  {
+   "text": "위하여",
+   "startMs": "168040",
+   "endMs": "171640",
+   "startTimeText": "2:48"
+  },
+  {
+   "text": "복의",
+   "startMs": "169879",
+   "endMs": "174640",
+   "startTimeText": "2:49"
+  },
+  {
+   "text": "피를",
+   "startMs": "171640",
+   "endMs": "174640",
+   "startTimeText": "2:51"
+  },
+  {
+   "text": "흘리니",
+   "startMs": "174920",
+   "endMs": "178840",
+   "startTimeText": "2:54"
+  },
+  {
+   "text": "죄인",
+   "startMs": "176640",
+   "endMs": "181840",
+   "startTimeText": "2:56"
+  },
+  {
+   "text": "받으소",
+   "startMs": "178840",
+   "endMs": "181840",
+   "startTimeText": "2:58"
+  },
+  {
+   "text": "서",
+   "startMs": "182000",
+   "endMs": "185000",
+   "startTimeText": "3:02"
+  },
+  {
+   "text": "아름답다",
+   "startMs": "185480",
+   "endMs": "188760",
+   "startTimeText": "3:05"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "186660",
+   "endMs": "190319",
+   "startTimeText": "3:06"
+  },
+  {
+   "text": "예수여",
+   "startMs": "188760",
+   "endMs": "192280",
+   "startTimeText": "3:08"
+  },
+  {
+   "text": "나의",
+   "startMs": "190319",
+   "endMs": "195280",
+   "startTimeText": "3:10"
+  },
+  {
+   "text": "좋",
+   "startMs": "192280",
+   "endMs": "195280",
+   "startTimeText": "3:12"
+  },
+  {
+   "text": "친구",
+   "startMs": "195680",
+   "endMs": "199280",
+   "startTimeText": "3:15"
+  },
+  {
+   "text": "예수",
+   "startMs": "197400",
+   "endMs": "202280",
+   "startTimeText": "3:17"
+  },
+  {
+   "text": "공로",
+   "startMs": "199280",
+   "endMs": "202280",
+   "startTimeText": "3:19"
+  },
+  {
+   "text": "아니면",
+   "startMs": "202760",
+   "endMs": "206120",
+   "startTimeText": "3:22"
+  },
+  {
+   "text": "영원",
+   "startMs": "204360",
+   "endMs": "208760",
+   "startTimeText": "3:24"
+  },
+  {
+   "text": "형벌",
+   "startMs": "206120",
+   "endMs": "211760",
+   "startTimeText": "3:26"
+  },
+  {
+   "text": "받네",
+   "startMs": "208760",
+   "endMs": "211760",
+   "startTimeText": "3:28"
+  },
+  {
+   "text": "예수님",
+   "startMs": "213280",
+   "endMs": "217040",
+   "startTimeText": "3:33"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "214300",
+   "endMs": "218879",
+   "startTimeText": "3:34"
+  },
+  {
+   "text": "예수님",
+   "startMs": "217040",
+   "endMs": "220350",
+   "startTimeText": "3:37"
+  },
+  {
+   "text": "나의",
+   "startMs": "218879",
+   "endMs": "223959",
+   "startTimeText": "3:38"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "220350",
+   "endMs": "226120",
+   "startTimeText": "3:40"
+  },
+  {
+   "text": "제의하여",
+   "startMs": "223959",
+   "endMs": "228000",
+   "startTimeText": "3:43"
+  },
+  {
+   "text": "호의",
+   "startMs": "226120",
+   "endMs": "231000",
+   "startTimeText": "3:46"
+  },
+  {
+   "text": "피를",
+   "startMs": "228000",
+   "endMs": "231000",
+   "startTimeText": "3:48"
+  },
+  {
+   "text": "흘리니",
+   "startMs": "231319",
+   "endMs": "236319",
+   "startTimeText": "3:51"
+  },
+  {
+   "text": "죄인",
+   "startMs": "233319",
+   "endMs": "236319",
+   "startTimeText": "3:53"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "236470",
+   "endMs": "241720",
+   "startTimeText": "3:56"
+  },
+  {
+   "text": "받으소서",
+   "startMs": "238720",
+   "endMs": "241720",
+   "startTimeText": "3:58"
+  },
+  {
+   "text": "아멘 기도하시겠습니다",
+   "startMs": "244120",
+   "endMs": "247720",
+   "startTimeText": "4:04"
+  },
+  {
+   "text": "하나님 고난주간",
+   "startMs": "248560",
+   "endMs": "254280",
+   "startTimeText": "4:08"
+  },
+  {
+   "text": "첫새벽 첫 새벽을 깨워 주시고이",
+   "startMs": "251239",
+   "endMs": "256400",
+   "startTimeText": "4:11"
+  },
+  {
+   "text": "예배당으로 인도하여 주셔서",
+   "startMs": "254280",
+   "endMs": "258639",
+   "startTimeText": "4:14"
+  },
+  {
+   "text": "감사드립니다 하나님 이번 한주일",
+   "startMs": "256400",
+   "endMs": "261880",
+   "startTimeText": "4:16"
+  },
+  {
+   "text": "동안에 나를 위해 십자가 달려 죽으신",
+   "startMs": "258639",
+   "endMs": "265280",
+   "startTimeText": "4:18"
+  },
+  {
+   "text": "예수님의 고난을 깊이 상하며 그",
+   "startMs": "261880",
+   "endMs": "268520",
+   "startTimeText": "4:21"
+  },
+  {
+   "text": "고난에 동참하는 그 한주를 보낼 수",
+   "startMs": "265280",
+   "endMs": "270560",
+   "startTimeText": "4:25"
+  },
+  {
+   "text": "있도록 은혜를",
+   "startMs": "268520",
+   "endMs": "275280",
+   "startTimeText": "4:28"
+  },
+  {
+   "text": "님 속에 그 어 할 것보다 예수님의",
+   "startMs": "270560",
+   "endMs": "279000",
+   "startTimeText": "4:30"
+  },
+  {
+   "text": "십자가를 하는의 삶 있록",
+   "startMs": "275280",
+   "endMs": "280759",
+   "startTimeText": "4:35"
+  },
+  {
+   "text": "시서 그",
+   "startMs": "279000",
+   "endMs": "282400",
+   "startTimeText": "4:39"
+  },
+  {
+   "text": "십가를",
+   "startMs": "280759",
+   "endMs": "285639",
+   "startTimeText": "4:40"
+  },
+  {
+   "text": "하여주시고 십자가에 난 하나의",
+   "startMs": "282400",
+   "endMs": "289840",
+   "startTimeText": "4:42"
+  },
+  {
+   "text": "사과에게 부진 없는",
+   "startMs": "285639",
+   "endMs": "295800",
+   "startTimeText": "4:45"
+  },
+  {
+   "text": "서하 그 가마 지아 알수",
+   "startMs": "289840",
+   "endMs": "295800",
+   "startTimeText": "4:49"
+  },
+  {
+   "text": "있는 과 그 죄의 용서의 능력과",
+   "startMs": "298639",
+   "endMs": "305120",
+   "startTimeText": "4:58"
+  },
+  {
+   "text": "하나님의 사랑이 한량 없이 더욱더",
+   "startMs": "302160",
+   "endMs": "307680",
+   "startTimeText": "5:02"
+  },
+  {
+   "text": "부어지는 그런 시간들이 될 수 있도록",
+   "startMs": "305120",
+   "endMs": "310639",
+   "startTimeText": "5:05"
+  },
+  {
+   "text": "도와주시고 십자가의 은혜로 말미암아",
+   "startMs": "307680",
+   "endMs": "313400",
+   "startTimeText": "5:07"
+  },
+  {
+   "text": "우리 삶의 모든 것이 변화되어지는",
+   "startMs": "310639",
+   "endMs": "315680",
+   "startTimeText": "5:10"
+  },
+  {
+   "text": "귀한 시간이 될 수 있도록 은혜를",
+   "startMs": "313400",
+   "endMs": "318360",
+   "startTimeText": "5:13"
+  },
+  {
+   "text": "베풀어 주시옵소서 하나님 오늘도",
+   "startMs": "315680",
+   "endMs": "320600",
+   "startTimeText": "5:15"
+  },
+  {
+   "text": "우리가 기도하기 위하여서이 자리에",
+   "startMs": "318360",
+   "endMs": "323560",
+   "startTimeText": "5:18"
+  },
+  {
+   "text": "모였습니다 마음 깊은 곳에 있는 모든",
+   "startMs": "320600",
+   "endMs": "326520",
+   "startTimeText": "5:20"
+  },
+  {
+   "text": "소원들 주님 앞에 우리가 인내로서",
+   "startMs": "323560",
+   "endMs": "330919",
+   "startTimeText": "5:23"
+  },
+  {
+   "text": "기도할 때에 그 모든 기도의 제목들이",
+   "startMs": "326520",
+   "endMs": "335440",
+   "startTimeText": "5:26"
+  },
+  {
+   "text": "보지상 수 있록를 풀어주시고 주님께서",
+   "startMs": "330919",
+   "endMs": "339000",
+   "startTimeText": "5:30"
+  },
+  {
+   "text": "히 사 주시는 그서 하나님의를 하는",
+   "startMs": "335440",
+   "endMs": "342039",
+   "startTimeText": "5:35"
+  },
+  {
+   "text": "리 모든 삶이 될 수 있록의 기도",
+   "startMs": "339000",
+   "endMs": "345720",
+   "startTimeText": "5:39"
+  },
+  {
+   "text": "시이 수 있록 주님를 풀어 주시옵소서",
+   "startMs": "342039",
+   "endMs": "348039",
+   "startTimeText": "5:42"
+  },
+  {
+   "text": "말씀 앞으로 나아갑니다 성으로",
+   "startMs": "345720",
+   "endMs": "351039",
+   "startTimeText": "5:45"
+  },
+  {
+   "text": "충만하게 채워주시옵소서 예수님",
+   "startMs": "348039",
+   "endMs": "355000",
+   "startTimeText": "5:48"
+  },
+  {
+   "text": "이름으로 기도합니다",
+   "startMs": "351039",
+   "endMs": "355000",
+   "startTimeText": "5:51"
+  },
+  {
+   "text": "아",
+   "startMs": "355600",
+   "endMs": "358600",
+   "startTimeText": "5:55"
+  },
+  {
+   "text": "씀은 절로 12까지의 말씀 함 찾으신",
+   "startMs": "358639",
+   "endMs": "367280",
+   "startTimeText": "5:58"
+  },
+  {
+   "text": "후에 하시겠습니다 이사야 53장",
+   "startMs": "364160",
+   "endMs": "370960",
+   "startTimeText": "6:04"
+  },
+  {
+   "text": "1절로 12절",
+   "startMs": "367280",
+   "endMs": "370960",
+   "startTimeText": "6:07"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "376470",
+   "endMs": "379589",
+   "startTimeText": "6:16"
+  },
+  {
+   "text": "말씀입니다",
+   "startMs": "380039",
+   "endMs": "384680",
+   "startTimeText": "6:20"
+  },
+  {
+   "text": "하시겠습니다 우리가 전한 것을 누가",
+   "startMs": "382160",
+   "endMs": "387039",
+   "startTimeText": "6:22"
+  },
+  {
+   "text": "믿었느냐 여호와의 팔이 누구에게",
+   "startMs": "384680",
+   "endMs": "391560",
+   "startTimeText": "6:24"
+  },
+  {
+   "text": "나타났느냐 그는 주에서",
+   "startMs": "387039",
+   "endMs": "391560",
+   "startTimeText": "6:27"
+  },
+  {
+   "text": "른에서",
+   "startMs": "391680",
+   "endMs": "394919",
+   "startTimeText": "6:31"
+  },
+  {
+   "text": "뿌리",
+   "startMs": "393400",
+   "endMs": "396840",
+   "startTimeText": "6:33"
+  },
+  {
+   "text": "없",
+   "startMs": "394919",
+   "endMs": "398479",
+   "startTimeText": "6:34"
+  },
+  {
+   "text": "없은즉가기에",
+   "startMs": "396840",
+   "endMs": "403639",
+   "startTimeText": "6:36"
+  },
+  {
+   "text": "한운 것이 없다는 멸 람들에게",
+   "startMs": "398479",
+   "endMs": "405680",
+   "startTimeText": "6:38"
+  },
+  {
+   "text": "받으며를 많이",
+   "startMs": "403639",
+   "endMs": "408919",
+   "startTimeText": "6:43"
+  },
+  {
+   "text": "겪으며를 아는 자라 마치 사람들이",
+   "startMs": "405680",
+   "endMs": "412280",
+   "startTimeText": "6:45"
+  },
+  {
+   "text": "그에을 가리는 것같이 멸",
+   "startMs": "408919",
+   "endMs": "415639",
+   "startTimeText": "6:48"
+  },
+  {
+   "text": "당하도 그를",
+   "startMs": "412280",
+   "endMs": "415639",
+   "startTimeText": "6:52"
+  },
+  {
+   "text": "귀다",
+   "startMs": "418520",
+   "endMs": "425039",
+   "startTimeText": "6:58"
+  },
+  {
+   "text": "를 그는 하 으 고을",
+   "startMs": "420560",
+   "endMs": "430000",
+   "startTimeText": "7:00"
+  },
+  {
+   "text": "한다라 그은의 허물요 그 상은의",
+   "startMs": "425039",
+   "endMs": "433879",
+   "startTimeText": "7:05"
+  },
+  {
+   "text": "죄악이라 그 징계를 으는 평화를 리고",
+   "startMs": "430000",
+   "endMs": "435690",
+   "startTimeText": "7:10"
+  },
+  {
+   "text": "그가 찍 맞",
+   "startMs": "433879",
+   "endMs": "437039",
+   "startTimeText": "7:13"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "435690",
+   "endMs": "440199",
+   "startTimeText": "7:15"
+  },
+  {
+   "text": "는을다는 같아서",
+   "startMs": "437039",
+   "endMs": "441720",
+   "startTimeText": "7:17"
+  },
+  {
+   "text": "그길",
+   "startMs": "440199",
+   "endMs": "443080",
+   "startTimeText": "7:20"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "441720",
+   "endMs": "446319",
+   "startTimeText": "7:21"
+  },
+  {
+   "text": "늘서는의 악을 그에게",
+   "startMs": "443080",
+   "endMs": "448520",
+   "startTimeText": "7:23"
+  },
+  {
+   "text": "당다",
+   "startMs": "446319",
+   "endMs": "450199",
+   "startTimeText": "7:26"
+  },
+  {
+   "text": "그을",
+   "startMs": "448520",
+   "endMs": "454319",
+   "startTimeText": "7:28"
+  },
+  {
+   "text": "을지 아음 마치 도수장으로 끌려가는",
+   "startMs": "450199",
+   "endMs": "458720",
+   "startTimeText": "7:30"
+  },
+  {
+   "text": "어린양과 는자에서 잠잠한 양같이 그의",
+   "startMs": "454319",
+   "endMs": "462440",
+   "startTimeText": "7:34"
+  },
+  {
+   "text": "입을 열지 아니하였다 그는 욕과 신을",
+   "startMs": "458720",
+   "endMs": "466000",
+   "startTimeText": "7:38"
+  },
+  {
+   "text": "당하고 끌려갔으나 그 세대 중에가",
+   "startMs": "462440",
+   "endMs": "468199",
+   "startTimeText": "7:42"
+  },
+  {
+   "text": "생각하기를 그가 살아 있는 자들의",
+   "startMs": "466000",
+   "endMs": "472080",
+   "startTimeText": "7:46"
+  },
+  {
+   "text": "땅에서 끊어짐은 땅히 벌받을 내 성의",
+   "startMs": "468199",
+   "endMs": "475240",
+   "startTimeText": "7:48"
+  },
+  {
+   "text": "허물 문이라 하였으리요 그는 강를",
+   "startMs": "472080",
+   "endMs": "479960",
+   "startTimeText": "7:52"
+  },
+  {
+   "text": "하지 아니하 그의 거이 없었 덤이",
+   "startMs": "475240",
+   "endMs": "483280",
+   "startTimeText": "7:55"
+  },
+  {
+   "text": "악인들과 함 있었으며 그가 죽은 후에",
+   "startMs": "479960",
+   "endMs": "485319",
+   "startTimeText": "7:59"
+  },
+  {
+   "text": "부자 함",
+   "startMs": "483280",
+   "endMs": "488639",
+   "startTimeText": "8:03"
+  },
+  {
+   "text": "있었다께서 그에게 상함을게 하시기를",
+   "startMs": "485319",
+   "endMs": "492360",
+   "startTimeText": "8:05"
+  },
+  {
+   "text": "원하를 당하게 하셨은즉 그 영혼을",
+   "startMs": "488639",
+   "endMs": "495560",
+   "startTimeText": "8:08"
+  },
+  {
+   "text": "속건제물로 드리기에이면 그가 씨를",
+   "startMs": "492360",
+   "endMs": "498520",
+   "startTimeText": "8:12"
+  },
+  {
+   "text": "보게 되며 그의 날은 길 것이며 또",
+   "startMs": "495560",
+   "endMs": "501960",
+   "startTimeText": "8:15"
+  },
+  {
+   "text": "그의 손으로 여호와께서 기뻐하시는을",
+   "startMs": "498520",
+   "endMs": "505199",
+   "startTimeText": "8:18"
+  },
+  {
+   "text": "성취하다 그가 기 영혼에 수고한 것을",
+   "startMs": "501960",
+   "endMs": "511440",
+   "startTimeText": "8:21"
+  },
+  {
+   "text": "보고 만족하게 여길 것이라의 의운",
+   "startMs": "505199",
+   "endMs": "511440",
+   "startTimeText": "8:25"
+  },
+  {
+   "text": "들의 악을",
+   "startMs": "512120",
+   "endMs": "519599",
+   "startTimeText": "8:32"
+  },
+  {
+   "text": "당다 그가 그에게 존한 자와 함께을게",
+   "startMs": "514839",
+   "endMs": "523240",
+   "startTimeText": "8:34"
+  },
+  {
+   "text": "하며 강한 자 함께 탈한 것을 나게",
+   "startMs": "519599",
+   "endMs": "526000",
+   "startTimeText": "8:39"
+  },
+  {
+   "text": "하리니이는 그가 자기 영혼을 버려",
+   "startMs": "523240",
+   "endMs": "530120",
+   "startTimeText": "8:43"
+  },
+  {
+   "text": "사에 이게 하며 죄자 하나로을",
+   "startMs": "526000",
+   "endMs": "533360",
+   "startTimeText": "8:46"
+  },
+  {
+   "text": "음이라 그러나 그가 많은 람의 죄를",
+   "startMs": "530120",
+   "endMs": "536360",
+   "startTimeText": "8:50"
+  },
+  {
+   "text": "담당",
+   "startMs": "533360",
+   "endMs": "536360",
+   "startTimeText": "8:53"
+  },
+  {
+   "text": "죄를라 고난 주간 한 주가 시작이",
+   "startMs": "538440",
+   "endMs": "542880",
+   "startTimeText": "8:58"
+  },
+  {
+   "text": "됩니다이 한 주",
+   "startMs": "541120",
+   "endMs": "547120",
+   "startTimeText": "9:01"
+  },
+  {
+   "text": "동안에 예수님의 십자가 고난을",
+   "startMs": "542880",
+   "endMs": "549560",
+   "startTimeText": "9:02"
+  },
+  {
+   "text": "묵상하시면서 그 은혜를 다시 한번",
+   "startMs": "547120",
+   "endMs": "551360",
+   "startTimeText": "9:07"
+  },
+  {
+   "text": "누리시는 그러 예수님의 모든",
+   "startMs": "549560",
+   "endMs": "553880",
+   "startTimeText": "9:09"
+  },
+  {
+   "text": "성도분들이 되시길 예수님의 이름으로",
+   "startMs": "551360",
+   "endMs": "557839",
+   "startTimeText": "9:11"
+  },
+  {
+   "text": "축복합니다 아멘 어 성경에서 하나님의",
+   "startMs": "553880",
+   "endMs": "561120",
+   "startTimeText": "9:13"
+  },
+  {
+   "text": "영광을 나타내는 말로 히브리 말로",
+   "startMs": "557839",
+   "endMs": "563640",
+   "startTimeText": "9:17"
+  },
+  {
+   "text": "카도시 아는 말이 있습니다 어",
+   "startMs": "561120",
+   "endMs": "567000",
+   "startTimeText": "9:21"
+  },
+  {
+   "text": "하나님의 영광이라는 말은 다른 말로",
+   "startMs": "563640",
+   "endMs": "570519",
+   "startTimeText": "9:23"
+  },
+  {
+   "text": "하면 하나님의 영광의 무게 는 그",
+   "startMs": "567000",
+   "endMs": "573480",
+   "startTimeText": "9:27"
+  },
+  {
+   "text": "뜻도 있습니다 그래서 하나님의 영광",
+   "startMs": "570519",
+   "endMs": "574800",
+   "startTimeText": "9:30"
+  },
+  {
+   "text": "그 영광의",
+   "startMs": "573480",
+   "endMs": "578200",
+   "startTimeText": "9:33"
+  },
+  {
+   "text": "임재는 어떤 물리적인 무게가",
+   "startMs": "574800",
+   "endMs": "581240",
+   "startTimeText": "9:34"
+  },
+  {
+   "text": "있었다라는 그런 의미입니다 그래서",
+   "startMs": "578200",
+   "endMs": "583519",
+   "startTimeText": "9:38"
+  },
+  {
+   "text": "출애굽에서 성막을 처음 짓고서",
+   "startMs": "581240",
+   "endMs": "587959",
+   "startTimeText": "9:41"
+  },
+  {
+   "text": "하나님께서 그 성막에 하셨을 때에",
+   "startMs": "583519",
+   "endMs": "592640",
+   "startTimeText": "9:43"
+  },
+  {
+   "text": "하나님의 영광의 구름이 히 나타나서",
+   "startMs": "587959",
+   "endMs": "596440",
+   "startTimeText": "9:47"
+  },
+  {
+   "text": "제사장들이 그 영광의 무 때문에 능히",
+   "startMs": "592640",
+   "endMs": "599720",
+   "startTimeText": "9:52"
+  },
+  {
+   "text": "제사를 수 없었다는 그 기록이",
+   "startMs": "596440",
+   "endMs": "602560",
+   "startTimeText": "9:56"
+  },
+  {
+   "text": "있습니다 그리고 솔로몬이 성전을",
+   "startMs": "599720",
+   "endMs": "606120",
+   "startTimeText": "9:59"
+  },
+  {
+   "text": "건축한 이후에도 하나님 영광이 하게",
+   "startMs": "602560",
+   "endMs": "608360",
+   "startTimeText": "10:02"
+  },
+  {
+   "text": "임함으로 인해서 그 영광의 무게",
+   "startMs": "606120",
+   "endMs": "610200",
+   "startTimeText": "10:06"
+  },
+  {
+   "text": "때문에 능히",
+   "startMs": "608360",
+   "endMs": "613079",
+   "startTimeText": "10:08"
+  },
+  {
+   "text": "제사장들이 설 수 없었다는 그런",
+   "startMs": "610200",
+   "endMs": "615320",
+   "startTimeText": "10:10"
+  },
+  {
+   "text": "표현이 있습니다 그만큼 하나님의",
+   "startMs": "613079",
+   "endMs": "618200",
+   "startTimeText": "10:13"
+  },
+  {
+   "text": "영광은 무가 있는 것을 우 성경을",
+   "startMs": "615320",
+   "endMs": "621040",
+   "startTimeText": "10:15"
+  },
+  {
+   "text": "통해서 볼 수 있습니다 예수님께서",
+   "startMs": "618200",
+   "endMs": "624040",
+   "startTimeText": "10:18"
+  },
+  {
+   "text": "달리신 십자가의 무에 대해서도 한번",
+   "startMs": "621040",
+   "endMs": "628320",
+   "startTimeText": "10:21"
+  },
+  {
+   "text": "우가 생을 한번 해보도록 하겠습니다",
+   "startMs": "624040",
+   "endMs": "633279",
+   "startTimeText": "10:24"
+  },
+  {
+   "text": "예수님의 그 십자가의 전체 무게는",
+   "startMs": "628320",
+   "endMs": "635959",
+   "startTimeText": "10:28"
+  },
+  {
+   "text": "130kg에 달한다고 역사학자들이",
+   "startMs": "633279",
+   "endMs": "638279",
+   "startTimeText": "10:33"
+  },
+  {
+   "text": "보고 있습니다 그래서이",
+   "startMs": "635959",
+   "endMs": "641839",
+   "startTimeText": "10:35"
+  },
+  {
+   "text": "130km 십자가를 예수님께서 어 다",
+   "startMs": "638279",
+   "endMs": "643760",
+   "startTimeText": "10:38"
+  },
+  {
+   "text": "질 수 있을 만한 무게가 아니기",
+   "startMs": "641839",
+   "endMs": "647040",
+   "startTimeText": "10:41"
+  },
+  {
+   "text": "때문에 실제로 예수님께서 어 골고다",
+   "startMs": "643760",
+   "endMs": "650920",
+   "startTimeText": "10:43"
+  },
+  {
+   "text": "언더까지 어지고 가셨던 그 십자가는",
+   "startMs": "647040",
+   "endMs": "654320",
+   "startTimeText": "10:47"
+  },
+  {
+   "text": "전체 십자가가 아니라 그중에 가로 목",
+   "startMs": "650920",
+   "endMs": "658240",
+   "startTimeText": "10:50"
+  },
+  {
+   "text": "가로 부분만 짊어지고 어 비아",
+   "startMs": "654320",
+   "endMs": "661240",
+   "startTimeText": "10:54"
+  },
+  {
+   "text": "돌로로사 아 십자가 그 길을 걸어가신",
+   "startMs": "658240",
+   "endMs": "663560",
+   "startTimeText": "10:58"
+  },
+  {
+   "text": "것으로 보고 있습니다 그 가로 무게만",
+   "startMs": "661240",
+   "endMs": "666800",
+   "startTimeText": "11:01"
+  },
+  {
+   "text": "하더라도 몇십 K 해당할 것으로 보고",
+   "startMs": "663560",
+   "endMs": "670240",
+   "startTimeText": "11:03"
+  },
+  {
+   "text": "있습니다 그리고 예수님께서 성인",
+   "startMs": "666800",
+   "endMs": "674279",
+   "startTimeText": "11:06"
+  },
+  {
+   "text": "남자의 몸무게로 봤을 때에 예수님께서",
+   "startMs": "670240",
+   "endMs": "677440",
+   "startTimeText": "11:10"
+  },
+  {
+   "text": "달리신 그 십자가 전체 무게는",
+   "startMs": "674279",
+   "endMs": "681120",
+   "startTimeText": "11:14"
+  },
+  {
+   "text": "200kg 정도가 될 거라고 보고",
+   "startMs": "677440",
+   "endMs": "684079",
+   "startTimeText": "11:17"
+  },
+  {
+   "text": "있습니다 여러분 금 1km 가격이",
+   "startMs": "681120",
+   "endMs": "686800",
+   "startTimeText": "11:21"
+  },
+  {
+   "text": "얼마나 될까요 제가 방금 전에 한번",
+   "startMs": "684079",
+   "endMs": "691519",
+   "startTimeText": "11:24"
+  },
+  {
+   "text": "찾아봤습니다 현재 시세로 금 1kg",
+   "startMs": "686800",
+   "endMs": "695320",
+   "startTimeText": "11:26"
+  },
+  {
+   "text": "가격이음 8,500만 원 정도 된다고",
+   "startMs": "691519",
+   "endMs": "699120",
+   "startTimeText": "11:31"
+  },
+  {
+   "text": "합니다 금 1kg 8 8,500만",
+   "startMs": "695320",
+   "endMs": "702279",
+   "startTimeText": "11:35"
+  },
+  {
+   "text": "원이라고 하면은 예수님께서 달리신",
+   "startMs": "699120",
+   "endMs": "705000",
+   "startTimeText": "11:39"
+  },
+  {
+   "text": "십자가 어 예수님께서 달려 있는 그",
+   "startMs": "702279",
+   "endMs": "706720",
+   "startTimeText": "11:42"
+  },
+  {
+   "text": "십자가",
+   "startMs": "705000",
+   "endMs": "709920",
+   "startTimeText": "11:45"
+  },
+  {
+   "text": "200kg 그 가치는 얼마나 될지",
+   "startMs": "706720",
+   "endMs": "712200",
+   "startTimeText": "11:46"
+  },
+  {
+   "text": "한번 우리가 생각을 해 보면 좋을 것",
+   "startMs": "709920",
+   "endMs": "714320",
+   "startTimeText": "11:49"
+  },
+  {
+   "text": "같습니다 세상",
+   "startMs": "712200",
+   "endMs": "715839",
+   "startTimeText": "11:52"
+  },
+  {
+   "text": "사람들에게는",
+   "startMs": "714320",
+   "endMs": "718399",
+   "startTimeText": "11:54"
+  },
+  {
+   "text": "예수님음 죄인이 달린 그 십가",
+   "startMs": "715839",
+   "endMs": "721519",
+   "startTimeText": "11:55"
+  },
+  {
+   "text": "200kg 의 무는 아무런 가치가",
+   "startMs": "718399",
+   "endMs": "724519",
+   "startTimeText": "11:58"
+  },
+  {
+   "text": "없는 것일 것입니다 하지만 우리",
+   "startMs": "721519",
+   "endMs": "726720",
+   "startTimeText": "12:01"
+  },
+  {
+   "text": "예수님 믿는 사람들에게 있어서",
+   "startMs": "724519",
+   "endMs": "728639",
+   "startTimeText": "12:04"
+  },
+  {
+   "text": "예수님께서 달리신 그",
+   "startMs": "726720",
+   "endMs": "731519",
+   "startTimeText": "12:06"
+  },
+  {
+   "text": "십자가 200kg",
+   "startMs": "728639",
+   "endMs": "733639",
+   "startTimeText": "12:08"
+  },
+  {
+   "text": "무게는 금",
+   "startMs": "731519",
+   "endMs": "735760",
+   "startTimeText": "12:11"
+  },
+  {
+   "text": "1kg 금",
+   "startMs": "733639",
+   "endMs": "740079",
+   "startTimeText": "12:13"
+  },
+  {
+   "text": "200kg 어 이제금 200kg",
+   "startMs": "735760",
+   "endMs": "741560",
+   "startTimeText": "12:15"
+  },
+  {
+   "text": "해당하는 그",
+   "startMs": "740079",
+   "endMs": "744600",
+   "startTimeText": "12:20"
+  },
+  {
+   "text": "갑어치 비교할 수 없을 만한 그런",
+   "startMs": "741560",
+   "endMs": "748160",
+   "startTimeText": "12:21"
+  },
+  {
+   "text": "가치가 있을 것입니다 그런데 중요한",
+   "startMs": "744600",
+   "endMs": "751360",
+   "startTimeText": "12:24"
+  },
+  {
+   "text": "것은 많 성도분들이 그 예수님의",
+   "startMs": "748160",
+   "endMs": "755240",
+   "startTimeText": "12:28"
+  },
+  {
+   "text": "십자가를 금 200kg 해당하는",
+   "startMs": "751360",
+   "endMs": "759639",
+   "startTimeText": "12:31"
+  },
+  {
+   "text": "가치와 비교해서 어떻게 여기고 있는지",
+   "startMs": "755240",
+   "endMs": "761279",
+   "startTimeText": "12:35"
+  },
+  {
+   "text": "그 부분을 우리가 한번 생각해 볼",
+   "startMs": "759639",
+   "endMs": "763320",
+   "startTimeText": "12:39"
+  },
+  {
+   "text": "필요가 있는 거 같습니다 예수님의",
+   "startMs": "761279",
+   "endMs": "766040",
+   "startTimeText": "12:41"
+  },
+  {
+   "text": "십자가 200kg 금",
+   "startMs": "763320",
+   "endMs": "768680",
+   "startTimeText": "12:43"
+  },
+  {
+   "text": "200kg 어떤게 우리에게 더 가치가",
+   "startMs": "766040",
+   "endMs": "771560",
+   "startTimeText": "12:46"
+  },
+  {
+   "text": "있는지 한번 생각해보는 그런 한주간이",
+   "startMs": "768680",
+   "endMs": "772959",
+   "startTimeText": "12:48"
+  },
+  {
+   "text": "되었으면",
+   "startMs": "771560",
+   "endMs": "776600",
+   "startTimeText": "12:51"
+  },
+  {
+   "text": "좋겠습니다 오늘 본 말씀 53장 6절",
+   "startMs": "772959",
+   "endMs": "781519",
+   "startTimeText": "12:52"
+  },
+  {
+   "text": "말씀에는다 같아서 그 기 제길로 거늘",
+   "startMs": "776600",
+   "endMs": "784160",
+   "startTimeText": "12:56"
+  },
+  {
+   "text": "여호와께서는 우리 모두의 죄악을",
+   "startMs": "781519",
+   "endMs": "785760",
+   "startTimeText": "13:01"
+  },
+  {
+   "text": "그에게",
+   "startMs": "784160",
+   "endMs": "788199",
+   "startTimeText": "13:04"
+  },
+  {
+   "text": "담당시키셨도다라고 기록을 하고",
+   "startMs": "785760",
+   "endMs": "791160",
+   "startTimeText": "13:05"
+  },
+  {
+   "text": "있습니다 하나님께서는 우리 모든",
+   "startMs": "788199",
+   "endMs": "793920",
+   "startTimeText": "13:08"
+  },
+  {
+   "text": "사람들의 죄악을 예수님께",
+   "startMs": "791160",
+   "endMs": "796639",
+   "startTimeText": "13:11"
+  },
+  {
+   "text": "담당시키셨도다",
+   "startMs": "793920",
+   "endMs": "796639",
+   "startTimeText": "13:13"
+  },
+  {
+   "text": "모든",
+   "startMs": "809480",
+   "endMs": "814160",
+   "startTimeText": "13:29"
+  },
+  {
+   "text": "사람들의 죄악의 그 짐까지",
+   "startMs": "810720",
+   "endMs": "816079",
+   "startTimeText": "13:30"
+  },
+  {
+   "text": "짊어지고 있었던",
+   "startMs": "814160",
+   "endMs": "819079",
+   "startTimeText": "13:34"
+  },
+  {
+   "text": "것입니다 우리가이 세상을 살아가면서",
+   "startMs": "816079",
+   "endMs": "821320",
+   "startTimeText": "13:36"
+  },
+  {
+   "text": "죄를 지었을 때에 그에",
+   "startMs": "819079",
+   "endMs": "824720",
+   "startTimeText": "13:39"
+  },
+  {
+   "text": "대한 대가를 지불하게 됩니다 범죄하는",
+   "startMs": "821320",
+   "endMs": "828560",
+   "startTimeText": "13:41"
+  },
+  {
+   "text": "사람에 대해서는 어떤 국가적인 보을",
+   "startMs": "824720",
+   "endMs": "832480",
+   "startTimeText": "13:44"
+  },
+  {
+   "text": "받게 되고요 벌금을 내기도 하고 그의",
+   "startMs": "828560",
+   "endMs": "835519",
+   "startTimeText": "13:48"
+  },
+  {
+   "text": "상하는 어떠 대가를 지불해야 되는",
+   "startMs": "832480",
+   "endMs": "839320",
+   "startTimeText": "13:52"
+  },
+  {
+   "text": "것이이 세상의 법칙일뿐만 아니라 하님",
+   "startMs": "835519",
+   "endMs": "840839",
+   "startTimeText": "13:55"
+  },
+  {
+   "text": "나라의 법칙이기도",
+   "startMs": "839320",
+   "endMs": "843880",
+   "startTimeText": "13:59"
+  },
+  {
+   "text": "합니다 그것 또한 우리가 값으로",
+   "startMs": "840839",
+   "endMs": "846639",
+   "startTimeText": "14:00"
+  },
+  {
+   "text": "생각을 했을 때에 예수님의 어깨에",
+   "startMs": "843880",
+   "endMs": "850160",
+   "startTimeText": "14:03"
+  },
+  {
+   "text": "짊어진 온 인류의 그 죄의",
+   "startMs": "846639",
+   "endMs": "853360",
+   "startTimeText": "14:06"
+  },
+  {
+   "text": "가가 얼마나 무겁고",
+   "startMs": "850160",
+   "endMs": "856240",
+   "startTimeText": "14:10"
+  },
+  {
+   "text": "했는지를 우리는 감히 상상 할 수",
+   "startMs": "853360",
+   "endMs": "859560",
+   "startTimeText": "14:13"
+  },
+  {
+   "text": "없을 것입니다 5장 11절 말씀에도",
+   "startMs": "856240",
+   "endMs": "862040",
+   "startTimeText": "14:16"
+  },
+  {
+   "text": "비슷한 말씀이 있습니다 그가 자기의",
+   "startMs": "859560",
+   "endMs": "863639",
+   "startTimeText": "14:19"
+  },
+  {
+   "text": "영혼을 수고한",
+   "startMs": "862040",
+   "endMs": "866839",
+   "startTimeText": "14:22"
+  },
+  {
+   "text": "것을보고 만족하게 길 것이라 나의",
+   "startMs": "863639",
+   "endMs": "869120",
+   "startTimeText": "14:23"
+  },
+  {
+   "text": "의로운 종이 자기 지식으로 많은",
+   "startMs": "866839",
+   "endMs": "872399",
+   "startTimeText": "14:26"
+  },
+  {
+   "text": "사람을 의롭게 하며 또 그들의 죄악을",
+   "startMs": "869120",
+   "endMs": "876040",
+   "startTimeText": "14:29"
+  },
+  {
+   "text": "친히 담당하 이로다 12절 말씀에",
+   "startMs": "872399",
+   "endMs": "879440",
+   "startTimeText": "14:32"
+  },
+  {
+   "text": "그가 많은 사람의 죄를 담당하며",
+   "startMs": "876040",
+   "endMs": "882800",
+   "startTimeText": "14:36"
+  },
+  {
+   "text": "범죄자를 위하여 기도하였고 이렇게",
+   "startMs": "879440",
+   "endMs": "886880",
+   "startTimeText": "14:39"
+  },
+  {
+   "text": "기록함으로써 예수님은 단지 어 자신의",
+   "startMs": "882800",
+   "endMs": "889759",
+   "startTimeText": "14:42"
+  },
+  {
+   "text": "어 혼자의 몸으로만 십자가에",
+   "startMs": "886880",
+   "endMs": "892880",
+   "startTimeText": "14:46"
+  },
+  {
+   "text": "올라가셔서 달리신 것이 아니라 우리",
+   "startMs": "889759",
+   "endMs": "896920",
+   "startTimeText": "14:49"
+  },
+  {
+   "text": "모두의 죄악에 그침을 다 짊어 주시고",
+   "startMs": "892880",
+   "endMs": "899759",
+   "startTimeText": "14:52"
+  },
+  {
+   "text": "어 십자가에 달리신 것을",
+   "startMs": "896920",
+   "endMs": "902320",
+   "startTimeText": "14:56"
+  },
+  {
+   "text": "수 있습니다 그렇다라고 하면은",
+   "startMs": "899759",
+   "endMs": "905480",
+   "startTimeText": "14:59"
+  },
+  {
+   "text": "십자가의 무게는 단지 십자가",
+   "startMs": "902320",
+   "endMs": "909959",
+   "startTimeText": "15:02"
+  },
+  {
+   "text": "130kg 예수님 몸에",
+   "startMs": "905480",
+   "endMs": "909959",
+   "startTimeText": "15:05"
+  },
+  {
+   "text": "70k 그 그 거기에 국한되지 않을",
+   "startMs": "910759",
+   "endMs": "918399",
+   "startTimeText": "15:10"
+  },
+  {
+   "text": "것입니다 그 예수님의 그 십자가 전체",
+   "startMs": "914880",
+   "endMs": "921480",
+   "startTimeText": "15:14"
+  },
+  {
+   "text": "무게는 우리가 물리적으로 측정할 수",
+   "startMs": "918399",
+   "endMs": "925560",
+   "startTimeText": "15:18"
+  },
+  {
+   "text": "없을 만한 그 무인 것입니다 그것은",
+   "startMs": "921480",
+   "endMs": "927959",
+   "startTimeText": "15:21"
+  },
+  {
+   "text": "다른 말로 하면은",
+   "startMs": "925560",
+   "endMs": "931880",
+   "startTimeText": "15:25"
+  },
+  {
+   "text": "그만큼의 있는 것니다 우리가이 시간을",
+   "startMs": "927959",
+   "endMs": "934880",
+   "startTimeText": "15:27"
+  },
+  {
+   "text": "통해서 그것을 더 깨달아 알 수",
+   "startMs": "931880",
+   "endMs": "936000",
+   "startTimeText": "15:31"
+  },
+  {
+   "text": "있었으면",
+   "startMs": "934880",
+   "endMs": "938600",
+   "startTimeText": "15:34"
+  },
+  {
+   "text": "좋겠습니다 우리가 예수님을 믿는다는",
+   "startMs": "936000",
+   "endMs": "940000",
+   "startTimeText": "15:36"
+  },
+  {
+   "text": "것은 그리고",
+   "startMs": "938600",
+   "endMs": "943040",
+   "startTimeText": "15:38"
+  },
+  {
+   "text": "예수님을 예배한다는",
+   "startMs": "940000",
+   "endMs": "945759",
+   "startTimeText": "15:40"
+  },
+  {
+   "text": "것은 우리를 위해 십자가에 달려",
+   "startMs": "943040",
+   "endMs": "949519",
+   "startTimeText": "15:43"
+  },
+  {
+   "text": "죽으신 그 예수님의 그 무 앞에",
+   "startMs": "945759",
+   "endMs": "952959",
+   "startTimeText": "15:45"
+  },
+  {
+   "text": "그리고 그 무와 영광의 가치 앞에",
+   "startMs": "949519",
+   "endMs": "955480",
+   "startTimeText": "15:49"
+  },
+  {
+   "text": "우리가 경배한다는 그런 의미가 있는",
+   "startMs": "952959",
+   "endMs": "959000",
+   "startTimeText": "15:52"
+  },
+  {
+   "text": "것입니다 그래서 울은 갈라디아서 6장",
+   "startMs": "955480",
+   "endMs": "962000",
+   "startTimeText": "15:55"
+  },
+  {
+   "text": "14절 15절 말씀에 내게는 우리 주",
+   "startMs": "959000",
+   "endMs": "965199",
+   "startTimeText": "15:59"
+  },
+  {
+   "text": "예수 그리스도의 십자가 외에 결코",
+   "startMs": "962000",
+   "endMs": "967560",
+   "startTimeText": "16:02"
+  },
+  {
+   "text": "자랑할 것이 없으니 그리스도로",
+   "startMs": "965199",
+   "endMs": "970440",
+   "startTimeText": "16:05"
+  },
+  {
+   "text": "말미암아 세상이 나를 대하여 십자가에",
+   "startMs": "967560",
+   "endMs": "973920",
+   "startTimeText": "16:07"
+  },
+  {
+   "text": "못박히고 내가 또한 세상을 대하여",
+   "startMs": "970440",
+   "endMs": "976399",
+   "startTimeText": "16:10"
+  },
+  {
+   "text": "그러하니라 고백을 하고",
+   "startMs": "973920",
+   "endMs": "978079",
+   "startTimeText": "16:13"
+  },
+  {
+   "text": "있습니다",
+   "startMs": "976399",
+   "endMs": "981240",
+   "startTimeText": "16:16"
+  },
+  {
+   "text": "바울은 십자가 외에 결코 자랑할 것이",
+   "startMs": "978079",
+   "endMs": "984519",
+   "startTimeText": "16:18"
+  },
+  {
+   "text": "없다라고 아주 담대하게 선포를 하고",
+   "startMs": "981240",
+   "endMs": "988319",
+   "startTimeText": "16:21"
+  },
+  {
+   "text": "있습니다 그리고 예수님으로 말미암아",
+   "startMs": "984519",
+   "endMs": "989720",
+   "startTimeText": "16:24"
+  },
+  {
+   "text": "세상을",
+   "startMs": "988319",
+   "endMs": "993639",
+   "startTimeText": "16:28"
+  },
+  {
+   "text": "를 십자가에 못고 그리고 내가 또한",
+   "startMs": "989720",
+   "endMs": "995279",
+   "startTimeText": "16:29"
+  },
+  {
+   "text": "세상을 십자가에",
+   "startMs": "993639",
+   "endMs": "997279",
+   "startTimeText": "16:33"
+  },
+  {
+   "text": "못박았다고 믿음의 고백을 하고",
+   "startMs": "995279",
+   "endMs": "1001600",
+   "startTimeText": "16:35"
+  },
+  {
+   "text": "있습니다 왜면 울은 십자가의를 알고",
+   "startMs": "997279",
+   "endMs": "1004839",
+   "startTimeText": "16:37"
+  },
+  {
+   "text": "있었고 그 무 안에 나타난 하나님의",
+   "startMs": "1001600",
+   "endMs": "1008079",
+   "startTimeText": "16:41"
+  },
+  {
+   "text": "영광의 거치를 알고 있었기 때문입니다",
+   "startMs": "1004839",
+   "endMs": "1009160",
+   "startTimeText": "16:44"
+  },
+  {
+   "text": "그렇기",
+   "startMs": "1008079",
+   "endMs": "1011319",
+   "startTimeText": "16:48"
+  },
+  {
+   "text": "때문에에게 있어서는 예수님의",
+   "startMs": "1009160",
+   "endMs": "1014240",
+   "startTimeText": "16:49"
+  },
+  {
+   "text": "십자가에는 그 어떤 것도이 세상에서",
+   "startMs": "1011319",
+   "endMs": "1017000",
+   "startTimeText": "16:51"
+  },
+  {
+   "text": "자랑할 것도 없었고 더",
+   "startMs": "1014240",
+   "endMs": "1019880",
+   "startTimeText": "16:54"
+  },
+  {
+   "text": "추구하고라는 것",
+   "startMs": "1017000",
+   "endMs": "1023360",
+   "startTimeText": "16:57"
+  },
+  {
+   "text": "더 자기 자신 예수님의 십자가",
+   "startMs": "1019880",
+   "endMs": "1026880",
+   "startTimeText": "16:59"
+  },
+  {
+   "text": "앞에서는 라리이 세상에서 십자가에",
+   "startMs": "1023360",
+   "endMs": "1031160",
+   "startTimeText": "17:03"
+  },
+  {
+   "text": "못혀 있는 것이더 은혜로 여길만큼",
+   "startMs": "1026880",
+   "endMs": "1034120",
+   "startTimeText": "17:06"
+  },
+  {
+   "text": "그렇게 세상이 나를 대하여 십자가에",
+   "startMs": "1031160",
+   "endMs": "1037280",
+   "startTimeText": "17:11"
+  },
+  {
+   "text": "다라고 아주 대하게 고백한 것을 볼",
+   "startMs": "1034120",
+   "endMs": "1040839",
+   "startTimeText": "17:14"
+  },
+  {
+   "text": "수 있습니다이 고난주간을 통하여서",
+   "startMs": "1037280",
+   "endMs": "1043360",
+   "startTimeText": "17:17"
+  },
+  {
+   "text": "예수님의 모든",
+   "startMs": "1040839",
+   "endMs": "1047240",
+   "startTimeText": "17:20"
+  },
+  {
+   "text": "성도분들이과 일게",
+   "startMs": "1043360",
+   "endMs": "1047240",
+   "startTimeText": "17:23"
+  },
+  {
+   "text": "그의를 있 좋겠습니다가이 세상을",
+   "startMs": "1047840",
+   "endMs": "1053840",
+   "startTimeText": "17:27"
+  },
+  {
+   "text": "살아가면서 예수님을 믿기 때문에",
+   "startMs": "1051400",
+   "endMs": "1056559",
+   "startTimeText": "17:31"
+  },
+  {
+   "text": "우가라는 것들이 많이 있습니다",
+   "startMs": "1053840",
+   "endMs": "1059440",
+   "startTimeText": "17:33"
+  },
+  {
+   "text": "하나님께서 우 사랑하시기 때문에 그",
+   "startMs": "1056559",
+   "endMs": "1062240",
+   "startTimeText": "17:36"
+  },
+  {
+   "text": "모든 것들에 대해서 은혜를 풀어주시는",
+   "startMs": "1059440",
+   "endMs": "1063840",
+   "startTimeText": "17:39"
+  },
+  {
+   "text": "좋으신",
+   "startMs": "1062240",
+   "endMs": "1066120",
+   "startTimeText": "17:42"
+  },
+  {
+   "text": "아버지지만 한편으로는 하나님께서",
+   "startMs": "1063840",
+   "endMs": "1068440",
+   "startTimeText": "17:43"
+  },
+  {
+   "text": "우리에게 정말로 원하시는",
+   "startMs": "1066120",
+   "endMs": "1071440",
+   "startTimeText": "17:46"
+  },
+  {
+   "text": "것은 이미 우리에게 주신 그 십자가의",
+   "startMs": "1068440",
+   "endMs": "1075280",
+   "startTimeText": "17:48"
+  },
+  {
+   "text": "은혜가 마나 큰지 그 에나타난 하나의",
+   "startMs": "1071440",
+   "endMs": "1077760",
+   "startTimeText": "17:51"
+  },
+  {
+   "text": "사랑의",
+   "startMs": "1075280",
+   "endMs": "1077760",
+   "startTimeText": "17:55"
+  },
+  {
+   "text": "크가지 그 안에 나타난 우리의 죄를",
+   "startMs": "1077840",
+   "endMs": "1083840",
+   "startTimeText": "17:57"
+  },
+  {
+   "text": "모두 다 용서해 주신 그 하나님의",
+   "startMs": "1081400",
+   "endMs": "1087720",
+   "startTimeText": "18:01"
+  },
+  {
+   "text": "자비와 아 그 한량없는 은혜가 얼마나",
+   "startMs": "1083840",
+   "endMs": "1091320",
+   "startTimeText": "18:03"
+  },
+  {
+   "text": "크고 어 값으로 측량할 수 없을만큼",
+   "startMs": "1087720",
+   "endMs": "1095120",
+   "startTimeText": "18:07"
+  },
+  {
+   "text": "어 영원한 가치에 너무나 소중한",
+   "startMs": "1091320",
+   "endMs": "1098600",
+   "startTimeText": "18:11"
+  },
+  {
+   "text": "것임을 깨닫게 하시고자 하는 것이",
+   "startMs": "1095120",
+   "endMs": "1101559",
+   "startTimeText": "18:15"
+  },
+  {
+   "text": "우리를 향하신 하나님의 가장 진심이지",
+   "startMs": "1098600",
+   "endMs": "1104080",
+   "startTimeText": "18:18"
+  },
+  {
+   "text": "않나라는 그런 생각을 하게 됩니다",
+   "startMs": "1101559",
+   "endMs": "1107400",
+   "startTimeText": "18:21"
+  },
+  {
+   "text": "그래서이 고난 주간 가운데에 우리",
+   "startMs": "1104080",
+   "endMs": "1110360",
+   "startTimeText": "18:24"
+  },
+  {
+   "text": "마음속에 어 어 예수님의 십자가 외에",
+   "startMs": "1107400",
+   "endMs": "1112919",
+   "startTimeText": "18:27"
+  },
+  {
+   "text": "자랑하는 것들 곧 예수님의 십자가",
+   "startMs": "1110360",
+   "endMs": "1116159",
+   "startTimeText": "18:30"
+  },
+  {
+   "text": "외에 우리가 더 추구하고 바랬던 것들",
+   "startMs": "1112919",
+   "endMs": "1118760",
+   "startTimeText": "18:32"
+  },
+  {
+   "text": "어 그런데 그것이 우리 마음속에 우리",
+   "startMs": "1116159",
+   "endMs": "1121640",
+   "startTimeText": "18:36"
+  },
+  {
+   "text": "삶속에 이루어지지 않아서 어",
+   "startMs": "1118760",
+   "endMs": "1123320",
+   "startTimeText": "18:38"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "1121640",
+   "endMs": "1126400",
+   "startTimeText": "18:41"
+  },
+  {
+   "text": "애달파하는 것들 있다면은 어 다시",
+   "startMs": "1123320",
+   "endMs": "1129000",
+   "startTimeText": "18:43"
+  },
+  {
+   "text": "한번 십자가 앞에 내려놓고 예수님의",
+   "startMs": "1126400",
+   "endMs": "1131400",
+   "startTimeText": "18:46"
+  },
+  {
+   "text": "십자가 앞에서는 우리 마음속에 있는",
+   "startMs": "1129000",
+   "endMs": "1134080",
+   "startTimeText": "18:49"
+  },
+  {
+   "text": "그 어떤 소원도 어 비교할 수 없을",
+   "startMs": "1131400",
+   "endMs": "1136559",
+   "startTimeText": "18:51"
+  },
+  {
+   "text": "만큼의 그런 하한 것일 수가 있을",
+   "startMs": "1134080",
+   "endMs": "1139440",
+   "startTimeText": "18:54"
+  },
+  {
+   "text": "것입니다 그래서이 시간을 통해서",
+   "startMs": "1136559",
+   "endMs": "1143000",
+   "startTimeText": "18:56"
+  },
+  {
+   "text": "다시번 모에게 예수님의 십자가의",
+   "startMs": "1139440",
+   "endMs": "1146520",
+   "startTimeText": "18:59"
+  },
+  {
+   "text": "의미와 그 치를 깨게 하여 주시옵소서",
+   "startMs": "1143000",
+   "endMs": "1150200",
+   "startTimeText": "19:03"
+  },
+  {
+   "text": "그리고 리도 울처럼 예수님의 십자가에",
+   "startMs": "1146520",
+   "endMs": "1152080",
+   "startTimeText": "19:06"
+  },
+  {
+   "text": "결코 자랑할 것이",
+   "startMs": "1150200",
+   "endMs": "1155039",
+   "startTimeText": "19:10"
+  },
+  {
+   "text": "없고 오직 예수님의 십자가를 더욱더",
+   "startMs": "1152080",
+   "endMs": "1157880",
+   "startTimeText": "19:12"
+  },
+  {
+   "text": "자랑할 수 있는 그런 리의 믿음이 될",
+   "startMs": "1155039",
+   "endMs": "1160559",
+   "startTimeText": "19:15"
+  },
+  {
+   "text": "수 있도록 혜를 베풀어주시고 그리고",
+   "startMs": "1157880",
+   "endMs": "1163559",
+   "startTimeText": "19:17"
+  },
+  {
+   "text": "이미 리에게 십자가 안에서 주신",
+   "startMs": "1160559",
+   "endMs": "1165000",
+   "startTimeText": "19:20"
+  },
+  {
+   "text": "하나의",
+   "startMs": "1163559",
+   "endMs": "1167720",
+   "startTimeText": "19:23"
+  },
+  {
+   "text": "사랑과서",
+   "startMs": "1165000",
+   "endMs": "1172039",
+   "startTimeText": "19:25"
+  },
+  {
+   "text": "한생 로 인하여서 항상 감사하며 어",
+   "startMs": "1167720",
+   "endMs": "1174799",
+   "startTimeText": "19:27"
+  },
+  {
+   "text": "더 하나님께 영광을 돌려드리며 어",
+   "startMs": "1172039",
+   "endMs": "1176600",
+   "startTimeText": "19:32"
+  },
+  {
+   "text": "그렇게 살아가는 우리 모든 삶이 될",
+   "startMs": "1174799",
+   "endMs": "1178880",
+   "startTimeText": "19:34"
+  },
+  {
+   "text": "수 있도록 어 그런 시간이 될 수",
+   "startMs": "1176600",
+   "endMs": "1180919",
+   "startTimeText": "19:36"
+  },
+  {
+   "text": "있도록 함께 기도하며 나아가는",
+   "startMs": "1178880",
+   "endMs": "1182799",
+   "startTimeText": "19:38"
+  },
+  {
+   "text": "예수님의 모든 성도분들이 되시길",
+   "startMs": "1180919",
+   "endMs": "1185960",
+   "startTimeText": "19:40"
+  },
+  {
+   "text": "예수님 이름으로 축복합니다 아 함께",
+   "startMs": "1182799",
+   "endMs": "1188679",
+   "startTimeText": "19:42"
+  },
+  {
+   "text": "주기도문 하시겠습니다 하늘에 계신",
+   "startMs": "1185960",
+   "endMs": "1191159",
+   "startTimeText": "19:45"
+  },
+  {
+   "text": "우리 아버지 아버지의 이름을 거룩하게",
+   "startMs": "1188679",
+   "endMs": "1194159",
+   "startTimeText": "19:48"
+  },
+  {
+   "text": "하시며 아버지의 나라가 오게 하시며",
+   "startMs": "1191159",
+   "endMs": "1195919",
+   "startTimeText": "19:51"
+  },
+  {
+   "text": "아버지의 뜻이 하늘에서와 같이",
+   "startMs": "1194159",
+   "endMs": "1198919",
+   "startTimeText": "19:54"
+  },
+  {
+   "text": "땅에서도 이루어지게 하소서 오 우",
+   "startMs": "1195919",
+   "endMs": "1201840",
+   "startTimeText": "19:55"
+  },
+  {
+   "text": "이할 식을 주시고 우리가 리에게 못한",
+   "startMs": "1198919",
+   "endMs": "1204480",
+   "startTimeText": "19:58"
+  },
+  {
+   "text": "사람을 용서하여 준 것같이 우리 죄를",
+   "startMs": "1201840",
+   "endMs": "1207039",
+   "startTimeText": "20:01"
+  },
+  {
+   "text": "용서하여 주시고 우리를 시험에 빠지지",
+   "startMs": "1204480",
+   "endMs": "1210000",
+   "startTimeText": "20:04"
+  },
+  {
+   "text": "않게 하시고 악에서 구하소서 나라와",
+   "startMs": "1207039",
+   "endMs": "1212280",
+   "startTimeText": "20:07"
+  },
+  {
+   "text": "권능과 영광이 영원히 아버지의",
+   "startMs": "1210000",
+   "endMs": "1213450",
+   "startTimeText": "20:10"
+  },
+  {
+   "text": "것입니다",
+   "startMs": "1212280",
+   "endMs": "1216549",
+   "startTimeText": "20:12"
+  },
+  {
+   "text": "[음악]",
+   "startMs": "1213450",
+   "endMs": "1216549",
+   "startTimeText": "20:13"
+  },
+  {
+   "text": "아멘",
+   "startMs": "1219000",
+   "endMs": "1222000",
+   "startTimeText": "20:19"
+  }
+ ]
+}
