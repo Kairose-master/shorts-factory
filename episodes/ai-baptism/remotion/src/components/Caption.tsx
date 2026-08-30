@@ -53,11 +53,20 @@ const wrap = (text: string, maxChars = 26): string[] => {
   return [words.slice(0, best).join(' '), words.slice(best).join(' ')];
 };
 
+/** Ignore spacing and punctuation when asking "is this the same sentence?" */
+const bare = (s: string) => s.replace(/[\s.,!?…·"'“”‘’\-—–()]/g, '');
+
 export const Caption: React.FC<{scene: Scene}> = ({scene}) => {
-  const {absSec} = useSceneClock(scene);
+  const {absSec, beat} = useSceneClock(scene);
   // Driven by measured narration, not by the beat grid — see `CUES`.
   const cue = cueAt(absSec);
   if (!cue) return null;
+
+  // When the scene is already showing this sentence as a large statement, the
+  // caption would set the same words twice in one frame. That is the
+  // "graphic restates the caption" anti-pattern, and at statement size it also
+  // costs the line its weight. The statement wins; the caption stands down.
+  if (beat.onScreen && bare(beat.onScreen) === bare(cue.text)) return null;
 
   const lines = wrap(cue.text);
   const opacity = holdEnvelope(absSec - cue.start, cue.end - cue.start, 0.22);

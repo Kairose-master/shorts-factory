@@ -41,15 +41,79 @@ MAX_CUE_SEC = 6.0
 CUE_GAP_SEC = 0.08
 
 
+# A Korean TTS speaks Latin tokens phonetically, and the transcript records what
+# it heard. Comparing the written form against the heard form flags a line as
+# missing when it was delivered perfectly — which is what happened to all three
+# "absent" lines on the first real run: every one contained AI, Yes or No.
+SPOKEN_FORMS = {
+    "AI": "에이아이", "Yes": "예스", "No": "노", "OK": "오케이",
+}
+
+
 def normalise(s: str) -> str:
     """Whitespace- and punctuation-insensitive, but not word-insensitive.
 
-    Guarded lines must survive punctuation and spacing changes from TTS, and
-    must NOT survive a rewording — that is the whole point of the check.
+    Guarded lines must survive punctuation, spacing and the written/spoken
+    split above, and must NOT survive a rewording — that is the whole point.
     """
     s = unicodedata.normalize("NFKC", s)
+    for written, spoken in SPOKEN_FORMS.items():
+        # Not \b: "AI가" has no word boundary between I and 가, because
+        # Korean syllables are word characters.
+        s = re.sub(rf"(?<![A-Za-z]){written}(?![A-Za-z])", spoken, s)
     s = re.sub(r"[.,!?…·\"'“”‘’\-——–()]", "", s)
     return re.sub(r"\s+", "", s).strip()
+
+
+def build_index(segs):
+    """One normalised transcript string, plus a char -> word-start-time map.
+
+    Everything downstream keys off this. Whisper merges several sentences into
+    one segment, so a per-segment comparison scores a fully-present line low
+    just because the segment carries extra sentences around it; and fuzzy
+    span-matching over words, tried first here, proved unstable enough to
+    report large negative drifts on lines that were plainly correct.
+
+    A flat character stream with a parallel time index removes the guessing:
+    a line is located by exact search, and its position converts straight to a
+    timestamp. Lines that do not match exactly are reported as unaligned rather
+    than force-fitted somewhere.
+    """
+    chars, times = [], []
+    for sg in segs:
+        for w in sg["words"] or []:
+            n = normalise(w["w"])
+            chars.append(n)
+            times.extend([w["start"]] * len(n))
+    return "".join(chars), times
+
+
+def align(expected, full, times):
+    """Locate each expected line in the transcript, scanning forward only."""
+    out, pos = [], 0
+    for e in expected:
+        target = normalise(e["text"])
+        if not target:
+            continue
+        i = full.find(target, pos)
+        if i == -1:                       # allow an out-of-order match once
+            i = full.find(target)
+        if i == -1:
+            # Not exact. Report the closest thing the model heard there, so a
+            # failure names what to go listen to instead of just saying no.
+            window = full[pos:pos + max(len(target) * 4, 400)]
+            best, heard = 0.0, ""
+            for j in range(0, max(1, len(window) - len(target)), 4):
+                span = window[j:j + len(target)]
+                r = difflib.SequenceMatcher(None, target, span).ratio()
+                if r > best:
+                    best, heard = r, span
+            out.append({**e, "ratio": best, "heard": heard, "at": None})
+            continue
+        pos = i + len(target)
+        out.append({**e, "ratio": 1.0, "heard": target,
+                    "at": times[i] if i < len(times) else None})
+    return out
 
 
 def load_storyboard(path: Path):
@@ -193,6 +257,10 @@ def main():
             note = "Install faster-whisper and re-run."
         else:
             full = normalise(" ".join(s["text"] for s in segs))
+            flat, times = build_index(segs)
+            expected = cues or [{"start": b["t"], "text": b["vo"]} for b in beats]
+            aligned = align(expected, flat, times)
+            by_text = {normalise(r["text"]): r for r in aligned}
 
             # Exact first. A guarded line is meant to survive verbatim, and an
             # exact substring is the only test that actually proves that.
@@ -207,11 +275,11 @@ def main():
                 if normalise(g) in full:
                     continue
                 t = normalise(g)
-                best, heard = 0.0, ""
-                for seg in segs:
-                    r = difflib.SequenceMatcher(None, t, normalise(seg["text"])).ratio()
-                    if r > best:
-                        best, heard = r, seg["text"].strip()
+                rec = by_text.get(t)
+                if rec is None:
+                    rec = next(iter(align([{"start": 0, "text": g}], flat, times)), None)
+                best = rec["ratio"] if rec else 0.0
+                heard = rec["heard"] if rec else ""
                 (soft_guards if best >= 0.90 else missing_guards).append(
                     (g, best, heard))
             ok_n = len(guards) - len(missing_guards)
@@ -235,9 +303,8 @@ def main():
             for b in beats:
                 if normalise(b["vo"]) in full:
                     continue
-                t = normalise(b["vo"])
-                best = max((difflib.SequenceMatcher(None, t, normalise(sg["text"])).ratio()
-                            for sg in segs), default=0.0)
+                rec = by_text.get(normalise(b["vo"]))
+                best = rec["ratio"] if rec else 0.0
                 (garbled if best >= 0.80 else missing).append((b, best))
             rows.append((
                 "MISSING SENTENCES",
@@ -248,37 +315,52 @@ def main():
             blocking += [f"{b['scene']} @{b['t']}: not found in transcript "
                          f"(best match {r:.2f})" for b, r in missing]
 
-            # Align in ORDER, scanning forward from a cursor. Matching a short
-            # prefix anywhere in the transcript is how a first version of this
-            # reported 679s of drift on an 11-minute episode: a 12-character
-            # opening matched a similar sentence ten minutes away.
-            worst, cum, unmatched, cursor = 0.0, 0.0, 0, 0
-            expected = cues or [{"start": b["t"], "text": b["vo"]} for b in beats]
-            for e in expected:
-                target = normalise(e["text"])
-                best, best_i = 0.0, None
-                for j in range(cursor, min(cursor + 12, len(segs))):
-                    r = difflib.SequenceMatcher(
-                        None, target, normalise(segs[j]["text"])).ratio()
-                    if r > best:
-                        best, best_i = r, j
-                if best_i is None or best < 0.55:
+            # Align on WORDS, in order, scanning forward from a cursor.
+            #
+            # Two earlier versions of this were wrong in instructive ways. The
+            # first matched a 12-character prefix anywhere in the transcript and
+            # reported 679s of drift on an 11-minute episode. The second matched
+            # whole segments in order — better, but whisper merges several
+            # sentences into one segment, so a segment's start can sit many
+            # seconds before the line being measured. Words are the only unit
+            # that lines up with a per-line cue.
+            # Whisper reports word starts a little late, and consistently so:
+            # a first run showed +0.70 to +0.86s on essentially every line. A
+            # constant offset shared by all lines is measurement bias, not the
+            # audio sliding out of sync — what matters is whether lines drift
+            # RELATIVE to each other. So centre on the median and check the
+            # spread around it, and report the bias separately rather than
+            # letting it fail an otherwise clean assembly.
+            offsets, unmatched, labelled = [], 0, []
+            for r in aligned:
+                if r["at"] is None or r["ratio"] < 1.0:
                     unmatched += 1
                     continue
-                cursor = best_i + 1
-                d = segs[best_i]["start"] - e["start"]
-                cum = d
-                worst = max(worst, abs(d))
-            ok = worst <= DRIFT_PER_BEAT and abs(cum) <= DRIFT_CUMULATIVE
-            rows.append((
-                "TIMING DRIFT",
-                "PASS" if ok else "FAIL",
-                f"max {worst:+.2f}s, cum {cum:+.2f}s, {unmatched} unaligned",
-            ))
-            if not ok:
-                blocking.append(
-                    f"timing drift max {worst:.2f}s cum {cum:.2f}s "
-                    f"(measured against the caption track, i.e. assembly integrity)")
+                d = r["at"] - r["start"]
+                offsets.append(d)
+                labelled.append((d, r["text"][:44]))
+            if not offsets:
+                rows.append(("TIMING DRIFT", "FAIL", "nothing aligned"))
+                blocking.append("timing drift: no line could be aligned")
+            else:
+                bias = sorted(offsets)[len(offsets) // 2]
+                dev = [(abs(d - bias), d - bias, t) for d, t in labelled]
+                worst = max(x[0] for x in dev)
+                cum = offsets[-1] - bias
+                for a_, d_, t_ in sorted(dev, reverse=True)[:5]:
+                    if a_ > DRIFT_PER_BEAT:
+                        notes.append(f"drift {d_:+.2f}s (bias-corrected) on: {t_}")
+                ok = worst <= DRIFT_PER_BEAT and abs(cum) <= DRIFT_CUMULATIVE
+                rows.append((
+                    "TIMING DRIFT",
+                    "PASS" if ok else "FAIL",
+                    f"max {worst:+.2f}s about a {bias:+.2f}s measurement bias, "
+                    f"cum {cum:+.2f}s, {unmatched} unaligned",
+                ))
+                if not ok:
+                    blocking.append(
+                        f"timing drift {worst:.2f}s around the median offset "
+                        f"(assembly integrity, measured against the caption track)")
 
             flagged = [
                 w["w"]

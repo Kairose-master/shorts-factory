@@ -48,12 +48,49 @@ clause is common and invisible without this check.
 
 ### 3 · Timing drift — blocking over threshold
 
-Compare each beat's transcript timestamp to its storyboard `t`. Report per-beat
-drift; fail above **±0.6s**, or cumulative drift above **±1.5s**.
+Measure against the **caption track** (where each line was actually placed), not
+the raw beat grid: within-scene pushes are deliberate and already reported by
+the assembler, so re-flagging them here is noise. What this check answers is
+whether the assembly put each line where it said it did.
 
-Beyond that, captions detach from speech and graphics land on the wrong words —
-which is worse than either error alone, because the viewer sees a video that is
-subtly out of sync without knowing why.
+Fail above **±0.6s** of spread, or cumulative drift above **±1.5s**. Beyond that
+captions detach from speech and graphics land on the wrong words — worse than
+either error alone, because the viewer sees a video that is subtly out of sync
+without knowing why.
+
+**Subtract the measurement bias first.** Whisper reports word starts slightly
+late, and consistently so — around +0.75s on every line in a real run here. A
+constant offset shared by all lines is the transcriber, not the audio sliding.
+Take the median offset as bias, check the spread around it, and report the bias
+separately. Failing a clean assembly on a constant is how a gate teaches people
+to ignore it.
+
+### Aligning lines to a transcript — three tries, two wrong
+
+Worth knowing before writing this yourself, because the first two are the
+obvious ones:
+
+1. **Substring of a short prefix.** Matched a 12-character opening anywhere in
+   the episode and reported **679s of drift** on an 11-minute video.
+2. **Best-matching whisper segment, in order.** Better, but whisper merges
+   several sentences into one segment, so a fully-present line scores ~0.6
+   purely because the segment carries two extra sentences around it. Produced
+   false "missing sentence" failures on lines that were verbatim correct.
+3. **A flat normalised character stream with a parallel char → word-start-time
+   index.** Locate each line by exact forward search; convert its offset
+   straight to a timestamp. Exact, monotonic, and unable to produce the
+   pathologies above. Lines that do not match exactly are reported as
+   *unaligned* rather than force-fitted somewhere plausible.
+
+### Normalise what is HEARD, not what is written
+
+A Korean TTS speaks Latin tokens phonetically and the transcript records the
+sound: `AI` comes back as `에이아이`, `Yes` as `예스`. Comparing the written form
+against the heard form flags a delivered line as missing. Every false failure in
+the first real run of this check contained `AI`, `Yes` or `No`.
+
+Note `\b` will not help: `AI가` has no word boundary between `I` and `가`,
+because Korean syllables are word characters. Use Latin-letter lookarounds.
 
 ### 4 · Speaker separation — blocking when the script stages two voices
 
