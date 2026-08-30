@@ -1,0 +1,34 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: HOOK,Noto Sans CJK KR,116,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,-1,0,1,7,4,8,60,60,155,1
+Style: CAP,Noto Sans CJK KR,64,&H0000E0FF,&H0000E0FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,2,2,130,130,422,1
+Style: ENDLEAD,Noto Sans CJK KR,50,&H30FFFFFF,&H30FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: ENDMAIN,Noto Sans CJK KR,76,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
+Style: ENDSUB,Noto Sans CJK KR,50,&H18FFFFFF,&H18FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
+Style: STATUS,Noto Sans CJK KR,34,&H90FFFFFF,&H90FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,3,0,2,130,130,352,1
+Style: VERIFY,Noto Sans CJK KR,44,&H0000FFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,4,0,7,40,40,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:45.36,HOOK,,0,0,0,,화도 영혼과 연결될까요
+Dialogue: 3,0:00:45.36,0:00:48.86,ENDLEAD,,0,0,0,,{\pos(540,690)\fad(300,0)}원본 설교 전체는 채널에 있습니다
+Dialogue: 3,0:00:45.48,0:00:48.86,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2023년 6월 7일 수요예배
+Dialogue: 3,0:00:45.60,0:00:48.86,ENDSUB,,0,0,0,,{\pos(540,940)\fad(300,0)}엡 4:25-32 · 장선기 목사
+Dialogue: 3,0:00:45.60,0:00:48.86,ENDSUB,,0,0,0,,{\pos(540,1020)\fad(300,0)}방배동 예심교회
+Dialogue: 0,0:00:00.00,0:00:05.96,CAP,,0,0,0,,화를 내고 그것이 죄가 될\N정도로 심해지면
+Dialogue: 0,0:00:05.96,0:00:09.25,CAP,,0,0,0,,하나님의 성품에 어긋난 행동을\N하게 되는데
+Dialogue: 0,0:00:09.25,0:00:13.04,CAP,,0,0,0,,그건 단순히 잘못된 행동에\N그치는 게 아니라
+Dialogue: 0,0:00:13.04,0:00:16.57,CAP,,0,0,0,,영적인 것과 연결이 됩니다
+Dialogue: 0,0:00:16.57,0:00:22.32,CAP,,0,0,0,,우리의 모든 행동이 사실은\N영적인 것과 연결돼 있어요
+Dialogue: 0,0:00:22.32,0:00:26.12,CAP,,0,0,0,,내가 잘못하면 괜찮겠지,\N아니에요
+Dialogue: 0,0:00:26.12,0:00:28.96,CAP,,0,0,0,,영혼에 많은 영향을 미칩니다
+Dialogue: 0,0:00:28.96,0:00:34.16,CAP,,0,0,0,,우리 뭐 하나만 불편해도 심리에\N영향을 줘요
+Dialogue: 0,0:00:34.16,0:00:38.48,CAP,,0,0,0,,잠을 못 자거나 밥을 못 먹으면
+Dialogue: 0,0:00:38.48,0:00:45.36,CAP,,0,0,0,,우울증까지 직결되는 겁니다
