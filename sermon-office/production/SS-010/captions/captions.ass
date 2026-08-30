@@ -19,7 +19,7 @@ Style: VERIFY,Noto Sans CJK KR,44,&H0000FFFF,&H0000FFFF,&H00000000,&H00000000,0,
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 Dialogue: 0,0:00:00.00,0:01:05.33,HOOK,,0,0,0,,화려한 사람과 신실한 사람\N결국 누가 곁에 남을까요
 Dialogue: 3,0:01:05.33,0:01:08.83,ENDLEAD,,0,0,0,,{\pos(540,690)\fad(300,0)}원본 설교 전체는 채널에 있습니다
-Dialogue: 3,0:01:05.45,0:01:08.83,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2026년 6월 17일 주일예배(온라인 2부)
+Dialogue: 3,0:01:05.45,0:01:08.83,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2026년 6월 17일
 Dialogue: 3,0:01:05.57,0:01:08.83,ENDSUB,,0,0,0,,{\pos(540,940)\fad(300,0)}고린도전서 13:9-13 · 장선기 목사
 Dialogue: 3,0:01:05.57,0:01:08.83,ENDSUB,,0,0,0,,{\pos(540,1020)\fad(300,0)}방배동 예심교회
 Dialogue: 0,0:00:00.00,0:00:03.80,CAP,,0,0,0,,여러분들 살다 보니까, 어떤\N사람이 좋아요?
