@@ -58,7 +58,7 @@ mandatory list:
 | Theology red team | PASS (2 required fixes applied) |
 | Storyboard | **VALID** — 14 scenes, 157 beats, beats sum exactly, avatar 26.1% |
 | Remotion composition | **BUILDS AND RENDERS** — 14 scene components, typecheck clean |
-| Rendered cut | `export/final.mp4` — 11:50.06, 1920×1080, 30fps, H.264, 52MB |
+| Rendered cut | `export/final.mp4` — 11:50.06, 1920×1080, 30fps, H.264, 54MB |
 | Thumbnail | `thumbnail/thumbnail.png` — rendered |
 | Narration | **MISSING** — no TTS credential in this environment |
 | Avatar lip-sync | **MISSING** — no CUDA GPU in this environment |
