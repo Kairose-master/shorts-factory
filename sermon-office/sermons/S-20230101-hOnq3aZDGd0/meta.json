@@ -4,9 +4,9 @@
  "url": "https://www.youtube.com/watch?v=hOnq3aZDGd0",
  "title_raw": "[예심교회 2023.1.1] 테바를 타고 가는 인생 - 장선기 목사 -",
  "date": "2023-01-01",
- "scripture": null,
- "book_code": null,
- "service_type": "기타",
+ "scripture": "창 12:1-9",
+ "book_code": "GEN",
+ "service_type": "주일예배(온라인 2부)",
  "preacher": "장선기 목사",
  "subject": "테바를 타고 가는 인생",
  "published_time": "2023-01-24T18:26:22-08:00",
@@ -15,7 +15,7 @@
  "ingested_at": "2026-08-29",
  "caption_kind": "asr",
  "caption_cues": 1158,
- "sermon_start_ms_estimated": 4680000,
- "sermon_start_basis": "음악 종료 77분 + 60초 (봉독 신호 없음)",
+ "sermon_start_ms_estimated": 2350000,
+ "sermon_start_basis": "수정(수동) — 자동 추정은 예배 전체(찬양·성찬식·성경봉독)가 길어 실패. 39:10 '창세기 12장 1절부터' 봉독 시작을 실측 확인",
  "quote_audio_verified": false
 }

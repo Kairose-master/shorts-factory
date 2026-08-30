@@ -1,0 +1,57 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: HOOK,Noto Sans CJK KR,116,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,-1,0,1,7,4,8,60,60,155,1
+Style: CAP,Noto Sans CJK KR,64,&H0000E0FF,&H0000E0FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,2,2,130,130,422,1
+Style: ENDLEAD,Noto Sans CJK KR,50,&H30FFFFFF,&H30FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: ENDMAIN,Noto Sans CJK KR,76,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
+Style: ENDSUB,Noto Sans CJK KR,50,&H18FFFFFF,&H18FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
+Style: STATUS,Noto Sans CJK KR,34,&H90FFFFFF,&H90FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,3,0,2,130,130,352,1
+Style: VERIFY,Noto Sans CJK KR,44,&H0000FFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,4,0,7,40,40,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:01:00.24,HOOK,,0,0,0,,노아의 방주와\N모세의 갈대상자
+Dialogue: 3,0:01:00.24,0:01:03.74,ENDLEAD,,0,0,0,,{\pos(540,690)\fad(300,0)}원본 설교 전체는 채널에 있습니다
+Dialogue: 3,0:01:00.36,0:01:03.74,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2023년 1월 1일 주일예배(온라인 2부)
+Dialogue: 3,0:01:00.48,0:01:03.74,ENDSUB,,0,0,0,,{\pos(540,940)\fad(300,0)}창 12:1-9 · 장선기 목사
+Dialogue: 3,0:01:00.48,0:01:03.74,ENDSUB,,0,0,0,,{\pos(540,1020)\fad(300,0)}방배동 예심교회
+Dialogue: 0,0:00:00.00,0:00:01.98,CAP,,0,0,0,,아예 노아의 방주는
+Dialogue: 0,0:00:01.98,0:00:03.93,CAP,,0,0,0,,방향키가 없습니다. 이것을
+Dialogue: 0,0:00:03.93,0:00:04.75,CAP,,0,0,0,,바로 테바라고
+Dialogue: 0,0:00:04.75,0:00:05.87,CAP,,0,0,0,,이야기를 하는 것입니다.
+Dialogue: 0,0:00:05.87,0:00:08.06,CAP,,0,0,0,,그리고 모세가 있었던
+Dialogue: 0,0:00:08.06,0:00:11.10,CAP,,0,0,0,,그 갈대상자,
+Dialogue: 0,0:00:11.33,0:00:13.40,CAP,,0,0,0,,애굽인들이 이스라엘 아기들을 다
+Dialogue: 0,0:00:13.40,0:00:15.35,CAP,,0,0,0,,학살하고 그럴 때,
+Dialogue: 0,0:00:15.35,0:00:16.46,CAP,,0,0,0,,피해야 할지 몰라서
+Dialogue: 0,0:00:18.37,0:00:19.73,CAP,,0,0,0,,그것이 바로
+Dialogue: 0,0:00:19.73,0:00:20.77,CAP,,0,0,0,,테바입니다.
+Dialogue: 0,0:00:20.77,0:00:22.30,CAP,,0,0,0,,그것을 맡길 때
+Dialogue: 0,0:00:22.30,0:00:25.20,CAP,,0,0,0,,어떤 마음이 있었겠습니까.
+Dialogue: 0,0:00:25.20,0:00:27.24,CAP,,0,0,0,,하나님, 나는 나의 인생의 길을
+Dialogue: 0,0:00:27.24,0:00:29.54,CAP,,0,0,0,,전혀 알 수가 없습니다.
+Dialogue: 0,0:00:29.54,0:00:30.86,CAP,,0,0,0,,예측을 할 수 없습니다.
+Dialogue: 0,0:00:30.86,0:00:31.82,CAP,,0,0,0,,어떻게 살아야 될지 도무지
+Dialogue: 0,0:00:31.82,0:00:33.76,CAP,,0,0,0,,노아의 방주도 그렇고,
+Dialogue: 0,0:00:33.76,0:00:35.25,CAP,,0,0,0,,갈대상자도 그렇습니다.
+Dialogue: 0,0:00:35.25,0:00:37.69,CAP,,0,0,0,,근데 어떻게 보면
+Dialogue: 0,0:00:37.69,0:00:38.20,CAP,,0,0,0,,우리의 인생도 그러합니다.
+Dialogue: 0,0:00:38.20,0:00:40.88,CAP,,0,0,0,,하나님께서, 너희 착각하지 마.
+Dialogue: 0,0:00:40.88,0:00:43.24,CAP,,0,0,0,,너희는 방향키가 있는 인생을
+Dialogue: 0,0:00:43.24,0:00:45.22,CAP,,0,0,0,,너희가 주관해서 간다고\N생각하지만
+Dialogue: 0,0:00:45.22,0:00:46.59,CAP,,0,0,0,,그렇지 않아.
+Dialogue: 0,0:00:46.59,0:00:48.63,CAP,,0,0,0,,너희는 테바를 탄 인생이야.
+Dialogue: 0,0:00:48.66,0:00:49.86,CAP,,0,0,0,,어디로 갈지 모르고
+Dialogue: 0,0:00:49.86,0:00:51.47,CAP,,0,0,0,,헤매 있는 인생이기 때문에,
+Dialogue: 0,0:00:51.47,0:00:52.71,CAP,,0,0,0,,너희의 삶을 절대
+Dialogue: 0,0:00:52.71,0:00:55.44,CAP,,0,0,0,,인도할 수가 없어.
+Dialogue: 0,0:00:55.44,0:00:57.14,CAP,,0,0,0,,너희는 테바를 탄 인생이다,
+Dialogue: 0,0:00:57.14,0:00:59.25,CAP,,0,0,0,,모든 사람들에게 주님께서
+Dialogue: 0,0:00:59.25,0:01:02.31,CAP,,0,0,0,,선포하고 계시는 것입니다.
