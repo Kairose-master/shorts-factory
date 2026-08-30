@@ -1,0 +1,45 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: HOOK,Noto Sans CJK KR,116,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,-1,0,1,7,4,8,60,60,155,1
+Style: CAP,Noto Sans CJK KR,64,&H0000E0FF,&H0000E0FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,2,2,130,130,422,1
+Style: ENDLEAD,Noto Sans CJK KR,50,&H30FFFFFF,&H30FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: ENDMAIN,Noto Sans CJK KR,76,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
+Style: ENDSUB,Noto Sans CJK KR,50,&H18FFFFFF,&H18FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
+Style: STATUS,Noto Sans CJK KR,34,&H90FFFFFF,&H90FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,3,0,2,130,130,352,1
+Style: VERIFY,Noto Sans CJK KR,44,&H0000FFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,4,0,7,40,40,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:01:07.48,HOOK,,0,0,0,,"나도 겪어봤어."\N사실은 아닐 수 있습니다
+Dialogue: 3,0:01:07.48,0:01:10.98,ENDLEAD,,0,0,0,,{\pos(540,690)\fad(300,0)}원본 설교 전체는 채널에 있습니다
+Dialogue: 3,0:01:07.60,0:01:10.98,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2026년 5월 3일 주일예배(온라인 2부)
+Dialogue: 3,0:01:07.72,0:01:10.98,ENDSUB,,0,0,0,,{\pos(540,940)\fad(300,0)}삼하 5:17-25 · 장선기 목사
+Dialogue: 3,0:01:07.72,0:01:10.98,ENDSUB,,0,0,0,,{\pos(540,1020)\fad(300,0)}방배동 예심교회
+Dialogue: 0,0:00:00.00,0:00:02.84,CAP,,0,0,0,,그런데 상황이 똑같을까요? 안\N똑같을까요?
+Dialogue: 0,0:00:02.84,0:00:05.36,CAP,,0,0,0,,여러분, 블레셋 사람들이 골짜에\N가득하다.
+Dialogue: 0,0:00:05.36,0:00:08.14,CAP,,0,0,0,,이것만 보고 똑같다고 얘기할 수\N있을까요?
+Dialogue: 0,0:00:08.14,0:00:11.60,CAP,,0,0,0,,블레셋 사람들이 한번 졌기\N때문에, 그다음엔 뭔가 준비를 하고 왔겠죠.
+Dialogue: 0,0:00:11.60,0:00:15.60,CAP,,0,0,0,,그러니까 상황이라는 건, 변수가\N너무 다양해서 예측할 수가 없습니다.
+Dialogue: 0,0:00:15.60,0:00:19.12,CAP,,0,0,0,,우리는 누군가가 겪고 있는\N상황이
+Dialogue: 0,0:00:19.12,0:00:23.15,CAP,,0,0,0,,우리랑 100% 똑같은\N상황이라고 생각하십니까?
+Dialogue: 0,0:00:23.15,0:00:26.35,CAP,,0,0,0,,근데 우리는 누군가에게 너무나\N쉽게 조언합니다.
+Dialogue: 0,0:00:26.35,0:00:27.38,CAP,,0,0,0,,"나도 겪어봤는데"
+Dialogue: 0,0:00:27.38,0:00:29.52,CAP,,0,0,0,,아니, 뭘 겪었다는 얘기예요?
+Dialogue: 0,0:00:29.52,0:00:33.36,CAP,,0,0,0,,똑같은 상황을 겪고 있는 사람은\N아무도 없습니다. 변수는 너무 다양해요.
+Dialogue: 0,0:00:33.37,0:00:34.90,CAP,,0,0,0,,그렇지 않고, 모든 사람들이
+Dialogue: 0,0:00:34.90,0:00:39.51,CAP,,0,0,0,,경험하고 있는 것들은 다르다는\N생각을 가져야 되는 게 굉장히 중요합니다.
+Dialogue: 0,0:00:39.51,0:00:46.05,CAP,,0,0,0,,그것을 알 때 우리가 비로소\N겸손해지고, 위로해 주고 격려하는 법을 알게 되고
+Dialogue: 0,0:00:46.05,0:00:49.13,CAP,,0,0,0,,우리가 특별히 하나님을 의지할\N수 있게 되는 것입니다.
+Dialogue: 0,0:00:49.13,0:00:51.70,CAP,,0,0,0,,우리 옆 사람에게 축복합시다.
+Dialogue: 0,0:00:51.70,0:00:53.91,CAP,,0,0,0,,당신이 걷고 있는 길은
+Dialogue: 0,0:00:53.91,0:00:56.50,CAP,,0,0,0,,처음 가는 길입니다.
+Dialogue: 0,0:00:56.50,0:00:58.94,CAP,,0,0,0,,나는 비록 모르지만, 해결책이\N없지만
+Dialogue: 0,0:00:58.94,0:01:01.93,CAP,,0,0,0,,하나님을 의지하면서 이겨\N나가시기를 축복합니다.
+Dialogue: 0,0:01:03.63,0:01:06.47,CAP,,0,0,0,,그런 생각을 참 가지면 좋을 거\N같아요.
