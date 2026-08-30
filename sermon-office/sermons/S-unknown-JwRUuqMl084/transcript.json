@@ -1,0 +1,49 @@
+{
+ "videoId": "JwRUuqMl084",
+ "language": "Korean",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=JwRUuqMl084&ei=hdCTavCGMq7pybgPvZ650QI&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788097269&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=63534A98416B883501CE8ABAA13A3271C370461D.6F93DEFC190BE40FBB7C8D31BE811D87245AA93A&key=yt8&kind=asr&lang=ko",
+   "name": {
+    "simpleText": "Korean (auto-generated)"
+   },
+   "vssId": "a.ko",
+   "languageCode": "ko",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "[웃음]",
+   "startMs": "5540",
+   "endMs": "10360",
+   "startTimeText": "0:05"
+  },
+  {
+   "text": "하나님의",
+   "startMs": "12179",
+   "endMs": "15179",
+   "startTimeText": "0:12"
+  },
+  {
+   "text": "창조와 구속 사역이 불완전합니다",
+   "startMs": "16500",
+   "endMs": "20460",
+   "startTimeText": "0:16"
+  },
+  {
+   "text": "아니면",
+   "startMs": "18420",
+   "endMs": "22880",
+   "startTimeText": "0:18"
+  },
+  {
+   "text": "완성됐는데",
+   "startMs": "20460",
+   "endMs": "22880",
+   "startTimeText": "0:20"
+  }
+ ]
+}

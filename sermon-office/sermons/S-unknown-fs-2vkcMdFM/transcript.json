@@ -1,0 +1,97 @@
+{
+ "videoId": "fs-2vkcMdFM",
+ "language": "English",
+ "captionTracks": [
+  {
+   "baseUrl": "https://www.youtube.com/api/timedtext?v=fs-2vkcMdFM&ei=g9CTavfuEseZlu8P0PXSkA0&caps=asr&opi=112496729&exp=xpe&xoaf=5&xowf=1&hl=en&ip=0.0.0.0&ipbits=0&expire=1788097267&sparams=ip,ipbits,expire,v,ei,caps,opi,exp,xoaf&signature=2FA82E1299F497B968DC3CB8CAA58DAF8E3AFDA7.5EDEB738D8C793FB4A4443A3C89CCABF22D603FA&key=yt8&kind=asr&lang=en",
+   "name": {
+    "simpleText": "English (auto-generated)"
+   },
+   "vssId": "a.en",
+   "languageCode": "en",
+   "kind": "asr",
+   "isTranslatable": true,
+   "trackName": ""
+  }
+ ],
+ "transcript": [
+  {
+   "text": "thank you",
+   "startMs": "3200",
+   "endMs": "6200",
+   "startTimeText": "0:03"
+  },
+  {
+   "text": "[Music]",
+   "startMs": "32060",
+   "endMs": "35130",
+   "startTimeText": "0:32"
+  },
+  {
+   "text": "come on",
+   "startMs": "35420",
+   "endMs": "38660",
+   "startTimeText": "0:35"
+  },
+  {
+   "text": "[Music]",
+   "startMs": "46980",
+   "endMs": "50060",
+   "startTimeText": "0:46"
+  },
+  {
+   "text": "[Applause]",
+   "startMs": "64010",
+   "endMs": "67089",
+   "startTimeText": "1:04"
+  },
+  {
+   "text": "foreign",
+   "startMs": "75720",
+   "endMs": "78720",
+   "startTimeText": "1:15"
+  },
+  {
+   "text": "[Music]",
+   "startMs": "97290",
+   "endMs": "100359",
+   "startTimeText": "1:37"
+  },
+  {
+   "text": "thank you",
+   "startMs": "127340",
+   "endMs": "130340",
+   "startTimeText": "2:07"
+  },
+  {
+   "text": "[Music]",
+   "startMs": "135490",
+   "endMs": "138659",
+   "startTimeText": "2:15"
+  },
+  {
+   "text": "thank you",
+   "startMs": "145940",
+   "endMs": "148940",
+   "startTimeText": "2:25"
+  },
+  {
+   "text": "[Applause]",
+   "startMs": "160530",
+   "endMs": "163610",
+   "startTimeText": "2:40"
+  },
+  {
+   "text": "[Music]",
+   "startMs": "184330",
+   "endMs": "187439",
+   "startTimeText": "3:04"
+  },
+  {
+   "text": "[Applause]",
+   "startMs": "198260",
+   "endMs": "201470",
+   "startTimeText": "3:18"
+  }
+ ]
+}
