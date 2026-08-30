@@ -1,9 +1,11 @@
 # shorts-factory
 
-A short-form video research and scripting workspace for Claude Code.
+A video research, scripting and production workspace for Claude Code. Two
+pipelines: **short-form** (research-led, 30-second artifacts) and **longform**
+(a 10–20 minute video essay, in `episodes/`).
 
-43 Agent Skills from five upstream repositories, installed under
-`.claude/skills/` and left byte-identical to upstream. `CLAUDE.md` holds the
+73 Agent Skills under `.claude/skills/` — 43 from five upstream repositories and
+left byte-identical to upstream, plus 30 authored here. `CLAUDE.md` holds the
 routing rules; this file covers install, credentials and verification.
 
 ## Quick start
@@ -33,9 +35,12 @@ reported and skipped, and `--prefix` installs as `shorts-factory--<name>` instea
 | [vyralcontent/content-skills](https://github.com/vyralcontent/content-skills) | 7 | `viral-short-form`, `viral-hooks`, `viral-short-form-ideas`, `viral-youtube-shorts`, `viral-tiktok-content`, `viral-instagram-reels`, `viral-captions-and-ctas` |
 | [bradautomates/head-of-content](https://github.com/bradautomates/head-of-content) | 6 | `youtube-research`, `tiktok-research`, `instagram-research`, `x-research`, `video-content-analyzer`, `content-planner` |
 | [anthropics/skills](https://github.com/anthropics/skills) | 1 | `mcp-builder` |
+| authored here — short-form + Office | 9 | `shorts-factory`, `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`, `aicron`, `zapier-mcp`, `last30days` (vendored, MIT) |
+| authored here — longform | 13 | `longform-factory`, `philosophy-script`, `theology-red-team`, `hook-tournament`, `storyboard-director`, `avatar-director`, `visual-metaphor`, `remotion-video`, `subtitle-qc`, `thumbnail-director`, `video-red-team`, `youtube-publisher`, `analytics-review` |
 
 Provenance and content hashes live in `skills-lock.json`, written by the
-official `skills` CLI. `npx skills update` upgrades in place.
+official `skills` CLI. `npx skills update` upgrades in place — it tracks only
+the 43 upstream skills and will not touch the ones authored here.
 
 ### Why only one skill from `anthropics/skills`
 
@@ -133,9 +138,43 @@ Not installed, and only needed for the video *production* track:
 `python3 .claude/skills/studio-setup/scripts/doctor.py` reports what is
 reachable right now, including which optional keys are unset.
 
-## The orchestrator skill
+## The orchestrator skills
 
-`shorts-factory` (`.claude/skills/shorts-factory/`) is the entry point for any
+Two entry points. Pick by the **shape of the output**, not the topic.
+
+| Ask | Skill |
+|---|---|
+| Research a niche, a competitor, why a video went viral; shorts/Reels/TikTok ideas or scripts | `shorts-factory` |
+| A 10–20 minute video essay | `longform-factory` |
+| Anything Handsel promotion or content | `handsel-growth-office` (first, always) |
+
+### `longform-factory`
+
+Owns `episodes/`. Fifteen phases from script lock to analytics, with the
+priority order that follows from its organising claim — that the competitive
+core is not "an AI avatar talks" but *a philosophical structure converted into a
+visual form*:
+
+```
+Script → Red Team → Storyboard → Remotion → Avatar
+```
+
+An episode is **25–35% avatar, 65–75% motion graphics**, and every generative
+pass has an adversarial counterpart run separately: `philosophy-script` ↔
+`theology-red-team`, `storyboard-director` ↔ `video-red-team`, `remotion-video`
+↔ `subtitle-qc`.
+
+`storyboard.json` is imported directly by the Remotion composition, so a
+storyboard edit is a video edit. Phases needing a **CUDA GPU** (MuseTalk 1.5 /
+EchoMimicV2 lip-sync) or a **TTS credential** are isolated: without them the
+motion-graphics cut still renders, times and reviews correctly.
+
+First episode: `episodes/ai-baptism` — *AI가 세례를 받으려 한다면?*, 11:50, 14
+scenes, 157 beats, 26.1% avatar.
+
+### `shorts-factory`
+
+`.claude/skills/shorts-factory/` is the entry point for any short-form
 research or scripting request. It owns the nine-stage pipeline, the ask-to-skill
 routing table (`references/routing.md`), the cost gate on paid APIs, and the
 run-mode rule: **API mode** when keys are set, **open mode** when they are not.
@@ -144,13 +183,27 @@ strength — missing keys degrade a run, they do not block it.
 
 Example output: `research/ai-tools-automation-2026-08-27/report.md`.
 
+Do not route a longform ask through `shorts-factory` — its nine stages are built
+around a 30-second artifact, and its routing table has no phase for a storyboard,
+a claim map or a cut review.
+
 ## Verification
 
 `scripts/verify_skills.py` checks every skill for a valid `SKILL.md`, parsable
 frontmatter with `name` and `description`, a name matching its directory, every
 relative `scripts/` `references/` `assets/` path resolving inside the folder, no
-path escaping the folder, and that bundled Python parses. Current state: **43
+path escaping the folder, and that bundled Python parses. Current state: **73
 skills, 0 errors**, and every bundled script runs `--help` offline.
+
+`scripts/verify_storyboard.py <storyboard.json>` validates a longform storyboard:
+required fields, contiguous non-overlapping scenes, **beats summing exactly to
+their scene's duration**, beat durations inside the 3–14s band, and the avatar
+share inside its declared target band.
+
+`scripts/subtitle_qc.py` transcribes final narration with `faster-whisper` and
+diffs it against the canonical script — guarded lines verbatim, no missing
+sentences, timing drift inside threshold. It reports `SKIPPED` rather than
+passing when narration does not exist yet; an unrun check is never a pass.
 
 ## China platform coverage — NOT SUPPORTED
 

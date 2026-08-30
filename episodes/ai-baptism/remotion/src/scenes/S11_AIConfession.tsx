@@ -62,7 +62,7 @@ export const S11_AIConfession: React.FC = () => {
           style={{alignItems: 'center', justifyContent: 'flex-start', paddingTop: 168}}
         >
           <div style={riseIn((absSec - quote.at) * 30, 0, 20)}>
-            <Statement size={62} color={T.cold} weight={700}>
+            <Statement size={62} color="#7FA9D6" weight={700}>
               {quote.text}
             </Statement>
           </div>

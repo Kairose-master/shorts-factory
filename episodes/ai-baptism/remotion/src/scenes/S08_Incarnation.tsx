@@ -129,12 +129,29 @@ export const S08_Incarnation: React.FC = () => {
         </AbsoluteFill>
       </AbsoluteFill>
 
-      {/* one human silhouette — face never rendered */}
+      {/* one human silhouette — face never rendered.
+          The figure is dark, so it needs a lit ground to be a silhouette
+          *against*; without it the layer is black on black and reads as an
+          empty frame rather than as the arrival the whole zoom was heading for. */}
       <AbsoluteFill style={layerStyle(z, 0.87, 1.06, 3.0)}>
+        <AbsoluteFill
+          style={{
+            background: `radial-gradient(ellipse 42% 46% at 50% 62%, ${T.warm}3A 0%, ${T.warmSoft}14 44%, transparent 74%)`,
+          }}
+        />
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'flex-end'}}>
           <svg width={560} height={780} viewBox="0 0 560 780">
-            <ellipse cx={280} cy={128} rx={62} ry={72} fill="#0B0B0E" />
-            <path d="M 132 780 L 148 320 Q 280 246 412 320 L 428 780 Z" fill="#0B0B0E" />
+            <ellipse cx={280} cy={128} rx={62} ry={72} fill="#08070A" />
+            <path d="M 132 780 L 148 320 Q 280 246 412 320 L 428 780 Z" fill="#08070A" />
+            {/* rim light, so the edge separates from the glow behind it */}
+            <path
+              d="M 132 780 L 148 320 Q 280 246 412 320 L 428 780"
+              fill="none"
+              stroke={T.warm}
+              strokeWidth={2}
+              opacity={0.42}
+            />
+            <ellipse cx={280} cy={128} rx={62} ry={72} fill="none" stroke={T.warm} strokeWidth={2} opacity={0.42} />
           </svg>
         </AbsoluteFill>
       </AbsoluteFill>
@@ -183,11 +200,15 @@ export const S08_Incarnation: React.FC = () => {
         })}
       </div>
 
-      {/* RT-01: the marker holds for the entire metaphor, it does not flash. */}
-      {marker ? <TheologyMarker text="※ 비유입니다 — 교리 정식이 아닙니다" opacity={markerFade} /> : null}
-
       <Vignette strength={0.62} />
       <Grain opacity={0.06} />
+
+      {/* RT-01: the marker holds for the entire metaphor, it does not flash —
+          and it sits ABOVE the vignette, like the caption. Drawn under the
+          grade it loses most of its contrast at the bottom of frame, which is
+          where the vignette is strongest and where the marker lives. */}
+      {marker ? <TheologyMarker text="※ 비유입니다 — 교리 정식이 아닙니다" opacity={markerFade} /> : null}
+
       <Caption scene={scene} />
     </Frame>
   );

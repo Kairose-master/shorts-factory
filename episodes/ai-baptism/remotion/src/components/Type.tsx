@@ -66,14 +66,16 @@ export const TheologyMarker: React.FC<{text: string; opacity?: number}> = ({
   >
     <div
       style={{
-        opacity: opacity * 0.82,
-        fontSize: 21,
-        letterSpacing: '0.06em',
-        color: T.inkDim,
-        border: `1px solid ${T.inkFaint}`,
+        opacity,
+        fontSize: 26,
+        fontWeight: 500,
+        letterSpacing: '0.04em',
+        color: T.ink,
+        border: `1.5px solid ${T.warmSoft}`,
         borderRadius: 4,
-        padding: '7px 18px',
-        background: 'rgba(10,10,12,0.6)',
+        padding: '10px 26px',
+        background: 'rgba(14,12,8,0.92)',
+        textShadow: '0 1px 10px rgba(0,0,0,0.9)',
       }}
     >
       {text}

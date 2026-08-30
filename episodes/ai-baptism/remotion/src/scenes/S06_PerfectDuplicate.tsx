@@ -221,9 +221,9 @@ export const S06_PerfectDuplicate: React.FC = () => {
         </AbsoluteFill>
       ) : null}
 
-      <CornerMarker text="사고실험" opacity={absSec >= 217 && payoff < 0.5 ? 1 : 0} />
       <Vignette />
       <Grain />
+      <CornerMarker text="사고실험" opacity={absSec >= 217 && payoff < 0.5 ? 1 : 0} />
       <Caption scene={scene} />
     </Frame>
   );

@@ -64,6 +64,8 @@ rather than philosophy. Hence S05B.
 | Theology red team | **PASS** (2 required fixes applied) |
 | Storyboard | **VALID** — beats sum exactly, avatar share inside band |
 | Remotion composition | **BUILDS AND RENDERS** — typecheck clean |
+| Rendered cut | `export/final.mp4` — 11:50.06 · 1920×1080 · 30fps · H.264 |
+| Thumbnail | `thumbnail/thumbnail.png` — rendered |
 | Narration | **MISSING** — no TTS credential in this environment |
 | Avatar lip-sync | **MISSING** — no CUDA GPU in this environment |
 | Cut review | pending final audio |

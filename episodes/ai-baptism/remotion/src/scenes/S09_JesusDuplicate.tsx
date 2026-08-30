@@ -111,9 +111,11 @@ export const S09_JesusDuplicate: React.FC = () => {
         </AbsoluteFill>
       ) : null}
 
-      <CornerMarker text="사고실험" />
       <Vignette />
       <Grain />
+      {/* Above the grade, for the same reason as S08's marker: a marker the
+          vignette has washed out is not doing the job RT-03 gave it. */}
+      <CornerMarker text="사고실험" />
       <Caption scene={scene} />
     </Frame>
   );

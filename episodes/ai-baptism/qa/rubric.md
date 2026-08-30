@@ -58,12 +58,28 @@ mandatory list:
 | Theology red team | PASS (2 required fixes applied) |
 | Storyboard | **VALID** — 14 scenes, 157 beats, beats sum exactly, avatar 26.1% |
 | Remotion composition | **BUILDS AND RENDERS** — 14 scene components, typecheck clean |
+| Rendered cut | `export/final.mp4` — 11:50.06, 1920×1080, 30fps, H.264, 52MB |
+| Thumbnail | `thumbnail/thumbnail.png` — rendered |
 | Narration | **MISSING** — no TTS credential in this environment |
 | Avatar lip-sync | **MISSING** — no CUDA GPU in this environment |
 | Subtitles | SRT generated from storyboard; QC skipped pending audio |
-| Thumbnail | concept chosen, renders as a Remotion Still |
 | Cut review | pending final audio |
 | Publish | **BLOCKED** — human approval required, and two gates are not yet run |
+
+## Defects found by reviewing the render, and fixed
+
+Stills are cheap and the full pass is not, but some faults only appear in the
+finished file. Found by extracting frames from `final.mp4` and looking at them:
+
+| Where | Defect | Fix |
+|---|---|---|
+| S08 | The human silhouette was `#0B0B0E` on a `#040406` ground — black on black. The arrival the entire 80-second zoom is heading toward was an empty frame. | A warm lit ground behind the figure plus a rim light, so it is a silhouette *against* something |
+| S08, S09, S06 | Markers were drawn **under** the vignette, at the bottom of frame where the vignette is strongest. RT-01's `※ 비유입니다` was washed to near-illegible — and a disclaimer the viewer cannot read is not a disclaimer, which is the exact failure RT-01 exists to prevent | Markers now render above the grade, like captions. Also larger, warm-bordered, higher contrast |
+| S11 | Pull quotes at `T.cold` lost too much contrast on the near-black confession frame | Lightened to `#7FA9D6` |
+
+Two earlier defects were caught at the still stage: S06's figures overflowed the
+frame and collided with the payoff title, and S04's detector panel was undersized
+with a `scaleY` collapse that read as a render fault rather than a rejection.
 
 ## What the current render actually is
 
