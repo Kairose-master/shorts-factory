@@ -15,7 +15,7 @@
  "ingested_at": "2026-08-29",
  "caption_kind": "asr",
  "caption_cues": 592,
- "sermon_start_ms_estimated": 3060000,
- "sermon_start_basis": "음악 종료 50분 + 60초 (봉독 신호 없음)",
+ "sermon_start_ms_estimated": 0,
+ "sermon_start_basis": "수정(수동) — 자동 추정(51:00)은 영상 길이(49:46)를 넘어서는 불가능한 값이었다. 실제로는 첫 큐(0:00)부터 마이크 테스트 후 곧바로 본론이 시작된다(첫 봉독 신호는 1:49 부근, 엡5:15).",
  "quote_audio_verified": false
 }
