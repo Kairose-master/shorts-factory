@@ -1,17 +1,21 @@
 # shorts-factory
 
-A short-form video research and scripting workspace, and the home of the
-**Handsel Short-Form Growth Office** (`office/`).
+A short-form video research and scripting workspace, the home of the
+**Handsel Short-Form Growth Office** (`office/`), and — since the `ai-baptism`
+episode — a **longform video-essay pipeline** (`episodes/`, see below).
 
-52 Agent Skills are installed under `.claude/skills/`:
+73 Agent Skills are installed under `.claude/skills/`:
 
 - **43 upstream skills** pulled from five repositories and left **byte-identical
   to upstream** so `npx skills update` keeps working. These are the ones tracked
   in `skills-lock.json`.
-- **8 local skills** authored here and deliberately *not* in the lock file:
-  `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
-  `aicron`, `zapier-mcp` — plus `shorts-factory` itself. `npx skills update`
-  will not touch them.
+- **8 local short-form skills** authored here and deliberately *not* in the lock
+  file: `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
+  `aicron`, `zapier-mcp` — plus `shorts-factory` itself.
+- **13 local longform skills**, also outside the lock file: `longform-factory`
+  and the twelve it orchestrates (see *The longform pipeline*).
+
+`npx skills update` will not touch any of the local ones.
 - **1 vendored upstream skill**, `last30days` (MIT,
   [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)),
   copied byte-identical but not in the lock file. **It needs Python 3.12+**,
@@ -21,7 +25,9 @@ A short-form video research and scripting workspace, and the home of the
   error.
 
 Run `python3 scripts/verify_skills.py` after any change to the skills tree,
-and `python3 scripts/verify_backlog.py` after any change to the Office backlog.
+`python3 scripts/verify_backlog.py` after any change to the Office backlog, and
+`python3 scripts/verify_storyboard.py <storyboard.json>` after any change to a
+longform storyboard.
 
 ## Start here
 
@@ -30,10 +36,17 @@ and `python3 scripts/verify_backlog.py` after any change to the Office backlog.
 It owns the Growth Office in `office/` — the mission, the memory, the approval
 boundary, and the rule that nothing publishes without explicit human approval.
 
-For a generic research or scripting request with no Handsel angle, invoke the
-**`shorts-factory`** skill instead (`.claude/skills/shorts-factory/SKILL.md`). It owns the nine-stage
-pipeline, the ask-to-skill routing table, the cost gate on paid APIs, and the
-run-mode rule below. The sections here are the workspace conventions it assumes.
+For a generic short-form research or scripting request with no Handsel angle,
+invoke the **`shorts-factory`** skill instead
+(`.claude/skills/shorts-factory/SKILL.md`). It owns the nine-stage pipeline, the
+ask-to-skill routing table, the cost gate on paid APIs, and the run-mode rule
+below. The sections here are the workspace conventions it assumes.
+
+For a **10–20 minute video essay** — a longform piece where the argument rather
+than the clip is the unit — invoke **`longform-factory`**
+(`.claude/skills/longform-factory/SKILL.md`). Different shape, different
+pipeline, different output tree. Do not route a longform ask through
+`shorts-factory`; its nine stages are built around a 30-second artifact.
 
 ## Run mode
 
@@ -178,6 +191,68 @@ Two rules override everything else in this file when the Office is running:
 1. **Nothing publishes without explicit human approval.** Every time.
 2. **Never invent Handsel functionality.** Every factual claim traces to a line in
    `office/research/handsel-model.md`, or it is cut.
+
+## The longform pipeline
+
+`episodes/` holds longform video essays. The first is `ai-baptism`
+("AI가 세례를 받으려 한다면?", 11:50, 16:9).
+
+The competitive claim is deliberately **not** "an AI avatar talks". It is *a
+philosophical structure converted into a visual form*, and priority follows:
+
+```
+Script → Red Team → Storyboard → Remotion → Avatar
+```
+
+An episode is **25–35% avatar, 65–75% motion graphics**. A held synthetic face
+is the strongest "this was generated" signal a viewer gets, and abstract
+subjects — duplication, identity, time, particularity — have no natural footage
+anyway. Graphics are not a substitute here; they are the only way to *show* the
+argument.
+
+Every generative pass has an adversarial counterpart, run separately:
+`philosophy-script`↔`theology-red-team`, `storyboard-director`↔`video-red-team`,
+`remotion-video`↔`subtitle-qc`. The writer is the worst judge of whether the
+thing should ship.
+
+| # | Phase | Skill |
+|---|---|---|
+| 1–2 | Script + claim separation | `philosophy-script`, `theology-red-team` |
+| 3 | Cold open tournament | `hook-tournament` |
+| 4–6 | Storyboard, avatar budget, metaphors | `storyboard-director`, `avatar-director`, `visual-metaphor` |
+| 7–9 | Assets, narration, lip-sync | `media-acquisition`, `voicebox`, `avatar-director` |
+| 10–11 | Assembly, subtitles | `remotion-video`, `subtitle-qc` |
+| 12–13 | Cut review, thumbnail | `video-red-team`, `thumbnail-director` |
+| 14–15 | Publish, learn | `youtube-publisher`, `analytics-review` |
+
+Phases 1–6 and 10–13 need no GPU and no paid key — run them first, always.
+Phase 9 needs **CUDA** (MuseTalk 1.5 / EchoMimicV2); this container has none, so
+avatar beats fall back to a designed plate and the episode still renders and
+reviews correctly. Say that plainly rather than implying a cut is final.
+
+```
+episodes/<id>/
+├── script/      canonical.md · claim-map.json · theology-redteam.md
+├── storyboard/  storyboard.json      ← the single timing source
+├── remotion/    the composition (node_modules gitignored, fonts vendored)
+├── prompts/ assets/ audio/ avatar/ subtitles/ thumbnail/ qa/
+└── export/      metadata.json (final.mp4 gitignored)
+```
+
+`storyboard.json` is imported directly by the Remotion composition, so **a
+storyboard edit is a video edit** — there is no second place to change a timing.
+Validate after any change:
+
+```bash
+python3 scripts/verify_storyboard.py episodes/<id>/storyboard/storyboard.json
+```
+
+Korean fonts are **vendored** into `remotion/public/fonts/` (Pretendard,
+SIL OFL 1.1). The container ships no Korean font, so without them every Hangul
+glyph renders as an empty box — and a CDN webfont fails silently at render time.
+
+Nothing publishes without explicit human approval. A successful render is not an
+approval; neither is a passing QA score.
 
 ## The render layer
 

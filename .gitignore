@@ -44,3 +44,15 @@ vendor/
 # Office renders. Plans, scripts and QC verdicts are committed; binaries are not.
 office/production/*/renders/
 office/production/*/refs/
+
+# Longform episodes. The bundle IS the deliverable and is committed — script,
+# claim map, storyboard, Remotion source, QA, metadata. Only the outputs that
+# are large and reproducible from that source stay out.
+episodes/*/export/*.mp4
+episodes/*/audio/*
+!episodes/*/audio/manifest.json
+episodes/*/avatar/*
+!episodes/*/avatar/.gitkeep
+episodes/*/remotion/public/audio/
+episodes/*/remotion/public/avatar/
+episodes/*/assets/generated/

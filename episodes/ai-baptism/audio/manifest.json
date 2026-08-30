@@ -1,0 +1,38 @@
+{
+  "episodeId": "ai-baptism",
+  "status": "PENDING — no TTS credential is set in this environment",
+  "note": "Narration is attached at episode level in Remotion, not per scene: the storyboard was timed against one continuous WAV, and splitting it per scene lets drift accumulate at every seam. Generate one file per voice covering the full 710s, with silence where that voice is not speaking.",
+  "voices": [
+    {
+      "id": "narrator",
+      "role": "The essayist. Present in every scene except S11.",
+      "direction": "Calm, young adult, intellectually curious. Not sermon-like, not announcer-like. Natural conversational Korean pace. Falls quiet rather than filling — the silences are written into the storyboard and must survive generation.",
+      "target": "audio/narration.wav",
+      "coverageSec": 525
+    },
+    {
+      "id": "ai",
+      "role": "The AI character. S01, S02 (one line), S03 (two lines), S06 (the copy), S11 entire, S13.",
+      "direction": "Same language, distinct timbre from the narrator, slightly flatter prosody. NOT robotic and NOT processed — the point is that it sounds like a person until you ask whether it is one. Processing it into a machine voice answers the episode's question in the sound design, which is the one thing the episode refuses to do.",
+      "target": "audio/ai-voice.wav",
+      "coverageSec": 185,
+      "qaCondition": "subtitle-qc fails the render if S11 comes back in the narrator voice. This is a content failure, not a cosmetic one: the argument depends on the viewer hearing a second speaker."
+    }
+  ],
+  "music": {
+    "target": "audio/bed.wav",
+    "gain": 0.16,
+    "direction": "One sustained pad, no melody, no percussion. Must be able to drop to silence entirely for S08 (성육신) and S11 (the confession) and return without a swell. A bed that builds toward the conclusion would tell the viewer the episode reached one.",
+    "source": "Free tier only — Archive.org / public-domain or CC0. Record licence in the asset manifest before use."
+  },
+  "engines": {
+    "available": [],
+    "blocked": "No TTS credential is set. ELEVENLABS_API_KEY, DASHSCOPE_API_KEY (Qwen3-TTS) and GOOGLE_APPLICATION_CREDENTIALS are all unset, and no offline Korean engine (piper, espeak-ng) is installed in this container.",
+    "options": [
+      "Set DASHSCOPE_API_KEY and use Qwen3-TTS (Apache-2.0 client, strong Korean).",
+      "Set ELEVENLABS_API_KEY for two clearly distinct voices with the least setup.",
+      "Install Piper with a Korean voice for a free offline draft — good enough to validate timing, not good enough to ship.",
+      "Record a human read. For an essay channel this is the strongest option and removes the corporate-TTS mandatory failure entirely."
+    ]
+  }
+}

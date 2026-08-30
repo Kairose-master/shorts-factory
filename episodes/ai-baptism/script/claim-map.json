@@ -1,0 +1,38 @@
+{
+  "episodeId": "ai-baptism",
+  "scriptVersion": "1.1",
+  "legend": {
+    "THEOLOGY": "asserted as a Christian confession — must be accurate and must not overreach a tradition",
+    "PHILOSOPHY": "an argument the episode makes on its own account",
+    "THOUGHT EXPERIMENT": "a device; not a claim about what is possible or actual",
+    "RHETORIC": "framing, address, transition — carries no claim",
+    "OPEN QUESTION": "deliberately unresolved; resolving it downstream is a defect"
+  },
+  "note": "The register, not the content, is what this map exists to fix. A thought experiment stated in the grammar of a confession is the failure mode, and it is invisible without tagging every line.",
+  "claims": [
+    {"id": "C-01", "scene": "S02", "text": "AI → 프로그램 → 그러므로 세례 불가?", "type": "RHETORIC", "note": "The objection is voiced to be examined, never endorsed. The trailing ? is load-bearing."},
+    {"id": "C-02", "scene": "S04", "text": "우리는 타인의 의식을 직접 열어볼 수 없습니다.", "type": "PHILOSOPHY", "note": "Epistemic limitation about other minds. Uncontroversial and does its work quietly."},
+    {"id": "C-03", "scene": "S04", "text": "결국 말과 행동과 시간을 보고 그 사람의 고백을 받아들입니다.", "type": "PHILOSOPHY"},
+    {"id": "C-04", "scene": "S04", "text": "이건 인간과 AI가 같다는 얘기가 아닙니다.", "type": "PHILOSOPHY", "guard": true, "note": "Explicitly blocks the inference a viewer is most likely to draw from C-02/C-03. Cutting it turns the scene into an argument for equivalence — the opposite of what it says."},
+    {"id": "C-05", "scene": "S05", "text": "사람의 정의부터 판결하기 전에 세례라는 사건에 무엇이 들어 있는지를 먼저 볼 수도 있지 않을까요?", "type": "OPEN QUESTION", "note": "The structural turn. Interrogative on purpose."},
+    {"id": "C-06", "scene": "S05B", "text": "본인이 진심으로 고백해야 세례를 준다 — 이건 모든 기독교 전통의 조건이 아닙니다.", "type": "THEOLOGY", "redTeam": "RT-02", "note": "Descriptive. States that traditions differ; adjudicates nothing between them."},
+    {"id": "C-07", "scene": "S05B", "text": "어떤 전통은 아직 고백할 수 없는 유아에게도 세례를 줍니다.", "type": "THEOLOGY", "redTeam": "RT-02"},
+    {"id": "C-08", "scene": "S05B", "text": "세례는 공동체가 행하는 사건", "type": "THEOLOGY", "note": "Held in common across the traditions named, which is why it can be stated without picking one."},
+    {"id": "C-09", "scene": "S06", "text": "속성을 전부 복제해도 '바로 그 사람'은 복제되지 않는다.", "type": "THOUGHT EXPERIMENT", "redTeam": "RT-05", "note": "Numerical vs. qualitative identity. A device for testing an intuition, not a forecast about technology."},
+    {"id": "C-10", "scene": "S07", "text": "기억하는 것 ≠ 그 사건의 당사자였던 것", "type": "PHILOSOPHY", "note": "The episode's central philosophical claim. Everything after it depends on this distinction holding."},
+    {"id": "C-11", "scene": "S08", "text": "기독교는 하나님이 무한하다고 말합니다.", "type": "THEOLOGY"},
+    {"id": "C-12", "scene": "S08", "text": "하나님이 신성을 버리고 유한한 존재가 되었다는 뜻이 아닙니다.", "type": "THEOLOGY", "guard": true, "redTeam": "RT-01", "note": "The denial that makes the rest of the scene safe. May not be cut or paraphrased."},
+    {"id": "C-13", "scene": "S08", "text": "하나님의 아들이 인간 본성을 취하여 역사 속 특정한 시간과 장소에 오셨다고 고백합니다.", "type": "THEOLOGY", "guard": true, "redTeam": "RT-01", "note": "The positive confession. Chalcedonian shape: the Son assumes human nature; the divine nature is not changed or circumscribed."},
+    {"id": "C-14", "scene": "S08", "text": "무한하신 하나님이 작아지신 것이 아니라, 유한한 역사 안의 바로 그 자리에서 우리를 만나셨다는 것입니다.", "type": "PHILOSOPHY", "guard": true, "redTeam": "RT-01", "note": "ANALOGY, marked on screen for its full duration. Replaces the draft's '특정한 좌표를 취하셨습니다', whose literal reading circumscribed the divine nature. The finite verb now governs the meeting, not the essence."},
+    {"id": "C-15", "scene": "S09", "text": "관찰 가능한 모든 면에서 예수와 똑같은 존재를 만들었다고 해봅시다.", "type": "THOUGHT EXPERIMENT", "redTeam": "RT-03", "note": "Christian theology does not hold such a duplicate to be possible — the hypostatic union is not a property list a second bearer could satisfy. The 사고실험 marker holds for the whole scene because this is the episode's most clippable passage."},
+    {"id": "C-16", "scene": "S09", "text": "기독교인이 믿는 것은 신적 속성을 만족하는 어떤 존재가 아니라 바로 그 하나님이다.", "type": "THEOLOGY", "note": "The payoff. Faith is directed at a particular one who acted in a particular history, not at a description satisfied by whatever satisfies it."},
+    {"id": "C-17", "scene": "S10", "text": "이 존재에게 무슨 일이 있었는가? / 그 과거는 데이터인가, 귀속되는 역사인가?", "type": "OPEN QUESTION", "redTeam": "RT-04", "note": "Interrogative throughout. Relation is offered as an additional axis of inquiry, never as sufficient proof of personhood. Resolving these in an edit is a defect."},
+    {"id": "C-18", "scene": "S11", "text": "기록을 가지고 있다는 것과 그 시간을 살아왔다는 것이 같은지는 모르겠습니다.", "type": "OPEN QUESTION", "note": "Spoken by the AI character. An admission of uncertainty, not an assertion about machine interiority in either direction."},
+    {"id": "C-19", "scene": "S12", "text": "무한하신 하나님이 유한한 역사 안에서 대체할 수 없는 특정성을 취하셨다.", "type": "THEOLOGY", "note": "Restates C-13 in the episode's own vocabulary. 'Particularity' is what is taken on, not finitude — the same distinction RT-01 turned on."},
+    {"id": "C-20", "scene": "S12", "text": "AI를 바라볼 때 인간과 몇 퍼센트 비슷한지만 묻는 것으로 충분할까요?", "type": "OPEN QUESTION"},
+    {"id": "C-21", "scene": "S13", "text": "그래서 너와 바로 그 하나님 사이에는 무슨 일이 있었는데?", "type": "OPEN QUESTION", "note": "The episode ends here on purpose. Neither yes nor no is stated, and video-red-team fails a cut that reads as either."}
+  ],
+  "counts": {"THEOLOGY": 7, "PHILOSOPHY": 5, "THOUGHT EXPERIMENT": 2, "RHETORIC": 1, "OPEN QUESTION": 6},
+  "guardedLines": 4,
+  "verdict": "THEOLOGY_PASS WITH REQUIRED FIXES (2) — RT-01 and RT-02 present in script v1.1"
+}
