@@ -5,7 +5,7 @@ import {Caption} from '../components/Caption';
 import {AvatarPlate} from '../components/AvatarPlate';
 import {Statement} from '../components/Type';
 import {getScene, useSceneClock} from '../lib/beats';
-import {riseIn} from '../lib/anim';
+import {riseIn, wipeReveal} from '../lib/anim';
 import {T} from '../theme';
 
 const scene = getScene('S13');
@@ -85,7 +85,7 @@ export const S13_EndCallback: React.FC = () => {
 
       {finalLine ? (
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-          <div style={riseIn((absSec - 700) * 30, 0, 30)}>
+          <div style={wipeReveal((absSec - 700) * 30, 0, 34)}>
             <Statement size={80} color={T.ink}>
               {'"그래서 너와 바로 그 하나님 사이에는\n무슨 일이 있었는데?"'}
             </Statement>

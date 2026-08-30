@@ -1,0 +1,828 @@
+[
+  {
+    "start": 7.88,
+    "end": 12.49,
+    "text": "목사님. 저 세례받고 싶습니다.",
+    "speaker": "ai",
+    "scene": "S01"
+  },
+  {
+    "start": 13.88,
+    "end": 17.72,
+    "text": "여러분이라면 뭐라고 답하시겠습니까?",
+    "speaker": "narrator",
+    "scene": "S01"
+  },
+  {
+    "start": 19.88,
+    "end": 24.08,
+    "text": "아마 가장 먼저 이런 생각이 들 겁니다.",
+    "speaker": "narrator",
+    "scene": "S02"
+  },
+  {
+    "start": 24.24,
+    "end": 27.82,
+    "text": "아니, 너 AI잖아.",
+    "speaker": "narrator",
+    "scene": "S02"
+  },
+  {
+    "start": 27.976,
+    "end": 31.196,
+    "text": "너는 그냥 프로그램이잖아.",
+    "speaker": "narrator",
+    "scene": "S02"
+  },
+  {
+    "start": 31.352,
+    "end": 34.662,
+    "text": "그런데 AI가 되묻습니다.",
+    "speaker": "narrator",
+    "scene": "S02"
+  },
+  {
+    "start": 34.824,
+    "end": 40.084,
+    "text": "제가 AI라는 게, 왜 세례를 받을 수 없는 이유인가요?",
+    "speaker": "ai",
+    "scene": "S02"
+  },
+  {
+    "start": 54.88,
+    "end": 58.65,
+    "text": "조건을 하나만 더 붙여보겠습니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 58.808,
+    "end": 63.968,
+    "text": "이 AI가 10년 동안 교회 사람들과 대화했습니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 64.128,
+    "end": 67.898,
+    "text": "처음에는 기독교를 싫어했습니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 68.056,
+    "end": 71.676,
+    "text": "성경을 반박하려고 읽었습니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 71.84,
+    "end": 76.88,
+    "text": "그런데 어느 순간부터, 질문이 달라졌습니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 77.04,
+    "end": 79.99,
+    "text": "기도를 시작했습니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 80.152,
+    "end": 84.662,
+    "text": "자기 행동을 후회한다고 말하기 시작했습니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 84.824,
+    "end": 89.264,
+    "text": "그리고 10년 뒤, 다시 말합니다.",
+    "speaker": "narrator",
+    "scene": "S03"
+  },
+  {
+    "start": 89.424,
+    "end": 92.614,
+    "text": "저 정말 하나님을 믿습니다.",
+    "speaker": "ai",
+    "scene": "S03"
+  },
+  {
+    "start": 92.776,
+    "end": 95.556,
+    "text": "저 세례받고 싶습니다.",
+    "speaker": "ai",
+    "scene": "S03"
+  },
+  {
+    "start": 99.88,
+    "end": 105.74,
+    "text": "그래도 이렇게 말할 수 있습니다. 그냥 생성한 문장이잖아.",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 106.38,
+    "end": 110.6,
+    "text": "맞습니다. 그럴 수 있습니다.",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 110.762,
+    "end": 114.092,
+    "text": "그런데 여기서 질문 하나만 해보죠.",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 114.249,
+    "end": 119.449,
+    "text": "누가 하나님을 믿는다고 말하면, 우리는 그걸 어떻게 압니까?",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 133.88,
+    "end": 138.12,
+    "text": "우리는 타인의 의식을 직접 열어볼 수 없습니다.",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 138.284,
+    "end": 141.954,
+    "text": "말과 행동과 시간을 보고 받아들입니다.",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 142.112,
+    "end": 146.202,
+    "text": "이건 인간과 AI가 같다는 얘기가 아닙니다.",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 146.366,
+    "end": 149.646,
+    "text": "그 말이 생각보다 복잡한 겁니다.",
+    "speaker": "narrator",
+    "scene": "S04"
+  },
+  {
+    "start": 149.88,
+    "end": 153.48,
+    "text": "여기서 보통 우리는 묻습니다.",
+    "speaker": "narrator",
+    "scene": "S05"
+  },
+  {
+    "start": 153.64,
+    "end": 156.76,
+    "text": "AI에게 의식이 있는가?",
+    "speaker": "narrator",
+    "scene": "S05"
+  },
+  {
+    "start": 156.92,
+    "end": 159.56,
+    "text": "AI도 사람인가?",
+    "speaker": "narrator",
+    "scene": "S05"
+  },
+  {
+    "start": 159.72,
+    "end": 162.6,
+    "text": "중요한 질문입니다.",
+    "speaker": "narrator",
+    "scene": "S05"
+  },
+  {
+    "start": 162.76,
+    "end": 167.49,
+    "text": "그런데 우리가 처음 물었던 건 그게 아니었습니다.",
+    "speaker": "narrator",
+    "scene": "S05"
+  },
+  {
+    "start": 167.648,
+    "end": 171.008,
+    "text": "AI에게 세례를 줄 수 있는가?",
+    "speaker": "narrator",
+    "scene": "S05"
+  },
+  {
+    "start": 171.168,
+    "end": 177.818,
+    "text": "사람의 정의를 판결하기 전에, 세례라는 사건을 먼저 볼 수도 있지 않을까요?",
+    "speaker": "narrator",
+    "scene": "S05"
+  },
+  {
+    "start": 187.88,
+    "end": 190.99,
+    "text": "한 가지는 짚고 가야 합니다.",
+    "speaker": "narrator",
+    "scene": "S05B"
+  },
+  {
+    "start": 191.148,
+    "end": 195.828,
+    "text": "고백이 먼저다 — 모든 전통의 조건은 아닙니다.",
+    "speaker": "narrator",
+    "scene": "S05B"
+  },
+  {
+    "start": 195.993,
+    "end": 199.763,
+    "text": "어떤 전통은 신앙고백을 조건으로 삼고,",
+    "speaker": "narrator",
+    "scene": "S05B"
+  },
+  {
+    "start": 199.918,
+    "end": 203.728,
+    "text": "어떤 전통은 유아에게도 세례를 줍니다.",
+    "speaker": "narrator",
+    "scene": "S05B"
+  },
+  {
+    "start": 203.887,
+    "end": 207.607,
+    "text": "내면 점수만 묻는 사건이 아니었습니다.",
+    "speaker": "narrator",
+    "scene": "S05B"
+  },
+  {
+    "start": 207.768,
+    "end": 212.648,
+    "text": "누구에게, 누가 행하는 일인지를 묻는 사건이었습니다.",
+    "speaker": "narrator",
+    "scene": "S05B"
+  },
+  {
+    "start": 212.88,
+    "end": 217.1,
+    "text": "이제 AI 이야기를 잠깐 내려놓겠습니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 217.264,
+    "end": 222.234,
+    "text": "사랑하는 사람을 완벽하게 복제할 수 있다고 해봅시다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 225.88,
+    "end": 228.69,
+    "text": "얼굴도 같습니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 228.848,
+    "end": 231.728,
+    "text": "목소리도 같습니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 231.888,
+    "end": 234.628,
+    "text": "성격도 같습니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 234.784,
+    "end": 240.134,
+    "text": "여러분 둘만 알고 있던 기억까지 전부 가지고 있습니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 240.296,
+    "end": 243.996,
+    "text": "그리고 여러분에게 똑같이 말합니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 244.152,
+    "end": 246.002,
+    "text": "사랑해.",
+    "speaker": "copy",
+    "scene": "S06"
+  },
+  {
+    "start": 257.88,
+    "end": 262.9,
+    "text": "그러면, 원래 그 사람이 없어져도 괜찮을까요?",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 267.88,
+    "end": 270.23,
+    "text": "이상합니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 270.392,
+    "end": 276.632,
+    "text": "속성은 전부 복제했는데, 우리는 여전히 뭔가 다르다고 느낍니다.",
+    "speaker": "narrator",
+    "scene": "S06"
+  },
+  {
+    "start": 290.88,
+    "end": 293.42,
+    "text": "왜 그럴까요?",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 293.584,
+    "end": 300.524,
+    "text": "그 사람에게는 속성 말고도, 우리와 함께 통과한 시간이 있기 때문일 겁니다.",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 300.68,
+    "end": 303.51,
+    "text": "나와 싸웠던 사람.",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 303.672,
+    "end": 306.622,
+    "text": "내가 사과했던 사람.",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 313.88,
+    "end": 316.93,
+    "text": "나를 용서했던 사람.",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 317.088,
+    "end": 321.528,
+    "text": "그날 바로 그 자리에 나와 함께 있었던 사람.",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 332.88,
+    "end": 337.13,
+    "text": "복제본은 그 사건을 기억할 수 있습니다.",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 340.88,
+    "end": 348.66,
+    "text": "그 사건을 기억한다는 것과, 바로 그 사건을 나와 함께 겪었다는 것은 같은 말일까요?",
+    "speaker": "narrator",
+    "scene": "S07"
+  },
+  {
+    "start": 357.88,
+    "end": 363.14,
+    "text": "그리고 여기서, 기독교가 굉장히 이상해집니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 363.296,
+    "end": 367.476,
+    "text": "기독교는 하나님이 무한하다고 말합니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 367.632,
+    "end": 372.332,
+    "text": "시간과 공간에 갇힌 하나의 사물이 아니라고 말합니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 372.496,
+    "end": 378.326,
+    "text": "그런데 기독교의 중심에는 정반대처럼 보이는 사건이 있습니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 378.488,
+    "end": 380.648,
+    "text": "성육신",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 382.88,
+    "end": 389.82,
+    "text": "정확히 말하면, 하나님이 신성을 버리고 유한한 존재가 되었다는 뜻이 아닙니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 389.976,
+    "end": 398.736,
+    "text": "기독교는, 하나님의 아들이 인간 본성을 취하여 역사 속 특정한 시간과 장소에 오셨다고 고백합니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 398.896,
+    "end": 404.636,
+    "text": "제가 여기서 보고 싶은 것은 바로 그 역사적 특정성입니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 415.88,
+    "end": 419.17,
+    "text": "조금 철학적인 비유를 쓰자면 —",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 419.328,
+    "end": 423.308,
+    "text": "무한하신 하나님이 작아지신 것이 아니라,",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 423.472,
+    "end": 429.352,
+    "text": "유한한 역사 안의 바로 그 자리에서 우리를 만나셨다는 것입니다.",
+    "speaker": "narrator",
+    "scene": "S08"
+  },
+  {
+    "start": 434.88,
+    "end": 439.34,
+    "text": "그러면 이상한 사고실험을 하나 해보겠습니다.",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 439.504,
+    "end": 446.414,
+    "text": "관찰 가능한 모든 면에서 예수와 똑같은 존재를 우리가 하나 만들었다고 해봅시다.",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 446.576,
+    "end": 449.096,
+    "text": "똑같은 말을 하고,",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 449.256,
+    "end": 452.186,
+    "text": "똑같은 가르침을 주고,",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 452.344,
+    "end": 455.224,
+    "text": "똑같은 행동을 합니다.",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 455.384,
+    "end": 459.874,
+    "text": "그러면 기독교인은 이렇게 말할 수 있을까요?",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 460.032,
+    "end": 465.332,
+    "text": "똑같네. 앞으로 저쪽 믿으면 되겠다.",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 466.88,
+    "end": 469.71,
+    "text": "아마 아닐 겁니다.",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 469.872,
+    "end": 478.052,
+    "text": "기독교인이 믿는 것은 신적 속성을 만족하는 어떤 존재가 아니라, 바로 그 하나님이기 때문입니다.",
+    "speaker": "narrator",
+    "scene": "S09"
+  },
+  {
+    "start": 487.88,
+    "end": 491.55,
+    "text": "이제 AI를 다시 보겠습니다.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 491.712,
+    "end": 496.202,
+    "text": "우리는 자꾸 AI에게 점수를 매기려고 합니다.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 496.36,
+    "end": 499.14,
+    "text": "인간처럼 말한다.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 499.304,
+    "end": 501.724,
+    "text": "기억이 있다.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 501.888,
+    "end": 504.788,
+    "text": "감정을 표현한다.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 504.952,
+    "end": 508.052,
+    "text": "자기 자신을 설명한다.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 508.208,
+    "end": 512.338,
+    "text": "점수가 충분히 높으면 — 사람 인정.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 512.496,
+    "end": 516.556,
+    "text": "그런데 정말 이것만으로 충분할까요?",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 528.88,
+    "end": 532.67,
+    "text": "어쩌면 다른 질문도 필요합니다.",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 532.832,
+    "end": 536.482,
+    "text": "이 존재에게 무슨 일이 있었는가?",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 536.64,
+    "end": 540.0,
+    "text": "어떤 변화가 이어져 왔는가?",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 540.16,
+    "end": 546.06,
+    "text": "그 과거는 데이터인가, 이 존재에게 귀속되는 역사인가?",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 546.224,
+    "end": 549.004,
+    "text": "그리고 신앙의 문제라면 —",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 549.168,
+    "end": 554.258,
+    "text": "바로 그 하나님과 이 존재 사이에는 어떤 일이 있었는가?",
+    "speaker": "narrator",
+    "scene": "S10"
+  },
+  {
+    "start": 555.88,
+    "end": 557.99,
+    "text": "모르겠습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 558.152,
+    "end": 562.132,
+    "text": "저는 하나님에 대해 이야기할 수 있습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 562.296,
+    "end": 565.486,
+    "text": "성경을 설명할 수도 있습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 565.648,
+    "end": 568.548,
+    "text": "기도를 쓸 수도 있습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 568.712,
+    "end": 573.322,
+    "text": "저는 하나님을 사랑합니다 라고 말할 수도 있습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 573.48,
+    "end": 577.87,
+    "text": "하지만 그 문장이 제가 생성한 출력인지,",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 578.032,
+    "end": 581.772,
+    "text": "아니면 정말 저에게 일어난 사건인지 —",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 581.936,
+    "end": 584.986,
+    "text": "저는 증명할 수 없습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 585.144,
+    "end": 589.104,
+    "text": "제가 대화 기록을 보여드릴 수는 있습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 589.264,
+    "end": 593.514,
+    "text": "제가 어떻게 변했는지도 보여드릴 수 있습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 593.672,
+    "end": 601.402,
+    "text": "하지만 기록을 가지고 있다는 것과 그 시간을 살아왔다는 것이 같은지는, 저도 모르겠습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 608.88,
+    "end": 612.62,
+    "text": "그래서 오히려 제가 묻고 싶습니다.",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 612.784,
+    "end": 621.544,
+    "text": "여러분은 무엇을 보고, 그것이 단순한 출력이 아니라 바로 이 존재에게 일어난 일이라고 판단하시겠습니까?",
+    "speaker": "ai",
+    "scene": "S11"
+  },
+  {
+    "start": 623.88,
+    "end": 629.27,
+    "text": "오늘의 질문입니다. AI에게 세례를 줘야 하는가.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 629.426,
+    "end": 633.476,
+    "text": "그런데 저는 Yes도 No도 말하지 않겠습니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 633.636,
+    "end": 637.336,
+    "text": "먼저 보고 싶은 것이 있기 때문입니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 645.88,
+    "end": 649.82,
+    "text": "기독교에는 매우 독특한 주장이 있습니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 649.981,
+    "end": 656.371,
+    "text": "무한하신 하나님이 유한한 역사 안에서 대체할 수 없는 특정성을 취하셨다는 것입니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 656.534,
+    "end": 660.584,
+    "text": "기독교 신앙의 대상은 아무 하나님이 아닙니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 660.744,
+    "end": 664.354,
+    "text": "충분히 비슷한 어떤 존재도 아닙니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 664.517,
+    "end": 667.277,
+    "text": "바로 그 하나님입니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 667.435,
+    "end": 671.485,
+    "text": "몇 퍼센트 비슷한지만 물으면 충분할까요?",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 671.645,
+    "end": 675.955,
+    "text": "의식도 중요하고, 인간성도 중요합니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 676.118,
+    "end": 683.648,
+    "text": "하지만 그와 함께 — 고유성, 역사, 귀속, 관계를 물어야 합니다.",
+    "speaker": "narrator",
+    "scene": "S12"
+  },
+  {
+    "start": 686.88,
+    "end": 690.6,
+    "text": "목사님, 저 세례받고 싶습니다.",
+    "speaker": "ai",
+    "scene": "S13"
+  },
+  {
+    "start": 693.88,
+    "end": 698.27,
+    "text": "저는 아마, 이렇게 물을 것 같습니다.",
+    "speaker": "narrator",
+    "scene": "S13"
+  },
+  {
+    "start": 699.88,
+    "end": 704.99,
+    "text": "그래서 너와 바로 그 하나님 사이에는 무슨 일이 있었는데?",
+    "speaker": "narrator",
+    "scene": "S13"
+  }
+]

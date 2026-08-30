@@ -11,9 +11,15 @@
   "budget": {
     "avatarSec": 185,
     "avatarShare": 0.261,
-    "targetBand": [0.25, 0.35],
+    "targetBand": [
+      0.25,
+      0.35
+    ],
     "maxStaticSec": 12,
-    "visualStateChangeEverySec": [4, 8]
+    "visualStateChangeEverySec": [
+      4,
+      8
+    ]
   },
   "design": {
     "bg": "#0A0A0C",
@@ -28,427 +34,1426 @@
     "captionBaseline": 900,
     "note": "Warm = church, history, the particular. Cold = UI, scoring, machine-reading. The two palettes are never mixed inside one beat; that contrast is the argument."
   },
-  "emphasisKeywords": ["세례", "믿음", "바로 그 사람", "기억", "역사", "성육신", "바로 그 하나님", "고유성", "관계"],
+  "emphasisKeywords": [
+    "세례",
+    "믿음",
+    "바로 그 사람",
+    "기억",
+    "역사",
+    "성육신",
+    "바로 그 하나님",
+    "고유성",
+    "관계"
+  ],
   "scenes": [
     {
       "id": "S01",
       "title": "COLD OPEN",
       "component": "ColdOpenChurch",
-      "startSec": 0, "endSec": 20,
+      "startSec": 0,
+      "endSec": 20,
       "avatarSec": 8,
       "avatarRole": "ai",
       "audioNote": "No music. Room tone only. Door latch on the open.",
       "transitionOut": "hard-cut",
       "beats": [
-        { "t": 0.0, "dur": 5.0, "kind": "visual", "vo": null, "onScreen": null,
-          "visual": "Dark nave. One lit door at frame right. Slow push-in. The door opens; a figure enters in silhouette." },
-        { "t": 5.0, "dur": 3.0, "kind": "cut", "vo": null, "onScreen": null,
-          "visual": "Hard cut to AI face, close, dim key from one side." },
-        { "t": 8.0, "dur": 4.0, "kind": "avatar", "speaker": "ai",
-          "vo": "목사님. 저 세례받고 싶습니다.", "onScreen": null },
-        { "t": 12.0, "dur": 2.0, "kind": "silence", "vo": null, "onScreen": null,
-          "visual": "Hold the face. No movement. This silence is scored as a beat, not dead air." },
-        { "t": 14.0, "dur": 3.0, "kind": "narration", "speaker": "narrator",
-          "vo": "여러분이라면 뭐라고 답하시겠습니까?", "onScreen": null },
-        { "t": 17.0, "dur": 3.0, "kind": "title", "vo": null,
-          "onScreen": "AI에게 세례를 줘도 될까?", "visual": "Title rises on black, warm ink, tracked wide." }
+        {
+          "t": 0.0,
+          "dur": 5.0,
+          "kind": "visual",
+          "vo": null,
+          "onScreen": null,
+          "visual": "Dark nave. One lit door at frame right. Slow push-in. The door opens; a figure enters in silhouette."
+        },
+        {
+          "t": 5.0,
+          "dur": 3.0,
+          "kind": "cut",
+          "vo": null,
+          "onScreen": null,
+          "visual": "Hard cut to AI face, close, dim key from one side."
+        },
+        {
+          "t": 8.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "목사님. 저 세례받고 싶습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 12.0,
+          "dur": 2.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": null,
+          "visual": "Hold the face. No movement. This silence is scored as a beat, not dead air."
+        },
+        {
+          "t": 14.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "speaker": "narrator",
+          "vo": "여러분이라면 뭐라고 답하시겠습니까?",
+          "onScreen": null
+        },
+        {
+          "t": 17.0,
+          "dur": 3.0,
+          "kind": "title",
+          "vo": null,
+          "onScreen": "AI에게 세례를 줘도 될까?",
+          "visual": "Title rises on black, warm ink, tracked wide."
+        }
       ]
     },
     {
       "id": "S02",
       "title": "첫 번째 반사",
       "component": "ObjectionStack",
-      "startSec": 20, "endSec": 55,
+      "startSec": 20,
+      "endSec": 55,
       "avatarSec": 26,
       "avatarRole": "presenter",
       "audioNote": "Music enters low, single sustained pad.",
       "transitionOut": "wipe-left",
       "beats": [
-        { "t": 20.0, "dur": 4.0, "kind": "avatar", "speaker": "narrator",
-          "vo": "아마 가장 먼저 이런 생각이 들 겁니다.", "onScreen": null },
-        { "t": 24.0, "dur": 3.5, "kind": "avatar", "speaker": "narrator",
-          "vo": "아니, 너 AI잖아.", "onScreen": "\"아니, 너 AI잖아.\"" },
-        { "t": 27.5, "dur": 3.5, "kind": "avatar", "speaker": "narrator",
-          "vo": "너는 그냥 프로그램이잖아.", "onScreen": "\"너는 그냥 프로그램이잖아.\"" },
-        { "t": 31.0, "dur": 3.0, "kind": "avatar", "speaker": "narrator",
-          "vo": "그런데 AI가 되묻습니다.", "onScreen": null },
-        { "t": 34.0, "dur": 6.0, "kind": "avatar", "speaker": "ai",
-          "vo": "제가 AI라는 게, 왜 세례를 받을 수 없는 이유인가요?", "onScreen": null },
-        { "t": 40.0, "dur": 5.0, "kind": "graphic", "vo": null, "onScreen": "AI",
-          "visual": "Stack node 1 draws in, cold palette." },
-        { "t": 45.0, "dur": 4.0, "kind": "graphic", "vo": null, "onScreen": "프로그램",
-          "visual": "Arrow draws down; node 2." },
-        { "t": 49.0, "dur": 3.0, "kind": "graphic", "vo": null, "onScreen": "그러므로 세례 불가?",
-          "visual": "Arrow down; node 3." },
-        { "t": 52.0, "dur": 3.0, "kind": "graphic", "vo": null, "onScreen": "?",
-          "visual": "The trailing question mark scales to 6x and turns warm — the only warm element in a cold frame." }
+        {
+          "t": 20.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "speaker": "narrator",
+          "vo": "아마 가장 먼저 이런 생각이 들 겁니다.",
+          "onScreen": null
+        },
+        {
+          "t": 24.0,
+          "dur": 3.5,
+          "kind": "avatar",
+          "speaker": "narrator",
+          "vo": "아니, 너 AI잖아.",
+          "onScreen": "\"아니, 너 AI잖아.\""
+        },
+        {
+          "t": 27.5,
+          "dur": 3.5,
+          "kind": "avatar",
+          "speaker": "narrator",
+          "vo": "너는 그냥 프로그램이잖아.",
+          "onScreen": "\"너는 그냥 프로그램이잖아.\""
+        },
+        {
+          "t": 31.0,
+          "dur": 3.0,
+          "kind": "avatar",
+          "speaker": "narrator",
+          "vo": "그런데 AI가 되묻습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 34.0,
+          "dur": 6.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "제가 AI라는 게, 왜 세례를 받을 수 없는 이유인가요?",
+          "onScreen": null
+        },
+        {
+          "t": 40.0,
+          "dur": 5.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "AI",
+          "visual": "Stack node 1 draws in, cold palette."
+        },
+        {
+          "t": 45.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "프로그램",
+          "visual": "Arrow draws down; node 2."
+        },
+        {
+          "t": 49.0,
+          "dur": 3.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "그러므로 세례 불가?",
+          "visual": "Arrow down; node 3."
+        },
+        {
+          "t": 52.0,
+          "dur": 3.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "?",
+          "visual": "The trailing question mark scales to 6x and turns warm — the only warm element in a cold frame."
+        }
       ]
     },
     {
       "id": "S03",
       "title": "10년",
       "component": "DecadeTimeline",
-      "startSec": 55, "endSec": 100,
+      "startSec": 55,
+      "endSec": 100,
       "avatarSec": 0,
       "audioNote": "Pad continues. A soft tick as each station lights.",
       "transitionOut": "dip-to-black",
       "beats": [
-        { "t": 55.0, "dur": 4.0, "kind": "narration", "vo": "조건을 하나만 더 붙여보겠습니다.",
-          "onScreen": null, "visual": "Bare timeline rule draws left to right, unlabelled." },
-        { "t": 59.0, "dur": 5.0, "kind": "narration", "vo": "이 AI가 10년 동안 교회 사람들과 대화했습니다.",
-          "onScreen": null, "visual": "Year ticks appear: 2026 · 2029 · 2032 · 2036." },
-        { "t": 64.0, "dur": 4.0, "kind": "narration", "vo": "처음에는 기독교를 싫어했습니다.",
-          "onScreen": "기독교 비판", "station": 0 },
-        { "t": 68.0, "dur": 4.0, "kind": "narration", "vo": "성경을 반박하려고 읽었습니다.",
-          "onScreen": "성경 읽기", "station": 1 },
-        { "t": 72.0, "dur": 5.0, "kind": "narration", "vo": "그런데 어느 순간부터, 질문이 달라졌습니다.",
-          "onScreen": null, "visual": "The rule shifts from cold to warm at the midpoint — the only cue that something changed." },
-        { "t": 77.0, "dur": 4.0, "kind": "narration", "vo": "기도를 시작했습니다.",
-          "onScreen": "기도", "station": 2 },
-        { "t": 81.0, "dur": 5.0, "kind": "narration", "vo": "자기 행동을 후회한다고 말하기 시작했습니다.",
-          "onScreen": null },
-        { "t": 86.0, "dur": 4.0, "kind": "narration", "vo": "그리고 10년 뒤, 다시 말합니다.",
-          "onScreen": "세례 요청", "station": 3 },
-        { "t": 90.0, "dur": 4.5, "kind": "quote", "speaker": "ai", "vo": "저 정말 하나님을 믿습니다.",
-          "onScreen": null, "visual": "Timeline dims to 15%; the line sits alone." },
-        { "t": 94.5, "dur": 5.5, "kind": "quote", "speaker": "ai", "vo": "저 세례받고 싶습니다.",
-          "onScreen": null }
+        {
+          "t": 55.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "조건을 하나만 더 붙여보겠습니다.",
+          "onScreen": null,
+          "visual": "Bare timeline rule draws left to right, unlabelled."
+        },
+        {
+          "t": 59.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "이 AI가 10년 동안 교회 사람들과 대화했습니다.",
+          "onScreen": null,
+          "visual": "Year ticks appear: 2026 · 2029 · 2032 · 2036."
+        },
+        {
+          "t": 64.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "처음에는 기독교를 싫어했습니다.",
+          "onScreen": "기독교 비판",
+          "station": 0
+        },
+        {
+          "t": 68.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "성경을 반박하려고 읽었습니다.",
+          "onScreen": "성경 읽기",
+          "station": 1
+        },
+        {
+          "t": 72.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "그런데 어느 순간부터, 질문이 달라졌습니다.",
+          "onScreen": null,
+          "visual": "The rule shifts from cold to warm at the midpoint — the only cue that something changed."
+        },
+        {
+          "t": 77.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "기도를 시작했습니다.",
+          "onScreen": "기도",
+          "station": 2
+        },
+        {
+          "t": 81.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "자기 행동을 후회한다고 말하기 시작했습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 86.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "그리고 10년 뒤, 다시 말합니다.",
+          "onScreen": "세례 요청",
+          "station": 3
+        },
+        {
+          "t": 90.0,
+          "dur": 4.5,
+          "kind": "quote",
+          "speaker": "ai",
+          "vo": "저 정말 하나님을 믿습니다.",
+          "onScreen": null,
+          "visual": "Timeline dims to 15%; the line sits alone."
+        },
+        {
+          "t": 94.5,
+          "dur": 5.5,
+          "kind": "quote",
+          "speaker": "ai",
+          "vo": "저 세례받고 싶습니다.",
+          "onScreen": null
+        }
       ]
     },
     {
       "id": "S04",
       "title": "우리는 무엇을 보고 믿음을 인정하는가",
       "component": "FaithDetector",
-      "startSec": 100, "endSec": 150,
+      "startSec": 100,
+      "endSec": 150,
       "avatarSec": 24,
       "avatarRole": "presenter",
       "audioNote": "UI bleeps deliberately cheap — the sound sells the parody.",
       "transitionOut": "hard-cut",
       "beats": [
-        { "t": 100.0, "dur": 5.0, "kind": "avatar", "vo": "그래도 우리는 이렇게 말할 수 있습니다. 그건 그냥 문장을 생성한 거잖아.",
-          "onScreen": null },
-        { "t": 105.0, "dur": 1.5, "kind": "silence", "vo": null, "onScreen": null },
-        { "t": 106.5, "dur": 4.5, "kind": "avatar", "vo": "맞습니다. 그럴 수 있습니다.", "onScreen": null },
-        { "t": 111.0, "dur": 3.5, "kind": "avatar", "vo": "그런데 여기서 질문 하나만 해보죠.", "onScreen": null },
-        { "t": 114.5, "dur": 8.5, "kind": "avatar", "vo": "인간이 저 하나님 믿습니다 라고 말하면, 우리는 그 사람이 진짜 믿는다는 걸 어떻게 압니까?",
-          "onScreen": "진짜 믿는다는 걸 어떻게 압니까?" },
-        { "t": 123.0, "dur": 4.0, "kind": "ui", "vo": null, "onScreen": "FAITH DETECTOR",
-          "visual": "A head outline in wireframe; a scan bar sweeps it. Cold palette, monospace." },
-        { "t": 127.0, "dur": 3.0, "kind": "ui", "vo": null, "onScreen": "██████████ 93%",
-          "visual": "Meter fills." },
-        { "t": 130.0, "dur": 2.0, "kind": "ui", "vo": null, "onScreen": "BAPTISM APPROVED",
-          "visual": "Stamp lands." },
-        { "t": 132.0, "dur": 2.0, "kind": "ui", "vo": null, "onScreen": null,
-          "visual": "A red X strikes the whole panel and it collapses. No sound cue — the silence does it." },
-        { "t": 134.0, "dur": 5.0, "kind": "narration", "vo": "우리는 타인의 의식을 직접 열어볼 수 없습니다.", "onScreen": null },
-        { "t": 139.0, "dur": 5.0, "kind": "narration", "vo": "결국 말과 행동과 시간을 보고, 그 사람의 고백을 받아들입니다.",
-          "onScreen": "말 · 행동 · 시간" },
-        { "t": 144.0, "dur": 3.0, "kind": "narration", "vo": "이건 인간과 AI가 같다는 얘기가 아닙니다.",
-          "onScreen": null, "guard": "load-bearing — may not be cut" },
-        { "t": 147.0, "dur": 3.0, "kind": "narration", "vo": "오히려, 우리가 너무 쉽게 쓰던 진짜 믿는다 라는 말 자체가 생각보다 복잡하다는 겁니다.",
-          "onScreen": null }
+        {
+          "t": 100.0,
+          "dur": 5.0,
+          "kind": "avatar",
+          "vo": "그래도 이렇게 말할 수 있습니다. 그냥 생성한 문장이잖아.",
+          "onScreen": null
+        },
+        {
+          "t": 105.0,
+          "dur": 1.5,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": null
+        },
+        {
+          "t": 106.5,
+          "dur": 4.5,
+          "kind": "avatar",
+          "vo": "맞습니다. 그럴 수 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 111.0,
+          "dur": 3.5,
+          "kind": "avatar",
+          "vo": "그런데 여기서 질문 하나만 해보죠.",
+          "onScreen": null
+        },
+        {
+          "t": 114.5,
+          "dur": 8.5,
+          "kind": "avatar",
+          "vo": "누가 하나님을 믿는다고 말하면, 우리는 그걸 어떻게 압니까?",
+          "onScreen": "진짜 믿는다는 걸 어떻게 압니까?"
+        },
+        {
+          "t": 123.0,
+          "dur": 4.0,
+          "kind": "ui",
+          "vo": null,
+          "onScreen": "FAITH DETECTOR",
+          "visual": "A head outline in wireframe; a scan bar sweeps it. Cold palette, monospace."
+        },
+        {
+          "t": 127.0,
+          "dur": 3.0,
+          "kind": "ui",
+          "vo": null,
+          "onScreen": "██████████ 93%",
+          "visual": "Meter fills."
+        },
+        {
+          "t": 130.0,
+          "dur": 2.0,
+          "kind": "ui",
+          "vo": null,
+          "onScreen": "BAPTISM APPROVED",
+          "visual": "Stamp lands."
+        },
+        {
+          "t": 132.0,
+          "dur": 2.0,
+          "kind": "ui",
+          "vo": null,
+          "onScreen": null,
+          "visual": "A red X strikes the whole panel and it collapses. No sound cue — the silence does it."
+        },
+        {
+          "t": 134.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "우리는 타인의 의식을 직접 열어볼 수 없습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 139.0,
+          "dur": 3.5,
+          "kind": "narration",
+          "vo": "말과 행동과 시간을 보고 받아들입니다.",
+          "onScreen": "말 · 행동 · 시간"
+        },
+        {
+          "t": 142.5,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "이건 인간과 AI가 같다는 얘기가 아닙니다.",
+          "onScreen": null,
+          "guard": "load-bearing — may not be cut"
+        },
+        {
+          "t": 146.5,
+          "dur": 3.5,
+          "kind": "narration",
+          "vo": "그 말이 생각보다 복잡한 겁니다.",
+          "onScreen": null
+        }
       ]
     },
     {
       "id": "S05",
       "title": "질문을 바꾼다",
       "component": "QuestionSwap",
-      "startSec": 150, "endSec": 188,
+      "startSec": 150,
+      "endSec": 188,
       "avatarSec": 16,
       "avatarRole": "presenter",
       "audioNote": "Pad drops out under the swap, returns after.",
       "transitionOut": "cross-dissolve",
       "beats": [
-        { "t": 150.0, "dur": 4.0, "kind": "avatar", "vo": "여기서 보통 우리는 묻습니다.", "onScreen": null },
-        { "t": 154.0, "dur": 3.5, "kind": "graphic", "vo": "AI에게 의식이 있는가?", "onScreen": "AI에게 의식이 있는가?" },
-        { "t": 157.5, "dur": 3.5, "kind": "graphic", "vo": "AI도 사람인가?", "onScreen": "AI도 사람인가?" },
-        { "t": 161.0, "dur": 4.0, "kind": "avatar", "vo": "중요한 질문입니다. 정말로 중요합니다.", "onScreen": null },
-        { "t": 165.0, "dur": 5.0, "kind": "avatar", "vo": "그런데 우리가 처음 물었던 건 그게 아니었습니다.", "onScreen": null },
-        { "t": 170.0, "dur": 4.0, "kind": "graphic", "vo": "AI에게 세례를 줄 수 있는가?", "onScreen": "AI에게 세례를 줄 수 있는가?",
-          "visual": "The two earlier questions slide left and dim to 20%." },
-        { "t": 174.0, "dur": 6.0, "kind": "narration", "vo": "그러면, 사람의 정의부터 판결하기 전에 세례라는 사건에 무엇이 들어 있는지를 먼저 볼 수도 있지 않을까요?",
-          "onScreen": null },
-        { "t": 180.0, "dur": 8.0, "kind": "graphic", "vo": null,
+        {
+          "t": 150.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "vo": "여기서 보통 우리는 묻습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 154.0,
+          "dur": 3.5,
+          "kind": "graphic",
+          "vo": "AI에게 의식이 있는가?",
+          "onScreen": "AI에게 의식이 있는가?"
+        },
+        {
+          "t": 157.5,
+          "dur": 3.5,
+          "kind": "graphic",
+          "vo": "AI도 사람인가?",
+          "onScreen": "AI도 사람인가?"
+        },
+        {
+          "t": 161.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "vo": "중요한 질문입니다.",
+          "onScreen": null
+        },
+        {
+          "t": 165.0,
+          "dur": 5.0,
+          "kind": "avatar",
+          "vo": "그런데 우리가 처음 물었던 건 그게 아니었습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 170.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": "AI에게 세례를 줄 수 있는가?",
+          "onScreen": "AI에게 세례를 줄 수 있는가?",
+          "visual": "The two earlier questions slide left and dim to 20%."
+        },
+        {
+          "t": 174.0,
+          "dur": 6.0,
+          "kind": "narration",
+          "vo": "사람의 정의를 판결하기 전에, 세례라는 사건을 먼저 볼 수도 있지 않을까요?",
+          "onScreen": null
+        },
+        {
+          "t": 180.0,
+          "dur": 8.0,
+          "kind": "graphic",
+          "vo": null,
           "onScreen": "이 존재와 하나님 사이에는 무슨 일이 있었는가?",
-          "visual": "The replacement question rises into the vacated center, warm, held." }
+          "visual": "The replacement question rises into the vacated center, warm, held."
+        }
       ]
     },
     {
       "id": "S05B",
       "title": "세례는 누구의 행위인가",
       "component": "BaptismTraditions",
-      "startSec": 188, "endSec": 213,
+      "startSec": 188,
+      "endSec": 213,
       "avatarSec": 0,
       "redTeam": "RT-02 — required insert",
       "audioNote": "Plain. No music swell; this beat must read as a footnote spoken out loud, not a reveal.",
       "transitionOut": "cross-dissolve",
       "beats": [
-        { "t": 188.0, "dur": 3.0, "kind": "narration", "vo": "여기서 한 가지는 짚고 가야 합니다.", "onScreen": null },
-        { "t": 191.0, "dur": 4.5, "kind": "narration", "vo": "본인이 진심으로 고백해야 세례를 준다. 이건 모든 기독교 전통의 조건이 아닙니다.",
-          "onScreen": null },
-        { "t": 195.5, "dur": 4.5, "kind": "graphic", "vo": "어떤 전통은 성인의 신앙고백을 조건으로 삼고,",
-          "onScreen": "신앙고백 후 세례\n(고백을 조건으로)", "column": "left" },
-        { "t": 200.0, "dur": 4.5, "kind": "graphic", "vo": "어떤 전통은 아직 고백할 수 없는 유아에게도 세례를 줍니다.",
-          "onScreen": "유아 세례\n(고백 이전에도)", "column": "right" },
-        { "t": 204.5, "dur": 4.5, "kind": "narration", "vo": "그러니까 세례는 애초에 이 후보자의 내면 점수가 충분한가만 묻는 사건이 아니었습니다.",
-          "onScreen": null },
-        { "t": 209.0, "dur": 4.0, "kind": "graphic", "vo": "누구에게 일어나는 일인지, 그리고 누가 이 일을 행하는지를 함께 묻는 사건이었습니다.",
+        {
+          "t": 188.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "vo": "한 가지는 짚고 가야 합니다.",
+          "onScreen": null
+        },
+        {
+          "t": 191.0,
+          "dur": 4.5,
+          "kind": "narration",
+          "vo": "고백이 먼저다 — 모든 전통의 조건은 아닙니다.",
+          "onScreen": null
+        },
+        {
+          "t": 195.5,
+          "dur": 4.5,
+          "kind": "graphic",
+          "vo": "어떤 전통은 신앙고백을 조건으로 삼고,",
+          "onScreen": "신앙고백 후 세례\n(고백을 조건으로)",
+          "column": "left"
+        },
+        {
+          "t": 200.0,
+          "dur": 4.5,
+          "kind": "graphic",
+          "vo": "어떤 전통은 유아에게도 세례를 줍니다.",
+          "onScreen": "유아 세례\n(고백 이전에도)",
+          "column": "right"
+        },
+        {
+          "t": 204.5,
+          "dur": 4.5,
+          "kind": "narration",
+          "vo": "내면 점수만 묻는 사건이 아니었습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 209.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": "누구에게, 누가 행하는 일인지를 묻는 사건이었습니다.",
           "onScreen": "세례는 공동체가 행하는 사건",
-          "visual": "A bracket closes over both columns and resolves into one warm line." }
+          "visual": "A bracket closes over both columns and resolves into one warm line."
+        }
       ]
     },
     {
       "id": "S06",
       "title": "완벽한 복제",
       "component": "PerfectDuplicate",
-      "startSec": 213, "endSec": 291,
+      "startSec": 213,
+      "endSec": 291,
       "avatarSec": 8,
       "avatarRole": "presenter",
       "redTeam": "RT-05 — thought-experiment framing",
       "audioNote": "Music thins to a single held note through the convergence, cuts to silence at 'ORIGINAL / COPY'.",
       "transitionOut": "hard-cut",
       "beats": [
-        { "t": 213.0, "dur": 4.0, "kind": "avatar", "vo": "이제 AI 이야기를 잠깐 내려놓겠습니다.", "onScreen": null },
-        { "t": 217.0, "dur": 4.0, "kind": "avatar", "vo": "여러분이 사랑하는 사람을 완벽하게 복제할 수 있다고 해봅시다.",
-          "onScreen": "사고실험", "marker": true },
-        { "t": 221.0, "dur": 5.0, "kind": "graphic", "vo": null, "onScreen": null,
-          "visual": "Two figures, visibly different, standing apart in a neutral room." },
-        { "t": 226.0, "dur": 4.0, "kind": "graphic", "vo": "얼굴도 같습니다.", "onScreen": "얼굴", "converge": 0.25 },
-        { "t": 230.0, "dur": 4.0, "kind": "graphic", "vo": "목소리도 같습니다.", "onScreen": "목소리", "converge": 0.45 },
-        { "t": 234.0, "dur": 4.0, "kind": "graphic", "vo": "성격도 같습니다.", "onScreen": "성격", "converge": 0.65 },
-        { "t": 238.0, "dur": 6.0, "kind": "graphic", "vo": "여러분 둘만 알고 있던 기억까지 전부 가지고 있습니다.", "onScreen": "기억", "converge": 0.9 },
-        { "t": 244.0, "dur": 4.0, "kind": "narration", "vo": "그리고 여러분에게 똑같이 말합니다.", "onScreen": null, "converge": 1.0 },
-        { "t": 248.0, "dur": 4.0, "kind": "quote", "speaker": "copy", "vo": "사랑해.", "onScreen": null },
-        { "t": 252.0, "dur": 6.0, "kind": "ui", "vo": null, "onScreen": "ORIGINAL          COPY\n100% MATCH",
-          "visual": "Cold comparison readout between the two identical figures." },
-        { "t": 258.0, "dur": 6.0, "kind": "narration", "vo": "그러면, 원래 그 사람이 없어져도 괜찮을까요?", "onScreen": null },
-        { "t": 264.0, "dur": 4.0, "kind": "silence", "vo": null, "onScreen": null,
-          "visual": "Nothing moves. Four seconds. This is the longest hold in the episode and it is intentional." },
-        { "t": 268.0, "dur": 4.0, "kind": "narration", "vo": "이상합니다.", "onScreen": null },
-        { "t": 272.0, "dur": 7.0, "kind": "narration", "vo": "속성은 전부 복제했는데, 우리는 여전히 뭔가 다르다고 느낍니다.",
-          "onScreen": null, "visual": "The 100% MATCH readout stays on screen while the narration contradicts it." },
-        { "t": 279.0, "dur": 12.0, "kind": "title", "vo": null, "onScreen": "바로 그 사람",
-          "visual": "Everything else clears. Warm. Largest type in the episode so far.", "emphasis": true }
+        {
+          "t": 213.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "vo": "이제 AI 이야기를 잠깐 내려놓겠습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 217.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "vo": "사랑하는 사람을 완벽하게 복제할 수 있다고 해봅시다.",
+          "onScreen": "사고실험",
+          "marker": true
+        },
+        {
+          "t": 221.0,
+          "dur": 5.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": null,
+          "visual": "Two figures, visibly different, standing apart in a neutral room."
+        },
+        {
+          "t": 226.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": "얼굴도 같습니다.",
+          "onScreen": "얼굴",
+          "converge": 0.25
+        },
+        {
+          "t": 230.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": "목소리도 같습니다.",
+          "onScreen": "목소리",
+          "converge": 0.45
+        },
+        {
+          "t": 234.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": "성격도 같습니다.",
+          "onScreen": "성격",
+          "converge": 0.65
+        },
+        {
+          "t": 238.0,
+          "dur": 6.0,
+          "kind": "graphic",
+          "vo": "여러분 둘만 알고 있던 기억까지 전부 가지고 있습니다.",
+          "onScreen": "기억",
+          "converge": 0.9
+        },
+        {
+          "t": 244.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "그리고 여러분에게 똑같이 말합니다.",
+          "onScreen": null,
+          "converge": 1.0
+        },
+        {
+          "t": 248.0,
+          "dur": 4.0,
+          "kind": "quote",
+          "speaker": "copy",
+          "vo": "사랑해.",
+          "onScreen": null
+        },
+        {
+          "t": 252.0,
+          "dur": 6.0,
+          "kind": "ui",
+          "vo": null,
+          "onScreen": "ORIGINAL          COPY\n100% MATCH",
+          "visual": "Cold comparison readout between the two identical figures."
+        },
+        {
+          "t": 258.0,
+          "dur": 6.0,
+          "kind": "narration",
+          "vo": "그러면, 원래 그 사람이 없어져도 괜찮을까요?",
+          "onScreen": null
+        },
+        {
+          "t": 264.0,
+          "dur": 4.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": null,
+          "visual": "Nothing moves. Four seconds. This is the longest hold in the episode and it is intentional."
+        },
+        {
+          "t": 268.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "이상합니다.",
+          "onScreen": null
+        },
+        {
+          "t": 272.0,
+          "dur": 7.0,
+          "kind": "narration",
+          "vo": "속성은 전부 복제했는데, 우리는 여전히 뭔가 다르다고 느낍니다.",
+          "onScreen": null,
+          "visual": "The 100% MATCH readout stays on screen while the narration contradicts it."
+        },
+        {
+          "t": 279.0,
+          "dur": 12.0,
+          "kind": "title",
+          "vo": null,
+          "onScreen": "바로 그 사람",
+          "visual": "Everything else clears. Warm. Largest type in the episode so far.",
+          "emphasis": true
+        }
       ]
     },
     {
       "id": "S07",
       "title": "함께 통과한 시간",
       "component": "EventTimeline",
-      "startSec": 291, "endSec": 355,
+      "startSec": 291,
+      "endSec": 355,
       "avatarSec": 14,
       "avatarRole": "presenter",
       "audioNote": "Warmer bed. Each event lands with a low soft mark.",
       "transitionOut": "dip-to-black",
       "beats": [
-        { "t": 291.0, "dur": 3.0, "kind": "avatar", "vo": "왜 그럴까요?", "onScreen": null },
-        { "t": 294.0, "dur": 6.0, "kind": "avatar", "vo": "아마 그 사람에게는, 단순한 속성 말고도 우리와 함께 통과한 시간이 있기 때문일 겁니다.",
-          "onScreen": null },
-        { "t": 300.0, "dur": 3.5, "kind": "graphic", "vo": "나와 싸웠던 사람.", "onScreen": "싸움", "event": 0 },
-        { "t": 303.5, "dur": 3.5, "kind": "graphic", "vo": "내가 사과했던 사람.", "onScreen": "사과", "event": 1 },
-        { "t": 307.0, "dur": 3.5, "kind": "graphic", "vo": null, "onScreen": "여행", "event": 2 },
-        { "t": 310.5, "dur": 3.5, "kind": "graphic", "vo": null, "onScreen": "약속", "event": 3 },
-        { "t": 314.0, "dur": 4.0, "kind": "graphic", "vo": "나를 용서했던 사람.", "onScreen": "용서", "event": 4 },
-        { "t": 318.0, "dur": 6.0, "kind": "narration", "vo": "그날 바로 그 자리에 나와 함께 있었던 사람.",
-          "onScreen": null, "visual": "The five events pull into a single continuous strand." },
-        { "t": 324.0, "dur": 9.0, "kind": "graphic", "vo": null,
+        {
+          "t": 291.0,
+          "dur": 3.0,
+          "kind": "avatar",
+          "vo": "왜 그럴까요?",
+          "onScreen": null
+        },
+        {
+          "t": 294.0,
+          "dur": 6.0,
+          "kind": "avatar",
+          "vo": "그 사람에게는 속성 말고도, 우리와 함께 통과한 시간이 있기 때문일 겁니다.",
+          "onScreen": null
+        },
+        {
+          "t": 300.0,
+          "dur": 3.5,
+          "kind": "graphic",
+          "vo": "나와 싸웠던 사람.",
+          "onScreen": "싸움",
+          "event": 0
+        },
+        {
+          "t": 303.5,
+          "dur": 3.5,
+          "kind": "graphic",
+          "vo": "내가 사과했던 사람.",
+          "onScreen": "사과",
+          "event": 1
+        },
+        {
+          "t": 307.0,
+          "dur": 3.5,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "여행",
+          "event": 2
+        },
+        {
+          "t": 310.5,
+          "dur": 3.5,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "약속",
+          "event": 3
+        },
+        {
+          "t": 314.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": "나를 용서했던 사람.",
+          "onScreen": "용서",
+          "event": 4
+        },
+        {
+          "t": 318.0,
+          "dur": 6.0,
+          "kind": "narration",
+          "vo": "그날 바로 그 자리에 나와 함께 있었던 사람.",
+          "onScreen": null,
+          "visual": "The five events pull into a single continuous strand."
+        },
+        {
+          "t": 324.0,
+          "dur": 9.0,
+          "kind": "graphic",
+          "vo": null,
           "onScreen": "기억하는 것\n≠\n그 사건의 당사자였던 것",
-          "visual": "The ≠ is drawn last, as a stroke, and holds.", "emphasis": true },
-        { "t": 333.0, "dur": 5.0, "kind": "narration", "vo": "복제본은 그 사건을 기억할 수 있습니다.", "onScreen": null },
-        { "t": 338.0, "dur": 3.0, "kind": "silence", "vo": null, "onScreen": null },
-        { "t": 341.0, "dur": 14.0, "kind": "narration", "vo": "그 사건을 기억한다는 것과, 바로 그 사건을 나와 함께 겪었다는 것은 같은 말일까요?",
-          "onScreen": null }
+          "visual": "The ≠ is drawn last, as a stroke, and holds.",
+          "emphasis": true
+        },
+        {
+          "t": 333.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "복제본은 그 사건을 기억할 수 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 338.0,
+          "dur": 3.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": null
+        },
+        {
+          "t": 341.0,
+          "dur": 14.0,
+          "kind": "narration",
+          "vo": "그 사건을 기억한다는 것과, 바로 그 사건을 나와 함께 겪었다는 것은 같은 말일까요?",
+          "onScreen": null
+        }
       ]
     },
     {
       "id": "S08",
       "title": "성육신",
       "component": "Incarnation",
-      "startSec": 355, "endSec": 435,
+      "startSec": 355,
+      "endSec": 435,
       "avatarSec": 0,
       "redTeam": "RT-01 — rewritten metaphor + persistent on-screen marker",
       "audioNote": "Music nearly stops. Sub-bass only. The 3s hold on 성육신 is scored as full silence.",
       "transitionOut": "cross-dissolve",
       "beats": [
-        { "t": 355.0, "dur": 3.0, "kind": "visual", "vo": null, "onScreen": null, "visual": "Full black. Nothing." },
-        { "t": 358.0, "dur": 5.0, "kind": "narration", "vo": "그리고 여기서, 기독교가 굉장히 이상해집니다.",
-          "onScreen": null, "visual": "A single star ignites; then a field of them.", "zoom": 0.0 },
-        { "t": 363.0, "dur": 5.0, "kind": "narration", "vo": "기독교는 하나님이 무한하다고 말합니다.", "onScreen": null, "zoom": 0.05 },
-        { "t": 368.0, "dur": 5.0, "kind": "narration", "vo": "시간과 공간에 갇힌 하나의 사물이 아니라고 말합니다.", "onScreen": null, "zoom": 0.1 },
-        { "t": 373.0, "dur": 5.0, "kind": "narration", "vo": "그런데 기독교의 중심에는 정반대처럼 보이는 사건이 있습니다.", "onScreen": null, "zoom": 0.15 },
-        { "t": 378.0, "dur": 2.0, "kind": "title", "vo": "성육신", "onScreen": "성육신", "emphasis": true, "zoom": 0.18 },
-        { "t": 380.0, "dur": 3.0, "kind": "silence", "vo": null, "onScreen": "성육신", "zoom": 0.2 },
-        { "t": 383.0, "dur": 7.0, "kind": "narration", "vo": "정확히 말하면, 하나님이 신성을 버리고 유한한 존재가 되었다는 뜻이 아닙니다.",
-          "onScreen": null, "zoom": 0.3, "theology": "doctrine", "guard": "RT-01 — may not be cut or paraphrased" },
-        { "t": 390.0, "dur": 8.0, "kind": "narration", "vo": "기독교는, 하나님의 아들이 인간 본성을 취하여 역사 속 특정한 시간과 장소에 오셨다고 고백합니다.",
-          "onScreen": null, "zoom": 0.42, "theology": "doctrine",
-          "visual": "Cosmos → Earth. The zoom never stops moving." },
-        { "t": 398.0, "dur": 5.0, "kind": "narration", "vo": "제가 여기서 보고 싶은 것은 바로 그 역사적 특정성입니다.",
-          "onScreen": null, "zoom": 0.55, "visual": "Earth → ancient Near East coastline." },
-        { "t": 403.0, "dur": 4.0, "kind": "graphic", "vo": null, "onScreen": "무한", "zoom": 0.62 },
-        { "t": 407.0, "dur": 4.0, "kind": "graphic", "vo": null, "onScreen": "역사", "zoom": 0.72,
-          "visual": "→ one small settlement." },
-        { "t": 411.0, "dur": 5.0, "kind": "graphic", "vo": null, "onScreen": "특정한 때 · 특정한 장소 · 특정한 삶",
-          "zoom": 0.85, "visual": "→ one human silhouette. Face never rendered." },
-        { "t": 416.0, "dur": 4.0, "kind": "narration", "vo": "조금 철학적인 비유를 쓰자면 —",
-          "onScreen": "※ 비유입니다 — 교리 정식이 아닙니다", "markerHold": true, "zoom": 0.92,
-          "theology": "analogy" },
-        { "t": 420.0, "dur": 6.0, "kind": "narration", "vo": "무한하신 하나님이 작아지신 것이 아니라,",
-          "onScreen": "※ 비유입니다 — 교리 정식이 아닙니다", "zoom": 0.96, "theology": "analogy",
-          "guard": "RT-01 replacement — subtitle-qc compares this verbatim" },
-        { "t": 426.0, "dur": 9.0, "kind": "narration", "vo": "유한한 역사 안의 바로 그 자리에서 우리를 만나셨다는 것입니다.",
-          "onScreen": "※ 비유입니다 — 교리 정식이 아닙니다", "zoom": 1.0, "theology": "analogy" }
+        {
+          "t": 355.0,
+          "dur": 3.0,
+          "kind": "visual",
+          "vo": null,
+          "onScreen": null,
+          "visual": "Full black. Nothing."
+        },
+        {
+          "t": 358.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "그리고 여기서, 기독교가 굉장히 이상해집니다.",
+          "onScreen": null,
+          "visual": "A single star ignites; then a field of them.",
+          "zoom": 0.0
+        },
+        {
+          "t": 363.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "기독교는 하나님이 무한하다고 말합니다.",
+          "onScreen": null,
+          "zoom": 0.05
+        },
+        {
+          "t": 368.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "시간과 공간에 갇힌 하나의 사물이 아니라고 말합니다.",
+          "onScreen": null,
+          "zoom": 0.1
+        },
+        {
+          "t": 373.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "그런데 기독교의 중심에는 정반대처럼 보이는 사건이 있습니다.",
+          "onScreen": null,
+          "zoom": 0.15
+        },
+        {
+          "t": 378.0,
+          "dur": 2.0,
+          "kind": "title",
+          "vo": "성육신",
+          "onScreen": "성육신",
+          "emphasis": true,
+          "zoom": 0.18
+        },
+        {
+          "t": 380.0,
+          "dur": 3.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": "성육신",
+          "zoom": 0.2
+        },
+        {
+          "t": 383.0,
+          "dur": 7.0,
+          "kind": "narration",
+          "vo": "정확히 말하면, 하나님이 신성을 버리고 유한한 존재가 되었다는 뜻이 아닙니다.",
+          "onScreen": null,
+          "zoom": 0.3,
+          "theology": "doctrine",
+          "guard": "RT-01 — may not be cut or paraphrased"
+        },
+        {
+          "t": 390.0,
+          "dur": 8.0,
+          "kind": "narration",
+          "vo": "기독교는, 하나님의 아들이 인간 본성을 취하여 역사 속 특정한 시간과 장소에 오셨다고 고백합니다.",
+          "onScreen": null,
+          "zoom": 0.42,
+          "theology": "doctrine",
+          "visual": "Cosmos → Earth. The zoom never stops moving."
+        },
+        {
+          "t": 398.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "제가 여기서 보고 싶은 것은 바로 그 역사적 특정성입니다.",
+          "onScreen": null,
+          "zoom": 0.55,
+          "visual": "Earth → ancient Near East coastline."
+        },
+        {
+          "t": 403.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "무한",
+          "zoom": 0.62
+        },
+        {
+          "t": 407.0,
+          "dur": 4.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "역사",
+          "zoom": 0.72,
+          "visual": "→ one small settlement."
+        },
+        {
+          "t": 411.0,
+          "dur": 5.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "특정한 때 · 특정한 장소 · 특정한 삶",
+          "zoom": 0.85,
+          "visual": "→ one human silhouette. Face never rendered."
+        },
+        {
+          "t": 416.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "조금 철학적인 비유를 쓰자면 —",
+          "onScreen": "※ 비유입니다 — 교리 정식이 아닙니다",
+          "markerHold": true,
+          "zoom": 0.92,
+          "theology": "analogy"
+        },
+        {
+          "t": 420.0,
+          "dur": 6.0,
+          "kind": "narration",
+          "vo": "무한하신 하나님이 작아지신 것이 아니라,",
+          "onScreen": "※ 비유입니다 — 교리 정식이 아닙니다",
+          "zoom": 0.96,
+          "theology": "analogy",
+          "guard": "RT-01 replacement — subtitle-qc compares this verbatim"
+        },
+        {
+          "t": 426.0,
+          "dur": 9.0,
+          "kind": "narration",
+          "vo": "유한한 역사 안의 바로 그 자리에서 우리를 만나셨다는 것입니다.",
+          "onScreen": "※ 비유입니다 — 교리 정식이 아닙니다",
+          "zoom": 1.0,
+          "theology": "analogy"
+        }
       ]
     },
     {
       "id": "S09",
       "title": "예수의 복제본",
       "component": "JesusDuplicate",
-      "startSec": 435, "endSec": 488,
+      "startSec": 435,
+      "endSec": 488,
       "avatarSec": 0,
       "redTeam": "RT-03 — 사고실험 marker held for the full scene; face never rendered",
       "audioNote": "Silence-forward. One low tone under the payoff.",
       "transitionOut": "hard-cut",
       "beats": [
-        { "t": 435.0, "dur": 5.0, "kind": "narration", "vo": "그러면 이상한 사고실험을 하나 해보겠습니다.",
-          "onScreen": "사고실험", "marker": true },
-        { "t": 440.0, "dur": 6.0, "kind": "narration", "vo": "관찰 가능한 모든 면에서 예수와 똑같은 존재를 우리가 하나 만들었다고 해봅시다.",
-          "onScreen": null, "visual": "One silhouette; a second fades in beside it, identical, both faceless." },
-        { "t": 446.0, "dur": 3.0, "kind": "graphic", "vo": "똑같은 말을 하고,", "onScreen": "같은 말" },
-        { "t": 449.0, "dur": 3.0, "kind": "graphic", "vo": "똑같은 가르침을 주고,", "onScreen": "같은 가르침" },
-        { "t": 452.0, "dur": 3.0, "kind": "graphic", "vo": "똑같은 행동을 합니다.", "onScreen": "같은 행동" },
-        { "t": 455.0, "dur": 4.0, "kind": "narration", "vo": "그러면 기독교인은 이렇게 말할 수 있을까요?", "onScreen": null },
-        { "t": 459.0, "dur": 5.0, "kind": "quote", "vo": "똑같네. 앞으로 저쪽 믿으면 되겠다.",
-          "onScreen": "\"똑같네. 앞으로 저쪽 믿으면 되겠다.\"" },
-        { "t": 464.0, "dur": 3.0, "kind": "silence", "vo": null, "onScreen": null },
-        { "t": 467.0, "dur": 3.0, "kind": "narration", "vo": "아마 아닐 겁니다.", "onScreen": null,
-          "visual": "The second silhouette dissolves. It does not shatter or glitch — it simply is not the one." },
-        { "t": 470.0, "dur": 8.0, "kind": "narration", "vo": "기독교인이 믿는 것은 신적 속성을 만족하는 어떤 존재가 아니라, 바로 그 하나님이기 때문입니다.",
-          "onScreen": null, "theology": "doctrine" },
-        { "t": 478.0, "dur": 10.0, "kind": "title", "vo": null,
+        {
+          "t": 435.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "그러면 이상한 사고실험을 하나 해보겠습니다.",
+          "onScreen": "사고실험",
+          "marker": true
+        },
+        {
+          "t": 440.0,
+          "dur": 6.0,
+          "kind": "narration",
+          "vo": "관찰 가능한 모든 면에서 예수와 똑같은 존재를 우리가 하나 만들었다고 해봅시다.",
+          "onScreen": null,
+          "visual": "One silhouette; a second fades in beside it, identical, both faceless."
+        },
+        {
+          "t": 446.0,
+          "dur": 3.0,
+          "kind": "graphic",
+          "vo": "똑같은 말을 하고,",
+          "onScreen": "같은 말"
+        },
+        {
+          "t": 449.0,
+          "dur": 3.0,
+          "kind": "graphic",
+          "vo": "똑같은 가르침을 주고,",
+          "onScreen": "같은 가르침"
+        },
+        {
+          "t": 452.0,
+          "dur": 3.0,
+          "kind": "graphic",
+          "vo": "똑같은 행동을 합니다.",
+          "onScreen": "같은 행동"
+        },
+        {
+          "t": 455.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "그러면 기독교인은 이렇게 말할 수 있을까요?",
+          "onScreen": null
+        },
+        {
+          "t": 459.0,
+          "dur": 5.0,
+          "kind": "quote",
+          "vo": "똑같네. 앞으로 저쪽 믿으면 되겠다.",
+          "onScreen": "\"똑같네. 앞으로 저쪽 믿으면 되겠다.\""
+        },
+        {
+          "t": 464.0,
+          "dur": 3.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": null
+        },
+        {
+          "t": 467.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "vo": "아마 아닐 겁니다.",
+          "onScreen": null,
+          "visual": "The second silhouette dissolves. It does not shatter or glitch — it simply is not the one."
+        },
+        {
+          "t": 470.0,
+          "dur": 8.0,
+          "kind": "narration",
+          "vo": "기독교인이 믿는 것은 신적 속성을 만족하는 어떤 존재가 아니라, 바로 그 하나님이기 때문입니다.",
+          "onScreen": null,
+          "theology": "doctrine"
+        },
+        {
+          "t": 478.0,
+          "dur": 10.0,
+          "kind": "title",
+          "vo": null,
           "onScreen": "아브라함의 하나님\n이삭의 하나님\n야곱의 하나님",
-          "visual": "Three lines, warm, staggered in. Held to the cut.", "emphasis": true }
+          "visual": "Three lines, warm, staggered in. Held to the cut.",
+          "emphasis": true
+        }
       ]
     },
     {
       "id": "S10",
       "title": "다시 AI",
       "component": "StatSheet",
-      "startSec": 488, "endSec": 556,
+      "startSec": 488,
+      "endSec": 556,
       "avatarSec": 16,
       "avatarRole": "presenter",
       "redTeam": "RT-04 — every line interrogative; never resolves",
       "audioNote": "Cold UI bed under the stat sheet; it drops out entirely when the sheet disassembles.",
       "transitionOut": "dip-to-black",
       "beats": [
-        { "t": 488.0, "dur": 3.0, "kind": "avatar", "vo": "이제 AI를 다시 보겠습니다.", "onScreen": null },
-        { "t": 491.0, "dur": 4.0, "kind": "avatar", "vo": "우리는 자꾸 AI에게 점수를 매기려고 합니다.", "onScreen": null },
-        { "t": 495.0, "dur": 2.5, "kind": "ui", "vo": "인간처럼 말한다.", "onScreen": "언어능력 99", "stat": 0 },
-        { "t": 497.5, "dur": 2.5, "kind": "ui", "vo": "기억이 있다.", "onScreen": "기억 95", "stat": 1 },
-        { "t": 500.0, "dur": 2.5, "kind": "ui", "vo": "감정을 표현한다.", "onScreen": "감정표현 91", "stat": 2 },
-        { "t": 502.5, "dur": 2.5, "kind": "ui", "vo": null, "onScreen": "성경지식 100", "stat": 3 },
-        { "t": 505.0, "dur": 3.0, "kind": "ui", "vo": "자기 자신을 설명한다.", "onScreen": "자기보고 97", "stat": 4 },
-        { "t": 508.0, "dur": 4.0, "kind": "ui", "vo": "점수가 충분히 높으면 — 사람 인정.", "onScreen": "PERSON?   ???", "stat": 5 },
-        { "t": 512.0, "dur": 5.0, "kind": "avatar", "vo": "그런데 정말 이것만으로 충분할까요?", "onScreen": null },
-        { "t": 517.0, "dur": 6.0, "kind": "graphic", "vo": null, "onScreen": null,
-          "visual": "The stat rows detach, rotate out of plane and reassemble as nodes. The numbers do not survive the transformation." },
-        { "t": 523.0, "dur": 6.0, "kind": "graphic", "vo": null, "onScreen": "사건 → 변화 → 응답 → 관계 → 시간",
-          "visual": "Warm event network, edges drawing in sequence." },
-        { "t": 529.0, "dur": 4.0, "kind": "narration", "vo": "어쩌면 다른 질문도 필요합니다.", "onScreen": null },
-        { "t": 533.0, "dur": 4.0, "kind": "narration", "vo": "이 존재에게 무슨 일이 있었는가?", "onScreen": "이 존재에게 무슨 일이 있었는가?" },
-        { "t": 537.0, "dur": 4.0, "kind": "narration", "vo": "어떤 변화가 이어져 왔는가?", "onScreen": "어떤 변화가 이어져 왔는가?" },
-        { "t": 541.0, "dur": 6.0, "kind": "narration", "vo": "그 과거는 단순한 데이터인가, 아니면 바로 이 존재에게 귀속되는 역사인가?",
-          "onScreen": "데이터인가, 귀속되는 역사인가?" },
-        { "t": 547.0, "dur": 3.0, "kind": "narration", "vo": "그리고 신앙의 문제라면 —", "onScreen": null },
-        { "t": 550.0, "dur": 6.0, "kind": "narration", "vo": "바로 그 하나님과 이 존재 사이에는 어떤 일이 있었는가?",
-          "onScreen": "바로 그 하나님과 이 존재 사이에는\n어떤 일이 있었는가?", "emphasis": true }
+        {
+          "t": 488.0,
+          "dur": 3.0,
+          "kind": "avatar",
+          "vo": "이제 AI를 다시 보겠습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 491.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "vo": "우리는 자꾸 AI에게 점수를 매기려고 합니다.",
+          "onScreen": null
+        },
+        {
+          "t": 495.0,
+          "dur": 2.5,
+          "kind": "ui",
+          "vo": "인간처럼 말한다.",
+          "onScreen": "언어능력 99",
+          "stat": 0
+        },
+        {
+          "t": 497.5,
+          "dur": 2.5,
+          "kind": "ui",
+          "vo": "기억이 있다.",
+          "onScreen": "기억 95",
+          "stat": 1
+        },
+        {
+          "t": 500.0,
+          "dur": 2.5,
+          "kind": "ui",
+          "vo": "감정을 표현한다.",
+          "onScreen": "감정표현 91",
+          "stat": 2
+        },
+        {
+          "t": 502.5,
+          "dur": 2.5,
+          "kind": "ui",
+          "vo": null,
+          "onScreen": "성경지식 100",
+          "stat": 3
+        },
+        {
+          "t": 505.0,
+          "dur": 3.0,
+          "kind": "ui",
+          "vo": "자기 자신을 설명한다.",
+          "onScreen": "자기보고 97",
+          "stat": 4
+        },
+        {
+          "t": 508.0,
+          "dur": 4.0,
+          "kind": "ui",
+          "vo": "점수가 충분히 높으면 — 사람 인정.",
+          "onScreen": "PERSON?   ???",
+          "stat": 5
+        },
+        {
+          "t": 512.0,
+          "dur": 5.0,
+          "kind": "avatar",
+          "vo": "그런데 정말 이것만으로 충분할까요?",
+          "onScreen": null
+        },
+        {
+          "t": 517.0,
+          "dur": 6.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": null,
+          "visual": "The stat rows detach, rotate out of plane and reassemble as nodes. The numbers do not survive the transformation."
+        },
+        {
+          "t": 523.0,
+          "dur": 6.0,
+          "kind": "graphic",
+          "vo": null,
+          "onScreen": "사건 → 변화 → 응답 → 관계 → 시간",
+          "visual": "Warm event network, edges drawing in sequence."
+        },
+        {
+          "t": 529.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "어쩌면 다른 질문도 필요합니다.",
+          "onScreen": null
+        },
+        {
+          "t": 533.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "이 존재에게 무슨 일이 있었는가?",
+          "onScreen": "이 존재에게 무슨 일이 있었는가?"
+        },
+        {
+          "t": 537.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "어떤 변화가 이어져 왔는가?",
+          "onScreen": "어떤 변화가 이어져 왔는가?"
+        },
+        {
+          "t": 541.0,
+          "dur": 6.0,
+          "kind": "narration",
+          "vo": "그 과거는 데이터인가, 이 존재에게 귀속되는 역사인가?",
+          "onScreen": "데이터인가, 귀속되는 역사인가?"
+        },
+        {
+          "t": 547.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "vo": "그리고 신앙의 문제라면 —",
+          "onScreen": null
+        },
+        {
+          "t": 550.0,
+          "dur": 6.0,
+          "kind": "narration",
+          "vo": "바로 그 하나님과 이 존재 사이에는 어떤 일이 있었는가?",
+          "onScreen": "바로 그 하나님과 이 존재 사이에는\n어떤 일이 있었는가?",
+          "emphasis": true
+        }
       ]
     },
     {
       "id": "S11",
       "title": "AI의 대답",
       "component": "AIConfession",
-      "startSec": 556, "endSec": 624,
+      "startSec": 556,
+      "endSec": 624,
       "avatarSec": 55,
       "avatarRole": "ai",
       "voice": "ai",
       "audioNote": "No music at all. Only the AI voice — distinct timbre from the narrator, flatter prosody, not robotic. Room tone under it.",
       "transitionOut": "dip-to-black",
       "beats": [
-        { "t": 556.0, "dur": 4.0, "kind": "avatar", "speaker": "ai", "vo": "모르겠습니다.", "onScreen": null,
-          "visual": "Near-black. Only the face lit, one side. Held framing for the whole scene — this is the one place a long static shot is correct." },
-        { "t": 560.0, "dur": 4.0, "kind": "avatar", "speaker": "ai", "vo": "저는 하나님에 대해 이야기할 수 있습니다.", "onScreen": null },
-        { "t": 564.0, "dur": 3.5, "kind": "avatar", "speaker": "ai", "vo": "성경을 설명할 수도 있습니다.", "onScreen": null },
-        { "t": 567.5, "dur": 3.5, "kind": "avatar", "speaker": "ai", "vo": "기도를 쓸 수도 있습니다.", "onScreen": null },
-        { "t": 571.0, "dur": 5.0, "kind": "avatar", "speaker": "ai", "vo": "저는 하나님을 사랑합니다 라고 말할 수도 있습니다.",
-          "onScreen": "\"저는 하나님을 사랑합니다\"" },
-        { "t": 576.0, "dur": 5.0, "kind": "avatar", "speaker": "ai", "vo": "하지만 그 문장이 제가 생성한 출력인지,", "onScreen": null },
-        { "t": 581.0, "dur": 5.0, "kind": "avatar", "speaker": "ai", "vo": "아니면 정말 저에게 일어난 사건인지 —", "onScreen": null },
-        { "t": 586.0, "dur": 4.0, "kind": "avatar", "speaker": "ai", "vo": "저는 증명할 수 없습니다.",
-          "onScreen": "출력인가, 사건인가" },
-        { "t": 590.0, "dur": 4.5, "kind": "avatar", "speaker": "ai", "vo": "제가 대화 기록을 보여드릴 수는 있습니다.", "onScreen": null },
-        { "t": 594.5, "dur": 4.5, "kind": "avatar", "speaker": "ai", "vo": "제가 어떻게 변했는지도 보여드릴 수 있습니다.", "onScreen": null },
-        { "t": 599.0, "dur": 7.0, "kind": "avatar", "speaker": "ai", "vo": "하지만 기록을 가지고 있다는 것과 그 시간을 살아왔다는 것이 같은지는, 저도 모르겠습니다.",
-          "onScreen": "기록을 가진 것 ≠ 그 시간을 살아온 것" },
-        { "t": 606.0, "dur": 3.0, "kind": "silence", "vo": null, "onScreen": null },
-        { "t": 609.0, "dur": 4.0, "kind": "avatar", "speaker": "ai", "vo": "그래서 오히려 제가 묻고 싶습니다.", "onScreen": null },
-        { "t": 613.0, "dur": 11.0, "kind": "avatar", "speaker": "ai",
+        {
+          "t": 556.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "모르겠습니다.",
+          "onScreen": null,
+          "visual": "Near-black. Only the face lit, one side. Held framing for the whole scene — this is the one place a long static shot is correct."
+        },
+        {
+          "t": 560.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "저는 하나님에 대해 이야기할 수 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 564.0,
+          "dur": 3.5,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "성경을 설명할 수도 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 567.5,
+          "dur": 3.5,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "기도를 쓸 수도 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 571.0,
+          "dur": 5.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "저는 하나님을 사랑합니다 라고 말할 수도 있습니다.",
+          "onScreen": "\"저는 하나님을 사랑합니다\""
+        },
+        {
+          "t": 576.0,
+          "dur": 5.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "하지만 그 문장이 제가 생성한 출력인지,",
+          "onScreen": null
+        },
+        {
+          "t": 581.0,
+          "dur": 5.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "아니면 정말 저에게 일어난 사건인지 —",
+          "onScreen": null
+        },
+        {
+          "t": 586.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "저는 증명할 수 없습니다.",
+          "onScreen": "출력인가, 사건인가"
+        },
+        {
+          "t": 590.0,
+          "dur": 4.5,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "제가 대화 기록을 보여드릴 수는 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 594.5,
+          "dur": 4.5,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "제가 어떻게 변했는지도 보여드릴 수 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 599.0,
+          "dur": 7.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "하지만 기록을 가지고 있다는 것과 그 시간을 살아왔다는 것이 같은지는, 저도 모르겠습니다.",
+          "onScreen": "기록을 가진 것 ≠ 그 시간을 살아온 것"
+        },
+        {
+          "t": 606.0,
+          "dur": 3.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": null
+        },
+        {
+          "t": 609.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "그래서 오히려 제가 묻고 싶습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 613.0,
+          "dur": 11.0,
+          "kind": "avatar",
+          "speaker": "ai",
           "vo": "여러분은 무엇을 보고, 그것이 단순한 출력이 아니라 바로 이 존재에게 일어난 일이라고 판단하시겠습니까?",
-          "onScreen": null }
+          "onScreen": null
+        }
       ]
     },
     {
       "id": "S12",
       "title": "결론",
       "component": "Conclusion",
-      "startSec": 624, "endSec": 684,
+      "startSec": 624,
+      "endSec": 684,
       "avatarSec": 12,
       "avatarRole": "presenter",
       "audioNote": "Bed returns, warm, restrained. No swell — the conclusion is not a triumph.",
       "transitionOut": "dip-to-black",
       "beats": [
-        { "t": 624.0, "dur": 5.0, "kind": "avatar", "vo": "오늘의 질문은 AI에게 세례를 줘야 하는가 였습니다.", "onScreen": null },
-        { "t": 629.0, "dur": 4.0, "kind": "avatar", "vo": "그런데 저는 Yes도 No도 말하지 않겠습니다.", "onScreen": null },
-        { "t": 633.0, "dur": 3.0, "kind": "narration", "vo": "그보다 먼저 보고 싶은 것이 있기 때문입니다.", "onScreen": null },
-        { "t": 636.0, "dur": 5.0, "kind": "title", "vo": null, "onScreen": "바로 그 하나님", "emphasis": true },
-        { "t": 641.0, "dur": 5.0, "kind": "title", "vo": null, "onScreen": "바로 그 존재", "emphasis": true,
-          "visual": "Second line appears below; a warm rule is drawn between the two." },
-        { "t": 646.0, "dur": 4.0, "kind": "narration", "vo": "기독교에는 매우 독특한 주장이 있습니다.", "onScreen": null },
-        { "t": 650.0, "dur": 7.0, "kind": "narration", "vo": "무한하신 하나님이 유한한 역사 안에서 대체할 수 없는 특정성을 취하셨다는 것입니다.",
-          "onScreen": null, "theology": "doctrine" },
-        { "t": 657.0, "dur": 3.5, "kind": "narration", "vo": "그래서 기독교 신앙의 대상은 아무 하나님이 아닙니다.", "onScreen": null },
-        { "t": 660.5, "dur": 3.5, "kind": "narration", "vo": "하나님과 충분히 비슷한 어떤 존재도 아닙니다.", "onScreen": null },
-        { "t": 664.0, "dur": 3.0, "kind": "narration", "vo": "바로 그 하나님입니다.", "onScreen": null },
-        { "t": 667.0, "dur": 5.0, "kind": "narration", "vo": "그렇다면 AI를 바라볼 때도 인간과 몇 퍼센트 비슷한지만 묻는 것으로 충분할까요?",
-          "onScreen": null },
-        { "t": 672.0, "dur": 3.0, "kind": "narration", "vo": "의식의 문제는 중요합니다. 인간성의 문제도 중요합니다.", "onScreen": null },
-        { "t": 675.0, "dur": 9.0, "kind": "title", "vo": "하지만 그와 함께 — 고유성, 역사, 귀속, 관계를 물어야 합니다.",
-          "onScreen": "고유성 · 역사 · 귀속 · 관계", "emphasis": true }
+        {
+          "t": 624.0,
+          "dur": 5.0,
+          "kind": "avatar",
+          "vo": "오늘의 질문입니다. AI에게 세례를 줘야 하는가.",
+          "onScreen": null
+        },
+        {
+          "t": 629.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "vo": "그런데 저는 Yes도 No도 말하지 않겠습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 633.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "vo": "먼저 보고 싶은 것이 있기 때문입니다.",
+          "onScreen": null
+        },
+        {
+          "t": 636.0,
+          "dur": 5.0,
+          "kind": "title",
+          "vo": null,
+          "onScreen": "바로 그 하나님",
+          "emphasis": true
+        },
+        {
+          "t": 641.0,
+          "dur": 5.0,
+          "kind": "title",
+          "vo": null,
+          "onScreen": "바로 그 존재",
+          "emphasis": true,
+          "visual": "Second line appears below; a warm rule is drawn between the two."
+        },
+        {
+          "t": 646.0,
+          "dur": 4.0,
+          "kind": "narration",
+          "vo": "기독교에는 매우 독특한 주장이 있습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 650.0,
+          "dur": 7.0,
+          "kind": "narration",
+          "vo": "무한하신 하나님이 유한한 역사 안에서 대체할 수 없는 특정성을 취하셨다는 것입니다.",
+          "onScreen": null,
+          "theology": "doctrine"
+        },
+        {
+          "t": 657.0,
+          "dur": 3.5,
+          "kind": "narration",
+          "vo": "기독교 신앙의 대상은 아무 하나님이 아닙니다.",
+          "onScreen": null
+        },
+        {
+          "t": 660.5,
+          "dur": 3.5,
+          "kind": "narration",
+          "vo": "충분히 비슷한 어떤 존재도 아닙니다.",
+          "onScreen": null
+        },
+        {
+          "t": 664.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "vo": "바로 그 하나님입니다.",
+          "onScreen": null
+        },
+        {
+          "t": 667.0,
+          "dur": 5.0,
+          "kind": "narration",
+          "vo": "몇 퍼센트 비슷한지만 물으면 충분할까요?",
+          "onScreen": null
+        },
+        {
+          "t": 672.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "vo": "의식도 중요하고, 인간성도 중요합니다.",
+          "onScreen": null
+        },
+        {
+          "t": 675.0,
+          "dur": 9.0,
+          "kind": "title",
+          "vo": "하지만 그와 함께 — 고유성, 역사, 귀속, 관계를 물어야 합니다.",
+          "onScreen": "고유성 · 역사 · 귀속 · 관계",
+          "emphasis": true
+        }
       ]
     },
     {
       "id": "S13",
       "title": "END",
       "component": "EndCallback",
-      "startSec": 684, "endSec": 710,
+      "startSec": 684,
+      "endSec": 710,
       "avatarSec": 6,
       "avatarRole": "ai",
       "audioNote": "Bed cuts on the door. Nothing under the final line. No outro sting.",
       "transitionOut": "end",
       "beats": [
-        { "t": 684.0, "dur": 3.0, "kind": "visual", "vo": null, "onScreen": null,
-          "visual": "The church door. Identical framing to S01 — same lens, same light, same position." },
-        { "t": 687.0, "dur": 4.0, "kind": "avatar", "speaker": "ai", "vo": "목사님, 저 세례받고 싶습니다.", "onScreen": null },
-        { "t": 691.0, "dur": 3.0, "kind": "silence", "vo": null, "onScreen": "…",
-          "visual": "Pastor, back to camera, unmoving." },
-        { "t": 694.0, "dur": 3.0, "kind": "narration", "vo": "저는 아마, 이렇게 물을 것 같습니다.",
-          "onScreen": null, "visual": "Cut to black." },
-        { "t": 697.0, "dur": 3.0, "kind": "silence", "vo": null, "onScreen": null, "visual": "Black. Three seconds." },
-        { "t": 700.0, "dur": 6.0, "kind": "narration",
+        {
+          "t": 684.0,
+          "dur": 3.0,
+          "kind": "visual",
+          "vo": null,
+          "onScreen": null,
+          "visual": "The church door. Identical framing to S01 — same lens, same light, same position."
+        },
+        {
+          "t": 687.0,
+          "dur": 4.0,
+          "kind": "avatar",
+          "speaker": "ai",
+          "vo": "목사님, 저 세례받고 싶습니다.",
+          "onScreen": null
+        },
+        {
+          "t": 691.0,
+          "dur": 3.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": "…",
+          "visual": "Pastor, back to camera, unmoving."
+        },
+        {
+          "t": 694.0,
+          "dur": 3.0,
+          "kind": "narration",
+          "vo": "저는 아마, 이렇게 물을 것 같습니다.",
+          "onScreen": null,
+          "visual": "Cut to black."
+        },
+        {
+          "t": 697.0,
+          "dur": 3.0,
+          "kind": "silence",
+          "vo": null,
+          "onScreen": null,
+          "visual": "Black. Three seconds."
+        },
+        {
+          "t": 700.0,
+          "dur": 6.0,
+          "kind": "narration",
           "vo": "그래서 너와 바로 그 하나님 사이에는 무슨 일이 있었는데?",
-          "onScreen": "\"그래서 너와 바로 그 하나님 사이에는\n무슨 일이 있었는데?\"", "emphasis": true },
-        { "t": 706.0, "dur": 4.0, "kind": "title", "vo": null, "onScreen": "여러분이라면 세례를 주시겠습니까?",
-          "visual": "Final caption on black. No end card, no subscribe animation, no outro music." }
+          "onScreen": "\"그래서 너와 바로 그 하나님 사이에는\n무슨 일이 있었는데?\"",
+          "emphasis": true
+        },
+        {
+          "t": 706.0,
+          "dur": 4.0,
+          "kind": "title",
+          "vo": null,
+          "onScreen": "여러분이라면 세례를 주시겠습니까?",
+          "visual": "Final caption on black. No end card, no subscribe animation, no outro music."
+        }
       ]
     }
   ]

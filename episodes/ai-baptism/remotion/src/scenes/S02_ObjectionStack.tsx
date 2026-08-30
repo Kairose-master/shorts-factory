@@ -78,7 +78,12 @@ export const S02_ObjectionStack: React.FC = () => {
 
   // The trailing "?" scales up and turns warm — the first crack in the argument.
   const qF = (absSec - 52) * 30;
-  const qScale = qF > 0 ? interpolate(qF, [0, 26], [1, 6], {extrapolateRight: 'clamp', easing: (t) => 1 - Math.pow(1 - t, 3)}) : 0;
+  const qScale = qF > 0 ? interpolate(qF, [0, 26], [1, 4.2], {extrapolateRight: 'clamp', easing: (t) => 1 - Math.pow(1 - t, 3)}) : 0;
+  // The stack recedes as its own question mark takes the frame.
+  const stackFade = interpolate(absSec, [52, 53.4], [1, 0.18], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+  });
 
   return (
     <Frame>
@@ -92,6 +97,7 @@ export const S02_ObjectionStack: React.FC = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            opacity: stackFade,
           }}
         >
           <Stack absSec={absSec} />
@@ -99,17 +105,34 @@ export const S02_ObjectionStack: React.FC = () => {
       </AbsoluteFill>
 
       {qScale > 0 ? (
-        <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
+        <AbsoluteFill style={{flexDirection: 'row'}}>
+          <div style={{width: '42%'}} />
           <div
             style={{
-              fontSize: 120,
-              fontWeight: 800,
-              color: T.warm,
-              transform: `scale(${qScale})`,
-              opacity: interpolate(qF, [0, 8, 70, 90], [0, 1, 1, 0.9], {extrapolateRight: 'clamp'}),
+              width: '58%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
-            ?
+            <div
+              style={{
+                fontSize: 120,
+                fontWeight: 800,
+                color: T.warm,
+                // Grows out of the last node's baseline, not the frame centre.
+                transformOrigin: 'center center',
+                transform: `translateY(${interpolate(qF, [0, 26], [150, 40], {
+                  extrapolateLeft: 'clamp',
+                  extrapolateRight: 'clamp',
+                })}px) scale(${qScale})`,
+                opacity: interpolate(qF, [0, 8, 70, 90], [0, 1, 1, 0.9], {
+                  extrapolateRight: 'clamp',
+                }),
+              }}
+            >
+              ?
+            </div>
           </div>
         </AbsoluteFill>
       ) : null}

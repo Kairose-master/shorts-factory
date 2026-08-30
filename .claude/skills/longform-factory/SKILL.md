@@ -63,7 +63,7 @@ writes and approves, the review did not happen.
 | 5 | Avatar budget | `avatar-director` | share inside 25–35% |
 | 6 | Visual metaphors | `visual-metaphor` | — |
 | 7 | Assets | `media-acquisition`, `asset-hunter` | licence recorded |
-| 8 | Narration | `voicebox` (+ provider) | distinct voice per speaker |
+| 8 | Narration | `voicebox`, `references/narration.md` | distinct voice per speaker; every line fits its beat |
 | 9 | Lip-sync | `avatar-director` → MuseTalk / EchoMimicV2 | **needs CUDA** |
 | 10 | Assembly | `remotion-video` | typecheck + still review |
 | 11 | Subtitles + QC | `subtitle-qc` | guarded lines verbatim |
@@ -115,6 +115,8 @@ video edit — there is no second place to change a timing.
 
 - `references/pipeline.md` — what each phase consumes and emits, and the exact
   failure mode each gate exists to catch.
+- `references/narration.md` — TTS engine choice, the Gemini free-tier trap, and
+  the fitting loop that reconciles a measured read with an authored beat grid.
 - `references/reuse.md` — running the stack on the next episode.
 
 ## The reuse claim

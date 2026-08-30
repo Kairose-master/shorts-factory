@@ -15,7 +15,7 @@ export const RemotionRoot: React.FC = () => {
         fps={FPS}
         width={STORYBOARD.width}
         height={STORYBOARD.height}
-        defaultProps={{narration: null, music: null}}
+        defaultProps={{narration: 'mixed.m4a', music: null}}
       />
 
       {/* One composition per scene so a single scene can be re-rendered and

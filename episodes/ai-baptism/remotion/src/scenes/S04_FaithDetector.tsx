@@ -158,7 +158,7 @@ export const S04_FaithDetector: React.FC = () => {
       {uiPhase ? <Detector absSec={absSec} /> : null}
 
       {/* After the collapse: the three things we actually go on. */}
-      {absSec >= 139 && absSec < 144 ? (
+      {absSec >= 139 && absSec < 142.5 ? (
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
           <div style={{...riseIn((absSec - 139) * 30), display: 'flex', gap: 56}}>
             {['말', '행동', '시간'].map((w, i) => (

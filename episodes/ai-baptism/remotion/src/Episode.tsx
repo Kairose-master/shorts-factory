@@ -1,6 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, Audio, Sequence, staticFile} from 'remotion';
 import {STORYBOARD} from './lib/beats';
+import {SceneTransition} from './components/Transition';
 import {FPS, loadFonts, T} from './theme';
 
 import {S01_ColdOpenChurch} from './scenes/S01_ColdOpenChurch';
@@ -47,11 +48,12 @@ export const Episode: React.FC<EpisodeProps> = ({narration, music}) => {
 
   return (
     <AbsoluteFill style={{backgroundColor: T.bg}}>
-      {STORYBOARD.scenes.map((scene) => {
+      {STORYBOARD.scenes.map((scene, i) => {
         const Comp = SCENE_COMPONENTS[scene.id];
         if (!Comp) {
           throw new Error(`no component registered for scene ${scene.id}`);
         }
+        const prev = STORYBOARD.scenes[i - 1];
         return (
           <Sequence
             key={scene.id}
@@ -59,14 +61,19 @@ export const Episode: React.FC<EpisodeProps> = ({narration, music}) => {
             from={Math.round(scene.startSec * FPS)}
             durationInFrames={Math.round((scene.endSec - scene.startSec) * FPS)}
           >
-            <Comp />
+            <SceneTransition scene={scene} prevTransition={prev?.transitionOut}>
+              <Comp />
+            </SceneTransition>
           </Sequence>
         );
       })}
 
-      {/* Audio is attached at episode level, not per scene: the narration is
-          one continuous WAV whose timing the storyboard was built against, so
-          splitting it per scene would let drift accumulate at every seam. */}
+      {/* Audio is attached at episode level, not per scene: the mix is one
+          continuous track built against the storyboard, so splitting it per
+          scene would let drift accumulate at every seam. `narration` is
+          normally the MIXED track — narration and bed already balanced and
+          ducked by scripts/assemble_audio.py — so `music` stays unset rather
+          than layering a second bed over it. */}
       {narration ? <Audio src={staticFile(`audio/${narration}`)} /> : null}
       {music ? <Audio src={staticFile(`audio/${music}`)} volume={0.16} /> : null}
     </AbsoluteFill>

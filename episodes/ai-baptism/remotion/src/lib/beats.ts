@@ -1,5 +1,6 @@
 import {useCurrentFrame, useVideoConfig} from 'remotion';
 import storyboard from '../../../storyboard/storyboard.json';
+import captionTrack from '../../../audio/caption-track.json';
 import {FPS} from '../theme';
 
 export type Beat = {
@@ -88,3 +89,29 @@ export const useSceneClock = (scene: Scene) => {
 
 /** Beats whose `vo` is non-null, i.e. the ones that produce a caption. */
 export const spokenBeats = (scene: Scene) => scene.beats.filter((b) => b.vo);
+
+export type Cue = {
+  start: number;
+  end: number;
+  text: string;
+  speaker: string;
+  scene: string;
+};
+
+/**
+ * Where each line is ACTUALLY spoken, measured from the generated narration.
+ *
+ * Graphics stay on their authored beats — they are choreographed to the
+ * argument, and a diagram that moves because a sentence ran long is a worse
+ * defect than a caption that lingers. Captions have exactly one job, to match
+ * the voice, so they read from here instead of from the beat grid. That split
+ * is what lets a line overrun its beat without desyncing anything.
+ */
+export const CUES = captionTrack as unknown as Cue[];
+
+export const cueAt = (absSec: number): Cue | null => {
+  for (const c of CUES) {
+    if (absSec >= c.start && absSec < c.end) return c;
+  }
+  return null;
+};

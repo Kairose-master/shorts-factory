@@ -51,6 +51,12 @@ office/production/*/refs/
 episodes/*/export/*.mp4
 episodes/*/audio/*
 !episodes/*/audio/manifest.json
+# The caption track is imported by the Remotion composition, so a clone without
+# it cannot build. It and the placement/beat reports are small JSON records of
+# how the read was fitted — the WAVs they describe stay out.
+!episodes/*/audio/caption-track.json
+!episodes/*/audio/beats.json
+!episodes/*/audio/narration.placement.json
 episodes/*/avatar/*
 !episodes/*/avatar/.gitkeep
 episodes/*/remotion/public/audio/

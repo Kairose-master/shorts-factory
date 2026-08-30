@@ -1,6 +1,6 @@
 {
   "episodeId": "ai-baptism",
-  "status": "PENDING — no TTS credential is set in this environment",
+  "status": "GENERATED — Edge TTS (free, no credential), 118 lines, two voices",
   "note": "Narration is attached at episode level in Remotion, not per scene: the storyboard was timed against one continuous WAV, and splitting it per scene lets drift accumulate at every seam. Generate one file per voice covering the full 710s, with silence where that voice is not speaking.",
   "voices": [
     {
@@ -8,7 +8,8 @@
       "role": "The essayist. Present in every scene except S11.",
       "direction": "Calm, young adult, intellectually curious. Not sermon-like, not announcer-like. Natural conversational Korean pace. Falls quiet rather than filling — the silences are written into the storyboard and must survive generation.",
       "target": "audio/narration.wav",
-      "coverageSec": 525
+      "coverageSec": 525,
+      "voice": "ko-KR-InJoonNeural @ rate -3%, pitch -2Hz"
     },
     {
       "id": "ai",
@@ -16,14 +17,15 @@
       "direction": "Same language, distinct timbre from the narrator, slightly flatter prosody. NOT robotic and NOT processed — the point is that it sounds like a person until you ask whether it is one. Processing it into a machine voice answers the episode's question in the sound design, which is the one thing the episode refuses to do.",
       "target": "audio/ai-voice.wav",
       "coverageSec": 185,
-      "qaCondition": "subtitle-qc fails the render if S11 comes back in the narrator voice. This is a content failure, not a cosmetic one: the argument depends on the viewer hearing a second speaker."
+      "qaCondition": "subtitle-qc fails the render if S11 comes back in the narrator voice. This is a content failure, not a cosmetic one: the argument depends on the viewer hearing a second speaker.",
+      "voice": "ko-KR-SunHiNeural @ rate -8%, pitch -4Hz"
     }
   ],
   "music": {
     "target": "audio/bed.wav",
     "gain": 0.16,
     "direction": "One sustained pad, no melody, no percussion. Must be able to drop to silence entirely for S08 (성육신) and S11 (the confession) and return without a swell. A bed that builds toward the conclusion would tell the viewer the episode reached one.",
-    "source": "Free tier only — Archive.org / public-domain or CC0. Record licence in the asset manifest before use."
+    "source": "Synthesised by scripts/make_music_bed.py from the storyboard. A drone with a per-scene envelope, fully silent for S01 and S11. Generated rather than sourced because the bed has to fall to complete silence for named scenes and return without a swell — and a generated bed is unambiguously ours to publish."
   },
   "engines": {
     "available": [],
@@ -34,5 +36,34 @@
       "Install Piper with a Korean voice for a free offline draft — good enough to validate timing, not good enough to ship.",
       "Record a human read. For an essay channel this is the strongest option and removes the corporate-TTS mandatory failure entirely."
     ]
+  },
+  "engine": {
+    "chosen": "edge-tts (ko-KR-InJoonNeural narrator @-3%, ko-KR-SunHiNeural AI @-8%)",
+    "why": "No key, no quota, good Korean, ~1-2s per line.",
+    "rejected": {
+      "gemini-tts": "Follows Korean style direction better than anything else free, but the free tier allows only 10 generate-requests per day per model. Three TTS models is ~30 calls; this episode needs 118.",
+      "piper/espeak": "Not installed, and Korean quality would fail the corporate-TTS check.",
+      "elevenlabs/qwen3-tts": "No credential set."
+    },
+    "proxyNote": "edge-tts opens a direct websocket with a certifi-only SSL context, so behind the agent proxy it needs both proxy= and an SSL context built from /root/.ccr/ca-bundle.crt. Trust is extended to the configured CA; verification is never disabled."
+  },
+  "mix": {
+    "narration": "audio/narration.wav",
+    "bed": "audio/bed.wav",
+    "mixed": "audio/mixed.wav",
+    "encoded": "remotion/public/audio/mixed.m4a",
+    "bedGain": 0.16,
+    "ducking": "bed drops up to 55% under speech, 0.25s window",
+    "note": "Remotion attaches the MIXED track only. Layering a second music source over it would double-bed the episode."
+  },
+  "fitting": {
+    "linesTrimmed": 21,
+    "beatsRetimed": "S04 tail (beats 10-12) — the guarded line C-04 needed 4.6s in a 3s slot, and guarded lines are never trimmed to make a scene fit, so the grid moved and S04's graphic window moved with it",
+    "timeCompressed": {
+      "S04": 1.13,
+      "S05B": 1.1,
+      "S12": 1.1
+    },
+    "captionTiming": "Captions read audio/caption-track.json — where each line is ACTUALLY spoken. Graphics keep their authored beats."
   }
 }

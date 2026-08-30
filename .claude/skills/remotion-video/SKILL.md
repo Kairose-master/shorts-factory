@@ -64,7 +64,30 @@ component never computes its own offset — which is also why mounting a scene
 alone at frame 0 gives exactly the frames it occupies in the episode, and why
 per-scene compositions work without extra plumbing.
 
-## Captions
+## Captions follow the voice; graphics keep their beats
+
+The two are driven from different sources, on purpose.
+
+**Graphics read the storyboard beat grid.** They are choreographed to the
+argument — a diagram that moves because a sentence ran long is a worse defect
+than a caption that lingers.
+
+**Captions read a measured caption track** emitted by the audio assembly stage:
+where each line is *actually* spoken, after placement and any time-compression.
+Captions have exactly one job, to match the voice, and a caption grid that
+disagrees with the audio is simply wrong.
+
+That split is what lets a line overrun its beat without desyncing anything, and
+it removes the temptation to re-time the whole storyboard — which would break
+every scene component's keyframes — because one sentence ran two seconds long.
+
+```ts
+export const CUES = captionTrack as unknown as Cue[];
+export const cueAt = (absSec: number) =>
+  CUES.find((c) => absSec >= c.start && absSec < c.end) ?? null;
+```
+
+## Caption craft
 
 Burned in, because this audience watches muted on a phone.
 
@@ -91,9 +114,16 @@ a still at frame 0 of a fade tells you nothing.
 
 ## Audio
 
-Attach at episode level, not per scene. The narration is one continuous WAV that
-the storyboard was timed against; splitting it per scene lets drift accumulate at
-every seam. Music at ~0.16 gain under narration.
+Attach **one mixed track** at episode level, not per scene and not as two
+separate sources. Narration and bed are balanced and ducked once, at assembly,
+where the per-scene music envelope lives; layering a second `<Audio>` for music
+over an already-mixed track double-beds it.
+
+Splitting audio per scene lets drift accumulate at every seam, which is the
+reason the mix is one continuous file in the first place.
+
+Encode the mix to AAC before it enters `public/` — a 12-minute 48k mono WAV is
+~68MB and Remotion has no reason to carry that.
 
 ## Avatar fallback
 

@@ -5,7 +5,7 @@ import {Caption} from '../components/Caption';
 import {AvatarPlate} from '../components/AvatarPlate';
 import {CornerMarker, Readout, Statement} from '../components/Type';
 import {getScene, useSceneClock} from '../lib/beats';
-import {breathe, riseIn} from '../lib/anim';
+import {breathe, riseIn, wipeReveal} from '../lib/anim';
 import {T} from '../theme';
 
 const scene = getScene('S06');
@@ -213,7 +213,7 @@ export const S06_PerfectDuplicate: React.FC = () => {
 
       {payoff > 0.01 ? (
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
-          <div style={{...riseIn((absSec - 279) * 30, 0, 40), opacity: payoff}}>
+          <div style={{...wipeReveal((absSec - 279) * 30, 0, 30), opacity: payoff}}>
             <Statement size={168} color={T.warm}>
               바로 그 사람
             </Statement>

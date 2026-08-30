@@ -1,3 +1,4 @@
+import type React from 'react';
 import {interpolate, spring} from 'remotion';
 import {FPS} from '../theme';
 
@@ -44,6 +45,41 @@ export const draw = (elapsedSec: number, durSec: number) =>
     extrapolateRight: 'clamp',
     easing: (t) => 1 - Math.pow(1 - t, 2),
   });
+
+/**
+ * The episode's signature motion.
+ *
+ * Every channel wants one behaviour a viewer recognises across videos. Ours is
+ * a bottom-up mask wipe: a statement is uncovered rather than faded in, as if
+ * it were already there and the frame moved off it. It suits an essay whose
+ * whole claim is that the answer was always in front of the viewer and the
+ * question was wrong.
+ *
+ * Returns a CSS mask. Pair with a small upward drift; the two together read as
+ * craft, while a fade alone reads as a default.
+ */
+export const wipeReveal = (localFrame: number, delayFrames = 0, durFrames = 26) => {
+  const p = interpolate(localFrame - delayFrames, [0, durFrames], [0, 1], {
+    extrapolateLeft: 'clamp',
+    extrapolateRight: 'clamp',
+    easing: (t) => 1 - Math.pow(1 - t, 3),
+  });
+  // The soft edge is what sells it. A hard edge reads as a loading bar.
+  const top = (1 - p) * 118;
+  const grad = `linear-gradient(to top, #000 0%, #000 ${Math.max(
+    0,
+    100 - top
+  )}%, transparent ${Math.max(0, 100 - top + 16)}%, transparent 100%)`;
+  return {
+    WebkitMaskImage: grad,
+    maskImage: grad,
+    transform: `translateY(${(1 - p) * 16}px)`,
+    opacity: interpolate(localFrame - delayFrames, [0, 6], [0, 1], {
+      extrapolateLeft: 'clamp',
+      extrapolateRight: 'clamp',
+    }),
+  } as React.CSSProperties;
+};
 
 /**
  * Slow drift applied to otherwise-static frames. The brief forbids more than

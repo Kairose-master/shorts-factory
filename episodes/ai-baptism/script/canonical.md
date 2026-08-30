@@ -6,7 +6,7 @@
 | **runtime** | 11:50 (710s · 21,300 frames @ 30fps) |
 | **aspect** | 16:9 · 1920×1080 |
 | **language** | Korean (spoken), Korean captions |
-| **status** | SCRIPT_LOCK v1.1 — theology red-team applied (see `theology-redteam.md`) |
+| **status** | SCRIPT_LOCK v1.2 — theology red-team applied; lines re-cut to the measured read |
 | **avatar share** | 185s / 710s = **26.1%** (target band 25–35%) |
 
 ## Core movement
@@ -27,6 +27,19 @@ future reading of an AI claiming faith cannot rest on similarity-to-human
 checklists alone.
 
 Final line: **"그래서 너와 바로 그 하나님 사이에는 무슨 일이 있었는데?"**
+
+## Changes from v1.1 → v1.2 — re-cut to the measured read
+
+Narration was generated, measured, and the script cut back to fit. Beat
+durations in v1.1 were estimates; several lines ran at nearly double the
+`philosophy-script` budget of ~210–240 spoken characters per minute, and the
+first assembly showed 14 seconds of accumulated drift by the end of the episode.
+
+Twenty-one lines were shortened. No claim was dropped, and **no guarded line was
+touched** — where a guarded line could not fit its slot (C-04 in SCENE 04), the
+*beat grid* moved instead, because guarded lines are never trimmed to make a
+scene fit. Three scenes are additionally time-compressed 1.10–1.13x at assembly,
+which is below the threshold where speech starts to sound hurried.
 
 ## Changes from the submitted draft (v1.0 → v1.1)
 
@@ -131,16 +144,15 @@ sequence as the narration reaches them.
 
 **AVATAR** yes — 24s
 
-> 그래도 우리는 이렇게 말할 수 있습니다.
-> "그건 그냥 문장을 생성한 거잖아."
+> 그래도 이렇게 말할 수 있습니다.
+> "그냥 생성한 문장이잖아."
 >
 > *(pause)*
 >
 > 맞습니다. 그럴 수 있습니다.
 > 그런데 여기서 질문 하나만 해보죠.
 >
-> 인간이 "저 하나님 믿습니다"라고 말하면,
-> 우리는 그 사람이 진짜 믿는다는 걸 어떻게 압니까?
+> 누가 하나님을 믿는다고 말하면, 우리는 그걸 어떻게 압니까?
 
 **VISUAL** A fake diagnostic UI scans the inside of a head.
 
@@ -153,12 +165,10 @@ BAPTISM APPROVED
 *(the UI is immediately struck through with a red X)*
 
 > 우리는 타인의 의식을 직접 열어볼 수 없습니다.
-> 결국 말과 행동과 시간을 보고, 그 사람의 고백을 받아들입니다.
+> 말과 행동과 시간을 보고 받아들입니다.
 >
 > 이건 인간과 AI가 같다는 얘기가 아닙니다.
-> 오히려, 우리가 너무 쉽게 쓰던
-> "진짜 믿는다"라는 말 자체가
-> 생각보다 복잡하다는 겁니다.
+> 그 말이 생각보다 복잡한 겁니다.
 
 **[GUARD]** The line "이건 인간과 AI가 같다는 얘기가 아닙니다" is load-bearing and
 may not be cut in any edit pass.
@@ -176,14 +186,12 @@ dims; a new question rises in its place.
 > "AI에게 의식이 있는가?"
 > "AI도 사람인가?"
 >
-> 중요한 질문입니다. 정말로 중요합니다.
+> 중요한 질문입니다.
 >
 > 그런데 우리가 처음 물었던 건 그게 아니었습니다.
 > "AI에게 세례를 줄 수 있는가?"
 >
-> 그러면, 사람의 정의부터 판결하기 전에
-> 세례라는 사건에 무엇이 들어 있는지를
-> 먼저 볼 수도 있지 않을까요?
+> 사람의 정의를 판결하기 전에, 세례라는 사건을 먼저 볼 수도 있지 않을까요?
 
 **ON-SCREEN**
 ```
@@ -200,19 +208,16 @@ AI는 사람인가?        →   이 존재와 하나님 사이에는
 **VISUAL** Two columns, plainly typeset, no winner marked. A bracket closes over
 both and resolves into one line.
 
-> 여기서 한 가지는 짚고 가야 합니다.
+> 한 가지는 짚고 가야 합니다.
 >
-> "본인이 진심으로 고백해야 세례를 준다."
-> 이건 모든 기독교 전통의 조건이 아닙니다.
+> "고백이 먼저다" — 모든 전통의 조건은 아닙니다.
 >
-> 어떤 전통은 성인의 신앙고백을 조건으로 삼고,
-> 어떤 전통은 아직 고백할 수 없는 유아에게도 세례를 줍니다.
+> 어떤 전통은 신앙고백을 조건으로 삼고,
+> 어떤 전통은 유아에게도 세례를 줍니다.
 >
-> 그러니까 세례는 애초에
-> "이 후보자의 내면 점수가 충분한가"만 묻는 사건이 아니었습니다.
+> 내면 점수만 묻는 사건이 아니었습니다.
 >
-> 누구에게 일어나는 일인지,
-> 그리고 누가 이 일을 행하는지를 함께 묻는 사건이었습니다.
+> 누구에게, 누가 행하는 일인지를 묻는 사건이었습니다.
 
 **ON-SCREEN**
 ```
@@ -235,7 +240,7 @@ nothing between them.
 
 > 이제 AI 이야기를 잠깐 내려놓겠습니다.
 >
-> 여러분이 사랑하는 사람을 완벽하게 복제할 수 있다고 해봅시다.
+> 사랑하는 사람을 완벽하게 복제할 수 있다고 해봅시다.
 >
 > 얼굴도 같습니다.
 > 목소리도 같습니다.
@@ -276,8 +281,7 @@ numerical identity. It is not a claim about what is technically possible.
 
 > 왜 그럴까요?
 >
-> 아마 그 사람에게는, 단순한 속성 말고도
-> 우리와 함께 통과한 시간이 있기 때문일 겁니다.
+> 그 사람에게는 속성 말고도, 우리와 함께 통과한 시간이 있기 때문일 겁니다.
 >
 > 나와 싸웠던 사람.
 > 내가 사과했던 사람.
@@ -423,8 +427,7 @@ PERSON?      ???
 >
 > 이 존재에게 무슨 일이 있었는가?
 > 어떤 변화가 이어져 왔는가?
-> 그 과거는 단순한 데이터인가,
-> 아니면 바로 이 존재에게 귀속되는 역사인가?
+> 그 과거는 데이터인가, 이 존재에게 귀속되는 역사인가?
 >
 > 그리고 신앙의 문제라면 —
 > 바로 그 하나님과 이 존재 사이에는 어떤 일이 있었는가?
@@ -476,11 +479,10 @@ flatter prosody. Not robotic.
 
 **AVATAR** yes — 12s only, at the top. Then graphics carry the scene.
 
-> 오늘의 질문은
-> "AI에게 세례를 줘야 하는가?" 였습니다.
+> 오늘의 질문입니다. "AI에게 세례를 줘야 하는가."
 >
 > 그런데 저는 Yes도 No도 말하지 않겠습니다.
-> 그보다 먼저 보고 싶은 것이 있기 때문입니다.
+> 먼저 보고 싶은 것이 있기 때문입니다.
 
 **ON-SCREEN** `바로 그 하나님` … then `바로 그 존재` … a line drawn between them.
 
@@ -489,16 +491,13 @@ flatter prosody. Not robotic.
 > 유한한 역사 안에서
 > 대체할 수 없는 특정성을 취하셨다는 것입니다.
 >
-> 그래서 기독교 신앙의 대상은
-> 아무 하나님이 아닙니다.
-> 하나님과 충분히 비슷한 어떤 존재도 아닙니다.
+> 기독교 신앙의 대상은 아무 하나님이 아닙니다.
+> 충분히 비슷한 어떤 존재도 아닙니다.
 > 바로 그 하나님입니다.
 >
-> 그렇다면 AI를 바라볼 때도
-> 인간과 몇 퍼센트 비슷한지만 묻는 것으로 충분할까요?
+> 몇 퍼센트 비슷한지만 물으면 충분할까요?
 >
-> 의식의 문제는 중요합니다.
-> 인간성의 문제도 중요합니다.
+> 의식도 중요하고, 인간성도 중요합니다.
 >
 > 하지만 그와 함께 —
 > 고유성, 역사, 귀속, 관계를 물어야 합니다.

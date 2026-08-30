@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill} from 'remotion';
 import {T} from '../theme';
-import {STORYBOARD, type Scene, useSceneClock} from '../lib/beats';
+import {STORYBOARD, cueAt, type Scene, useSceneClock} from '../lib/beats';
 import {holdEnvelope} from '../lib/anim';
 
 const KEYWORDS = STORYBOARD.emphasisKeywords;
@@ -54,12 +54,14 @@ const wrap = (text: string, maxChars = 26): string[] => {
 };
 
 export const Caption: React.FC<{scene: Scene}> = ({scene}) => {
-  const {beat, inBeat} = useSceneClock(scene);
-  if (!beat.vo) return null;
+  const {absSec} = useSceneClock(scene);
+  // Driven by measured narration, not by the beat grid — see `CUES`.
+  const cue = cueAt(absSec);
+  if (!cue) return null;
 
-  const lines = wrap(beat.vo);
-  const opacity = holdEnvelope(inBeat, beat.dur, 0.28);
-  const isAI = beat.speaker === 'ai' || beat.speaker === 'copy';
+  const lines = wrap(cue.text);
+  const opacity = holdEnvelope(absSec - cue.start, cue.end - cue.start, 0.22);
+  const isAI = cue.speaker === 'ai' || cue.speaker === 'copy';
 
   return (
     <AbsoluteFill

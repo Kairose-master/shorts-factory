@@ -4,7 +4,7 @@ import {Frame, Grain, Vignette} from '../components/Frame';
 import {Caption} from '../components/Caption';
 import {CornerMarker, Statement} from '../components/Type';
 import {getScene, useSceneClock} from '../lib/beats';
-import {riseIn} from '../lib/anim';
+import {riseIn, wipeReveal} from '../lib/anim';
 import {T} from '../theme';
 
 const scene = getScene('S09');
@@ -101,7 +101,7 @@ export const S09_JesusDuplicate: React.FC = () => {
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center'}}>
           <div style={{display: 'flex', flexDirection: 'column', gap: 20, textAlign: 'center'}}>
             {['아브라함의 하나님', '이삭의 하나님', '야곱의 하나님'].map((n, i) => (
-              <div key={n} style={riseIn((absSec - 478) * 30, i * 14, 26)}>
+              <div key={n} style={wipeReveal((absSec - 478) * 30, i * 16, 30)}>
                 <Statement size={86} color={T.warm}>
                   {n}
                 </Statement>

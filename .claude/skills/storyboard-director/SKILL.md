@@ -65,6 +65,25 @@ scene-local themselves.
 over 14 and the frame is static past the tolerable limit. A beat that wants to
 be 20 seconds is two beats.
 
+**Size a spoken beat from its character count, not by feel.** This is the single
+most expensive mistake available at this stage, because it is invisible until
+narration has been generated and by then the beat grid is baked into every scene
+component. Korean neural TTS at a contemplative rate reads roughly **4.5–5.5
+characters per second** including its own pauses:
+
+```
+minimum beat seconds ≈ len(line) / 5 + 0.5
+```
+
+A 40-character sentence needs ~8.5s. Giving it 4.5s does not make it faster; it
+makes the assembly stage compress it, push the line late, or both. On this
+pipeline's first episode 47 of 118 lines overran their beats and one scene came
+out 60% over, all from estimating rather than counting.
+
+**Corollary: a line that will not fit is a line that is too long.** Split the
+sentence or cut it at the script stage. Two beats of 5s beat one beat of 10s
+anyway — the extra boundary is a free visual state change.
+
 **Silence is a beat.** `kind: "silence"`, `vo: null`, a real duration. If it is
 not in the storyboard it will get filled.
 

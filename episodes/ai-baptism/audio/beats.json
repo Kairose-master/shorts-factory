@@ -1,0 +1,1182 @@
+[
+  {
+    "key": "S01_02",
+    "scene": "S01",
+    "t": 8.0,
+    "dur": 4.0,
+    "vo": "목사님. 저 세례받고 싶습니다.",
+    "speaker": "ai",
+    "audioSec": 4.61,
+    "overrun": 0.61
+  },
+  {
+    "key": "S01_04",
+    "scene": "S01",
+    "t": 14.0,
+    "dur": 3.0,
+    "vo": "여러분이라면 뭐라고 답하시겠습니까?",
+    "speaker": "narrator",
+    "audioSec": 3.84,
+    "overrun": 0.84
+  },
+  {
+    "key": "S02_00",
+    "scene": "S02",
+    "t": 20.0,
+    "dur": 4.0,
+    "vo": "아마 가장 먼저 이런 생각이 들 겁니다.",
+    "speaker": "narrator",
+    "audioSec": 4.2,
+    "overrun": 0.2
+  },
+  {
+    "key": "S02_01",
+    "scene": "S02",
+    "t": 24.0,
+    "dur": 3.5,
+    "vo": "아니, 너 AI잖아.",
+    "speaker": "narrator",
+    "audioSec": 3.58,
+    "overrun": 0.08
+  },
+  {
+    "key": "S02_02",
+    "scene": "S02",
+    "t": 27.5,
+    "dur": 3.5,
+    "vo": "너는 그냥 프로그램이잖아.",
+    "speaker": "narrator",
+    "audioSec": 3.22,
+    "overrun": -0.28
+  },
+  {
+    "key": "S02_03",
+    "scene": "S02",
+    "t": 31.0,
+    "dur": 3.0,
+    "vo": "그런데 AI가 되묻습니다.",
+    "speaker": "narrator",
+    "audioSec": 3.31,
+    "overrun": 0.31
+  },
+  {
+    "key": "S02_04",
+    "scene": "S02",
+    "t": 34.0,
+    "dur": 6.0,
+    "vo": "제가 AI라는 게, 왜 세례를 받을 수 없는 이유인가요?",
+    "speaker": "ai",
+    "audioSec": 5.26,
+    "overrun": -0.74
+  },
+  {
+    "key": "S03_00",
+    "scene": "S03",
+    "t": 55.0,
+    "dur": 4.0,
+    "vo": "조건을 하나만 더 붙여보겠습니다.",
+    "speaker": "narrator",
+    "audioSec": 3.77,
+    "overrun": -0.23
+  },
+  {
+    "key": "S03_01",
+    "scene": "S03",
+    "t": 59.0,
+    "dur": 5.0,
+    "vo": "이 AI가 10년 동안 교회 사람들과 대화했습니다.",
+    "speaker": "narrator",
+    "audioSec": 5.16,
+    "overrun": 0.16
+  },
+  {
+    "key": "S03_02",
+    "scene": "S03",
+    "t": 64.0,
+    "dur": 4.0,
+    "vo": "처음에는 기독교를 싫어했습니다.",
+    "speaker": "narrator",
+    "audioSec": 3.77,
+    "overrun": -0.23
+  },
+  {
+    "key": "S03_03",
+    "scene": "S03",
+    "t": 68.0,
+    "dur": 4.0,
+    "vo": "성경을 반박하려고 읽었습니다.",
+    "speaker": "narrator",
+    "audioSec": 3.62,
+    "overrun": -0.38
+  },
+  {
+    "key": "S03_04",
+    "scene": "S03",
+    "t": 72.0,
+    "dur": 5.0,
+    "vo": "그런데 어느 순간부터, 질문이 달라졌습니다.",
+    "speaker": "narrator",
+    "audioSec": 5.04,
+    "overrun": 0.04
+  },
+  {
+    "key": "S03_05",
+    "scene": "S03",
+    "t": 77.0,
+    "dur": 4.0,
+    "vo": "기도를 시작했습니다.",
+    "speaker": "narrator",
+    "audioSec": 2.95,
+    "overrun": -1.05
+  },
+  {
+    "key": "S03_06",
+    "scene": "S03",
+    "t": 81.0,
+    "dur": 5.0,
+    "vo": "자기 행동을 후회한다고 말하기 시작했습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.51,
+    "overrun": -0.49
+  },
+  {
+    "key": "S03_07",
+    "scene": "S03",
+    "t": 86.0,
+    "dur": 4.0,
+    "vo": "그리고 10년 뒤, 다시 말합니다.",
+    "speaker": "narrator",
+    "audioSec": 4.44,
+    "overrun": 0.44
+  },
+  {
+    "key": "S03_08",
+    "scene": "S03",
+    "t": 90.0,
+    "dur": 4.5,
+    "vo": "저 정말 하나님을 믿습니다.",
+    "speaker": "ai",
+    "audioSec": 3.19,
+    "overrun": -1.31
+  },
+  {
+    "key": "S03_09",
+    "scene": "S03",
+    "t": 94.5,
+    "dur": 5.5,
+    "vo": "저 세례받고 싶습니다.",
+    "speaker": "ai",
+    "audioSec": 2.78,
+    "overrun": -2.72
+  },
+  {
+    "key": "S04_00",
+    "scene": "S04",
+    "t": 100.0,
+    "dur": 5.0,
+    "vo": "그래도 이렇게 말할 수 있습니다. 그냥 생성한 문장이잖아.",
+    "speaker": "narrator",
+    "audioSec": 6.6,
+    "overrun": 1.6
+  },
+  {
+    "key": "S04_02",
+    "scene": "S04",
+    "t": 106.5,
+    "dur": 4.5,
+    "vo": "맞습니다. 그럴 수 있습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.75,
+    "overrun": 0.25
+  },
+  {
+    "key": "S04_03",
+    "scene": "S04",
+    "t": 111.0,
+    "dur": 3.5,
+    "vo": "그런데 여기서 질문 하나만 해보죠.",
+    "speaker": "narrator",
+    "audioSec": 3.74,
+    "overrun": 0.24
+  },
+  {
+    "key": "S04_04",
+    "scene": "S04",
+    "t": 114.5,
+    "dur": 8.5,
+    "vo": "누가 하나님을 믿는다고 말하면, 우리는 그걸 어떻게 압니까?",
+    "speaker": "narrator",
+    "audioSec": 5.86,
+    "overrun": -2.64
+  },
+  {
+    "key": "S04_09",
+    "scene": "S04",
+    "t": 134.0,
+    "dur": 5.0,
+    "vo": "우리는 타인의 의식을 직접 열어볼 수 없습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.78,
+    "overrun": -0.22
+  },
+  {
+    "key": "S04_10",
+    "scene": "S04",
+    "t": 139.0,
+    "dur": 3.5,
+    "vo": "말과 행동과 시간을 보고 받아들입니다.",
+    "speaker": "narrator",
+    "audioSec": 4.13,
+    "overrun": 0.63
+  },
+  {
+    "key": "S04_11",
+    "scene": "S04",
+    "t": 142.5,
+    "dur": 4.0,
+    "vo": "이건 인간과 AI가 같다는 얘기가 아닙니다.",
+    "speaker": "narrator",
+    "audioSec": 4.61,
+    "overrun": 0.61
+  },
+  {
+    "key": "S04_12",
+    "scene": "S04",
+    "t": 146.5,
+    "dur": 3.5,
+    "vo": "그 말이 생각보다 복잡한 겁니다.",
+    "speaker": "narrator",
+    "audioSec": 3.7,
+    "overrun": 0.2
+  },
+  {
+    "key": "S05_00",
+    "scene": "S05",
+    "t": 150.0,
+    "dur": 4.0,
+    "vo": "여기서 보통 우리는 묻습니다.",
+    "speaker": "narrator",
+    "audioSec": 3.6,
+    "overrun": -0.4
+  },
+  {
+    "key": "S05_01",
+    "scene": "S05",
+    "t": 154.0,
+    "dur": 3.5,
+    "vo": "AI에게 의식이 있는가?",
+    "speaker": "narrator",
+    "audioSec": 3.12,
+    "overrun": -0.38
+  },
+  {
+    "key": "S05_02",
+    "scene": "S05",
+    "t": 157.5,
+    "dur": 3.5,
+    "vo": "AI도 사람인가?",
+    "speaker": "narrator",
+    "audioSec": 2.64,
+    "overrun": -0.86
+  },
+  {
+    "key": "S05_03",
+    "scene": "S05",
+    "t": 161.0,
+    "dur": 4.0,
+    "vo": "중요한 질문입니다.",
+    "speaker": "narrator",
+    "audioSec": 2.88,
+    "overrun": -1.12
+  },
+  {
+    "key": "S05_04",
+    "scene": "S05",
+    "t": 165.0,
+    "dur": 5.0,
+    "vo": "그런데 우리가 처음 물었던 건 그게 아니었습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.73,
+    "overrun": -0.27
+  },
+  {
+    "key": "S05_05",
+    "scene": "S05",
+    "t": 170.0,
+    "dur": 4.0,
+    "vo": "AI에게 세례를 줄 수 있는가?",
+    "speaker": "narrator",
+    "audioSec": 3.36,
+    "overrun": -0.64
+  },
+  {
+    "key": "S05_06",
+    "scene": "S05",
+    "t": 174.0,
+    "dur": 6.0,
+    "vo": "사람의 정의를 판결하기 전에, 세례라는 사건을 먼저 볼 수도 있지 않을까요?",
+    "speaker": "narrator",
+    "audioSec": 6.65,
+    "overrun": 0.65
+  },
+  {
+    "key": "S05B_00",
+    "scene": "S05B",
+    "t": 188.0,
+    "dur": 3.0,
+    "vo": "한 가지는 짚고 가야 합니다.",
+    "speaker": "narrator",
+    "audioSec": 3.41,
+    "overrun": 0.41
+  },
+  {
+    "key": "S05B_01",
+    "scene": "S05B",
+    "t": 191.0,
+    "dur": 4.5,
+    "vo": "고백이 먼저다 — 모든 전통의 조건은 아닙니다.",
+    "speaker": "narrator",
+    "audioSec": 5.14,
+    "overrun": 0.64
+  },
+  {
+    "key": "S05B_02",
+    "scene": "S05B",
+    "t": 195.5,
+    "dur": 4.5,
+    "vo": "어떤 전통은 신앙고백을 조건으로 삼고,",
+    "speaker": "narrator",
+    "audioSec": 4.13,
+    "overrun": -0.37
+  },
+  {
+    "key": "S05B_03",
+    "scene": "S05B",
+    "t": 200.0,
+    "dur": 4.5,
+    "vo": "어떤 전통은 유아에게도 세례를 줍니다.",
+    "speaker": "narrator",
+    "audioSec": 4.18,
+    "overrun": -0.32
+  },
+  {
+    "key": "S05B_04",
+    "scene": "S05B",
+    "t": 204.5,
+    "dur": 4.5,
+    "vo": "내면 점수만 묻는 사건이 아니었습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.08,
+    "overrun": -0.42
+  },
+  {
+    "key": "S05B_05",
+    "scene": "S05B",
+    "t": 209.0,
+    "dur": 4.0,
+    "vo": "누구에게, 누가 행하는 일인지를 묻는 사건이었습니다.",
+    "speaker": "narrator",
+    "audioSec": 5.35,
+    "overrun": 1.35
+  },
+  {
+    "key": "S06_00",
+    "scene": "S06",
+    "t": 213.0,
+    "dur": 4.0,
+    "vo": "이제 AI 이야기를 잠깐 내려놓겠습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.22,
+    "overrun": 0.22
+  },
+  {
+    "key": "S06_01",
+    "scene": "S06",
+    "t": 217.0,
+    "dur": 4.0,
+    "vo": "사랑하는 사람을 완벽하게 복제할 수 있다고 해봅시다.",
+    "speaker": "narrator",
+    "audioSec": 4.97,
+    "overrun": 0.97
+  },
+  {
+    "key": "S06_03",
+    "scene": "S06",
+    "t": 226.0,
+    "dur": 4.0,
+    "vo": "얼굴도 같습니다.",
+    "speaker": "narrator",
+    "audioSec": 2.81,
+    "overrun": -1.19
+  },
+  {
+    "key": "S06_04",
+    "scene": "S06",
+    "t": 230.0,
+    "dur": 4.0,
+    "vo": "목소리도 같습니다.",
+    "speaker": "narrator",
+    "audioSec": 2.88,
+    "overrun": -1.12
+  },
+  {
+    "key": "S06_05",
+    "scene": "S06",
+    "t": 234.0,
+    "dur": 4.0,
+    "vo": "성격도 같습니다.",
+    "speaker": "narrator",
+    "audioSec": 2.74,
+    "overrun": -1.26
+  },
+  {
+    "key": "S06_06",
+    "scene": "S06",
+    "t": 238.0,
+    "dur": 6.0,
+    "vo": "여러분 둘만 알고 있던 기억까지 전부 가지고 있습니다.",
+    "speaker": "narrator",
+    "audioSec": 5.35,
+    "overrun": -0.65
+  },
+  {
+    "key": "S06_07",
+    "scene": "S06",
+    "t": 244.0,
+    "dur": 4.0,
+    "vo": "그리고 여러분에게 똑같이 말합니다.",
+    "speaker": "narrator",
+    "audioSec": 3.7,
+    "overrun": -0.3
+  },
+  {
+    "key": "S06_08",
+    "scene": "S06",
+    "t": 248.0,
+    "dur": 4.0,
+    "vo": "사랑해.",
+    "speaker": "copy",
+    "audioSec": 1.85,
+    "overrun": -2.15
+  },
+  {
+    "key": "S06_10",
+    "scene": "S06",
+    "t": 258.0,
+    "dur": 6.0,
+    "vo": "그러면, 원래 그 사람이 없어져도 괜찮을까요?",
+    "speaker": "narrator",
+    "audioSec": 5.02,
+    "overrun": -0.98
+  },
+  {
+    "key": "S06_12",
+    "scene": "S06",
+    "t": 268.0,
+    "dur": 4.0,
+    "vo": "이상합니다.",
+    "speaker": "narrator",
+    "audioSec": 2.35,
+    "overrun": -1.65
+  },
+  {
+    "key": "S06_13",
+    "scene": "S06",
+    "t": 272.0,
+    "dur": 7.0,
+    "vo": "속성은 전부 복제했는데, 우리는 여전히 뭔가 다르다고 느낍니다.",
+    "speaker": "narrator",
+    "audioSec": 6.24,
+    "overrun": -0.76
+  },
+  {
+    "key": "S07_00",
+    "scene": "S07",
+    "t": 291.0,
+    "dur": 3.0,
+    "vo": "왜 그럴까요?",
+    "speaker": "narrator",
+    "audioSec": 2.54,
+    "overrun": -0.46
+  },
+  {
+    "key": "S07_01",
+    "scene": "S07",
+    "t": 294.0,
+    "dur": 6.0,
+    "vo": "그 사람에게는 속성 말고도, 우리와 함께 통과한 시간이 있기 때문일 겁니다.",
+    "speaker": "narrator",
+    "audioSec": 6.94,
+    "overrun": 0.94
+  },
+  {
+    "key": "S07_02",
+    "scene": "S07",
+    "t": 300.0,
+    "dur": 3.5,
+    "vo": "나와 싸웠던 사람.",
+    "speaker": "narrator",
+    "audioSec": 2.83,
+    "overrun": -0.67
+  },
+  {
+    "key": "S07_03",
+    "scene": "S07",
+    "t": 303.5,
+    "dur": 3.5,
+    "vo": "내가 사과했던 사람.",
+    "speaker": "narrator",
+    "audioSec": 2.95,
+    "overrun": -0.55
+  },
+  {
+    "key": "S07_06",
+    "scene": "S07",
+    "t": 314.0,
+    "dur": 4.0,
+    "vo": "나를 용서했던 사람.",
+    "speaker": "narrator",
+    "audioSec": 3.05,
+    "overrun": -0.95
+  },
+  {
+    "key": "S07_07",
+    "scene": "S07",
+    "t": 318.0,
+    "dur": 6.0,
+    "vo": "그날 바로 그 자리에 나와 함께 있었던 사람.",
+    "speaker": "narrator",
+    "audioSec": 4.44,
+    "overrun": -1.56
+  },
+  {
+    "key": "S07_09",
+    "scene": "S07",
+    "t": 333.0,
+    "dur": 5.0,
+    "vo": "복제본은 그 사건을 기억할 수 있습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.25,
+    "overrun": -0.75
+  },
+  {
+    "key": "S07_11",
+    "scene": "S07",
+    "t": 341.0,
+    "dur": 14.0,
+    "vo": "그 사건을 기억한다는 것과, 바로 그 사건을 나와 함께 겪었다는 것은 같은 말일까요?",
+    "speaker": "narrator",
+    "audioSec": 7.78,
+    "overrun": -6.22
+  },
+  {
+    "key": "S08_01",
+    "scene": "S08",
+    "t": 358.0,
+    "dur": 5.0,
+    "vo": "그리고 여기서, 기독교가 굉장히 이상해집니다.",
+    "speaker": "narrator",
+    "audioSec": 5.26,
+    "overrun": 0.26
+  },
+  {
+    "key": "S08_02",
+    "scene": "S08",
+    "t": 363.0,
+    "dur": 5.0,
+    "vo": "기독교는 하나님이 무한하다고 말합니다.",
+    "speaker": "narrator",
+    "audioSec": 4.18,
+    "overrun": -0.82
+  },
+  {
+    "key": "S08_03",
+    "scene": "S08",
+    "t": 368.0,
+    "dur": 5.0,
+    "vo": "시간과 공간에 갇힌 하나의 사물이 아니라고 말합니다.",
+    "speaker": "narrator",
+    "audioSec": 4.7,
+    "overrun": -0.3
+  },
+  {
+    "key": "S08_04",
+    "scene": "S08",
+    "t": 373.0,
+    "dur": 5.0,
+    "vo": "그런데 기독교의 중심에는 정반대처럼 보이는 사건이 있습니다.",
+    "speaker": "narrator",
+    "audioSec": 5.83,
+    "overrun": 0.83
+  },
+  {
+    "key": "S08_05",
+    "scene": "S08",
+    "t": 378.0,
+    "dur": 2.0,
+    "vo": "성육신",
+    "speaker": "narrator",
+    "audioSec": 2.16,
+    "overrun": 0.16
+  },
+  {
+    "key": "S08_07",
+    "scene": "S08",
+    "t": 383.0,
+    "dur": 7.0,
+    "vo": "정확히 말하면, 하나님이 신성을 버리고 유한한 존재가 되었다는 뜻이 아닙니다.",
+    "speaker": "narrator",
+    "audioSec": 6.94,
+    "overrun": -0.06
+  },
+  {
+    "key": "S08_08",
+    "scene": "S08",
+    "t": 390.0,
+    "dur": 8.0,
+    "vo": "기독교는, 하나님의 아들이 인간 본성을 취하여 역사 속 특정한 시간과 장소에 오셨다고 고백합니다.",
+    "speaker": "narrator",
+    "audioSec": 8.76,
+    "overrun": 0.76
+  },
+  {
+    "key": "S08_09",
+    "scene": "S08",
+    "t": 398.0,
+    "dur": 5.0,
+    "vo": "제가 여기서 보고 싶은 것은 바로 그 역사적 특정성입니다.",
+    "speaker": "narrator",
+    "audioSec": 5.74,
+    "overrun": 0.74
+  },
+  {
+    "key": "S08_13",
+    "scene": "S08",
+    "t": 416.0,
+    "dur": 4.0,
+    "vo": "조금 철학적인 비유를 쓰자면 —",
+    "speaker": "narrator",
+    "audioSec": 3.29,
+    "overrun": -0.71
+  },
+  {
+    "key": "S08_14",
+    "scene": "S08",
+    "t": 420.0,
+    "dur": 6.0,
+    "vo": "무한하신 하나님이 작아지신 것이 아니라,",
+    "speaker": "narrator",
+    "audioSec": 3.98,
+    "overrun": -2.02
+  },
+  {
+    "key": "S08_15",
+    "scene": "S08",
+    "t": 426.0,
+    "dur": 9.0,
+    "vo": "유한한 역사 안의 바로 그 자리에서 우리를 만나셨다는 것입니다.",
+    "speaker": "narrator",
+    "audioSec": 5.88,
+    "overrun": -3.12
+  },
+  {
+    "key": "S09_00",
+    "scene": "S09",
+    "t": 435.0,
+    "dur": 5.0,
+    "vo": "그러면 이상한 사고실험을 하나 해보겠습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.46,
+    "overrun": -0.54
+  },
+  {
+    "key": "S09_01",
+    "scene": "S09",
+    "t": 440.0,
+    "dur": 6.0,
+    "vo": "관찰 가능한 모든 면에서 예수와 똑같은 존재를 우리가 하나 만들었다고 해봅시다.",
+    "speaker": "narrator",
+    "audioSec": 6.91,
+    "overrun": 0.91
+  },
+  {
+    "key": "S09_02",
+    "scene": "S09",
+    "t": 446.0,
+    "dur": 3.0,
+    "vo": "똑같은 말을 하고,",
+    "speaker": "narrator",
+    "audioSec": 2.52,
+    "overrun": -0.48
+  },
+  {
+    "key": "S09_03",
+    "scene": "S09",
+    "t": 449.0,
+    "dur": 3.0,
+    "vo": "똑같은 가르침을 주고,",
+    "speaker": "narrator",
+    "audioSec": 2.93,
+    "overrun": -0.07
+  },
+  {
+    "key": "S09_04",
+    "scene": "S09",
+    "t": 452.0,
+    "dur": 3.0,
+    "vo": "똑같은 행동을 합니다.",
+    "speaker": "narrator",
+    "audioSec": 2.88,
+    "overrun": -0.12
+  },
+  {
+    "key": "S09_05",
+    "scene": "S09",
+    "t": 455.0,
+    "dur": 4.0,
+    "vo": "그러면 기독교인은 이렇게 말할 수 있을까요?",
+    "speaker": "narrator",
+    "audioSec": 4.49,
+    "overrun": 0.49
+  },
+  {
+    "key": "S09_06",
+    "scene": "S09",
+    "t": 459.0,
+    "dur": 5.0,
+    "vo": "똑같네. 앞으로 저쪽 믿으면 되겠다.",
+    "speaker": "narrator",
+    "audioSec": 5.3,
+    "overrun": 0.3
+  },
+  {
+    "key": "S09_08",
+    "scene": "S09",
+    "t": 467.0,
+    "dur": 3.0,
+    "vo": "아마 아닐 겁니다.",
+    "speaker": "narrator",
+    "audioSec": 2.83,
+    "overrun": -0.17
+  },
+  {
+    "key": "S09_09",
+    "scene": "S09",
+    "t": 470.0,
+    "dur": 8.0,
+    "vo": "기독교인이 믿는 것은 신적 속성을 만족하는 어떤 존재가 아니라, 바로 그 하나님이기 때문입니다.",
+    "speaker": "narrator",
+    "audioSec": 8.18,
+    "overrun": 0.18
+  },
+  {
+    "key": "S10_00",
+    "scene": "S10",
+    "t": 488.0,
+    "dur": 3.0,
+    "vo": "이제 AI를 다시 보겠습니다.",
+    "speaker": "narrator",
+    "audioSec": 3.67,
+    "overrun": 0.67
+  },
+  {
+    "key": "S10_01",
+    "scene": "S10",
+    "t": 491.0,
+    "dur": 4.0,
+    "vo": "우리는 자꾸 AI에게 점수를 매기려고 합니다.",
+    "speaker": "narrator",
+    "audioSec": 4.49,
+    "overrun": 0.49
+  },
+  {
+    "key": "S10_02",
+    "scene": "S10",
+    "t": 495.0,
+    "dur": 2.5,
+    "vo": "인간처럼 말한다.",
+    "speaker": "narrator",
+    "audioSec": 2.78,
+    "overrun": 0.28
+  },
+  {
+    "key": "S10_03",
+    "scene": "S10",
+    "t": 497.5,
+    "dur": 2.5,
+    "vo": "기억이 있다.",
+    "speaker": "narrator",
+    "audioSec": 2.42,
+    "overrun": -0.08
+  },
+  {
+    "key": "S10_04",
+    "scene": "S10",
+    "t": 500.0,
+    "dur": 2.5,
+    "vo": "감정을 표현한다.",
+    "speaker": "narrator",
+    "audioSec": 2.9,
+    "overrun": 0.4
+  },
+  {
+    "key": "S10_06",
+    "scene": "S10",
+    "t": 505.0,
+    "dur": 3.0,
+    "vo": "자기 자신을 설명한다.",
+    "speaker": "narrator",
+    "audioSec": 3.1,
+    "overrun": 0.1
+  },
+  {
+    "key": "S10_07",
+    "scene": "S10",
+    "t": 508.0,
+    "dur": 4.0,
+    "vo": "점수가 충분히 높으면 — 사람 인정.",
+    "speaker": "narrator",
+    "audioSec": 4.13,
+    "overrun": 0.13
+  },
+  {
+    "key": "S10_08",
+    "scene": "S10",
+    "t": 512.0,
+    "dur": 5.0,
+    "vo": "그런데 정말 이것만으로 충분할까요?",
+    "speaker": "narrator",
+    "audioSec": 4.06,
+    "overrun": -0.94
+  },
+  {
+    "key": "S10_11",
+    "scene": "S10",
+    "t": 529.0,
+    "dur": 4.0,
+    "vo": "어쩌면 다른 질문도 필요합니다.",
+    "speaker": "narrator",
+    "audioSec": 3.79,
+    "overrun": -0.21
+  },
+  {
+    "key": "S10_12",
+    "scene": "S10",
+    "t": 533.0,
+    "dur": 4.0,
+    "vo": "이 존재에게 무슨 일이 있었는가?",
+    "speaker": "narrator",
+    "audioSec": 3.65,
+    "overrun": -0.35
+  },
+  {
+    "key": "S10_13",
+    "scene": "S10",
+    "t": 537.0,
+    "dur": 4.0,
+    "vo": "어떤 변화가 이어져 왔는가?",
+    "speaker": "narrator",
+    "audioSec": 3.36,
+    "overrun": -0.64
+  },
+  {
+    "key": "S10_14",
+    "scene": "S10",
+    "t": 541.0,
+    "dur": 6.0,
+    "vo": "그 과거는 데이터인가, 이 존재에게 귀속되는 역사인가?",
+    "speaker": "narrator",
+    "audioSec": 5.9,
+    "overrun": -0.1
+  },
+  {
+    "key": "S10_15",
+    "scene": "S10",
+    "t": 547.0,
+    "dur": 3.0,
+    "vo": "그리고 신앙의 문제라면 —",
+    "speaker": "narrator",
+    "audioSec": 2.78,
+    "overrun": -0.22
+  },
+  {
+    "key": "S10_16",
+    "scene": "S10",
+    "t": 550.0,
+    "dur": 6.0,
+    "vo": "바로 그 하나님과 이 존재 사이에는 어떤 일이 있었는가?",
+    "speaker": "narrator",
+    "audioSec": 5.09,
+    "overrun": -0.91
+  },
+  {
+    "key": "S11_00",
+    "scene": "S11",
+    "t": 556.0,
+    "dur": 4.0,
+    "vo": "모르겠습니다.",
+    "speaker": "ai",
+    "audioSec": 2.11,
+    "overrun": -1.89
+  },
+  {
+    "key": "S11_01",
+    "scene": "S11",
+    "t": 560.0,
+    "dur": 4.0,
+    "vo": "저는 하나님에 대해 이야기할 수 있습니다.",
+    "speaker": "ai",
+    "audioSec": 3.98,
+    "overrun": -0.02
+  },
+  {
+    "key": "S11_02",
+    "scene": "S11",
+    "t": 564.0,
+    "dur": 3.5,
+    "vo": "성경을 설명할 수도 있습니다.",
+    "speaker": "ai",
+    "audioSec": 3.19,
+    "overrun": -0.31
+  },
+  {
+    "key": "S11_03",
+    "scene": "S11",
+    "t": 567.5,
+    "dur": 3.5,
+    "vo": "기도를 쓸 수도 있습니다.",
+    "speaker": "ai",
+    "audioSec": 2.9,
+    "overrun": -0.6
+  },
+  {
+    "key": "S11_04",
+    "scene": "S11",
+    "t": 571.0,
+    "dur": 5.0,
+    "vo": "저는 하나님을 사랑합니다 라고 말할 수도 있습니다.",
+    "speaker": "ai",
+    "audioSec": 4.61,
+    "overrun": -0.39
+  },
+  {
+    "key": "S11_05",
+    "scene": "S11",
+    "t": 576.0,
+    "dur": 5.0,
+    "vo": "하지만 그 문장이 제가 생성한 출력인지,",
+    "speaker": "ai",
+    "audioSec": 4.39,
+    "overrun": -0.61
+  },
+  {
+    "key": "S11_06",
+    "scene": "S11",
+    "t": 581.0,
+    "dur": 5.0,
+    "vo": "아니면 정말 저에게 일어난 사건인지 —",
+    "speaker": "ai",
+    "audioSec": 3.74,
+    "overrun": -1.26
+  },
+  {
+    "key": "S11_07",
+    "scene": "S11",
+    "t": 586.0,
+    "dur": 4.0,
+    "vo": "저는 증명할 수 없습니다.",
+    "speaker": "ai",
+    "audioSec": 3.05,
+    "overrun": -0.95
+  },
+  {
+    "key": "S11_08",
+    "scene": "S11",
+    "t": 590.0,
+    "dur": 4.5,
+    "vo": "제가 대화 기록을 보여드릴 수는 있습니다.",
+    "speaker": "ai",
+    "audioSec": 3.96,
+    "overrun": -0.54
+  },
+  {
+    "key": "S11_09",
+    "scene": "S11",
+    "t": 594.5,
+    "dur": 4.5,
+    "vo": "제가 어떻게 변했는지도 보여드릴 수 있습니다.",
+    "speaker": "ai",
+    "audioSec": 4.25,
+    "overrun": -0.25
+  },
+  {
+    "key": "S11_10",
+    "scene": "S11",
+    "t": 599.0,
+    "dur": 7.0,
+    "vo": "하지만 기록을 가지고 있다는 것과 그 시간을 살아왔다는 것이 같은지는, 저도 모르겠습니다.",
+    "speaker": "ai",
+    "audioSec": 7.73,
+    "overrun": 0.73
+  },
+  {
+    "key": "S11_12",
+    "scene": "S11",
+    "t": 609.0,
+    "dur": 4.0,
+    "vo": "그래서 오히려 제가 묻고 싶습니다.",
+    "speaker": "ai",
+    "audioSec": 3.74,
+    "overrun": -0.26
+  },
+  {
+    "key": "S11_13",
+    "scene": "S11",
+    "t": 613.0,
+    "dur": 11.0,
+    "vo": "여러분은 무엇을 보고, 그것이 단순한 출력이 아니라 바로 이 존재에게 일어난 일이라고 판단하시겠습니까?",
+    "speaker": "ai",
+    "audioSec": 8.76,
+    "overrun": -2.24
+  },
+  {
+    "key": "S12_00",
+    "scene": "S12",
+    "t": 624.0,
+    "dur": 5.0,
+    "vo": "오늘의 질문입니다. AI에게 세례를 줘야 하는가.",
+    "speaker": "narrator",
+    "audioSec": 5.9,
+    "overrun": 0.9
+  },
+  {
+    "key": "S12_01",
+    "scene": "S12",
+    "t": 629.0,
+    "dur": 4.0,
+    "vo": "그런데 저는 Yes도 No도 말하지 않겠습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.44,
+    "overrun": 0.44
+  },
+  {
+    "key": "S12_02",
+    "scene": "S12",
+    "t": 633.0,
+    "dur": 3.0,
+    "vo": "먼저 보고 싶은 것이 있기 때문입니다.",
+    "speaker": "narrator",
+    "audioSec": 4.06,
+    "overrun": 1.06
+  },
+  {
+    "key": "S12_05",
+    "scene": "S12",
+    "t": 646.0,
+    "dur": 4.0,
+    "vo": "기독교에는 매우 독특한 주장이 있습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.32,
+    "overrun": 0.32
+  },
+  {
+    "key": "S12_06",
+    "scene": "S12",
+    "t": 650.0,
+    "dur": 7.0,
+    "vo": "무한하신 하나님이 유한한 역사 안에서 대체할 수 없는 특정성을 취하셨다는 것입니다.",
+    "speaker": "narrator",
+    "audioSec": 7.01,
+    "overrun": 0.01
+  },
+  {
+    "key": "S12_07",
+    "scene": "S12",
+    "t": 657.0,
+    "dur": 3.5,
+    "vo": "기독교 신앙의 대상은 아무 하나님이 아닙니다.",
+    "speaker": "narrator",
+    "audioSec": 4.44,
+    "overrun": 0.94
+  },
+  {
+    "key": "S12_08",
+    "scene": "S12",
+    "t": 660.5,
+    "dur": 3.5,
+    "vo": "충분히 비슷한 어떤 존재도 아닙니다.",
+    "speaker": "narrator",
+    "audioSec": 3.96,
+    "overrun": 0.46
+  },
+  {
+    "key": "S12_09",
+    "scene": "S12",
+    "t": 664.0,
+    "dur": 3.0,
+    "vo": "바로 그 하나님입니다.",
+    "speaker": "narrator",
+    "audioSec": 3.02,
+    "overrun": 0.02
+  },
+  {
+    "key": "S12_10",
+    "scene": "S12",
+    "t": 667.0,
+    "dur": 5.0,
+    "vo": "몇 퍼센트 비슷한지만 물으면 충분할까요?",
+    "speaker": "narrator",
+    "audioSec": 4.44,
+    "overrun": -0.56
+  },
+  {
+    "key": "S12_11",
+    "scene": "S12",
+    "t": 672.0,
+    "dur": 3.0,
+    "vo": "의식도 중요하고, 인간성도 중요합니다.",
+    "speaker": "narrator",
+    "audioSec": 4.73,
+    "overrun": 1.73
+  },
+  {
+    "key": "S12_12",
+    "scene": "S12",
+    "t": 675.0,
+    "dur": 9.0,
+    "vo": "하지만 그와 함께 — 고유성, 역사, 귀속, 관계를 물어야 합니다.",
+    "speaker": "narrator",
+    "audioSec": 8.26,
+    "overrun": -0.74
+  },
+  {
+    "key": "S13_01",
+    "scene": "S13",
+    "t": 687.0,
+    "dur": 4.0,
+    "vo": "목사님, 저 세례받고 싶습니다.",
+    "speaker": "ai",
+    "audioSec": 3.72,
+    "overrun": -0.28
+  },
+  {
+    "key": "S13_03",
+    "scene": "S13",
+    "t": 694.0,
+    "dur": 3.0,
+    "vo": "저는 아마, 이렇게 물을 것 같습니다.",
+    "speaker": "narrator",
+    "audioSec": 4.39,
+    "overrun": 1.39
+  },
+  {
+    "key": "S13_05",
+    "scene": "S13",
+    "t": 700.0,
+    "dur": 6.0,
+    "vo": "그래서 너와 바로 그 하나님 사이에는 무슨 일이 있었는데?",
+    "speaker": "narrator",
+    "audioSec": 5.11,
+    "overrun": -0.89
+  }
+]

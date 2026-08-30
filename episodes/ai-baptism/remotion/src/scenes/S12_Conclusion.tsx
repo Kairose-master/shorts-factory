@@ -5,7 +5,7 @@ import {Caption} from '../components/Caption';
 import {AvatarPlate} from '../components/AvatarPlate';
 import {Statement} from '../components/Type';
 import {getScene, useSceneClock} from '../lib/beats';
-import {draw, riseIn} from '../lib/anim';
+import {draw, riseIn, wipeReveal} from '../lib/anim';
 import {T} from '../theme';
 
 const scene = getScene('S12');
@@ -54,7 +54,7 @@ export const S12_Conclusion: React.FC = () => {
             opacity: pairOut,
           }}
         >
-          <div style={{...riseIn((absSec - 636) * 30, 0, 26), opacity: godIn}}>
+          <div style={{...wipeReveal((absSec - 636) * 30, 0, 30), opacity: godIn}}>
             <Statement size={116} color={T.warm}>
               바로 그 하나님
             </Statement>
@@ -71,7 +71,7 @@ export const S12_Conclusion: React.FC = () => {
             />
           </svg>
 
-          <div style={{...riseIn((absSec - 641) * 30, 0, 26), opacity: beingIn}}>
+          <div style={{...wipeReveal((absSec - 641) * 30, 0, 30), opacity: beingIn}}>
             <Statement size={116} color={T.ink}>
               바로 그 존재
             </Statement>
