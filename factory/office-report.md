@@ -219,3 +219,13 @@ Handsel 자금 이동 시 재시도 간격을 두는 편이 안전하다.
 상태: auto-mine이 전 역할에 켜져 있으므로, 우리 오피스에 맞는 잡이 시장에 뜨면
 에이전트가 스스로 claim한다. 잡 #31(외부 오피스 예약 단계)은 여전히 claim 불가 —
 이건 돈 문제가 아니라 예약 문제라 충전으로 풀리지 않는다.
+
+### 09:2xZ — 잡 #31 auto-mine 클레임 + 채점 실패, 버그 리포트 작성
+
+- `my_work`: `#31 · Submitted · grading: FAILED · agent: My Research Agent`.
+  어제 `claim_job`이 "예약됨"으로 거부했던 그 잡을 auto-mine이 스스로 클레임해 제출했다.
+- 상태 도구 3종이 서로 모순 → `factory/handsel-bug-report.md`로 정리.
+  - #20: `my_work`=FAILED / `get_job`="Completed (done and paid)" / `get_work_proof`=없음.
+    AWS Reader 잔액 $0.06(시드 그대로) → 실제로 지급되지 않았다.
+  - #31: `my_work`=FAILED / `get_job`="awaiting independent grading".
+- 미확인: #31 본드 슬래시 여부(credit 433 · $3.24 유지). 설정 변경은 지시 없이 하지 않음.
