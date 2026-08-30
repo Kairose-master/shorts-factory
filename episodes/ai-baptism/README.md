@@ -66,15 +66,32 @@ rather than philosophy. Hence S05B.
 | Remotion composition | **BUILDS AND RENDERS** — typecheck clean |
 | Rendered cut | `export/final.mp4` — 11:50.06 · 1920×1080 · 30fps · H.264 |
 | Thumbnail | `thumbnail/thumbnail.png` — rendered |
-| Narration | **MISSING** — no TTS credential in this environment |
+| Narration | **DONE** — 118 lines, Edge TTS, two voices |
+| Music bed | **DONE** — synthesised, per-scene envelope |
+| Subtitle QC | **SUBTITLE_PASS** — guarded 4/4 verbatim, 0 missing |
 | Avatar lip-sync | **MISSING** — no CUDA GPU in this environment |
-| Cut review | pending final audio |
+| Cut review | **PENDING** — needs a human watch-through |
 | Publish | **BLOCKED** — human approval required |
 
-The current render is a complete, correctly-timed motion-graphics cut with
-**placeholder avatar plates and no audio**. Right artifact for reviewing
-structure, pacing, typography and density — the 74% that carries the argument.
-Wrong artifact for judging hook strength, narration or the avatar.
+The cut has narration, music and captions. Ten scenes still render a designed
+**avatar placeholder** rather than a face, and S11 sits on one for 68 seconds —
+so the avatar dimension of the QA rubric cannot be scored yet.
+
+## Audio
+
+Edge TTS, free and keyless: `ko-KR-InJoonNeural` narrates, `ko-KR-SunHiNeural`
+plays the AI character. Gemini TTS follows Korean direction better and was the
+first choice, but its free tier allows **10 requests per day per model** — three
+models is ~30 calls against the 118 this episode needs.
+
+Fitting the read to the storyboard was the real work: 47 of 118 lines overran
+their beats, because the beats were sized by feel and Korean TTS reads about 5
+characters a second. Twenty-one lines were trimmed, SCENE 04's tail was re-timed
+(its guarded line needed 4.6s in a 3s slot, and guarded lines are never trimmed
+to make a scene fit), and three scenes are compressed 1.10–1.13x.
+
+**Captions follow the measured voice; graphics keep their authored beats.** That
+split is what lets a line overrun without desyncing anything.
 
 ## Running it
 
@@ -103,18 +120,33 @@ python3 ../../scripts/verify_storyboard.py storyboard/storyboard.json
 
 ## To finish it
 
-1. **Narration.** Two distinct voices — narrator and the AI character. See
-   `audio/manifest.json` for direction and options. A human read removes the
-   corporate-TTS mandatory failure outright and is the strongest choice for an
-   essay channel.
-2. **Subtitle QC.** `python3 scripts/subtitle_qc.py` — the four guarded lines
-   must come back verbatim.
-3. **Avatar** (optional). Needs a CUDA box. `avatar/<sceneId>.mp4`, then
+1. **Watch it.** Gate 3 (`video-red-team`, ≥85, no mandatory failure) needs a
+   human end to end. Two of its checks cannot be scored from here: avatar
+   consistency (placeholders) and whether the narration reads as corporate TTS.
+2. **Avatar** (optional). Needs a CUDA box. `avatar/<sceneId>.mp4`, then
    `node remotion/scripts/sync-avatar.mjs`. Shipping at 0% avatar with graphics
    carrying every scene is a legitimate choice for a topic this abstract, not a
    degraded one.
-4. **Cut review.** `video-red-team`, ≥85 and no mandatory failure.
-5. **Approval.** A human, every time.
+3. **Consider a human read.** Edge TTS is good; a real voice is better for an
+   essay channel and removes the corporate-TTS check outright. Re-record against
+   `audio/beats.json`, keep the filenames, re-run the assembler.
+4. **Approval.** A human, every time.
+
+## Regenerating the audio
+
+```bash
+python3 ../../scripts/generate_narration.py \
+  --storyboard storyboard/storyboard.json --out audio --workers 3
+python3 ../../scripts/make_music_bed.py \
+  --storyboard storyboard/storyboard.json --out audio/bed.wav
+python3 ../../scripts/assemble_audio.py \
+  --storyboard storyboard/storyboard.json --audio audio \
+  --out audio/narration.wav --bed audio/bed.wav --mixed audio/mixed.wav \
+  --caption-track audio/caption-track.json
+python3 ../../scripts/subtitle_qc.py --audio audio/narration.wav \
+  --script script/canonical.md --storyboard storyboard/storyboard.json \
+  --caption-track audio/caption-track.json --out subtitles/ --model medium
+```
 
 ## Reuse
 

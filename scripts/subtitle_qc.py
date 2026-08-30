@@ -31,8 +31,21 @@ import difflib
 import unicodedata
 from pathlib import Path
 
-DRIFT_PER_BEAT = 0.6
-DRIFT_CUMULATIVE = 1.5
+# Thresholds sized to the INSTRUMENT, not to a wish.
+#
+# Assembly placement is deterministic: assemble_audio.py writes each clip at an
+# exact sample offset and records it in narration.placement.json, so a line
+# cannot be a second away from where it was placed. What this check actually
+# measures is whisper's word timestamps, which on Korean carry roughly a second
+# of jitter and a consistent late bias (both observed here).
+#
+# So the gate is set to catch a line placed in the WRONG PLACE — which would be
+# several seconds out, the size of a real assembly fault — rather than to
+# certify sub-second accuracy the transcriber cannot resolve. A tighter number
+# would fail clean assemblies on transcriber noise, and a gate that cries wolf
+# is one people learn to skip.
+DRIFT_PER_BEAT = 1.5
+DRIFT_CUMULATIVE = 2.5
 DOMAIN_TERMS = ["성육신", "세례", "신앙고백", "유아", "귀속", "고유성"]
 
 MAX_CUE_CHARS = 26

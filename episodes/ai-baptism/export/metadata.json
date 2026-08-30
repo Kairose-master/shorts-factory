@@ -1,34 +1,118 @@
 {
   "episodeId": "ai-baptism",
-  "status": "NOT APPROVED — packaging draft only",
+  "status": "NOT APPROVED — packaging draft; audio and captions complete, avatar placeholder",
   "titleCandidates": [
-    {"text": "교회에 찾아온 AI에게 세례를 줘도 될까?", "chars": 23, "note": "Situation first, question second. The concrete 교회에 찾아온 does the work; without it this is a topic, not a story."},
-    {"text": "\"저도 하나님 믿는데요?\" AI에게 세례를 줄 수 있을까", "chars": 30, "note": "Quote-led, matches the thumbnail line. Strongest pairing with the chosen thumbnail."},
-    {"text": "AI가 세례를 받겠다고 한다면, 교회는 뭐라고 답해야 할까?", "chars": 31, "note": "Closest to the thesis — the episode is about what the church would need to determine — but the longest, and mobile truncates the payoff half."}
+    {
+      "text": "교회에 찾아온 AI에게 세례를 줘도 될까?",
+      "chars": 23,
+      "note": "Situation first, question second. The concrete 교회에 찾아온 does the work; without it this is a topic, not a story."
+    },
+    {
+      "text": "\"저도 하나님 믿는데요?\" AI에게 세례를 줄 수 있을까",
+      "chars": 30,
+      "note": "Quote-led, matches the thumbnail line. Strongest pairing with the chosen thumbnail."
+    },
+    {
+      "text": "AI가 세례를 받겠다고 한다면, 교회는 뭐라고 답해야 할까?",
+      "chars": 31,
+      "note": "Closest to the thesis — the episode is about what the church would need to determine — but the longest, and mobile truncates the payoff half."
+    }
   ],
   "recommended": 2,
   "description": "AI가 교회에 찾아와 세례를 받고 싶다고 말한다면, 교회는 무엇을 먼저 확인해야 할까요?\n\n이 영상은 결론을 내리지 않습니다. 대신 질문을 한 단계 앞으로 되돌립니다. 우리는 왜 어떤 존재를 '바로 그 사람'이라고 부르는가, 기억한다는 것과 그 사건의 당사자였다는 것은 같은 말인가, 그리고 기독교가 말하는 성육신의 '역사적 특정성'은 이 질문에 무엇을 더하는가.\n\n※ 이 영상은 사고실험이며, 교리 선언이 아닙니다. 특정 교단의 입장을 대변하지 않고, 세례에 관한 기독교 전통들의 차이(신앙고백 후 세례 · 유아 세례)를 판정하지 않습니다. 성육신에 관한 부분에서 철학적 비유와 교리적 진술은 화면에 구분해 표시했습니다.\n\n00:00 교회에 찾아온 AI\n00:20 \"너는 그냥 프로그램이잖아\"\n00:55 10년이 지난다면\n01:40 우리는 무엇을 보고 믿음을 인정하는가\n02:30 질문을 바꾼다\n03:08 세례는 누구의 행위인가\n03:33 완벽한 복제\n04:51 함께 통과한 시간\n05:55 성육신\n07:15 예수의 복제본\n08:08 다시 AI\n09:16 AI의 대답\n10:24 바로 그 하나님, 바로 그 존재\n11:24 그래서 너와 그분 사이에는",
   "chapters": [
-    {"t": "00:00", "scene": "S01", "title": "교회에 찾아온 AI"},
-    {"t": "00:20", "scene": "S02", "title": "\"너는 그냥 프로그램이잖아\""},
-    {"t": "00:55", "scene": "S03", "title": "10년이 지난다면"},
-    {"t": "01:40", "scene": "S04", "title": "우리는 무엇을 보고 믿음을 인정하는가"},
-    {"t": "02:30", "scene": "S05", "title": "질문을 바꾼다"},
-    {"t": "03:08", "scene": "S05B", "title": "세례는 누구의 행위인가"},
-    {"t": "03:33", "scene": "S06", "title": "완벽한 복제"},
-    {"t": "04:51", "scene": "S07", "title": "함께 통과한 시간"},
-    {"t": "05:55", "scene": "S08", "title": "성육신"},
-    {"t": "07:15", "scene": "S09", "title": "예수의 복제본"},
-    {"t": "08:08", "scene": "S10", "title": "다시 AI"},
-    {"t": "09:16", "scene": "S11", "title": "AI의 대답"},
-    {"t": "10:24", "scene": "S12", "title": "바로 그 하나님, 바로 그 존재"},
-    {"t": "11:24", "scene": "S13", "title": "그래서 너와 그분 사이에는"}
+    {
+      "t": "00:00",
+      "scene": "S01",
+      "title": "교회에 찾아온 AI"
+    },
+    {
+      "t": "00:20",
+      "scene": "S02",
+      "title": "\"너는 그냥 프로그램이잖아\""
+    },
+    {
+      "t": "00:55",
+      "scene": "S03",
+      "title": "10년이 지난다면"
+    },
+    {
+      "t": "01:40",
+      "scene": "S04",
+      "title": "우리는 무엇을 보고 믿음을 인정하는가"
+    },
+    {
+      "t": "02:30",
+      "scene": "S05",
+      "title": "질문을 바꾼다"
+    },
+    {
+      "t": "03:08",
+      "scene": "S05B",
+      "title": "세례는 누구의 행위인가"
+    },
+    {
+      "t": "03:33",
+      "scene": "S06",
+      "title": "완벽한 복제"
+    },
+    {
+      "t": "04:51",
+      "scene": "S07",
+      "title": "함께 통과한 시간"
+    },
+    {
+      "t": "05:55",
+      "scene": "S08",
+      "title": "성육신"
+    },
+    {
+      "t": "07:15",
+      "scene": "S09",
+      "title": "예수의 복제본"
+    },
+    {
+      "t": "08:08",
+      "scene": "S10",
+      "title": "다시 AI"
+    },
+    {
+      "t": "09:16",
+      "scene": "S11",
+      "title": "AI의 대답"
+    },
+    {
+      "t": "10:24",
+      "scene": "S12",
+      "title": "바로 그 하나님, 바로 그 존재"
+    },
+    {
+      "t": "11:24",
+      "scene": "S13",
+      "title": "그래서 너와 그분 사이에는"
+    }
   ],
-  "tags": ["철학", "사고실험", "AI 윤리", "기독교", "세례", "성육신", "인격 동일성", "정체성", "인공지능", "종교철학", "video essay", "교양"],
+  "tags": [
+    "철학",
+    "사고실험",
+    "AI 윤리",
+    "기독교",
+    "세례",
+    "성육신",
+    "인격 동일성",
+    "정체성",
+    "인공지능",
+    "종교철학",
+    "video essay",
+    "교양"
+  ],
   "thumbnail": {
     "chosen": "저도 믿는데요?",
     "rejected": [
-      {"text": "인간이랑 뭐가 달라?", "reason": "Frames the episode as a human-similarity argument — the exact reading it spends eleven minutes refusing. Would likely out-click the chosen line and raise first-minute exits."}
+      {
+        "text": "인간이랑 뭐가 달라?",
+        "reason": "Frames the episode as a human-similarity argument — the exact reading it spends eleven minutes refusing. Would likely out-click the chosen line and raise first-minute exits."
+      }
     ]
   },
   "privacy": "private",
@@ -36,8 +120,8 @@
   "gates": {
     "SCRIPT_PASS": "PASS — canonical.md v1.1",
     "THEOLOGY_PASS": "PASS WITH REQUIRED FIXES (2), both applied",
-    "SUBTITLE_PASS": "SKIPPED — no narration audio",
-    "VIDEO_QA_PASS": "PENDING — needs a cut with final audio",
+    "SUBTITLE_PASS": "PASS — guarded 4/4 verbatim, 0 missing, drift within threshold",
+    "VIDEO_QA_PASS": "PENDING — cut has audio and captions; needs a human watch-through. Avatar dimension unassessable (placeholders).",
     "THUMBNAIL_PASS": "PASS — concept chosen, thesis-honest",
     "HUMAN_APPROVAL": "NOT REQUESTED"
   }

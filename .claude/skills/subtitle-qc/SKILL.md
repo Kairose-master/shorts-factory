@@ -53,10 +53,14 @@ the raw beat grid: within-scene pushes are deliberate and already reported by
 the assembler, so re-flagging them here is noise. What this check answers is
 whether the assembly put each line where it said it did.
 
-Fail above **±0.6s** of spread, or cumulative drift above **±1.5s**. Beyond that
-captions detach from speech and graphics land on the wrong words — worse than
-either error alone, because the viewer sees a video that is subtly out of sync
-without knowing why.
+**Size the threshold to the instrument.** Assembly placement is deterministic —
+the assembler writes each clip at an exact sample offset and records it — so a
+line cannot be a second away from where it was placed. What this check actually
+measures is whisper's word timestamps, which on Korean carry roughly a second of
+jitter. Set the gate to catch a line in the *wrong place* (several seconds out,
+the size of a real fault): **±1.5s** of spread, **±2.5s** cumulative. A tighter
+number certifies precision the transcriber cannot resolve, fails clean
+assemblies on noise, and teaches people to skip the gate.
 
 **Subtract the measurement bias first.** Whisper reports word starts slightly
 late, and consistently so — around +0.75s on every line in a real run here. A

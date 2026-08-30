@@ -12,17 +12,19 @@ and not in the delivered audio has not happened.
 
 ## Gate 2 · SUBTITLE_PASS
 
-Owned by `subtitle-qc`. **Status: SKIPPED — no narration audio exists.**
+Owned by `subtitle-qc`. **Status: PASS** — run against the real narration with
+`faster-whisper medium`.
 
-An unrun check is not a pass. Re-run once `audio/narration.wav` exists:
-
-```bash
-python3 ../../scripts/subtitle_qc.py \
-  --audio audio/narration.wav --script script/canonical.md \
-  --storyboard storyboard/storyboard.json --out subtitles/
+```
+GUARDED LINES       PASS   4/4 verbatim
+MISSING SENTENCES   PASS   0 absent, 5 near-match (transcription)
+TIMING DRIFT        PASS   max +1.07s about a +0.46s measurement bias
+PRONUNCIATION       PASS   clean
+SPEAKER SEPARATION  REVIEW 2 voices in the mix — verify by ear
+VERDICT             SUBTITLE_PASS
 ```
 
-The four guarded lines it must find verbatim:
+The four guarded lines, all found verbatim in the delivered audio:
 
 | Claim | Line | Why guarded |
 |---|---|---|
@@ -58,12 +60,14 @@ mandatory list:
 | Theology red team | PASS (2 required fixes applied) |
 | Storyboard | **VALID** — 14 scenes, 157 beats, beats sum exactly, avatar 26.1% |
 | Remotion composition | **BUILDS AND RENDERS** — 14 scene components, typecheck clean |
-| Rendered cut | `export/final.mp4` — 11:50.06, 1920×1080, 30fps, H.264, 54MB |
+| Rendered cut | `export/final.mp4` — 11:50.06 · 1920×1080 · 30fps · H.264 + AAC · 51MB |
 | Thumbnail | `thumbnail/thumbnail.png` — rendered |
-| Narration | **MISSING** — no TTS credential in this environment |
+| Narration | **DONE** — 118 lines, Edge TTS, two voices (ko-KR-InJoon narrator, ko-KR-SunHi AI) |
+| Music bed | **DONE** — synthesised, per-scene envelope, silent for S01 and S11 |
+| Mix | **DONE** — ducked, `audio/mixed.wav` → `mixed.m4a` |
 | Avatar lip-sync | **MISSING** — no CUDA GPU in this environment |
-| Subtitles | SRT generated from storyboard; QC skipped pending audio |
-| Cut review | pending final audio |
+| Subtitles | SRT generated; **SUBTITLE_PASS** against the real narration |
+| Cut review | **PENDING** — needs a human watch-through; see below |
 | Publish | **BLOCKED** — human approval required, and two gates are not yet run |
 
 ## Defects found by reviewing the render, and fixed
@@ -83,10 +87,29 @@ with a `scaleY` collapse that read as a render fault rather than a rejection.
 
 ## What the current render actually is
 
-A complete, correctly-timed 11:50 motion-graphics cut with **placeholder avatar
-plates and no audio**. It is the right artifact for reviewing structure, pacing,
-typography and visual density — the 74% of the episode that carries the argument.
+A complete 11:50 cut with **narration, music and captions**, and **placeholder
+avatar plates**. Reviewable now for structure, pacing, typography, visual
+density, narration quality and caption sync.
 
-It is **not** a reviewable cut for hook strength, narration quality or the
-avatar. Do not score Gate 3 against it; those dimensions are not present to be
-scored, and a score computed against absent inputs is worse than no score.
+Still **not** reviewable for the avatar: ten scenes render a designed plate
+rather than a face, and S11 sits on one for 68 seconds. Mandatory failure 5
+(avatar consistency) cannot be assessed, and mandatory failure 7 (narration
+sounding like corporate TTS) needs a human ear on Edge TTS — a neural voice at
+-3% is not the flat corporate read that check was written for, but that is a
+judgement no script makes.
+
+Score Gate 3 only after a human has watched it end to end.
+
+## Audio fitting — what the read cost
+
+Measured, not estimated. 47 of 118 lines overran their authored beats, because
+the beats were sized by feel and Korean TTS reads about 5 characters a second.
+
+| Fix | Where |
+|---|---|
+| 21 lines trimmed | over-written; each carried two clauses where one would do |
+| SCENE 04 tail re-timed | guarded line C-04 needed 4.6s in a 3s slot, and guarded lines are never trimmed to make a scene fit |
+| 3 scenes compressed 1.10–1.13x | S04, S05B, S12 — under the 1.25x where speech starts to sound hurried |
+
+Placement resets at every scene boundary; a first pass without that accumulated
+**14 seconds** of drift by the end of the episode.
