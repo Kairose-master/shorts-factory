@@ -53,6 +53,29 @@ streams 영상은 **예배 전체**라 찬양·기도·봉헌·광고가 함께 
 - **Growth Targets:** _미정_
 - **Content Goals:** 설교 한 편 → 쇼츠 3편. 렌더까지 자동, 업로드는 사람이 승인 후 수동.
 
+## 원본 확보 — Apify, 480p 고정
+
+이 컨테이너에서는 yt-dlp가 유튜브 미디어를 못 받는다(서명 URL의 IP 불일치,
+`docs/environment-constraints.md`). **Apify 액터로 우회한다.**
+
+```bash
+curl -sS -X POST \
+  "https://api.apify.com/v2/acts/epctex~youtube-video-downloader/runs" \
+  -H "Authorization: Bearer $APIFY_TOKEN" -H "Content-Type: application/json" \
+  -d '{"startUrls":["<URL>"],"quality":"480","storageType":"apify"}'
+```
+
+완료되면 dataset의 `output.url` 을 `Authorization` 헤더와 함께 받아
+`office/production/<idea-id>/source/sermon.mp4` 로 저장한다.
+
+- **화질은 무조건 `480`.** (사용자 지시, 2026-08-31) 초당 과금이라 화질이
+  곧 비용이다: 480p $0.00025/s · 720p $0.00045/s · 1080p $0.00075/s.
+  80분 예배 기준 480p ≈ **$1.20**, 720p ≈ $2.16, 1080p ≈ $3.60.
+- 9:16 크롭은 가로의 가운데 31%만 쓰므로 480p면 세로 480px이 확보된다.
+  1080x1920으로 올릴 때 업스케일이 들어가지만 설교 토킹헤드에서는 감수한다.
+- 이미 받아둔 파일이 있으면 다시 받지 않는다. 용량만 줄이려면 재다운로드가
+  아니라 ffmpeg로 축소한다 — 재다운로드는 추가 과금이다.
+
 ## 이 채널의 제작 규칙
 
 파이프라인: `scripts/weekly_run.sh` · 자세한 것은 `docs/session-handoff.md`.
