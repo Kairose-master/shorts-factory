@@ -86,6 +86,27 @@ for c in clip-01 clip-02; do
   echo "    ok — $c $dim"
 done
 
+echo "==> no subtitle text may be dropped"
+python3 - "$DIR" <<'PY2' || { echo "FAIL: subtitle text was lost in wrapping"; fail=1; }
+import json, sys, pathlib
+sys.path.insert(0, "scripts")
+import sermon_shorts as ss
+d = pathlib.Path(sys.argv[1])
+segs = json.loads((d / "transcript.json").read_text(encoding="utf-8"))["segments"]
+# A long line must survive wrapping intact, split across cues if need be.
+segs = segs + [{"start": 0.0, "end": 9.0, "text":
+                "여러분들 머리는 베어 가지고 지울 수 있겠지만은 그 사람의 한 말이 내 마음에 "
+                "꽂힌 것을 제거할 수 있을까요, 없을까요? 없어요."}]
+for x in segs:
+    want = "".join(x["text"].split())
+    cues = ss.split_for_display(x)
+    got = "".join("".join(ss.wrap_korean(c["text"]).replace("\\N", " ").split()) for c in cues)
+    assert got == want, f"lost text:\n  want {want}\n  got  {got}"
+    assert abs(cues[0]["start"] - x["start"]) < 1e-6
+    assert abs(cues[-1]["end"] - x["end"]) < 1e-6
+print("    ok — all subtitle text survives wrapping")
+PY2
+
 [ -f "$DIR/publish-package.md" ] || { echo "FAIL: no publish-package.md"; fail=1; }
 grep -q "Content ID" "$DIR/publish-package.md" || { echo "FAIL: worship-music flag missing from package"; fail=1; }
 echo "    ok — publish package carries the copyright flags"

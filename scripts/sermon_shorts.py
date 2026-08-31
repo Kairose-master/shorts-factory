@@ -54,6 +54,22 @@ OUT_W, OUT_H = 1080, 1920
 # preacher's voice natural while cutting dead air; per-clip `speed` overrides.
 DEFAULT_SPEED = 1.5
 
+# ASS colours are &HAABBGGRR — byte-reversed from hex RGB, so yellow #FFFF00
+# is written 00FFFF. Captions sit over the pulpit, which is white and brightly
+# lit; white text washed out against it even with an outline. Yellow separates
+# from both the pulpit and the dark green backdrop.
+SUBTITLE_COLOUR = "&H0000FFFF"   # #FFFF00
+
+# The Shorts player draws its own furniture over the bottom of the frame —
+# channel handle, title, description, progress bar — so the bottom of a
+# 1920-tall video is not ours to use. Captions are lifted clear of it.
+SUBTITLE_MARGIN_V = 480
+
+# Usable caption width is 1080 minus the side margins; at 64px a Korean glyph
+# is about as wide as it is tall, so ~14 fit. Lines longer than this get wrapped
+# again by libass, which quietly doubles the line count.
+SUB_PER_LINE = 14
+
 
 # --------------------------------------------------------------- helpers ---
 def die(msg: str, code: int = 1):
@@ -382,11 +398,12 @@ def ass_ts(seconds: float) -> str:
     return f"{h:d}:{m:02d}:{s:02d}.{cs:02d}"
 
 
-def wrap_korean(text: str, per_line: int = 16, max_lines: int = 3) -> str:
+def wrap_lines(text: str, per_line: int) -> list[str]:
     """Break on word boundaries into short lines.
 
     Korean has spaces between 어절, so wrapping on them is safe and reads far
-    better than libass's own greedy fill at this font size.
+    better than libass's own greedy fill at this font size. Never drops text —
+    the caller decides what to do with more lines than it wants.
     """
     words, lines, cur = text.split(), [], ""
     for w in words:
@@ -397,11 +414,48 @@ def wrap_korean(text: str, per_line: int = 16, max_lines: int = 3) -> str:
             cur = f"{cur} {w}".strip()
     if cur:
         lines.append(cur)
-    return "\\N".join(lines[:max_lines])
+    return lines
+
+
+def wrap_korean(text: str, per_line: int = SUB_PER_LINE, max_lines: int = 3) -> str:
+    """Wrap to at most `max_lines`, keeping every word.
+
+    `max_lines` is a layout hint, not a budget to spend text against: if the
+    text needs more lines it gets them. Silently dropping the tail of a
+    sentence is the worst possible failure here — it was cutting the payoff
+    off the end of the preacher's own sentences.
+    """
+    return "\\N".join(wrap_lines(text, per_line))
+
+
+def split_for_display(seg: dict, per_line: int = SUB_PER_LINE,
+                      max_lines: int = 3) -> list[dict]:
+    """One transcript segment → one or more subtitle cues.
+
+    A segment can be eight seconds of speech, far more than fits on screen at
+    a readable size. Rather than truncate it, split it into consecutive cues
+    and share the segment's own duration between them in proportion to how
+    much text each carries, so the words stay under the voice saying them.
+    """
+    lines = wrap_lines(seg["text"], per_line)
+    if len(lines) <= max_lines:
+        return [seg]
+
+    groups = [lines[i:i + max_lines] for i in range(0, len(lines), max_lines)]
+    weights = [sum(len(x) for x in g) for g in groups]
+    total = sum(weights) or 1
+    span = seg["end"] - seg["start"]
+
+    out, t = [], seg["start"]
+    for i, (g, w) in enumerate(zip(groups, weights)):
+        end = seg["end"] if i == len(groups) - 1 else t + span * w / total
+        out.append({"start": t, "end": end, "text": " ".join(g)})
+        t = end
+    return out
 
 
 def write_ass(segs: list[dict], path: Path, offset: float = 0.0,
-              font_size: int = 64, margin_v: int = 260,
+              font_size: int = 64, margin_v: int = SUBTITLE_MARGIN_V,
               title: str = "", duration: float = 0.0):
     """Burn-in subtitles as ASS, with an optional standing title card.
 
@@ -424,17 +478,21 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,{FONT_NAME},{font_size},&H00FFFFFF,&H000000FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,5,2,2,70,70,{margin_v},1
+Style: Default,{FONT_NAME},{font_size},{SUBTITLE_COLOUR},&H000000FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,5,2,2,70,70,{margin_v},1
 Style: Title,{FONT_NAME},72,&H00FFFFFF,&H000000FF,&H00202020,&H00000000,1,0,0,0,100,100,0,0,1,6,0,8,60,60,110,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
+    cues = []
+    for s_ in segs:
+        cues.extend(split_for_display(s_))
+
     rows = []
     if title and duration > 0:
         rows.append(f"Dialogue: 1,{ass_ts(0)},{ass_ts(duration)},Title,,0,0,0,,"
                     f"{wrap_korean(title, per_line=13, max_lines=3)}")
-    for s in segs:
+    for s in cues:
         start, end = s["start"] - offset, s["end"] - offset
         if end <= 0:
             continue
