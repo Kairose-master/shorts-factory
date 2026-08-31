@@ -17,3 +17,13 @@ export { enqueueSocialJob, claimSocialJobs, recordAdvance, getQueueRow } from '.
 export type { QueryPort, QueueRow } from './queue-server'
 export { drainSocialQueue } from './drain-server'
 export { describeSocialJob, isDue, rowStatusAfterAdvance } from './queue'
+export {
+  parseCommentWebhook,
+  verifyWebhookSignature,
+  triageComment,
+  renderDmTemplate,
+  dmDedupeKey,
+  isCommentFresh,
+} from './dm-core'
+export type { CommentEvent, DmCampaign } from './dm-core'
+export { handleCommentEvent, isDmAutomationEnabled } from './dm-server'

@@ -21,6 +21,9 @@ this directory transplants in under an hour.
 | `tests/instagram.test.ts` | `tests/instagram.test.ts` |
 | `tests/instagram.e2e.test.ts` | `tests/instagram.e2e.test.ts` |
 | `patches/env.example.snippet` | append to `.env.example` |
+| `patches/webhook-route.snippet.ts` | `app/api/webhooks/instagram/route.ts` (new) |
+| `docs/social/instagram-dm-automation.md` | `docs/social/instagram-dm-automation.md` |
+| `skills/instagram-publisher/prompts/*` | `skills/instagram-publisher/prompts/*` |
 | `patches/ops-cycle.snippet.ts` | fold into `lib/ops-cycle.ts` OPS_STEPS |
 | `patches/office-world-data.snippet.ts` | fold into `lib/office-world-data.ts` (growth-studio) |
 
