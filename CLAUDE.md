@@ -3,11 +3,12 @@
 A short-form video research and scripting workspace, and the home of the
 **Handsel Short-Form Growth Office** (`office/`).
 
-52 Agent Skills are installed under `.claude/skills/`:
+53 Agent Skills are installed under `.claude/skills/`:
 
-- **43 upstream skills** pulled from five repositories and left **byte-identical
+- **44 upstream skills** pulled from six repositories and left **byte-identical
   to upstream** so `npx skills update` keeps working. These are the ones tracked
-  in `skills-lock.json`.
+  in `skills-lock.json` (the 44th is `caveman`, a terse-output token-saver from
+  JuliusBrussee/caveman, added 2026-08-31).
 - **8 local skills** authored here and deliberately *not* in the lock file:
   `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
   `aicron`, `zapier-mcp` — plus `shorts-factory` itself. `npx skills update`

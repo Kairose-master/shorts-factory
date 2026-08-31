@@ -31,6 +31,12 @@
       "skillPath": "skills/brand-kit/SKILL.md",
       "computedHash": "343839c8a33ed7ed68beee0dd44b1a66167a7b70b54e4061fe8b2bdd8e7f6fa4"
     },
+    "caveman": {
+      "source": "JuliusBrussee/caveman",
+      "sourceType": "github",
+      "skillPath": "skills/caveman/SKILL.md",
+      "computedHash": "1a41e7f3543c4a969c040c34a96925f8a3f82a6179a3f1002692b37957f7140b"
+    },
     "comment-mining": {
       "source": "ScrapeCreators/social-media-research-skills",
       "sourceType": "github",
