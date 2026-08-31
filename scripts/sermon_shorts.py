@@ -50,6 +50,10 @@ FONT_NAME = "Noto Sans KR"
 # 9:16 at the resolution YouTube Shorts actually wants.
 OUT_W, OUT_H = 1080, 1920
 
+# Sermon delivery is slower than short-form pacing tolerates. 1.5x keeps the
+# preacher's voice natural while cutting dead air; per-clip `speed` overrides.
+DEFAULT_SPEED = 1.5
+
 
 # --------------------------------------------------------------- helpers ---
 def die(msg: str, code: int = 1):
@@ -397,13 +401,19 @@ def wrap_korean(text: str, per_line: int = 16, max_lines: int = 3) -> str:
 
 
 def write_ass(segs: list[dict], path: Path, offset: float = 0.0,
-              font_size: int = 64, margin_v: int = 260):
-    """Burn-in subtitles as ASS.
+              font_size: int = 64, margin_v: int = 260,
+              title: str = "", duration: float = 0.0):
+    """Burn-in subtitles as ASS, with an optional standing title card.
 
     SRT carries no resolution, so libass falls back to a 384x288 script and
     scales every style number up from there — a Fontsize/MarginV tuned in real
     pixels lands in the wrong place. ASS lets us state PlayRes explicitly, so
     the numbers below mean what they say at 1080x1920.
+
+    The title sits at the top for the clip's whole length, not just the open:
+    most viewers arrive mid-clip, and a sermon excerpt with no frame around it
+    reads as a stranger talking. `duration` is the clip's length *before* any
+    speed change, because the subtitle burn happens before the retime.
     """
     head = f"""[Script Info]
 ScriptType: v4.00+
@@ -415,11 +425,15 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Default,{FONT_NAME},{font_size},&H00FFFFFF,&H000000FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,5,2,2,70,70,{margin_v},1
+Style: Title,{FONT_NAME},72,&H00FFFFFF,&H000000FF,&H00202020,&H00000000,1,0,0,0,100,100,0,0,1,6,0,8,60,60,110,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     rows = []
+    if title and duration > 0:
+        rows.append(f"Dialogue: 1,{ass_ts(0)},{ass_ts(duration)},Title,,0,0,0,,"
+                    f"{wrap_korean(title, per_line=13, max_lines=3)}")
     for s in segs:
         start, end = s["start"] - offset, s["end"] - offset
         if end <= 0:
@@ -584,25 +598,46 @@ def cmd_render(args):
             {"start": max(s["start"], start), "end": min(s["end"], end), "text": s["text"]}
             for s in segs if s["end"] > start and s["start"] < end
         ]
+        speed = float(c.get("speed", DEFAULT_SPEED))
+        if not 0.5 <= speed <= 2.0:
+            die(f"{cid}: speed {speed} is outside atempo's 0.5–2.0 range")
+
         ass = sub_dir / f"{cid}.ass"
-        write_ass(window, ass, offset=start)
+        write_ass(window, ass, offset=start,
+                  title=c.get("title", "") if c.get("show_title", True) else "",
+                  duration=end - start)
         write_srt(window, sub_dir / f"{cid}.srt", offset=start)  # for YouTube upload
 
         out = out_dir / f"{cid}.mp4"
+        # Subtitles and title are burned at the original timing, then the whole
+        # picture is retimed. Doing it this way keeps captions in sync for free:
+        # each frame already carries its text, and setpts only moves the frame.
         vf = (
             f"{crop_filter(c.get('crop', 'center'))},"
             f"subtitles={ass.as_posix()}:fontsdir={FONT_DIR}"
         )
-        print(f"==> {cid}  {hhmmss(start)}–{hhmmss(end)}  ({end-start:.0f}s)")
-        run([
+        af = None
+        if speed != 1.0:
+            vf += f",setpts=PTS/{speed}"
+            af = f"atempo={speed}"
+
+        dur = (end - start) / speed
+        print(f"==> {cid}  {hhmmss(start)}–{hhmmss(end)}  "
+              f"({end-start:.0f}s → {dur:.0f}s @ {speed}x)")
+        cmd = [
             "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
             "-ss", f"{start}", "-to", f"{end}", "-i", str(video),
             "-vf", vf,
+        ]
+        if af:
+            cmd += ["-af", af]
+        cmd += [
             "-c:v", "libx264", "-preset", "medium", "-crf", "20",
             "-pix_fmt", "yuv420p", "-r", "30",
             "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
             str(out),
-        ])
+        ]
+        run(cmd)
         made.append((cid, out, c))
 
     # Human-facing package. Renders are gitignored; this file is the record.
@@ -612,7 +647,9 @@ def cmd_render(args):
         pkg += [
             f"## {cid}",
             f"- 파일: `renders/{out.name}` (gitignored)",
-            f"- 구간: {c['start']} – {c['end']}",
+            f"- 구간: {c['start']} – {c['end']}"
+            + (f"  ({float(c.get('speed', DEFAULT_SPEED))}배속)"
+               if float(c.get("speed", DEFAULT_SPEED)) != 1.0 else ""),
             f"- 제목: {c.get('title','')}",
             f"- 후킹: {c.get('hook','')}",
             f"- 설명: {c.get('description','')}",
