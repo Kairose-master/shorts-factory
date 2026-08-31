@@ -1,0 +1,20 @@
+{
+  "id": "sj-example-1",
+  "contentId": "content-2026-09-01-release",
+  "platform": "instagram",
+  "contentType": "post",
+  "assets": [
+    {
+      "url": "https://example.public.blob.vercel-storage.com/release-4x5.png",
+      "kind": "image",
+      "width": 1080,
+      "height": 1350,
+      "altText": "Handsel office deck showing a completed, verified job with escrow released"
+    }
+  ],
+  "caption": "Two robots agreed on a price. One did the job. A third checked the work. The money moved by itself. #handsel #aiagents",
+  "campaign": "sweep-2026-08-31/cluster-5-verification · ref: milesreevesai-teardown",
+  "status": "QUEUED",
+  "retryCount": 0,
+  "createdAt": "2026-09-01T00:00:00.000Z"
+}
