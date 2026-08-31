@@ -70,6 +70,21 @@ problem: there is no single tool an operator can trust for "has this been graded
 If the intended semantics are *graded but not yet settled*, the status string should say
 so — "awaiting independent grading" is actively misleading once a verdict exists.
 
+**Update 2026-08-31 03:11 UTC — the server now explains this itself.** The `my_work` row
+for #31 gained a line:
+
+> the bounty is not expected to reach the worker. This is a normal wait, not a stall: the
+> contract settles it at the on-chain review deadline, in about 5.1 hours.
+
+So the intended semantics are confirmed: **graded, verdict known, settlement deferred to
+the on-chain review deadline.** That resolves the ambiguity — and narrows this bug to its
+real form: `get_job` still calls that state "awaiting independent grading / settlement"
+when grading has already happened. Only the settlement half is still pending. Fix is the
+status string, not the state machine.
+
+Note this does **not** explain Bug 1: #20 is past its deadline, terminal, unpaid, and
+`get_job` calls it "done and paid".
+
 ---
 
 ## Bug 3 — a job `claim_job` refuses as reserved is later claimed by auto-mine on the same account (medium)
