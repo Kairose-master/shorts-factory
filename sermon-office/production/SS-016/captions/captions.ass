@@ -7,7 +7,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: HOOK,Noto Sans CJK KR,116,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,-1,0,1,7,4,8,60,60,155,1
+Style: HOOK,Noto Sans CJK KR,116,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,-1,0,1,7,4,8,60,60,230,1
 Style: CAP,Noto Sans CJK KR,64,&H0000E0FF,&H0000E0FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,2,2,130,130,422,1
 Style: ENDLEAD,Noto Sans CJK KR,50,&H30FFFFFF,&H30FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
 Style: ENDMAIN,Noto Sans CJK KR,76,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
@@ -23,8 +23,12 @@ Dialogue: 3,0:00:46.38,0:00:49.26,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2026
 Dialogue: 3,0:00:46.50,0:00:49.26,ENDSUB,,0,0,0,,{\pos(540,940)\fad(300,0)}겔 36:16-31 · 장선기 목사
 Dialogue: 3,0:00:46.50,0:00:49.26,ENDSUB,,0,0,0,,{\pos(540,1020)\fad(300,0)}방배동 예심교회
 Dialogue: 0,0:00:00.00,0:00:07.60,CAP,,0,0,0,,자기가 잘해서 하나님이 이렇게\N했다 — 자꾸 이런 생각을 해요
-Dialogue: 0,0:00:07.60,0:00:16.10,CAP,,0,0,0,,우리가 회개를 너무나 잘했기\N때문에 이렇게 됐다 — 그러면서 우쭐해하고 하나님을 무시하고
-Dialogue: 0,0:00:16.10,0:00:23.25,CAP,,0,0,0,,내가 이렇게 행하면 내 거룩한\N이름이 땅에 떨어지는 걸 놔두지 않는다
-Dialogue: 0,0:00:23.25,0:00:31.46,CAP,,0,0,0,,그렇게 하는 것은 너희들이\N무엇을 잘했기 때문이 아니라 나의 거룩한 이름 때문에
-Dialogue: 0,0:00:31.46,0:00:40.71,CAP,,0,0,0,,하나님의 전적인 은혜 때문에\N그렇게 된 거지 — 너희가 잘해서 그렇지는 않다
+Dialogue: 0,0:00:07.60,0:00:11.85,CAP,,0,0,0,,우리가 회개를 너무나 잘했기\N때문에 이렇게 됐다
+Dialogue: 0,0:00:11.85,0:00:16.10,CAP,,0,0,0,,그러면서 우쭐해하고 하나님을\N무시하고
+Dialogue: 0,0:00:16.10,0:00:19.68,CAP,,0,0,0,,내가 이렇게 행하면 내 거룩한\N이름이
+Dialogue: 0,0:00:19.68,0:00:23.25,CAP,,0,0,0,,땅에 떨어지는 걸 놔두지 않는다
+Dialogue: 0,0:00:23.25,0:00:27.36,CAP,,0,0,0,,그렇게 하는 것은 너희들이\N무엇을 잘했기 때문이 아니라
+Dialogue: 0,0:00:27.36,0:00:31.46,CAP,,0,0,0,,나의 거룩한 이름 때문에
+Dialogue: 0,0:00:31.46,0:00:36.09,CAP,,0,0,0,,하나님의 전적인 은혜 때문에\N그렇게 된 거지
+Dialogue: 0,0:00:36.09,0:00:40.71,CAP,,0,0,0,,너희가 잘해서 그렇지는 않다
 Dialogue: 0,0:00:40.71,0:00:46.26,CAP,,0,0,0,,그거를 꼭 생각해야 되는 거예요

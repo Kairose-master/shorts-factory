@@ -41,7 +41,8 @@ FONT = "Noto Sans CJK KR"
 
 # ── 레이아웃 상수. 전부 sermon-office/brand/shorts-format.md 의 실측에서 온다.
 HOOK_SIZE = 116          # 레퍼런스 제목 글자 높이 5.4% × 1920, 한글 자면 보정
-HOOK_MARGIN_TOP = 155    # 8.1% — 레퍼런스 제목 1행 상단 8.7% 보다 살짝 위
+HOOK_MARGIN_TOP = 230    # 12.0% — 릴스/틱톡 상단 UI(계정명·팔로우·메뉴)를
+                         # 피하려고 유튜브 레퍼런스(8.1%)보다 내렸다(L-27)
 HOOK_OUTLINE = 7
 HOOK_SHADOW = 4
 CAP_SIZE = 64
