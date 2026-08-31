@@ -546,6 +546,65 @@ def validate_clips(path: Path, segs: list[dict], strict: bool = True) -> list[di
 
 
 # ---------------------------------------------------------------- render ---
+END_CARD_SECONDS = 4.0
+END_CARD_BG = "0x123A34"   # the sanctuary's stage green, so the cut reads as one piece
+
+
+def _ass_escape(s: str) -> str:
+    return s.replace("\\", "").replace("{", "(").replace("}", ")").strip()
+
+
+def build_end_card(cfg: dict, out: Path, seconds: float = END_CARD_SECONDS) -> Path:
+    """A card naming the service, so a viewer can go and find the full sermon.
+
+    A short travels away from the channel that made it. Without this, an
+    excerpt is an unattributed stranger talking; with it, the sermon is
+    searchable by title and passage, which are exact and unique.
+    """
+    lines = [
+        # (text, y, size, colour, bold)
+        (cfg.get("date", ""),      560,  54, "&H00C8D8D4", 0),
+        (cfg.get("scripture", ""), 690,  60, "&H0090E0C8", 1),
+        (cfg.get("title", ""),     880,  78, "&H00FFFFFF", 1),
+        (cfg.get("preacher", ""), 1180,  58, "&H00E8F0EE", 0),
+        (cfg.get("church", ""),   1360,  68, "&H00FFFFFF", 1),
+        (cfg.get("handle", ""),   1470,  48, "&H0098B0AC", 0),
+    ]
+    rows, styles = [], []
+    for i, (text, y, size, colour, bold) in enumerate(lines):
+        if not text:
+            continue
+        styles.append(
+            f"Style: E{i},{FONT_NAME},{size},{colour},&H000000FF,&H00000000,&H00000000,"
+            f"{bold},0,0,0,100,100,0,0,1,0,0,5,60,60,0,1")
+        wrapped = wrap_korean(_ass_escape(text), per_line=14, max_lines=2)
+        rows.append(f"Dialogue: 0,{ass_ts(0)},{ass_ts(seconds)},E{i},,0,0,0,,"
+                    f"{{\\pos({OUT_W//2},{y})}}{wrapped}")
+
+    ass = out.with_suffix(".ass")
+    ass.write_text(
+        f"[Script Info]\nScriptType: v4.00+\nPlayResX: {OUT_W}\nPlayResY: {OUT_H}\n"
+        "WrapStyle: 0\nScaledBorderAndShadow: yes\n\n[V4+ Styles]\n"
+        "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, "
+        "BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, "
+        "BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding\n"
+        + "\n".join(styles)
+        + "\n\n[Events]\nFormat: Layer, Start, End, Style, Name, MarginL, MarginR, "
+          "MarginV, Effect, Text\n" + "\n".join(rows) + "\n",
+        encoding="utf-8")
+
+    # Encoded to match the clip exactly, so the two concatenate without a re-encode.
+    run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+         "-f", "lavfi", "-i", f"color=c={END_CARD_BG}:s={OUT_W}x{OUT_H}:r=30:d={seconds}",
+         "-f", "lavfi", "-i", f"anullsrc=channel_layout=stereo:sample_rate=44100:d={seconds}",
+         "-vf", f"subtitles={ass.as_posix()}:fontsdir={FONT_DIR}",
+         "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+         "-pix_fmt", "yuv420p", "-r", "30",
+         "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-ac", "2",
+         "-shortest", str(out)])
+    return out
+
+
 def crop_filter(mode) -> str:
     """16:9 → 9:16.
 
@@ -584,6 +643,15 @@ def cmd_render(args):
     out_dir.mkdir(exist_ok=True)
     sub_dir = out_dir / "subs"
     sub_dir.mkdir(exist_ok=True)
+
+    # Built once and appended to every clip — each short is discovered on its
+    # own, so each one needs to say where it came from.
+    end_card = None
+    ec_path = d / "end-card.json"
+    if ec_path.exists() and not args.no_end_card:
+        cfg = json.loads(ec_path.read_text(encoding="utf-8"))
+        end_card = build_end_card(cfg, out_dir / "_endcard.mp4")
+        print(f"==> 엔드카드 {END_CARD_SECONDS:.0f}초 — {cfg.get('title','')}")
 
     made = []
     for c in clips:
@@ -631,13 +699,26 @@ def cmd_render(args):
         ]
         if af:
             cmd += ["-af", af]
+        body = out if end_card is None else out.with_name(f"{cid}.body.mp4")
         cmd += [
             "-c:v", "libx264", "-preset", "medium", "-crf", "20",
             "-pix_fmt", "yuv420p", "-r", "30",
-            "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart",
-            str(out),
+            "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-ac", "2",
+            "-movflags", "+faststart",
+            str(body),
         ]
         run(cmd)
+
+        if end_card is not None:
+            lst = out_dir / f"{cid}.concat.txt"
+            lst.write_text(f"file '{body.resolve()}'\nfile '{end_card.resolve()}'\n",
+                           encoding="utf-8")
+            run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                 "-f", "concat", "-safe", "0", "-i", str(lst),
+                 "-c", "copy", "-movflags", "+faststart", str(out)])
+            lst.unlink()
+            body.unlink()
+
         made.append((cid, out, c))
 
     # Human-facing package. Renders are gitignored; this file is the record.
@@ -710,6 +791,8 @@ def main():
 
     r = sub.add_parser("render"); r.add_argument("idea_id")
     r.add_argument("--only", help="render just this clip id")
+    r.add_argument("--no-end-card", action="store_true",
+                   help="skip the closing service card")
     r.set_defaults(func=cmd_render)
 
     v = sub.add_parser("validate"); v.add_argument("idea_id")
