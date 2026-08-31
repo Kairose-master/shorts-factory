@@ -5,9 +5,15 @@ Four stages, each runnable on its own so a failure never costs you the
 stages that already succeeded:
 
   fetch       yt-dlp the sermon into office/production/<id>/source/
-  transcribe  Korean transcript with timecodes (whisper.cpp or Gemini)
+  transcribe  find the sermon inside the service, then transcribe just that
   clips       print the transcript for reading, then validate clips.json
   render      cut → 9:16 crop → Korean subtitle burn-in → MP4
+
+A Sunday recording is the whole service, not a sermon: 60-85 minutes of which
+the sermon is well under half, the rest worship, prayer, offering and notices.
+`transcribe` therefore locates the sermon first and works only inside it —
+cheaper, and it keeps every later stage away from the worship music, which is
+where Content ID lives.
 
 Clip selection is deliberately NOT automated. Stage `clips` prints a
 timecoded transcript and stops; a human (or Claude) reads it and writes
@@ -20,7 +26,7 @@ is a human decision, every time.
 
 Usage:
   python3 scripts/sermon_shorts.py fetch      SUN-2026-08-30 --url <youtube-url>
-  python3 scripts/sermon_shorts.py transcribe SUN-2026-08-30 [--backend auto]
+  python3 scripts/sermon_shorts.py transcribe SUN-2026-08-30 [--backend auto] [--whole]
   python3 scripts/sermon_shorts.py clips      SUN-2026-08-30 [--window 12]
   python3 scripts/sermon_shorts.py render     SUN-2026-08-30 [--only clip-01]
   python3 scripts/sermon_shorts.py doctor
@@ -32,6 +38,7 @@ import json
 import os
 import shutil
 import subprocess
+import tempfile
 import sys
 from pathlib import Path
 
@@ -163,9 +170,37 @@ def transcribe_whisper(wav: Path, model: str) -> list[dict]:
     return segs
 
 
-def transcribe_gemini(wav: Path) -> list[dict]:
-    """Gemini transcription. Costs one API call per chunk — this is a paid
-    API. Used only when whisper is unavailable."""
+# Model ids move; the first that answers wins. A 503 here means the model is
+# busy, not that the audio is bad, so the caller retries down this list.
+GEMINI_MODELS = ["gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash", "gemini-2.5-pro"]
+
+CHUNK_SECONDS = 540      # ~9 min per call
+CHUNK_OVERLAP = 30       # trailing seconds re-sent with the next chunk
+
+
+def _gemini_call(client, types, path: Path, prompt: str, max_tokens: int = 32000):
+    """One generate_content, walking GEMINI_MODELS on overload."""
+    import time
+    f = client.files.upload(file=str(path))
+    while f.state.name == "PROCESSING":
+        time.sleep(4)
+        f = client.files.get(name=f.name)
+    last = None
+    for attempt in range(len(GEMINI_MODELS) * 3):
+        model = GEMINI_MODELS[min(attempt // 3, len(GEMINI_MODELS) - 1)]
+        try:
+            return client.models.generate_content(
+                model=model, contents=[f, prompt],
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json", max_output_tokens=max_tokens))
+        except Exception as e:  # noqa: BLE001 — overload is transient; try the next model
+            last = e
+            print(f"    {model}: {str(e)[:80]}")
+            time.sleep(15)
+    raise RuntimeError(f"every Gemini model failed: {last}")
+
+
+def _gemini_client():
     key = os.environ.get("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("GEMINI_API_KEY not set")
@@ -174,24 +209,96 @@ def transcribe_gemini(wav: Path) -> list[dict]:
         from google.genai import types
     except ImportError:
         raise RuntimeError("pip3 install google-genai")
+    return genai.Client(api_key=key), types
 
-    client = genai.Client(api_key=key)
-    print("  uploading audio to Gemini (1 paid call)…")
-    f = client.files.upload(file=str(wav))
-    prompt = (
-        "이 한국어 설교 오디오를 전사하라. 화자가 실제로 말한 그대로 적고, "
-        "요약하거나 다듬지 말 것. JSON 배열만 출력하라. 각 원소는 "
-        '{"start": 초(float), "end": 초(float), "text": "발화"} 형식이고, '
-        "한 원소는 한 문장 또는 8초 이내로 끊는다. 설명 문장은 쓰지 말 것."
-    )
-    resp = client.models.generate_content(
-        model="gemini-2.5-pro",
-        contents=[f, prompt],
-        config=types.GenerateContentConfig(response_mime_type="application/json"),
-    )
-    segs = json.loads(resp.text)
-    return [{"start": float(s["start"]), "end": float(s["end"]),
-             "text": str(s["text"]).strip()} for s in segs]
+
+TRANSCRIBE_PROMPT = (
+    "한국 개신교 설교 오디오다. 들리는 그대로 한국어로 전사하라.\n"
+    "- 요약하거나 문장을 다듬지 말 것. 실제 발화를 그대로 옮긴다.\n"
+    "- 성경 인용, 예화, 반복 어구도 빠짐없이 옮긴다.\n"
+    "- 한 원소는 한 문장 또는 8초 이내로 끊는다.\n"
+    '- JSON 배열만 출력. 각 원소는 {"start": 초(float), "end": 초(float), "text": "발화"}\n'
+    "  시간은 이 오디오 조각의 시작을 0으로 한 상대시간이다.\n"
+    "- 설명 문장을 쓰지 말 것."
+)
+
+
+def transcribe_gemini(wav: Path, start: float = 0.0, end: float | None = None) -> list[dict]:
+    """Gemini transcription, in overlapping chunks.
+
+    A full service is over an hour, and one call for the whole thing gets
+    truncated well before the end. Chunking fixes that but drops audio at
+    every seam — the model reliably loses the last seconds of a clip — so
+    each chunk re-sends CHUNK_OVERLAP seconds of the previous one and the
+    duplicate segments are dropped on the way out.
+
+    Paid: one call per chunk.
+    """
+    client, types = _gemini_client()
+    total = (end if end is not None else probe_duration(wav)) - start
+    n = max(1, int(total // (CHUNK_SECONDS - CHUNK_OVERLAP)) + 1)
+    print(f"  {total/60:.0f}분 → {n} chunk(s), {n} paid call(s)")
+
+    out: list[dict] = []
+    with tempfile.TemporaryDirectory() as tmp:
+        for i in range(n):
+            off = start + i * (CHUNK_SECONDS - CHUNK_OVERLAP)
+            if off >= start + total:
+                break
+            piece = Path(tmp) / f"c{i}.mp3"
+            run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                 "-ss", f"{off}", "-t", f"{CHUNK_SECONDS}", "-i", str(wav),
+                 "-ac", "1", "-ar", "16000", "-c:a", "libmp3lame", "-b:a", "48k",
+                 str(piece)])
+            resp = _gemini_call(client, types, piece, TRANSCRIBE_PROMPT)
+            for s in json.loads(resp.text):
+                seg = {"start": float(s["start"]) + off, "end": float(s["end"]) + off,
+                       "text": str(s["text"]).strip()}
+                # Overlap means the same words arrive twice; keep the first copy.
+                if out and seg["start"] < out[-1]["end"] - 1.0:
+                    continue
+                out.append(seg)
+            print(f"    chunk {i+1}/{n} ok ({len(out)} segments so far)")
+    out.sort(key=lambda s: s["start"])
+    return out
+
+
+def probe_duration(media: Path) -> float:
+    """Duration in seconds. ffprobe is not in the static ffmpeg build here, so
+    this parses ffmpeg's own banner instead of assuming ffprobe exists."""
+    p = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(media)],
+                       capture_output=True, text=True)
+    for line in p.stderr.splitlines():
+        if "Duration:" in line:
+            hh, mm, ss = line.split("Duration:")[1].split(",")[0].strip().split(":")
+            return int(hh) * 3600 + int(mm) * 60 + float(ss)
+    raise RuntimeError(f"could not read duration of {media}")
+
+
+SERMON_WINDOW_PROMPT = """이것은 한국 개신교 교회의 주일예배 실황 녹음 전체다.
+예배 순서를 시간대별로 구분하라. 특히 다음을 정확히 찾아라:
+
+1. 찬양/찬송이 나오는 모든 구간 (반주만 있는 구간 포함)
+2. 대표기도, 봉헌, 광고 구간
+3. **설교(말씀)가 시작되는 시점과 끝나는 시점** — 가장 중요하다.
+   설교는 보통 성경 본문 봉독 직후 시작해 마침기도 직전에 끝난다.
+
+JSON 배열만 출력. 각 원소는
+{"start": 초(정수), "end": 초(정수), "type": "찬양|기도|봉헌|광고|성경봉독|설교|축도|기타", "note": "간단한 근거"}
+설명 문장 쓰지 말 것."""
+
+
+def detect_service_structure(audio: Path) -> list[dict]:
+    """Split a full service recording into its parts. One paid Gemini call.
+
+    Worth it before transcribing: a Sunday service runs 60-85 minutes and the
+    sermon is well under half of that. Transcribing only the sermon is both
+    cheaper and safer — every clip then starts life inside the sermon rather
+    than somewhere in the worship set, where Content ID lives.
+    """
+    client, types = _gemini_client()
+    resp = _gemini_call(client, types, audio, SERMON_WINDOW_PROMPT, max_tokens=8000)
+    return json.loads(resp.text)
 
 
 def cmd_transcribe(args):
@@ -200,14 +307,40 @@ def cmd_transcribe(args):
     wav = extract_audio(video, d / "source" / "audio16k.wav")
     print(f"==> audio: {wav.relative_to(REPO)}")
 
+    # Find the sermon inside the service before transcribing any of it.
+    window = None
+    sp = d / "service-structure.json"
+    if not args.whole and not args.no_structure:
+        if sp.exists():
+            structure = json.loads(sp.read_text(encoding="utf-8"))
+            print(f"==> reusing {sp.relative_to(REPO)}")
+        else:
+            print("==> detecting service structure (1 paid call)")
+            structure = detect_service_structure(wav)
+            sp.write_text(json.dumps(structure, ensure_ascii=False, indent=2),
+                          encoding="utf-8")
+        sermon = [s for s in structure if s.get("type") == "설교"]
+        if sermon:
+            window = (float(min(s["start"] for s in sermon)),
+                      float(max(s["end"] for s in sermon)))
+            print(f"==> 설교 구간 {hhmmss(window[0])}–{hhmmss(window[1])} "
+                  f"(전체 {hhmmss(probe_duration(wav))})")
+            for s in structure:
+                if s.get("type") == "찬양":
+                    print(f"    [찬양] {hhmmss(s['start'])}–{hhmmss(s['end'])} — 클립 금지 구간")
+        else:
+            print("    설교 구간을 못 찾음 — 전체를 전사한다")
+
     model = os.environ.get("WHISPER_MODEL", "models/ggml-large-v3.bin")
     backends = [args.backend] if args.backend != "auto" else ["whisper", "gemini"]
+    start, end = window if window else (0.0, None)
 
     segs, used, errs = None, None, []
     for b in backends:
         try:
             print(f"==> transcribing via {b}")
-            segs = transcribe_whisper(wav, model) if b == "whisper" else transcribe_gemini(wav)
+            segs = (transcribe_whisper(wav, model) if b == "whisper"
+                    else transcribe_gemini(wav, start, end))
             used = b
             break
         except Exception as e:  # noqa: BLE001 — report and try the next backend
@@ -217,9 +350,11 @@ def cmd_transcribe(args):
     if segs is None:
         die("no transcription backend worked:\n" + "\n".join(errs))
 
+    out = {"backend": used, "language": "ko", "segments": segs}
+    if window:
+        out["sermon_window"] = {"start": window[0], "end": window[1]}
     (d / "transcript.json").write_text(
-        json.dumps({"backend": used, "language": "ko", "segments": segs},
-                   ensure_ascii=False, indent=2), encoding="utf-8")
+        json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     write_srt(segs, d / "transcript.srt")
     print(f"==> {len(segs)} segments via {used} → transcript.json / transcript.srt")
 
@@ -397,10 +532,31 @@ def validate_clips(path: Path, segs: list[dict], strict: bool = True) -> list[di
 
 
 # ---------------------------------------------------------------- render ---
-def crop_filter(mode: str) -> str:
-    """16:9 → 9:16. `center` is the safe default; `left`/`right` shift the
-    window when the pastor stands off-centre."""
-    x = {"center": "(iw-ow)/2", "left": "0", "right": "iw-ow"}.get(mode, "(iw-ow)/2")
+def crop_filter(mode) -> str:
+    """16:9 → 9:16.
+
+    Three forms, increasingly specific:
+
+    - `"center"` / `"left"` / `"right"` — full-height window, nudged sideways.
+    - a number — the exact left edge in source pixels. A broadcast layout is
+      rarely centred in the file: this church's stream parks a graphic sidebar
+      over the right third, so `center` slices the preacher off.
+    - `{"x":…, "y":…, "h":…}` — an explicit window. Needed when the stream
+      burns a caption band across the top: a full-height crop clips that band
+      mid-word, and cutting below it also drops the dead air above the
+      preacher, which frames him far better for a phone.
+
+    The window is always forced to 9:16 from its height, so only x/y/h are
+    ever specified and the aspect can't be got wrong by hand.
+    """
+    if isinstance(mode, dict):
+        h = int(mode["h"])
+        return (f"crop=w={h}*9/16:h={h}:x={int(mode.get('x', 0))}:y={int(mode.get('y', 0))},"
+                f"scale={OUT_W}:{OUT_H}")
+    if isinstance(mode, (int, float)):
+        x = str(int(mode))
+    else:
+        x = {"center": "(iw-ow)/2", "left": "0", "right": "iw-ow"}.get(mode, "(iw-ow)/2")
     return f"crop=w=ih*9/16:h=ih:x={x}:y=0,scale={OUT_W}:{OUT_H}"
 
 
@@ -505,6 +661,10 @@ def main():
 
     t = sub.add_parser("transcribe"); t.add_argument("idea_id")
     t.add_argument("--backend", choices=["auto", "whisper", "gemini"], default="auto")
+    t.add_argument("--whole", action="store_true",
+                   help="transcribe the whole recording, not just the sermon")
+    t.add_argument("--no-structure", action="store_true",
+                   help="skip service-structure detection (saves one paid call)")
     t.set_defaults(func=cmd_transcribe)
 
     c = sub.add_parser("clips"); c.add_argument("idea_id")
