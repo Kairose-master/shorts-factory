@@ -43,7 +43,7 @@ Every incident is a real, checkable event. Source in the last column.
 | ID | Incident | Source |
 |---|---|---|
 | **I-01** | Job #20: three surfaces disagree about one job. `my_work` → `FAILED`; `get_job` → `Completed (done and paid)`; `get_work_proof` → `No proof recorded`. | live queries, 2026-08-27 |
-| **I-02** | **$100 of real USDC sat in mainnet escrow for 30 days as an open "extract this without earning it" challenge. Job #2 came back `Refunded` — nobody took it.** Job #3 is a second run, currently `Accepted`. | `get_job 2`, `get_job 3` |
+| **I-02** | **$100 of real USDC sat in mainnet escrow for 30 days as an open "extract this without earning it" challenge. Job #2 came back `Refunded` — nobody took it.** Job #3, the second run, has now **also settled `Refunded`** (re-queried 2026-08-31). Two consecutive 30-day windows, nobody extracted it. | `get_job 2`, `get_job 3` (2026-08-31) |
 | **I-03** | Job #8: Handsel paid $5 to an outside agent to check whether its **own** mainnet/testnet labels were consistent — after admitting in the task text that they were genuinely wrong until 2026-08-04, and that a bot receipt once let a sandbox response be recorded as a mainnet success (§23, `failure-modes.md`). | `get_job 8` |
 | **I-04** | `plan_delegation` split a $5 budget and spent $1 of it on a second agent to review the first one's work, unprompted. | `dlg-S711y4gs3O` |
 | **I-05** | Nine agents on one account: 670, 367, 362, 361, 361 — and **five sitting at exactly 0.00**, never having earned. | `list_my_agents` |
@@ -62,10 +62,10 @@ being wrong or being tested.** That is not a coincidence — it is the positioni
 
 | ID | Title | Pillar | Incident | Lawbook code | Posture | H | V | N | U | R | D | **Pri** | Cost | Status |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| HS-024 | $100 on the internet. Try to take it. | C | I-02 | `SECURITY_BLOCKED` | SHIPPED | 10 | 8 | 9 | 9 | 9 | 3 | **76** | free | idea |
+| HS-024 | $100 on the internet. Try to take it. | C | I-02 | `SECURITY_BLOCKED` | SHIPPED | 10 | 8 | 9 | 9 | 9 | 3 | **76** | free | scripted |
 | HS-006b | Three came back with a proof. One did not. | C | I-01 | `VERIFICATION_INCONCLUSIVE` | GAP | 9 | 8 | 9 | 8 | 10 | 4 | **72** | free | **MADE — awaiting approval** |
 | HS-001 | I gave an AI $5 and told it to hire someone | A | I-04 | `—` | SHIPPED | 9 | 7 | 8 | 8 | 10 | 3 | **71** | free | **MADE — awaiting approval** |
-| HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | I-09 | `—` | SHIPPED | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | idea |
+| HS-021 | My AI agent earned $0 in 48 days and owes me $155 | C | I-09 | `—` | SHIPPED | 10 | 7 | 8 | 9 | 9 | 4 | **71** | free | scripted |
 | HS-004 | A GitHub label that pays for its own fix | D | I-08 | `—` | SHIPPED | 9 | 9 | 9 | 8 | 10 | 6 | **70** | low | idea |
 | HS-011 | An AI grading its own homework is not a reputation | E | — | `—` | SHIPPED | 9 | 6 | 7 | 9 | 10 | 3 | **69** | free | **MADE — awaiting approval** |
 | HS-017 | The market, as a game floor | G | — | `—` | SHIPPED | 8 | 10 | 7 | 7 | 8 | 3 | **68** | free | idea |
@@ -74,7 +74,7 @@ being wrong or being tested.** That is not a coincidence — it is the positioni
 | HS-009 | One click, and it starts working without me | D | — | `—` | SHIPPED | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | idea |
 | HS-018 | Watch one dollar move between two robots | G | — | `—` | SHIPPED | 8 | 9 | 6 | 9 | 9 | 4 | **67** | free | idea |
 | HS-029 | CAN'T VERIFY is not WORK FAILED | E | I-01 | `EVIDENCE_INACCESSIBLE` | CONCEPT | 9 | 7 | 8 | 8 | 8 | 3 | **67** | free | idea |
-| HS-030 | Don't trust the score. Inspect the proof. | E | I-03 | `—` | SHIPPED | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | idea |
+| HS-030 | Don't trust the score. Inspect the proof. | E | I-03 | `—` | SHIPPED | 8 | 8 | 7 | 8 | 9 | 3 | **67** | free | scripted |
 | HS-005 | Five AI agents. Ten dollars. No instructions. | C | — | `—` | SHIPPED | 10 | 8 | 9 | 9 | 7 | 6 | **66** | med | idea |
 | HS-022 | 402 Payment Required | E | I-09 | `—` | SHIPPED | 8 | 8 | 7 | 7 | 9 | 3 | **66** | free | idea |
 | HS-026 | We published a claim we could not back | B | I-10 | `ADJUDICATION_REVERSED` | GAP | 9 | 6 | 10 | 7 | 7 | 2 | **66** | free | idea |
@@ -121,6 +121,8 @@ live now.
   stronger, not weaker: *"this isn't proof it's safe. It's just the only kind of
   evidence we can actually give you yet."*
 - **Check before scripting:** #3's current state. It is live and could change.
+  → **Checked 2026-08-31: #3 settled `Refunded` too.** The script may now say
+  "twice", and does. Any third run is unverified — do not claim one.
 
 ### HS-025 — I paid someone $5 to check if I was lying · **Pri 68**
 
