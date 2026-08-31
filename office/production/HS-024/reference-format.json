@@ -1,0 +1,69 @@
+```json
+{
+  "visual_style": {
+    "base_layer": "Vertical split-screen: dynamic UI graphics top half, talking-head creator bottom half.",
+    "screen_recording_treatment": "Rounded UI cards with soft shadows over blurred background fills.",
+    "color_grade": "Warm desktop lighting for presenter, high-contrast digital UI elements.",
+    "creator_on_screen": true
+  },
+  "caption_style": {
+    "font_look": "Bold sans-serif in dark translucent pill boxes.",
+    "words_per_caption": 2,
+    "position": "Center-lower, floating over the split line.",
+    "colors": "White text on dark grey/black background pill.",
+    "animation": "Word-by-word snap display.",
+    "case": "lowercase"
+  },
+  "pacing": {
+    "avg_shot_seconds": 2.5,
+    "cut_style": "Fast jump cuts per list item and topic transition.",
+    "zoom_or_movement": "Punch-ins on graphics and presenter emphasis points."
+  },
+  "hook_execution": {
+    "first_frame": "Matrix-style code background with bold text '5 CLAUDE CODE PLUGINS'.",
+    "first_3s": "High-impact warning claim with animated plugin installer graphics.",
+    "onscreen_text_at_open": "5 CLAUDE CODE PLUGINS"
+  },
+  "audio": {
+    "narration_style": "Fast, precise, informative tone.",
+    "music": "Low-volume rhythmic hip-hop background beat.",
+    "sfx": "Subtle whooshes on graphic transitions."
+  },
+  "structure": [
+    {
+      "t": "00:00-00:03",
+      "what": "Hook & title sequence introducing the list of 5 plugins."
+    },
+    {
+      "t": "00:03-00:20",
+      "what": "Plugin #1 overview with API provider UI visuals."
+    },
+    {
+      "t": "00:20-00:28",
+      "what": "Plugin #2 overview with GitHub repo visual."
+    },
+    {
+      "t": "00:28-00:40",
+      "what": "Plugin #3 overview with architecture diagram animation."
+    },
+    {
+      "t": "00:40-00:53",
+      "what": "Plugin #4 overview with code console visual."
+    },
+    {
+      "t": "00:53-01:03",
+      "what": "Plugin #5 overview with task interface animation."
+    },
+    {
+      "t": "01:03-01:05",
+      "what": "Brief verbal CTA."
+    }
+  ],
+  "cta_execution": "Quick verbal directive to check description link in the final two seconds.",
+  "things_that_make_it_feel_native_not_ai": [
+    "On-camera presenter maintains personal eye contact.",
+    "Fast burst captions standard for tech TikTok content.",
+    "Clean split-screen visual hierarchy."
+  ]
+}
+```

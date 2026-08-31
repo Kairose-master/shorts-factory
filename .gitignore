@@ -44,3 +44,9 @@ vendor/
 # Office renders. Plans, scripts and QC verdicts are committed; binaries are not.
 office/production/*/renders/
 office/production/*/refs/
+
+# Office production working media — downloaded references, TTS takes, captures.
+# The committed record is plan.md / script / qc + small text artifacts.
+office/production/*/_reference/
+office/production/*/_audio/
+office/production/*/_assets/
