@@ -54,6 +54,10 @@ new platform's API into a proper integration — see *Adding a platform* below.
 
 Nothing here ships a key, and no skill should invent one.
 
+> Setting up a specific channel? `docs/key-setup.md` works out which of these
+> keys a given channel actually needs — most sermon/clip-style channels need
+> none of them to produce a finished short.
+
 **Where the secret should live depends on where you are running.** In a cloud
 session, do not create a `.env` file at all — put the values in the
 environment instead, so nothing sensitive is ever written to disk in the repo.
