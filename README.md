@@ -57,6 +57,11 @@ Nothing here ships a key, and no skill should invent one.
 > Setting up a specific channel? `docs/key-setup.md` works out which of these
 > keys a given channel actually needs — most sermon/clip-style channels need
 > none of them to produce a finished short.
+>
+> A key can be valid and still fail here. This environment's egress policy
+> blocks some hosts outright, which looks like a broken key but is not —
+> `docs/environment-constraints.md` records what is actually reachable, as
+> measured, and how the render toolchain is rebuilt around the gaps.
 
 **Where the secret should live depends on where you are running.** In a cloud
 session, do not create a `.env` file at all — put the values in the

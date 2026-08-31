@@ -311,6 +311,21 @@ CLIPS_TEMPLATE = [{
 }]
 
 
+def cmd_validate(args):
+    """Is clips.json ready to render? Exit 0 yes, 1 no. No side effects —
+    weekly_run.sh uses this to decide whether a human still has to read the
+    transcript, so it must not write anything."""
+    d = need(args.idea_id)
+    cj = d / "clips.json"
+    if not cj.exists():
+        print("clips.json not written yet")
+        sys.exit(1)
+    tj = d / "transcript.json"
+    segs = json.loads(tj.read_text(encoding="utf-8"))["segments"] if tj.exists() else []
+    clips = validate_clips(cj, segs, strict=True)  # exits 1 on any problem
+    print(f"ok — {len(clips)} clip(s) ready to render")
+
+
 def cmd_clips(args):
     d = need(args.idea_id)
     tj = d / "transcript.json"
@@ -499,6 +514,9 @@ def main():
     r = sub.add_parser("render"); r.add_argument("idea_id")
     r.add_argument("--only", help="render just this clip id")
     r.set_defaults(func=cmd_render)
+
+    v = sub.add_parser("validate"); v.add_argument("idea_id")
+    v.set_defaults(func=cmd_validate)
 
     sub.add_parser("doctor").set_defaults(func=cmd_doctor)
 

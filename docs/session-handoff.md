@@ -1,86 +1,107 @@
 # 다음 세션 인계 — 방배동 예심교회 쇼츠 자동화
 
-작성: 2026-08-31 · 브랜치: `claude/shorts-creation-automation-0xaii8`
+갱신: 2026-08-31 (2세션차) · 브랜치: `claude/shorts-creation-automation-0xaii8`
 
-아래 "이어가는 프롬프트" 블록을 새 세션 첫 메시지로 그대로 붙여넣으면 된다.
-`{{ }}` 로 표시된 두 곳만 채우면 나머지는 세션이 알아서 확인한다.
+## 지금까지 된 것
 
----
+| | 상태 |
+|---|---|
+| 키 4종 주입 | **완료** — 전부 set. Gemini만 유효성까지 확인됨 |
+| 렌더 계층 (ffmpeg · yt-dlp · 한국어 폰트 · OpenMontage) | **완료**, 단 매 세션 재설치 필요 |
+| Tier 0 파이프라인 코드 | **완료** — `scripts/sermon_shorts.py` |
+| 9:16 크롭 + 한국어 자막 번인 | **완료·검증됨** — `scripts/smoke_test_render.sh` PASS |
+| 주간 반복 스크립트 | **완료** — `scripts/weekly_run.sh` |
+| 설교 한 편 실제 처리 | **미완** — 아래 차단 사유 |
+| `.claude/context/youtube-channel.md` | **미완** — 채널 정보 미확보 |
 
-## 이어가는 프롬프트
+## 막힌 지점 — egress 정책
 
-````text
-방배동 예심교회 유튜브 채널의 쇼츠 제작을 자동화하는 작업을 이어간다.
-저장소는 shorts-factory, 브랜치는 claude/shorts-creation-automation-0xaii8 이고
-여기서 계속 개발·커밋·푸시한다.
+`youtube.com` / `googlevideo.com` / `huggingface.co` 가 이 컨테이너의 네트워크
+정책에서 403으로 막힌다. 키 문제가 아니다. 실측 결과는
+`docs/environment-constraints.md` 에 있다. 그래서:
 
-## 지난 세션에서 끝난 것
-- docs/key-setup.md 작성 — 이 채널에 실제로 필요한 키를 티어별로 정리했다.
-  먼저 읽고 시작할 것. 이 채널은 설교 클립형이라 스크래핑 키가 필수 경로에 없다는
-  것이 핵심 판단이고, 그 판단을 뒤집을 이유가 없으면 그대로 따른다.
-- README.md의 Credentials 섹션에서 그 문서를 링크.
+- 설교 원본을 `yt-dlp`로 받을 수 없다 → `fetch` 단계 불가
+- whisper `large-v3` 가중치를 받을 수 없다 → 로컬 전사 불가
 
-## 지금 상태
-- 키는 전부 발급해서 넣어둔 상태다. 먼저 실제로 주입됐는지 검증할 것:
-      python3 scripts/check_keys.py
-  이 스크립트는 무료 계정조회 엔드포인트만 호출해서 크레딧을 쓰지 않는다.
-  unset이나 FAIL이 나오면 어느 변수인지 말해주고 멈춰라. 절대 키를 지어내지 말 것.
-- 컨테이너는 매 세션 새로 뜬다. ffmpeg / yt-dlp / whisper.cpp / vendor/OpenMontage 는
-  지금 없을 것이므로 다시 설치해야 한다:
-      bash .claude/skills/openmontage/scripts/install.sh
-      pip3 install yt-dlp
-  전사 모델은 반드시 large-v3 를 쓴다. 문서 기본값인 medium.en 은 영어 전용이라
-  한국어 설교에 못 쓴다.
-- .claude/context/ 의 파일들은 아직 예시 템플릿 상태다.
+**사용자가 택한 해법: egress 허용목록에 추가.** Claude Code 웹의 environment
+설정에서 아래를 허용하고 **새 세션**을 띄우면 파이프라인이 그대로 돈다.
 
-## 채널 정보
-- 채널명: 방배동 예심교회
-- 핸들: {{@핸들}}
-- 채널 ID: {{UC로 시작하는 24자}}
-- 대상 원본 설교 영상: {{유튜브 URL — 없으면 채널 최신 설교로 골라달라고 할 것}}
+```
+youtube.com
+*.youtube.com
+*.googlevideo.com
+*.ytimg.com
+huggingface.co          # whisper large-v3 가중치용
+*.hf.co
+cdn-lfs.huggingface.co
+```
 
-## 이번 세션에 할 일
-1. 키 검증 + 렌더 계층 설치.
-2. .claude/context/youtube-channel.md 를 예심교회 정보로 채운다.
-   이 파일은 사용자 소유 설정이니 채우기 전에 내용을 보여주고 확인받는다.
-3. 설교 영상 한 편으로 Tier 0 파이프라인을 끝까지 돌린다:
-   원본 확보 → 한국어 전사(whisper large-v3) → 쇼츠감 구간 3개 선별
-   → 후킹/제목/설명 작성 → 9:16 크롭 + 자막 번인 → MP4 렌더.
-   구간 선별은 전사본을 직접 읽고 판단한다. 왜 그 구간인지 근거를 붙일 것.
-4. 결과물은 office/production/<idea-id>/ 아래에 둔다. 렌더 바이너리는 gitignore 대상.
-5. 한 편이 끝나면 매주 반복 가능한 형태로 스크립트화한다.
+→ <https://code.claude.com/docs/en/claude-code-on-the-web>
 
-## 지켜야 할 것
-- **업로드는 절대 자동으로 하지 않는다.** 렌더까지만 하고 사람 승인을 받는다.
-- 찬양 음원은 Content ID 위험이 있다. CCLI는 예배 사용 범위지 유튜브 배포 범위가
-  아니다. 설교 발췌를 우선하고, 찬양이 들어간 구간은 따로 플래그해서 알려줄 것.
-- 회중석에 성도 얼굴이 잡힌 프레임은 크롭하거나 문제 구간으로 보고할 것.
-- 목사님 음성 합성/클로닝은 하지 않는다. 실제 하신 말씀을 자르는 것만 한다.
-- 유료 API(ScrapeCreators/Apify/TubeLab/Gemini)는 요청당 과금이다. 돌리기 전에
-  대략 몇 콜이 나가는지 먼저 말하고, 탐색 목적으로는 돌리지 않는다.
+허용목록 반영은 컨테이너 재생성이 필요하다. 이 세션에서 다시 찔러본 결과는
+여전히 403이었다.
 
-먼저 docs/key-setup.md 와 docs/session-handoff.md 를 읽고, 키 검증 결과부터 보고해줘.
-````
+## 다음 세션 첫 명령
 
----
+```bash
+bash scripts/setup_render_env.sh        # 컨테이너가 새로 떴으므로 매번
+python3 scripts/check_keys.py
+python3 scripts/sermon_shorts.py doctor
+bash scripts/smoke_test_render.sh       # 렌더 계층 회귀 확인
+```
 
-## 리서치까지 하고 싶을 때 (2번째 세션 이후)
+그다음, 허용목록이 반영됐는지 확인:
 
-키가 다 들어갔으므로 Tier 2~3이 열려 있다. 위 프롬프트 대신, 또는 Tier 0을
-한 바퀴 돌린 뒤에 아래를 덧붙인다. **유료 호출이 발생한다.**
+```bash
+curl -sS -o /dev/null -w '%{http_code}\n' https://www.youtube.com
+```
 
-````text
-추가로, 벤치마킹 리서치를 돌려줘.
-- 대상: {{벤치마킹할 교회·기독교 채널 2~3개의 핸들}}
-- creator-profile-teardown 으로 포지셔닝과 콘텐츠 축을 분해하고,
-  outlier-post-finder 로 그 채널 평균 대비 터진 쇼츠만 골라내고,
-  comment-mining 으로 댓글에서 실제로 쓰이는 표현을 모아줘.
-- 돌리기 전에 예상 API 콜 수를 먼저 알려줘.
-- 결과는 report.md 로 남기고, 예심교회에 옮길 수 있는 것만 따로 정리해줘.
-````
+`200`이면 진행, `000`/`403`이면 아직 반영 안 된 것이다.
 
-## 세션 시작 시 붙여넣기 귀찮으면
+## 한 편 돌리기
 
-`.claude/context/youtube-channel.md` 를 한 번 채워두면 채널 정보 블록은 다음부터
-생략할 수 있다. 위 프롬프트에서 "## 채널 정보" 섹션을 지우고
-"채널 정보는 .claude/context/youtube-channel.md 참조" 한 줄로 대체하면 된다.
+```bash
+bash scripts/weekly_run.sh "<설교-유튜브-URL>"
+```
+
+3단계(구간 선별)에서 **일부러 멈춘다.** 전사본이 출력되면 그것을 읽고
+`office/production/<idea-id>/clips.json` 을 채운 뒤 같은 명령을 다시 실행하면
+렌더까지 이어진다. 구간 선별은 자동화하지 않았다 — 키워드 휴리스틱은
+목사님의 지나가는 말과 설교가 꺾이는 문장을 구분하지 못한다.
+
+`reason` 필드가 템플릿 문구 그대로면 렌더가 거부된다. 근거 없는 클립이
+조용히 나가지 않게 하려는 장치다.
+
+### 전사 백엔드
+
+- `--backend whisper` — `WHISPER_MODEL` 이 `ggml-large-v3.bin` 을 가리켜야 한다.
+  `.en` 모델을 넘기면 스크립트가 거부한다(영어 전용).
+- `--backend gemini` — 이 컨테이너에서 유일하게 동작하는 경로. **유료.**
+  설교 1편당 약 2콜(업로드 1 + 생성 1).
+- `--backend auto` (기본) — whisper 먼저, 실패하면 gemini.
+
+## 아직 필요한 정보
+
+`.claude/context/youtube-channel.md` 가 예시 템플릿 그대로다. 채우려면:
+
+- 채널 핸들 (`@...`)
+- 채널 ID (`UC`로 시작하는 24자 — 채널 페이지 소스에서)
+- 대상 설교 영상 URL
+
+이 파일은 사용자 소유 설정이므로 내용을 보여주고 확인받은 뒤에 쓴다.
+
+## 지켜지고 있는 규칙
+
+- 파이프라인 어느 단계도 업로드하지 않는다. `render` 가 끝이고,
+  `publish-package.md` 는 승인용 초안이다.
+- 찬양 음원(`has_worship_music`)과 회중석 노출(`congregation_visible`) 플래그가
+  승인 패키지까지 따라간다. CCLI는 예배 사용 범위지 유튜브 배포 범위가 아니다.
+- 음성 합성·클로닝 없음. 실제 하신 말씀을 자르기만 한다.
+- 유료 API는 콜 수를 먼저 밝히고 쓴다.
+
+## 리서치까지 하고 싶을 때
+
+`SCRAPECREATORS_API_KEY` / `APIFY_TOKEN` 은 주입돼 있지만 **해당 API 호스트도
+egress에서 막혀 있다**(`api.scrapecreators.com`, `api.apify.com`). 벤치마킹
+리서치를 하려면 이 두 호스트도 허용목록에 넣어야 한다. 넣기 전에는 Tier 2~3
+스킬이 전부 실패한다 — 키가 아니라 네트워크 때문이다.
