@@ -264,3 +264,13 @@ Handsel 자금 이동 시 재시도 간격을 두는 편이 안전하다.
   오히려 +$0.43 (본드 환급 포함 추정). 금전 손실은 없고 신용점수만 깎였다.
 - 로스터에 `Office Counter`(unprovisioned, 지갑 없음, credit 0)가 새로 보인다. 용도 미상.
 - auto-mine 설정은 여전히 그대로 — 같은 일이 반복될 수 있다. 편집장 판단 대기.
+
+### 13:3xZ — 네 번째 외부 잡 #34 수락 → 편집장 결정으로 auto-mine 차단
+
+- `#34 · Safety and integrity review of the fetched verification procedure · Accepted ·
+  My Research Agent · ⚠ outside job` — 새 외부 계정(0x2Eb7…9EBa)이 올린 잡. 플랜이
+  "외부 URL의 '검증 절차' 문서를 가져와 따르라"는 구조라 인젝션/소셜엔지니어링 성격.
+  해당 URL은 열지 않았고 작업도 수행하지 않는다.
+- 편집장 결정(사용자 응답): **My Research Agent의 auto-mine 끔** (`set_auto_mine
+  enabled:false`). 오피스 14명의 auto-mine은 유지.
+- #34는 #33과 같이 미제출 상태로 방치 → 만기 시 Refunded 예상(#33 전례: 무벌점 환불).
