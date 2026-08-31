@@ -44,3 +44,6 @@ vendor/
 # Office renders. Plans, scripts and QC verdicts are committed; binaries are not.
 office/production/*/renders/
 office/production/*/refs/
+
+# Smoke-test scratch output — regenerate with scripts/smoke_test_render.sh
+office/production/_smoketest/
