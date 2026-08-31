@@ -31,6 +31,9 @@ Full skill-ownership table: `.claude/skills/openmontage/references/office-integr
     platform; never cross-post one caption.
 13. **Approval request** — the render, the QC verdict, the caption, the target
     account, the publish time. Then **stop and wait**.
+    - Instagram targets: once approved, hand off via
+      `sop/instagram-publishing.md` — the handsel repo's Social Desk owns
+      the actual publish (official API, second approval gate, scheduling).
 14. **Measure → learn** — `sop/analytics-loop.md`.
 
 ## Defaults
