@@ -27,8 +27,9 @@ WITH_WHISPER=0
 [ "${1:-}" = "--with-whisper" ] && WITH_WHISPER=1
 
 case "$(uname -s)" in
-  Darwin) OS=mac ;;
-  *)      OS=linux ;;
+  Darwin)                 OS=mac ;;
+  MINGW*|MSYS*|CYGWIN*)   OS=windows ;;   # Git Bash / MSYS2
+  *)                      OS=linux ;;
 esac
 say "platform: $OS"
 
@@ -43,7 +44,14 @@ pip_install() {
 # ---------------------------------------------------------------- ffmpeg ----
 say "ffmpeg"
 if ! command -v ffmpeg >/dev/null 2>&1; then
-  if [ "$OS" = mac ]; then
+  if [ "$OS" = windows ]; then
+    # No symlink target and no package manager to rely on. The wheel carries a
+    # static ffmpeg.exe, and sermon_shorts.py resolves it through Python, so
+    # nothing has to land on PATH.
+    pip_install imageio-ffmpeg
+    python -c "import imageio_ffmpeg,sys; print(imageio_ffmpeg.get_ffmpeg_exe())" \
+      || { echo "imageio-ffmpeg install failed"; exit 1; }
+  elif [ "$OS" = mac ]; then
     command -v brew >/dev/null 2>&1 || {
       echo "Homebrew is required. Install it first:"
       echo '  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
@@ -58,20 +66,28 @@ if ! command -v ffmpeg >/dev/null 2>&1; then
     ln -sf "$FF" /usr/local/bin/ffmpeg
   fi
 fi
-ffmpeg -hide_banner -version | head -1
+if command -v ffmpeg >/dev/null 2>&1; then
+  ffmpeg -hide_banner -version | head -1
+else
+  python -c "import imageio_ffmpeg as f,subprocess; subprocess.run([f.get_ffmpeg_exe(),'-version'])" 2>/dev/null | head -1
+fi
 
 # ---------------------------------------------------------------- yt-dlp ----
 say "yt-dlp"
 if ! command -v yt-dlp >/dev/null 2>&1; then
   if [ "$OS" = mac ]; then brew install yt-dlp; else pip_install yt-dlp; fi
 fi
-yt-dlp --version
+# On Windows pip puts yt-dlp.exe in a Scripts folder that is often not on PATH;
+# `python -m yt_dlp` always works, and that is the fallback the pipeline uses.
+yt-dlp --version 2>/dev/null || python -m yt_dlp --version
 
 # ------------------------------------------------------------ Korean font ----
 # Without a CJK face libass burns Korean as tofu. Google Fonts is blocked in
 # the cloud container but the npm registry is not, and @fontsource ships the
 # Korean subset as woff2, which fontTools converts back to TTF.
 say "Korean font (Noto Sans KR) → $FONT_DIR"
+# The repo ships these, so this whole block is a fallback for a checkout that
+# somehow lacks them. Nothing normally needs npm.
 if [ ! -f "$FONT_DIR/NotoSansKR-Regular.ttf" ]; then
   command -v npm >/dev/null 2>&1 || {
     echo "npm is required to fetch the font."
@@ -98,7 +114,34 @@ fi
 ls -1 "$FONT_DIR"/NotoSansKR-*.ttf
 
 # ---------------------------------------------------------- whisper.cpp ----
-if [ "$WITH_WHISPER" = 1 ]; then
+if [ "$WITH_WHISPER" = 1 ] && [ "$OS" = windows ]; then
+  say "whisper.cpp + large-v3 (Windows prebuilt)"
+  # Building whisper.cpp on Windows needs Visual Studio. The project publishes
+  # a ready-made x64 binary, which is the same thing without the toolchain.
+  WHISPER_DIR=${WHISPER_DIR:-$HOME/whisper}
+  mkdir -p "$WHISPER_DIR"
+  if [ ! -f "$WHISPER_DIR/whisper-cli.exe" ]; then
+    ZIP="$WHISPER_DIR/whisper-bin-x64.zip"
+    curl -fL -o "$ZIP" \
+      https://github.com/ggml-org/whisper.cpp/releases/latest/download/whisper-bin-x64.zip \
+      || { echo "다운로드 실패 — 브라우저로 받아 $WHISPER_DIR 에 풀어라:"; \
+           echo "  https://github.com/ggml-org/whisper.cpp/releases"; exit 1; }
+    ( cd "$WHISPER_DIR" && unzip -o -q "$ZIP" && rm -f "$ZIP" )
+    # The zip nests its binaries; lift them so the folder itself is the PATH entry.
+    find "$WHISPER_DIR" -name "whisper-cli.exe" -not -path "$WHISPER_DIR/whisper-cli.exe" \
+      -exec sh -c 'cp "$(dirname "$1")"/*.exe "$(dirname "$1")"/*.dll "$2"/ 2>/dev/null' _ {} "$WHISPER_DIR" \;
+  fi
+  MODEL="$WHISPER_DIR/ggml-large-v3.bin"
+  if [ ! -f "$MODEL" ]; then
+    say "large-v3 모델 내려받는 중 (약 3GB, 한 번만)"
+    curl -fL -o "$MODEL" \
+      https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3.bin
+  fi
+  echo
+  echo "이 두 줄을 ~/.bashrc 에 넣고 Git Bash 를 새로 열어라:"
+  echo "  export PATH=\"$WHISPER_DIR:\$PATH\""
+  echo "  export WHISPER_MODEL=\"$MODEL\""
+elif [ "$WITH_WHISPER" = 1 ]; then
   say "whisper.cpp + large-v3"
   if [ "$OS" = mac ]; then
     command -v cmake >/dev/null 2>&1 || brew install cmake

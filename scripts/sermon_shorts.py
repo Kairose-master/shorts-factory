@@ -88,6 +88,61 @@ def run(cmd: list[str], **kw) -> subprocess.CompletedProcess:
     return subprocess.run(cmd, check=True, **kw)
 
 
+# --------------------------------------------------------- tool discovery ---
+# On Windows these arrive as a pip wheel or a folder someone unzipped, not as
+# something on PATH, so nothing here assumes a bare command name resolves.
+# Resolving through Python also means one install path works on all three
+# platforms instead of three sets of instructions.
+_TOOLS: dict[str, list[str]] = {}
+
+
+def _windows() -> bool:
+    return sys.platform.startswith("win") or os.name == "nt"
+
+
+def _exe(name: str) -> str | None:
+    return shutil.which(name) or (shutil.which(f"{name}.exe") if _windows() else None)
+
+
+def ffmpeg_cmd() -> list[str]:
+    """ffmpeg, wherever it actually is."""
+    if "ffmpeg" in _TOOLS:
+        return _TOOLS["ffmpeg"]
+    found = _exe("ffmpeg") or os.environ.get("FFMPEG_BIN")
+    if not found:
+        try:                       # the wheel ships a static build of its own
+            import imageio_ffmpeg
+            found = imageio_ffmpeg.get_ffmpeg_exe()
+        except Exception:          # noqa: BLE001 — not installed, say so plainly
+            die("ffmpeg을 찾지 못했다 — bash scripts/setup_render_env.sh 를 돌려라\n"
+                "  (윈도우면 Git Bash 에서 돌린다)")
+    _TOOLS["ffmpeg"] = [found]
+    return _TOOLS["ffmpeg"]
+
+
+def ytdlp_cmd() -> list[str] | None:
+    """yt-dlp as a command, or as a module, or not at all."""
+    if "yt-dlp" in _TOOLS:
+        return _TOOLS["yt-dlp"] or None
+    found = _exe("yt-dlp")
+    cmd = [found] if found else None
+    if cmd is None:
+        probe = subprocess.run([sys.executable, "-m", "yt_dlp", "--version"],
+                               capture_output=True, text=True)
+        if probe.returncode == 0:
+            cmd = [sys.executable, "-m", "yt_dlp"]
+    _TOOLS["yt-dlp"] = cmd or []
+    return cmd
+
+
+def whisper_cmd() -> str | None:
+    for name in ("whisper-cli", "main", "whisper"):
+        found = _exe(name)
+        if found:
+            return found
+    return None
+
+
 def idea_dir(idea_id: str) -> Path:
     return PROD / idea_id
 
@@ -204,13 +259,14 @@ def cmd_fetch(args):
         print(f"==> source in {src.relative_to(REPO)}")
         return
 
-    if not shutil.which("yt-dlp"):
+    ydl = ytdlp_cmd()
+    if not ydl:
         die("yt-dlp not installed — run: bash scripts/setup_render_env.sh")
 
     print(f"==> fetching {args.url}")
     try:
         run([
-            "yt-dlp",
+            *ydl,
             "-f", "bv*[height<=1080]+ba/b[height<=1080]/b",
             "--merge-output-format", "mp4",
             "--write-info-json", "--no-playlist",
@@ -244,7 +300,7 @@ def extract_audio(video: Path, out: Path) -> Path:
     """16 kHz mono WAV — what every ASR backend wants."""
     if out.exists():
         return out
-    run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+    run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
          "-i", str(video), "-vn", "-ac", "1", "-ar", "16000", str(out)])
     return out
 
@@ -252,7 +308,7 @@ def extract_audio(video: Path, out: Path) -> Path:
 def transcribe_whisper(wav: Path, model: str) -> list[dict]:
     """whisper.cpp with a multilingual model. large-v3, never *.en —
     the .en models are English-only and cannot read Korean."""
-    exe = shutil.which("whisper-cli") or shutil.which("main") or shutil.which("whisper")
+    exe = whisper_cmd()
     if not exe:
         raise RuntimeError("whisper.cpp binary not found")
     if not Path(model).exists():
@@ -350,7 +406,7 @@ def transcribe_gemini(wav: Path, start: float = 0.0, end: float | None = None) -
             if off >= start + total:
                 break
             piece = Path(tmp) / f"c{i}.mp3"
-            run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+            run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
                  "-ss", f"{off}", "-t", f"{CHUNK_SECONDS}", "-i", str(wav),
                  "-ac", "1", "-ar", "16000", "-c:a", "libmp3lame", "-b:a", "48k",
                  str(piece)])
@@ -455,7 +511,7 @@ def repair_transcript(wav: Path, segs: list[dict],
         for a, b in holes:
             print(f"    {hhmmss(a)}–{hhmmss(b)} ({b-a:.0f}s)")
             piece = Path(tmp) / f"h{int(a)}.mp3"
-            run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+            run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
                  "-ss", f"{a}", "-t", f"{b - a}", "-i", str(wav),
                  "-ac", "1", "-ar", "16000", "-c:a", "libmp3lame", "-b:a", "48k",
                  str(piece)])
@@ -488,7 +544,7 @@ def retime_window(wav: Path, start: float, end: float) -> list[dict]:
     """
     with tempfile.TemporaryDirectory() as tmp:
         piece = Path(tmp) / "w.mp3"
-        run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+        run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
              "-ss", f"{start}", "-t", f"{end - start}", "-i", str(wav),
              "-ac", "1", "-ar", "16000", "-c:a", "libmp3lame", "-b:a", "48k", str(piece)])
         client, types = _gemini_client()
@@ -504,7 +560,7 @@ def retime_window(wav: Path, start: float, end: float) -> list[dict]:
 def probe_duration(media: Path) -> float:
     """Duration in seconds. ffprobe is not in the static ffmpeg build here, so
     this parses ffmpeg's own banner instead of assuming ffprobe exists."""
-    p = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(media)],
+    p = subprocess.run([*ffmpeg_cmd(), "-hide_banner", "-i", str(media)],
                        capture_output=True, text=True)
     for line in p.stderr.splitlines():
         if "Duration:" in line:
@@ -599,14 +655,15 @@ def autosub_path(d: Path) -> Path | None:
     if hit:
         return hit[0]
     meta = d / "meta.json"
-    if not meta.exists() or not shutil.which("yt-dlp"):
+    ydl = ytdlp_cmd()
+    if not meta.exists() or not ydl:
         return None
     url = json.loads(meta.read_text(encoding="utf-8")).get("source_url")
     if not url:
         return None
     print("    유튜브 자동자막 받는 중 (무료, 영상은 다시 안 받는다)")
     subprocess.run(
-        ["yt-dlp", "--skip-download", "--write-auto-subs", "--sub-langs", "ko",
+        [*ydl, "--skip-download", "--write-auto-subs", "--sub-langs", "ko",
          "--convert-subs", "srt", "--no-playlist",
          "-o", str(d / "source" / "sermon.%(ext)s"), url],
         capture_output=True, text=True)
@@ -653,7 +710,7 @@ def transcribe_whisper_window(wav: Path, model: str,
     own clock so every later stage still speaks in absolute seconds."""
     with tempfile.TemporaryDirectory() as td:
         clip = Path(td) / "window.wav"
-        run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", str(wav),
+        run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error", "-i", str(wav),
              "-ss", f"{start:.3f}", "-to", f"{end:.3f}",
              "-vn", "-ac", "1", "-ar", "16000", str(clip)])
         segs = transcribe_whisper(clip, model)
@@ -1093,7 +1150,7 @@ def _ask_claude(prompt: str) -> str:
     Uses the subscription already signed in on this machine, so it costs
     nothing extra and needs no API key. `-p` runs one query and exits.
     """
-    exe = shutil.which("claude")
+    exe = _exe("claude")
     if not exe:
         raise RuntimeError("claude CLI not found")
     p = subprocess.run([exe, "-p", prompt], capture_output=True, text=True, timeout=900)
@@ -1501,7 +1558,7 @@ def build_end_card(cfg: dict, out: Path, seconds: float = END_CARD_SECONDS) -> P
         encoding="utf-8")
 
     # Encoded to match the clip exactly, so the two concatenate without a re-encode.
-    run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+    run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
          "-f", "lavfi", "-i", f"color=c={END_CARD_BG}:s={OUT_W}x{OUT_H}:r=30:d={seconds}",
          "-f", "lavfi", "-i", f"anullsrc=channel_layout=stereo:sample_rate=44100:d={seconds}",
          "-vf", f"subtitles={ass.as_posix()}:fontsdir={FONT_DIR}",
@@ -1525,7 +1582,7 @@ TOP_BAND = 0.243           # caption band height (y=175 of 720)
 
 def auto_crop(video: Path) -> dict:
     """Work out the 9:16 window from the frame size, using this channel's layout."""
-    p = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(video)],
+    p = subprocess.run([*ffmpeg_cmd(), "-hide_banner", "-i", str(video)],
                        capture_output=True, text=True)
     m = re.search(r"(\d{3,4})x(\d{3,4})", p.stderr)
     if not m:
@@ -1646,7 +1703,7 @@ def cmd_render(args):
         print(f"==> {cid}  {hhmmss(start)}–{hhmmss(end)}  "
               f"({end-start:.0f}s → {dur:.0f}s @ {speed}x)")
         cmd = [
-            "ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+            *ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
             "-ss", f"{start}", "-to", f"{end}", "-i", str(video),
             "-vf", vf,
         ]
@@ -1666,7 +1723,7 @@ def cmd_render(args):
             lst = out_dir / f"{cid}.concat.txt"
             lst.write_text(f"file '{body.resolve()}'\nfile '{end_card.resolve()}'\n",
                            encoding="utf-8")
-            run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+            run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
                  "-f", "concat", "-safe", "0", "-i", str(lst),
                  "-c", "copy", "-movflags", "+faststart", str(out)])
             lst.unlink()
@@ -1711,10 +1768,23 @@ def cmd_render(args):
 
 # ---------------------------------------------------------------- doctor ---
 def cmd_doctor(_args):
-    print("=== Tier 0 toolchain ===")
-    for tool in ("ffmpeg", "yt-dlp", "whisper-cli", "npx"):
-        p = shutil.which(tool)
-        print(f"  {'OK  ' if p else 'MISS'}  {tool:<12} {p or '— not installed'}")
+    print(f"=== Tier 0 toolchain ({'Windows' if _windows() else sys.platform}) ===")
+    try:
+        ff = ffmpeg_cmd()[0]
+    except SystemExit:
+        ff = None
+    print(f"  {'OK  ' if ff else 'MISS'}  {'ffmpeg':<12} {ff or '— not installed'}")
+
+    ydl = ytdlp_cmd()
+    print(f"  {'OK  ' if ydl else 'MISS'}  {'yt-dlp':<12} "
+          f"{' '.join(ydl) if ydl else '— not installed'}")
+
+    wh = whisper_cmd()
+    print(f"  {'OK  ' if wh else 'MISS'}  {'whisper':<12} {wh or '— not installed'}")
+
+    cl = _exe("claude")
+    print(f"  {'OK  ' if cl else 'n/a '}  {'claude':<12} "
+          f"{cl or '— 없으면 Gemini로 넘어간다'}")
 
     fonts = list(Path(FONT_DIR).glob("NotoSansKR-*.ttf")) if Path(FONT_DIR).exists() else []
     print(f"  {'OK  ' if fonts else 'MISS'}  {'korean font':<12} "
@@ -1723,7 +1793,7 @@ def cmd_doctor(_args):
     model = os.environ.get("WHISPER_MODEL", "models/ggml-large-v3.bin")
     print(f"  {'OK  ' if Path(model).exists() else 'MISS'}  {'whisper model':<12} {model}")
 
-    has_whisper = bool(shutil.which("whisper-cli")) and Path(model).exists()
+    has_whisper = bool(whisper_cmd()) and Path(model).exists()
     has_gemini = bool(os.environ.get("GEMINI_API_KEY"))
     # Gemini is only the fallback. With whisper present its absence is not a
     # problem, and reporting it as MISS reads like a broken setup.
@@ -1763,10 +1833,11 @@ def list_sermons(preacher: str = SERMON_PREACHER) -> list[dict]:
     yt-dlp's flat listing costs nothing and downloads nothing."""
     import datetime as _dt
 
-    if not shutil.which("yt-dlp"):
+    ydl = ytdlp_cmd()
+    if not ydl:
         die("yt-dlp not installed — run: bash scripts/setup_render_env.sh")
     p = subprocess.run(
-        ["yt-dlp", "--flat-playlist", "--print", "%(id)s\t%(title)s\t%(duration)s",
+        [*ydl, "--flat-playlist", "--print", "%(id)s\t%(title)s\t%(duration)s",
          CHANNEL_STREAMS],
         capture_output=True, text=True)
     if p.returncode != 0 or not p.stdout.strip():
