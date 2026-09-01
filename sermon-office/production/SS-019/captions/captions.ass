@@ -1,0 +1,34 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1080
+PlayResY: 1920
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: HOOK,Noto Sans CJK KR,116,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,-1,0,1,7,4,8,60,60,230,1
+Style: CAP,Noto Sans CJK KR,64,&H0000E0FF,&H0000E0FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,2,2,130,130,422,1
+Style: ENDLEAD,Noto Sans CJK KR,50,&H30FFFFFF,&H30FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,4,0,5,90,90,0,1
+Style: ENDMAIN,Noto Sans CJK KR,76,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,6,3,5,90,90,0,1
+Style: ENDSUB,Noto Sans CJK KR,50,&H18FFFFFF,&H18FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,4,0,5,90,90,0,1
+Style: STATUS,Noto Sans CJK KR,34,&H90FFFFFF,&H90FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,1,0,1,3,0,2,130,130,352,1
+Style: VERIFY,Noto Sans CJK KR,44,&H0000FFFF,&H0000FFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,4,0,7,40,40,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:19.62,HOOK,,0,0,0,,나이 들면 안 바뀔까요
+Dialogue: 3,0:00:19.62,0:00:22.62,ENDLEAD,,0,0,0,,{\pos(540,690)\fad(300,0)}원본 설교 전체는 채널에 있습니다
+Dialogue: 3,0:00:19.74,0:00:22.62,ENDMAIN,,0,0,0,,{\pos(540,820)\fad(300,0)}2026년 9월 1일 새벽기도
+Dialogue: 3,0:00:19.86,0:00:22.62,ENDSUB,,0,0,0,,{\pos(540,940)\fad(300,0)}시 119:1-16 · 장선기 목사
+Dialogue: 3,0:00:19.86,0:00:22.62,ENDSUB,,0,0,0,,{\pos(540,1020)\fad(300,0)}방배동 예심교회
+Dialogue: 0,0:00:00.00,0:00:01.57,CAP,,0,0,0,,평생 바꿔 나가십시오.
+Dialogue: 0,0:00:01.57,0:00:02.61,CAP,,0,0,0,,바뀌겠어요? 안 바뀌겠어요?
+Dialogue: 0,0:00:02.61,0:00:04.23,CAP,,0,0,0,,나이가 들어서 안 바뀐다?
+Dialogue: 0,0:00:04.23,0:00:05.97,CAP,,0,0,0,,그거는 거짓말이에요.
+Dialogue: 0,0:00:05.97,0:00:07.28,CAP,,0,0,0,,왜 안 바뀝니까?
+Dialogue: 0,0:00:07.28,0:00:08.98,CAP,,0,0,0,,말씀 없이 가니까 안 바뀌는\N거,
+Dialogue: 0,0:00:08.98,0:00:10.82,CAP,,0,0,0,,자기 생각으로 가니까.
+Dialogue: 0,0:00:10.82,0:00:12.74,CAP,,0,0,0,,근데 내가 맨날 말씀 안에\N겸손하게
+Dialogue: 0,0:00:12.74,0:00:15.65,CAP,,0,0,0,,내 생각과 내 감정을 연습해서
+Dialogue: 0,0:00:15.65,0:00:19.09,CAP,,0,0,0,,닦아 나갔는데 어떻게 안 바뀔\N수 있겠습니까?
