@@ -179,6 +179,19 @@ Two rules override everything else in this file when the Office is running:
 2. **Never invent Handsel functionality.** Every factual claim traces to a line in
    `office/research/handsel-model.md`, or it is cut.
 
+## 예심교회 쇼츠 파이프라인
+
+주일설교 → 쇼츠 3편. 두 진입점이 있고 나머지 단계는 같다:
+
+```bash
+bash scripts/shorts-auto.sh                  # 채널에서 알아서 고름
+bash scripts/shorts-url.sh "<유튜브주소>"     # 영상을 직접 지정
+```
+
+사람이 따라 하는 절차는 `docs/쇼츠-만들기.md`. 이식·비용은
+`docs/porting-to-your-claude.md`, 채널 규칙은
+`.claude/context/youtube-channel.md`.
+
 ## The render layer
 
 `vendor/OpenMontage` (AGPL-3.0, gitignored) is the only capability here that

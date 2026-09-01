@@ -1356,12 +1356,40 @@ def already_produced() -> set[str]:
     return seen
 
 
+VIDEO_ID = re.compile(r"(?:watch\?v=|youtu\.be/|shorts/|live/)([A-Za-z0-9_-]{11})"
+                      r"|^([A-Za-z0-9_-]{11})$")
+
+
 def cmd_sermons(args):
     import random
 
     items = list_sermons(args.preacher)
     if not items:
         die("no Sunday services matched — check --preacher or SERMON_CHANNEL")
+
+    # `--find` exists so a hand-pasted URL still gets its folder named after the
+    # service date. Naming it after today is how SUN-2026-09-01 (a Tuesday)
+    # happened.
+    if args.find:
+        m = VIDEO_ID.search(args.find.strip())
+        if not m:
+            die(f"not a YouTube URL or video id: {args.find}")
+        vid = m.group(1) or m.group(2)
+        hit = next((s for s in items if s["id"] == vid), None)
+        if hit is None:
+            # Not a Sunday service on this channel — a Wednesday service, a
+            # 새벽기도, another channel entirely. The caller decides.
+            print(f"# {vid} 는 이 채널의 장선기 목사 주일예배 목록에 없다",
+                  file=sys.stderr)
+            sys.exit(3)
+        print(json.dumps(hit, ensure_ascii=False) if args.json else hit["url"])
+        if not args.json:
+            print(hit["idea_id"])
+            print(f"# {hit['title']}", file=sys.stderr)
+            if hit["date_suspect"]:
+                print(f"# ⚠ 제목의 날짜 {hit['title_date']} 는 일요일이 아니다 → "
+                      f"{hit['date']} 로 잡았다", file=sys.stderr)
+        return
 
     done = already_produced()
     fresh = [s for s in items if s["id"] not in done]
@@ -1417,6 +1445,8 @@ def main():
                     help="title must contain this name; '' for no filter")
     sm.add_argument("--include-done", action="store_true",
                     help="do not hide services already produced")
+    sm.add_argument("--find", metavar="URL",
+                    help="look one URL up in the listing and print its idea-id")
     sm.add_argument("--json", action="store_true")
     sm.set_defaults(func=cmd_sermons)
 

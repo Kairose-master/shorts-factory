@@ -34,8 +34,16 @@ if [ -z "$URL" ]; then
   URL=$(printf '%s\n' "$PICK" | sed -n 1p)
   [ -n "$ID" ] || ID=$(printf '%s\n' "$PICK" | sed -n 2p)
   echo "$URL"
+elif [ -z "$ID" ]; then
+  # 폴더 이름은 예배 날짜에서 나와야 한다. 오늘 날짜를 쓰면 화요일에 돌렸을 때
+  # SUN-<화요일> 이 된다. 채널 목록에서 이 영상을 찾아 그 날짜를 쓴다.
+  ID=$(python3 scripts/sermon_shorts.py sermons --find "$URL" 2>/dev/null | sed -n 2p) || true
 fi
-[ -n "$ID" ] || ID=SUN-$(date +%F)
+[ -n "$ID" ] || {
+  ID=SUN-$(date +%F)
+  echo "경고: 이 URL을 채널의 주일예배 목록에서 못 찾아 폴더 이름을 오늘 날짜로" >&2
+  echo "      잡는다 ($ID). 주일예배가 맞다면 두 번째 인자로 직접 넘겨라." >&2
+}
 
 # zsh does not treat `#` as a comment the way bash does, so a copied line with
 # a trailing note arrives here as arguments. Say that, rather than handing
@@ -62,6 +70,15 @@ DIR="office/production/$ID"
 PY="python3 scripts/sermon_shorts.py"
 
 command -v ffmpeg >/dev/null 2>&1 || bash scripts/setup_render_env.sh
+
+# 전사 수단이 없으면 지금 멈춘다. 70분짜리를 다 받고 2단계에서 죽으면
+# 그 기다림이 통째로 날아간다.
+if ! command -v whisper-cli >/dev/null 2>&1 && [ -z "${GEMINI_API_KEY:-}" ]; then
+  echo "전사할 수단이 없다 — whisper도 GEMINI_API_KEY도 없다." >&2
+  echo "  bash scripts/setup_render_env.sh --with-whisper" >&2
+  echo "  (설치 후 마지막에 나오는 export 두 줄을 ~/.zshrc 에 넣고 새 창을 연다)" >&2
+  exit 1
+fi
 
 step() { printf '\n\033[1m━━ %s\033[0m\n' "$*"; }
 
