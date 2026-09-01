@@ -30,6 +30,8 @@ Usage:
   python3 scripts/sermon_shorts.py transcribe SUN-2026-08-30 [--backend auto] [--whole]
   python3 scripts/sermon_shorts.py clips      SUN-2026-08-30 [--window 12]
   python3 scripts/sermon_shorts.py render     SUN-2026-08-30 [--only clip-01]
+  python3 scripts/sermon_shorts.py captions   SUN-2026-08-30      자막 고치기
+  python3 scripts/sermon_shorts.py fix        SUN-2026-08-30 혜성교회 예심교회
   python3 scripts/sermon_shorts.py doctor
 """
 from __future__ import annotations
@@ -763,6 +765,11 @@ def cmd_transcribe(args):
         segs = repair_transcript(wav, segs, window)
         print(f"    {before} → {len(segs)} segments")
 
+    fixed = apply_lexicon(segs)
+    if fixed:
+        print(f"==> 사전 적용 — {fixed}개 자막의 잘못 들린 말을 고쳤다 "
+              f"({LEXICON.relative_to(REPO)})")
+
     out = {"backend": used, "language": "ko", "segments": segs}
     if window:
         out["sermon_window"] = {"start": window[0], "end": window[1]}
@@ -892,6 +899,127 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         text = wrap_korean(s["text"].replace("\n", " ").strip())
         rows.append(f"Dialogue: 0,{ass_ts(start)},{ass_ts(end)},Default,,0,0,0,,{text}")
     path.write_text(head + "\n".join(rows) + "\n", encoding="utf-8")
+
+
+# -------------------------------------------------------------- captions ---
+# Whisper mishears the same handful of words every week — a church name, a
+# preacher's name, a book of the Bible. Correcting one once here means never
+# correcting it again.
+LEXICON = REPO / "office" / "lexicon.json"
+
+
+def load_lexicon() -> list[dict]:
+    if not LEXICON.exists():
+        return []
+    try:
+        return json.loads(LEXICON.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        print(f"    {LEXICON.name} 을 못 읽었다 — 무시한다")
+        return []
+
+
+def apply_lexicon(segs: list[dict]) -> int:
+    """Fix known mishearings in place. Returns how many cues changed."""
+    pairs = [(e["wrong"], e["right"]) for e in load_lexicon()
+             if e.get("wrong") and e.get("right")]
+    if not pairs:
+        return 0
+    n = 0
+    for sg in segs:
+        before = sg["text"]
+        for wrong, right in pairs:
+            sg["text"] = sg["text"].replace(wrong, right)
+        n += sg["text"] != before
+    return n
+
+
+def caption_override(d: Path, clip_id: str) -> Path:
+    return d / "captions" / f"{clip_id}.srt"
+
+
+def cmd_captions(args):
+    """Put each clip's subtitles somewhere a person can edit them.
+
+    renders/subs/ is regenerated on every render, so editing there is lost
+    work. captions/ is the copy render reads back — edit the words, re-render,
+    and nothing else about the clip changes.
+    """
+    d = need(args.idea_id)
+    clips = json.loads((d / "clips.json").read_text(encoding="utf-8"))
+    segs = json.loads((d / "transcript.json").read_text(encoding="utf-8"))["segments"]
+    out = d / "captions"
+    out.mkdir(exist_ok=True)
+
+    for c in clips:
+        cid, dst = c["id"], caption_override(d, c["id"])
+        if dst.exists() and not args.force:
+            print(f"    {cid}  이미 있음 — 그대로 둔다  {dst.relative_to(REPO)}")
+            continue
+        start, end = parse_time(c["start"]), parse_time(c["end"])
+        rendered = d / "renders" / "subs" / f"{cid}.srt"
+        if rendered.exists():
+            shutil.copyfile(rendered, dst)      # exactly what was burned in
+        else:
+            window = [{"start": max(x["start"], start), "end": min(x["end"], end),
+                       "text": x["text"]}
+                      for x in segs if x["end"] > start and x["start"] < end]
+            write_srt(window, dst, offset=start)
+        print(f"    {cid}  {dst.relative_to(REPO)}")
+
+    print(f"\n이 파일들의 글자를 고치고 다시 렌더하면 고친 대로 나온다:\n"
+          f"  open -e {(out / 'clip-01.srt')}\n"
+          f"  python3 scripts/sermon_shorts.py render {args.idea_id}\n"
+          f"시간(-->)은 건드리지 말 것. 글자만 고친다.")
+
+
+def cmd_fix(args):
+    """Replace a misheard word everywhere in one service.
+
+    The same mistake lands in the transcript and in every clip cut from it, so
+    fixing it in one place and not the other is how a clip ends up disagreeing
+    with itself.
+    """
+    d = need(args.idea_id)
+    wrong, right = args.wrong, args.right
+    if not wrong:
+        die("바꿀 말이 비어 있다")
+    hits = 0
+
+    tj = d / "transcript.json"
+    if tj.exists():
+        data = json.loads(tj.read_text(encoding="utf-8"))
+        for sg in data["segments"]:
+            if wrong in sg["text"]:
+                print(f"  전사본 {hhmmss(sg['start'])}  {sg['text'].strip()[:60]}")
+                sg["text"] = sg["text"].replace(wrong, right)
+                hits += 1
+        tj.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+        write_srt(data["segments"], d / "transcript.srt")
+
+    for srt in sorted((d / "captions").glob("*.srt")) if (d / "captions").exists() else []:
+        text = srt.read_text(encoding="utf-8")
+        if wrong in text:
+            n = text.count(wrong)
+            srt.write_text(text.replace(wrong, right), encoding="utf-8")
+            print(f"  {srt.name} {n}곳")
+            hits += n
+
+    if not hits:
+        print(f"'{wrong}' 을 찾지 못했다. 띄어쓰기까지 정확히 맞는지 보라.")
+        return
+    print(f"\n{hits}곳 고쳤다: '{wrong}' → '{right}'")
+
+    if args.remember:
+        lex = load_lexicon()
+        if not any(e.get("wrong") == wrong for e in lex):
+            lex.append({"wrong": wrong, "right": right})
+            LEXICON.parent.mkdir(parents=True, exist_ok=True)
+            LEXICON.write_text(json.dumps(lex, ensure_ascii=False, indent=2) + "\n",
+                               encoding="utf-8")
+            print(f"기억했다 — 앞으로 전사할 때마다 자동으로 고친다 "
+                  f"({LEXICON.relative_to(REPO)})")
+
+    print(f"다시 렌더: python3 scripts/sermon_shorts.py render {args.idea_id}")
 
 
 # ----------------------------------------------------------------- clips ---
@@ -1473,24 +1601,33 @@ def cmd_render(args):
 
         # Subtitles for just this window, clamped to the cut and retimed so the
         # clip starts at zero.
-        if args.retime:
-            print(f"    {cid} 자막 재타이밍 (1 paid call)")
-            src_segs = retime_window(audio, start, end)
+        override = caption_override(d, cid)
+        if override.exists():
+            # Someone corrected these words by hand. Nothing regenerates over
+            # that — not retiming, not a fresh transcript.
+            print(f"    {cid} 자막 수정본 사용 — {override.relative_to(REPO)}")
+            window, sub_offset = read_srt(override), 0.0
         else:
-            src_segs = segs
-        window = [
-            {"start": max(s["start"], start), "end": min(s["end"], end), "text": s["text"]}
-            for s in src_segs if s["end"] > start and s["start"] < end
-        ]
+            if args.retime:
+                print(f"    {cid} 자막 재타이밍 (1 paid call)")
+                src_segs = retime_window(audio, start, end)
+            else:
+                src_segs = segs
+            window = [
+                {"start": max(s["start"], start), "end": min(s["end"], end),
+                 "text": s["text"]}
+                for s in src_segs if s["end"] > start and s["start"] < end
+            ]
+            sub_offset = start
         speed = float(c.get("speed", DEFAULT_SPEED))
         if not 0.5 <= speed <= 2.0:
             die(f"{cid}: speed {speed} is outside atempo's 0.5–2.0 range")
 
         ass = sub_dir / f"{cid}.ass"
-        write_ass(window, ass, offset=start,
+        write_ass(window, ass, offset=sub_offset,
                   title=c.get("title", "") if c.get("show_title", True) else "",
                   duration=end - start)
-        write_srt(window, sub_dir / f"{cid}.srt", offset=start)  # for YouTube upload
+        write_srt(window, sub_dir / f"{cid}.srt", offset=sub_offset)  # for YouTube upload
 
         out = out_dir / f"{cid}.mp4"
         # Subtitles and title are burned at the original timing, then the whole
@@ -1832,6 +1969,21 @@ def main():
     rp.add_argument("--fill-holes", action="store_true",
                     help="also re-transcribe gaps (usually timestamp drift, not real gaps)")
     rp.set_defaults(func=cmd_repair)
+
+    cap = sub.add_parser("captions",
+                         help="쇼츠 자막을 고칠 수 있는 파일로 꺼낸다")
+    cap.add_argument("idea_id")
+    cap.add_argument("--force", action="store_true",
+                     help="이미 고쳐 둔 파일을 원본으로 되돌린다")
+    cap.set_defaults(func=cmd_captions)
+
+    fx = sub.add_parser("fix", help="잘못 들린 말을 전사본과 자막에서 한 번에 바꾼다")
+    fx.add_argument("idea_id")
+    fx.add_argument("wrong")
+    fx.add_argument("right")
+    fx.add_argument("--remember", action="store_true",
+                    help="앞으로 전사할 때마다 자동으로 고치도록 기억한다")
+    fx.set_defaults(func=cmd_fix)
 
     v = sub.add_parser("validate"); v.add_argument("idea_id")
     v.set_defaults(func=cmd_validate)

@@ -107,6 +107,30 @@ for x in segs:
 print("    ok — all subtitle text survives wrapping")
 PY2
 
+echo "==> a hand-corrected caption file wins over the transcript"
+python3 - "$DIR" <<'PY4' || { echo "FAIL: caption override"; fail=1; }
+import pathlib, sys
+sys.path.insert(0, "scripts")
+import sermon_shorts as ss
+d = pathlib.Path(sys.argv[1])
+cap = d / "captions"; cap.mkdir(exist_ok=True)
+(cap / "clip-01.srt").write_text(
+    "1\n00:00:00,000 --> 00:00:03,000\n고친말이맞다\n\n", encoding="utf-8")
+segs = ss.read_srt(cap / "clip-01.srt")
+assert segs and segs[0]["text"] == "고친말이맞다", segs
+# render reads it back at offset 0, because an edited file is already
+# clip-relative — the same path the burn-in takes.
+ass = d / "renders" / "subs" / "_override_test.ass"
+ass.parent.mkdir(parents=True, exist_ok=True)
+ss.write_ass(segs, ass, offset=0.0, title="", duration=3.0)
+body = ass.read_text(encoding="utf-8")
+assert "고친말이맞다" in body, body[-300:]
+assert "0:00:00.00,0:00:03.00" in body, body[-300:]
+ass.unlink()
+(cap / "clip-01.srt").unlink(); cap.rmdir()
+print("    ok — edited captions reach the burn-in, timings preserved")
+PY4
+
 echo "==> end card is built from the channel's own video title"
 python3 - "$DIR" <<'PY3' || { echo "FAIL: end card"; fail=1; }
 import pathlib, sys
