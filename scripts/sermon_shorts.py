@@ -44,7 +44,10 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 PROD = REPO / "office" / "production"
-FONT_DIR = os.environ.get("FONT_DIR", "/usr/local/share/fonts")
+# Fonts ship with the repo rather than the system, so a render looks the same
+# on every machine and needs no admin rights to set up. A system path still
+# works if FONT_DIR is set.
+FONT_DIR = os.environ.get("FONT_DIR", str(REPO / "assets" / "fonts"))
 FONT_NAME = "Noto Sans KR"
 
 # 9:16 at the resolution YouTube Shorts actually wants.
