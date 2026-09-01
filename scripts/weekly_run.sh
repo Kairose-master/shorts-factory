@@ -3,8 +3,11 @@
 #
 #   bash scripts/weekly_run.sh <유튜브-URL> [idea-id]
 #   bash scripts/weekly_run.sh --auto <유튜브-URL> [idea-id]   전부 자동
+#   bash scripts/weekly_run.sh --auto                          영상까지 알아서 고름
 #
-# idea-id를 생략하면 오늘 날짜로 SUN-YYYY-MM-DD 를 쓴다.
+# URL을 생략하면 채널 streams 탭에서 아직 안 만든 주일예배를 무작위로 하나
+# 뽑는다(`sermons --pick`). idea-id는 그 예배 날짜에서 나온다 — 오늘 날짜가
+# 아니다. 주일이 아닌 날에 돌려도 SUN-<그 주일> 이 붙는다.
 #
 # 기본값은 구간 선별에서 **멈추는 것**이다. 전사본을 읽고 clips.json 을 채운 뒤
 # 다시 실행하면 이어서 렌더한다.
@@ -22,8 +25,17 @@ AUTO=0
 if [ "${1:-}" = "--auto" ]; then AUTO=1; shift; fi
 
 URL=${1:-}
-ID=${2:-SUN-$(date +%F)}
-[ -n "$URL" ] || { echo "usage: bash scripts/weekly_run.sh <youtube-url> [idea-id]"; exit 1; }
+ID=${2:-}
+
+if [ -z "$URL" ]; then
+  # 아직 안 만든 주일예배 중에서 무작위. 메타데이터만 읽으므로 무료다.
+  printf '\n\033[1m━━ 대상 선정\033[0m\n'
+  PICK=$(python3 scripts/sermon_shorts.py sermons --pick) || exit 1
+  URL=$(printf '%s\n' "$PICK" | sed -n 1p)
+  [ -n "$ID" ] || ID=$(printf '%s\n' "$PICK" | sed -n 2p)
+  echo "$URL"
+fi
+[ -n "$ID" ] || ID=SUN-$(date +%F)
 
 DIR="office/production/$ID"
 PY="python3 scripts/sermon_shorts.py"

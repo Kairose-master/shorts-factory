@@ -25,6 +25,7 @@ Nothing in this file uploads anything. Rendering is the last step; publishing
 is a human decision, every time.
 
 Usage:
+  python3 scripts/sermon_shorts.py sermons    [--pick]
   python3 scripts/sermon_shorts.py fetch      SUN-2026-08-30 --url <youtube-url>
   python3 scripts/sermon_shorts.py transcribe SUN-2026-08-30 [--backend auto] [--whole]
   python3 scripts/sermon_shorts.py clips      SUN-2026-08-30 [--window 12]
@@ -1273,11 +1274,151 @@ def cmd_doctor(_args):
     print("Missing render tools → bash scripts/setup_render_env.sh")
 
 
+# ---------------------------------------------------------------- sermons ---
+# The Sunday services live in the streams tab, not the videos tab — the videos
+# tab is Wednesday services by other pastors, daily 새벽기도 and the children's
+# ministry. See .claude/context/youtube-channel.md.
+CHANNEL_STREAMS = os.environ.get(
+    "SERMON_CHANNEL", "https://www.youtube.com/@yeshim1126/streams")
+SERMON_PREACHER = os.environ.get("SERMON_PREACHER", "장선기")
+
+# Titles date themselves inconsistently: 2026-08-30, 2025-9-28, 2025.8.31.
+TITLE_DATE = re.compile(r"(20\d{2})\s*[.\-/]\s*(\d{1,2})\s*[.\-/]\s*(\d{1,2})")
+TITLE_SCRIPTURE = re.compile(r"\[([^\]]+)\]")
+
+
+def list_sermons(preacher: str = SERMON_PREACHER) -> list[dict]:
+    """Every Sunday service on the channel, newest first. Metadata only —
+    yt-dlp's flat listing costs nothing and downloads nothing."""
+    import datetime as _dt
+
+    if not shutil.which("yt-dlp"):
+        die("yt-dlp not installed — run: bash scripts/setup_render_env.sh")
+    p = subprocess.run(
+        ["yt-dlp", "--flat-playlist", "--print", "%(id)s\t%(title)s\t%(duration)s",
+         CHANNEL_STREAMS],
+        capture_output=True, text=True)
+    if p.returncode != 0 or not p.stdout.strip():
+        die("could not list the channel.\n"
+            f"  {p.stderr.strip().splitlines()[-1] if p.stderr.strip() else 'no output'}\n"
+            "  If this mentions 403 or a tunnel, YouTube is blocked by this\n"
+            "  environment's egress policy — see docs/environment-constraints.md.")
+
+    out = []
+    for line in p.stdout.splitlines():
+        parts = line.split("\t")
+        if len(parts) < 2:
+            continue
+        vid, title = parts[0], parts[1]
+        dur = int(float(parts[2])) if len(parts) > 2 and parts[2] not in ("NA", "") else 0
+        m = TITLE_DATE.search(title)
+        if not m:                       # concerts, specials — no service date
+            continue
+        if preacher and preacher not in title:
+            continue
+        y, mo, dd = (int(x) for x in m.groups())
+        try:
+            d = _dt.date(y, mo, dd)
+        except ValueError:
+            continue
+        # The channel has mistyped a date before (2026-07-14 was a Tuesday; the
+        # service was the 12th). Trust the weekday, not the typist: snap back to
+        # the Sunday on or before it, and say so.
+        sunday = d - _dt.timedelta(days=(d.weekday() + 1) % 7)
+        sm = TITLE_SCRIPTURE.search(title)
+        out.append({
+            "id": vid,
+            "url": f"https://www.youtube.com/watch?v={vid}",
+            "title": title,
+            "title_date": d.isoformat(),
+            "date": sunday.isoformat(),
+            "date_suspect": sunday != d,
+            "idea_id": f"SUN-{sunday.isoformat()}",
+            "duration": dur,
+            "scripture": sm.group(1).strip() if sm else "",
+        })
+    return out
+
+
+def already_produced() -> set[str]:
+    """Video ids that some production folder already refers to — meta.json for
+    a scripted fetch, qc.md or plan.md for the ones cut by hand."""
+    seen: set[str] = set()
+    if not PROD.exists():
+        return seen
+    for p in PROD.rglob("*"):
+        if p.is_file() and p.suffix in (".json", ".md") and p.stat().st_size < 2_000_000:
+            try:
+                seen.update(re.findall(r"(?:watch\?v=|youtu\.be/)([A-Za-z0-9_-]{11})",
+                                       p.read_text(encoding="utf-8", errors="ignore")))
+            except OSError:
+                pass
+    return seen
+
+
+def cmd_sermons(args):
+    import random
+
+    items = list_sermons(args.preacher)
+    if not items:
+        die("no Sunday services matched — check --preacher or SERMON_CHANNEL")
+
+    done = already_produced()
+    fresh = [s for s in items if s["id"] not in done]
+    pool = items if args.include_done else fresh
+
+    if args.pick:
+        if not pool:
+            die("every listed service has already been produced — pass --include-done "
+                "to allow a repeat")
+        rng = random.Random(args.seed)
+        s = rng.choice(pool)
+        if args.json:
+            print(json.dumps(s, ensure_ascii=False))
+        else:
+            print(s["url"])
+            print(s["idea_id"])
+        if not args.json:
+            print(f"# {s['title']}", file=sys.stderr)
+            print(f"# {s['duration'] // 60}분"
+                  + (f" · 본문 {s['scripture']}" if s["scripture"] else ""), file=sys.stderr)
+            if s["date_suspect"]:
+                print(f"# ⚠ 제목의 날짜 {s['title_date']} 는 일요일이 아니다 → "
+                      f"{s['date']} 로 잡았다", file=sys.stderr)
+        return
+
+    if args.json:
+        print(json.dumps(pool[:args.limit], ensure_ascii=False, indent=2))
+        return
+
+    print(f"{CHANNEL_STREAMS}  ·  {SERMON_PREACHER} 주일예배 "
+          f"{len(items)}편 중 미제작 {len(fresh)}편\n")
+    for s in pool[:args.limit]:
+        mark = "  " if s["id"] not in done else "✓ "
+        flag = " ⚠날짜" if s["date_suspect"] else ""
+        print(f"{mark}{s['date']}  {s['duration'] // 60:>2}분  {s['id']}{flag}  {s['title']}")
+    if not args.include_done:
+        print(f"\n제작된 {len(items) - len(fresh)}편은 숨겼다 (--include-done 로 표시).")
+    print("\n무작위로 하나 뽑아 그대로 돌리려면:  bash scripts/weekly_run.sh --auto")
+
+
 # ------------------------------------------------------------------ main ---
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
+
+    sm = sub.add_parser("sermons", help="list the channel's Sunday services, or pick one")
+    sm.add_argument("--pick", action="store_true",
+                    help="choose one at random and print its URL and idea-id")
+    sm.add_argument("--seed", type=int, default=None, help="make --pick reproducible")
+    sm.add_argument("--limit", type=int, default=20)
+    sm.add_argument("--preacher", default=SERMON_PREACHER,
+                    help="title must contain this name; '' for no filter")
+    sm.add_argument("--include-done", action="store_true",
+                    help="do not hide services already produced")
+    sm.add_argument("--json", action="store_true")
+    sm.set_defaults(func=cmd_sermons)
 
     f = sub.add_parser("fetch"); f.add_argument("idea_id"); f.add_argument("--url", required=True)
     f.add_argument("--via", choices=["yt-dlp", "apify"], default="yt-dlp",

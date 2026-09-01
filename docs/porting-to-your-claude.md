@@ -75,6 +75,23 @@ bash scripts/weekly_run.sh "https://www.youtube.com/watch?v=..."
 bash scripts/weekly_run.sh --auto "https://www.youtube.com/watch?v=..."
 ```
 
+URL조차 없으면 생략해도 된다. 채널 streams 탭에서 **아직 안 만든 주일예배를
+무작위로 하나** 뽑아 그대로 돌린다:
+
+```bash
+bash scripts/weekly_run.sh --auto
+```
+
+어떤 편이 남았는지 먼저 보고 싶으면:
+
+```bash
+python3 scripts/sermon_shorts.py sermons          # 목록 (무료, 메타데이터만)
+python3 scripts/sermon_shorts.py sermons --pick   # 무작위 1편의 URL + idea-id
+```
+
+idea-id 는 **예배 날짜**에서 나온다. 오늘 날짜가 아니다 — 화요일에 돌려도
+`SUN-2025-05-11` 처럼 그 예배의 주일이 붙는다.
+
 구간 선별까지 모델이 한다. 로컬에 설치된 Claude Code를 `claude -p` 로 불러
 쓰므로 구독으로 돌아가고 **추가 비용이 없다**(claude 명령이 없으면 Gemini로
 넘어간다). 크롭 좌표도 영상 크기에서 자동 계산된다.
