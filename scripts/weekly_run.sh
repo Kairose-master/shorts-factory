@@ -37,6 +37,27 @@ if [ -z "$URL" ]; then
 fi
 [ -n "$ID" ] || ID=SUN-$(date +%F)
 
+# zsh does not treat `#` as a comment the way bash does, so a copied line with
+# a trailing note arrives here as arguments. Say that, rather than handing
+# yt-dlp a `#` and letting it fail three layers down.
+case "$URL" in
+  http://*|https://*) ;;
+  *)
+    echo "URL이 아니다: '$URL'" >&2
+    echo >&2
+    echo "  붙여넣은 줄에 주석(# ...)이 딸려 오지 않았는지 보라 — zsh는 bash와" >&2
+    echo "  달리 #를 주석으로 취급하지 않아 그대로 인자가 된다." >&2
+    echo >&2
+    echo "  URL 없이 채널에서 알아서 고르게 하려면 인자를 아무것도 주지 않는다:" >&2
+    echo "    bash scripts/weekly_run.sh --auto" >&2
+    exit 1 ;;
+esac
+
+case "$ID" in
+  SUN-[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;;
+  *) echo "경고: idea-id '$ID' 가 SUN-YYYY-MM-DD 모양이 아니다." >&2 ;;
+esac
+
 DIR="office/production/$ID"
 PY="python3 scripts/sermon_shorts.py"
 
