@@ -36,6 +36,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import shutil
 import subprocess
 import tempfile
@@ -738,6 +739,154 @@ CLIPS_TEMPLATE = [{
 }]
 
 
+SELECT_PROMPT = """너는 한국 개신교 교회의 주일설교에서 유튜브 쇼츠로 쓸 구간을 고른다.
+
+아래는 설교 전사본이다. 각 줄은 [초] 형식의 절대 시각과 발화다.
+
+{transcript}
+
+여기서 쇼츠 {count}편을 고른다. 규칙:
+
+1. **반드시 {win_start}초 ~ {win_end}초 사이에서만 고른다.** 그 바깥은 찬양·기도·
+   봉헌이라 저작권에 걸린다.
+2. 각 구간은 **40~70초**. 배속이 걸려 실제로는 27~47초가 된다.
+3. 한 구간은 **그 자체로 완결**되어야 한다. 문장 중간에서 시작하거나 끝나지 말 것.
+4. **성경 지식이 없는 사람도 첫 문장부터 이해되는 대목**을 고른다. 인명·지명이
+   많이 나오는 성경 서사 설명보다, 목사님이 일상 예화를 들거나 청중에게 직접
+   말을 거는 대목이 낫다.
+5. {count}편이 서로 **다른 각도**여야 한다. 같은 이야기를 잘라 붙이지 말 것.
+6. 전사본에 시간 공백이 큰 곳(앞 줄의 끝과 다음 줄의 시작이 10초 이상 벌어진 곳)은
+   자막이 비므로 그 구간을 걸치지 말 것.
+
+각 편에 대해 쓴다:
+- start, end: 초 단위 숫자 (전사본의 시각을 그대로 쓴다)
+- title: 화면 상단과 유튜브 제목에 쓸 12자 내외의 문장. 그 구간의 말에서 뽑는다.
+- hook: 그 구간에서 가장 강한 실제 발화 한 문장 (전사본에서 그대로 인용)
+- reason: 왜 이 구간인가. 한두 문장으로 구체적으로. "좋아서"처럼 쓰지 말 것.
+
+**JSON 배열만 출력한다. 설명 문장, 코드펜스, 그 외 아무것도 붙이지 말 것.**
+형식: [{{"start": 3304.5, "end": 3354.0, "title": "...", "hook": "...", "reason": "..."}}]
+"""
+
+
+def _extract_json(text: str):
+    """Pull the JSON array out of a model reply that may be wrapped in prose."""
+    text = text.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```[a-z]*\n?|\n?```$", "", text).strip()
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        m = re.search(r"\[.*\]", text, re.S)
+        if not m:
+            raise
+        return json.loads(m.group(0))
+
+
+def select_with_claude(prompt: str) -> list[dict]:
+    """Ask the locally installed Claude Code to choose the clips.
+
+    Uses the subscription already signed in on this machine, so it costs
+    nothing extra and needs no API key. `-p` runs one query and exits.
+    """
+    exe = shutil.which("claude")
+    if not exe:
+        raise RuntimeError("claude CLI not found")
+    p = subprocess.run([exe, "-p", prompt], capture_output=True, text=True, timeout=900)
+    if p.returncode != 0:
+        raise RuntimeError(f"claude -p failed: {p.stderr[:200]}")
+    return _extract_json(p.stdout)
+
+
+def select_with_gemini(prompt: str) -> list[dict]:
+    """Fallback where the Claude CLI is not installed — the cloud container."""
+    client, types = _gemini_client()
+    for model in GEMINI_MODELS:
+        try:
+            r = client.models.generate_content(
+                model=model, contents=[prompt],
+                config=types.GenerateContentConfig(
+                    response_mime_type="application/json", max_output_tokens=8000))
+            return _extract_json(r.text)
+        except Exception as e:  # noqa: BLE001 — try the next model on overload
+            print(f"    {model}: {str(e)[:70]}")
+    raise RuntimeError("no Gemini model answered")
+
+
+def cmd_select(args):
+    """Choose the clips automatically instead of stopping for a person.
+
+    The gate exists so that a *keyword heuristic* never picks the segments —
+    it cannot tell a throwaway aside from the line a sermon turns on. A model
+    that has read the whole transcript can, which is exactly what happens when
+    a person asks Claude to do it by hand. This just removes the round trip.
+
+    What stays enforced regardless of what the selector returns: clips must
+    land inside the sermon window, run 15-180 seconds, and carry a reason.
+    The copyright rule is structural, not a matter of the selector's judgement.
+    """
+    d = need(args.idea_id)
+    data = json.loads((d / "transcript.json").read_text(encoding="utf-8"))
+    segs = data["segments"]
+    w = data.get("sermon_window")
+    win = (w["start"], w["end"]) if w else (segs[0]["start"], segs[-1]["end"])
+
+    lines = "\n".join(f"[{s['start']:.1f}] {s['text']}"
+                      for s in segs if win[0] <= s["start"] <= win[1])
+    prompt = SELECT_PROMPT.format(transcript=lines, count=args.count,
+                                  win_start=int(win[0]), win_end=int(win[1]))
+
+    backends = ([select_with_claude, select_with_gemini] if args.backend == "auto"
+                else [select_with_claude] if args.backend == "claude"
+                else [select_with_gemini])
+    picked, errs = None, []
+    for fn in backends:
+        try:
+            print(f"==> 구간 선별 — {fn.__name__}")
+            picked = fn(prompt)
+            break
+        except Exception as e:  # noqa: BLE001 — report and try the next backend
+            errs.append(f"  {fn.__name__}: {e}")
+            print(f"    사용 불가: {str(e)[:90]}")
+    if picked is None:
+        die("구간 선별 실패:\n" + "\n".join(errs))
+
+    crop = auto_crop(find_source(d))
+    ec = d / "end-card.json"
+    meta = json.loads(ec.read_text(encoding="utf-8")) if ec.exists() else {}
+    desc_tail = (f"{meta.get('church','')} 주일예배 | {meta.get('scripture','')} | "
+                 f"{meta.get('preacher','')}").strip(" |")
+
+    clips = []
+    for i, c in enumerate(picked[:args.count], 1):
+        start, end = float(c["start"]), float(c["end"])
+        # The selector proposes; the window is not negotiable.
+        start, end = max(start, win[0]), min(end, win[1])
+        if end - start < 15:
+            print(f"    clip-{i:02d} 건너뜀 — 설교 구간으로 자르니 {end-start:.0f}초")
+            continue
+        clips.append({
+            "id": f"clip-{len(clips)+1:02d}",
+            "start": round(start, 1), "end": round(end, 1),
+            "title": str(c.get("title", "")).strip(),
+            "hook": str(c.get("hook", "")).strip(),
+            "description": desc_tail,
+            "reason": str(c.get("reason", "")).strip(),
+            "has_worship_music": False,
+            "congregation_visible": False,
+            "crop": crop,
+        })
+
+    if not clips:
+        die("설교 구간 안에서 쓸 만한 구간이 나오지 않았다")
+    (d / "clips.json").write_text(json.dumps(clips, ensure_ascii=False, indent=2),
+                                  encoding="utf-8")
+    print(f"==> {len(clips)}편 선별 → clips.json")
+    for c in clips:
+        print(f"    {c['id']}  {hhmmss(c['start'])}–{hhmmss(c['end'])}  {c['title']}")
+    validate_clips(d / "clips.json", segs, strict=True)
+
+
 def cmd_repair(args):
     """Run the duplicate/hole pass over a transcript that already exists."""
     d = need(args.idea_id)
@@ -900,6 +1049,34 @@ def build_end_card(cfg: dict, out: Path, seconds: float = END_CARD_SECONDS) -> P
          "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-ac", "2",
          "-shortest", str(out)])
     return out
+
+
+# This channel's stream has a fixed layout, measured on the 720p and 360p
+# sources and identical in both once expressed as fractions of the frame:
+#   - a graphic sidebar (passage, sermon title, logo) owns the right third
+#   - a scripture caption band is burned across the top during readings
+# Both are dead weight in a 9:16 crop — the sidebar pushes the preacher off
+# centre, and the caption band gets sliced mid-word. Cutting them away also
+# removes the empty air above his head, which frames him better on a phone.
+LIVE_AREA_RIGHT = 0.634    # sidebar starts here (x=812 of 1280)
+TOP_BAND = 0.243           # caption band height (y=175 of 720)
+
+
+def auto_crop(video: Path) -> dict:
+    """Work out the 9:16 window from the frame size, using this channel's layout."""
+    p = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(video)],
+                       capture_output=True, text=True)
+    m = re.search(r"(\d{3,4})x(\d{3,4})", p.stderr)
+    if not m:
+        die(f"could not read frame size of {video}")
+    w, h = int(m.group(1)), int(m.group(2))
+
+    top = int(h * TOP_BAND)
+    ch = h - top
+    cw = int(ch * 9 / 16)
+    live_centre = int(w * LIVE_AREA_RIGHT) // 2
+    x = max(0, min(live_centre - cw // 2, w - cw))
+    return {"x": x, "y": top, "h": ch}
 
 
 def crop_filter(mode) -> str:
@@ -1074,10 +1251,26 @@ def cmd_doctor(_args):
     model = os.environ.get("WHISPER_MODEL", "models/ggml-large-v3.bin")
     print(f"  {'OK  ' if Path(model).exists() else 'MISS'}  {'whisper model':<12} {model}")
 
-    print(f"  {'OK  ' if os.environ.get('GEMINI_API_KEY') else 'MISS'}  "
-          f"{'GEMINI_API_KEY':<12} (fallback transcription backend)")
-    print("\nMissing render tools → bash scripts/setup_render_env.sh")
-    print("Blocked downloads     → docs/environment-constraints.md")
+    has_whisper = bool(shutil.which("whisper-cli")) and Path(model).exists()
+    has_gemini = bool(os.environ.get("GEMINI_API_KEY"))
+    # Gemini is only the fallback. With whisper present its absence is not a
+    # problem, and reporting it as MISS reads like a broken setup.
+    if has_gemini:
+        print(f"  OK    {'GEMINI_API_KEY':<12} (fallback / cloud transcription)")
+    elif has_whisper:
+        print(f"  n/a   {'GEMINI_API_KEY':<12} not needed — whisper handles transcription")
+    else:
+        print(f"  MISS  {'GEMINI_API_KEY':<12} needed: no whisper, so nothing can transcribe")
+
+    print()
+    if has_whisper:
+        print("전사: whisper large-v3 (무료·오프라인). 준비 완료.")
+    elif has_gemini:
+        print("전사: Gemini (유료). whisper를 깔면 무료로 바뀐다 —")
+        print("      bash scripts/setup_render_env.sh --with-whisper")
+    else:
+        print("전사 수단이 없다 → bash scripts/setup_render_env.sh --with-whisper")
+    print("Missing render tools → bash scripts/setup_render_env.sh")
 
 
 # ------------------------------------------------------------------ main ---
@@ -1117,6 +1310,12 @@ def main():
                    help="re-transcribe each clip window for exact caption sync "
                         "(one paid Gemini call per clip)")
     r.set_defaults(func=cmd_render)
+
+    sel = sub.add_parser("select", help="pick the clips automatically instead of stopping")
+    sel.add_argument("idea_id")
+    sel.add_argument("--count", type=int, default=3)
+    sel.add_argument("--backend", choices=["auto", "claude", "gemini"], default="auto")
+    sel.set_defaults(func=cmd_select)
 
     rp = sub.add_parser("repair", help="drop seam duplicates and clamp impossible cue lengths")
     rp.add_argument("idea_id")

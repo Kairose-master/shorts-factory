@@ -2,15 +2,24 @@
 # 주간 반복 실행 — 주일 설교 한 편 → 쇼츠 후보 렌더.
 #
 #   bash scripts/weekly_run.sh <유튜브-URL> [idea-id]
+#   bash scripts/weekly_run.sh --auto <유튜브-URL> [idea-id]   전부 자동
 #
 # idea-id를 생략하면 오늘 날짜로 SUN-YYYY-MM-DD 를 쓴다.
 #
-# 이 스크립트는 사람이 판단해야 하는 지점에서 **일부러 멈춘다.** 구간 선별은
-# 자동화하지 않는다 — 전사본을 읽고 clips.json 을 채운 뒤 다시 실행하면
-# 이어서 렌더한다. 업로드는 어느 단계에서도 하지 않는다.
+# 기본값은 구간 선별에서 **멈추는 것**이다. 전사본을 읽고 clips.json 을 채운 뒤
+# 다시 실행하면 이어서 렌더한다.
+#
+# --auto 를 붙이면 그 선별까지 모델이 한다(전사본을 읽고 고른다 — 키워드
+# 휴리스틱이 아니다). 설교 구간 안쪽인지, 길이가 맞는지, 근거가 붙었는지는
+# 선별 결과와 무관하게 파이프라인이 강제한다.
+#
+# 업로드는 어느 단계에서도 하지 않는다.
 set -euo pipefail
 
 cd "$(dirname "$0")/.."
+
+AUTO=0
+if [ "${1:-}" = "--auto" ]; then AUTO=1; shift; fi
 
 URL=${1:-}
 ID=${2:-SUN-$(date +%F)}
@@ -45,6 +54,10 @@ step "3/4 구간 선별"
 # 실패하면 (파일이 없거나 템플릿 그대로면) 아직 사람 차례다.
 if $PY validate "$ID" >/dev/null 2>&1; then
   echo "clips.json 준비됨 — 렌더로 진행"
+elif [ "$AUTO" = 1 ]; then
+  # 사람 대신 모델이 전사본을 읽고 고른다. 설교 구간·길이·근거는
+  # 선별 결과와 무관하게 파이프라인이 강제한다.
+  $PY select "$ID" --count 3
 else
   $PY clips "$ID"
   cat <<EOF
@@ -57,6 +70,9 @@ $DIR/clips.json 을 채운 뒤 같은 명령을 다시 실행하면 렌더까지
   - 찬양이 깔린 구간은 has_worship_music: true
   - 회중석이 잡히면 congregation_visible: true
   - 목사님이 화면 한쪽에 서 있으면 crop: "left" 또는 "right"
+
+멈추지 않고 끝까지 가려면 --auto 를 붙인다:
+  bash scripts/weekly_run.sh --auto "$URL" $ID
 EOF
   exit 0
 fi
