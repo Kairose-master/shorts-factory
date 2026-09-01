@@ -115,10 +115,87 @@ def parse_time(v) -> float:
 
 
 # ----------------------------------------------------------------- fetch ---
+APIFY_ACTOR = "epctex~youtube-video-downloader"
+
+
+def fetch_via_apify(url: str, dest: Path, quality: str = "480") -> Path:
+    """Download the service through an Apify actor instead of locally.
+
+    Only needed where yt-dlp cannot reach YouTube's media servers. In this
+    hosted container it cannot: YouTube signs each media URL to the IP that
+    asked for the metadata, and the request then egresses from a different
+    proxy address, so the download 403s no matter which client yt-dlp
+    pretends to be. The actor runs on Apify's own machines and hands back a
+    file, which sidesteps the whole problem.
+
+    It costs real money, per second of footage — see docs/porting-to-your-claude.md.
+    On a normal machine use the default yt-dlp path and pay nothing.
+    """
+    import time
+    import urllib.request
+
+    token = os.environ.get("APIFY_TOKEN")
+    if not token:
+        raise RuntimeError("APIFY_TOKEN not set")
+    api = "https://api.apify.com/v2"
+    hdr = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
+
+    body = json.dumps({"startUrls": [url], "quality": quality,
+                       "storageType": "apify"}).encode()
+    req = urllib.request.Request(f"{api}/acts/{APIFY_ACTOR}/runs", data=body,
+                                 headers=hdr, method="POST")
+    with urllib.request.urlopen(req, timeout=60) as r:
+        run_info = json.load(r)["data"]
+    run_id, dataset = run_info["id"], run_info["defaultDatasetId"]
+    print(f"  apify run {run_id} — quality {quality}")
+
+    while True:
+        with urllib.request.urlopen(
+                urllib.request.Request(f"{api}/actor-runs/{run_id}", headers=hdr),
+                timeout=60) as r:
+            status = json.load(r)["data"]["status"]
+        if status in ("SUCCEEDED", "FAILED", "ABORTED", "TIMED-OUT"):
+            break
+        time.sleep(20)
+    if status != "SUCCEEDED":
+        raise RuntimeError(f"apify run {status}")
+
+    with urllib.request.urlopen(
+            urllib.request.Request(f"{api}/datasets/{dataset}/items", headers=hdr),
+            timeout=60) as r:
+        items = json.load(r)
+    if not items or items[0].get("error"):
+        raise RuntimeError(f"apify returned no file: {items[:1]}")
+    item = items[0]
+    print(f"  {item.get('durationSeconds')}s, charged ${item.get('totalCost')}")
+
+    with urllib.request.urlopen(
+            urllib.request.Request(item["output"]["url"], headers=hdr), timeout=1800) as r, \
+            dest.open("wb") as f:
+        shutil.copyfileobj(r, f)
+    return dest
+
+
 def cmd_fetch(args):
     d = idea_dir(args.idea_id)
     src = d / "source"
     src.mkdir(parents=True, exist_ok=True)
+
+    if args.via == "apify":
+        print(f"==> fetching {args.url} via Apify (paid)")
+        try:
+            fetch_via_apify(args.url, src / "sermon.mp4", args.quality)
+        except Exception as e:  # noqa: BLE001 — a paid step failing deserves a plain answer
+            die(f"Apify fetch failed: {e}\n"
+                "  APIFY_TOKEN is set in the environment, not in a file — see\n"
+                "  docs/porting-to-your-claude.md. On a machine where yt-dlp can\n"
+                "  reach YouTube, drop --via apify and pay nothing.")
+        (d / "meta.json").write_text(
+            json.dumps({"idea_id": args.idea_id, "source_url": args.url,
+                        "fetched_via": "apify", "quality": args.quality},
+                       ensure_ascii=False, indent=2), encoding="utf-8")
+        print(f"==> source in {src.relative_to(REPO)}")
+        return
 
     if not shutil.which("yt-dlp"):
         die("yt-dlp not installed — run: bash scripts/setup_render_env.sh")
@@ -1007,6 +1084,12 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
 
     f = sub.add_parser("fetch"); f.add_argument("idea_id"); f.add_argument("--url", required=True)
+    f.add_argument("--via", choices=["yt-dlp", "apify"], default="yt-dlp",
+                   help="apify downloads on Apify's machines (paid); use only where "
+                        "yt-dlp cannot reach YouTube's media servers")
+    f.add_argument("--quality", default="480",
+                   help="apify only: 360/480/720/1080. Billed per second of footage, "
+                        "so this is the cost dial. Note 480 actually returns 640x360.")
     f.set_defaults(func=cmd_fetch)
 
     t = sub.add_parser("transcribe"); t.add_argument("idea_id")

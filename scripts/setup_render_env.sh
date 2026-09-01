@@ -5,11 +5,12 @@
 # Korean font are gone each time you start. This script puts them back.
 # It is idempotent — safe to re-run.
 #
-#   bash scripts/setup_render_env.sh
+#   bash scripts/setup_render_env.sh                 render tools only
+#   bash scripts/setup_render_env.sh --with-whisper  also build whisper.cpp
 #
-# What it does NOT do: install whisper.cpp. See docs/environment-constraints.md —
-# the model weights are hosted on huggingface.co, which this environment's
-# egress policy blocks. Transcription backend is selected by sermon_shorts.py.
+# whisper.cpp is built only with --with-whisper, and only works where
+# huggingface.co is reachable — this container's egress policy blocks it, so
+# in here transcription falls back to Gemini. See docs/porting-to-your-claude.md.
 set -euo pipefail
 
 say() { printf '\033[1m==> %s\033[0m\n' "$*"; }
@@ -63,6 +64,28 @@ PY
   rm -rf "$work"
 fi
 ls -1 "$FONT_DIR"/NotoSansKR-*.ttf
+
+# ---------------------------------------------------------- whisper.cpp ----
+# Only on request: this container cannot reach huggingface.co, so the model
+# download fails here. On a normal machine it is the better transcriber —
+# free, unlimited, and its timings do not drift the way Gemini's do over a
+# long chunk, which is what forces the --retime pass in the cloud.
+if [ "${1:-}" = "--with-whisper" ]; then
+  say "whisper.cpp + large-v3"
+  WHISPER_DIR=${WHISPER_DIR:-$HOME/whisper.cpp}
+  if [ ! -d "$WHISPER_DIR" ]; then
+    git clone --depth 1 https://github.com/ggml-org/whisper.cpp "$WHISPER_DIR"
+  fi
+  ( cd "$WHISPER_DIR"
+    cmake -B build -DCMAKE_BUILD_TYPE=Release >/dev/null
+    cmake --build build -j --config Release >/dev/null
+    # large-v3, never a *.en model — those are English-only and cannot read Korean.
+    bash ./models/download-ggml-model.sh large-v3 )
+  echo
+  echo "Add these to your shell profile:"
+  echo "  export PATH=\"$WHISPER_DIR/build/bin:\$PATH\""
+  echo "  export WHISPER_MODEL=\"$WHISPER_DIR/models/ggml-large-v3.bin\""
+fi
 
 say "Done. Render layer ready."
 echo "Font dir for ffmpeg: $FONT_DIR  (FontName=Noto Sans KR)"

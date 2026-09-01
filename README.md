@@ -58,6 +58,10 @@ Nothing here ships a key, and no skill should invent one.
 > keys a given channel actually needs — most sermon/clip-style channels need
 > none of them to produce a finished short.
 >
+> Moving this to your own account and keys?
+> `docs/porting-to-your-claude.md` covers both routes — on your own machine
+> the pipeline needs no keys at all and produces better output than it can here.
+>
 > A key can be valid and still fail here. This environment's egress policy
 > blocks some hosts outright, which looks like a broken key but is not —
 > `docs/environment-constraints.md` records what is actually reachable, as
