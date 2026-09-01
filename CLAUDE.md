@@ -188,9 +188,14 @@ bash scripts/shorts-auto.sh                  # 채널에서 알아서 고름
 bash scripts/shorts-url.sh "<유튜브주소>"     # 영상을 직접 지정
 ```
 
-사람이 따라 하는 절차는 `docs/쇼츠-만들기.md`. 이식·비용은
-`docs/porting-to-your-claude.md`, 채널 규칙은
-`.claude/context/youtube-channel.md`.
+새 컴퓨터에 처음부터 깔고 돌리는 전체 순서는 OS별로 나뉜다:
+`docs/설치-맥.md` · `docs/설치-윈도우.md`. 이미 깔린 기계에서 만들기만 하면
+`docs/쇼츠-만들기.md`. 이식·비용은 `docs/porting-to-your-claude.md`,
+채널 규칙은 `.claude/context/youtube-channel.md`.
+
+자막 글자가 틀렸을 때는 `fix <id> 틀린말 고친말 --remember` (전사본·자막 동시에,
+다음 편부터 자동 적용) 또는 `captions <id>` 로 클립별 SRT를 꺼내 직접 고친다.
+`captions/` 에 파일이 있으면 렌더가 그것을 쓴다 — 재전사가 덮어쓰지 않는다.
 
 ## The render layer
 
