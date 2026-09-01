@@ -5,7 +5,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: HOOK,Noto Sans CJK KR,68,&H00FFFFFF,&H00FFFFFF,&H00E0FF3D,&H00000000,1,0,0,0,100,100,0,0,1,7,0,2,60,60,1714,1
+Style: HOOK,Noto Sans CJK KR,68,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,4,3,2,60,60,1714,1
 Style: CAP,Noto Sans CJK KR,56,&H0000E0FF,&H0000E0FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,5,2,2,80,80,220,1
 Style: ATTR,Noto Sans CJK KR,30,&H00AAAAAA,&H00AAAAAA,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,3,0,2,80,80,130,1
 

@@ -9,8 +9,14 @@
    그대로 유지하고, 레퍼런스의 구조적 아이디어만 가져온다:
      1. 풀블리드 크롭이 아니라 **레터박스**(원본 종횡비 유지, 검정 바탕) —
         crop-x 재실측 부담이 줄어든다(L-15/L-20 문제 완화).
-     2. 훅에 **청록색 네온 외곽선**(레퍼런스 실측 근사치).
-     3. 자막 아래 **상시 출처 표기**(지금은 엔드카드에만 있음).
+     2. 자막 아래 **상시 출처 표기**(지금은 엔드카드에만 있음).
+
+   1차 렌더는 훅에 청록색 네온 외곽선을 넣었으나, 채널 소유자가
+   "제목 폰트가 너무구려"라고 반려 — 작은 68pt 글자에 Outline=7의
+   밝은 청록 외곽선이 붙으니 글자 형태가 뭉개져 싸구려 밈 폰트처럼
+   보였다. build_short.py가 이미 쓰는 검정 외곽선(글자 크기 대비
+   ~6% 비율)으로 되돌렸다 — 폰트 자체(Noto Sans CJK KR Bold)는
+   그대로다, 문제는 외곽선 색·두께였다.
 """
 import argparse, re, subprocess, sys
 from pathlib import Path
@@ -22,10 +28,10 @@ HOOK_BAND_H = 230       # 상단 검정 밴드
 VIDEO_H = 1350          # 4:5 비율 영상 (1080x1350)
 VIDEO_Y = HOOK_BAND_H
 HOOK_SIZE = 68
+HOOK_OUTLINE, HOOK_SHADOW = 4, 3   # build_short.py와 같은 비율(외곽선/글자크기 ≈6%)
 CAP_SIZE, CAP_MARGIN_BOTTOM = 56, 220
 ATTR_SIZE, ATTR_MARGIN_BOTTOM = 30, 130
 WHITE, YELLOW, GRAY, BLACK = "&H00FFFFFF", "&H0000E0FF", "&H00AAAAAA", "&H00000000"
-CYAN_OUTLINE = "&H00E0FF3D"   # 레퍼런스 실측 근사 — 밝은 청록(ASS는 BGR)
 
 
 def die(msg):
@@ -95,7 +101,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: HOOK,{FONT},{HOOK_SIZE},{WHITE},{WHITE},{CYAN_OUTLINE},{BLACK},1,0,0,0,100,100,0,0,1,7,0,2,60,60,{hook_margin_v},1
+Style: HOOK,{FONT},{HOOK_SIZE},{WHITE},{WHITE},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,{HOOK_OUTLINE},{HOOK_SHADOW},2,60,60,{hook_margin_v},1
 Style: CAP,{FONT},{CAP_SIZE},{YELLOW},{YELLOW},{BLACK},{BLACK},1,0,0,0,100,100,0,0,1,5,2,2,80,80,{CAP_MARGIN_BOTTOM},1
 Style: ATTR,{FONT},{ATTR_SIZE},{GRAY},{GRAY},{BLACK},{BLACK},0,0,0,0,100,100,0,0,1,3,0,2,80,80,{ATTR_MARGIN_BOTTOM},1
 
