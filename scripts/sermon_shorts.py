@@ -283,6 +283,140 @@ def transcribe_gemini(wav: Path, start: float = 0.0, end: float | None = None) -
     return out
 
 
+# Korean speech runs roughly 4-5 characters a second. A segment claiming far
+# more time than its text needs means the model skipped audio inside it.
+CHARS_PER_SECOND = 4.0
+HOLE_SLACK = 8.0          # seconds of pause allowed before it counts as a hole
+MIN_HOLE = 10.0           # don't bother re-transcribing anything shorter
+
+
+def _norm(text: str) -> str:
+    return "".join(text.split())
+
+
+def dedupe_segments(segs: list[dict]) -> list[dict]:
+    """Drop text the model transcribed twice at a chunk seam.
+
+    The chunks overlap on purpose, so the seam audio is sent twice. Comparing
+    timestamps is not enough to catch the repeat: the model's timings drift
+    near the end of a chunk, and the second copy can start after the first
+    copy's stated end, which makes the duplicate look like new material.
+    Comparing the words themselves does catch it.
+    """
+    out: list[dict] = []
+    for s in segs:
+        key = _norm(s["text"])
+        if not key:
+            continue
+        # Only look back over the seam-sized window, so a genuinely repeated
+        # phrase far later in the sermon is left alone.
+        if any(_norm(p["text"]) == key for p in out if s["start"] - p["start"] < 90):
+            continue
+        out.append(s)
+    return out
+
+
+def find_holes(segs: list[dict], window: tuple[float, float] | None = None) -> list[tuple[float, float]]:
+    """Stretches of the sermon with no transcript against them.
+
+    Two shapes: an outright gap between consecutive segments, and a segment
+    whose stated duration is far longer than its own text could fill — the
+    model quietly swallowed audio inside it and stretched the end timestamp
+    to cover the loss.
+    """
+    holes = []
+    for i, s in enumerate(segs):
+        spoken = len(_norm(s["text"])) / CHARS_PER_SECOND
+        if (s["end"] - s["start"]) - spoken > HOLE_SLACK:
+            holes.append((s["start"] + spoken, s["end"]))
+        if i + 1 < len(segs):
+            gap = segs[i + 1]["start"] - s["end"]
+            if gap > HOLE_SLACK:
+                holes.append((s["end"], segs[i + 1]["start"]))
+    if window:
+        holes = [(max(a, window[0]), min(b, window[1])) for a, b in holes]
+    return [(a, b) for a, b in holes if b - a >= MIN_HOLE]
+
+
+def repair_transcript(wav: Path, segs: list[dict],
+                      window: tuple[float, float] | None = None,
+                      fill_holes: bool = False) -> list[dict]:
+    """Clean a transcript: drop seam duplicates, clamp impossible durations.
+
+    Hole-filling is off by default and rarely what you want. An over-long
+    segment usually means the model's timestamps have drifted late rather
+    than that it skipped audio — re-transcribing the "hole" then returns the
+    same words a second time under different timings, which is worse than
+    the gap. Measured on SUN-2026-04-26: what the transcript placed at 62:50
+    is actually spoken at 62:22.
+    """
+    segs = dedupe_segments(sorted(segs, key=lambda s: s["start"]))
+    # A cue must never outlive the next one, nor sit far longer than its own
+    # words could fill — either way it would hang on screen over later speech.
+    for i, s in enumerate(segs):
+        cap = s["start"] + len(_norm(s["text"])) / CHARS_PER_SECOND + HOLE_SLACK
+        s["end"] = min(s["end"], cap)
+        if i + 1 < len(segs):
+            s["end"] = min(s["end"], segs[i + 1]["start"])
+    if not fill_holes:
+        return segs
+
+    holes = find_holes(segs, window)
+    if not holes:
+        return segs
+
+    print(f"  전사 누락 {len(holes)}곳 재전사 ({len(holes)} paid call(s))")
+    client, types = _gemini_client()
+    with tempfile.TemporaryDirectory() as tmp:
+        for a, b in holes:
+            print(f"    {hhmmss(a)}–{hhmmss(b)} ({b-a:.0f}s)")
+            piece = Path(tmp) / f"h{int(a)}.mp3"
+            run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+                 "-ss", f"{a}", "-t", f"{b - a}", "-i", str(wav),
+                 "-ac", "1", "-ar", "16000", "-c:a", "libmp3lame", "-b:a", "48k",
+                 str(piece)])
+            try:
+                resp = _gemini_call(client, types, piece, TRANSCRIBE_PROMPT)
+                for s in json.loads(resp.text):
+                    segs.append({"start": float(s["start"]) + a,
+                                 "end": float(s["end"]) + a,
+                                 "text": str(s["text"]).strip()})
+            except Exception as e:  # noqa: BLE001 — a hole we cannot fill is still worth reporting
+                print(f"      재전사 실패: {str(e)[:70]}")
+
+    segs = dedupe_segments(sorted(segs, key=lambda s: s["start"]))
+    # Never let a cue outlive the next one starting.
+    for i in range(len(segs) - 1):
+        segs[i]["end"] = min(segs[i]["end"], segs[i + 1]["start"])
+    return segs
+
+
+def retime_window(wav: Path, start: float, end: float) -> list[dict]:
+    """Re-transcribe one clip's window for accurate caption timings.
+
+    The pass that produces the reading transcript works in nine-minute chunks,
+    and the model's timestamps drift late across a chunk — measured at four to
+    five seconds by the middle of one. That is invisible while reading the
+    transcript and very visible once the words are burned under the picture.
+    A short window re-transcribed on its own has almost nothing to drift over.
+
+    One paid Gemini call per clip.
+    """
+    with tempfile.TemporaryDirectory() as tmp:
+        piece = Path(tmp) / "w.mp3"
+        run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error",
+             "-ss", f"{start}", "-t", f"{end - start}", "-i", str(wav),
+             "-ac", "1", "-ar", "16000", "-c:a", "libmp3lame", "-b:a", "48k", str(piece)])
+        client, types = _gemini_client()
+        resp = _gemini_call(client, types, piece, TRANSCRIBE_PROMPT)
+    segs = [{"start": float(s["start"]) + start, "end": float(s["end"]) + start,
+             "text": str(s["text"]).strip()} for s in json.loads(resp.text)]
+    segs.sort(key=lambda s: s["start"])
+    for i in range(len(segs) - 1):
+        segs[i]["end"] = min(segs[i]["end"], segs[i + 1]["start"])
+    return [s for s in segs if s["text"]]
+
+
 def probe_duration(media: Path) -> float:
     """Duration in seconds. ffprobe is not in the static ffmpeg build here, so
     this parses ffmpeg's own banner instead of assuming ffprobe exists."""
@@ -369,6 +503,12 @@ def cmd_transcribe(args):
 
     if segs is None:
         die("no transcription backend worked:\n" + "\n".join(errs))
+
+    if used == "gemini" and not args.no_repair:
+        print("==> 중복·누락 점검")
+        before = len(segs)
+        segs = repair_transcript(wav, segs, window)
+        print(f"    {before} → {len(segs)} segments")
 
     out = {"backend": used, "language": "ko", "segments": segs}
     if window:
@@ -516,6 +656,25 @@ CLIPS_TEMPLATE = [{
     "congregation_visible": False,
     "crop": "center",
 }]
+
+
+def cmd_repair(args):
+    """Run the duplicate/hole pass over a transcript that already exists."""
+    d = need(args.idea_id)
+    tj = d / "transcript.json"
+    if not tj.exists():
+        die("no transcript.json — run `transcribe` first")
+    data = json.loads(tj.read_text(encoding="utf-8"))
+    wav = extract_audio(find_source(d), d / "source" / "audio16k.wav")
+    w = data.get("sermon_window")
+    window = (w["start"], w["end"]) if w else None
+
+    before = len(data["segments"])
+    segs = repair_transcript(wav, data["segments"], window, fill_holes=args.fill_holes)
+    data["segments"] = segs
+    tj.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    write_srt(segs, d / "transcript.srt")
+    print(f"==> {before} → {len(segs)} segments")
 
 
 def cmd_validate(args):
@@ -697,6 +856,8 @@ def cmd_render(args):
     segs = json.loads((d / "transcript.json").read_text(encoding="utf-8"))["segments"]
     clips = validate_clips(d / "clips.json", segs, strict=True)
 
+    audio = extract_audio(video, d / "source" / "audio16k.wav") if args.retime else None
+
     out_dir = d / "renders"
     out_dir.mkdir(exist_ok=True)
     sub_dir = out_dir / "subs"
@@ -720,9 +881,14 @@ def cmd_render(args):
 
         # Subtitles for just this window, clamped to the cut and retimed so the
         # clip starts at zero.
+        if args.retime:
+            print(f"    {cid} 자막 재타이밍 (1 paid call)")
+            src_segs = retime_window(audio, start, end)
+        else:
+            src_segs = segs
         window = [
             {"start": max(s["start"], start), "end": min(s["end"], end), "text": s["text"]}
-            for s in segs if s["end"] > start and s["start"] < end
+            for s in src_segs if s["end"] > start and s["start"] < end
         ]
         speed = float(c.get("speed", DEFAULT_SPEED))
         if not 0.5 <= speed <= 2.0:
@@ -849,6 +1015,8 @@ def main():
                    help="transcribe the whole recording, not just the sermon")
     t.add_argument("--no-structure", action="store_true",
                    help="skip service-structure detection (saves one paid call)")
+    t.add_argument("--no-repair", action="store_true",
+                   help="skip the duplicate/hole repair pass")
     t.set_defaults(func=cmd_transcribe)
 
     c = sub.add_parser("clips"); c.add_argument("idea_id")
@@ -859,7 +1027,16 @@ def main():
     r.add_argument("--only", help="render just this clip id")
     r.add_argument("--no-end-card", action="store_true",
                    help="skip the closing service card")
+    r.add_argument("--retime", action="store_true",
+                   help="re-transcribe each clip window for exact caption sync "
+                        "(one paid Gemini call per clip)")
     r.set_defaults(func=cmd_render)
+
+    rp = sub.add_parser("repair", help="drop seam duplicates and clamp impossible cue lengths")
+    rp.add_argument("idea_id")
+    rp.add_argument("--fill-holes", action="store_true",
+                    help="also re-transcribe gaps (usually timestamp drift, not real gaps)")
+    rp.set_defaults(func=cmd_repair)
 
     v = sub.add_parser("validate"); v.add_argument("idea_id")
     v.set_defaults(func=cmd_validate)
