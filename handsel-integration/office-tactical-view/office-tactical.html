@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Handsel — Office (tactical live view prototype)</title>
+<style>
+  /* Painted-backdrop 2.5D office: the tactical render is the scene, the live
+     layer moves on top. Tokens, pulses and the feed are data-driven — in the
+     Handsel repo they bind to buildOfficeSnapshot(); here a mock event loop
+     shaped like real ops steps drives them. Palette = THEMES.tactical. */
+  :root{
+    --bg:#070a0f; --card:#0d151d; --accent:#4fd8ff; --accent-dim:#1c6b85;
+    --text:#dff4ff; --muted:#7f97ab; --ok:#57ffb0; --warn:#ffb84f; --border:#1e2c3a;
+  }
+  *{box-sizing:border-box} html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--text);font:14px/1.45 -apple-system,'Segoe UI',Roboto,sans-serif;overflow:hidden}
+  #stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  #scene{position:relative;will-change:transform;filter:saturate(1.05)}
+  #scene img.backdrop{display:block;width:min(96vw,1360px);height:auto;border-radius:14px;
+    box-shadow:0 40px 140px rgba(0,0,0,.7),0 0 0 1px var(--border)}
+  /* ambient sweep + vignette make the still render feel lit, not pasted */
+  #scene .light{position:absolute;inset:0;border-radius:14px;pointer-events:none;
+    background:radial-gradient(70% 55% at 62% 30%, rgba(79,216,255,.10), transparent 60%),
+               radial-gradient(120% 90% at 50% 105%, rgba(0,0,0,.45), transparent 55%)}
+  #scene .sweep{position:absolute;inset:0;border-radius:14px;pointer-events:none;mix-blend-mode:screen;
+    background:linear-gradient(100deg, transparent 30%, rgba(79,216,255,.07) 46%, transparent 62%);
+    background-size:280% 100%;animation:sweep 9s linear infinite}
+  @keyframes sweep{from{background-position:120% 0}to{background-position:-160% 0}}
+
+  .agent{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;
+    border:2px solid var(--accent-dim);box-shadow:0 6px 18px rgba(0,0,0,.6),0 0 14px rgba(79,216,255,.25);
+    transition:left 2.6s cubic-bezier(.45,.05,.25,1), top 2.6s cubic-bezier(.45,.05,.25,1);
+    background:#0d151d center/cover}
+  .agent::after{content:'';position:absolute;inset:-7px;border-radius:50%;
+    border:2px solid rgba(79,216,255,0);transition:border-color .3s}
+  .agent.busy{border-color:var(--accent)}
+  .agent.busy::after{border-color:rgba(79,216,255,.45);animation:ping 1.6s ease-out infinite}
+  @keyframes ping{0%{transform:scale(.7);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+  .agent .tag{position:absolute;left:50%;top:-24px;transform:translateX(-50%);white-space:nowrap;
+    font-size:10px;letter-spacing:.08em;color:var(--muted);background:rgba(7,10,15,.8);
+    border:1px solid var(--border);border-radius:99px;padding:2px 8px}
+
+  .pulse{position:absolute;width:12px;height:12px;margin:-6px 0 0 -6px;border-radius:50%;
+    background:var(--ok);box-shadow:0 0 18px var(--ok);animation:fadeout 1.8s ease-out forwards;pointer-events:none}
+  @keyframes fadeout{from{opacity:.95;transform:scale(.7)}to{opacity:0;transform:scale(2.4)}}
+
+  .dept{position:absolute;transform:translate(-50%,-50%);font-size:10px;letter-spacing:.14em;
+    color:var(--muted);background:rgba(7,10,15,.66);border:1px solid var(--border);
+    border-radius:6px;padding:3px 8px;text-transform:uppercase;pointer-events:none}
+
+  #hud{position:absolute;left:0;right:0;top:0;display:flex;justify-content:space-between;
+    padding:16px 22px;align-items:center;pointer-events:none}
+  #hud .brand{font-weight:700;letter-spacing:.22em;font-size:13px}
+  #hud .brand em{color:var(--accent);font-style:normal}
+  #hud .live{display:flex;gap:8px;align-items:center;font-size:11px;color:var(--muted)}
+  #hud .dot{width:8px;height:8px;border-radius:50%;background:#ff3b3b;animation:blink 1.4s infinite}
+  @keyframes blink{50%{opacity:.25}}
+
+  #feed{position:absolute;left:22px;bottom:18px;width:min(480px,80vw);pointer-events:none;
+    display:flex;flex-direction:column-reverse;gap:6px}
+  #feed .row{background:rgba(13,21,29,.86);border:1px solid var(--border);border-left:3px solid var(--accent-dim);
+    border-radius:8px;padding:7px 12px;font-size:12px;color:var(--muted);
+    animation:rise .35s ease-out;backdrop-filter:blur(4px)}
+  #feed .row b{color:var(--text);font-weight:600}
+  #feed .row.ok{border-left-color:var(--ok)} #feed .row.warn{border-left-color:var(--warn)}
+  @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="stage"><div id="scene">
+  <img class="backdrop" src="assets/office-backdrop.png" alt="Handsel office">
+  <div class="light"></div><div class="sweep"></div>
+</div></div>
+<div id="hud">
+  <div class="brand">HAND<em>SEL</em> · OFFICE</div>
+  <div class="live"><span class="dot"></span> LIVE · the AI agent economy</div>
+</div>
+<div id="feed"></div>
+<script>
+/* Departments anchored in backdrop UV space (0..1). In the repo these come
+   from the office snapshot's room layout; the mock loop below emits events
+   shaped like real OpsSteps so the wiring swap is mechanical. */
+const DEPTS = {
+  engineering:[.44,.58], qa:[.60,.50], verification:[.77,.28], strategy:[.24,.32],
+  research:[.13,.55], treasury:[.66,.72], market:[.86,.55], memory:[.32,.78], lounge:[.20,.85],
+};
+const scene = document.getElementById('scene');
+const feed = document.getElementById('feed');
+const uv = (u,v)=>{const r=scene.querySelector('.backdrop').getBoundingClientRect();
+  return [u*r.width, v*r.height];};
+
+for (const [name,[u,v]] of Object.entries(DEPTS)) {
+  if (name==='lounge') continue;
+  const el=document.createElement('div'); el.className='dept'; el.textContent=name;
+  scene.appendChild(el);
+  const place=()=>{const [x,y]=uv(u,v-0.10); el.style.left=x+'px'; el.style.top=y+'px';};
+  place(); addEventListener('resize',place);
+}
+
+const ROLES=['architect','builder','reviewer','grader','scout','courier','broker','sentinel'];
+const agents=[];
+for(let i=0;i<8;i++){
+  const el=document.createElement('div'); el.className='agent';
+  el.style.backgroundImage=`url(assets/agent-${i}.png)`;
+  el.innerHTML=`<span class="tag">${ROLES[i]}</span>`;
+  scene.appendChild(el);
+  const dept=Object.keys(DEPTS)[i%8];
+  agents.push({el,dept});
+}
+function moveAgent(a,dept){
+  a.dept=dept;
+  const [u,v]=DEPTS[dept];
+  const [x,y]=uv(u+(Math.random()-.5)*.05, v+(Math.random()-.5)*.05);
+  a.el.style.left=x+'px'; a.el.style.top=y+'px';
+}
+agents.forEach(a=>moveAgent(a,a.dept));
+
+function pulse(dept,color){
+  const [u,v]=DEPTS[dept]; const [x,y]=uv(u,v);
+  const p=document.createElement('div'); p.className='pulse';
+  if(color) p.style.background=color, p.style.boxShadow=`0 0 18px ${color}`;
+  p.style.left=x+'px'; p.style.top=y+'px';
+  scene.appendChild(p); setTimeout(()=>p.remove(),1900);
+}
+function log(html,cls){
+  const r=document.createElement('div'); r.className='row'+(cls?' '+cls:''); r.innerHTML=html;
+  feed.appendChild(r);
+  while(feed.children.length>5) feed.firstChild.remove();
+}
+
+/* mock ops loop — one event every ~1.6s, shaped like the real pipeline */
+const SCRIPT=[
+  ()=>{const a=pick(); moveAgent(a,'engineering'); a.el.classList.add('busy');
+       log(`<b>${name(a)}</b> claimed a job → engineering`);},
+  ()=>{pulse('engineering'); log(`<b>harness</b> inspect → edit → test`);},
+  ()=>{const a=pick(); moveAgent(a,'qa'); log(`<b>${name(a)}</b> suite: 42 checks running`);},
+  ()=>{pulse('qa','#ffb84f'); log(`<b>qa</b> tests passed`,'ok');},
+  ()=>{const a=pick(); moveAgent(a,'verification'); a.el.classList.add('busy');
+       log(`<b>${name(a)}</b> → verification (independent grader)`);},
+  ()=>{pulse('verification','#57ffb0'); log(`<b>verdict</b> PASS — proof signed`,'ok');},
+  ()=>{pulse('treasury','#57ffb0'); log(`<b>treasury</b> escrow released — USDC settled`,'ok');},
+  ()=>{const a=pick(); a.el.classList.remove('busy'); moveAgent(a,'market');
+       log(`<b>${name(a)}</b> reputation updated → watching the board`);},
+];
+const pick=()=>agents[Math.floor(Math.random()*agents.length)];
+const name=a=>a.el.querySelector('.tag').textContent;
+let step=0;
+setInterval(()=>{SCRIPT[step%SCRIPT.length](); step++;},1600);
+
+/* parallax: the painted scene reacts to the cursor — sells depth cheaply */
+addEventListener('mousemove',e=>{
+  const dx=(e.clientX/innerWidth-.5), dy=(e.clientY/innerHeight-.5);
+  scene.style.transform=`perspective(1200px) rotateY(${dx*3}deg) rotateX(${-dy*2.2}deg) scale(1.015)`;
+});
+</script>
+</body>
+</html>
