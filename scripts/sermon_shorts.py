@@ -1052,7 +1052,7 @@ def cmd_select(args):
         die("구간 선별 실패:\n" + "\n".join(errs))
 
     crop = auto_crop(find_source(d))
-    ec = d / "end-card.json"
+    ec = ensure_end_card(d, args.idea_id) or (d / "end-card.json")
     meta = json.loads(ec.read_text(encoding="utf-8")) if ec.exists() else {}
     desc_tail = (f"{meta.get('church','')} 주일예배 | {meta.get('scripture','')} | "
                  f"{meta.get('preacher','')}").strip(" |")
@@ -1192,6 +1192,139 @@ def validate_clips(path: Path, segs: list[dict], strict: bool = True) -> list[di
 
 
 # ---------------------------------------------------------------- render ---
+# The channel abbreviates the passage in its titles. Spelled out, the card
+# reads as something a viewer can type into YouTube search and find.
+BOOKS = {
+    "창": "창세기", "출": "출애굽기", "레": "레위기", "민": "민수기", "신": "신명기",
+    "수": "여호수아", "삿": "사사기", "룻": "룻기",
+    "삼상": "사무엘상", "삼하": "사무엘하", "왕상": "열왕기상", "왕하": "열왕기하",
+    "대상": "역대상", "대하": "역대하", "스": "에스라", "느": "느헤미야", "에": "에스더",
+    "욥": "욥기", "시": "시편", "잠": "잠언", "전": "전도서", "아": "아가",
+    "사": "이사야", "렘": "예레미야", "애": "예레미야애가", "겔": "에스겔", "단": "다니엘",
+    "호": "호세아", "욜": "요엘", "암": "아모스", "옵": "오바댜", "욘": "요나",
+    "미": "미가", "나": "나훔", "합": "하박국", "습": "스바냐", "학": "학개",
+    "슥": "스가랴", "말": "말라기",
+    "마": "마태복음", "막": "마가복음", "눅": "누가복음", "요": "요한복음",
+    "행": "사도행전", "롬": "로마서", "고전": "고린도전서", "고후": "고린도후서",
+    "갈": "갈라디아서", "엡": "에베소서", "빌": "빌립보서", "골": "골로새서",
+    "살전": "데살로니가전서", "살후": "데살로니가후서",
+    "딤전": "디모데전서", "딤후": "디모데후서", "딛": "디도서", "몬": "빌레몬서",
+    "히": "히브리서", "약": "야고보서", "벧전": "베드로전서", "벧후": "베드로후서",
+    "요일": "요한일서", "요이": "요한이서", "요삼": "요한삼서", "유": "유다서",
+    "계": "요한계시록",
+}
+
+
+def expand_scripture(ref: str) -> str:
+    """[삼하 2:24-32] → 사무엘하 2:24-32. Left alone if the book is unknown —
+    the older titles already spell the book out."""
+    m = re.match(r"\s*([가-힣]{1,5})\s*([\d:\-–,\s]+)\s*$", ref.strip())
+    if not m:
+        return ref.strip()
+    book, verses = m.group(1), re.sub(r"\s+", "", m.group(2))
+    return f"{BOOKS.get(book, book)} {verses}"
+
+
+# The channel has used two title shapes over the years:
+#   2026-08-09 [삼하 19:31-39] 나이 들면 바르실래처럼 / 장선기 목사
+#   2024.06.23 택하신 곳으로 나아가야 하는 이유 신명기 12:1-8 장선기목사
+# The second has no brackets and no slash, so the passage and the preacher
+# have to be recognised by their own shape rather than by punctuation.
+BARE_SCRIPTURE = re.compile(
+    r"([가-힣]{1,5}\s*\d{1,3}\s*:\s*\d{1,3}(?:\s*[-–~]\s*\d{1,3})?"
+    r"(?:\s*,\s*\d{1,3}(?:\s*[-–~]\s*\d{1,3})?)*)")
+TRAILING_PREACHER = re.compile(r"([가-힣]{2,4})\s*(원로목사|목사|전도사|강도사)\s*$")
+
+
+def end_card_from_title(idea_id: str, video_title: str) -> dict:
+    """Build the closing card out of the channel's own video title.
+
+    Titles run "2026-08-09 [삼하 19:31-39] 나이 들면 바르실래처럼 / 장선기 목사".
+    The date comes from the idea-id rather than the title, because the title
+    has been wrong before and the idea-id is already corrected.
+    """
+    m = re.match(r"SUN-(\d{4})-(\d{2})-(\d{2})", idea_id)
+    date = f"{int(m.group(1))}년 {int(m.group(2))}월 {int(m.group(3))}일 주일예배" if m else ""
+
+    ref = TITLE_SCRIPTURE.search(video_title)
+    if ref:
+        scripture = expand_scripture(ref.group(1))
+        body = video_title[ref.end():]
+    else:
+        scripture = ""
+        body = TITLE_DATE.sub("", video_title)
+
+    preacher, body = "", body.strip()
+    if "/" in body:
+        body, tail = body.rsplit("/", 1)
+    else:
+        pm = TRAILING_PREACHER.search(body)
+        tail = pm.group(0) if pm else ""
+        body = body[:pm.start()] if pm else body
+    tail = tail.strip()
+    if tail:
+        # "장선기목사" and "장선기 목사" are both in use on this channel.
+        preacher = "설교 · " + TRAILING_PREACHER.sub(r"\1 \2", tail).strip()
+
+    if not scripture:                       # older titles spell it out inline
+        bm = BARE_SCRIPTURE.search(body)
+        if bm:
+            scripture = expand_scripture(bm.group(1))
+            body = body[:bm.start()] + body[bm.end():]
+
+    title = re.sub(r"\s{2,}", " ", body).strip(" \t-·|,")
+
+    return {"date": date, "scripture": scripture, "title": title,
+            "preacher": preacher, "church": "방배동 예심교회",
+            "handle": "youtube.com/@yeshim1126"}
+
+
+def source_title(d: Path) -> str:
+    """The video's own title — from yt-dlp's info file, else the channel list."""
+    for info in sorted((d / "source").glob("*.info.json")):
+        try:
+            t = json.loads(info.read_text(encoding="utf-8")).get("title")
+            if t:
+                return t
+        except (OSError, json.JSONDecodeError):
+            pass
+    meta = d / "meta.json"
+    if not meta.exists():
+        return ""
+    url = json.loads(meta.read_text(encoding="utf-8")).get("source_url", "")
+    m = VIDEO_ID.search(url)
+    if not m:
+        return ""
+    vid = m.group(1) or m.group(2)
+    try:
+        hit = next((x for x in list_sermons("") if x["id"] == vid), None)
+    except SystemExit:
+        return ""
+    return hit["title"] if hit else ""
+
+
+def ensure_end_card(d: Path, idea_id: str) -> Path | None:
+    """Write end-card.json if it is not there yet.
+
+    A short travels away from the channel that made it, so every clip closes
+    on the service it came from. Nothing in the automated path used to create
+    this file, which meant an unattended run shipped clips with no card at
+    all. A file already on disk is left alone — a person may have fixed it.
+    """
+    ec = d / "end-card.json"
+    if ec.exists():
+        return ec
+    title = source_title(d)
+    if not title:
+        print("    엔드카드: 원본 제목을 못 찾아 건너뛴다 "
+              "(end-card.json 을 직접 만들면 붙는다)")
+        return None
+    cfg = end_card_from_title(idea_id, title)
+    ec.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"    엔드카드 생성 — {cfg['date']} · {cfg['scripture']} · {cfg['title']}")
+    return ec
+
+
 END_CARD_SECONDS = 4.0
 END_CARD_BG = "0x123A34"   # the sanctuary's stage green, so the cut reads as one piece
 
@@ -1324,6 +1457,8 @@ def cmd_render(args):
     # own, so each one needs to say where it came from.
     end_card = None
     ec_path = d / "end-card.json"
+    if not args.no_end_card:
+        ensure_end_card(d, args.idea_id)
     if ec_path.exists() and not args.no_end_card:
         cfg = json.loads(ec_path.read_text(encoding="utf-8"))
         end_card = build_end_card(cfg, out_dir / "_endcard.mp4")

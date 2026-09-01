@@ -107,11 +107,48 @@ for x in segs:
 print("    ok — all subtitle text survives wrapping")
 PY2
 
+echo "==> end card is built from the channel's own video title"
+python3 - "$DIR" <<'PY3' || { echo "FAIL: end card"; fail=1; }
+import pathlib, sys
+sys.path.insert(0, "scripts")
+import sermon_shorts as ss
+
+# Both title shapes the channel has used, new and old.
+for idea, title, want_ref, want_title in [
+    ("SUN-2026-04-26",
+     "2026-04-26 [삼하 2:24-32] 이기는데 집착하지 말라. 잃는다. / 장선기 목사",
+     "사무엘하 2:24-32", "이기는데 집착하지 말라. 잃는다."),
+    ("SUN-2024-06-23",
+     "2024.06.23 택하신 곳으로 나아가야 하는 이유 신명기 12:1-8 장선기목사",
+     "신명기 12:1-8", "택하신 곳으로 나아가야 하는 이유"),
+]:
+    c = ss.end_card_from_title(idea, title)
+    assert c["scripture"] == want_ref, c
+    assert c["title"] == want_title, c
+    assert c["preacher"].endswith("장선기 목사"), c
+    assert c["church"] == "방배동 예심교회", c
+    assert c["date"].endswith("주일예배"), c
+
+out = pathlib.Path(sys.argv[1]) / "renders" / "_endcard_test.mp4"
+ss.build_end_card(c, out)
+ass = out.with_suffix(".ass").read_text(encoding="utf-8")
+for must in ("PlayResY: 1920", "방배동 예심교회", "신명기", "장선기 목사", "2024년 6월 23일"):
+    assert must in ass, f"missing from end card: {must}"
+print("    ok — end card carries date, passage, title, preacher, church")
+PY3
+python3 -c "
+import subprocess,sys
+p=subprocess.run(['ffmpeg','-hide_banner','-i','$DIR/renders/_endcard_test.mp4'],capture_output=True,text=True)
+assert '1080x1920' in p.stderr, p.stderr[-400:]
+print('    ok — end card renders 1080x1920')
+" || { echo "FAIL: end card resolution"; fail=1; }
+
 [ -f "$DIR/publish-package.md" ] || { echo "FAIL: no publish-package.md"; fail=1; }
 grep -q "Content ID" "$DIR/publish-package.md" || { echo "FAIL: worship-music flag missing from package"; fail=1; }
 echo "    ok — publish package carries the copyright flags"
 
 rm -f "$DIR/clips.template.json" "$DIR/clips.real.json"
+rm -f "$DIR/renders/_endcard_test.mp4" "$DIR/renders/_endcard_test.ass"
 if [ "$fail" -eq 0 ]; then
   echo; echo "PASS — render layer works. Artifacts left in $DIR for inspection."
 else
