@@ -780,9 +780,17 @@ def cmd_render(args):
         made.append((cid, out, c))
 
     # Human-facing package. Renders are gitignored; this file is the record.
+    # It is written from every clip in clips.json, not just the ones rendered
+    # this run — a `--only` re-render used to leave a package listing one clip
+    # and silently drop the rest of the approval notes.
+    rendered = {cid for cid, _, _ in made}
     pkg = ["# 발행 패키지 — " + args.idea_id, "",
            "**업로드는 사람이 한다. 이 파일은 승인용 초안이다.**", ""]
-    for cid, out, c in made:
+    for c in clips:
+        cid = c["id"]
+        out = out_dir / f"{cid}.mp4"
+        if cid not in rendered and not out.exists():
+            continue
         pkg += [
             f"## {cid}",
             f"- 파일: `renders/{out.name}` (gitignored)",
