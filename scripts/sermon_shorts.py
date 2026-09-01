@@ -630,7 +630,7 @@ def outline_transcript(segs: list[dict], every: float = 60.0) -> str:
 def read_srt(path: Path) -> list[dict]:
     """Minimal SRT reader — enough to locate a sermon, not to caption one."""
     segs, block = [], []
-    for raw in path.read_text(encoding="utf-8", errors="ignore").split("\n\n"):
+    for raw in read_text_any(path).split("\n\n"):
         block = [ln for ln in raw.strip().splitlines() if ln.strip()]
         if len(block) < 2:
             continue
@@ -642,6 +642,60 @@ def read_srt(path: Path) -> list[dict]:
         if text:
             segs.append({"start": parse_time(a), "end": parse_time(b), "text": text})
     return segs
+
+
+def rel(path: Path) -> str:
+    """Path for humans. Never raises — an error message that crashes while
+    being built is worse than a long path."""
+    try:
+        return str(path.relative_to(REPO))
+    except ValueError:
+        return str(path)
+
+
+def read_text_any(path: Path) -> str:
+    """Read a subtitle file whatever the editor saved it as.
+
+    Notepad on older Windows writes CP949 for Korean, and some editors add a
+    BOM. Reading those as plain UTF-8 turns every Korean character into
+    mojibake, which then gets burned into the video — so try the encodings
+    that actually occur before giving up.
+    """
+    raw = path.read_bytes()
+    for enc in ("utf-8-sig", "utf-8", "cp949", "euc-kr"):
+        try:
+            return raw.decode(enc).replace("\r\n", "\n")
+        except UnicodeDecodeError:
+            continue
+    return raw.decode("utf-8", errors="replace").replace("\r\n", "\n")
+
+
+def check_caption_file(path: Path, clip_seconds: float) -> list[dict]:
+    """Read an edited caption file, refusing one that would render wrong.
+
+    A silently broken caption file is worse than none: the render succeeds and
+    the mistake is only visible in the finished MP4.
+    """
+    cues = read_srt(path)
+    if not cues:
+        die(f"{rel(path)} 에서 자막을 하나도 못 읽었다.\n"
+            "  시간 줄(00:00:00,000 --> 00:00:03,400)의 모양이 깨졌을 수 있다.\n"
+            "  이 파일을 지우고 다시 꺼내면 원래대로 돌아간다:\n"
+            f"    rm {rel(path)}\n"
+            f"    python3 scripts/sermon_shorts.py captions {path.parent.parent.name}")
+    if any("\ufffd" in c["text"] for c in cues):
+        die(f"{rel(path)} 의 글자가 깨졌다.\n"
+            "  메모장에서 저장할 때 인코딩을 UTF-8 로 골라야 한다.\n"
+            "  (다른 이름으로 저장 → 아래 인코딩 칸 → UTF-8)")
+    bad = [c for c in cues if c["end"] <= c["start"]]
+    if bad:
+        die(f"{rel(path)}: 끝나는 시각이 시작보다 빠른 자막이 "
+            f"{len(bad)}개 있다. 시간 줄은 건드리지 말 것 — 글자만 고친다.")
+    over = [c for c in cues if c["start"] > clip_seconds + 1]
+    if over:
+        print(f"    경고: {len(over)}개 자막이 클립 길이({clip_seconds:.0f}초)를 "
+              f"넘는 시각에 있다 — 화면에 안 나온다")
+    return cues
 
 
 def autosub_path(d: Path) -> Path | None:
@@ -1663,7 +1717,7 @@ def cmd_render(args):
             # Someone corrected these words by hand. Nothing regenerates over
             # that — not retiming, not a fresh transcript.
             print(f"    {cid} 자막 수정본 사용 — {override.relative_to(REPO)}")
-            window, sub_offset = read_srt(override), 0.0
+            window, sub_offset = check_caption_file(override, end - start), 0.0
         else:
             if args.retime:
                 print(f"    {cid} 자막 재타이밍 (1 paid call)")

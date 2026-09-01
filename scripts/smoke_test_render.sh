@@ -127,8 +127,33 @@ body = ass.read_text(encoding="utf-8")
 assert "고친말이맞다" in body, body[-300:]
 assert "0:00:00.00,0:00:03.00" in body, body[-300:]
 ass.unlink()
-(cap / "clip-01.srt").unlink(); cap.rmdir()
+(cap / "clip-01.srt").unlink()
+# Whatever the editor saved it as, the words have to survive.
+good = "1\n00:00:00,000 --> 00:00:03,000\n고친말이맞다\n\n"
+for enc in ("utf-8", "utf-8-sig", "cp949"):
+    f = cap / f"enc-{enc}.srt"
+    f.write_bytes(good.encode(enc))
+    assert ss.read_srt(f)[0]["text"] == "고친말이맞다", enc
+    f.unlink()
+f = cap / "crlf.srt"; f.write_bytes(good.replace("\n", "\r\n").encode("utf-8"))
+assert ss.read_srt(f)[0]["text"] == "고친말이맞다"
+f.unlink()
+
+# And a file that would render wrong must stop the render, not pass through.
+for name, data in (("noTime", b"1\n\xea\xb8\x80\xec\x9e\x90\xeb\xa7\x8c\n\n"),
+                   ("mojibake", "1\n00:00:00,000 --> 00:00:03,000\n".encode()
+                                + b"\xed\xa0\x80\xff\xfe"),
+                   ("reversed", "1\n00:00:05,000 --> 00:00:02,000\n뒤집힘\n\n".encode())):
+    f = cap / f"{name}.srt"; f.write_bytes(data)
+    try:
+        ss.check_caption_file(f, 45.0)
+        raise AssertionError(f"{name} should have been refused")
+    except SystemExit:
+        pass
+    f.unlink()
+cap.rmdir()
 print("    ok — edited captions reach the burn-in, timings preserved")
+print("    ok — CP949/BOM/CRLF read, broken files refused")
 PY4
 
 echo "==> end card is built from the channel's own video title"
