@@ -524,17 +524,141 @@ JSON 배열만 출력. 각 원소는
 설명 문장 쓰지 말 것."""
 
 
-def detect_service_structure(audio: Path) -> list[dict]:
-    """Split a full service recording into its parts. One paid Gemini call.
+def detect_service_structure(audio: Path) -> list[dict] | None:
+    """Split a full service recording into its parts by listening to it.
 
-    Worth it before transcribing: a Sunday service runs 60-85 minutes and the
-    sermon is well under half of that. Transcribing only the sermon is both
-    cheaper and safer — every clip then starts life inside the sermon rather
-    than somewhere in the worship set, where Content ID lives.
+    Gemini only — it is the one backend here that takes audio directly. On a
+    machine without a key this returns None and the caller falls back to
+    reading the transcript instead, which is free and nearly as good.
     """
+    if not os.environ.get("GEMINI_API_KEY"):
+        return None
     client, types = _gemini_client()
     resp = _gemini_call(client, types, audio, SERMON_WINDOW_PROMPT, max_tokens=8000)
     return json.loads(resp.text)
+
+
+SERMON_WINDOW_TEXT_PROMPT = """이것은 한국 개신교 교회의 주일예배 실황 전체 전사본을
+시간순으로 요약한 것이다. 각 줄은 [초] 형식의 절대 시각과 그 무렵의 발화다.
+
+{outline}
+
+전체 길이는 {total}초다.
+
+**설교(말씀)가 시작되는 시각과 끝나는 시각**을 찾아라.
+
+- 설교는 보통 성경 본문 봉독 직후에 시작하고, 마침기도나 축도 직전에 끝난다.
+- 앞부분의 찬양·경배·대표기도·환영·광고·봉헌은 설교가 아니다.
+- 설교 뒤의 마침 찬송·헌금·광고·축도도 설교가 아니다.
+- 찬양 구간은 같은 가사가 반복되거나 전사가 듬성듬성한 편이다.
+- 설교는 보통 25~45분이다. 그보다 훨씬 짧게 잡았다면 잘못 잡은 것이다.
+
+JSON 객체 하나만 출력한다. 설명 문장, 코드펜스, 그 외 아무것도 붙이지 말 것.
+{{"start": 초(정수), "end": 초(정수), "note": "무엇을 근거로 잡았는지 한 문장"}}
+"""
+
+
+def outline_transcript(segs: list[dict], every: float = 60.0) -> str:
+    """One line per minute — enough for a model to see the shape of a service
+    without paying to read 100 minutes of speech word by word."""
+    lines, next_at = [], 0.0
+    for sg in segs:
+        if sg["start"] >= next_at:
+            lines.append(f"[{int(sg['start'])}] {sg['text'][:70]}")
+            next_at = sg["start"] + every
+    return "\n".join(lines)
+
+
+def read_srt(path: Path) -> list[dict]:
+    """Minimal SRT reader — enough to locate a sermon, not to caption one."""
+    segs, block = [], []
+    for raw in path.read_text(encoding="utf-8", errors="ignore").split("\n\n"):
+        block = [ln for ln in raw.strip().splitlines() if ln.strip()]
+        if len(block) < 2:
+            continue
+        stamp = next((ln for ln in block if "-->" in ln), None)
+        if not stamp:
+            continue
+        a, b = (x.strip().replace(",", ".") for x in stamp.split("-->")[:2])
+        text = " ".join(block[block.index(stamp) + 1:]).strip()
+        if text:
+            segs.append({"start": parse_time(a), "end": parse_time(b), "text": text})
+    return segs
+
+
+def autosub_path(d: Path) -> Path | None:
+    """YouTube's own Korean auto-captions, fetched if they are not here yet.
+
+    They are far too rough to burn in, but locating a sermon inside a service
+    does not need accuracy — and having them turns whisper's job from 100
+    minutes of audio into the 35 that matter. Free, and no download.
+    """
+    hit = sorted((d / "source").glob("sermon*.ko*.srt"))
+    if hit:
+        return hit[0]
+    meta = d / "meta.json"
+    if not meta.exists() or not shutil.which("yt-dlp"):
+        return None
+    url = json.loads(meta.read_text(encoding="utf-8")).get("source_url")
+    if not url:
+        return None
+    print("    유튜브 자동자막 받는 중 (무료, 영상은 다시 안 받는다)")
+    subprocess.run(
+        ["yt-dlp", "--skip-download", "--write-auto-subs", "--sub-langs", "ko",
+         "--convert-subs", "srt", "--no-playlist",
+         "-o", str(d / "source" / "sermon.%(ext)s"), url],
+        capture_output=True, text=True)
+    hit = sorted((d / "source").glob("sermon*.ko*.srt"))
+    return hit[0] if hit else None
+
+
+def find_sermon_window_from_text(segs: list[dict], total: float,
+                                 backend: str = "auto") -> tuple[float, float] | None:
+    """Locate the sermon by reading the transcript rather than the audio.
+
+    This is the route on a machine with no Gemini key: whisper transcribes the
+    whole service for free, and the window is found afterwards. Costs nothing
+    where the Claude CLI is installed.
+    """
+    prompt = SERMON_WINDOW_TEXT_PROMPT.format(
+        outline=outline_transcript(segs), total=int(total))
+    try:
+        got = ask_json(prompt, backend)
+    except Exception as e:  # noqa: BLE001 — a missing window is not fatal
+        print(f"    설교 구간을 못 잡았다: {str(e)[:120]}")
+        return None
+    if isinstance(got, list) and got:
+        got = got[0]
+    try:
+        start, end = float(got["start"]), float(got["end"])
+    except (KeyError, TypeError, ValueError):
+        print(f"    설교 구간 응답을 못 읽었다: {str(got)[:120]}")
+        return None
+    # A window that runs backwards, spills past the recording, or claims the
+    # sermon was five minutes long is a misread, not a sermon. Say so and let
+    # the caller keep the whole transcript rather than clamping to nonsense.
+    if not (0 <= start < end <= total + 1) or (end - start) < 600:
+        print(f"    설교 구간 {hhmmss(start)}–{hhmmss(end)} 은 말이 안 된다 — 무시한다")
+        return None
+    if got.get("note"):
+        print(f"    근거: {got['note']}")
+    return start, end
+
+
+def transcribe_whisper_window(wav: Path, model: str,
+                             start: float, end: float) -> list[dict]:
+    """whisper over one slice, with timestamps shifted back to the recording's
+    own clock so every later stage still speaks in absolute seconds."""
+    with tempfile.TemporaryDirectory() as td:
+        clip = Path(td) / "window.wav"
+        run(["ffmpeg", "-y", "-hide_banner", "-loglevel", "error", "-i", str(wav),
+             "-ss", f"{start:.3f}", "-to", f"{end:.3f}",
+             "-vn", "-ac", "1", "-ar", "16000", str(clip)])
+        segs = transcribe_whisper(clip, model)
+    for sg in segs:
+        sg["start"] += start
+        sg["end"] += start
+    return segs
 
 
 def cmd_transcribe(args):
@@ -543,40 +667,76 @@ def cmd_transcribe(args):
     wav = extract_audio(video, d / "source" / "audio16k.wav")
     print(f"==> audio: {wav.relative_to(REPO)}")
 
-    # Find the sermon inside the service before transcribing any of it.
+    total = probe_duration(wav)
+
+    # Find the sermon inside the service. Two routes, and which one is
+    # available decides the order of the next two stages:
+    #
+    #   Gemini  — listens to the audio, so the window is known before
+    #             transcription and only the sermon gets transcribed (it bills
+    #             per minute, so that matters).
+    #   whisper — free and offline, so transcribe the whole service and read
+    #             the window out of the transcript afterwards. Handled below,
+    #             after the transcript exists.
     window = None
     sp = d / "service-structure.json"
-    if not args.whole and not args.no_structure:
+    if args.sermon_window:
+        window = tuple(parse_time(x) for x in args.sermon_window)
+        print(f"==> 설교 구간 {hhmmss(window[0])}–{hhmmss(window[1])} (직접 지정)")
+    elif not args.whole and not args.no_structure:
+        structure = None
         if sp.exists():
             structure = json.loads(sp.read_text(encoding="utf-8"))
             print(f"==> reusing {sp.relative_to(REPO)}")
-        else:
+        elif os.environ.get("GEMINI_API_KEY"):
             print("==> detecting service structure (1 paid call)")
             structure = detect_service_structure(wav)
-            sp.write_text(json.dumps(structure, ensure_ascii=False, indent=2),
-                          encoding="utf-8")
-        sermon = [s for s in structure if s.get("type") == "설교"]
-        if sermon:
-            window = (float(min(s["start"] for s in sermon)),
-                      float(max(s["end"] for s in sermon)))
-            print(f"==> 설교 구간 {hhmmss(window[0])}–{hhmmss(window[1])} "
-                  f"(전체 {hhmmss(probe_duration(wav))})")
-            for s in structure:
-                if s.get("type") == "찬양":
-                    print(f"    [찬양] {hhmmss(s['start'])}–{hhmmss(s['end'])} — 클립 금지 구간")
+            if structure:
+                sp.write_text(json.dumps(structure, ensure_ascii=False, indent=2),
+                              encoding="utf-8")
         else:
+            # No Gemini, so nothing here can listen to the audio. Try YouTube's
+            # own auto-captions instead: rough, free, and quite good enough to
+            # say where the sermon starts. Failing that, the window is found
+            # after transcription instead.
+            sub = autosub_path(d)
+            if sub:
+                print(f"==> 자동자막으로 설교 구간 찾는 중 ({sub.name})")
+                window = find_sermon_window_from_text(
+                    read_srt(sub), total, args.select_backend)
+                if window:
+                    print(f"==> 설교 구간 {hhmmss(window[0])}–{hhmmss(window[1])} "
+                          f"(전체 {hhmmss(total)}) — 이 구간만 전사한다")
+            if not window:
+                print("==> 예배 구조는 전사 뒤에 전사본을 읽어 잡는다 (무료)")
+
+        sermon = [x for x in (structure or []) if x.get("type") == "설교"]
+        if sermon:
+            window = (float(min(x["start"] for x in sermon)),
+                      float(max(x["end"] for x in sermon)))
+            print(f"==> 설교 구간 {hhmmss(window[0])}–{hhmmss(window[1])} "
+                  f"(전체 {hhmmss(total)})")
+            for x in structure:
+                if x.get("type") == "찬양":
+                    print(f"    [찬양] {hhmmss(x['start'])}–{hhmmss(x['end'])} — 클립 금지 구간")
+        elif structure is not None:
             print("    설교 구간을 못 찾음 — 전체를 전사한다")
 
     model = os.environ.get("WHISPER_MODEL", "models/ggml-large-v3.bin")
     backends = [args.backend] if args.backend != "auto" else ["whisper", "gemini"]
     start, end = window if window else (0.0, None)
+    if window:
+        end = min(float(end), total)
 
     segs, used, errs = None, None, []
     for b in backends:
         try:
             print(f"==> transcribing via {b}")
-            segs = (transcribe_whisper(wav, model) if b == "whisper"
-                    else transcribe_gemini(wav, start, end))
+            if b == "whisper":
+                segs = (transcribe_whisper_window(wav, model, start, end)
+                        if window else transcribe_whisper(wav, model))
+            else:
+                segs = transcribe_gemini(wav, start, end)
             used = b
             break
         except Exception as e:  # noqa: BLE001 — report and try the next backend
@@ -585,6 +745,17 @@ def cmd_transcribe(args):
 
     if segs is None:
         die("no transcription backend worked:\n" + "\n".join(errs))
+
+    # whisper route: the transcript exists but the window does not yet.
+    if window is None and not args.whole and not args.no_structure:
+        print("==> 전사본에서 설교 구간 찾는 중")
+        window = find_sermon_window_from_text(segs, total, args.select_backend)
+        if window:
+            print(f"==> 설교 구간 {hhmmss(window[0])}–{hhmmss(window[1])} "
+                  f"(전체 {hhmmss(total)})")
+        else:
+            print("    못 잡았다 — 전사본 전체를 남긴다. 구간을 아는 경우\n"
+                  "    --sermon-window 시작 끝 으로 직접 넘길 수 있다 (예: 0:45:00 1:20:00)")
 
     if used == "gemini" and not args.no_repair:
         print("==> 중복·누락 점검")
@@ -771,21 +942,25 @@ SELECT_PROMPT = """너는 한국 개신교 교회의 주일설교에서 유튜�
 
 
 def _extract_json(text: str):
-    """Pull the JSON array out of a model reply that may be wrapped in prose."""
+    """Pull the JSON out of a model reply that may be wrapped in prose."""
     text = text.strip()
     if text.startswith("```"):
         text = re.sub(r"^```[a-z]*\n?|\n?```$", "", text).strip()
     try:
         return json.loads(text)
     except json.JSONDecodeError:
-        m = re.search(r"\[.*\]", text, re.S)
-        if not m:
-            raise
-        return json.loads(m.group(0))
+        for pat in (r"\[.*\]", r"\{.*\}"):
+            m = re.search(pat, text, re.S)
+            if m:
+                try:
+                    return json.loads(m.group(0))
+                except json.JSONDecodeError:
+                    continue
+        raise
 
 
-def select_with_claude(prompt: str) -> list[dict]:
-    """Ask the locally installed Claude Code to choose the clips.
+def _ask_claude(prompt: str) -> str:
+    """Ask the locally installed Claude Code.
 
     Uses the subscription already signed in on this machine, so it costs
     nothing extra and needs no API key. `-p` runs one query and exits.
@@ -796,10 +971,10 @@ def select_with_claude(prompt: str) -> list[dict]:
     p = subprocess.run([exe, "-p", prompt], capture_output=True, text=True, timeout=900)
     if p.returncode != 0:
         raise RuntimeError(f"claude -p failed: {p.stderr[:200]}")
-    return _extract_json(p.stdout)
+    return p.stdout
 
 
-def select_with_gemini(prompt: str) -> list[dict]:
+def _ask_gemini(prompt: str) -> str:
     """Fallback where the Claude CLI is not installed — the cloud container."""
     client, types = _gemini_client()
     for model in GEMINI_MODELS:
@@ -808,10 +983,34 @@ def select_with_gemini(prompt: str) -> list[dict]:
                 model=model, contents=[prompt],
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json", max_output_tokens=8000))
-            return _extract_json(r.text)
+            return r.text
         except Exception as e:  # noqa: BLE001 — try the next model on overload
             print(f"    {model}: {str(e)[:70]}")
     raise RuntimeError("no Gemini model answered")
+
+
+def ask_json(prompt: str, backend: str = "auto"):
+    """Put a question to whichever model this machine has. Claude first: on a
+    laptop it is already signed in and costs nothing beyond the subscription."""
+    order = {"claude": ["claude"], "gemini": ["gemini"]}.get(
+        backend, ["claude", "gemini"])
+    errs = []
+    for b in order:
+        try:
+            return _extract_json(_ask_claude(prompt) if b == "claude"
+                                 else _ask_gemini(prompt))
+        except Exception as e:  # noqa: BLE001 — report and try the next one
+            errs.append(f"  {b}: {str(e)[:160]}")
+            print(f"    {b} 사용 불가: {str(e)[:80]}")
+    raise RuntimeError("판단할 모델이 없다:\n" + "\n".join(errs))
+
+
+def select_with_claude(prompt: str) -> list[dict]:
+    return _extract_json(_ask_claude(prompt))
+
+
+def select_with_gemini(prompt: str) -> list[dict]:
+    return _extract_json(_ask_gemini(prompt))
 
 
 def cmd_select(args):
@@ -1467,6 +1666,11 @@ def main():
                    help="skip service-structure detection (saves one paid call)")
     t.add_argument("--no-repair", action="store_true",
                    help="skip the duplicate/hole repair pass")
+    t.add_argument("--sermon-window", nargs=2, metavar=("START", "END"),
+                   help="give the sermon's start and end yourself, e.g. 0:45:00 1:20:00")
+    t.add_argument("--select-backend", choices=["auto", "claude", "gemini"],
+                   default="auto",
+                   help="which model reads the transcript to find the sermon")
     t.set_defaults(func=cmd_transcribe)
 
     c = sub.add_parser("clips"); c.add_argument("idea_id")
