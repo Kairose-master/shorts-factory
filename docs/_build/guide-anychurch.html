@@ -368,6 +368,14 @@ h4{font-family:"IBM Plex Sans KR",sans-serif;font-size:.82rem;font-weight:600;
     </div>
   </div>
 
+  <h3>렌더 전에 화면 확인 (1분)</h3>
+  <p>세로 화면은 가로 영상의 3분의 1만 씁니다. 설교자가 그 안에 들어왔는지 <strong>굽기 전에</strong> 사진으로 봅니다.</p>
+  <div class="cmd"><code>bash scripts/shorts preview SUN-2026-08-30</code><button class="copy" type="button">복사</button></div>
+  <div class="out"><code>preview/
+├── clip-01.jpg           실제로 나올 세로 화면
+└── clip-01-전체화면.jpg   원본 전체 + 노란 네모가 잘라낼 구간</code></div>
+  <p><strong>노란 네모가 설교자를 감싸고 있으면</strong> 그대로 렌더합니다.</p>
+
   <h3>얼마나 걸리나</h3>
   <div class="stages">
     <div class="stg"><span class="lab">1/4 내려받기</span><span class="track"><span class="fill" style="width:18%"></span></span><span class="dur">5–15분</span></div>
@@ -429,8 +437,8 @@ h4{font-family:"IBM Plex Sans KR",sans-serif;font-size:.82rem;font-weight:600;
   <p class="eyebrow">화면</p>
   <h2>설교자를 찾아서 가운데 놓습니다</h2>
   <p>세로 화면은 가로 영상의 3분의 1만 씁니다. 어디를 남길지가 중요한데, <strong>고정된 좌표를 쓰지 않습니다.</strong> 교회마다, 해마다, 주일마다 강단 위치가 다르기 때문입니다.</p>
-  <div class="tip"><p class="lbl">무엇을 보고 판단하는가</p><p>0.4초 간격 프레임을 여러 지점에서 비교해 <strong>움직이는 사람</strong>을 찾습니다 — 배경 · 자막 · 그래픽은 움직이지 않으니 구분됩니다. 새벽기도처럼 <strong>정지 이미지에 음성만</strong> 있는 영상은 사람이 없으므로 자르지 않고 화면 전체를 9:16에 맞춥니다.</p></div>
-  <p>그래도 어긋나면 <code class="inl">clips.json</code> 의 <code class="inl">crop</code> 을 직접 줍니다. 숫자는 원본 영상 기준 픽셀입니다.</p>
+  <div class="tip"><p class="lbl">무엇을 보고 판단하는가</p><p>1초 간격 프레임을 설교 구간 여덟 지점에서 비교해 <strong>움직이는 사람</strong>을 찾습니다 — 배경 · 자막 · 그래픽은 움직이지 않으니 구분됩니다. 새벽기도처럼 <strong>정지 이미지에 음성만</strong> 있는 영상은 사람이 없으므로 자르지 않고 화면 전체를 9:16에 맞춥니다.</p></div>
+  <p>먼저 <code class="inl">preview</code> 로 지금 어떻게 잡혔는지 보고, 그래도 어긋나면 <code class="inl">clips.json</code> 의 <code class="inl">crop</code> 을 직접 줍니다. 숫자는 원본 영상 기준 픽셀입니다.</p>
   <div class="out"><code>"crop": { "x": 126, "y": 108, "h": 252 }
 
    x  왼쪽에서 몇 픽셀부터

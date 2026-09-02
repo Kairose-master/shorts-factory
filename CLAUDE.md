@@ -192,6 +192,7 @@ bash scripts/shorts-url.sh "<유튜브주소>"     # 영상을 직접 지정
 `docs/설치-맥.md` · `docs/설치-윈도우.md`. 다른 교회가 자기 채널로 쓰려면
 `docs/설치-다른교회.md` — `shorts config` 로 채널·설교자·교회명만 바꾸면 된다. 이미 깔린 기계에서 만들기만 하면
 `docs/쇼츠-만들기.md`. 이식·비용은 `docs/porting-to-your-claude.md`,
+다른 Claude 계정으로 넘기는 절차는 `docs/내-클로드로-옮기기.md`,
 채널 규칙은 `.claude/context/youtube-channel.md`.
 
 자막 글자가 틀렸을 때는 `fix <id> 틀린말 고친말 --remember` (전사본·자막 동시에,
