@@ -3,16 +3,18 @@
 A short-form video research and scripting workspace, and the home of the
 **Handsel Short-Form Growth Office** (`office/`).
 
-53 Agent Skills are installed under `.claude/skills/`:
+54 Agent Skills are installed under `.claude/skills/`:
 
 - **44 upstream skills** pulled from six repositories and left **byte-identical
   to upstream** so `npx skills update` keeps working. These are the ones tracked
   in `skills-lock.json` (the 44th is `caveman`, a terse-output token-saver from
   JuliusBrussee/caveman, added 2026-08-31).
-- **8 local skills** authored here and deliberately *not* in the lock file:
+- **9 local skills** authored here and deliberately *not* in the lock file:
   `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
-  `aicron`, `zapier-mcp` — plus `shorts-factory` itself. `npx skills update`
-  will not touch them.
+  `aicron`, `zapier-mcp`, `parallel-repo-coordination` (the `conversation.md`
+  + ack-gate protocol for several sessions on one remote, copied from the
+  Handsel repo — run its check before touching `office/`) — plus
+  `shorts-factory` itself. `npx skills update` will not touch them.
 - **1 vendored upstream skill**, `last30days` (MIT,
   [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)),
   copied byte-identical but not in the lock file. **It needs Python 3.12+**,
