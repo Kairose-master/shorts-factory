@@ -1056,6 +1056,42 @@ def apply_lexicon(segs: list[dict]) -> int:
     return n
 
 
+def open_in_file_manager(path: Path) -> bool:
+    """Show a folder in Finder / File Explorer.
+
+    Typing the path is the tedious part of every fix — the folder is five
+    levels down and named after a date. SHORTS_NO_OPEN=1 turns this off for
+    anyone working over ssh or in a container, where there is no desktop to
+    open it on.
+    """
+    if os.environ.get("SHORTS_NO_OPEN") or not path.exists():
+        return False
+    cmd = (["open", str(path)] if sys.platform == "darwin"
+           else ["explorer", str(path)] if _windows()
+           else ["xdg-open", str(path)])
+    if not _exe(cmd[0]):
+        return False
+    try:
+        subprocess.run(cmd, capture_output=True, timeout=15)
+        return True
+    except Exception:   # noqa: BLE001 — a window that will not open is not an error
+        return False
+
+
+def cmd_open(args):
+    """Open one of a production's folders without typing the path."""
+    d = need(args.idea_id)
+    target = d if args.what == "." else d / args.what
+    if not target.exists():
+        if args.what == "captions":
+            die(f"{rel(target)} 가 아직 없다. 먼저 자막을 꺼낸다:\n"
+                f"  bash scripts/shorts captions {args.idea_id}")
+        die(f"{rel(target)} 가 없다")
+    print(rel(target))
+    if not open_in_file_manager(target):
+        print("  (이 환경에서는 창을 못 연다 — 위 경로를 직접 열어라)")
+
+
 def caption_override(d: Path, clip_id: str) -> Path:
     return d / "captions" / f"{clip_id}.srt"
 
@@ -1111,6 +1147,65 @@ def show_captions(d: Path, clips: list[dict]) -> None:
         print("\n아직 꺼낸 자막 파일이 없다 — captions 를 --show 없이 한 번 돌려라.")
 
 
+CAPTIONS_README = """이 폴더의 파일을 고치면 자막이 바뀝니다.
+
+1. clip-01.srt 를 오른쪽 버튼 → 다음으로 열기 → 텍스트편집기
+2. 맨 아랫줄 글자만 고칩니다. 숫자와 --> 줄은 그대로 둡니다
+3. command + S 로 저장합니다 (이걸 빼먹으면 안 바뀝니다)
+4. 터미널에서:  bash scripts/shorts render {idea} --only clip-01
+
+여기 파일이 있으면 렌더가 이것을 씁니다.
+다시 전사해도, 구간을 다시 골라도 고친 자막은 그대로 남습니다.
+"""
+
+
+def export_captions(d: Path, idea_id: str, force: bool = False) -> list[str]:
+    """Put each clip's subtitles where a person can edit them.
+
+    Written by render as well as by the captions command: the folder has to be
+    sitting there in Finder when the video is watched, because that is the
+    moment a wrong word is noticed. Having to run a command first to make the
+    folder appear is a step at exactly the wrong time.
+    """
+    clips_f = d / "clips.json"
+    if not clips_f.exists():
+        return []
+    clips = json.loads(clips_f.read_text(encoding="utf-8"))
+    tj = d / "transcript.json"
+    segs = (json.loads(tj.read_text(encoding="utf-8"))["segments"]
+            if tj.exists() else [])
+    out = d / "captions"
+    out.mkdir(exist_ok=True)
+    (out / "여기서 자막을 고칩니다.txt").write_text(
+        CAPTIONS_README.format(idea=idea_id), encoding="utf-8")
+
+    made = []
+    for c in clips:
+        cid, dst = c["id"], caption_override(d, c["id"])
+        if dst.exists() and not force:
+            continue
+        start, end = parse_time(c["start"]), parse_time(c["end"])
+        rendered = d / "renders" / "subs" / f"{cid}.srt"
+        if rendered.exists():
+            shutil.copyfile(rendered, dst)      # exactly what was burned in
+        elif segs:
+            window = [{"start": max(x["start"], start), "end": min(x["end"], end),
+                       "text": x["text"]}
+                      for x in segs if x["end"] > start and x["start"] < end]
+            write_srt(window, dst, offset=start)
+        else:
+            continue
+        made.append(cid)
+
+    # macOS refuses to open a quarantined file without a malware dialog. These
+    # are plain text files this script wrote seconds ago on this machine.
+    if sys.platform == "darwin":
+        for f in out.glob("*"):
+            subprocess.run(["xattr", "-d", "com.apple.quarantine", str(f)],
+                           capture_output=True)
+    return made
+
+
 def cmd_captions(args):
     """Put each clip's subtitles somewhere a person can edit them.
 
@@ -1127,31 +1222,11 @@ def cmd_captions(args):
         print("\n위 내용이 고친 것과 다르면 편집기에서 저장이 안 된 것이다.\n"
               "(맥 텍스트편집기: command+S · 메모장: Ctrl+S)")
         return
-    out.mkdir(exist_ok=True)
 
+    made = export_captions(d, args.idea_id, force=args.force)
     for c in clips:
-        cid, dst = c["id"], caption_override(d, c["id"])
-        if dst.exists() and not args.force:
-            print(f"    {cid}  이미 있음 — 그대로 둔다  {dst.relative_to(REPO)}")
-            continue
-        start, end = parse_time(c["start"]), parse_time(c["end"])
-        rendered = d / "renders" / "subs" / f"{cid}.srt"
-        if rendered.exists():
-            shutil.copyfile(rendered, dst)      # exactly what was burned in
-        else:
-            window = [{"start": max(x["start"], start), "end": min(x["end"], end),
-                       "text": x["text"]}
-                      for x in segs if x["end"] > start and x["start"] < end]
-            write_srt(window, dst, offset=start)
-        print(f"    {cid}  {dst.relative_to(REPO)}")
-
-    # macOS refuses to open a file carrying the quarantine flag without a
-    # "cannot verify this isn't malware" dialog. These are plain text files
-    # this script just wrote on this machine; the flag is inherited noise.
-    if sys.platform == "darwin":
-        for srt in out.glob("*.srt"):
-            subprocess.run(["xattr", "-d", "com.apple.quarantine", str(srt)],
-                           capture_output=True)
+        mark = "새로 꺼냄" if c["id"] in made else "이미 있음 — 그대로 둔다"
+        print(f"    {c['id']}  {mark}  {rel(caption_override(d, c['id']))}")
 
     first = out / "clip-01.srt"
     opener = ("open -e" if sys.platform == "darwin"
@@ -1162,6 +1237,10 @@ def cmd_captions(args):
           f"\n시간(-->)은 건드리지 말 것. 맨 아랫줄 글자만 고친다.")
     if sys.platform == "darwin":
         print("파인더에서 더블클릭하면 macOS가 경고를 띄운다. 위 open -e 로 연다.")
+    if not args.no_open and open_in_file_manager(out):
+        print(f"\n==> {rel(out)} 폴더를 열었다")
+    else:
+        print(f"\n폴더를 다시 열려면:  bash scripts/shorts open {args.idea_id} captions")
 
 
 def cmd_fix(args):
@@ -1986,10 +2065,18 @@ def cmd_render(args):
         print(f"==> 자막은 {rel(d / 'captions')} 의 수정본을 썼다 "
               f"({used_override}개 클립)")
     else:
-        print("==> 자막은 전사본 그대로다. 글자를 고치려면 "
-              "renders/subs/ 가 아니라 아래를 쓴다:")
-        print(f"      bash scripts/shorts captions {args.idea_id}")
+        print("==> 자막은 전사본 그대로다 (아직 고친 것 없음)")
+    # A wrong word is noticed while watching the render, so the folder that
+    # fixes it has to be sitting there already — not behind a command you have
+    # to know about at exactly that moment.
+    export_captions(d, args.idea_id)
+    print(f"==> 자막 고칠 파일: {rel(d / 'captions')}")
     print("==> 업로드하지 않았다. 사람이 확인하고 직접 올린다.")
+
+    if not args.no_open and open_in_file_manager(d):
+        print(f"==> {rel(d)} 폴더를 열었다 — renders 와 captions 가 같이 보인다")
+    else:
+        print(f"==> 폴더를 열려면:  bash scripts/shorts open {args.idea_id}")
 
 
 # ---------------------------------------------------------------- doctor ---
@@ -2401,6 +2488,8 @@ def main():
     r.add_argument("--only", help="render just this clip id")
     r.add_argument("--no-end-card", action="store_true",
                    help="skip the closing service card")
+    r.add_argument("--no-open", action="store_true",
+                   help="끝나고 결과 폴더 창을 열지 않는다")
     r.add_argument("--retime", action="store_true",
                    help="re-transcribe each clip window for exact caption sync "
                         "(one paid Gemini call per clip)")
@@ -2423,6 +2512,8 @@ def main():
     cap.add_argument("idea_id")
     cap.add_argument("--force", action="store_true",
                      help="이미 고쳐 둔 파일을 원본으로 되돌린다")
+    cap.add_argument("--no-open", action="store_true",
+                     help="폴더 창을 자동으로 열지 않는다")
     cap.add_argument("--show", action="store_true",
                      help="지금 파일에 뭐라고 적혀 있는지 그대로 보여준다")
     cap.set_defaults(func=cmd_captions)
@@ -2437,6 +2528,13 @@ def main():
 
     v = sub.add_parser("validate"); v.add_argument("idea_id")
     v.set_defaults(func=cmd_validate)
+
+    op = sub.add_parser("open", help="그 편의 폴더를 파인더/탐색기로 연다")
+    op.add_argument("idea_id")
+    op.add_argument("what", nargs="?", default=".",
+                    choices=[".", "captions", "renders", "source"],
+                    help="열 폴더 (기본: 편 폴더 전체)")
+    op.set_defaults(func=cmd_open)
 
     cf = sub.add_parser("config", help="채널·설교자·교회명을 정한다 (다른 교회용)")
     cf.add_argument("--channel", help="유튜브 채널 주소 (@핸들 주소)")
