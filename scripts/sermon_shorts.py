@@ -1465,7 +1465,7 @@ def cmd_select(args):
     # worship set the camera is on the congregation and the band.
     src = find_source(d)
     print("==> 화면에서 설교자 위치 찾는 중")
-    crop = auto_crop(src, win[0], win[1])
+    crop = auto_crop(src, win[0], win[1], fallback=(win[0], win[1]))
     ec = ensure_end_card(d, args.idea_id) or (d / "end-card.json")
     meta = json.loads(ec.read_text(encoding="utf-8")) if ec.exists() else {}
     desc_tail = (f"{meta.get('church','')} 주일예배 | {meta.get('scripture','')} | "
@@ -1825,7 +1825,10 @@ TOP_BAND = 0.243           # caption band height (y=175 of 720)
 # is and near-nothing on backdrop, captions and graphics.
 MOTION_W, MOTION_H = 96, 54     # coarse enough to be cheap, fine enough to place him
 MOTION_POINTS = 8               # moments sampled across the sermon
-MOTION_GAP = 0.4                # seconds between the two frames of a pair
+# A second, not a fraction of one: a preacher at a lectern barely moves in
+# 0.4s and three of three measured clips fell under the detection floor at that
+# gap, while all three cleared it comfortably at 1.0s.
+MOTION_GAP = 1.0
 # Measured, not guessed: a still image with audio over it scores exactly 0,
 # while the quietest real footage here (a 360p sermon, one preacher at a
 # lectern) scores 2597 per pair. 300 sits an order of magnitude below that and
@@ -1844,25 +1847,34 @@ def _gray_frame(video: Path, at: float) -> bytes | None:
     return p.stdout if len(p.stdout) == MOTION_W * MOTION_H else None
 
 
-def _span(profile: list[int], rel: float = 0.25) -> tuple[int, int] | None:
-    """The run around the profile's peak that stays above `rel` of it.
+def _span(profile: list[int], rel: float = 0.12) -> tuple[int, int] | None:
+    """The busiest contiguous run in the profile.
 
-    Taking min and max of everything above a threshold lets one stray bright
-    cell — a caption flickering, a light — stretch the box across the frame.
-    Growing outward from the peak instead keeps the subject's own extent.
+    Not the run around the single highest cell: a blinking LIVE badge or a
+    caption animating can out-peak a preacher in one column while covering
+    almost no area. Taking the run with the most total motion picks the person
+    over the badge, and being contiguous keeps a second moving thing elsewhere
+    in the frame from dragging the centre between the two.
+
+    The threshold has to sit well below the peak for the same reason — a spike
+    ten times the preacher's own level would otherwise put the cut above him
+    and leave only the spike standing.
     """
     peak = max(profile)
     if peak <= 0:
         return None
-    i = profile.index(peak)
     cut = peak * rel
-    lo = i
-    while lo > 0 and profile[lo - 1] >= cut:
-        lo -= 1
-    hi = i
-    while hi < len(profile) - 1 and profile[hi + 1] >= cut:
-        hi += 1
-    return lo, hi
+    best, run = None, None
+    for i, v in enumerate(profile + [0]):
+        if v >= cut and i < len(profile):
+            run = (i, i) if run is None else (run[0], i)
+            continue
+        if run:
+            total = sum(profile[run[0]:run[1] + 1])
+            if best is None or total > best[0]:
+                best = (total, run[0], run[1])
+            run = None
+    return (best[1], best[2]) if best else None
 
 
 def motion_box(video: Path, start: float = 0.0, end: float | None = None):
@@ -1923,7 +1935,20 @@ def frame_size(video: Path) -> tuple[int, int]:
     return int(m.group(1)), int(m.group(2))
 
 
-def auto_crop(video: Path, start: float = 0.0, end: float | None = None):
+def sermon_window_of(d: Path) -> tuple[float, float] | None:
+    """The sermon's own start and end, as transcribe recorded them."""
+    tj = d / "transcript.json"
+    if not tj.exists():
+        return None
+    try:
+        w = json.loads(tj.read_text(encoding="utf-8")).get("sermon_window")
+    except json.JSONDecodeError:
+        return None
+    return (float(w["start"]), float(w["end"])) if w else None
+
+
+def auto_crop(video: Path, start: float = 0.0, end: float | None = None,
+              fallback: tuple[float, float] | None = None):
     """Put the preacher in the middle of a 9:16 window.
 
     Three outcomes, decided by what the picture actually does:
@@ -1933,6 +1958,13 @@ def auto_crop(video: Path, start: float = 0.0, end: float | None = None):
     """
     w, h = frame_size(video)
     box = motion_box(video, start, end)
+    if box is None and fallback:
+        # A single clip can be 40 seconds of a man standing still. Widen — but
+        # only to the sermon, never to the whole recording: during the worship
+        # set the camera is on the band and the congregation, and measuring
+        # there centres the crop on the wrong half of the room.
+        print("    이 구간에서는 못 찾았다 — 설교 구간 전체에서 다시 찾는다")
+        box = motion_box(video, fallback[0], fallback[1])
 
     if box == "still":
         print("    정지 이미지 영상 — 잘라내지 않고 9:16에 맞춘다")
@@ -2071,7 +2103,13 @@ def cmd_render(args):
             sub_offset = start
         if "crop" not in c:
             print(f"    {cid} 크롭 없음 — 이 구간에서 화면을 분석한다")
-            c["crop"] = auto_crop(video, start, end)
+            c["crop"] = auto_crop(video, start, end, fallback=sermon_window_of(d))
+        if c.get("crop") == "center":
+            # Nothing was found to centre on, so the middle of the frame is a
+            # guess. Say so — a preacher cropped out of shot is only visible in
+            # the finished file otherwise.
+            print(f"    ⚠ {cid} 설교자를 못 찾아 화면 중앙을 쓴다. 렌더 전에 확인하려면:")
+            print(f"        bash scripts/shorts preview {args.idea_id}")
         speed = float(c.get("speed", DEFAULT_SPEED))
         if not 0.5 <= speed <= 2.0:
             die(f"{cid}: speed {speed} is outside atempo's 0.5–2.0 range")
@@ -2179,6 +2217,60 @@ def cmd_render(args):
 
 
 # ---------------------------------------------------------------- doctor ---
+def cmd_preview(args):
+    """Show what the crop will look like before spending a render on it.
+
+    Two pictures per clip: the 9:16 frame that would be burned, and the whole
+    source frame with that window drawn on it. The second is what tells you
+    *why* — whether the preacher was found and simply framed tight, or missed
+    and something else centred instead.
+    """
+    d = need(args.idea_id)
+    video = find_source(d)
+    clips_f = d / "clips.json"
+    if not clips_f.exists():
+        die(f"{rel(clips_f)} 가 없다 — 먼저 구간을 고른다:\n"
+            f"  bash scripts/shorts select {args.idea_id} --count 3")
+    clips = json.loads(clips_f.read_text(encoding="utf-8"))
+    out = d / "preview"
+    out.mkdir(exist_ok=True)
+    W, H = frame_size(video)
+
+    for c in clips:
+        cid = c["id"]
+        start, end = parse_time(c["start"]), parse_time(c["end"])
+        crop = c.get("crop")
+        if crop is None:
+            print(f"    {cid} 화면 분석 중")
+            crop = auto_crop(video, start, end, fallback=sermon_window_of(d))
+        at = start + (end - start) / 2
+
+        run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
+             "-ss", f"{at:.2f}", "-i", str(video), "-frames:v", "1",
+             "-vf", crop_filter(crop), "-q:v", "3", str(out / f"{cid}.jpg")])
+
+        # The same moment uncropped, with the window drawn on it.
+        if isinstance(crop, dict):
+            cw = int(crop["h"] * 9 / 16)
+            box = (f"drawbox=x={crop['x']}:y={crop.get('y', 0)}:w={cw}:"
+                   f"h={crop['h']}:color=yellow@1:t=4")
+        else:
+            box = "null"
+        run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
+             "-ss", f"{at:.2f}", "-i", str(video), "-frames:v", "1",
+             "-vf", box, "-q:v", "3", str(out / f"{cid}-전체화면.jpg")])
+        print(f"    {cid}  {hhmmss(at)}  crop={crop}")
+
+    print(f"\n==> {rel(out)} 에 미리보기 {len(clips) * 2}장")
+    print("    <클립>.jpg          실제로 나올 세로 화면")
+    print("    <클립>-전체화면.jpg  원본 전체 + 노란 네모가 잘라낼 구간")
+    print("\n설교자가 가운데 있으면 그대로 렌더한다:")
+    print(f"    bash scripts/shorts render {args.idea_id}")
+    print("어긋났으면 clips.json 의 crop 을 고치고 다시 이 명령으로 확인한다.")
+    if not args.no_open:
+        open_in_file_manager(out)
+
+
 def cmd_config(args):
     """Point this at another church without editing any code."""
     f = REPO / "church.json"
@@ -2685,6 +2777,11 @@ def main():
                     choices=[".", "captions", "renders", "source"],
                     help="열 폴더 (기본: 편 폴더 전체)")
     op.set_defaults(func=cmd_open)
+
+    pv = sub.add_parser("preview", help="렌더 전에 크롭이 맞는지 사진으로 확인한다")
+    pv.add_argument("idea_id")
+    pv.add_argument("--no-open", action="store_true")
+    pv.set_defaults(func=cmd_preview)
 
     cf = sub.add_parser("config", help="채널·설교자·교회명을 정한다 (다른 교회용)")
     cf.add_argument("--channel", help="유튜브 채널 주소 (@핸들 주소)")
