@@ -47,3 +47,5 @@ office/production/*/refs/
 
 # Smoke-test scratch output — regenerate with scripts/smoke_test_render.sh
 office/production/_smoketest/
+church.json
+office/.cache/

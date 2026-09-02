@@ -1563,8 +1563,12 @@ def end_card_from_title(idea_id: str, video_title: str) -> dict:
     The date comes from the idea-id rather than the title, because the title
     has been wrong before and the idea-id is already corrected.
     """
-    m = re.match(r"SUN-(\d{4})-(\d{2})-(\d{2})", idea_id)
-    date = f"{int(m.group(1))}년 {int(m.group(2))}월 {int(m.group(3))}일 주일예배" if m else ""
+    m = re.match(r"(SUN|WED|DAWN)-(\d{4})-(\d{2})-(\d{2})", idea_id)
+    if m:
+        label = {"SUN": "주일예배", "WED": "수요예배", "DAWN": "새벽기도"}[m.group(1)]
+        date = (f"{int(m.group(2))}년 {int(m.group(3))}월 {int(m.group(4))}일 {label}")
+    else:
+        date = ""
 
     ref = TITLE_SCRIPTURE.search(video_title)
     if ref:
@@ -1592,11 +1596,13 @@ def end_card_from_title(idea_id: str, video_title: str) -> dict:
             scripture = expand_scripture(bm.group(1))
             body = body[:bm.start()] + body[bm.end():]
 
-    title = re.sub(r"\s{2,}", " ", body).strip(" \t-·|,")
+    title = re.sub(r"\s{2,}", " ", body).strip(" \t-·|,/")
+    if title in ("새벽기도", "수요예배", "주일예배", ""):
+        title = ""      # no sermon title of its own; the passage carries the card
 
     return {"date": date, "scripture": scripture, "title": title,
-            "preacher": preacher, "church": "방배동 예심교회",
-            "handle": "youtube.com/@yeshim1126"}
+            "preacher": preacher, "church": CHURCH_NAME,
+            "handle": channel_handle()}
 
 
 def source_title(d: Path) -> str:
@@ -1715,8 +1721,15 @@ LIVE_AREA_RIGHT = 0.634    # sidebar starts here (x=812 of 1280)
 TOP_BAND = 0.243           # caption band height (y=175 of 720)
 
 
-def auto_crop(video: Path) -> dict:
-    """Work out the 9:16 window from the frame size, using this channel's layout."""
+def auto_crop(video: Path):
+    """Work out the 9:16 window from the frame size, using this channel's layout.
+
+    A still-image upload gets "fit" instead: there is no preacher to centre on,
+    and cropping would discard most of the one picture in the file.
+    """
+    if is_static_source(video):
+        print("    정지 이미지 영상 — 잘라내지 않고 9:16에 맞춘다")
+        return "fit"
     p = subprocess.run([*ffmpeg_cmd(), "-hide_banner", "-i", str(video)],
                        capture_output=True, text=True)
     m = re.search(r"(\d{3,4})x(\d{3,4})", p.stderr)
@@ -1730,6 +1743,56 @@ def auto_crop(video: Path) -> dict:
     live_centre = int(w * LIVE_AREA_RIGHT) // 2
     x = max(0, min(live_centre - cw // 2, w - cw))
     return {"x": x, "y": top, "h": ch}
+
+
+def _thumb(video: Path, at: float) -> bytes:
+    """One frame as a 32x18 greyscale raw — small enough to compare by hand,
+    big enough that a moving preacher moves the numbers."""
+    p = subprocess.run(
+        [*ffmpeg_cmd(), "-hide_banner", "-loglevel", "error", "-ss", f"{at:.1f}",
+         "-i", str(video), "-frames:v", "1",
+         "-vf", "scale=32:18,format=gray", "-f", "rawvideo", "-"],
+        capture_output=True)
+    return p.stdout
+
+
+def is_static_source(video: Path, threshold: float = 2.5) -> bool:
+    """True when the file is a still image with audio over it.
+
+    새벽기도 is posted that way — one thumbnail, no camera. A 9:16 crop of a
+    still throws away two thirds of the only picture in the file, so this
+    decides the treatment, and it is measured because the title does not say.
+
+    Three frames spread across the recording, compared pixel by pixel: a
+    camera on a preacher moves far more than a compression wobble does.
+    ffmpeg's own freezedetect was tried first and proved unreliable here —
+    it reported a lectern shot as frozen and a solid colour as moving.
+    """
+    try:
+        dur = probe_duration(video)
+    except Exception:  # noqa: BLE001 — cannot measure, so do not claim static
+        return False
+    frames = [f for f in (_thumb(video, dur * at) for at in (0.25, 0.5, 0.75))
+              if len(f) == 32 * 18]
+    if len(frames) < 2:
+        return False
+    worst = 0.0
+    for i in range(len(frames) - 1):
+        a, b = frames[i], frames[i + 1]
+        worst = max(worst, sum(abs(x - y) for x, y in zip(a, b)) / len(a))
+    return worst < threshold
+
+
+# A still image gets the whole frame, not a slice of it: the picture is scaled
+# to the full width and centred, over a blurred blow-up of itself so the 9:16
+# frame is filled rather than letterboxed black.
+FIT_FILTER = (
+    "split[bg][fg];"
+    f"[bg]scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=increase,"
+    f"crop={OUT_W}:{OUT_H},gblur=sigma=32,eq=brightness=-0.09[bgb];"
+    f"[fg]scale={OUT_W}:-2[fgs];"
+    "[bgb][fgs]overlay=(W-w)/2:(H-h)/2-180"
+)
 
 
 def crop_filter(mode) -> str:
@@ -1749,7 +1812,11 @@ def crop_filter(mode) -> str:
     The window is always forced to 9:16 from its height, so only x/y/h are
     ever specified and the aspect can't be got wrong by hand.
     """
+    if mode == "fit":
+        return FIT_FILTER
     if isinstance(mode, dict):
+        if mode.get("fit"):
+            return FIT_FILTER
         h = int(mode["h"])
         return (f"crop=w={h}*9/16:h={h}:x={int(mode.get('x', 0))}:y={int(mode.get('y', 0))},"
                 f"scale={OUT_W}:{OUT_H}")
@@ -1926,6 +1993,40 @@ def cmd_render(args):
 
 
 # ---------------------------------------------------------------- doctor ---
+def cmd_config(args):
+    """Point this at another church without editing any code."""
+    f = REPO / "church.json"
+    cfg = json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+    changed = False
+    for key, val in (("channel", args.channel), ("preacher", args.preacher),
+                     ("church", args.church)):
+        if val:
+            cfg[key] = val.rstrip("/") if key == "channel" else val
+            changed = True
+
+    if changed:
+        if "youtube.com/" not in cfg.get("channel", "youtube.com/"):
+            die(f"채널 주소가 아니다: {cfg.get('channel')}\n"
+                "  예: https://www.youtube.com/@yeshim1126")
+        f.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n",
+                     encoding="utf-8")
+        # A stale listing belongs to the old channel.
+        for old in CACHE_DIR.glob("*.tsv"):
+            old.unlink()
+        print(f"==> {rel(f)} 에 저장했다\n")
+
+    print("지금 설정")
+    print(f"  채널   {cfg.get('channel', CHANNEL)}")
+    print(f"  설교자  {cfg.get('preacher', SERMON_PREACHER)}")
+    print(f"  교회명  {cfg.get('church', CHURCH_NAME)}")
+    if not changed:
+        print("\n바꾸려면:")
+        print("  bash scripts/shorts config --channel https://www.youtube.com/@내채널 \\")
+        print("                            --preacher 홍길동 --church 서울○○교회")
+    else:
+        print("\n확인:  bash scripts/shorts sermons")
+
+
 def cmd_doctor(_args):
     print(f"=== Tier 0 toolchain ({'Windows' if _windows() else sys.platform}) ===")
     try:
@@ -1946,6 +2047,10 @@ def cmd_doctor(_args):
           f"{cl or '— 없으면 Gemini로 넘어간다'}")
 
     fonts = list(Path(FONT_DIR).glob("NotoSansKR-*.ttf")) if Path(FONT_DIR).exists() else []
+    print(f"\n  채널   {CHANNEL}")
+    print(f"  설교자  {SERMON_PREACHER}")
+    print(f"  교회명  {CHURCH_NAME}\n")
+
     print(f"  {'OK  ' if fonts else 'MISS'}  {'korean font':<12} "
           f"{len(fonts)} file(s) in {FONT_DIR}")
 
@@ -1978,35 +2083,123 @@ def cmd_doctor(_args):
 # The Sunday services live in the streams tab, not the videos tab — the videos
 # tab is Wednesday services by other pastors, daily 새벽기도 and the children's
 # ministry. See .claude/context/youtube-channel.md.
-CHANNEL_STREAMS = os.environ.get(
-    "SERMON_CHANNEL", "https://www.youtube.com/@yeshim1126/streams")
+CHANNEL = os.environ.get("SERMON_CHANNEL", "https://www.youtube.com/@yeshim1126")
+CHANNEL_STREAMS = CHANNEL.rstrip("/") + "/streams"
+CHANNEL_VIDEOS = CHANNEL.rstrip("/") + "/videos"
 SERMON_PREACHER = os.environ.get("SERMON_PREACHER", "장선기")
+CHURCH_NAME = os.environ.get("CHURCH_NAME", "방배동 예심교회")
+
+
+def load_church_config() -> None:
+    """Let another church point this at itself without editing any code.
+
+    church.json in the repo root, or the same three environment variables.
+    An explicit environment variable wins, so a one-off run can override the
+    file without changing it.
+    """
+    global CHANNEL, CHANNEL_STREAMS, CHANNEL_VIDEOS, SERMON_PREACHER, CHURCH_NAME
+    f = REPO / "church.json"
+    if f.exists():
+        try:
+            cfg = json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as e:
+            die(f"church.json 을 못 읽었다: {e}")
+        if not os.environ.get("SERMON_CHANNEL") and cfg.get("channel"):
+            CHANNEL = cfg["channel"].rstrip("/")
+            CHANNEL_STREAMS = CHANNEL + "/streams"
+            CHANNEL_VIDEOS = CHANNEL + "/videos"
+        if not os.environ.get("SERMON_PREACHER") and cfg.get("preacher"):
+            SERMON_PREACHER = cfg["preacher"]
+        if not os.environ.get("CHURCH_NAME") and cfg.get("church"):
+            CHURCH_NAME = cfg["church"]
+
+
+def channel_handle() -> str:
+    m = re.search(r"(@[\w.-]+)", CHANNEL)
+    return f"youtube.com/{m.group(1)}" if m else CHANNEL.replace("https://", "")
+
+# Everything this preacher has up, across both tabs:
+#
+#   streams tab — the Sunday service, 60-85 min, the sermon a part of it.
+#   videos tab  — 새벽기도 most days (~35 min, and usually a still image with
+#                 audio over it rather than a camera feed), plus his 수요예배.
+#
+# The videos tab also holds Wednesday services by other pastors and the
+# children's ministry — minors, never to be cut — and requiring his name in the
+# title excludes all of it. What the tab does NOT do is label the kind
+# consistently: 새벽기도 is in some titles and not others, so the kind is
+# settled by weekday and length below, and the guess is printed rather than
+# hidden. It only picks the words on the end card; nothing downstream depends
+# on it, and end-card.json can be corrected by hand.
+KIND_LABEL = {"sunday": "주일예배", "wed": "수요예배", "dawn": "새벽기도"}
+KIND_PREFIX = {"sunday": "SUN", "wed": "WED", "dawn": "DAWN"}
+
+CACHE_DIR = REPO / "office" / ".cache"
+CACHE_TTL = 12 * 3600      # the channel gains a video a day; twice daily is plenty
 
 # Titles date themselves inconsistently: 2026-08-30, 2025-9-28, 2025.8.31.
 TITLE_DATE = re.compile(r"(20\d{2})\s*[.\-/]\s*(\d{1,2})\s*[.\-/]\s*(\d{1,2})")
 TITLE_SCRIPTURE = re.compile(r"\[([^\]]+)\]")
 
 
-def list_sermons(preacher: str = SERMON_PREACHER) -> list[dict]:
-    """Every Sunday service on the channel, newest first. Metadata only —
-    yt-dlp's flat listing costs nothing and downloads nothing."""
-    import datetime as _dt
+def fetch_tab(url: str) -> str:
+    """yt-dlp's flat listing of one channel tab, cached for half a day.
+
+    The videos tab is over a thousand entries and takes minutes to walk, and
+    the channel gains one a day — re-reading it every command is pure waiting.
+    """
+    import time as _t
+    CACHE_DIR.mkdir(parents=True, exist_ok=True)
+    cache = CACHE_DIR / (re.sub(r"[^a-z]+", "-", url.lower()).strip("-") + ".tsv")
+    if cache.exists() and _t.time() - cache.stat().st_mtime < CACHE_TTL:
+        return cache.read_text(encoding="utf-8")
 
     ydl = ytdlp_cmd()
     if not ydl:
         die("yt-dlp not installed — run: bash scripts/setup_render_env.sh")
+    print(f"    채널 목록 읽는 중 — {url.rsplit('/', 1)[-1]} 탭 (처음엔 몇 분 걸린다)",
+          file=sys.stderr)
     p = subprocess.run(
-        [*ydl, "--flat-playlist", "--print", "%(id)s\t%(title)s\t%(duration)s",
-         CHANNEL_STREAMS],
+        [*ydl, "--flat-playlist", "--print", "%(id)s\t%(title)s\t%(duration)s", url],
         capture_output=True, text=True)
     if p.returncode != 0 or not p.stdout.strip():
+        if cache.exists():          # stale beats nothing when the network is down
+            print("    새로 못 읽어 지난 목록을 쓴다", file=sys.stderr)
+            return cache.read_text(encoding="utf-8")
         die("could not list the channel.\n"
             f"  {p.stderr.strip().splitlines()[-1] if p.stderr.strip() else 'no output'}\n"
             "  If this mentions 403 or a tunnel, YouTube is blocked by this\n"
             "  environment's egress policy — see docs/environment-constraints.md.")
+    cache.write_text(p.stdout, encoding="utf-8")
+    return p.stdout
+
+
+def classify(title: str, day, duration: int, from_streams: bool) -> str:
+    """Which service this is. A guess, and only the end card's wording rides
+    on it."""
+    if from_streams:
+        return "sunday"
+    if "새벽기도" in title:
+        return "dawn"
+    if duration >= 3600 or day.weekday() == 6:      # too long for a weekday service
+        return "sunday"
+    if day.weekday() == 2 and duration >= 2400:     # Wednesday, and longer than his dawn hour
+        return "wed"
+    return "dawn"
+
+
+def list_sermons(preacher: str = SERMON_PREACHER,
+                 kind: str = "all") -> list[dict]:
+    """Everything this preacher has up, newest first. Metadata only — yt-dlp's
+    flat listing costs nothing and downloads nothing."""
+    import datetime as _dt
+
+    lines = [(l, True) for l in fetch_tab(CHANNEL_STREAMS).splitlines()]
+    if kind != "sunday":
+        lines += [(l, False) for l in fetch_tab(CHANNEL_VIDEOS).splitlines()]
 
     out = []
-    for line in p.stdout.splitlines():
+    for line, from_streams in lines:
         parts = line.split("\t")
         if len(parts) < 2:
             continue
@@ -2022,23 +2215,36 @@ def list_sermons(preacher: str = SERMON_PREACHER) -> list[dict]:
             d = _dt.date(y, mo, dd)
         except ValueError:
             continue
-        # The channel has mistyped a date before (2026-07-14 was a Tuesday; the
-        # service was the 12th). Trust the weekday, not the typist: snap back to
-        # the Sunday on or before it, and say so.
-        sunday = d - _dt.timedelta(days=(d.weekday() + 1) % 7)
+
+        k = classify(title, d, dur, from_streams)
+        if kind not in ("all", k):
+            continue
+        # A Sunday service not dated a Sunday is a typo — the channel has done
+        # it (2026-07-14 was a Tuesday; the service was the 12th) — so trust the
+        # weekday and say so. Daily services keep their own date.
+        held = (d - _dt.timedelta(days=(d.weekday() + 1) % 7)
+                if k == "sunday" else d)
         sm = TITLE_SCRIPTURE.search(title)
         out.append({
             "id": vid,
             "url": f"https://www.youtube.com/watch?v={vid}",
             "title": title,
+            "kind": k,
+            "kind_label": KIND_LABEL[k],
             "title_date": d.isoformat(),
-            "date": sunday.isoformat(),
-            "date_suspect": sunday != d,
-            "idea_id": f"SUN-{sunday.isoformat()}",
+            "date": held.isoformat(),
+            "date_suspect": held != d,
+            "idea_id": f"{KIND_PREFIX[k]}-{held.isoformat()}",
             "duration": dur,
             "scripture": sm.group(1).strip() if sm else "",
         })
-    return out
+    out.sort(key=lambda x: x["date"], reverse=True)
+    # One id can appear in both tabs; keep the first (streams wins).
+    seen, uniq = set(), []
+    for x in out:
+        if x["id"] not in seen:
+            seen.add(x["id"]); uniq.append(x)
+    return uniq
 
 
 def already_produced() -> set[str]:
@@ -2064,9 +2270,9 @@ VIDEO_ID = re.compile(r"(?:watch\?v=|youtu\.be/|shorts/|live/)([A-Za-z0-9_-]{11}
 def cmd_sermons(args):
     import random
 
-    items = list_sermons(args.preacher)
+    items = list_sermons(args.preacher, args.kind)
     if not items:
-        die("no Sunday services matched — check --preacher or SERMON_CHANNEL")
+        die("아무것도 못 찾았다 — --preacher / --kind / SERMON_CHANNEL 을 보라")
 
     # `--find` exists so a hand-pasted URL still gets its folder named after the
     # service date. Naming it after today is how SUN-2026-09-01 (a Tuesday)
@@ -2098,17 +2304,22 @@ def cmd_sermons(args):
 
     if args.pick:
         if not pool:
-            die("every listed service has already been produced — pass --include-done "
-                "to allow a repeat")
+            die("목록의 모든 편을 이미 만들었다 — 반복하려면 --include-done")
         rng = random.Random(args.seed)
-        s = rng.choice(pool)
+        # Pick the kind first, then within it. He records 새벽기도 most days and
+        # 주일예배 once a week, so drawing straight from the pool would return a
+        # dawn prayer four times out of five.
+        by_kind = {}
+        for x in pool:
+            by_kind.setdefault(x["kind"], []).append(x)
+        s = rng.choice(by_kind[rng.choice(sorted(by_kind))])
         if args.json:
             print(json.dumps(s, ensure_ascii=False))
         else:
             print(s["url"])
             print(s["idea_id"])
         if not args.json:
-            print(f"# {s['title']}", file=sys.stderr)
+            print(f"# [{s['kind_label']}] {s['title']}", file=sys.stderr)
             print(f"# {s['duration'] // 60}분"
                   + (f" · 본문 {s['scripture']}" if s["scripture"] else ""), file=sys.stderr)
             if s["date_suspect"]:
@@ -2120,12 +2331,17 @@ def cmd_sermons(args):
         print(json.dumps(pool[:args.limit], ensure_ascii=False, indent=2))
         return
 
-    print(f"{CHANNEL_STREAMS}  ·  {SERMON_PREACHER} 주일예배 "
-          f"{len(items)}편 중 미제작 {len(fresh)}편\n")
+    counts = {}
+    for x in items:
+        counts[x["kind_label"]] = counts.get(x["kind_label"], 0) + 1
+    print(f"{CHANNEL}  ·  {args.preacher} "
+          + " · ".join(f"{k} {v}편" for k, v in sorted(counts.items()))
+          + f"  (미제작 {len(fresh)}편)\n")
     for s in pool[:args.limit]:
         mark = "  " if s["id"] not in done else "✓ "
         flag = " ⚠날짜" if s["date_suspect"] else ""
-        print(f"{mark}{s['date']}  {s['duration'] // 60:>2}분  {s['id']}{flag}  {s['title']}")
+        print(f"{mark}{s['date']}  {s['kind_label']}  {s['duration'] // 60:>2}분  "
+              f"{s['id']}{flag}  {s['title'][:52]}")
     if not args.include_done:
         print(f"\n제작된 {len(items) - len(fresh)}편은 숨겼다 (--include-done 로 표시).")
     print("\n무작위로 하나 뽑아 그대로 돌리려면:  bash scripts/weekly_run.sh --auto")
@@ -2142,6 +2358,8 @@ def main():
                     help="choose one at random and print its URL and idea-id")
     sm.add_argument("--seed", type=int, default=None, help="make --pick reproducible")
     sm.add_argument("--limit", type=int, default=20)
+    sm.add_argument("--kind", choices=["all", "sunday", "wed", "dawn"], default="all",
+                    help="어떤 예배를 대상으로 할지 (기본: 전부)")
     sm.add_argument("--preacher", default=SERMON_PREACHER,
                     help="title must contain this name; '' for no filter")
     sm.add_argument("--include-done", action="store_true",
@@ -2220,8 +2438,15 @@ def main():
     v = sub.add_parser("validate"); v.add_argument("idea_id")
     v.set_defaults(func=cmd_validate)
 
+    cf = sub.add_parser("config", help="채널·설교자·교회명을 정한다 (다른 교회용)")
+    cf.add_argument("--channel", help="유튜브 채널 주소 (@핸들 주소)")
+    cf.add_argument("--preacher", help="제목에서 찾을 설교자 이름")
+    cf.add_argument("--church", help="엔드카드에 넣을 교회명")
+    cf.set_defaults(func=cmd_config)
+
     sub.add_parser("doctor").set_defaults(func=cmd_doctor)
 
+    load_church_config()
     args = ap.parse_args()
     args.func(args)
 

@@ -156,6 +156,39 @@ print("    ok — edited captions reach the burn-in, timings preserved")
 print("    ok — CP949/BOM/CRLF read, broken files refused")
 PY4
 
+echo "==> a still-image upload is fitted, not cropped"
+python3 - "$DIR" <<'PY5' || { echo "FAIL: still-image handling"; fail=1; }
+import pathlib, subprocess, sys, re
+sys.path.insert(0, "scripts")
+import sermon_shorts as ss
+d = pathlib.Path(sys.argv[1]); still = d / "_still.mp4"
+subprocess.run([*ss.ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
+    "-f", "lavfi", "-i", "color=c=0x14304A:s=1280x720:d=60",
+    "-f", "lavfi", "-i", "sine=f=200:d=60",
+    "-vf", "drawbox=x=100:y=180:w=1080:h=360:color=0x2A5578@1:t=fill",
+    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac",
+    "-shortest", str(still)], check=True)
+assert ss.is_static_source(still), "still image not detected"
+
+moving = d / "_moving.mp4"
+subprocess.run([*ss.ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
+    "-f", "lavfi", "-i", "testsrc2=s=1280x720:d=60:r=30",
+    "-c:v", "libx264", "-pix_fmt", "yuv420p", str(moving)], check=True)
+assert not ss.is_static_source(moving), "moving video called static"
+moving.unlink()
+assert ss.auto_crop(still) == "fit", ss.auto_crop(still)
+
+out = d / "renders" / "_fit_test.mp4"
+subprocess.run([*ss.ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
+    "-t", "2", "-i", str(still), "-vf", ss.crop_filter("fit"),
+    "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out)], check=True)
+p = subprocess.run([*ss.ffmpeg_cmd(), "-hide_banner", "-i", str(out)],
+                   capture_output=True, text=True)
+assert "1080x1920" in p.stderr, p.stderr[-300:]
+still.unlink(); out.unlink()
+print("    ok — still image detected and fitted to 1080x1920")
+PY5
+
 echo "==> end card is built from the channel's own video title"
 python3 - "$DIR" <<'PY3' || { echo "FAIL: end card"; fail=1; }
 import pathlib, sys
@@ -170,14 +203,20 @@ for idea, title, want_ref, want_title in [
     ("SUN-2024-06-23",
      "2024.06.23 택하신 곳으로 나아가야 하는 이유 신명기 12:1-8 장선기목사",
      "신명기 12:1-8", "택하신 곳으로 나아가야 하는 이유"),
+    ("DAWN-2026-09-02",
+     "2026-9-2[시119:17-32]/새벽기도/장선기 목사",
+     "시편 119:17-32", ""),
 ]:
     c = ss.end_card_from_title(idea, title)
     assert c["scripture"] == want_ref, c
     assert c["title"] == want_title, c
     assert c["preacher"].endswith("장선기 목사"), c
     assert c["church"] == "방배동 예심교회", c
-    assert c["date"].endswith("주일예배"), c
+    assert c["date"].endswith(("주일예배", "새벽기도", "수요예배")), c
 
+c = ss.end_card_from_title(
+    "SUN-2024-06-23",
+    "2024.06.23 택하신 곳으로 나아가야 하는 이유 신명기 12:1-8 장선기목사")
 out = pathlib.Path(sys.argv[1]) / "renders" / "_endcard_test.mp4"
 ss.build_end_card(c, out)
 ass = out.with_suffix(".ass").read_text(encoding="utf-8")
