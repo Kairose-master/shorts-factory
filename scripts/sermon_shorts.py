@@ -72,6 +72,17 @@ SUBTITLE_COLOUR = "&H0000FFFF"   # #FFFF00
 # 1920-tall video is not ours to use. Captions are lifted clear of it.
 SUBTITLE_MARGIN_V = 480
 
+# The on-screen title. Chars-per-line is derived from the size rather than set
+# beside it: Korean glyphs are close to one em wide, so a title that fits at one
+# size overflows the frame at the next one up if the two drift apart.
+TITLE_SIZE = int(os.environ.get("TITLE_SIZE", 92))
+TITLE_SIDE_MARGIN = 60
+TITLE_MAX_LINES = 3
+
+
+def title_per_line(size: int) -> int:
+    return max(5, (OUT_W - 2 * TITLE_SIDE_MARGIN) // size)
+
 # Usable caption width is 1080 minus the side margins; at 64px a Korean glyph
 # is about as wide as it is tall, so ~14 fit. Lines longer than this get wrapped
 # again by libass, which quietly doubles the line count.
@@ -967,7 +978,8 @@ def split_for_display(seg: dict, per_line: int = SUB_PER_LINE,
 
 def write_ass(segs: list[dict], path: Path, offset: float = 0.0,
               font_size: int = 64, margin_v: int = SUBTITLE_MARGIN_V,
-              title: str = "", duration: float = 0.0):
+              title: str = "", duration: float = 0.0,
+              title_size: int = TITLE_SIZE):
     """Burn-in subtitles as ASS, with an optional standing title card.
 
     SRT carries no resolution, so libass falls back to a 384x288 script and
@@ -990,7 +1002,7 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Default,{FONT_NAME},{font_size},{SUBTITLE_COLOUR},&H000000FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,5,2,2,70,70,{margin_v},1
-Style: Title,{FONT_NAME},72,&H00FFFFFF,&H000000FF,&H00202020,&H00000000,1,0,0,0,100,100,0,0,1,6,0,8,60,60,110,1
+Style: Title,{FONT_NAME},{title_size},&H00FFFFFF,&H000000FF,&H00202020,&H00000000,1,0,0,0,100,100,0,0,1,6,0,8,{TITLE_SIDE_MARGIN},{TITLE_SIDE_MARGIN},110,1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -1002,7 +1014,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     rows = []
     if title and duration > 0:
         rows.append(f"Dialogue: 1,{ass_ts(0)},{ass_ts(duration)},Title,,0,0,0,,"
-                    f"{wrap_korean(title, per_line=13, max_lines=3)}")
+                    f"{wrap_korean(title, per_line=title_per_line(title_size), max_lines=TITLE_MAX_LINES)}")
     for s in cues:
         start, end = s["start"] - offset, s["end"] - offset
         if end <= 0:
@@ -1049,21 +1061,54 @@ def caption_override(d: Path, clip_id: str) -> Path:
 
 
 def show_captions(d: Path, clips: list[dict]) -> None:
-    """Print what the caption files say right now, straight off disk."""
+    """Answer "I edited the subtitle and the video did not change".
+
+    There are only a few places that can break, and each leaves a trace on
+    disk: no override file, an override that does not parse, or an mp4 older
+    than the edit — meaning the render simply has not been run since.
+    """
+    import time
+
     any_found = False
     for c in clips:
-        f = caption_override(d, c["id"])
+        cid = c["id"]
+        f, mp4 = caption_override(d, cid), d / "renders" / f"{cid}.mp4"
+        print(f"\n  {cid}")
         if not f.exists():
+            print(f"    자막 파일 없음 — captions 를 --show 없이 한 번 돌려라")
             continue
         any_found = True
-        cues = read_srt(f)
-        print(f"\n  {c['id']}  ({len(cues)}줄)  {rel(f)}")
-        for cue in cues[:4]:
-            print(f"    {hhmmss(cue['start'])}  {cue['text'][:44]}")
-        if len(cues) > 4:
-            print(f"    … {len(cues) - 4}줄 더")
+        try:
+            cues = read_srt(f)
+        except Exception as e:  # noqa: BLE001 — report, do not raise
+            print(f"    ✗ 읽을 수 없다: {str(e)[:70]}")
+            continue
+        if not cues:
+            print(f"    ✗ 줄을 하나도 못 읽었다 — 시간 줄이 깨졌거나 "
+                  f"편집기가 다른 형식(RTF 등)으로 저장했다")
+            print(f"       {rel(f)}")
+            continue
+
+        edited = f.stat().st_mtime
+        print(f"    {rel(f)}  ({len(cues)}줄, "
+              f"{time.strftime('%m-%d %H:%M', time.localtime(edited))} 저장)")
+        for cue in cues[:3]:
+            print(f"      {hhmmss(cue['start'])}  {cue['text'][:42]}")
+        if len(cues) > 3:
+            print(f"      … {len(cues) - 3}줄 더")
+
+        if not mp4.exists():
+            print("    → 아직 렌더한 적이 없다")
+        elif mp4.stat().st_mtime < edited:
+            print(f"    → ✗ 영상이 자막보다 오래됐다 "
+                  f"({time.strftime('%m-%d %H:%M', time.localtime(mp4.stat().st_mtime))} 렌더). "
+                  f"고친 뒤 렌더를 안 돌린 것이다:")
+            print(f"         bash scripts/shorts render {d.name} --only {cid}")
+        else:
+            print("    → 영상이 이 자막보다 나중에 만들어졌다 (반영됨)")
+
     if not any_found:
-        print("\n아직 꺼낸 자막 파일이 없다 — --show 없이 한 번 돌려라.")
+        print("\n아직 꺼낸 자막 파일이 없다 — captions 를 --show 없이 한 번 돌려라.")
 
 
 def cmd_captions(args):
@@ -1079,7 +1124,8 @@ def cmd_captions(args):
     out = d / "captions"
     if args.show:
         show_captions(d, clips)
-        print("\n위 내용이 고친 것과 다르면 편집기에서 저장이 안 된 것이다.")
+        print("\n위 내용이 고친 것과 다르면 편집기에서 저장이 안 된 것이다.\n"
+              "(맥 텍스트편집기: command+S · 메모장: Ctrl+S)")
         return
     out.mkdir(exist_ok=True)
 
@@ -1788,7 +1834,8 @@ def cmd_render(args):
         ass = sub_dir / f"{cid}.ass"
         write_ass(window, ass, offset=sub_offset,
                   title=c.get("title", "") if c.get("show_title", True) else "",
-                  duration=end - start)
+                  duration=end - start,
+                  title_size=int(c.get("title_size", TITLE_SIZE)))
         write_srt(window, sub_dir / f"{cid}.srt", offset=sub_offset)  # for YouTube upload
 
         out = out_dir / f"{cid}.mp4"
