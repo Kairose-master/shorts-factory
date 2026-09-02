@@ -86,6 +86,19 @@ for c in clip-01 clip-02; do
   echo "    ok — $c $dim"
 done
 
+echo "==> render leaves the captions folder ready to edit"
+python3 - "$DIR" <<'PY6' || { echo "FAIL: captions not exported by render"; fail=1; }
+import pathlib, sys
+d = pathlib.Path(sys.argv[1])
+cap = d / "captions"
+assert cap.is_dir(), "render did not create captions/"
+srts = sorted(f.name for f in cap.glob("*.srt"))
+assert srts, f"no caption files in {cap}"
+note = list(cap.glob("*.txt"))
+assert note, "no note explaining what the folder is for"
+print(f"    ok — captions/ ready after render ({len(srts)} files + note)")
+PY6
+
 echo "==> no subtitle text may be dropped"
 python3 - "$DIR" <<'PY2' || { echo "FAIL: subtitle text was lost in wrapping"; fail=1; }
 import json, sys, pathlib
@@ -151,6 +164,9 @@ for name, data in (("noTime", b"1\n\xea\xb8\x80\xec\x9e\x90\xeb\xa7\x8c\n\n"),
     except SystemExit:
         pass
     f.unlink()
+# render now creates this folder itself, so only clear what this test added.
+for leftover in cap.glob("*"):
+    leftover.unlink()
 cap.rmdir()
 print("    ok — edited captions reach the burn-in, timings preserved")
 print("    ok — CP949/BOM/CRLF read, broken files refused")
