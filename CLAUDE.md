@@ -6,15 +6,15 @@ standing content operations:
 - the **Handsel Short-Form Growth Office** (`office/`)
 - the **예심교회 Sermon Shorts Office** (`sermon-office/`)
 
-61 Agent Skills are installed under `.claude/skills/`:
+62 Agent Skills are installed under `.claude/skills/`:
 
 - **43 upstream skills** pulled from five repositories and left **byte-identical
   to upstream** so `npx skills update` keeps working. These are the ones tracked
   in `skills-lock.json`.
-- **9 local skills** authored here and deliberately *not* in the lock file:
+- **10 local skills** authored here and deliberately *not* in the lock file:
   `handsel-growth-office`, `sermon-shorts-office`, `openmontage`, `voicebox`,
-  `penpot`, `airtable`, `aicron`, `zapier-mcp` — plus `shorts-factory` itself.
-  `npx skills update` will not touch them.
+  `penpot`, `airtable`, `aicron`, `open-generative-ai`, `zapier-mcp` — plus
+  `shorts-factory` itself. `npx skills update` will not touch them.
 - **1 vendored upstream skill**, `last30days` (MIT,
   [mvanhorn/last30days-skill](https://github.com/mvanhorn/last30days-skill)),
   copied byte-identical but not in the lock file. **It needs Python 3.12+**,
