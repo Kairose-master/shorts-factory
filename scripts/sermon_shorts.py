@@ -691,6 +691,87 @@ def read_text_any(path: Path) -> str:
     return raw.decode("utf-8", errors="replace").replace("\r\n", "\n")
 
 
+def _plain(text: str) -> str:
+    """Text stripped to what a comparison should care about."""
+    return re.sub(r"[^0-9A-Za-z가-힣]+", "", text)
+
+
+def _similar(a: str, b: str) -> float:
+    from difflib import SequenceMatcher
+    a, b = _plain(a), _plain(b)
+    if not a or not b:
+        return 0.0
+    return SequenceMatcher(None, a, b).ratio()
+
+
+def caption_offset(cues: list[dict], segs: list[dict], clip_start: float,
+                   clip_end: float) -> tuple[float, float] | None:
+    """How far an edited caption file has drifted from the recording.
+
+    Answers the question a wrong-looking video actually poses — "are these
+    the right words at the wrong time?" — by finding, for a handful of cues,
+    the transcript segment that says the same thing, and reading off the gap.
+    A file made for a different cut of the same sermon lands on a consistent
+    non-zero gap; a file that simply had its words corrected lands on zero.
+
+    Returns (seconds of drift, how well the words matched), or None when the
+    words do not match the transcript well enough anywhere to tell.
+    """
+    if not cues or not segs:
+        return None
+    # A few cues spread across the clip, not the first few: an opening line is
+    # often short ("그렇습니다") and matches half the sermon.
+    picks = [c for c in cues if len(_plain(c["text"])) >= 8]
+    if len(picks) > 6:
+        step = len(picks) / 6
+        picks = [picks[int(i * step)] for i in range(6)]
+    near = [g for g in segs
+            if g["end"] > clip_start - 900 and g["start"] < clip_end + 900] or segs
+
+    gaps, scores = [], []
+    for c in picks:
+        best = max(near, key=lambda g: _similar(c["text"], g["text"]))
+        r = _similar(c["text"], best["text"])
+        if r < 0.55:
+            continue
+        gaps.append(best["start"] - (clip_start + c["start"]))
+        scores.append(r)
+    if len(gaps) < 2:
+        return None
+    gaps.sort()
+    mid = gaps[len(gaps) // 2] if len(gaps) % 2 else (gaps[len(gaps) // 2 - 1]
+                                                     + gaps[len(gaps) // 2]) / 2
+    return mid, sum(scores) / len(scores)
+
+
+def caption_sync(d: Path, clip: dict, segs: list[dict]) -> tuple[str, str]:
+    """One clip's caption file judged against the transcript.
+
+    Returns (verdict, one line for a person). Verdicts: ok · drift · unknown ·
+    none.
+    """
+    f = caption_override(d, clip["id"])
+    if not f.exists():
+        return "none", "자막 파일 없음"
+    try:
+        cues = read_srt(f)
+    except Exception as e:  # noqa: BLE001 — a report must not raise
+        return "unknown", f"읽을 수 없다: {str(e)[:60]}"
+    start, end = parse_time(clip["start"]), parse_time(clip["end"])
+    hit = caption_offset(cues, segs, start, end)
+    if hit is None:
+        return "unknown", ("전사본과 대조가 안 된다 — 자막을 많이 고쳤거나 "
+                           "전사본이 그 사이 바뀌었다")
+    gap, score = hit
+    if abs(gap) <= 1.0:
+        return "ok", f"영상과 맞는다 (어긋남 {gap:+.1f}초, 일치도 {score:.0%})"
+    # gap is where the speech really is minus where this file puts it, so a
+    # negative gap means the subtitle arrives after the words were spoken.
+    where = "빨리" if gap > 0 else "늦게"
+    return "drift", (f"✗ {abs(gap):.0f}초 {where} 나온다 — 이 자막은 다른 구간에 "
+                     f"맞춰진 파일이다 (일치도 {score:.0%})")
+
+
 def check_caption_file(path: Path, clip_seconds: float) -> list[dict]:
     """Read an edited caption file, refusing one that would render wrong.
 
@@ -1106,7 +1187,7 @@ def caption_override(d: Path, clip_id: str) -> Path:
     return d / "captions" / f"{clip_id}.srt"
 
 
-def show_captions(d: Path, clips: list[dict]) -> None:
+def show_captions(d: Path, clips: list[dict], segs: list[dict] | None = None) -> None:
     """Answer "I edited the subtitle and the video did not change".
 
     There are only a few places that can break, and each leaves a trace on
@@ -1115,6 +1196,7 @@ def show_captions(d: Path, clips: list[dict]) -> None:
     """
     import time
 
+    segs = segs or []
     any_found = False
     for c in clips:
         cid = c["id"]
@@ -1143,6 +1225,15 @@ def show_captions(d: Path, clips: list[dict]) -> None:
         if len(cues) > 3:
             print(f"      … {len(cues) - 3}줄 더")
 
+        clip = next((x for x in clips if x["id"] == cid), None)
+        if clip is not None and segs:
+            verdict, line = caption_sync(d, clip, segs)
+            print(f"    {line}")
+            if verdict == "drift":
+                print(f"      이 구간에 맞춰 다시 만들려면:")
+                print(f"        rm {rel(f)}")
+                print(f"        bash scripts/shorts captions {d.name}")
+
         if not mp4.exists():
             print("    → 아직 렌더한 적이 없다")
         elif mp4.stat().st_mtime < edited:
@@ -1165,11 +1256,48 @@ CAPTIONS_README = """이 폴더의 파일을 고치면 자막이 바뀝니다.
 4. 터미널에서:  bash scripts/shorts render {idea} --only clip-01
 
 여기 파일이 있으면 렌더가 이것을 씁니다.
-다시 전사해도, 구간을 다시 골라도 고친 자막은 그대로 남습니다.
+다시 전사해도 고친 자막은 그대로 남습니다.
+다만 구간(시작·끝 시각)을 바꾸면 시간이 안 맞게 되므로 새 구간에 맞춰
+다시 만들고, 고쳤던 파일은 clip-01.srt.이전 으로 남겨 둡니다.
 """
 
 
-def export_captions(d: Path, idea_id: str, force: bool = False) -> list[str]:
+def caption_stamps(d: Path) -> dict:
+    """What window each caption file was written for.
+
+    Kept beside the files because the failure it prevents is invisible
+    otherwise: change a clip's start in clips.json, re-render, and the old
+    subtitle file — which render prefers over the transcript, on purpose —
+    gets burned onto a cut it no longer matches.
+    """
+    f = d / "captions" / ".window.json"
+    if not f.exists():
+        return {}
+    try:
+        return json.loads(f.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001 — a broken stamp file is not fatal
+        return {}
+
+
+def write_caption_stamp(d: Path, cid: str, start: float, end: float,
+                        path: Path) -> None:
+    import hashlib
+    st = caption_stamps(d)
+    st[cid] = {"start": round(start, 3), "end": round(end, 3),
+               "sha": hashlib.sha256(path.read_bytes()).hexdigest()[:16]}
+    (d / "captions" / ".window.json").write_text(
+        json.dumps(st, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def caption_edited(stamp: dict, path: Path) -> bool:
+    import hashlib
+    if not stamp or "sha" not in stamp:
+        return True
+    return hashlib.sha256(path.read_bytes()).hexdigest()[:16] != stamp["sha"]
+
+
+def export_captions(d: Path, idea_id: str, force: bool = False,
+                    repair_only: bool = False) -> list[str]:
     """Put each clip's subtitles where a person can edit them.
 
     Written by render as well as by the captions command: the folder has to be
@@ -1189,23 +1317,56 @@ def export_captions(d: Path, idea_id: str, force: bool = False) -> list[str]:
     (out / "여기서 자막을 고칩니다.txt").write_text(
         CAPTIONS_README.format(idea=idea_id), encoding="utf-8")
 
-    made = []
+    stamps = caption_stamps(d)
+    made, moved = [], []
     for c in clips:
         cid, dst = c["id"], caption_override(d, c["id"])
-        if dst.exists() and not force:
-            continue
         start, end = parse_time(c["start"]), parse_time(c["end"])
+        stamp = stamps.get(cid)
+        if repair_only and not dst.exists():
+            # Called from render, whose job here is to repair a caption file
+            # that no longer matches its clip — not to create one and thereby
+            # take the clip off the transcript path before it is even burned.
+            continue
+        if dst.exists() and not force:
+            # A file written for this exact cut stays untouched — that is the
+            # whole point of the folder.
+            if stamp and (abs(stamp.get("start", -1) - start) < 0.05
+                          and abs(stamp.get("end", -1) - end) < 0.05):
+                continue
+            # No stamp at all means the file predates this check. Leave it —
+            # `captions --show` reports whether it still matches.
+            if not stamp:
+                continue
+            # The clip moved. The words on disk are timed to the old cut, so
+            # burning them now puts the subtitles out of sync with the video.
+            if caption_edited(stamp, dst):
+                keep = dst.with_name(f"{cid}.srt.이전")
+                shutil.move(str(dst), str(keep))
+                moved.append((cid, keep))
+
         rendered = d / "renders" / "subs" / f"{cid}.srt"
-        if rendered.exists():
+        # renders/subs is a copy of the last burn. It only describes the
+        # current cut if clips.json has not been edited since.
+        fresh_burn = (rendered.exists()
+                      and rendered.stat().st_mtime >= clips_f.stat().st_mtime)
+        if fresh_burn and not stamp:
             shutil.copyfile(rendered, dst)      # exactly what was burned in
         elif segs:
             window = [{"start": max(x["start"], start), "end": min(x["end"], end),
                        "text": x["text"]}
                       for x in segs if x["end"] > start and x["start"] < end]
             write_srt(window, dst, offset=start)
+        elif rendered.exists():
+            shutil.copyfile(rendered, dst)
         else:
             continue
+        write_caption_stamp(d, cid, start, end, dst)
         made.append(cid)
+
+    for cid, keep in moved:
+        print(f"    ⚠ {cid} 구간이 바뀌어 자막을 새 구간에 맞춰 다시 만들었다.")
+        print(f"      고쳤던 파일은 {rel(keep)} 에 남겨 뒀다 — 필요하면 글자만 옮겨 온다.")
 
     # macOS refuses to open a quarantined file without a malware dialog. These
     # are plain text files this script wrote seconds ago on this machine.
@@ -1228,7 +1389,7 @@ def cmd_captions(args):
     segs = json.loads((d / "transcript.json").read_text(encoding="utf-8"))["segments"]
     out = d / "captions"
     if args.show:
-        show_captions(d, clips)
+        show_captions(d, clips, segs)
         print("\n위 내용이 고친 것과 다르면 편집기에서 저장이 안 된 것이다.\n"
               "(맥 텍스트편집기: command+S · 메모장: Ctrl+S)")
         return
@@ -2069,6 +2230,11 @@ def cmd_render(args):
         end_card = build_end_card(cfg, out_dir / "_endcard.mp4")
         print(f"==> 엔드카드 {END_CARD_SECONDS:.0f}초 — {cfg.get('title','')}")
 
+    # Before anything is burned: a clip whose window moved since its caption
+    # file was written gets that file remade for the new window. Only that —
+    # clips without a caption file stay on the transcript path below.
+    export_captions(d, args.idea_id, repair_only=True)
+
     made, used_override = [], 0
     for c in clips:
         cid = c["id"]
@@ -2085,6 +2251,14 @@ def cmd_render(args):
             print(f"    {cid} 자막 수정본 사용 — {rel(override)}")
             window, sub_offset = check_caption_file(override, end - start), 0.0
             used_override += 1
+            # …but the words being right does not make the times right. A file
+            # kept from an earlier cut of the same sermon burns cleanly and is
+            # wrong only on screen, so say it here, before the burn.
+            verdict, line = caption_sync(d, c, segs)
+            if verdict == "drift":
+                print(f"      {line}")
+                print(f"      → 이 구간에 맞춰 다시 만들려면: "
+                      f"rm {rel(override)} 후 다시 render")
             # Show what is actually on disk. TextEdit keeps edits in the window
             # until you save, so "I changed it and nothing happened" is almost
             # always an unsaved file — this makes that visible before the burn.

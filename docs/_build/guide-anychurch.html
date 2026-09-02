@@ -429,6 +429,20 @@ h4{font-family:"IBM Plex Sans KR",sans-serif;font-size:.82rem;font-weight:600;
     <p><code class="inl">--only</code> 로 한 편만 다시 구우면 1~3분이면 끝납니다.</p>
   </div>
 
+  <div class="stack">
+    <h3>글자는 맞는데 나오는 때가 어긋난다</h3>
+    <p>말이 끝난 뒤에 자막이 뜨거나 미리 떠 버리면, 그 자막 파일이 <strong>다른 구간에 맞춰 만들어진 것</strong>입니다. 구간을 바꾼 뒤 옛 자막이 남아 있을 때 생깁니다.</p>
+    <div class="cmd"><code>bash scripts/shorts captions SUN-2026-08-30 --show</code><button class="copy" type="button">복사</button></div>
+    <div class="out"><code>  clip-01
+    ✗ 25초 늦게 나온다 — 이 자막은 다른 구간에 맞춰진 파일이다
+  clip-02
+    영상과 맞는다 (어긋남 +0.1초, 일치도 96%)</code></div>
+    <p>어긋났다고 나오면 그 자막을 지우고 지금 구간에 맞춰 다시 꺼냅니다.</p>
+    <div class="cmd"><code>rm office/production/SUN-2026-08-30/captions/clip-01.srt</code><button class="copy" type="button">복사</button></div>
+    <div class="cmd"><code>bash scripts/shorts captions SUN-2026-08-30</code><button class="copy" type="button">복사</button></div>
+    <p>구간을 옮기면 자동으로 다시 맞춰 주고, 고쳐 둔 파일은 <code class="inl">clip-01.srt.이전</code> 으로 남깁니다 — 글자만 옮겨 오면 됩니다.</p>
+  </div>
+
   <h2>그 밖에</h2>
   <div class="tblwrap"><table><thead><tr><th>고치고 싶은 것</th><th>방법</th></tr></thead><tbody><tr><td>구간의 초를 조정</td><td>clips.json 의 start / end 를 고치고 render</td></tr><tr><td>다른 구간으로 다시</td><td>shorts select &lt;id&gt; --count 3 → render</td></tr><tr><td>설교 구간을 잘못 잡음</td><td>transcript.json 지우고 transcribe &lt;id&gt; --sermon-window 0:45:00 1:20:00</td></tr><tr><td>화면이 치우쳐 잘림</td><td>clips.json 의 crop 을 직접 준다 — 아래 참조</td></tr><tr><td>엔드카드 내용</td><td>end-card.json 을 고치고 render</td></tr><tr><td>엔드카드 빼기</td><td>render &lt;id&gt; --no-end-card</td></tr><tr><td>제목 크기</td><td>TITLE_SIZE=110 을 앞에 붙여 render (기본 92)</td></tr><tr><td>폴더 창 안 뜨게</td><td>render 뒤에 --no-open. 늘 그러려면 SHORTS_NO_OPEN=1</td></tr><tr><td>용량이 찰 때</td><td>source/ 폴더만 지운다 — 아래 참조</td></tr></tbody></table></div>
 </section>

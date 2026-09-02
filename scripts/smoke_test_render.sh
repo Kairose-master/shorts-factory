@@ -99,6 +99,33 @@ assert note, "no note explaining what the folder is for"
 print(f"    ok — captions/ ready after render ({len(srts)} files + note)")
 PY6
 
+echo "==> a caption file kept from an older cut is caught, not burned"
+python3 - "$DIR" <<'PY6B' || { echo "FAIL: caption drift not detected"; fail=1; }
+import json, pathlib, shutil, sys
+sys.path.insert(0, "scripts")
+import sermon_shorts as ss
+
+d = pathlib.Path(sys.argv[1])
+clips = json.loads((d / "clips.json").read_text(encoding="utf-8"))
+segs = json.loads((d / "transcript.json").read_text(encoding="utf-8"))["segments"]
+c = clips[0]
+f = ss.caption_override(d, c["id"])
+keep = f.read_bytes()
+
+verdict, line = ss.caption_sync(d, c, segs)
+assert verdict in ("ok", "unknown"), f"a freshly written caption read as {verdict}: {line}"
+
+# The failure this guards: the clip is re-cut, the old caption file stays, and
+# the render burns words timed to a window that no longer exists.
+start = ss.parse_time(c["start"])
+cues = ss.read_srt(f)
+ss.write_srt([{**x, "start": x["start"] + 25, "end": x["end"] + 25} for x in cues], f)
+verdict, line = ss.caption_sync(d, c, segs)
+f.write_bytes(keep)
+assert verdict == "drift", f"25s of drift went unnoticed: {verdict} {line}"
+print(f"    ok — drifted subtitles are reported ({line[:44]}…)")
+PY6B
+
 echo "==> no subtitle text may be dropped"
 python3 - "$DIR" <<'PY2' || { echo "FAIL: subtitle text was lost in wrapping"; fail=1; }
 import json, sys, pathlib
