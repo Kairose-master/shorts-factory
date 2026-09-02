@@ -249,6 +249,14 @@ def fetch_via_apify(url: str, dest: Path, quality: str = "480") -> Path:
     return dest
 
 
+def note_fetched(idea_id: str, url: str) -> None:
+    """Record the video the moment it is downloaded, not when it is finished —
+    a run abandoned halfway should still not be picked again by accident."""
+    m = re.search(r"(?:watch\?v=|youtu\.be/)([A-Za-z0-9_-]{11})", url)
+    if m:
+        record_produced(m.group(1), idea_id, source_title(idea_dir(idea_id)))
+
+
 def cmd_fetch(args):
     d = idea_dir(args.idea_id)
     src = d / "source"
@@ -267,6 +275,7 @@ def cmd_fetch(args):
             json.dumps({"idea_id": args.idea_id, "source_url": args.url,
                         "fetched_via": "apify", "quality": args.quality},
                        ensure_ascii=False, indent=2), encoding="utf-8")
+        note_fetched(args.idea_id, args.url)
         print(f"==> source in {src.relative_to(REPO)}")
         return
 
@@ -296,6 +305,7 @@ def cmd_fetch(args):
         json.dumps({"idea_id": args.idea_id, "source_url": args.url}, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    note_fetched(args.idea_id, args.url)
     print(f"==> source in {src.relative_to(REPO)}")
 
 
@@ -2334,20 +2344,71 @@ def list_sermons(preacher: str = SERMON_PREACHER,
     return uniq
 
 
-def already_produced() -> set[str]:
-    """Video ids that some production folder already refers to — meta.json for
-    a scripted fetch, qc.md or plan.md for the ones cut by hand."""
-    seen: set[str] = set()
+# The record of what has been made must outlive the folders. A finished
+# production is 300 MB of source video, and the obvious way to reclaim that is
+# to delete the folder — which, when the folder *was* the record, quietly made
+# that sermon eligible to be picked again.
+LEDGER = REPO / "office" / "produced.json"
+
+
+def scan_folders_for_ids() -> dict[str, dict]:
+    """Video ids mentioned by any production folder, with what is known of them."""
+    found: dict[str, dict] = {}
     if not PROD.exists():
-        return seen
-    for p in PROD.rglob("*"):
-        if p.is_file() and p.suffix in (".json", ".md") and p.stat().st_size < 2_000_000:
+        return found
+    for d in sorted(PROD.iterdir()):
+        if not d.is_dir():
+            continue
+        for f in list(d.glob("*.json")) + list(d.glob("*.md")):
+            if f.stat().st_size > 2_000_000:
+                continue
             try:
-                seen.update(re.findall(r"(?:watch\?v=|youtu\.be/)([A-Za-z0-9_-]{11})",
-                                       p.read_text(encoding="utf-8", errors="ignore")))
+                text = f.read_text(encoding="utf-8", errors="ignore")
             except OSError:
-                pass
-    return seen
+                continue
+            for vid in re.findall(r"(?:watch\?v=|youtu\.be/)([A-Za-z0-9_-]{11})", text):
+                found.setdefault(vid, {"video_id": vid, "idea_id": d.name})
+    return found
+
+
+def load_ledger() -> dict[str, dict]:
+    if not LEDGER.exists():
+        return {}
+    try:
+        return {e["video_id"]: e for e in json.loads(LEDGER.read_text(encoding="utf-8"))
+                if e.get("video_id")}
+    except (json.JSONDecodeError, TypeError, KeyError):
+        print(f"    {rel(LEDGER)} 를 못 읽었다 — 폴더만 보고 판단한다")
+        return {}
+
+
+def record_produced(video_id: str, idea_id: str, title: str = "") -> None:
+    """Write one entry into the ledger. Idempotent."""
+    led = load_ledger()
+    if video_id in led and led[video_id].get("title"):
+        return
+    import datetime as _dt
+    led[video_id] = {"video_id": video_id, "idea_id": idea_id, "title": title,
+                     "recorded": _dt.date.today().isoformat()}
+    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    LEDGER.write_text(
+        json.dumps(sorted(led.values(), key=lambda e: e["idea_id"]),
+                   ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def already_produced() -> set[str]:
+    """Every video already made, whether or not its folder still exists.
+
+    Folders are still scanned, so a checkout that predates the ledger keeps
+    working, and anything found there is folded into the ledger on the way
+    past — deleting the folder afterwards is then safe.
+    """
+    from_folders = scan_folders_for_ids()
+    led = load_ledger()
+    for vid, info in from_folders.items():
+        if vid not in led:
+            record_produced(vid, info["idea_id"])
+    return set(led) | set(from_folders)
 
 
 VIDEO_ID = re.compile(r"(?:watch\?v=|youtu\.be/|shorts/|live/)([A-Za-z0-9_-]{11})"
