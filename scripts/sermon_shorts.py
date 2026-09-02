@@ -1048,6 +1048,24 @@ def caption_override(d: Path, clip_id: str) -> Path:
     return d / "captions" / f"{clip_id}.srt"
 
 
+def show_captions(d: Path, clips: list[dict]) -> None:
+    """Print what the caption files say right now, straight off disk."""
+    any_found = False
+    for c in clips:
+        f = caption_override(d, c["id"])
+        if not f.exists():
+            continue
+        any_found = True
+        cues = read_srt(f)
+        print(f"\n  {c['id']}  ({len(cues)}줄)  {rel(f)}")
+        for cue in cues[:4]:
+            print(f"    {hhmmss(cue['start'])}  {cue['text'][:44]}")
+        if len(cues) > 4:
+            print(f"    … {len(cues) - 4}줄 더")
+    if not any_found:
+        print("\n아직 꺼낸 자막 파일이 없다 — --show 없이 한 번 돌려라.")
+
+
 def cmd_captions(args):
     """Put each clip's subtitles somewhere a person can edit them.
 
@@ -1059,6 +1077,10 @@ def cmd_captions(args):
     clips = json.loads((d / "clips.json").read_text(encoding="utf-8"))
     segs = json.loads((d / "transcript.json").read_text(encoding="utf-8"))["segments"]
     out = d / "captions"
+    if args.show:
+        show_captions(d, clips)
+        print("\n위 내용이 고친 것과 다르면 편집기에서 저장이 안 된 것이다.")
+        return
     out.mkdir(exist_ok=True)
 
     for c in clips:
@@ -1704,6 +1726,17 @@ def cmd_render(args):
     out_dir.mkdir(exist_ok=True)
     sub_dir = out_dir / "subs"
     sub_dir.mkdir(exist_ok=True)
+    # These are outputs, rewritten on every render. Someone who finds them in
+    # Finder before finding captions/ will edit them and wonder why nothing
+    # changed, so the folder says so itself.
+    (sub_dir / "이_폴더는_고쳐도_소용없습니다.txt").write_text(
+        "이 폴더의 파일은 렌더할 때마다 새로 만들어집니다.\n"
+        "여기서 자막을 고치면 다음 렌더에서 그대로 덮어써집니다.\n\n"
+        "자막 글자를 고치려면:\n"
+        "  1. bash scripts/shorts captions <idea-id>\n"
+        "  2. captions/ 폴더의 srt 를 고친다\n"
+        "  3. bash scripts/shorts render <idea-id>\n",
+        encoding="utf-8")
 
     # Built once and appended to every clip — each short is discovered on its
     # own, so each one needs to say where it came from.
@@ -1716,7 +1749,7 @@ def cmd_render(args):
         end_card = build_end_card(cfg, out_dir / "_endcard.mp4")
         print(f"==> 엔드카드 {END_CARD_SECONDS:.0f}초 — {cfg.get('title','')}")
 
-    made = []
+    made, used_override = [], 0
     for c in clips:
         cid = c["id"]
         if args.only and cid != args.only:
@@ -1729,8 +1762,13 @@ def cmd_render(args):
         if override.exists():
             # Someone corrected these words by hand. Nothing regenerates over
             # that — not retiming, not a fresh transcript.
-            print(f"    {cid} 자막 수정본 사용 — {override.relative_to(REPO)}")
+            print(f"    {cid} 자막 수정본 사용 — {rel(override)}")
             window, sub_offset = check_caption_file(override, end - start), 0.0
+            used_override += 1
+            # Show what is actually on disk. TextEdit keeps edits in the window
+            # until you save, so "I changed it and nothing happened" is almost
+            # always an unsaved file — this makes that visible before the burn.
+            print(f"      첫 자막: {window[0]['text'][:34]}")
         else:
             if args.retime:
                 print(f"    {cid} 자막 재타이밍 (1 paid call)")
@@ -1828,8 +1866,15 @@ def cmd_render(args):
         pkg.append("")
     (d / "publish-package.md").write_text("\n".join(pkg), encoding="utf-8")
 
-    print(f"\n==> {len(made)} clip(s) in {out_dir.relative_to(REPO)}")
-    print(f"==> 승인용 패키지: {(d / 'publish-package.md').relative_to(REPO)}")
+    print(f"\n==> {len(made)} clip(s) in {rel(out_dir)}")
+    print(f"==> 승인용 패키지: {rel(d / 'publish-package.md')}")
+    if used_override:
+        print(f"==> 자막은 {rel(d / 'captions')} 의 수정본을 썼다 "
+              f"({used_override}개 클립)")
+    else:
+        print("==> 자막은 전사본 그대로다. 글자를 고치려면 "
+              "renders/subs/ 가 아니라 아래를 쓴다:")
+        print(f"      bash scripts/shorts captions {args.idea_id}")
     print("==> 업로드하지 않았다. 사람이 확인하고 직접 올린다.")
 
 
@@ -2113,6 +2158,8 @@ def main():
     cap.add_argument("idea_id")
     cap.add_argument("--force", action="store_true",
                      help="이미 고쳐 둔 파일을 원본으로 되돌린다")
+    cap.add_argument("--show", action="store_true",
+                     help="지금 파일에 뭐라고 적혀 있는지 그대로 보여준다")
     cap.set_defaults(func=cmd_captions)
 
     fx = sub.add_parser("fix", help="잘못 들린 말을 전사본과 자막에서 한 번에 바꾼다")
