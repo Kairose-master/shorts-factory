@@ -184,15 +184,30 @@ subprocess.run([*ss.ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
     "-vf", "drawbox=x=100:y=180:w=1080:h=360:color=0x2A5578@1:t=fill",
     "-c:v", "libx264", "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac",
     "-shortest", str(still)], check=True)
-assert ss.is_static_source(still), "still image not detected"
-
-moving = d / "_moving.mp4"
-subprocess.run([*ss.ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
-    "-f", "lavfi", "-i", "testsrc2=s=1280x720:d=60:r=30",
-    "-c:v", "libx264", "-pix_fmt", "yuv420p", str(moving)], check=True)
-assert not ss.is_static_source(moving), "moving video called static"
-moving.unlink()
+assert ss.motion_box(still) == "still", ss.motion_box(still)
 assert ss.auto_crop(still) == "fit", ss.auto_crop(still)
+
+# A subject off to one side must be found there, not assumed centre: this
+# channel's layout has moved between years, and a fixed offset cropped the
+# preacher half out of frame.
+side = d / "_side.mp4"
+subprocess.run([*ss.ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
+    "-f", "lavfi", "-i", "color=c=0xEDE0F0:s=1280x720:d=40:r=25",
+    "-f", "lavfi", "-i", "color=c=0xFFFFFF:s=1280x720:d=40:r=25",
+    "-filter_complex",
+    "[0:v]drawbox=x=330:y=0:w=950:h=720:color=0xE8D5EE@1:t=fill[bg];"
+    "[1:v]crop=180:300:0:0[man];"
+    "[bg][man]overlay=x='120+18*sin(t*2.2)':y='410+8*sin(t*1.3)'",
+    "-c:v", "libx264", "-pix_fmt", "yuv420p", "-t", "40", str(side)], check=True)
+box = ss.motion_box(side)
+assert isinstance(box, tuple), f"subject not found: {box}"
+cx = (box[0] + box[2]) / 2
+assert 0.08 < cx < 0.32, f"subject placed at {cx:.2f}, expected the left quarter"
+crop = ss.auto_crop(side)
+assert isinstance(crop, dict), crop
+cw = int(crop["h"] * 9 / 16)
+assert crop["x"] <= 300 <= crop["x"] + cw, f"crop {crop} misses the subject"
+side.unlink()
 
 out = d / "renders" / "_fit_test.mp4"
 subprocess.run([*ss.ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
@@ -202,7 +217,7 @@ p = subprocess.run([*ss.ffmpeg_cmd(), "-hide_banner", "-i", str(out)],
                    capture_output=True, text=True)
 assert "1080x1920" in p.stderr, p.stderr[-300:]
 still.unlink(); out.unlink()
-print("    ok — still image detected and fitted to 1080x1920")
+print("    ok — still fitted, off-centre subject found and framed")
 PY5
 
 echo "==> end card is built from the channel's own video title"

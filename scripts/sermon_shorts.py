@@ -1460,7 +1460,12 @@ def cmd_select(args):
     if picked is None:
         die("구간 선별 실패:\n" + "\n".join(errs))
 
-    crop = auto_crop(find_source(d))
+    # The pulpit moves between Sunday services, not within one, so this is
+    # measured once per video — over the sermon window, because during the
+    # worship set the camera is on the congregation and the band.
+    src = find_source(d)
+    print("==> 화면에서 설교자 위치 찾는 중")
+    crop = auto_crop(src, win[0], win[1])
     ec = ensure_end_card(d, args.idea_id) or (d / "end-card.json")
     meta = json.loads(ec.read_text(encoding="utf-8")) if ec.exists() else {}
     desc_tail = (f"{meta.get('church','')} 주일예배 | {meta.get('scripture','')} | "
@@ -1809,67 +1814,148 @@ def build_end_card(cfg: dict, out: Path, seconds: float = END_CARD_SECONDS) -> P
 LIVE_AREA_RIGHT = 0.634    # sidebar starts here (x=812 of 1280)
 TOP_BAND = 0.243           # caption band height (y=175 of 720)
 
+# Where the preacher is, found by looking rather than assumed. The channel's
+# layout is not one layout: the 2026 streams put him centre-left with a graphic
+# sidebar on the right, while the 2025 ones key him into the left quarter over
+# a full-frame illustration. A crop tuned to either puts him half out of frame
+# in the other, so his position is measured per video.
+#
+# What separates him from the set is that he moves. Sampling frames across the
+# sermon and summing the differences leaves a bright patch where the preacher
+# is and near-nothing on backdrop, captions and graphics.
+MOTION_W, MOTION_H = 96, 54     # coarse enough to be cheap, fine enough to place him
+MOTION_POINTS = 8               # moments sampled across the sermon
+MOTION_GAP = 0.4                # seconds between the two frames of a pair
+# Measured, not guessed: a still image with audio over it scores exactly 0,
+# while the quietest real footage here (a 360p sermon, one preacher at a
+# lectern) scores 2597 per pair. 300 sits an order of magnitude below that and
+# well above any encoder shimmer.
+STILL_ENERGY = 300
+MAX_TOP_TRIM = 0.30             # never throw away more than this much of the height
+HEADROOM = 0.12                 # keep this much of the frame above him
 
-def auto_crop(video: Path):
-    """Work out the 9:16 window from the frame size, using this channel's layout.
 
-    A still-image upload gets "fit" instead: there is no preacher to centre on,
-    and cropping would discard most of the one picture in the file.
+def _gray_frame(video: Path, at: float) -> bytes | None:
+    p = subprocess.run(
+        [*ffmpeg_cmd(), "-hide_banner", "-loglevel", "error", "-ss", f"{at:.2f}",
+         "-i", str(video), "-frames:v", "1",
+         "-vf", f"scale={MOTION_W}:{MOTION_H},format=gray", "-f", "rawvideo", "-"],
+        capture_output=True)
+    return p.stdout if len(p.stdout) == MOTION_W * MOTION_H else None
+
+
+def _span(profile: list[int], rel: float = 0.25) -> tuple[int, int] | None:
+    """The run around the profile's peak that stays above `rel` of it.
+
+    Taking min and max of everything above a threshold lets one stray bright
+    cell — a caption flickering, a light — stretch the box across the frame.
+    Growing outward from the peak instead keeps the subject's own extent.
     """
-    if is_static_source(video):
-        print("    정지 이미지 영상 — 잘라내지 않고 9:16에 맞춘다")
-        return "fit"
+    peak = max(profile)
+    if peak <= 0:
+        return None
+    i = profile.index(peak)
+    cut = peak * rel
+    lo = i
+    while lo > 0 and profile[lo - 1] >= cut:
+        lo -= 1
+    hi = i
+    while hi < len(profile) - 1 and profile[hi + 1] >= cut:
+        hi += 1
+    return lo, hi
+
+
+def motion_box(video: Path, start: float = 0.0, end: float | None = None):
+    """Bounding box of the moving subject, in fractions of the frame.
+
+    Frames are compared in pairs a fraction of a second apart, not minutes:
+    over minutes a camera cut changes the whole picture and everything reads as
+    motion, while within half a second only the preacher moves and the set,
+    captions and graphics hold still.
+
+    Returns (x0, y0, x1, y1); "still" when the picture never moves at all — a
+    thumbnail with audio over it, which 새벽기도 is posted as — or None when it
+    moves but nothing in it looks like a person.
+    """
+    try:
+        total = probe_duration(video)
+    except Exception:  # noqa: BLE001
+        return None
+    a, b = max(0.0, start), min(end if end else total, total)
+    if b - a < 20:
+        a, b = 0.0, total
+
+    cols = [0] * MOTION_W
+    rows = [0] * MOTION_H
+    pairs = 0
+    for i in range(MOTION_POINTS):
+        t = a + (b - a - MOTION_GAP) * i / max(MOTION_POINTS - 1, 1)
+        f, g = _gray_frame(video, t), _gray_frame(video, t + MOTION_GAP)
+        if not f or not g:
+            continue
+        pairs += 1
+        for j in range(MOTION_W * MOTION_H):
+            d = abs(f[j] - g[j])
+            if d > 8:                       # ignore compression shimmer
+                cols[j % MOTION_W] += d
+                rows[j // MOTION_W] += d
+    if pairs < 3:
+        return None
+    energy = sum(cols) / pairs
+    if energy < STILL_ENERGY:                # a still image with audio over it
+        return "still"
+    if max(cols) < 200 * pairs:              # moving, but nothing subject-like
+        return None
+
+    cx, cy = _span(cols), _span(rows)
+    if not cx or not cy:
+        return None
+    return (cx[0] / MOTION_W, cy[0] / MOTION_H,
+            (cx[1] + 1) / MOTION_W, (cy[1] + 1) / MOTION_H)
+
+
+def frame_size(video: Path) -> tuple[int, int]:
     p = subprocess.run([*ffmpeg_cmd(), "-hide_banner", "-i", str(video)],
                        capture_output=True, text=True)
     m = re.search(r"(\d{3,4})x(\d{3,4})", p.stderr)
     if not m:
         die(f"could not read frame size of {video}")
-    w, h = int(m.group(1)), int(m.group(2))
+    return int(m.group(1)), int(m.group(2))
 
-    top = int(h * TOP_BAND)
+
+def auto_crop(video: Path, start: float = 0.0, end: float | None = None):
+    """Put the preacher in the middle of a 9:16 window.
+
+    Three outcomes, decided by what the picture actually does:
+      a preacher who moves  → crop centred on him
+      a still image + audio → the whole picture fitted into 9:16 (새벽기도)
+      neither               → the middle of the frame
+    """
+    w, h = frame_size(video)
+    box = motion_box(video, start, end)
+
+    if box == "still":
+        print("    정지 이미지 영상 — 잘라내지 않고 9:16에 맞춘다")
+        return "fit"
+    if box is None:
+        # Someone is there but nothing reads as a person. The middle of the
+        # picture is the neutral choice — it cannot put a subject half out of
+        # frame the way a guessed offset can.
+        print("    움직이는 사람을 못 찾았다 — 화면 중앙을 쓴다")
+        return "center"
+
+    x0, y0, x1, y1 = box
+    # Trim dead air above him, but never so much that the shot becomes a
+    # close-up: a keyed-in speaker sits low in the frame and would otherwise be
+    # cropped to a sliver.
+    top = int(min(max(0.0, y0 - HEADROOM), MAX_TOP_TRIM) * h)
     ch = h - top
     cw = int(ch * 9 / 16)
-    live_centre = int(w * LIVE_AREA_RIGHT) // 2
-    x = max(0, min(live_centre - cw // 2, w - cw))
+    centre = int((x0 + x1) / 2 * w)
+    x = max(0, min(centre - cw // 2, w - cw))
+    print(f"    설교자 위치 x {x0:.2f}–{x1:.2f} · y {y0:.2f}–{y1:.2f} "
+          f"→ 크롭 x={x} y={top} h={ch}")
     return {"x": x, "y": top, "h": ch}
-
-
-def _thumb(video: Path, at: float) -> bytes:
-    """One frame as a 32x18 greyscale raw — small enough to compare by hand,
-    big enough that a moving preacher moves the numbers."""
-    p = subprocess.run(
-        [*ffmpeg_cmd(), "-hide_banner", "-loglevel", "error", "-ss", f"{at:.1f}",
-         "-i", str(video), "-frames:v", "1",
-         "-vf", "scale=32:18,format=gray", "-f", "rawvideo", "-"],
-        capture_output=True)
-    return p.stdout
-
-
-def is_static_source(video: Path, threshold: float = 2.5) -> bool:
-    """True when the file is a still image with audio over it.
-
-    새벽기도 is posted that way — one thumbnail, no camera. A 9:16 crop of a
-    still throws away two thirds of the only picture in the file, so this
-    decides the treatment, and it is measured because the title does not say.
-
-    Three frames spread across the recording, compared pixel by pixel: a
-    camera on a preacher moves far more than a compression wobble does.
-    ffmpeg's own freezedetect was tried first and proved unreliable here —
-    it reported a lectern shot as frozen and a solid colour as moving.
-    """
-    try:
-        dur = probe_duration(video)
-    except Exception:  # noqa: BLE001 — cannot measure, so do not claim static
-        return False
-    frames = [f for f in (_thumb(video, dur * at) for at in (0.25, 0.5, 0.75))
-              if len(f) == 32 * 18]
-    if len(frames) < 2:
-        return False
-    worst = 0.0
-    for i in range(len(frames) - 1):
-        a, b = frames[i], frames[i + 1]
-        worst = max(worst, sum(abs(x - y) for x, y in zip(a, b)) / len(a))
-    return worst < threshold
 
 
 # A still image gets the whole frame, not a slice of it: the picture is scaled
@@ -1983,6 +2069,9 @@ def cmd_render(args):
                 for s in src_segs if s["end"] > start and s["start"] < end
             ]
             sub_offset = start
+        if "crop" not in c:
+            print(f"    {cid} 크롭 없음 — 이 구간에서 화면을 분석한다")
+            c["crop"] = auto_crop(video, start, end)
         speed = float(c.get("speed", DEFAULT_SPEED))
         if not 0.5 <= speed <= 2.0:
             die(f"{cid}: speed {speed} is outside atempo's 0.5–2.0 range")
