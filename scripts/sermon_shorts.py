@@ -1077,10 +1077,23 @@ def cmd_captions(args):
             write_srt(window, dst, offset=start)
         print(f"    {cid}  {dst.relative_to(REPO)}")
 
-    print(f"\n이 파일들의 글자를 고치고 다시 렌더하면 고친 대로 나온다:\n"
-          f"  open -e {(out / 'clip-01.srt')}\n"
-          f"  python3 scripts/sermon_shorts.py render {args.idea_id}\n"
-          f"시간(-->)은 건드리지 말 것. 글자만 고친다.")
+    # macOS refuses to open a file carrying the quarantine flag without a
+    # "cannot verify this isn't malware" dialog. These are plain text files
+    # this script just wrote on this machine; the flag is inherited noise.
+    if sys.platform == "darwin":
+        for srt in out.glob("*.srt"):
+            subprocess.run(["xattr", "-d", "com.apple.quarantine", str(srt)],
+                           capture_output=True)
+
+    first = out / "clip-01.srt"
+    opener = ("open -e" if sys.platform == "darwin"
+              else "notepad" if _windows() else "xdg-open")
+    print(f"\n글자를 고치고 다시 렌더하면 고친 대로 나온다:\n"
+          f"  {opener} {rel(first)}\n"
+          f"  bash scripts/shorts render {args.idea_id}\n"
+          f"\n시간(-->)은 건드리지 말 것. 맨 아랫줄 글자만 고친다.")
+    if sys.platform == "darwin":
+        print("파인더에서 더블클릭하면 macOS가 경고를 띄운다. 위 open -e 로 연다.")
 
 
 def cmd_fix(args):
@@ -1130,7 +1143,7 @@ def cmd_fix(args):
             print(f"기억했다 — 앞으로 전사할 때마다 자동으로 고친다 "
                   f"({LEXICON.relative_to(REPO)})")
 
-    print(f"다시 렌더: python3 scripts/sermon_shorts.py render {args.idea_id}")
+    print(f"다시 렌더: bash scripts/shorts render {args.idea_id}")
 
 
 # ----------------------------------------------------------------- clips ---
