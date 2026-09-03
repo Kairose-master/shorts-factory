@@ -292,6 +292,18 @@ footer{margin-top:3.2rem;padding-top:1.4rem;border-top:1px solid var(--rule);
       <div class="cmd mac"><code>echo 'export WHISPER_MODEL="$HOME/whisper.cpp/models/ggml-large-v3.bin"' &gt;&gt; ~/.zshrc</code><button class="copy" type="button">복사</button></div>
       <div class="note"><p class="lbl">터미널을 완전히 닫고 새로 연다</p><p><code class="inl">command</code> + <code class="inl">Q</code> 로 끄고 다시 연다. 안 그러면 whisper가 안 잡힌다.</p></div>
   </div></div>
+  <div class="step"><div class="num">6-1</div><div class="body">
+      <h3>자막이 되는 ffmpeg인지 확인 · 2분</h3>
+      <div class="note"><p class="lbl">이 확인을 건너뛰면 마지막 렌더에서만 막힌다</p><p>Homebrew의 기본 <code class="inl">ffmpeg</code> 는 자막을 입히는 부품(libass)을 <strong>빼고</strong> 오는 경우가 있다. 다른 건 다 정상인데 렌더에서만 <code class="inl">No such filter: 'subtitles'</code> 로 죽는다.</p></div>
+      <div class="cmd mac"><code>ffmpeg -filters | grep subtitles</code><button class="copy" type="button">복사</button></div>
+      <p><code class="inl">subtitles</code> 가 들어간 줄이 <strong>하나라도 나오면 통과다.</strong> 다음으로 넘어간다.</p>
+      <p>아무것도 안 나오면 자막이 되는 쪽을 깐다. 15~20분 걸린다.</p>
+      <div class="cmd mac"><code>brew install ffmpeg-full</code><button class="copy" type="button">복사</button></div>
+      <div class="cmd mac"><code>ffmpeg -filters | grep subtitles</code><button class="copy" type="button">복사</button></div>
+      <p>그래도 안 나오면 옛 ffmpeg에 링크가 걸려 있는 것이다.</p>
+      <div class="cmd mac"><code>brew link --overwrite ffmpeg-full</code><button class="copy" type="button">복사</button></div>
+      <div class="tip"><p class="lbl">brew reinstall ffmpeg 는 소용없다</p><p>같은 것이 다시 깔린다. <code class="inl">-full</code> 이 붙은 쪽이 자막 부품을 갖고 있다.</p></div>
+  </div></div>
   <div class="step"><div class="num">7</div><div class="body">
       <h3>확인</h3>
       <div class="cmd mac"><code>cd ~/shorts-factory</code><button class="copy" type="button">복사</button></div>
@@ -300,10 +312,12 @@ footer{margin-top:3.2rem;padding-top:1.4rem;border-top:1px solid var(--rule);
       <div class="out"><code>  OK    ffmpeg       /opt/homebrew/bin/ffmpeg
   OK    yt-dlp       /opt/homebrew/bin/yt-dlp
   OK    whisper      /Users/…/whisper.cpp/build/bin/whisper-cli
+  OK    subtitles    자막을 입힐 수 있다 (libass)
   OK    claude       /opt/homebrew/bin/claude
   OK    korean font  2 file(s) in …/assets/fonts
   OK    whisper model /Users/…/ggml-large-v3.bin
   n/a   GEMINI_API_KEY not needed — whisper handles transcription</code></div>
+      <p><strong><code class="inl">subtitles</code> 줄이 <code class="inl">MISS</code> 면 렌더가 안 된다.</strong> ffmpeg는 깔렸는데 자막 부품이 빠진 경우다 — 위 6-1번으로 돌아간다.</p>
       <p><code class="inl">GEMINI_API_KEY</code> 가 <code class="inl">n/a</code> 인 것은 <strong>정상이다.</strong> whisper가 있으면 안 쓴다.</p>
       <p>마지막으로 실제 렌더가 되는지 본다. 인터넷 없이 30초, 무료.</p>
       <div class="cmd mac"><code>bash scripts/smoke_test_render.sh</code><button class="copy" type="button">복사</button></div>
@@ -575,6 +589,7 @@ footer{margin-top:3.2rem;padding-top:1.4rem;border-top:1px solid var(--rule);
         <tr><td>URL이 아니다: '#'</td><td>설명까지 복사됨</td><td>회색 상자 안만 복사</td></tr>
         <tr><td>인자를 받지 않는다</td><td>위와 같음</td><td>명령만 친다</td></tr>
         <tr><td>전사할 수단이 없다</td><td>whisper 미설치</td><td>1부 6번</td></tr>
+        <tr><td>No such filter: 'subtitles'</td><td>자막 부품 없는 ffmpeg</td><td>brew install ffmpeg-full — 1부 6-1번</td></tr>
         <tr><td>GEMINI_API_KEY not set</td><td>옛날 코드</td><td>git pull</td></tr>
         <tr><td>20분간 아무것도 안 나옴</td><td>전사 중</td><td>정상. 기다린다</td></tr>
         <tr><td>No space left</td><td>디스크 부족</td><td>오래된 renders/ 지우기</td></tr>

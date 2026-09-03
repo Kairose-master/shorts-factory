@@ -301,6 +301,7 @@ $</code></div>
   OK    ffmpeg       C:\Users\…\imageio_ffmpeg\binaries\ffmpeg-win-x86_64.exe
   OK    yt-dlp       C:\…\python.exe -m yt_dlp
   OK    whisper      C:\Users\…\whisper\whisper-cli.exe
+  OK    subtitles    자막을 입힐 수 있다 (libass)
   OK    claude       C:\…\claude
   OK    korean font  2 file(s) in …\assets\fonts
   OK    whisper model C:\Users\…\ggml-large-v3.bin
@@ -309,6 +310,7 @@ $</code></div>
     <li><code class="inl">ffmpeg</code> 경로가 길고 이상해 보여도 정상이다. 파이썬 안에 들어 있는 것을 쓴다</li>
     <li><code class="inl">yt-dlp</code> 가 <code class="inl">python.exe -m yt_dlp</code> 로 나오는 것도 정상이다</li>
     <li><code class="inl">GEMINI_API_KEY</code> 가 <code class="inl">n/a</code> 인 것도 정상이다 — whisper가 있으면 안 쓴다</li>
+    <li><strong><code class="inl">subtitles</code> 가 <code class="inl">MISS</code> 면 렌더가 안 된다</strong> — 자막을 입히는 부품이 빠진 ffmpeg다. 5번을 다시 돌리면 바꿔 준다</li>
   </ul>
       <p>마지막으로 실제 렌더가 되는지 본다. 인터넷 없이 30초, 무료.</p>
       <div class="cmd"><code>bash scripts/smoke_test_render.sh</code><button class="copy" type="button">복사</button></div>
@@ -580,6 +582,7 @@ $</code></div>
         <tr><td>URL이 아니다: '#'</td><td>설명까지 복사됨</td><td>회색 상자 안만 복사</td></tr>
         <tr><td>인자를 받지 않는다</td><td>위와 같음</td><td>명령만 친다</td></tr>
         <tr><td>전사할 수단이 없다</td><td>whisper 미설치</td><td>1부 5번</td></tr>
+        <tr><td>No such filter: 'subtitles'</td><td>자막 부품 없는 ffmpeg</td><td>setup_render_env.sh 를 다시 돌린다</td></tr>
         <tr><td>GEMINI_API_KEY not set</td><td>옛날 코드</td><td>git pull</td></tr>
         <tr><td>자막이 네모(□□□)로 나옴</td><td>폰트 문제</td><td>assets/fonts 에 ttf 2개 확인</td></tr>
         <tr><td>30분간 아무것도 안 나옴</td><td>전사 중</td><td>정상. 기다린다</td></tr>
