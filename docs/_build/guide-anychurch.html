@@ -181,8 +181,16 @@ footer{margin-top:3.2rem;padding-top:1.4rem;border-top:1px solid var(--rule);
   text-transform:uppercase;color:var(--accent-ink);font-weight:600}
 .card-legend .v{font-size:.89rem;color:var(--ink-soft)}
 
-.osgrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-@media(max-width:640px){.osgrid{grid-template-columns:1fr}}
+.osgrid{display:flex;flex-direction:column;gap:1.4rem}
+.oscard .osnum{display:grid;grid-template-columns:1.7rem 1fr;gap:.5rem .8rem;align-items:start}
+.oscard .osnum + .osnum{margin-top:.9rem;padding-top:.9rem;border-top:1px solid var(--rule-soft)}
+.oscard .osnum .k{font-family:"IBM Plex Mono",monospace;font-size:.72rem;font-weight:600;
+  color:var(--accent-ink);background:var(--accent-wash);border-radius:999px;
+  width:1.55rem;height:1.55rem;display:grid;place-items:center;margin-top:.1rem}
+.oscard .osnum .b{display:flex;flex-direction:column;gap:.55rem;min-width:0}
+.oscard .osnum h4{font-family:"IBM Plex Sans KR",sans-serif;font-size:.98rem;font-weight:600;
+  color:var(--ink);margin:0}
+.oscard .osnum p{font-size:.9rem;color:var(--ink-soft)}
 .oscard{background:var(--surface);border:1px solid var(--rule);border-radius:12px;
   padding:1.2rem;display:flex;flex-direction:column;gap:.7rem;box-shadow:var(--shadow)}
 .oscard .tag{align-self:flex-start;font-family:"IBM Plex Mono",monospace;font-size:.68rem;
@@ -272,26 +280,8 @@ h4{font-family:"IBM Plex Sans KR",sans-serif;font-size:.82rem;font-weight:600;
   <div class="part"><span class="n">1부 · 설치</span><span class="when">딱 한 번 · 40분~1시간</span></div>
   <p>여기만 운영체제에 따라 갈립니다. <strong>본인 것만</strong> 하시면 됩니다.</p>
 
-  <div class="osgrid">
-    <div class="oscard">
-      <span class="tag tag-mac">macOS</span>
-      <ol>
-        <li><code class="inl">command</code>+<code class="inl">스페이스</code> → <strong>터미널</strong> 실행</li>
-        <li><code class="inl">xcode-select --install</code></li>
-        <li>Homebrew 설치 (<a href="https://brew.sh">brew.sh</a>)</li>
-        <li><code class="inl">brew install node</code></li>
-      </ol>
-    </div>
-    <div class="oscard">
-      <span class="tag tag-win">Windows</span>
-      <ol>
-        <li><a href="https://git-scm.com/download/win">Git for Windows</a> 설치 → <strong>Git Bash</strong> 실행</li>
-        <li><a href="https://www.python.org/downloads/windows/">Python</a> 설치 — <strong>Add python.exe to PATH 체크</strong></li>
-        <li><a href="https://nodejs.org">Node.js LTS</a> 설치</li>
-        <li>Git Bash를 닫고 새로 연다</li>
-      </ol>
-    </div>
-  </div>
+  <div class="osgrid"><div class="oscard"><span class="tag tag-mac">macOS</span><div class="osnum"><span class="k">1</span><div class="b"><h4>터미널 열기</h4><p><code class="inl">command</code> + <code class="inl">스페이스</code> 를 누르고 <strong>터미널</strong> 이라고 친 뒤 <code class="inl">Enter</code>. 검은 창이 뜨고 <code class="inl">%</code> 로 끝나는 줄이 보입니다. 여기에 명령을 붙여넣습니다.</p><p>아래 회색 상자의 <strong>복사</strong>를 누르고 창에 붙여넣은 뒤 <code class="inl">Enter</code>. 한 줄씩 차례로 합니다.</p></div></div><div class="osnum"><span class="k">2</span><div class="b"><h4>개발자 도구 · 5~10분</h4><div class="cmd"><code>xcode-select --install</code><button class="copy" type="button">복사</button></div><p>창이 뜨면 <strong>설치</strong>를 누릅니다. 이미 깔려 있으면 <code class="inl">command line tools are already installed</code> 라고 나오는데 그것도 정상입니다. 다음으로 갑니다.</p><div class="cmd"><code>git --version</code><button class="copy" type="button">복사</button></div><p>버전이 나오면 됐습니다.</p></div></div><div class="osnum"><span class="k">3</span><div class="b"><h4>Homebrew · 10~20분</h4><p>맥에 프로그램을 깔아 주는 도구입니다. 아래 한 줄이 전부입니다.</p><div class="cmd"><code>/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</code><button class="copy" type="button">복사</button></div><p>맥 로그인 암호를 물으면 칩니다. <strong>화면에 아무 글자도 안 나오는 것이 정상입니다.</strong> 다 치고 <code class="inl">Enter</code>. 중간에 한 번 더 <code class="inl">Enter</code> 를 누르라고 합니다.</p><p>끝나면 <strong>다음 두 줄을 반드시 실행합니다.</strong> 이걸 빼면 <code class="inl">brew: command not found</code> 가 납니다.</p><div class="cmd"><code>echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' &gt;&gt; ~/.zprofile</code><button class="copy" type="button">복사</button></div><div class="cmd"><code>eval "$(/opt/homebrew/bin/brew shellenv)"</code><button class="copy" type="button">복사</button></div><div class="cmd"><code>brew --version</code><button class="copy" type="button">복사</button></div><p>버전이 나오면 됐습니다.</p></div></div><div class="osnum"><span class="k">4</span><div class="b"><h4>Node.js · 3~5분</h4><div class="cmd"><code>brew install node</code><button class="copy" type="button">복사</button></div><div class="cmd"><code>node --version</code><button class="copy" type="button">복사</button></div><p><code class="inl">v22.x.x</code> 처럼 나오면 됐습니다. 여기까지가 맥에서만 하는 부분입니다.</p></div></div></div><div class="oscard"><span class="tag tag-win">Windows</span><div class="osnum"><span class="k">1</span><div class="b"><h4>Git for Windows · 5분</h4><p><a href="https://git-scm.com/download/win">git-scm.com/download/win</a> 에서 받아 실행합니다. 선택지가 많이 나오는데 <strong>전부 기본값 그대로 Next</strong> 면 됩니다.</p><p>딱 하나만 봅니다 — <code class="inl">Adjusting your PATH environment</code> 화면에서 <strong>“Git from the command line and also from 3rd-party software”</strong> 가 선택돼 있어야 합니다. 그게 기본값입니다.</p><p>설치가 끝나면 <strong>시작 메뉴에서 Git Bash 를 찾아 엽니다.</strong> 검은 창이 뜨고 <code class="inl">$</code> 로 끝나는 줄이 보입니다. 앞으로 모든 작업을 여기서 합니다 — <strong>명령 프롬프트나 PowerShell 이 아닙니다.</strong></p><div class="out"><code>사용자@PC MINGW64 ~
+$</code></div><p>붙여넣기는 <code class="inl">Ctrl</code>+<code class="inl">V</code> 또는 마우스 오른쪽 버튼 → Paste 입니다.</p><div class="cmd"><code>git --version</code><button class="copy" type="button">복사</button></div></div></div><div class="osnum"><span class="k">2</span><div class="b"><h4>Python · 5분</h4><p><a href="https://www.python.org/downloads/windows/">python.org/downloads/windows</a> 에서 최신 3.x 를 받습니다.</p><p><strong>설치 첫 화면 맨 아래 <code class="inl">Add python.exe to PATH</code> 를 반드시 체크합니다.</strong> 이걸 놓치면 뒤가 전부 안 됩니다. 체크하고 <code class="inl">Install Now</code>.</p><p>Git Bash를 <strong>닫고 새로 연 뒤</strong> 확인합니다.</p><div class="cmd"><code>python --version</code><button class="copy" type="button">복사</button></div><p>아무 반응이 없으면 PATH 체크를 놓친 것입니다. 다시 설치하면서 그 칸을 체크합니다.</p></div></div><div class="osnum"><span class="k">3</span><div class="b"><h4>Node.js LTS · 5분</h4><p><a href="https://nodejs.org">nodejs.org</a> 에서 <strong>LTS</strong> 라고 적힌 쪽을 받아 설치합니다. 전부 기본값 Next.</p><p>Git Bash를 <strong>닫고 새로 연 뒤</strong> 확인합니다.</p><div class="cmd"><code>node --version</code><button class="copy" type="button">복사</button></div></div></div><div class="osnum"><span class="k">4</span><div class="b"><h4>창을 새로 열기</h4><p>Git Bash 를 <strong>완전히 닫고 다시 엽니다.</strong> 방금 깐 것들이 이 창에 잡히게 하려면 필요합니다. 여기까지가 윈도우에서만 하는 부분입니다.</p></div></div></div></div>
 
   <p>여기서부터는 <strong>맥·윈도우가 완전히 같습니다.</strong> 명령이 하나의 형태(<code class="inl">bash scripts/shorts …</code>)로 통일돼 있어서 그렇습니다.</p>
 
