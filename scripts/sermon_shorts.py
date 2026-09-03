@@ -115,20 +115,68 @@ def _exe(name: str) -> str | None:
     return shutil.which(name) or (shutil.which(f"{name}.exe") if _windows() else None)
 
 
+def has_subtitles_filter(exe: str) -> bool:
+    """Whether this ffmpeg can burn subtitles at all.
+
+    The filter comes from libass, which a build can be compiled without — and
+    an ffmpeg without it looks completely healthy until the first render dies
+    with "No such filter: \'subtitles\'". Every burn in this pipeline needs it,
+    so it is worth one cheap probe.
+    """
+    try:
+        out = subprocess.run([exe, "-hide_banner", "-filters"],
+                             capture_output=True, text=True, timeout=20).stdout
+    except Exception:              # noqa: BLE001 — a broken binary is not usable
+        return False
+    return any(ln.split()[1:2] == ["subtitles"] for ln in out.splitlines() if ln.strip())
+
+
+def ffmpeg_candidates() -> list[str]:
+    """Every ffmpeg on this machine, best guess first."""
+    out = []
+    for c in (_exe("ffmpeg"), os.environ.get("FFMPEG_BIN")):
+        if c and c not in out:
+            out.append(c)
+    try:                           # the wheel ships a static build of its own
+        import imageio_ffmpeg
+        c = imageio_ffmpeg.get_ffmpeg_exe()
+        if c and c not in out:
+            out.append(c)
+    except Exception:              # noqa: BLE001 — not installed, that is fine
+        pass
+    return out
+
+
+NO_LIBASS = ("이 ffmpeg 는 자막을 입힐 수 없다 — libass 없이 빌드된 것이다.\n"
+             "  맥:     brew reinstall ffmpeg\n"
+             "  윈도우:  scripts/setup_render_env.sh 를 다시 돌린다\n"
+             "  확인:   ffmpeg -filters | grep subtitles  (한 줄이라도 나와야 한다)")
+
+
 def ffmpeg_cmd() -> list[str]:
-    """ffmpeg, wherever it actually is."""
+    """ffmpeg, wherever it actually is — and one that can burn subtitles.
+
+    A machine can have two: the one on PATH and the static build inside the
+    imageio-ffmpeg wheel. If the first cannot burn subtitles the second often
+    can, so prefer a usable one over the nearest one.
+    """
     if "ffmpeg" in _TOOLS:
         return _TOOLS["ffmpeg"]
-    found = _exe("ffmpeg") or os.environ.get("FFMPEG_BIN")
+    found = ffmpeg_candidates()
     if not found:
-        try:                       # the wheel ships a static build of its own
-            import imageio_ffmpeg
-            found = imageio_ffmpeg.get_ffmpeg_exe()
-        except Exception:          # noqa: BLE001 — not installed, say so plainly
-            die("ffmpeg을 찾지 못했다 — bash scripts/setup_render_env.sh 를 돌려라\n"
-                "  (윈도우면 Git Bash 에서 돌린다)")
-    _TOOLS["ffmpeg"] = [found]
+        die("ffmpeg을 찾지 못했다 — bash scripts/setup_render_env.sh 를 돌려라\n"
+            "  (윈도우면 Git Bash 에서 돌린다)")
+    best = next((c for c in found if has_subtitles_filter(c)), None)
+    if best and best != found[0]:
+        print(f"    {found[0]} 는 자막을 못 입혀서 {best} 를 쓴다")
+    _TOOLS["ffmpeg"] = [best or found[0]]
     return _TOOLS["ffmpeg"]
+
+
+def require_subtitles_filter() -> None:
+    """Refuse to start a render that is going to die on the first clip."""
+    if not has_subtitles_filter(ffmpeg_cmd()[0]):
+        die(NO_LIBASS)
 
 
 def ytdlp_cmd() -> list[str] | None:
@@ -2260,6 +2308,10 @@ def cmd_render(args):
         end_card = build_end_card(cfg, out_dir / "_endcard.mp4")
         print(f"==> 엔드카드 {END_CARD_SECONDS:.0f}초 — {cfg.get('title','')}")
 
+    # Nothing below works without libass, and finding that out on clip-01
+    # after the crop analysis has run is a waste of everyone's minute.
+    require_subtitles_filter()
+
     # Before anything is burned: a clip whose window moved since its caption
     # file was written gets that file remade for the new window. Only that —
     # clips without a caption file stay on the transcript path below.
@@ -2521,6 +2573,11 @@ def cmd_doctor(_args):
     wh = whisper_cmd()
     print(f"  {'OK  ' if wh else 'MISS'}  {'whisper':<12} {wh or '— not installed'}")
 
+    if ff:
+        burn = has_subtitles_filter(ff)
+        print(f"  {'OK  ' if burn else 'MISS'}  {'subtitles':<12} "
+              f"{'자막을 입힐 수 있다 (libass)' if burn else 'libass 없이 빌드된 ffmpeg — 렌더가 안 된다'}")
+
     cl = _exe("claude")
     print(f"  {'OK  ' if cl else 'n/a '}  {'claude':<12} "
           f"{cl or '— 없으면 Gemini로 넘어간다'}")
@@ -2557,6 +2614,9 @@ def cmd_doctor(_args):
         print("전사 수단이 없다 → bash scripts/setup_render_env.sh --with-whisper")
     if not (ff and ydl and fonts):
         print("렌더 도구가 빠졌다 → bash scripts/setup_render_env.sh")
+    if ff and not has_subtitles_filter(ff):
+        print()
+        print(NO_LIBASS)
 
 
 # ---------------------------------------------------------------- sermons ---
@@ -2999,4 +3059,18 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except subprocess.CalledProcessError as exc:
+        # A failed ffmpeg or yt-dlp is an ordinary outcome here, not a bug in
+        # this script. A Python traceback buries the one line that says what
+        # actually broke, which is the line the user is going to send us.
+        tool = Path(str(exc.cmd[0])).name if exc.cmd else "외부 프로그램"
+        print(f"\nerror: {tool} 이(가) 실패했다 (코드 {exc.returncode}).",
+              file=sys.stderr)
+        print("  바로 위에 나온 빨간 줄이 이유다. 그 줄을 그대로 복사해서 물어보면 된다.",
+              file=sys.stderr)
+        sys.exit(exc.returncode or 1)
+    except KeyboardInterrupt:
+        print("\n중단했다.", file=sys.stderr)
+        sys.exit(130)

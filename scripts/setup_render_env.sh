@@ -72,6 +72,31 @@ else
   python -c "import imageio_ffmpeg as f,subprocess; subprocess.run([f.get_ffmpeg_exe(),'-version'])" 2>/dev/null | head -1
 fi
 
+# An ffmpeg built without libass has no `subtitles` filter, and every render
+# here burns subtitles. It looks entirely healthy until the first clip dies, so
+# check it now — an already-installed ffmpeg skips the branch above and would
+# otherwise never be examined.
+has_subs() { "$1" -hide_banner -filters 2>/dev/null | grep -qE '^ *[A-Z.]+ +subtitles '; }
+FFBIN=$(command -v ffmpeg 2>/dev/null || true)
+if [ -n "$FFBIN" ] && ! has_subs "$FFBIN"; then
+  echo "  이 ffmpeg 는 libass 없이 빌드돼 자막을 못 입힌다 — 고치는 중"
+  if [ "$OS" = mac ]; then
+    brew reinstall ffmpeg || true
+  else
+    pip_install imageio-ffmpeg
+    FF=$(python3 -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())" 2>/dev/null || true)
+    [ -n "$FF" ] && has_subs "$FF" && ln -sf "$FF" /usr/local/bin/ffmpeg
+  fi
+  FFBIN=$(command -v ffmpeg 2>/dev/null || true)
+fi
+if [ -n "$FFBIN" ] && has_subs "$FFBIN"; then
+  echo "  자막 번인 OK (subtitles 필터 있음)"
+elif [ -n "$FFBIN" ]; then
+  echo "  ✗ 아직도 subtitles 필터가 없다. 이대로는 렌더가 안 된다."
+  echo "    맥이면:  brew reinstall ffmpeg"
+  echo "    확인:    ffmpeg -filters | grep subtitles"
+fi
+
 # ---------------------------------------------------------------- yt-dlp ----
 say "yt-dlp"
 if ! command -v yt-dlp >/dev/null 2>&1; then
