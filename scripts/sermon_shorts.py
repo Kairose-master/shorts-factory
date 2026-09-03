@@ -648,6 +648,36 @@ def outline_transcript(segs: list[dict], every: float = 60.0) -> str:
     return "\n".join(lines)
 
 
+def ff_path(path) -> str:
+    """A path as a value inside an ffmpeg filter, from the repo when possible.
+
+    libavfilter splits filters on "," and their options on ":", then unescapes
+    the value once more, and no combination of quoting and backslashes gets an
+    apostrophe through — a home folder like /Users/장선기's Mac/ has no spelling
+    that parses. So paths are made relative to the repository and ffmpeg is run
+    from there: what reaches the filter is "assets/fonts", which has nothing to
+    escape. A Windows drive letter disappears the same way.
+    """
+    q = Path(path)
+    try:
+        return q.resolve().relative_to(REPO.resolve()).as_posix()
+    except ValueError:
+        # Outside the repo: quote it and escape the option separator. Good for
+        # spaces, commas and drive letters; an apostrophe here is unwinnable.
+        return "'" + str(q).replace("\\", "/").replace(":", "\\:") + "'"
+
+
+def subtitles_filter(ass: Path) -> str:
+    """The burn-in filter, with every option named — run it with cwd=REPO.
+
+    ffmpeg used to let a filter's first option go unnamed (`subtitles=<file>`).
+    Newer builds refuse it and say "No option name near …", which is how a
+    render that works everywhere else dies on a freshly installed Mac. Naming
+    the options works on every version.
+    """
+    return f"subtitles=filename={ff_path(ass)}:fontsdir={ff_path(FONT_DIR)}"
+
+
 def read_srt(path: Path) -> list[dict]:
     """Minimal SRT reader — enough to locate a sermon, not to caption one."""
     segs, block = [], []
@@ -1957,11 +1987,11 @@ def build_end_card(cfg: dict, out: Path, seconds: float = END_CARD_SECONDS) -> P
     run([*ffmpeg_cmd(), "-y", "-hide_banner", "-loglevel", "error",
          "-f", "lavfi", "-i", f"color=c={END_CARD_BG}:s={OUT_W}x{OUT_H}:r=30:d={seconds}",
          "-f", "lavfi", "-i", f"anullsrc=channel_layout=stereo:sample_rate=44100:d={seconds}",
-         "-vf", f"subtitles={ass.as_posix()}:fontsdir={FONT_DIR}",
+         "-vf", subtitles_filter(ass),
          "-c:v", "libx264", "-preset", "medium", "-crf", "20",
          "-pix_fmt", "yuv420p", "-r", "30",
          "-c:a", "aac", "-b:a", "192k", "-ar", "44100", "-ac", "2",
-         "-shortest", str(out)])
+         "-shortest", str(out)], cwd=REPO)
     return out
 
 
@@ -2299,10 +2329,7 @@ def cmd_render(args):
         # Subtitles and title are burned at the original timing, then the whole
         # picture is retimed. Doing it this way keeps captions in sync for free:
         # each frame already carries its text, and setpts only moves the frame.
-        vf = (
-            f"{crop_filter(c.get('crop', 'center'))},"
-            f"subtitles={ass.as_posix()}:fontsdir={FONT_DIR}"
-        )
+        vf = f"{crop_filter(c.get('crop', 'center'))},{subtitles_filter(ass)}"
         af = None
         if speed != 1.0:
             vf += f",setpts=PTS/{speed}"
@@ -2326,7 +2353,7 @@ def cmd_render(args):
             "-movflags", "+faststart",
             str(body),
         ]
-        run(cmd)
+        run(cmd, cwd=REPO)   # 필터 안의 경로가 저장소 기준이다
 
         if end_card is not None:
             lst = out_dir / f"{cid}.concat.txt"
@@ -2528,7 +2555,8 @@ def cmd_doctor(_args):
         print("      bash scripts/setup_render_env.sh --with-whisper")
     else:
         print("전사 수단이 없다 → bash scripts/setup_render_env.sh --with-whisper")
-    print("Missing render tools → bash scripts/setup_render_env.sh")
+    if not (ff and ydl and fonts):
+        print("렌더 도구가 빠졌다 → bash scripts/setup_render_env.sh")
 
 
 # ---------------------------------------------------------------- sermons ---

@@ -126,6 +126,23 @@ assert verdict == "drift", f"25s of drift went unnoticed: {verdict} {line}"
 print(f"    ok — drifted subtitles are reported ({line[:44]}…)")
 PY6B
 
+echo "==> the subtitle filter must parse on any ffmpeg, in any folder"
+python3 - <<'PY6C' || { echo "FAIL: subtitle filter is not portable"; fail=1; }
+import sys
+sys.path.insert(0, "scripts")
+import sermon_shorts as ss
+
+f = ss.subtitles_filter(ss.REPO / "office/production/x/renders/subs/clip-01.ass")
+# Newer ffmpeg refuses a filter's first option going unnamed.
+assert f.startswith("subtitles=filename="), f
+assert ":fontsdir=" in f, f
+# And a path from the repo down carries nothing that needs escaping — which is
+# the only way a folder with an apostrophe in it can work at all.
+for part in f.split("filename=")[1].split(":fontsdir="):
+    assert not part.startswith(("/", "'")) and ":" not in part, f
+print("    ok — filter names its options and stays repo-relative")
+PY6C
+
 echo "==> no subtitle text may be dropped"
 python3 - "$DIR" <<'PY2' || { echo "FAIL: subtitle text was lost in wrapping"; fail=1; }
 import json, sys, pathlib
