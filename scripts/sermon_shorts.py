@@ -148,8 +148,10 @@ def ffmpeg_candidates() -> list[str]:
 
 
 NO_LIBASS = ("이 ffmpeg 는 자막을 입힐 수 없다 — libass 없이 빌드된 것이다.\n"
-             "  맥:     brew reinstall ffmpeg\n"
-             "  윈도우:  scripts/setup_render_env.sh 를 다시 돌린다\n"
+             "  맥:     brew install ffmpeg-full\n"
+             "          (Homebrew의 기본 ffmpeg 는 libass 를 뺀 채로 온다.\n"
+             "           링크 충돌이 나면 brew link --overwrite ffmpeg-full)\n"
+             "  윈도우:  bash scripts/setup_render_env.sh 를 다시 돌린다\n"
              "  확인:   ffmpeg -filters | grep subtitles  (한 줄이라도 나와야 한다)")
 
 

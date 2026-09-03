@@ -81,7 +81,12 @@ FFBIN=$(command -v ffmpeg 2>/dev/null || true)
 if [ -n "$FFBIN" ] && ! has_subs "$FFBIN"; then
   echo "  이 ffmpeg 는 libass 없이 빌드돼 자막을 못 입힌다 — 고치는 중"
   if [ "$OS" = mac ]; then
-    brew reinstall ffmpeg || true
+    # Homebrew's plain ffmpeg formula ships without libass; ffmpeg-full is the
+    # one that carries it. Both install the same binary name, so the link may
+    # have to be forced over the one already there.
+    brew install ffmpeg-full || true
+    has_subs "$(command -v ffmpeg 2>/dev/null || echo /nonexistent)" \
+      || brew link --overwrite ffmpeg-full || true
   else
     pip_install imageio-ffmpeg
     FF=$(python3 -c "import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())" 2>/dev/null || true)
