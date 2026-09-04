@@ -59,5 +59,11 @@ or glassmorphism, per the skill's hard rules.
 
 ## Status
 
-DRAFT. Publishing is NOT authorized — Charter rule: nothing publishes without
-explicit human approval, every time.
+DRAFT, and **not gate-authorized**. Five versions were built and five
+independent critic reviews run; none reached the gate's bar (every axis ≥8,
+average ≥8.5). Authenticity scored 9/9/9 in the final review and no invented
+value was ever found; motion and readability never cleared, for reasons that
+are properties of the material rather than the edit — see `qc.md`.
+
+Publishing is NOT authorized either way — Charter rule: nothing publishes
+without explicit human approval, every time.

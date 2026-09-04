@@ -1,0 +1,33 @@
+{
+  "version": 3,
+  "status": "AWAITING_CRITIC",
+  "createdAt": "2026-09-04T04:38:48.610Z",
+  "format": "9:16",
+  "dimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "background": "clean-dark",
+  "referenceId": "smartlead-prewarmed-burn",
+  "referenceVideo": "/home/user/shorts-factory/.claude/skills/motion-graphics/assets/references/smartlead-prewarmed-burn.mp4",
+  "referenceSheet": "/home/user/shorts-factory/.claude/skills/motion-graphics/assets/references/smartlead-prewarmed-burn-contact-sheet.jpg",
+  "referenceVideoSha": "4513230b6af38e468206ff5659135ae706b26241674e1f0790db8977bd8d12f0",
+  "referenceSheetSha": "d28e64ea8687e9046449f919ae1df37e7c2a896f74bc44957df57d137789f34e",
+  "researchManifest": "/home/user/hs-motion/.promptible/research-manifest.json",
+  "researchManifestSha": "54893fe770d7d925d4edeef95470cfeebb2490fa541ff43b3059d75fb22b0a5f",
+  "researchMode": "authentic",
+  "visualMode": "product-ui",
+  "product": "Handsel",
+  "claimSource": "live Handsel job #30 via MCP (my_work + get_job + get_work_proof), its public certificate page, its /api/proof response, and a screen recording of the real office renderer on this account's roster",
+  "beat": "A cursor picks the Editor on ENG.FLOOR and the office camera flies in; the certificate's own verified banner opens the record, its verify link is pressed, and the browser lands on the raw signed proof",
+  "requestedDuration": 10.5,
+  "referenceObservations": "/home/user/hs-motion/.promptible/reference-observations.md",
+  "referenceObservationsSha": "79b8f5174b26bb5a232973b2c788a5f7d595d5796a02fc527d95d2845ebcbf89",
+  "referenceInspectedAt": "2026-09-04T04:38:48.706Z",
+  "candidateRender": "/home/user/hs-motion/out/candidate.mp4",
+  "candidateRenderSha": "79777b9fb8cf490550e7032be29206023071077d13d3934bdb9a271262556595",
+  "candidateSheet": "/home/user/hs-motion/.promptible/candidate-contact-sheet.jpg",
+  "candidateSheetSha": "560bd47aa84d94df5e71ee1a275c51bb50909b003a95dff1e813c006301beb52",
+  "candidateProbe": "/home/user/hs-motion/.promptible/candidate-probe.json",
+  "candidateCreatedAt": "2026-09-04T04:38:48.808Z"
+}
