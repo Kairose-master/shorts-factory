@@ -3,12 +3,30 @@
 A short-form video research and scripting workspace, and the home of the
 **Handsel Short-Form Growth Office** (`office/`).
 
-53 Agent Skills are installed under `.claude/skills/`:
+71 Agent Skills are installed under `.claude/skills/`:
 
-- **44 upstream skills** pulled from six repositories and left **byte-identical
-  to upstream** so `npx skills update` keeps working. These are the ones tracked
-  in `skills-lock.json` (the 44th is `caveman`, a terse-output token-saver from
-  JuliusBrussee/caveman, added 2026-08-31).
+- **60 skills tracked in `skills-lock.json`**, left **byte-identical to
+  upstream** so `npx skills update` keeps working. This includes the official
+  Remotion skills, which as of 2026-09-04 install into `.agents/skills/` and
+  are symlinked into `.claude/skills/` — one skill per topic
+  (`remotion-create`, `remotion-render`, `remotion-captions`, …) instead of the
+  old single `remotion-best-practices` bundle with nested subfolders.
+- **4 motion skills from `npx reborn-motion-skills`** (2026-09-04):
+  `motion-graphics`, `cinematic-camera`, `terminal-inserts`,
+  `article-highlights`. `motion-graphics` owns a hard delivery gate
+  (`scripts/promptible-gate.mjs`): research → approved-reference preflight →
+  BUILD AUTHORIZED → candidate evidence → **independent critic subagent** →
+  DELIVERY AUTHORIZED. The builder may not grade its own work, and the gate
+  rejects any category below 8/10 or an average below 8.5. Known upstream gap:
+  `terminal-inserts/SKILL.md` references a bundled
+  `examples/kickbacks-spinner-terminals.mp4` that the package does not ship, so
+  `verify_skills.py` reports one error there until upstream fixes it.
+  The gate verifies its bundled approved reference MP4s by SHA-256, and those
+  MP4s are **gitignored** by this repo's `*.mp4` rule (same treatment as
+  `vendor/OpenMontage`): a fresh clone must re-run `npx reborn-motion-skills`
+  before `promptible-gate.mjs init` will pass. The contact sheets are
+  committed, so the reference set is still readable from the repo alone.
+
 - **8 local skills** authored here and deliberately *not* in the lock file:
   `handsel-growth-office`, `openmontage`, `voicebox`, `penpot`, `airtable`,
   `aicron`, `zapier-mcp` — plus `shorts-factory` itself. `npx skills update`

@@ -51,3 +51,8 @@ office/production/*/_reference/
 office/production/*/_audio/
 office/production/*/_assets/
 office/production/*/_footage/
+
+# reborn-motion-skills installs the official Remotion skills here and symlinks
+# them into .claude/skills/. Upstream content, restorable with one command
+# (npx reborn-motion-skills) — the symlinks are what the repo tracks.
+.agents/
