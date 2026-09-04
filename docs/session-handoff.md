@@ -89,6 +89,7 @@ bash scripts/shorts-url.sh "<유튜브주소>"  # 이 설교로
 | `docs/설치-윈도우.md` | <https://claude.ai/code/artifact/af691eb5-c4aa-48e4-8764-1454f56688cc> |
 | `docs/설치-다른교회.md` | <https://claude.ai/code/artifact/6ff620d1-367f-400f-9b2f-2079319b845f> |
 | `docs/내-클로드로-옮기기.md` | <https://claude.ai/code/artifact/e4ad1f98-12bf-4fb7-8a2f-5bbeb6bce93f> |
+| `docs/두-번째-컴퓨터.md` | <https://claude.ai/code/artifact/8de5219b-79ff-4118-9abb-82e595f1657d> |
 
 인쇄본은 `docs/pdf/`. 웹판을 고치려면 HTML을 다시 만들어 `docs/_build/` 에 넣고
 `python3 scripts/make_guide_pdf.py` 로 PDF를 다시 뽑은 뒤 같은 URL로 재발행한다.
