@@ -47,3 +47,17 @@ Video hooks, quoted verbatim (Chinese narration, Korean subtitle on card):
 ## Cost
 
 6 Gemini text calls (~30k input tokens each), 71 TTS calls, 0 paid scraping calls.
+
+## Addendum (same day, phase 2)
+
+Added to the site on user request: daily sentence on the home page, 한자어 bridge on every word card,
+share cards + OG preview, a Chinese Bible-study window (any passage, 227-term glossary, AI study
+sheets for the five sermon passages, links to 信望愛 / 查經資料大全 / BibleGateway CUVS), a 30-second
+"read five sentences" challenge scored by browser speech recognition, a pre-service screen mode with a
+matching 16:9 PPTX, and two more video variants per sermon: Korean narration (same cards) and a reverse
+韩语学习版 for Chinese speakers (Korean primary, `ko_vocab`, Korean narration). All 15 videos were
+re-typeset with balanced wrapping, CJK kinsoku and unified line heights, reusing the narration audio.
+
+Quota note: Gemini TTS is capped per model per day (flash-preview 100, pro-preview 50, 3.1-flash 100);
+the 42 renders were spread across the three models. `render_video.py` now caches TTS and can reuse audio
+from a previous render, so re-typesetting costs nothing.
