@@ -230,24 +230,35 @@ def translate(cue_path: Path, lang: str, out: Path, service: str, glossary: str 
         print(f"translate: resuming, {len(done)} cues already done")
     gl = f"\n  Glossary (must follow): {glossary}" if glossary else ""
     calls = 0
-    for i in range(0, len(cues), batch_size):
-        batch = [c for c in cues[i:i + batch_size] if c["id"] not in done]
-        if not batch:
-            continue
-        ctx = [{"id": c["id"], "src": c["src"]} for c in cues[max(0, i - 3):i]]
+
+    def ask(batch: list[dict], ctx: list[dict]) -> dict[int, dict]:
+        """One Gemini round-trip for a batch; on an unparsable reply retry, then
+        split the batch in half so one bad reply never sinks the whole run."""
+        nonlocal calls
         prompt = PROMPT.format(
             service=service, src_name=LANG_NAME[lang], dst_name=LANG_NAME[dst_lang], glossary=gl,
             context=json.dumps(ctx, ensure_ascii=False),
             batch=json.dumps([{"id": c["id"], "src": c["src"]} for c in batch], ensure_ascii=False),
         )
-        text = gemini(prompt, key)
-        calls += 1
-        try:
-            res = json.loads(text)
-        except json.JSONDecodeError:
-            m = re.search(r"\[.*\]", text, re.S)
-            res = json.loads(m.group(0)) if m else []
-        by_id = {int(r["id"]): r for r in res if "id" in r}
+        for attempt in range(2):
+            text = gemini(prompt, key)
+            calls += 1
+            try:
+                res = json.loads(text)
+                return {int(r["id"]): r for r in res if isinstance(r, dict) and "id" in r}
+            except (json.JSONDecodeError, TypeError, ValueError):
+                print(f"  unparsable Gemini reply for ids {batch[0]['id']}-{batch[-1]['id']} (attempt {attempt+1})", flush=True)
+        if len(batch) > 4:
+            half = len(batch) // 2
+            return {**ask(batch[:half], ctx), **ask(batch[half:], batch[:half][-3:])}
+        return {}
+
+    for i in range(0, len(cues), batch_size):
+        batch = [c for c in cues[i:i + batch_size] if c["id"] not in done]
+        if not batch:
+            continue
+        ctx = [{"id": c["id"], "src": c["src"]} for c in cues[max(0, i - 3):i]]
+        by_id = ask(batch, ctx)
         missing = [c["id"] for c in batch if c["id"] not in by_id]
         if missing:
             print(f"  batch {i//batch_size}: {len(missing)} ids missing from Gemini reply, kept ASR text untranslated")
@@ -313,7 +324,7 @@ def build(bi_path: Path, out: Path, width: int, height: int, title_src: str, tit
 ScriptType: v4.00+
 PlayResX: {width}
 PlayResY: {height}
-WrapStyle: 2
+WrapStyle: 0
 ScaledBorderAndShadow: yes
 YCbCr Matrix: TV.709
 
