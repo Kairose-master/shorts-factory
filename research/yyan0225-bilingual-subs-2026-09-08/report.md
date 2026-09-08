@@ -48,6 +48,14 @@ church uploaded, verbatim.
 | Subtitle layout | 한국어 (white) over 中文 (gold) | 中文 (white) over 한국어 (gold) |
 | Output | `renders/OY3yK3gOdbo_juilyebae_ko-zh_1080p.mp4` | `renders/-0PbFLRiDmM_zhuriliba_zh-ko_1080p.mp4` |
 
+| 1080p master | 74.9 MB | 54.1 MB |
+| 720p delivery copy (mono 64k AAC) | 29.8 MiB | 21.8 MiB |
+
+The 1080p masters exceed the 30 MiB file-delivery limit of this session, so the
+720p copies were what went out; they are transcodes of the masters, not
+re-renders. Both masters were checked frame-by-frame at four points (intro card,
+early, middle, end) and measured at −16 LUFS integrated.
+
 Renders are gitignored (`*.mp4`). Everything needed to regenerate them is
 committed: the pipeline script, the corrected transcripts with timings
 (`subtitles/*/bilingual.json`), the styled `.ass`, and the three `.srt` files per
