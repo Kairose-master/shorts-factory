@@ -159,6 +159,18 @@ def shape_cues(seg_path: Path, lang: str, out: Path) -> Path:
         if buf:
             flush()
 
+    # fold stray tail fragments ("때문에", "있습니다.") back into the cue before them
+    merged: list[dict] = []
+    for c in cues:
+        prev = merged[-1] if merged else None
+        n = len(c["src"]) if lang == "zh" else len(c["src"])
+        if (prev and n <= 8 and c["start"] - prev["end"] < 0.5
+                and len(prev["src"]) + n + 1 <= max_chars + 10 and c["end"] - prev["start"] <= 7.0):
+            prev["src"] = (prev["src"] + c["src"]) if lang == "zh" else (prev["src"] + " " + c["src"])
+            prev["end"] = c["end"]
+        else:
+            merged.append(c)
+    cues = merged
     # no overlaps: a cue ends where the next one starts if they collide
     for a, b in zip(cues, cues[1:]):
         if a["end"] > b["start"]:
